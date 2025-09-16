@@ -1,0 +1,691 @@
+/* ==========================================================================
+   #ABOUT PAGE STYLES
+   ========================================================================== */
+
+.about-container {
+    background-color: #fff;
+    color: #fff;
+    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    
+}
+
+::selection {
+    background: #4f46e5; /* Purple from service icons */
+    color: white;
+    text-shadow: none;
+  }
+  
+  ::-moz-selection {
+    background: #4f46e5;
+    color: white;
+    text-shadow: none;
+  }
+  
+  /* For better readability on dark backgrounds */
+  h1::selection,
+  h2::selection,
+  h3::selection,
+/* Hero Section */
+.about-hero {
+    
+    text-align: center;
+    background-color: #000;
+    padding: 15vh 10% 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Proper styles for hero heading and subheading */
+.about-hero h1 {
+    margin-bottom: 0.75rem;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.2px;
+    background: linear-gradient(90deg, #ffffff 0%, #a0aec0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-hero p {
+    margin-top: 0.5rem;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    color: #a0aec0;
+    max-width: 720px;
+}
+
+.aboutus-hero p {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #a0aec0;
+    max-width: 700px;
+}
+
+.aboutus-hero h1 {
+    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #fff 0%, #a0aec0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4rem;
+    margin-top: 4rem;
+    max-width: 1200px;
+}
+
+/* Ensure hero profile card images keep their original colors */
+.about-hero .pc-content,
+.about-hero .pc-avatar-content {
+    mix-blend-mode: normal;
+}
+
+.about-hero .pc-avatar-content .avatar {
+    mix-blend-mode: normal;
+    filter: none;
+    opacity: 1;
+}
+
+/* Remove heavy overlays that tint/desaturate the avatar in hero only */
+.about-hero .pc-avatar-content::before {
+    display: none;
+}
+
+.about-hero .pc-glare,
+.about-hero .pc-shine {
+    display: block;
+}
+
+/* Move card name/title slightly up in About hero only */
+.about-hero .pc-card .pc-details {
+    font-size: 1.5rem;
+    top: 0.7rem !important;
+}
+
+
+/* Common Section Styles */
+.about-section {
+    padding: 6rem 10%;
+    position: relative;
+}
+.about-method h2{
+    color: #000;
+    font-size: 2rem;
+}
+.about-section-header {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: #8b5cf6;
+    background-clip: text;
+}
+
+/* Team Section */
+.about-chroma-grid {
+    background-color: #ffffff;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.about-chroma-grid .section-header {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+}
+
+.about-chroma-grid .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-chroma-grid .section-subtitle {
+    font-size: 1.25rem;
+    color: #4a5568;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .about-chroma-grid .section-title {
+        font-size: 2rem;
+    }
+    
+    .about-chroma-grid .section-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* Founder Section with Lanyard */
+.about-section.founder-lanyard {
+    padding: 6rem 5%;
+    background-color: #ffffff;
+}
+.about-placeholder{
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #4f46e5;
+}
+
+.about-placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.about-placeholder p {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+.founder-lanyard-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-founder-note {
+    flex: 1;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    max-width: 600px;
+}
+
+.about-founder-note h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-placeholder {
+    flex: 1;
+    height: auto;
+    min-height: 500px;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+}
+
+/* Music toggle button styling inside About page */
+.about-music-toggle {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-music-toggle > div {
+    background: transparent;
+}
+
+/* Music toggle component styles */
+.about-music-toggle .music-toggle-wrap {
+    display: grid;
+    gap: 18px;
+    justify-items: center;
+}
+
+.about-music-toggle .music-toggle-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #a0aec0;
+}
+
+.about-music-toggle .music-toggle-indicator {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(180deg, rgba(139,92,246,0), rgba(139,92,246,0.55));
+}
+
+.about-music-toggle .music-toggle {
+    display: grid;
+    place-items: center;
+}
+
+.about-music-toggle .music-toggle-face {
+    width: 56px;
+    height: 56px;
+    border-radius: 9999px;
+    padding: 0 8px;
+    background: #ffffff;
+    border: 1px solid rgba(79, 70, 229, 0.35);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .about-music-toggle > div > div {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 1024px) {
+    .founder-lanyard-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .about-founder-note {
+        text-align: center;
+    }
+    
+    .about-bullets {
+        margin: 0 auto 2rem;
+    }
+    
+    .about-placeholder {
+        height: auto;
+        min-height: 400px;
+        width: 100%;
+    }
+}
+
+.about-founder-note p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #4a5568;
+}
+
+.about-bullets {
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.about-bullets li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.about-bullets li:before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #4f46e5;
+}
+
+/* Method Section */
+.about-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.about-step {
+    transition: all 0.3s ease;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    color: #1a1a1a;
+}
+
+/* Only apply blur when hovering over a specific card, not the container */
+.about-step {
+    transition: all 0.3s ease;
+}
+
+.about-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+/* When a card is hovered, blur its siblings */
+.about-step:hover ~ .about-step,
+.about-step:has(~ .about-step:hover) {
+    filter: blur(1px);
+    opacity: 0.9;
+    transform: scale(0.95);
+}
+
+.about-step {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #1a1a1a;
+}
+
+.about-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.about-step-label {
+    display: inline-block;
+    background: #4f46e5;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+}
+
+.about-step h3 {
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+    color: #1a1a1a;
+}
+
+.about-step p {
+    color: #4a5568;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Proof Strip */
+.about-proof {
+    background-color: #f8fafc;
+}
+
+.about-proof-strip {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-proof-item {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.about-proof-stat {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #4f46e5;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.about-proof-label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #191919;
+}
+
+.about-proof-note {
+    color: #191919 ;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.about-principles h2{
+    color: #191919;
+    font-size: 2rem;
+    font-weight: 600;
+}
+/* Principles */
+.about-principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-principle {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    color: #1a1a1a;
+}
+
+.about-principle:hover {
+    border-color: #4f46e5;
+    transform: translateY(-3px);
+}
+
+.about-principle h3 {
+    color: #1a1a1a;
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.about-principle p {
+    color: #4a5568;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* FAQ */
+.about-faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.about-faq-item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.about-faq-item:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.about-faq-item.active {
+    background: #f8f9ff;
+    border-color: #7c3aed;
+}
+
+.about-faq-header {
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.about-faq-header:hover {
+    background: rgba(124, 58, 237, 0.03);
+}
+
+.about-faq-item h3 {
+    color: #1a1a1a;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    flex: 1;
+}
+
+.about-faq-item.active h3 {
+    color: #7c3aed;
+}
+
+.about-faq-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    color: #7c3aed;
+}
+
+.about-faq-item.active .about-faq-icon {
+    transform: rotate(180deg);
+}
+
+.about-faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 1.5rem;
+}
+
+.about-faq-item.active .about-faq-content {
+    max-height: 300px;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.about-faq-item p {
+    color: #4a5568;
+    margin: 0;
+    line-height: 1.7;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.about-faq-item.active p {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+/* CTA Band */
+.about-cta-band {
+    background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+    padding: 4rem 10%;
+    text-align: center;
+    border-radius: 16px;
+    margin: 0 10% 4rem;
+}
+
+.about-cta-band p {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 2rem;
+    line-height: 1.3;
+}
+
+.about-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about-cta {
+    color:white;
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background-color: #4f46e5;
+    text-decoration: none;
+}
+
+/* CTA buttons for "Get a growth plan you can execute this month." */
+.about-cta-primary {
+    background-color: #ffffff;
+    color: #4f46e5;
+}
+
+.about-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.about-cta-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.about-cta-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .aboutus-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .aboutus-hero p {
+        font-size: 1.25rem;
+    }
+    
+    .aboutus-cards {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .aboutus-section {
+        padding: 4rem 5%;
+    }
+    
+    .aboutus-cta-band {
+        margin: 0 5% 4rem;
+        padding: 3rem 5%;
+    }
+    
+    .aboutus-cta-band p {
+        font-size: 1.5rem;
+    }
+    
+    .aboutus-steps,
+    .aboutus-principles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.highlight {
+    /* text-decoration: underline; */
+    text-decoration-color: #4f46e5;
+    text-underline-offset: 4px;
+}

@@ -1,0 +1,286 @@
+.spotlight-section {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    background: #000;
+    color: white;
+    overflow: hidden;
+  }
+  
+  /* --- 3 Cards flush, no gaps --- */
+  .spotlight-grid {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    background: #000;
+    height: 70vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .spotlight-card {
+    flex: 1;
+    min-height: 40vh;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin: 0; /* no gaps between cards */
+    border-right: none; /* remove middle double borders */
+  }
+  
+  .spotlight-card:last-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .spotlight-card:hover {
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  
+  .spotlight-card.active {
+    border: 1px solid rgba(105, 90, 241, 0.6);
+  }
+  
+  /* --- content inside card --- */
+  .spotlight-content {
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  .service-icon1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+  }
+  
+  .spotlight-card:hover .service-icon1 {
+    transform: translateY(-3px);
+    background: rgba(105, 90, 241, 0.1);
+    /* border-color: rgba(105, 90, 241, 0.3);
+    box-shadow: 0 5px 15px rgba(105, 90, 241, 0.2); */
+  }
+  
+  .spotlight-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  .spotlight-description {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  /* --- expanded content --- */
+  .service-details {
+    display: flex;
+    padding: 2.5rem 8%;
+    border-top: 1px solid rgba(105, 90, 241, 0.3);
+    margin: 0 auto;
+    animation: fadeIn 0.3s ease-out;
+    gap: 3rem;
+    max-width: 1600px;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    min-height: 60vh;
+  }
+  
+  .service-details-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .service-details-content {
+    flex: 1;
+    min-width: 40%;
+    max-width: 600px;
+    padding: 0;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    margin: 1.5rem 0;
+  }
+  
+  .service-details h2 {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+      }
+  
+  .service-details p {
+    color: #e2e8f0;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+  }
+  
+  /* --- pills --- */
+  .service-pills {
+    flex: 0 0 60%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    max-height: 400px;
+    min-height: 300px;
+    padding: 1.5rem 0 1.5rem 3rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(105, 90, 241, 0.3) transparent;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0.5rem 0;
+    align-self: center;
+  }
+  
+  .service-pills::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .service-pills::-webkit-scrollbar-thumb {
+    background-color: rgba(105, 90, 241, 0.3);
+    border-radius: 2px;
+  }
+  
+  .service-pills .pill {
+    background: rgba(105, 90, 241, 0.1);
+    color: #b4b4ff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid rgba(105, 90, 241, 0.2);
+    transition: all 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .service-pills .pill:hover {
+    background: rgba(105, 90, 241, 0.3);
+    border-color: rgba(105, 90, 241, 0.6);
+    transform: translateY(-1px);
+  }
+  
+  /* Adjust for smaller screens */
+  @media (max-width: 1200px) {
+    .service-pills {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .service-pills {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .service-details {
+      padding: 2rem 6%;
+      gap: 2rem;
+    }
+    
+    .service-pills {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 1rem 0 1rem 2rem;
+      min-height: 350px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .service-details {
+      flex-direction: column;
+      padding: 1.5rem 5%;
+      gap: 1.5rem;
+    }
+    
+    .service-pills {
+      grid-template-columns: repeat(2, 1fr);
+      border-left: none;
+      border-top: 1px solid rgba(105, 90, 241, 0.2);
+      padding: 1.5rem 0 0 0;
+      max-height: none;
+    }
+    
+    .spotlight-card {
+      min-height: 35vh;
+    }
+    
+    .spotlight-title {
+      font-size: 1.5rem;
+    }
+    
+    .spotlight-description {
+      font-size: 0.95rem;
+    }
+  }
+  
+  
+  /* animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* responsive */
+  @media (max-width: 768px) {
+    .spotlight-grid {
+      flex-direction: column;
+    }
+  
+    .spotlight-card {
+      min-height: 220px;
+      border-right: 1px solid rgba(255, 255, 255, 0.1); /* restore for stacked */
+      border-bottom: none;
+    }
+  
+    .spotlight-title {
+      font-size: 1.5rem;
+    }
+  
+    .spotlight-description {
+      font-size: 0.9rem;
+    }
+  
+    .service-details {
+      padding: 1.5rem;
+    }
+  }
+  

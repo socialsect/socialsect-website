@@ -1,0 +1,1082 @@
+/* Website Growth Page Styles - webgr- prefix */
+.webgr-page {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+  font-weight: 400;
+  background: #000000;
+  overflow-x: hidden;
+}
+
+/* Container */
+.webgr-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+/* Hero Section */
+.webgr-hero {
+  padding: 8rem 0 6rem;
+  background: #000000;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.webgr-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(106, 90, 241, 0.1), rgba(168, 85, 247, 0.05));
+  z-index: 1;
+}
+
+.webgr-hero-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(106,90,241,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+}
+.webgr-highlight-b{
+  color: #000000;
+}
+.webgr-hero-content {
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+.webgr-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(106, 90, 241, 0.1);
+  border: 1px solid rgba(106, 90, 241, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a855f7;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.webgr-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.webgr-highlight {
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.webgr-hero-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 500px;
+}
+
+.webgr-hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.webgr-stat-item {
+  text-align: center;
+}
+
+.webgr-stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #6a5af1;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.webgr-stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.webgr-hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.webgr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.webgr-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.webgr-btn:hover::before {
+  left: 100%;
+}
+
+.webgr-btn-primary {
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  color: white;
+  box-shadow: 0 4px 20px rgba(106, 90, 241, 0.3);
+}
+
+.webgr-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(106, 90, 241, 0.4);
+}
+
+.webgr-btn-outline {
+  background: transparent;
+  color: #6a5af1;
+  border: 2px solid #6a5af1;
+}
+
+.webgr-btn-outline:hover {
+  background: #6a5af1;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(106, 90, 241, 0.3);
+}
+
+.webgr-hero-visual {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 500px;
+  z-index: 1;
+}
+
+.webgr-hero-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  height: 100%;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.webgr-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.webgr-card-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.webgr-card-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.webgr-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.webgr-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.webgr-metric {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.webgr-metric-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.webgr-metric-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #6a5af1;
+  margin-bottom: 1rem;
+}
+
+.webgr-metric-chart {
+  display: flex;
+  gap: 0.25rem;
+  align-items: end;
+  height: 40px;
+}
+
+.webgr-chart-bar {
+  flex: 1;
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  border-radius: 2px;
+  min-height: 10px;
+  animation: growUp 2s ease-out;
+}
+
+@keyframes growUp {
+  from { height: 0; }
+  to { height: var(--height, 100%); }
+}
+
+/* Section Headers */
+.webgr-section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.webgr-section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.webgr-section-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Problem Section */
+.webgr-problem {
+  padding: 6rem 0;
+  background: #000000;
+  position: relative;
+}
+
+.webgr-problem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(106, 90, 241, 0.05), rgba(168, 85, 247, 0.02));
+  z-index: 1;
+}
+
+.webgr-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.webgr-problem-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.webgr-problem-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(106, 90, 241, 0.3);
+  box-shadow: 0 10px 30px rgba(106, 90, 241, 0.1);
+}
+
+.webgr-problem-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+}
+
+.webgr-problem-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.webgr-problem-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.webgr-problem-cta {
+  text-align: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.webgr-problem-message {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(106, 90, 241, 0.1);
+  border: 1px solid rgba(106, 90, 241, 0.3);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.webgr-problem-message p {
+  font-size: 1.25rem;
+  color: #6a5af1;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Process Section */
+.webgr-process {
+  padding: 6rem 0;
+  background: #000000;
+  position: relative;
+}
+
+.webgr-process::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(106, 90, 241, 0.02));
+  z-index: 1;
+}
+
+.webgr-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.webgr-process-step {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.webgr-process-step:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(106, 90, 241, 0.3);
+  box-shadow: 0 15px 35px rgba(106, 90, 241, 0.1);
+}
+
+.webgr-process-number {
+  position: absolute;
+  top: -20px;
+  left: 2rem;
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.webgr-process-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(106, 90, 241, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: #6a5af1;
+}
+
+.webgr-process-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.webgr-process-description {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.webgr-process-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.webgr-process-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.webgr-feature-icon {
+  color: #6a5af1;
+  flex-shrink: 0;
+}
+
+.webgr-process-cta {
+  text-align: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Services Section */
+.webgr-services {
+  padding: 6rem 0;
+  background: #000000;
+  position: relative;
+}
+
+.webgr-services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(106, 90, 241, 0.03), rgba(168, 85, 247, 0.05));
+  z-index: 1;
+}
+
+.webgr-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.webgr-service-pillar {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.webgr-service-pillar:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(106, 90, 241, 0.3);
+  box-shadow: 0 15px 35px rgba(106, 90, 241, 0.1);
+}
+
+.webgr-service-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+}
+
+.webgr-service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.webgr-service-description {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.webgr-service-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.webgr-stat {
+  text-align: center;
+}
+
+.webgr-stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #6a5af1;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.webgr-stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.webgr-service-outcome {
+  background: rgba(106, 90, 241, 0.1);
+  border: 1px solid rgba(106, 90, 241, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  border-left: 4px solid #6a5af1;
+}
+
+/* Case Study Section */
+.webgr-case-study {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.webgr-case-study::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+  opacity: 0.3;
+}
+
+.webgr-case-study-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.webgr-case-study-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.webgr-case-study-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.webgr-case-study-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.webgr-case-stat {
+  text-align: center;
+}
+
+.webgr-case-stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.webgr-case-stat-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.webgr-case-study-quote {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.webgr-case-study-quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  opacity: 0.8;
+  font-style: normal;
+}
+
+/* Audience Section */
+.webgr-audience {
+  padding: 6rem 0;
+  background: #000000;
+  position: relative;
+}
+
+.webgr-audience::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.03), rgba(106, 90, 241, 0.02));
+  z-index: 1;
+}
+
+.webgr-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.webgr-audience-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.webgr-audience-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(106, 90, 241, 0.3);
+  box-shadow: 0 15px 35px rgba(106, 90, 241, 0.1);
+}
+
+.webgr-audience-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+}
+
+.webgr-audience-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.webgr-audience-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.webgr-audience-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.webgr-benefit {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.webgr-benefit-icon {
+  color: #6a5af1;
+  flex-shrink: 0;
+}
+
+/* Final CTA Section */
+.webgr-final-cta {
+  padding: 6rem 0;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.webgr-final-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(106, 90, 241, 0.1), rgba(168, 85, 247, 0.05));
+  z-index: 1;
+}
+
+.webgr-final-cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.webgr-final-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(106, 90, 241, 0.1);
+  border: 1px solid rgba(106, 90, 241, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a855f7;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.webgr-final-cta-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.webgr-final-cta-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.webgr-final-cta-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.webgr-final-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a855f7;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.webgr-final-cta-link:hover {
+  color: #6a5af1;
+  background: rgba(106, 90, 241, 0.1);
+}
+
+/* FAQ Section */
+.webgr-faq {
+  padding: 6rem 0;
+  background: #000000;
+  position: relative;
+}
+
+.webgr-faq::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(106, 90, 241, 0.02), rgba(168, 85, 247, 0.03));
+  z-index: 1;
+}
+
+.webgr-faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.webgr-faq-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.webgr-faq-item:hover {
+  border-color: rgba(106, 90, 241, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.webgr-faq-item.active {
+  border-color: rgba(106, 90, 241, 0.5);
+  background: rgba(106, 90, 241, 0.05);
+  box-shadow: 0 4px 20px rgba(106, 90, 241, 0.1);
+}
+
+.webgr-faq-question-wrapper {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.webgr-faq-question {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.webgr-faq-arrow {
+  color: #6a5af1;
+  transition: transform 0.3s ease;
+}
+
+.webgr-faq-item.active .webgr-faq-arrow {
+  transform: rotate(180deg);
+}
+
+.webgr-faq-answer {
+  padding: 0 1.5rem 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+}
+
+/* Contact Section */
+.webgr-contact {
+  padding: 6rem 0;
+  background: #000000;
+  position: relative;
+}
+
+.webgr-contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(106, 90, 241, 0.05), rgba(168, 85, 247, 0.02));
+  z-index: 1;
+}
+
+.webgr-contact-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.webgr-contact-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.webgr-contact-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .webgr-hero-visual {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    height: 400px;
+    margin-top: 2rem;
+  }
+  
+  .webgr-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .webgr-hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .webgr-process-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .webgr-services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .webgr-audience-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .webgr-container {
+    padding: 0 1rem;
+  }
+  
+  .webgr-hero {
+    padding: 4rem 0 3rem;
+  }
+  
+  .webgr-hero-cta {
+    flex-direction: column;
+  }
+  
+  .webgr-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .webgr-problem-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .webgr-case-study-stats {
+    gap: 1.5rem;
+  }
+  
+  .webgr-case-stat-number {
+    font-size: 2rem;
+  }
+  
+  .webgr-hero-stats {
+    gap: 1rem;
+  }
+  
+  .webgr-stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .webgr-hero-title {
+    font-size: 2rem;
+  }
+  
+  .webgr-section-title {
+    font-size: 1.8rem;
+  }
+  
+  .webgr-process-step {
+    padding: 2rem 1.5rem;
+  }
+  
+  .webgr-service-pillar {
+    padding: 2rem 1.5rem;
+  }
+  
+  .webgr-audience-card {
+    padding: 2rem 1.5rem;
+  }
+}

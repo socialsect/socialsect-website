@@ -1,0 +1,199 @@
+:root {
+    --meta-primary: #6366f1;
+    --meta-dark: #1e293b;
+    --meta-gray: #64748b;
+    --meta-light: #f8fafc;
+  }
+  
+  .meta-page {
+    font-family: "Satoshi", sans-serif;
+    color: var(--meta-dark);
+    line-height: 1.6;
+  }
+  
+  /* Hero */
+  .meta-hero {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8fafc, #eef2ff);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Hero Placeholder */
+  .meta-hero-placeholder {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8fafc, #eef2ff);
+    border-radius: 16px;
+    color: var(--meta-primary);
+  }
+  
+  .meta-hero-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .meta-hero-placeholder p {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .meta-title {
+    font-size: 3rem;
+    font-weight: 900;
+  }
+  .meta-highlight {
+    color: var(--meta-primary);
+  }
+  .meta-subtitle {
+    max-width: 800px;
+    margin: 1rem auto 2rem;
+    color: var(--meta-gray);
+  }
+  .meta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-btn {
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .meta-btn-primary {
+    background: var(--meta-primary);
+    color: #fff;
+  }
+  .meta-btn-outline {
+    border: 2px solid var(--meta-primary);
+    color: var(--meta-primary);
+  }
+  
+  /* Section */
+  .meta-section {
+    padding: 5rem 0;
+  }
+  .meta-heading {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .meta-text {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--meta-gray);
+    text-align: center;
+  }
+  
+  /* Services */
+  .meta-service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .meta-service-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+  }
+  .meta-service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+  .meta-service-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+  }
+  
+  /* Why Choose Us */
+  .meta-list {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 2rem auto 0;
+  }
+  .meta-list li {
+    margin-bottom: .75rem;
+    font-weight: 500;
+  }
+  
+  /* Testimonials */
+  .meta-testimonials {
+    background: var(--meta-light);
+    text-align: center;
+  }
+  .meta-testimonial {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    max-width: 700px;
+    margin: 2rem auto 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .meta-stars {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: .25rem;
+  }
+  
+  /* FAQ */
+  .meta-faq-item {
+    border: 1px solid #e2e8f0;
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .meta-faq-item:hover {
+    border-color: var(--meta-primary);
+  }
+  .meta-faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .meta-faq-answer {
+    margin-top: .75rem;
+    color: var(--meta-gray);
+  }
+  .meta-faq-icon {
+    transition: 0.3s;
+  }
+  .meta-faq-item.active .meta-faq-icon {
+    transform: rotate(180deg);
+  }
+  
+  /* CTA */
+  .meta-cta {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    text-align: center;
+    color: #fff;
+    padding: 5rem 1.5rem;
+  }
+  .meta-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .meta-cta p {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+  

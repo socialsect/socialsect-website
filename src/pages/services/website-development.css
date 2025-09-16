@@ -1,0 +1,1139 @@
+
+/* Global underline removal for all webdev buttons and links */
+.webdev-cta-buttons a,
+.webdev-cta-buttons button {
+  text-decoration: none !important;
+}
+
+.webdev-cta-buttons a:hover,
+.webdev-cta-buttons button:hover {
+  text-decoration: none !important;
+}
+
+.webdev-cta-buttons a:focus,
+.webdev-cta-buttons button:focus {
+  text-decoration: none !important;
+}
+
+.webdev-cta-buttons a:visited,
+.webdev-cta-buttons button:visited {
+  text-decoration: none !important;
+}
+
+.webdev-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15vh 10% 10vh 10%;
+  color: #000000;
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+  background: white;
+  margin-bottom: 4rem;
+}
+
+.webdev-hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.webdev-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  color: #000;
+  margin-top: 3rem;
+}
+
+.webdev-hero-title .highlight {
+  background: linear-gradient(90deg, #6a5af1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.webdev-hero-subtitle {
+  font-size: 1.3rem;
+  color: #4a4a4a;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.webdev-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.webdev-stat-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  border: 1px solid rgba(132, 0, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.webdev-stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(132, 0, 255, 0.15);
+}
+
+.webdev-stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #6a5af1;
+  margin-bottom: 0.5rem;
+}
+
+.webdev-stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.webdev-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.webdev-cta-primary {
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  /* cursor: pointer; */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none !important;
+}
+
+.webdev-cta-primary:hover {
+  text-decoration: none !important;
+}
+
+.webdev-cta-primary:focus {
+  text-decoration: none !important;
+}
+
+.webdev-cta-primary:visited {
+  text-decoration: none !important;
+}
+
+.webdev-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(106, 90, 241, 0.3);
+}
+
+.webdev-cta-secondary {
+  background: transparent;
+  color: #6a5af1;
+  border: 2px solid #6a5af1;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  /* cursor: pointer; */
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.webdev-cta-secondary:hover {
+  text-decoration: none !important;
+}
+
+.webdev-cta-secondary:focus {
+  text-decoration: none !important;
+}
+
+.webdev-cta-secondary:visited {
+  text-decoration: none !important;
+}
+
+.webdev-cta-secondary:hover {
+  background: #6a5af1;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Section Headers */
+.webdev-section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.webdev-section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.webdev-section-header p {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+/* Why Choose Section */
+.webdev-why-choose {
+  padding: 6rem 10%;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.webdev-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.webdev-benefit-item {
+  text-align: center;
+  padding: 2rem;
+  background: #1e1e1e;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #333;
+  color: #ffffff;
+}
+
+.webdev-benefit-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(132, 0, 255, 0.15);
+}
+
+.webdev-benefit-item svg {
+  color: #6a5af1;
+  margin-bottom: 1rem;
+}
+
+.webdev-benefit-item h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.webdev-benefit-item p {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  line-height: 1.5;
+}
+
+/* Services Section */
+.webdev-services {
+  padding: 6rem 10%;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.webdev-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.webdev-service-card {
+  --spotlight-size: 400px;
+  --spotlight-opacity: 0.1;
+  background: linear-gradient(135deg, #1e1e1e, #252525);
+  border-radius: 16px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #2a2a2a;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  isolation: isolate;
+}
+
+.webdev-service-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    var(--spotlight-size) var(--spotlight-size) at var(--x, 50%) var(--y, 50%),
+    rgba(106, 90, 241, var(--spotlight-opacity)) 0%,
+    rgba(106, 90, 241, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.webdev-service-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(106, 90, 241, 0.3);
+}
+
+.webdev-service-card:hover::before {
+  opacity: 1;
+}
+
+/* Apply similar styles to other card types */
+.webdev-process-step,
+.webdev-metric-card,
+.webdev-industry-item,
+.webdev-bento-feature {
+  --spotlight-size: 300px;
+  --spotlight-opacity: 0.08;
+  position: relative;
+  isolation: isolate;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.webdev-process-step::before,
+.webdev-metric-card::before,
+.webdev-industry-item::before,
+.webdev-bento-feature::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    var(--spotlight-size) var(--spotlight-size) at var(--x, 50%) var(--y, 50%),
+    rgba(106, 90, 241, var(--spotlight-opacity)) 0%,
+    rgba(106, 90, 241, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.webdev-process-step:hover,
+.webdev-metric-card:hover,
+.webdev-industry-item:hover,
+.webdev-bento-feature:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(106, 90, 241, 0.3);
+}
+
+.webdev-process-step:hover::before,
+.webdev-metric-card:hover::before,
+.webdev-industry-item:hover::before,
+.webdev-bento-feature:hover::before {
+  opacity: 1;
+}
+
+.webdev-service-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.webdev-service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.webdev-service-card p {
+  font-size: 0.95rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.webdev-service-features {
+  list-style: none;
+  padding: 0;
+}
+
+.webdev-service-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+.webdev-service-features li svg {
+  color: #6a5af1;
+  flex-shrink: 0;
+}
+
+/* Process Section */
+.webdev-process {
+  padding: 6rem 10%;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.webdev-process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.webdev-process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e1e1e, #252525);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #2a2a2a;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.webdev-step-number {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.webdev-step-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.webdev-step-content p {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  line-height: 1.5;
+}
+
+/* Results Section */
+.webdev-results {
+  padding: 6rem 10%;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.webdev-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.webdev-metric-card {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e1e1e, #252525);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid #2a2a2a;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.webdev-metric-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #6a5af1;
+  margin-bottom: 0.5rem;
+}
+
+.webdev-metric-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.webdev-metric-description {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+/* Industries Section */
+.webdev-industries {
+  padding: 6rem 10%;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.webdev-industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.webdev-industry-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: #1e1e1e;
+  border-radius: 50px;
+  font-weight: 500;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+  border: 1px solid #333;
+}
+
+.webdev-industry-item:hover {
+  transform: translateY(-3px);
+}
+
+.webdev-industry-item svg {
+  color: #6a5af1;
+  flex-shrink: 0;
+}
+
+.webdev-industry-item span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* Feature Showcase Section */
+.webdev-feature-showcase {
+  width: 100%;
+  background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.webdev-feature-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+  position: relative;
+  z-index: 1;
+}
+
+.webdev-feature-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.webdev-feature-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fff, #a0a0a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.webdev-feature-header p {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.webdev-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.webdev-feature-card {
+  background: rgba(30, 30, 30, 0.5);
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.webdev-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6a5af1, #a855f7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.webdev-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(106, 90, 241, 0.3);
+}
+
+.webdev-feature-card:hover::before {
+  opacity: 1;
+}
+
+.webdev-feature-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(106, 90, 241, 0.1), rgba(168, 85, 247, 0.1));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.webdev-feature-icon svg {
+  color: #6a5af1;
+  font-size: 1.5rem;
+}
+
+.webdev-feature-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.webdev-feature-card p {
+  font-size: 0.95rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.webdev-feature-cta {
+  display: inline-flex;
+  align-items: center;
+  color: #6a5af1;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.webdev-feature-cta svg {
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.webdev-feature-cta:hover {
+  color: #8e7bf5;
+}
+
+.webdev-feature-cta:hover svg {
+  transform: translateX(3px);
+}
+
+/* Decorative Elements */
+.webdev-feature-decorator {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(106, 90, 241, 0.1) 0%, rgba(106, 90, 241, 0) 70%);
+  pointer-events: none;
+}
+
+.decorator-1 {
+  top: -250px;
+  left: -250px;
+}
+
+.decorator-2 {
+  bottom: -250px;
+  right: -250px;
+}
+
+/* FAQ Section */
+.webdev-faq {
+  padding: 6rem 10%;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.webdev-faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.webdev-faq-item {
+  background: #1e1e1e;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.webdev-faq-item.active {
+  box-shadow: 0 8px 25px rgba(132, 0, 255, 0.15);
+}
+
+.webdev-faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  /* cursor: pointer; */
+  transition: background-color 0.3s ease;
+}
+
+.webdev-faq-header:hover {
+  background-color: #2f2f2f;
+}
+
+.webdev-faq-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.webdev-faq-icon {
+  color: #6a5af1;
+  transition: transform 0.3s ease;
+}
+
+.webdev-faq-item.active .webdev-faq-icon {
+  transform: rotate(180deg);
+}
+
+.webdev-faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.webdev-faq-item.active .webdev-faq-content {
+  max-height: 200px;
+}
+
+.webdev-faq-content p {
+  padding: 0 1.5rem 1.5rem;
+  margin: 0;
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+/* Bottom CTA */
+.webdev-bottom-cta {
+  padding: 6rem 10%;
+  text-align: center;
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  color: white;
+  border-radius: 24px;
+  margin: 0 10% 6rem 10%;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
+
+.webdev-cta-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.webdev-cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  color: #a0a0a0;
+}
+
+.webdev-bottom-cta .webdev-cta-buttons {
+  justify-content: center;
+}
+
+.webdev-bottom-cta .webdev-cta-primary {
+  background: white;
+  color: #6a5af1;
+}
+
+.webdev-bottom-cta .webdev-cta-secondary {
+  border-color: white;
+  color: white;
+}
+
+.webdev-bottom-cta .webdev-cta-secondary:hover {
+  background: white;
+  color: #6a5af1;
+}
+
+/* Rotating Text */
+.webdev-solution-container {
+  padding: 4rem 10%;
+  text-align: center;
+  background: #000;
+  color: white;
+}
+
+/* App Development Case Study Styles */
+.app-dev-card {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+  border: 1px solid #333 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+}
+
+.app-dev-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 40px rgba(106, 90, 241, 0.2) !important;
+  border-color: #6a5af1 !important;
+}
+
+.app-dev-card-content {
+  padding: 2rem;
+  color: #ffffff;
+}
+
+.app-dev-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #333;
+}
+
+.app-dev-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(106, 90, 241, 0.3);
+}
+
+.app-dev-title-section {
+  flex: 1;
+}
+
+.app-dev-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.app-dev-category {
+  display: inline-block;
+  background: rgba(106, 90, 241, 0.2);
+  color: #a855f7;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(106, 90, 241, 0.3);
+}
+
+.app-dev-body {
+  margin-bottom: 2rem;
+}
+
+.app-dev-summary {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #b0b0b0;
+  margin-bottom: 2rem;
+}
+
+.app-dev-metrics h4,
+.app-dev-tech-stack h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-icon {
+  color: #6a5af1;
+  flex-shrink: 0;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.metric-item:hover {
+  background: rgba(106, 90, 241, 0.1);
+  border-color: rgba(106, 90, 241, 0.3);
+  transform: translateX(4px);
+}
+
+.metric-icon {
+  color: #6a5af1;
+  flex-shrink: 0;
+}
+
+.metric-item span {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(106, 90, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 90, 241, 0.3);
+}
+
+.app-dev-footer {
+  border-top: 1px solid #333;
+  padding-top: 1.5rem;
+}
+
+.app-dev-cta {
+  background: linear-gradient(135deg, #6a5af1, #a855f7);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(106, 90, 241, 0.3);
+}
+
+.app-dev-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(106, 90, 241, 0.4);
+  text-decoration: none;
+  color: white;
+}
+
+/* Responsive Design for App Dev Cards */
+@media (max-width: 768px) {
+  .app-dev-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .app-dev-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .app-dev-title {
+    font-size: 1.5rem;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tech-tags {
+    justify-content: center;
+  }
+}
+
+/* Utility: hide horizontal scrollbar while allowing scroll */
+.hide-scroll {
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scroll::-webkit-scrollbar { /* Chrome/Safari */
+  display: none;
+}
+
+.webdev-solution-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.webdev-rotating-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #6a5af1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .webdev-hero {
+    padding: 10vh 5% 5vh 5%;
+  }
+  
+  .webdev-why-choose,
+  .webdev-services,
+  .webdev-process,
+  .webdev-results,
+  .webdev-industries,
+  .webdev-bento-section,
+  .webdev-faq,
+  .webdev-bottom-cta {
+    padding: 6rem 10%;
+    color: #ffffff;
+    background-color: #121212;
+  }
+
+  .webdev-section-header h2 {
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  
+  .webdev-bento-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 4rem 5%;
+  }
+  
+  .webdev-bento-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .webdev-stats-grid,
+  .webdev-services-grid,
+  .webdev-process-steps,
+  .webdev-metrics-grid,
+  .webdev-industries-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .webdev-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .webdev-cta-primary,
+  .webdev-cta-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .webdev-hero {
+    padding: 10vh 5% 5vh 5%;
+  }
+  
+  .webdev-why-choose,
+  .webdev-services,
+  .webdev-process,
+  .webdev-results,
+  .webdev-industries,
+  .webdev-bento-section,
+  .webdev-faq,
+  .webdev-bottom-cta {
+    padding: 4rem 5%;
+    color: #ffffff;
+    background-color: #121212;
+  }
+  
+  .webdev-hero-title {
+    font-size: 2rem;
+  }
+  
+  .webdev-hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .webdev-section-header h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+  }
+}

@@ -1,0 +1,71 @@
+/* Global Selection Styles */
+::selection {
+  background: #4f46e5;
+  color: white;
+  text-shadow: none;
+  -webkit-text-fill-color: white;
+}
+
+::-moz-selection {
+  background: #4f46e5;
+  color: white;
+  text-shadow: none;
+}
+
+/* For better readability on all elements */
+*::selection {
+  background: #4f46e5;
+  color: white;
+  text-shadow: none;
+  -webkit-text-fill-color: white;
+}
+
+*::-moz-selection {
+  background: #4f46e5;
+  color: white;
+  text-shadow: none;
+}
+
+/* Specific elements for better browser support */
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+p::selection,
+span::selection,
+div::selection,
+button::selection,
+a::selection,
+li::selection,
+td::selection,
+th::selection,
+input::selection,
+textarea::selection {
+  background: #4f46e5;
+  color: white;
+  text-shadow: none;
+  -webkit-text-fill-color: white;
+}
+
+h1::-moz-selection,
+h2::-moz-selection,
+h3::-moz-selection,
+h4::-moz-selection,
+h5::-moz-selection,
+h6::-moz-selection,
+p::-moz-selection,
+span::-moz-selection,
+div::-moz-selection,
+button::-moz-selection,
+a::-moz-selection,
+li::-moz-selection,
+td::-moz-selection,
+th::-moz-selection,
+input::-moz-selection,
+textarea::-moz-selection {
+  background: #4f46e5;
+  color: white;
+  text-shadow: none;
+}
