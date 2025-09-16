@@ -4,7 +4,7 @@
   "outputDirectory": "dist",
   "functions": {
     "api/send-email.js": {
-      "runtime": "nodejs18.x"
+      "runtime": "@vercel/node@18"
     }
   },
   "routes": [
