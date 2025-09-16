@@ -1104,6 +1104,106 @@
     width: 100%;
     max-width: 300px;
   }
+  
+  /* Case Studies Mobile Styles */
+  .webdev-services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .webdev-service-card {
+    padding: 0;
+  }
+  
+  .webdev-service-card > div {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  .webdev-service-card > div > div:first-child {
+    flex: none !important;
+    width: 100% !important;
+  }
+  
+  .webdev-service-card > div > div:last-child {
+    flex: none !important;
+    width: 100% !important;
+    padding: 1.5rem !important;
+  }
+  
+  .webdev-service-card img {
+    height: 200px !important;
+    object-fit: cover !important;
+  }
+  
+  .webdev-service-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .webdev-service-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .webdev-service-features {
+    margin-bottom: 1rem;
+  }
+  
+  .webdev-service-features li {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .webdev-feature-cta {
+    font-size: 0.9rem;
+  }
+  
+  /* App Development Cards Mobile */
+  .app-dev-card-content {
+    padding: 1.5rem;
+  }
+  
+  .app-dev-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .app-dev-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .app-dev-title {
+    font-size: 1.4rem;
+  }
+  
+  .app-dev-summary {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .metric-item {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .tech-tags {
+    justify-content: center;
+  }
+  
+  .tech-tag {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1135,5 +1235,73 @@
   .webdev-section-header h2 {
     font-size: 1.8rem;
     color: #ffffff;
+  }
+  
+  /* Case Studies Mobile Styles - Small Screens */
+  .webdev-service-card > div > div:last-child {
+    padding: 1rem !important;
+  }
+  
+  .webdev-service-card img {
+    height: 180px !important;
+  }
+  
+  .webdev-service-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .webdev-service-card p {
+    font-size: 0.85rem;
+  }
+  
+  .webdev-service-features li {
+    font-size: 0.8rem;
+  }
+  
+  .webdev-feature-cta {
+    font-size: 0.85rem;
+  }
+  
+  /* App Development Cards Mobile - Small Screens */
+  .app-dev-card-content {
+    padding: 1rem;
+  }
+  
+  .app-dev-header {
+    margin-bottom: 1rem;
+  }
+  
+  .app-dev-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .app-dev-title {
+    font-size: 1.2rem;
+  }
+  
+  .app-dev-summary {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .app-dev-metrics h4,
+  .app-dev-tech-stack h4 {
+    font-size: 1rem;
+  }
+  
+  .metric-item {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+  
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .app-dev-cta {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.25rem;
   }
 }
