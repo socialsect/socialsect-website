@@ -2,16 +2,16 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+  "functions": {
+    "api/send-email.js": {
+      "runtime": "nodejs18.x"
     }
-  ],
+  },
   "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
     {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"

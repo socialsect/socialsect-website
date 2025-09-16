@@ -38,7 +38,7 @@ export default async function handler(req, res) {
 
     switch (formType) {
       case 'contact':
-        emailSubject = `New Contact Form Submission from ${name}`;
+        emailSubject = `!IMPORTANT New Contact Form Submission on GOSOCIALSECT.COM from ${name}`;
         emailHtml = `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #333; border-bottom: 2px solid #333; padding-bottom: 10px;">
@@ -105,8 +105,8 @@ export default async function handler(req, res) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: 'rayanshofficial@gmail.com',
+      from: process.env.FROM_EMAIL || 'onboarding@resend.dev',
+      to: process.env.CONTACT_EMAIL || 'rayanshofficial@gmail.com',
       subject: emailSubject,
       html: emailHtml,
       replyTo: email, // Allow direct replies to the sender
