@@ -8,5 +8,5 @@ export default defineConfig({
     allowedHosts: ["above-direction-logos-jesus.trycloudflare.com"],
     host: true
   },
-})
-assetsInclude: ['**/*.glb'] 
+  assetsInclude: ['**/*.glb', '**/*.mp3', '**/*.wav', '**/*.ogg']
+}) 
