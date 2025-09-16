@@ -133,10 +133,10 @@ a::selection {
 }
 
 .home-hero-title {
-  font-size: 3.5rem;
+  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
   font-weight: 900;
-  line-height: 1.2;
-  margin: 0 0 1.5rem 0;
+  line-height: 1.15;
+  margin: 0 0 1.2rem 0;
   font-family: 'Satoshi', sans-serif;
   text-align: left;
   width: 100%;
@@ -145,9 +145,9 @@ a::selection {
 }
 
 .home-hero-subtitle {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
   margin: 0 0 1rem 0;
-  line-height: 1.7;
+  line-height: 1.6;
   color: #552;
   font-weight: 400;
   max-width: 650px;
@@ -166,7 +166,7 @@ a::selection {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  margin: 2rem 0;
+  margin: 1.25rem 0 1.75rem;
   max-width: 100%;
   width: 100%;
   justify-content: flex-start;
@@ -218,7 +218,7 @@ a::selection {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .home-cta-button {
@@ -265,39 +265,37 @@ a::selection {
 /* Mobile responsive styles */
 @media (max-width: 768px) {
   .home-hero {
-    padding: 25vh 5% 10vh 5%;
+    padding: 22vh 5% 8vh 5%;
   }
   
   .home-hero-title {
-    font-size: 2.5rem;
-    line-height: 1.1;
+    line-height: 1.15;
   }
   
   .home-hero-subtitle {
-    font-size: 1.1rem;
     line-height: 1.5;
   }
   
   .home-hero-pills {
     gap: 0.6rem;
-    margin: 1.5rem 0;
+    margin: 1.25rem 0 1.5rem;
   }
   
   .home-hero-pills .home-service-item {
-    padding: 0.6rem 1rem;
+    padding: 0.55rem 0.9rem;
     font-size: 0.85rem;
   }
   
   .home-cta-buttons {
     flex-direction: column;
     gap: 0.8rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     width: 100%;
   }
   
   .home-cta-button {
     width: 100%;
-    padding: 14px 20px;
+    padding: 14px 18px;
     font-size: 0.95rem;
     margin-top: 0;
     text-align: center;
@@ -306,11 +304,11 @@ a::selection {
 
 @media (max-width: 480px) {
   .home-hero {
-    padding: 20vh 4% 8vh 4%;
+    padding: 18vh 4% 7vh 4%;
   }
   
   .home-hero-title {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 8vw, 2rem);
   }
   
   .home-hero-subtitle {
@@ -325,6 +323,24 @@ a::selection {
   .home-cta-button {
     padding: 12px 16px;
     font-size: 0.9rem;
+  }
+}
+
+/* Extra-small devices */
+@media (max-width: 360px) {
+  .home-hero {
+    padding: 16vh 4% 6vh 4%;
+  }
+  .home-hero-title {
+    font-size: clamp(1.4rem, 7.5vw, 1.75rem);
+  }
+  .home-hero-pills .home-service-item {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.78rem;
+  }
+  .home-cta-button {
+    padding: 11px 14px;
+    font-size: 0.88rem;
   }
 }
 
@@ -370,8 +386,8 @@ a::selection {
 .home-problem-stats {
   display: flex;
   justify-content: center;
-  gap: 4rem;
-  margin-top: 3rem;
+  gap: 3rem;
+  margin-top: 2.5rem;
 }
 
 .home-problem-stat {
@@ -380,7 +396,7 @@ a::selection {
 
 .home-problem-stat .stat-number {
   display: block;
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 800;
   color: #6a5af1;
   margin-bottom: 0.5rem;
@@ -432,8 +448,8 @@ a::selection {
 .home-process-steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  margin-top: 3rem;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
 }
 
 .home-process-step {
@@ -605,8 +621,8 @@ a::selection {
 
 .home-services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
 }
 
 .home-service-card {
@@ -783,6 +799,20 @@ a::selection {
   .home-services-overview,
   .home-why-choose {
     padding: 4rem 4%;
+  }
+  
+  /* Center Problem section text on phones */
+  .home-problem-content {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Center the stat label under percentages */
+  .home-problem-stat .stat-label {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .home-problem-content h2,

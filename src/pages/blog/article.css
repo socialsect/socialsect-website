@@ -168,6 +168,9 @@
   color: #ffffff;
   letter-spacing: -0.02em;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .art-author-info {
@@ -508,6 +511,12 @@
 }
 
 @media (max-width: 768px) {
+  /* Offset for fixed navbar so header/title don't sit under it */
+  .art-container {
+    padding-top: 72px;
+  }
+  /* Reduce overlap by padding inside the header wrapper instead of large margins */
+  .art-header-wrapper { padding-top: 56px; }
   .art-back-wrapper,
   .art-header-wrapper,
   .art-content-wrapper,
@@ -516,8 +525,8 @@
   }
   
   .art-header-section {
-    min-height: 40vh;
-    padding: 2rem 0;
+    min-height: 36vh;
+    padding: 1.5rem 0 2rem;
   }
   
   .art-meta-info {
@@ -527,7 +536,9 @@
   }
   
   .art-main-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.6rem, 6.5vw, 2.25rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
   }
   
   .art-article-body {
@@ -567,12 +578,16 @@
 }
 
 @media (max-width: 480px) {
+  .art-container { padding-top: 60px; }
+  .art-header-wrapper { padding-top: 60px; }
   .art-header-section {
-    min-height: 40vh;
+    min-height: 34vh;
   }
   
   .art-main-title {
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 7.5vw, 1.9rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
   
   .art-cta-button {

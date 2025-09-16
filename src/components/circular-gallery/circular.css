@@ -105,13 +105,15 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .video-player-container {
-    width: 95%;
-  }
-  
-  .close-button {
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
-  }
+  .circular-gallery-container { min-height: 400px; }
+  .circular-gallery { padding: 0 10px; }
+  .circular-gallery canvas { border-left-width: 6px; border-right-width: 6px; }
+  .video-player-container { width: 95%; }
+  .close-button { width: 30px; height: 30px; font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  .circular-gallery-container { min-height: 360px; }
+  .circular-gallery { padding: 0 8px; }
+  .circular-gallery canvas { border-left-width: 4px; border-right-width: 4px; }
 }

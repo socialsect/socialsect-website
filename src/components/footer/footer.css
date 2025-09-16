@@ -18,13 +18,13 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 0 1rem;
 }
 
 /* Column */
 .footer-col {
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(255, 255, 255, 0.05);
@@ -72,6 +72,11 @@
 .footer-description-col .company-description p {
   margin-bottom: 1rem;
   color: #ccc;
+}
+
+/* Hide lengthy description on smaller phones to reduce footer height */
+@media (max-width: 640px) {
+  .footer-description-col { display: none; }
 }
 
 .footer-description-col .company-description p:last-child {
@@ -322,14 +327,14 @@
 @media (max-width: 1200px) {
   .footer-content { 
     grid-template-columns: repeat(3, 1fr); 
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 }
 
 @media (max-width: 992px) {
   .footer-content { 
     grid-template-columns: repeat(2, 1fr); 
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 }
 
@@ -364,6 +369,16 @@
   .social-links { 
     justify-content: flex-start; 
     gap: 0.6rem;
+  }
+
+  /* Force footer bottom socials to a single scrollable row on phones */
+  .footer-bottom .social-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
   }
   
   .company-stats {
@@ -478,6 +493,12 @@
   .social-links {
     margin-top: 1rem;
     gap: 0.5rem;
+  }
+  
+  .footer-bottom .social-links {
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
   
   .social-links a {

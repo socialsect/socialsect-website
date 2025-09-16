@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import './home.css';
 import { Code, Search, Smartphone, Calendar, BarChart2, FileText, Tag, ArrowRight, Users, CheckCircle, Target, Zap, TrendingUp, Globe, Monitor, Award, Clock, Shield } from 'lucide-react';
@@ -12,7 +12,15 @@ import Testimonials from '../../components/testimonials/testimonials';
 
 const Home = () => {
 
-  
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth <= 768);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
   return (
     <Fragment>
       <Helmet>
@@ -486,38 +494,38 @@ const Home = () => {
       <div className="home-bento-section" style={{ padding: '4rem 8%', backgroundColor: '#f8f9fa' ,fontFamily:"Satoshi"}}> 
         <div className="home-bento-container" style={{ 
           display: 'grid', 
-          gridTemplateColumns: '35% 65%', 
-          gap: '2rem', 
+          gridTemplateColumns: isMobile ? '1fr' : '35% 65%', 
+          gap: isMobile ? '1.25rem' : '2rem', 
           maxWidth: '1600px', 
           margin: '0 auto',
           alignItems: 'center'
         }}>
           <div className="home-bento-content">
             <h2 style={{ 
-              fontSize: '1.8rem', 
+              fontSize: '1.6rem', 
               fontWeight: '700', 
               color: '#060010', 
-              marginBottom: '1rem',
+              marginBottom: '0.8rem',
               lineHeight: '1.2'
             }}>         <b>    How we make outcomes match intent </b>
             </h2>
             <p style={{ 
-              fontSize: '0.9rem', 
+              fontSize: '0.95rem', 
               color: '#4a4a4a', 
-              marginBottom: '1.2rem',
-              lineHeight: '1.5'
+              marginBottom: '1rem',
+              lineHeight: '1.55'
             }}>
 
              We start by codifying your Conceptual DNA, then ship the smallest thing that proves it. Everything after that is a loop of evidence and scaling, zero vanity work. </p>
-            <div style={{ marginTop: '2rem' }}>
+            <div style={{ marginTop: '1.5rem' }}>
               <a className="cursor-target"  href="https://calendly.com/rayansh-gosocialsect/30min" target="_blank" style={{
                 fontFamily:"Satoshi",
                 backgroundColor: '#8400ff',
                 color: 'white',
                 border: 'none',
-                padding: '0.8rem 2rem',
+                padding: '0.75rem 1.6rem',
                 borderRadius: '30px',
-                fontSize: '1rem',
+                fontSize: '0.95rem',
                 fontWeight: '600',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
@@ -529,9 +537,9 @@ const Home = () => {
             </div>
           </div>
           <div className="home-bento-grid" style={{ 
-            borderRadius: '20px', 
+            borderRadius: isMobile ? '12px' : '16px', 
             overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.08)'
+            boxShadow: isMobile ? '0 6px 18px rgba(0,0,0,0.08)' : '0 8px 24px rgba(0,0,0,0.08)'
           }}>
             <MagicBento 
               textAutoHide={true}
@@ -541,8 +549,8 @@ const Home = () => {
               enableTilt={true}
               enableMagnetism={true}
               clickEffect={true}
-              spotlightRadius={300}
-              particleCount={12}
+              spotlightRadius={isMobile ? 200 : 240}
+              particleCount={isMobile ? 8 : 10}
               glowColor="132, 0, 255"
             />
           </div>
@@ -571,7 +579,7 @@ const Home = () => {
           Get to know the visionary behind our success story
         </p>
       </div>
-      <div style={{ height: '600px', position: 'relative', margin: '2rem 0 6rem' }}>
+      <div style={{ height: isMobile ? '400px' : '600px', position: 'relative', margin: isMobile ? '1.5rem 0 3.5rem' : '2rem 0 6rem' }}>
         <CircularGallery 
           videoUrls={[
             'https://youtube.com/shorts/5vimqTSU9lg?si=oCrzzHG7nQoYs_A4',
@@ -581,10 +589,10 @@ const Home = () => {
             'https://youtube.com/shorts/6p1J7lq7Ido?si=bWGGXbe9uoNJSN-f',
             'https://youtube.com/shorts/q879lZo4kXM?si=tD9p3U_1PjLMrd8s'
           ]}
-          bend={3} 
+          bend={isMobile ? 1.5 : 3} 
           textColor="#ffffff" 
-          borderRadius={0.05} 
-          scrollEase={0.02}
+          borderRadius={isMobile ? 0.03 : 0.05} 
+          scrollEase={isMobile ? 0.04 : 0.02}
         />
       </div>
       <Testimonials />
