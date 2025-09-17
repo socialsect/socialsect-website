@@ -21,7 +21,7 @@ const sampleData = {
     { title: 'Strutish / Undressed Boutique', img: '/strut.png', metrics: ['Conversion-focused campaigns', 'CPA reduction month over month', 'Creative testing scaled ROAS'], summary: 'Fashion D2C Meta Ads - Creative testing and optimization driving consistent growth.' }
   ],
   'website-development': [
-    { title: 'The Besson Group (Real Estate)', img: '/loop/WhatsApp Image 2025-08-30 at 8.32.29 AM.jpeg', metrics: ['Mobile-first IDX-ready design', 'Load time 2.2s', 'SEO score 93+'], summary: 'Custom Real Estate Platform - Professional property showcase with integrated search.' },
+    { title: 'The Besson Group (Real Estate)', img: '/loop/besson.png', metrics: ['Mobile-first IDX-ready design', 'Load time 2.2s', 'SEO score 93+'], summary: 'Custom Real Estate Platform - Professional property showcase with integrated search.' },
     { title: 'Mr. Potato Vegas (Food & Beverage)', img: '/loop/WhatsApp Image 2025-08-30 at 8.34.09 AM.jpeg', metrics: ['Conversion-focused landing flows', 'Load time 2.3s', 'Fully responsive UI'], summary: 'Playful Brand Experience - Engaging design that drives conversions and engagement.' },
     { title: 'Ferz Consulting (Business Consulting)', img: '/ferz.png', metrics: ['SEO-aligned WordPress rebuild', 'Load time <2.5s', 'SEO score 92+'], summary: 'Professional B2B Presence - Technical optimization with business credibility focus.' },
     { title: 'Miami Shoulder Institute (Orthopaedics)', img: '/loop/WhatsApp Image 2025-08-30 at 8.29.11 AM.jpeg', metrics: ['SEO-ready WordPress build', 'Integrated appointment funnel', 'Optimized patient experience'], summary: 'Medical Practice Website - Healthcare-focused design with seamless patient journey.' },

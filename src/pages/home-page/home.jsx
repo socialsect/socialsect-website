@@ -389,7 +389,7 @@ const Home = () => {
                 <li><CheckCircle size={16} />CMS Development</li>
                 <li><CheckCircle size={16} />Mobile Optimization</li>
               </ul>
-              <a href="/services/website-development" className="home-service-cta cursor-target">
+              <a href="/services-overview/website-development" className="home-service-cta cursor-target">
                 Learn More <ArrowRight size={18} />
               </a>
             </div>
