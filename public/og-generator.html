@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socialsect - Luxury OG Image Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 80px;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .left-content {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 25px;
+            background: linear-gradient(135deg, #724cf9, #a855f7);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 15px 30px rgba(114, 76, 249, 0.4);
+        }
+        
+        .brand-name {
+            font-size: 42px;
+            font-weight: 300;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 28px;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        
+        .exclusive-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            padding: 15px 35px;
+            border-radius: 35px;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+        }
+        
+        .right-content {
+            flex: 1;
+            text-align: right;
+            position: relative;
+        }
+        
+        .stats {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-item {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #724cf9;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(114, 76, 249, 0.1), rgba(168, 85, 247, 0.1));
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -150px;
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        .luxury-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(114, 76, 249, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="decorative-elements">
+        <div class="luxury-pattern"></div>
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+    
+    <div class="container">
+        <div class="left-content">
+            <div class="logo-section">
+                <div class="logo">S</div>
+                <h1 class="brand-name">Socialsect</h1>
+            </div>
+            <p class="tagline">Bespoke Digital Growth<br>for Discerning Brands</p>
+            <div class="exclusive-badge">By Invitation Only</div>
+        </div>
+        
+        <div class="right-content">
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">700+</span>
+                    <span class="stat-label">Consults Booked</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$100K+</span>
+                    <span class="stat-label">Revenue Generated</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">90+</span>
+                    <span class="stat-label">Core Web Vitals</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
