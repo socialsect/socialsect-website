@@ -439,14 +439,29 @@
   
   .gtm-hero-title {
     font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .gtm-hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .gtm-hero-description {
+    font-size: 1rem;
+    line-height: 1.5;
   }
   
   .gtm-case-title {
     font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
   }
   
   .gtm-table-row {
     flex-direction: column;
+    margin-bottom: 1rem;
   }
   
   .gtm-table-label {
@@ -456,12 +471,17 @@
     background: rgba(0, 0, 0, 0.05);
     padding: 1rem;
     font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   
   .gtm-table-value {
     width: 100%;
     padding: 1rem;
     font-size: 0.9rem;
+    line-height: 1.5;
   }
   
   .gtm-case-header,
@@ -472,47 +492,67 @@
   
   .gtm-case-header {
     padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
   }
   
   .gtm-case-meta {
     flex-direction: column;
     gap: 0.75rem;
+    margin-top: 1rem;
   }
   
   .gtm-meta-item {
-    gap: 0.2rem;
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   
   .gtm-meta-label {
     font-size: 0.8rem;
+    font-weight: 600;
+    color: #666;
   }
   
   .gtm-meta-value {
     font-size: 0.9rem;
+    color: #333;
   }
   
   .gtm-bullet-point {
     font-size: 0.9rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    padding-left: 0.5rem;
   }
   
   .gtm-cta h2 {
     font-size: 2rem;
+    line-height: 1.2;
   }
   
   .gtm-cta-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
   
   .gtm-cta-primary,
   .gtm-cta-secondary {
     width: 100%;
     max-width: 300px;
+    padding: 1rem 1.5rem;
   }
   
   .gtm-case-study {
     margin-bottom: 3rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .gtm-strategy-table {
+    border-radius: 8px;
+    overflow: hidden;
   }
 }
 
@@ -529,46 +569,59 @@
   
   .gtm-hero-title {
     font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
   }
   
   .gtm-hero-subtitle {
     font-size: 1rem;
+    margin-bottom: 0.5rem;
   }
   
   .gtm-hero-description {
     font-size: 0.95rem;
+    line-height: 1.4;
   }
   
   .gtm-case-title {
     font-size: 1.3rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
   }
   
   .gtm-case-number {
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
+    margin-bottom: 0.5rem;
   }
   
   .gtm-table-label {
     padding: 0.75rem;
     font-size: 0.85rem;
+    font-weight: 600;
   }
   
   .gtm-table-value {
     padding: 0.75rem;
     font-size: 0.85rem;
+    line-height: 1.4;
   }
   
   .gtm-bullet-point {
     font-size: 0.85rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+    padding-left: 0.25rem;
   }
   
   .gtm-cta h2 {
     font-size: 1.8rem;
+    line-height: 1.1;
   }
   
   .gtm-cta p {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.4;
   }
   
   .gtm-case-header,
@@ -579,6 +632,11 @@
   
   .gtm-case-header {
     padding: 1rem 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .gtm-meta-item {
+    gap: 0.25rem;
   }
   
   .gtm-meta-label {
@@ -589,9 +647,66 @@
     font-size: 0.85rem;
   }
   
+  .gtm-cta-buttons {
+    gap: 0.75rem;
+  }
+  
   .gtm-cta-primary,
   .gtm-cta-secondary {
-    font-size: 0.95rem;
-    padding: 0.875rem 1.5rem;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Additional mobile improvements */
+  .gtm-case-study {
+    margin-bottom: 2rem;
+  }
+  
+  .gtm-strategy-table {
+    margin-top: 1rem;
+  }
+  
+  .gtm-table-row {
+    margin-bottom: 0.75rem;
+  }
+  
+  .gtm-back-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .gtm-hero-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Medium mobile breakpoint for better tablet experience */
+@media (max-width: 640px) {
+  .gtm-header-content,
+  .gtm-content,
+  .gtm-cta-content {
+    padding: 0 1rem;
+  }
+  
+  .gtm-hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .gtm-case-title {
+    font-size: 1.4rem;
+  }
+  
+  .gtm-table-label {
+    font-size: 0.875rem;
+  }
+  
+  .gtm-table-value {
+    font-size: 0.875rem;
+  }
+  
+  .gtm-bullet-point {
+    font-size: 0.875rem;
   }
 }

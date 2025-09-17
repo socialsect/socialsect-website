@@ -842,12 +842,18 @@ a::selection {
   .home-services-grid,
   .home-why-choose-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
   
   .home-service-card,
   .home-why-choose-item {
     padding: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Ensure proper spacing between service cards on mobile */
+  .home-services-grid .home-service-card:not(:last-child) {
+    margin-bottom: 2rem;
   }
   
   .home-stat-item {
@@ -881,6 +887,12 @@ a::selection {
   .home-stat-item,
   .home-process-step {
     padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Extra spacing for service cards on very small screens */
+  .home-services-grid .home-service-card:not(:last-child) {
+    margin-bottom: 2.5rem;
   }
   
   .home-stat-number {
