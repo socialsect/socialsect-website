@@ -1,10 +1,6 @@
 
-# https://goSocialsect.com
-
-# Allow everything everywhere except /api
 User-agent: *
 Allow: /
 Disallow: /api/
 
-# Sitemap location
-Sitemap: https://goSocialsect.com/sitemap.xml
+Sitemap: https://gosocialsect.com/sitemap.xml
