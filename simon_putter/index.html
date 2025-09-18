@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Object Detection</title>
+    <title>Ultra-Fast Video Object Detection</title>
     <style>
         * {
             margin: 0;
@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -76,6 +76,11 @@
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
+        /* Icon helpers */
+        .icon { width: 1em; height: 1em; vertical-align: -0.15em; margin-right: 6px; display: inline-block; }
+        .icon.red { color: #cb0000; }
+        .icon.white { color: #ffffff; }
+
         .file-input-label:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
@@ -110,6 +115,16 @@
             color: white;
         }
 
+        .btn-success {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            color: white;
+        }
+
         .btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
@@ -120,17 +135,53 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         }
 
+        .performance-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #4facfe;
+        }
+
+        .stat-card h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4facfe;
+        }
+
+        .stat-card .trend {
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        .stat-card .trend.up {
+            color: #28a745;
+        }
+
+        .stat-card .trend.down {
+            color: #dc3545;
+        }
+
         .video-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin: 30px 0;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         .video-section {
-            flex: 1;
-            min-width: 300px;
             text-align: center;
         }
 
@@ -155,6 +206,167 @@
             border-radius: 10px;
             padding: 20px;
             margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .trajectory-panel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .trajectory-panel h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .arc-classification {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .arc-type {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .confidence-bar {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            height: 8px;
+            margin: 8px 0;
+            overflow: hidden;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            transition: width 0.3s ease;
+        }
+
+        .trajectory-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .center-line-controls {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .center-line-controls h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .center-line-btn {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+
+        .center-line-btn:hover {
+            background: #00f2fe;
+        }
+
+        .trajectory-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .trajectory-line {
+            stroke: #ff6b6b;
+            stroke-width: 3;
+            fill: none;
+            stroke-dasharray: 5,5;
+            animation: dash 1s linear infinite;
+        }
+
+        .center-line {
+            stroke: #4facfe;
+            stroke-width: 2;
+            stroke-dasharray: 10,5;
+        }
+
+        .trajectory-point {
+            fill: #ff6b6b;
+            r: 4;
+        }
+
+        @keyframes dash {
+            to { stroke-dashoffset: -10; }
+        }
+
+        .session-controls {
+            background: #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .session-controls h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .session-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+
+        .session-btn:hover {
+            background: #218838;
+        }
+
+        .session-btn.danger {
+            background: #dc3545;
+        }
+
+        .session-btn.danger:hover {
+            background: #c82333;
         }
 
         .detection-item {
@@ -218,6 +430,12 @@
             border: 1px solid #bee5eb;
         }
 
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
         .frame-info {
             display: flex;
             justify-content: space-between;
@@ -237,9 +455,68 @@
             color: #666;
         }
 
+        .optimization-panel {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .optimization-panel h4 {
+            margin-bottom: 15px;
+            color: #1976d2;
+        }
+
+        .endpoint-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .endpoint-btn {
+            padding: 8px 16px;
+            border: 2px solid #4facfe;
+            background: white;
+            color: #4facfe;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .endpoint-btn.active {
+            background: #4facfe;
+            color: white;
+        }
+
+        .endpoint-btn:hover {
+            background: #4facfe;
+            color: white;
+        }
+
+        .latency-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .latency-indicator.excellent {
+            background: #28a745;
+        }
+
+        .latency-indicator.good {
+            background: #ffc107;
+        }
+
+        .latency-indicator.poor {
+            background: #dc3545;
+        }
+
         @media (max-width: 768px) {
             .video-container {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
             
             .controls {
@@ -250,14 +527,27 @@
             .header h1 {
                 font-size: 2rem;
             }
+
+            .performance-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .endpoint-selector {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎥 Video Object Detection</h1>
-            <p>Upload a video and watch AI detect objects in real-time</p>
+            <h1>
+                <svg class="icon white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"></path>
+                </svg>
+                Ultra-Fast Video Object Detection
+            </h1>
+            <p>Maximum performance with minimal latency</p>
         </div>
 
         <div class="content">
@@ -265,14 +555,34 @@
                 <div class="file-input-wrapper">
                     <input type="file" id="videoInput" class="file-input" accept="video/*">
                     <label for="videoInput" class="file-input-label">
-                        📁 Choose Video File
+                        <svg class="icon white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM13 9V3.5L18.5 9H13z"></path>
+                        </svg>
+                        Choose Video File
                     </label>
                 </div>
                 
                 <div class="controls">
-                    <button id="startBtn" class="btn btn-primary" disabled>▶️ Start Processing</button>
-                    <button id="pauseBtn" class="btn btn-secondary" disabled>⏸️ Pause</button>
-                    <button id="stopBtn" class="btn btn-secondary" disabled>⏹️ Stop</button>
+                    <button id="startBtn" class="btn btn-primary" disabled>
+                        <svg class="icon white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+                        Start Processing
+                    </button>
+                    <button id="pauseBtn" class="btn btn-secondary" disabled>
+                        <svg class="icon white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+                        Pause
+                    </button>
+                    <button id="stopBtn" class="btn btn-secondary" disabled>
+                        <svg class="icon red" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 6h12v12H6z"></path></svg>
+                        Stop
+                    </button>
+                    <button id="streamBtn" class="btn btn-success" disabled>
+                        <svg class="icon white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 12c0-4.418 3.582-8 8-8v3l5-4-5-4v3C6.477 2 2 6.477 2 12s4.477 10 10 10v-2C7.582 20 4 16.418 4 12z"></path></svg>
+                        Stream Mode
+                    </button>
+                    <button id="cameraBtn" class="btn btn-success">
+                        <svg class="icon white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 5h-3.586l-1.707-1.707A.996.996 0 0014 3H10a.996.996 0 00-.707.293L7.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12a5 5 0 110-10 5 5 0 010 10z"></path></svg>
+                        Use Camera
+                    </button>
                 </div>
 
                 <div class="progress-bar">
@@ -282,54 +592,208 @@
                 <div id="status" class="status" style="display: none;"></div>
             </div>
 
+            <div class="optimization-panel">
+                <h4>⚡ Performance Optimization</h4>
+                <div class="endpoint-selector">
+                    <div class="endpoint-btn active" data-endpoint="detect_fast">
+                        <span class="latency-indicator excellent"></span>
+                        Ultra-Fast (No Image)
+                    </div>
+                    <div class="endpoint-btn" data-endpoint="detect">
+                        <span class="latency-indicator good"></span>
+                        Fast (With Image)
+                    </div>
+                    <div class="endpoint-btn" data-endpoint="detect_stream">
+                        <span class="latency-indicator excellent"></span>
+                        Streaming
+                    </div>
+                </div>
+                <p style="color: #666; font-size: 0.9rem;">
+                    <strong>Ultra-Fast:</strong> Detections only (~50-100ms) | 
+                    <strong>Fast:</strong> Detections + Image (~100-150ms) | 
+                    <strong>Streaming:</strong> Real-time streaming (~50-100ms)
+                </p>
+            </div>
+
+            <div class="performance-stats">
+                <div class="stat-card">
+                    <h4>Current Latency</h4>
+                    <div class="value" id="currentLatency">0ms</div>
+                    <div class="trend" id="latencyTrend"></div>
+                </div>
+                <div class="stat-card">
+                    <h4>Average Latency</h4>
+                    <div class="value" id="avgLatency">0ms</div>
+                    <div class="trend" id="avgTrend"></div>
+                </div>
+                <div class="stat-card">
+                    <h4>Processing FPS</h4>
+                    <div class="value" id="processingFPS">0</div>
+                    <div class="trend" id="fpsTrend"></div>
+                </div>
+                <div class="stat-card">
+                    <h4>Cache Hit Rate</h4>
+                    <div class="value" id="cacheHitRate">0%</div>
+                    <div class="trend" id="cacheTrend"></div>
+                </div>
+            </div>
+
             <div class="video-container">
                 <div class="video-section">
-                    <h3>📹 Original Video</h3>
-                    <video id="originalVideo" controls style="display: none;"></video>
+                    <h3>
+                        <svg class="icon red" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 10.5V7a2 2 0 00-2-2H5C3.895 5 3 5.895 3 7v10a2 2 0 002 2h10a2 2 0 002-2v-3.5l4 4v-11l-4 4z"></path></svg>
+                        Original Video
+                    </h3>
+                    <video id="originalVideo" controls playsinline muted autoplay style="display: none;"></video>
                     <canvas id="frameCanvas" style="display: none;"></canvas>
                 </div>
 
                 <div class="video-section">
-                    <h3>🔍 Processed Frames</h3>
+                    <h3>
+                        <svg class="icon red" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 4a6 6 0 104.472 10.028l4.25 4.25 1.414-1.414-4.25-4.25A6 6 0 0010 4zm0 2a4 4 0 110 8 4 4 0 010-8z"></path></svg>
+                        Processed Frames
+                    </h3>
                     <canvas id="processedCanvas"></canvas>
                 </div>
             </div>
 
             <div class="frame-info">
-                <div class="frame-counter">Frame: <span id="currentFrame">0</span> / <span id="totalFrames">0</span></div>
-                <div class="fps-display">FPS: <span id="fpsDisplay">0</span></div>
+                <div class="frame-counter">Frame: <span id="currentFrame">0</span> / <span id="totalFramesDisplay">0</span></div>
+                <div class="fps-display">Processing Time: <span id="processingTime">0</span>ms</div>
             </div>
 
             <div class="results-section">
-                <h3>🎯 Detection Results</h3>
+                <h3>
+                    <svg class="icon red" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm1 15h-2v-2h2zm0-4h-2V7h2z"></path></svg>
+                    Detection Results
+                </h3>
                 <div id="detectionResults" class="detection-results">
                     <p style="text-align: center; color: #666; font-style: italic;">
                         Upload a video and start processing to see detection results here
                     </p>
                 </div>
             </div>
+
+            <!-- Trajectory Analysis Panel -->
+            <div class="trajectory-panel">
+                <h3>
+                    <svg class="icon white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h2v16h16v2H3z"></path><path d="M7 13l3-3 4 4 6-6 1.414 1.414L14 17l-4-4-2.293 2.293z"></path></svg>
+                    Trajectory Analysis
+                </h3>
+                <div id="trajectoryAnalysis">
+                    <div class="arc-classification">
+                        <div class="arc-type">No trajectory data yet</div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" style="width: 0%"></div>
+                        </div>
+                        <div style="font-size: 0.9rem; opacity: 0.8;">Upload a video to start trajectory analysis</div>
+                        <div id="trajectoryStatus" style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">
+                            Status: Ready
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trajectory-stats" id="trajectoryStats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="trajectoryCount">0</div>
+                        <div class="stat-label">Trajectories</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="avgSpeed">0.0</div>
+                        <div class="stat-label">Avg Speed (m/s)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalDistance">0.0</div>
+                        <div class="stat-label">Total Distance (m)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="activeTrajectories">0</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Line Controls -->
+            <div class="center-line-controls">
+                <h4>
+                    <svg class="icon red" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                    Center Line Reference
+                </h4>
+                <button class="center-line-btn" onclick="setAutoCenterLine()">Auto Calculate</button>
+                <button class="center-line-btn" onclick="setManualCenterLine()">Set Manually</button>
+                <button class="center-line-btn" onclick="clearCenterLine()">Clear</button>
+                <div id="centerLineStatus" style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+                    No center line set
+                </div>
+            </div>
+
+            <!-- Session Controls -->
+            <div class="session-controls">
+                <h4>
+                    <svg class="icon red" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8v-10h-8v10zm0-18v6h8V3h-8z"></path></svg>
+                    Session Management
+                </h4>
+                <button class="session-btn" onclick="getTrajectorySummary()">View Summary</button>
+                <button class="session-btn" onclick="exportTrajectoryData()">Export Data</button>
+                <button class="session-btn danger" onclick="clearSession()">Clear Session</button>
+                <div id="sessionInfo" style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+                    Session ID: <span id="currentSessionId">default</span>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        class VideoProcessor {
+       const BASE_URL = 'https://f4d308ab4412.ngrok-free.app';
+
+        class UltraFastVideoProcessor {
             constructor() {
                 this.video = document.getElementById('originalVideo');
                 this.frameCanvas = document.getElementById('frameCanvas');
                 this.processedCanvas = document.getElementById('processedCanvas');
                 this.frameCtx = this.frameCanvas.getContext('2d');
                 this.processedCtx = this.processedCanvas.getContext('2d');
+                this.cameraStream = null;
                 
                 this.isProcessing = false;
                 this.isPaused = false;
                 this.currentFrameIndex = 0;
                 this.totalFrames = 0;
-                this.frameRate = 30; // Default FPS
+                this.frameRate = 30;
                 this.frames = [];
                 this.startTime = 0;
                 this.frameCount = 0;
+                this.currentEndpoint = 'detect_fast';
+                this.latencyHistory = [];
+                this.performanceStats = {
+                    totalRequests: 0,
+                    cacheHits: 0,
+                    avgLatency: 0,
+                    minLatency: Infinity,
+                    maxLatency: 0
+                };
+                
+                // Trajectory analysis properties
+                this.sessionId = 'session_' + Date.now();
+                this.trajectoryData = {
+                    activeTrajectories: 0,
+                    completedTrajectories: 0,
+                    centerLine: null,
+                    arcClassifications: []
+                };
+                this.trajectoryPoints = [];
+                this.centerLinePoints = [];
+                this.isManualCenterLineMode = false;
+                
+                // Concurrency control for in-flight requests
+                this.maxInFlight = 3; // 2-4 recommended
                 
                 this.initializeEventListeners();
+                this.startPerformanceMonitoring();
+                this.updateSessionDisplay();
+                
+                // Clear any existing data on page load
+                this.resetVideoProcessor();
             }
 
             initializeEventListeners() {
@@ -337,24 +801,221 @@
                 document.getElementById('startBtn').addEventListener('click', () => this.startProcessing());
                 document.getElementById('pauseBtn').addEventListener('click', () => this.togglePause());
                 document.getElementById('stopBtn').addEventListener('click', () => this.stopProcessing());
+                document.getElementById('streamBtn').addEventListener('click', () => this.startStreaming());
+                document.getElementById('cameraBtn').addEventListener('click', () => this.startCamera());
+                
+                // Endpoint selection
+                document.querySelectorAll('.endpoint-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        document.querySelectorAll('.endpoint-btn').forEach(b => b.classList.remove('active'));
+                        const target = e.currentTarget;
+                        target.classList.add('active');
+                        this.currentEndpoint = target.dataset.endpoint;
+                        this.showStatus(`Switched to ${target.textContent.trim()} mode`, 'info');
+                    });
+                });
+            }
+
+            async startCamera() {
+                try {
+                    // Request camera stream
+                    this.cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
+                    this.video.srcObject = this.cameraStream;
+                    this.video.style.display = 'block';
+                    // iOS requires playsinline + muted + user gesture; ensure play attempt and fallback
+                    try {
+                        await this.video.play();
+                    } catch (e) {
+                        const playOnTouch = () => {
+                            this.video.play().finally(() => {
+                                document.removeEventListener('touchend', playOnTouch);
+                                document.removeEventListener('click', playOnTouch);
+                            });
+                        };
+                        document.addEventListener('touchend', playOnTouch, { once: true });
+                        document.addEventListener('click', playOnTouch, { once: true });
+                    }
+
+                    // Setup canvas sizes from video once metadata is ready
+                    if (this.video.videoWidth === 0) {
+                        await new Promise(resolve => this.video.addEventListener('loadedmetadata', resolve, { once: true }));
+                    }
+                    this.setupCanvas();
+
+                    // For live camera we don't know duration/frames
+                    this.totalFrames = Infinity; // sentinel for live
+                    document.getElementById('totalFramesDisplay').textContent = '∞';
+                    document.getElementById('startBtn').disabled = true;
+                    document.getElementById('streamBtn').disabled = true;
+                    document.getElementById('pauseBtn').disabled = false;
+                    document.getElementById('stopBtn').disabled = false;
+                    this.isProcessing = true;
+                    this.isPaused = false;
+                    this.currentFrameIndex = 0;
+                    this.startTime = Date.now();
+                    this.frameCount = 0;
+                    this.showStatus('Camera started. Processing live frames...', 'success');
+
+                    // Start capture loop
+                    this.processCameraFrames();
+                } catch (err) {
+                    console.error('Camera access error:', err);
+                    this.showStatus('Unable to access camera. Check permissions/HTTPS.', 'error');
+                }
+            }
+
+            async processCameraFrames() {
+                while (this.isProcessing && !this.isPaused && this.cameraStream) {
+                    const frameStartTime = Date.now();
+                    // Draw current video frame to canvas
+                    this.frameCtx.drawImage(this.video, 0, 0, this.frameCanvas.width, this.frameCanvas.height);
+                    const blob = await this.canvasToBlob(this.frameCanvas);
+
+                    try {
+                        const result = await this.sendFrameToBackend(blob, this.currentEndpoint);
+                        const latency = Date.now() - frameStartTime;
+                        this.updateLatencyStats(latency);
+                        this.displayResults(result);
+                        if (result.annotated_image) {
+                            this.displayProcessedFrame(result.annotated_image);
+                        }
+                    } catch (error) {
+                        console.error('Camera frame processing error:', error);
+                    }
+
+                    this.currentFrameIndex++;
+                    this.frameCount++;
+                    // For live mode, progress bar can show activity pulse
+                    const fill = document.getElementById('progressFill');
+                    const width = (this.currentFrameIndex % 100) + 1;
+                    fill.style.width = `${width}%`;
+                    this.updateFrameCounter();
+                    this.updateStats();
+
+                    // Aim for ~15 FPS processing, adapt as needed
+                    await new Promise(resolve => setTimeout(resolve, 66));
+                }
+            }
+
+            async startPerformanceMonitoring() {
+                setInterval(async () => {
+                    try {
+                        const response = await fetch(`${BASE_URL}/detect`);
+                        const stats = await response.json();
+                        this.updatePerformanceStats(stats);
+                    } catch (error) {
+                        console.log('Performance monitoring unavailable');
+                    }
+                }, 20000);
+            }
+
+            updatePerformanceStats(stats) {
+                this.performanceStats = stats;
+                
+                document.getElementById('avgLatency').textContent = `${stats.avg_latency_ms}ms`;
+                document.getElementById('cacheHitRate').textContent = `${stats.cache_hit_rate}%`;
+                
+                // Update latency indicator
+                const latencyIndicator = document.querySelector('.endpoint-btn.active .latency-indicator');
+                if (stats.avg_latency_ms < 100) {
+                    latencyIndicator.className = 'latency-indicator excellent';
+                } else if (stats.avg_latency_ms < 200) {
+                    latencyIndicator.className = 'latency-indicator good';
+                } else {
+                    latencyIndicator.className = 'latency-indicator poor';
+                }
             }
 
             handleVideoUpload(event) {
                 const file = event.target.files[0];
                 if (!file) return;
 
+                // Clear previous video data and reset state
+                this.resetVideoProcessor();
+                
+                // Create new video URL
                 const url = URL.createObjectURL(file);
                 this.video.src = url;
                 this.video.style.display = 'block';
                 
                 this.video.addEventListener('loadedmetadata', () => {
                     this.setupCanvas();
-                    this.frameRate = this.video.videoWidth > 0 ? 30 : 30; // Estimate FPS
+                    this.frameRate = this.video.videoWidth > 0 ? 30 : 30;
                     this.totalFrames = Math.floor(this.video.duration * this.frameRate);
-                    document.getElementById('totalFrames').textContent = this.totalFrames;
+                    document.getElementById('totalFramesDisplay').textContent = this.totalFrames;
                     document.getElementById('startBtn').disabled = false;
+                    document.getElementById('streamBtn').disabled = false;
                     this.showStatus('Video loaded successfully! Ready to process.', 'success');
                 });
+                
+                // Reset file input to allow selecting the same file again
+                event.target.value = '';
+            }
+
+            resetVideoProcessor() {
+                // Stop any ongoing processing
+                this.isProcessing = false;
+                this.isPaused = false;
+                this.currentFrameIndex = 0;
+                this.frameCount = 0;
+                this.latencyHistory = [];
+                
+                // Clear video element and revoke any existing URL
+                if (this.video.src && this.video.src.startsWith('blob:')) {
+                    URL.revokeObjectURL(this.video.src);
+                }
+                this.video.src = '';
+                this.video.style.display = 'none';
+                
+                // Clear canvas elements
+                this.frameCtx.clearRect(0, 0, this.frameCanvas.width, this.frameCanvas.height);
+                this.processedCtx.clearRect(0, 0, this.processedCanvas.width, this.processedCanvas.height);
+                
+                // Reset UI elements
+                document.getElementById('startBtn').disabled = true;
+                document.getElementById('pauseBtn').disabled = true;
+                document.getElementById('stopBtn').disabled = true;
+                document.getElementById('streamBtn').disabled = true;
+                document.getElementById('pauseBtn').textContent = '⏸️ Pause';
+                
+                // Clear progress and stats
+                document.getElementById('progressFill').style.width = '0%';
+                document.getElementById('currentFrame').textContent = '0';
+                document.getElementById('totalFramesDisplay').textContent = '0';
+                document.getElementById('currentLatency').textContent = '0ms';
+                document.getElementById('processingFPS').textContent = '0';
+                document.getElementById('processingTime').textContent = '0';
+                
+                // Clear detection results
+                document.getElementById('detectionResults').innerHTML = 
+                    '<p style="text-align: center; color: #666; font-style: italic;">Upload a video and start processing to see detection results here</p>';
+                
+                // Reset trajectory data
+                this.trajectoryData = {
+                    activeTrajectories: 0,
+                    completedTrajectories: 0,
+                    centerLine: null,
+                    arcClassifications: []
+                };
+                this.trajectoryPoints = [];
+                this.centerLinePoints = [];
+                this.isManualCenterLineMode = false;
+                
+                // Generate new session ID
+                this.sessionId = 'session_' + Date.now();
+                this.updateSessionDisplay();
+                
+                // Clear backend trajectory session
+                this.clearBackendSession();
+                
+                // Reset trajectory display
+                this.updateTrajectoryDisplay({ arc_classifications: [] });
+                this.updateTrajectoryStats({ analysis_result: { active_trajectories: 0, completed_trajectories: 0 } });
+                this.updateCenterLineStatus();
+                this.updateTrajectoryStatus('Ready');
+                
+                // Clear status
+                document.getElementById('status').style.display = 'none';
             }
 
             setupCanvas() {
@@ -365,9 +1026,32 @@
                 this.frameCanvas.height = height;
                 this.processedCanvas.width = width;
                 this.processedCanvas.height = height;
+                
+                // Clear any existing content
+                this.frameCtx.clearRect(0, 0, width, height);
+                this.processedCtx.clearRect(0, 0, width, height);
             }
 
             async startProcessing() {
+                if (this.isProcessing) return;
+                
+                this.isProcessing = true;
+                this.isPaused = false;
+                this.currentFrameIndex = 0;
+                this.startTime = Date.now();
+                this.frameCount = 0;
+                this.latencyHistory = [];
+                
+                document.getElementById('startBtn').disabled = true;
+                document.getElementById('pauseBtn').disabled = false;
+                document.getElementById('stopBtn').disabled = false;
+                document.getElementById('streamBtn').disabled = true;
+                
+                this.showStatus(`Processing with ${this.currentEndpoint} endpoint...`, 'info');
+                this.processFrames();
+            }
+
+            async startStreaming() {
                 if (this.isProcessing) return;
                 
                 this.isProcessing = true;
@@ -379,99 +1063,199 @@
                 document.getElementById('startBtn').disabled = true;
                 document.getElementById('pauseBtn').disabled = false;
                 document.getElementById('stopBtn').disabled = false;
+                document.getElementById('streamBtn').disabled = true;
                 
-                this.showStatus('Processing video frames...', 'info');
-                this.processFrames();
+                this.showStatus('Starting streaming mode...', 'info');
+                this.processFramesStreaming();
             }
 
             async processFrames() {
+                const inFlight = new Set();
                 while (this.isProcessing && this.currentFrameIndex < this.totalFrames && !this.isPaused) {
-                    await this.processCurrentFrame();
+                    const frameStartTime = Date.now();
+                    
+                    // Extract frame sequentially (video element cannot seek concurrently)
+                    const frameIdx = this.currentFrameIndex;
+                    const frame = await this.extractFrame(frameIdx);
+                    const blob = await this.canvasToBlob(frame);
+                    
+                    // Launch request without awaiting (limit concurrency)
+                    const endpoint = this.currentEndpoint; // honor current selection
+                    const task = (async () => {
+                        try {
+                            const result = await this.sendFrameToBackend(blob, endpoint);
+                            const latency = Date.now() - frameStartTime;
+                            this.updateLatencyStats(latency);
+                            this.displayResults(result);
+                            if (result.annotated_image) {
+                                this.displayProcessedFrame(result.annotated_image);
+                            }
+                        } catch (error) {
+                            console.error('Frame processing error:', error);
+                        } finally {
+                            inFlight.delete(taskPromise);
+                            // Update counters when a request completes
+                            this.frameCount++;
+                            this.updateStats();
+                        }
+                    })();
+                    const taskPromise = task; // for reference in finally
+                    inFlight.add(taskPromise);
+                    
+                    // Advance frame index/progress after launching the request
                     this.currentFrameIndex++;
                     this.updateProgress();
                     this.updateFrameCounter();
                     
-                    // Add small delay to prevent overwhelming the browser
-                    await new Promise(resolve => setTimeout(resolve, 100));
+                    // Adaptive pacing (~200ms per extraction iteration)
+                    const delay = Math.max(0, 200 - (Date.now() - frameStartTime));
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    
+                    // Backpressure: wait until under concurrency limit
+                    if (inFlight.size >= this.maxInFlight) {
+                        await Promise.race(inFlight);
+                    }
+                }
+                
+                // Wait for remaining requests to finish
+                await Promise.allSettled(Array.from(inFlight));
+                
+                if (this.currentFrameIndex >= this.totalFrames) {
+                    await this.forceCompleteTrajectories();
+                    this.stopProcessing();
+                    this.showStatus('Processing completed!', 'success');
+                }
+            }
+
+            async processFramesStreaming() {
+                while (this.isProcessing && this.currentFrameIndex < this.totalFrames && !this.isPaused) {
+                    const frame = await this.extractFrame(this.currentFrameIndex);
+                    const blob = await this.canvasToBlob(frame);
+                    
+                    try {
+                        const response = await fetch(`${BASE_URL}/detect`, {
+                            method: 'POST',
+                            body: this.createFormData(blob, this.sessionId)
+                        });
+                        
+                        const reader = response.body.getReader();
+                        const decoder = new TextDecoder();
+                        
+                        while (true) {
+                            const { done, value } = await reader.read();
+                            if (done) break;
+                            
+                            const chunk = decoder.decode(value);
+                            const lines = chunk.split('\n');
+                            
+                            for (const line of lines) {
+                                if (line.startsWith('data: ')) {
+                                    try {
+                                        const data = JSON.parse(line.slice(6));
+                                        if (data.detections) {
+                                            this.displayResults({ detections: data.detections });
+                                        }
+                                        if (data.image) {
+                                            this.displayProcessedFrame(data.image);
+                                        }
+                                    } catch (e) {
+                                        // Ignore parsing errors
+                                    }
+                                }
+                            }
+                        }
+                        
+                    } catch (error) {
+                        console.error('Streaming error:', error);
+                    }
+                    
+                    this.currentFrameIndex++;
+                    this.frameCount++;
+                    this.updateProgress();
+                    this.updateFrameCounter();
                 }
                 
                 if (this.currentFrameIndex >= this.totalFrames) {
+                    // Force complete any remaining trajectories
+                    this.forceCompleteTrajectories();
                     this.stopProcessing();
-                    this.showStatus('Video processing completed!', 'success');
+                    this.showStatus('Streaming completed!', 'success');
                 }
             }
 
-            async processCurrentFrame() {
-                // Seek to current frame time
-                const time = this.currentFrameIndex / this.frameRate;
+            async extractFrame(frameIndex) {
+                const time = frameIndex / this.frameRate;
                 this.video.currentTime = time;
                 
-                // Wait for video to seek
-                await new Promise(resolve => {
+                return new Promise((resolve) => {
                     const onSeeked = () => {
                         this.video.removeEventListener('seeked', onSeeked);
-                        resolve();
+                        this.frameCtx.drawImage(this.video, 0, 0, this.frameCanvas.width, this.frameCanvas.height);
+                        resolve(this.frameCanvas);
                     };
                     this.video.addEventListener('seeked', onSeeked);
                 });
-                
-                // Draw current frame to canvas
-                this.frameCtx.drawImage(this.video, 0, 0, this.frameCanvas.width, this.frameCanvas.height);
-                
-                // Convert canvas to blob and send to backend
-                const blob = await this.canvasToBlob(this.frameCanvas);
-                await this.sendFrameToBackend(blob);
-                
-                this.frameCount++;
-                this.updateFPS();
             }
 
-            async sendFrameToBackend(blob) {
-                try {
-                    const formData = new FormData();
-                    formData.append('file', blob, 'frame.png');
-                    formData.append('session_id', 'video_processing');
-                    
-                    const response = await fetch('http://localhost:8000/detect', {
-                        method: 'POST',
-                        body: formData
-                    });
-                    
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    
-                    const result = await response.json();
-                    
-                    if (result.success) {
-                        this.displayProcessedFrame(result);
-                        this.displayDetectionResults(result.detections);
-                    }
-                } catch (error) {
-                    console.error('Error sending frame to backend:', error);
-                    this.showStatus(`Error processing frame: ${error.message}`, 'error');
+            async sendFrameToBackend(blob, endpoint) {
+                const formData = this.createFormData(blob, this.sessionId);
+                
+                const response = await fetch(`${BASE_URL}/${endpoint}`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
+                
+                const result = await response.json();
+                console.log('API Response:', result); // Debug log
+                return result;
             }
 
-            async displayProcessedFrame(result) {
-                const img = new Image();
-                img.onload = () => {
-                    this.processedCtx.clearRect(0, 0, this.processedCanvas.width, this.processedCanvas.height);
-                    this.processedCtx.drawImage(img, 0, 0, this.processedCanvas.width, this.processedCanvas.height);
-                };
-                img.src = result.annotated_image;
+            createFormData(blob, sessionId) {
+                const formData = new FormData();
+                formData.append('file', blob, 'frame.jpg');
+                formData.append('session_id', sessionId);
+                return formData;
             }
 
-            displayDetectionResults(detections) {
+            updateLatencyStats(latency) {
+                this.latencyHistory.push(latency);
+                if (this.latencyHistory.length > 10) {
+                    this.latencyHistory.shift();
+                }
+                
+                document.getElementById('currentLatency').textContent = `${latency}ms`;
+                document.getElementById('processingTime').textContent = latency;
+                
+                // Update trend indicators
+                this.updateTrendIndicator('latencyTrend', latency, this.latencyHistory);
+            }
+
+            updateTrendIndicator(elementId, current, history) {
+                if (history.length < 2) return;
+                
+                const previous = history[history.length - 2];
+                const trend = current < previous ? 'up' : 'down';
+                const element = document.getElementById(elementId);
+                element.className = `trend ${trend}`;
+                element.textContent = current < previous ? '↓' : '↑';
+            }
+
+            displayResults(result) {
+                if (!result.detections) return;
+                
                 const resultsContainer = document.getElementById('detectionResults');
                 
-                if (detections.length === 0) {
-                    resultsContainer.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">No objects detected in current frame</p>';
+                if (result.detections.length === 0) {
+                    resultsContainer.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">No objects detected</p>';
                     return;
                 }
                 
                 let html = '';
-                detections.forEach((detection, index) => {
+                result.detections.forEach((detection, index) => {
                     html += `
                         <div class="detection-item">
                             <h4>Detection ${index + 1}</h4>
@@ -483,6 +1267,49 @@
                 });
                 
                 resultsContainer.innerHTML = html;
+                
+                // Analyze trajectory for detected objects (every 5th frame to reduce load)
+                if (this.currentFrameIndex % 5 === 0) {
+                    console.log('Calling trajectory analysis with detections:', result.detections);
+                    this.analyzeTrajectory(result.detections);
+                }
+            }
+
+            displayProcessedFrame(imageDataUri) {
+                console.log('Displaying image:', imageDataUri ? 'Image data received' : 'No image data');
+                
+                if (!imageDataUri) {
+                    console.log('No image data to display');
+                    return;
+                }
+                
+                const img = new Image();
+                img.onload = () => {
+                    console.log('Image loaded successfully');
+                    // Clear the entire canvas before drawing new image
+                    this.processedCtx.clearRect(0, 0, this.processedCanvas.width, this.processedCanvas.height);
+                    this.processedCtx.drawImage(img, 0, 0, this.processedCanvas.width, this.processedCanvas.height);
+                };
+                img.onerror = (e) => {
+                    console.error('Error loading image:', e);
+                };
+                img.src = imageDataUri;
+            }
+
+            async clearBackendSession() {
+                try {
+                    // Clear the previous session data from backend
+                    const response = await fetch(`${BASE_URL}/clear_session_data`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `session_id=${this.sessionId}`
+                    });
+                    console.log('Backend session cleared for new video');
+                } catch (error) {
+                    console.log('Backend session clear failed (this is normal for new sessions):', error.message);
+                }
             }
 
             togglePause() {
@@ -490,22 +1317,32 @@
                 const pauseBtn = document.getElementById('pauseBtn');
                 
                 if (this.isPaused) {
-                    pauseBtn.textContent = '▶️ Resume';
+                    pauseBtn.textContent = 'Resume';
                     this.showStatus('Processing paused', 'info');
                 } else {
-                    pauseBtn.textContent = '⏸️ Pause';
+                    pauseBtn.textContent = 'Pause';
                     this.showStatus('Resuming processing...', 'info');
-                    this.processFrames();
+                    if (this.currentEndpoint === 'detect_stream') {
+                        this.processFramesStreaming();
+                    } else {
+                        this.processFrames();
+                    }
                 }
             }
 
             stopProcessing() {
                 this.isProcessing = false;
                 this.isPaused = false;
+                if (this.cameraStream) {
+                    this.cameraStream.getTracks().forEach(t => t.stop());
+                    this.cameraStream = null;
+                    this.video.srcObject = null;
+                }
                 
                 document.getElementById('startBtn').disabled = false;
                 document.getElementById('pauseBtn').disabled = true;
                 document.getElementById('stopBtn').disabled = true;
+                document.getElementById('streamBtn').disabled = false;
                 document.getElementById('pauseBtn').textContent = '⏸️ Pause';
                 
                 this.showStatus('Processing stopped', 'info');
@@ -520,10 +1357,10 @@
                 document.getElementById('currentFrame').textContent = this.currentFrameIndex;
             }
 
-            updateFPS() {
+            updateStats() {
                 const elapsed = (Date.now() - this.startTime) / 1000;
                 const fps = this.frameCount / elapsed;
-                document.getElementById('fpsDisplay').textContent = fps.toFixed(1);
+                document.getElementById('processingFPS').textContent = fps.toFixed(1);
             }
 
             showStatus(message, type) {
@@ -541,14 +1378,402 @@
 
             canvasToBlob(canvas) {
                 return new Promise(resolve => {
-                    canvas.toBlob(resolve, 'image/png', 0.9);
+                    canvas.toBlob(resolve, 'image/jpeg', 0.6); // Lower quality for speed
                 });
+            }
+
+            // ===== TRAJECTORY ANALYSIS METHODS =====
+
+            async analyzeTrajectory(detections) {
+                try {
+                    console.log('Starting trajectory analysis...');
+                    console.log('Session ID:', this.sessionId);
+                    console.log('Frame index:', this.currentFrameIndex);
+                    console.log('Detections:', detections);
+                    
+                    // Update status
+                    this.updateTrajectoryStatus('Analyzing...');
+                    
+                    const response = await fetch(`${BASE_URL}/analyze_trajectory`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            detections: detections,
+                            frame_index: this.currentFrameIndex,
+                            timestamp: Date.now() / 1000,
+                            session_id: this.sessionId
+                        })
+                    });
+
+                    console.log('Trajectory analysis response status:', response.status);
+                    const result = await response.json();
+                    console.log('Trajectory analysis result:', result);
+                    
+                    if (result.success) {
+                        this.updateTrajectoryDisplay(result);
+                        this.updateTrajectoryStats(result);
+                        this.updateTrajectoryStatus('Active');
+                    } else {
+                        console.error('Trajectory analysis failed:', result.error);
+                        this.updateTrajectoryStatus('Error: ' + result.error);
+                    }
+                } catch (error) {
+                    console.error('Trajectory analysis error:', error);
+                    this.updateTrajectoryStatus('Error: ' + error.message);
+                }
+            }
+
+            updateTrajectoryDisplay(result) {
+                console.log('Updating trajectory display with result:', result);
+                const trajectoryContainer = document.getElementById('trajectoryAnalysis');
+                
+                if (result.arc_classifications && result.arc_classifications.length > 0) {
+                    console.log('Found arc classifications:', result.arc_classifications);
+                    const latestClassification = result.arc_classifications[result.arc_classifications.length - 1];
+                    console.log('Latest classification:', latestClassification);
+                    
+                    const arcTypeElement = trajectoryContainer.querySelector('.arc-type');
+                    const confidenceFill = trajectoryContainer.querySelector('.confidence-fill');
+                    const reasoningElement = trajectoryContainer.querySelector('div[style*="font-size: 0.9rem"]');
+                    
+                    if (arcTypeElement) {
+                        arcTypeElement.textContent = this.formatArcType(latestClassification.arc_type);
+                        console.log('Updated arc type to:', this.formatArcType(latestClassification.arc_type));
+                    }
+                    
+                    if (confidenceFill) {
+                        const confidencePercent = Math.round(latestClassification.confidence * 100);
+                        confidenceFill.style.width = `${confidencePercent}%`;
+                        console.log('Updated confidence to:', confidencePercent + '%');
+                    }
+                    
+                    if (reasoningElement) {
+                        reasoningElement.textContent = latestClassification.reasoning;
+                        console.log('Updated reasoning to:', latestClassification.reasoning);
+                    }
+                } else {
+                    console.log('No arc classifications found in result');
+                    // Update display to show that we're building trajectories
+                    const arcTypeElement = trajectoryContainer.querySelector('.arc-type');
+                    const reasoningElement = trajectoryContainer.querySelector('div[style*="font-size: 0.9rem"]');
+                    const confidenceFill = trajectoryContainer.querySelector('.confidence-fill');
+                    
+                    if (arcTypeElement) {
+                        arcTypeElement.textContent = 'Building trajectory...';
+                    }
+                    if (reasoningElement) {
+                        reasoningElement.textContent = `Frame ${this.currentFrameIndex} - Collecting trajectory points (need 5+ points for classification)`;
+                    }
+                    if (confidenceFill) {
+                        confidenceFill.style.width = '0%';
+                    }
+                }
+            }
+
+            updateTrajectoryStats(result) {
+                console.log('Updating trajectory stats with result:', result);
+                if (result.analysis_result) {
+                    console.log('Analysis result:', result.analysis_result);
+                    document.getElementById('activeTrajectories').textContent = result.analysis_result.active_trajectories || 0;
+                    document.getElementById('trajectoryCount').textContent = result.analysis_result.completed_trajectories || 0;
+                    console.log('Updated stats - Active:', result.analysis_result.active_trajectories, 'Completed:', result.analysis_result.completed_trajectories);
+                }
+                
+                if (result.center_line) {
+                    console.log('Center line updated:', result.center_line);
+                    this.trajectoryData.centerLine = result.center_line;
+                    this.updateCenterLineStatus();
+                }
+            }
+
+            formatArcType(arcType) {
+                const arcTypeMap = {
+                    'straight': 'Straight Arc',
+                    'slight_arc': 'Slight Arc',
+                    'strong_arc': 'Strong Arc',
+                    'slight_to_straight_arc': 'Slight → Straight Arc',
+                    'straight_to_slight_arc': 'Straight → Slight Arc',
+                    'strong_arc_to_straight_arc': 'Strong → Straight Arc',
+                    'straight_arc_to_strong_arc': 'Straight → Strong Arc'
+                };
+                return arcTypeMap[arcType] || arcType;
+            }
+
+            async setAutoCenterLine() {
+                try {
+                    const response = await fetch(`${BASE_URL}/get_trajectory_summary/` + this.sessionId);
+                    const result = await response.json();
+                    
+                    if (result.success && result.summary.center_line) {
+                        this.trajectoryData.centerLine = result.summary.center_line;
+                        this.updateCenterLineStatus();
+                        this.showStatus('Center line calculated automatically', 'success');
+                    } else {
+                        this.showStatus('No trajectory data available for center line calculation', 'warning');
+                    }
+                } catch (error) {
+                    console.error('Auto center line error:', error);
+                    this.showStatus('Error calculating center line', 'error');
+                }
+            }
+
+            setManualCenterLine() {
+                this.isManualCenterLineMode = true;
+                this.showStatus('Click and drag on the video to set center line', 'info');
+                
+                // Add click event listeners for manual center line setting
+                this.frameCanvas.addEventListener('mousedown', this.handleCenterLineStart.bind(this));
+                this.frameCanvas.addEventListener('mousemove', this.handleCenterLineMove.bind(this));
+                this.frameCanvas.addEventListener('mouseup', this.handleCenterLineEnd.bind(this));
+            }
+
+            handleCenterLineStart(e) {
+                if (!this.isManualCenterLineMode) return;
+                
+                const rect = this.frameCanvas.getBoundingClientRect();
+                this.centerLinePoints = [{
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top
+                }];
+            }
+
+            handleCenterLineMove(e) {
+                if (!this.isManualCenterLineMode || this.centerLinePoints.length === 0) return;
+                
+                const rect = this.frameCanvas.getBoundingClientRect();
+                this.centerLinePoints[1] = {
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top
+                };
+                
+                this.drawTemporaryCenterLine();
+            }
+
+            handleCenterLineEnd(e) {
+                if (!this.isManualCenterLineMode || this.centerLinePoints.length < 2) return;
+                
+                this.saveManualCenterLine();
+                this.isManualCenterLineMode = false;
+                
+                // Remove event listeners
+                this.frameCanvas.removeEventListener('mousedown', this.handleCenterLineStart);
+                this.frameCanvas.removeEventListener('mousemove', this.handleCenterLineMove);
+                this.frameCanvas.removeEventListener('mouseup', this.handleCenterLineEnd);
+            }
+
+            async saveManualCenterLine() {
+                try {
+                    const response = await fetch(`${BASE_URL}/set_center_line`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            start_x: this.centerLinePoints[0].x,
+                            start_y: this.centerLinePoints[0].y,
+                            end_x: this.centerLinePoints[1].x,
+                            end_y: this.centerLinePoints[1].y,
+                            session_id: this.sessionId
+                        })
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        this.trajectoryData.centerLine = result.center_line;
+                        this.updateCenterLineStatus();
+                        this.showStatus('Center line set manually', 'success');
+                    }
+                } catch (error) {
+                    console.error('Manual center line error:', error);
+                    this.showStatus('Error setting center line', 'error');
+                }
+            }
+
+            clearCenterLine() {
+                this.trajectoryData.centerLine = null;
+                this.updateCenterLineStatus();
+                this.showStatus('Center line cleared', 'info');
+            }
+
+            updateCenterLineStatus() {
+                const statusElement = document.getElementById('centerLineStatus');
+                if (this.trajectoryData.centerLine) {
+                    statusElement.innerHTML = `Center line set: (${this.trajectoryData.centerLine.start_x.toFixed(1)}, ${this.trajectoryData.centerLine.start_y.toFixed(1)}) → (${this.trajectoryData.centerLine.end_x.toFixed(1)}, ${this.trajectoryData.centerLine.end_y.toFixed(1)})`;
+                    statusElement.style.color = '#28a745';
+                } else {
+                    statusElement.textContent = 'No center line set';
+                    statusElement.style.color = '#666';
+                }
+            }
+
+            async getTrajectorySummary() {
+                try {
+                    const response = await fetch(`${BASE_URL}/get_trajectory_summary/` + this.sessionId);
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        this.displayTrajectorySummary(result);
+                    } else {
+                        this.showStatus('No trajectory data available', 'warning');
+                    }
+                } catch (error) {
+                    console.error('Trajectory summary error:', error);
+                    this.showStatus('Error getting trajectory summary', 'error');
+                }
+            }
+
+            displayTrajectorySummary(summary) {
+                const summaryText = `
+                    Total Trajectories: ${summary.summary.total_trajectories}
+                    Total Distance: ${summary.summary.total_distance.toFixed(2)}m
+                    Average Speed: ${summary.summary.average_speed.toFixed(2)} m/s
+                `;
+                
+                alert('Trajectory Summary:\n' + summaryText);
+            }
+
+            async exportTrajectoryData() {
+                try {
+                    const response = await fetch(`${BASE_URL}/get_trajectory_summary/` + this.sessionId);
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        const dataStr = JSON.stringify(result, null, 2);
+                        const dataBlob = new Blob([dataStr], {type: 'application/json'});
+                        const url = URL.createObjectURL(dataBlob);
+                        
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.download = `trajectory_data_${this.sessionId}.json`;
+                        link.click();
+                        
+                        URL.revokeObjectURL(url);
+                        this.showStatus('Trajectory data exported', 'success');
+                    }
+                } catch (error) {
+                    console.error('Export error:', error);
+                    this.showStatus('Error exporting data', 'error');
+                }
+            }
+
+            async clearSession() {
+                try {
+                    const response = await fetch(`${BASE_URL}/clear_trajectory_session/` + this.sessionId, {
+                        method: 'DELETE'
+                    });
+                    
+                    const result = await response.json();
+                    if (result.success) {
+                        this.trajectoryData = {
+                            activeTrajectories: 0,
+                            completedTrajectories: 0,
+                            centerLine: null,
+                            arcClassifications: []
+                        };
+                        this.updateTrajectoryDisplay({ arc_classifications: [] });
+                        this.updateTrajectoryStats({ analysis_result: { active_trajectories: 0, completed_trajectories: 0 } });
+                        this.updateCenterLineStatus();
+                        this.showStatus('Session cleared', 'success');
+                    }
+                } catch (error) {
+                    console.error('Clear session error:', error);
+                    this.showStatus('Error clearing session', 'error');
+                }
+            }
+
+            drawTemporaryCenterLine() {
+                // This would draw a temporary center line on the canvas
+                // Implementation depends on your specific needs
+            }
+
+            updateSessionDisplay() {
+                const sessionElement = document.getElementById('currentSessionId');
+                if (sessionElement) {
+                    sessionElement.textContent = this.sessionId;
+                }
+            }
+
+            updateTrajectoryStatus(status) {
+                const statusElement = document.getElementById('trajectoryStatus');
+                if (statusElement) {
+                    statusElement.textContent = 'Status: ' + status;
+                }
+            }
+
+            async forceCompleteTrajectories() {
+                try {
+                    console.log('Force completing trajectories...');
+                    const response = await fetch(`${BASE_URL}/analyze_trajectory`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            detections: [], // Empty detections to trigger completion
+                            frame_index: this.currentFrameIndex,
+                            timestamp: Date.now() / 1000,
+                            session_id: this.sessionId
+                        })
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        this.updateTrajectoryDisplay(result);
+                        this.updateTrajectoryStats(result);
+                        this.updateTrajectoryStatus('Completed');
+                        console.log('Trajectories force completed');
+                    }
+                } catch (error) {
+                    console.error('Force complete trajectories error:', error);
+                }
+            }
+
+        }
+
+        // Global functions for button handlers
+        let videoProcessor;
+
+        function setAutoCenterLine() {
+            if (videoProcessor) {
+                videoProcessor.setAutoCenterLine();
             }
         }
 
-        // Initialize the video processor when the page loads
+        function setManualCenterLine() {
+            if (videoProcessor) {
+                videoProcessor.setManualCenterLine();
+            }
+        }
+
+        function clearCenterLine() {
+            if (videoProcessor) {
+                videoProcessor.clearCenterLine();
+            }
+        }
+
+        function getTrajectorySummary() {
+            if (videoProcessor) {
+                videoProcessor.getTrajectorySummary();
+            }
+        }
+
+        function exportTrajectoryData() {
+            if (videoProcessor) {
+                videoProcessor.exportTrajectoryData();
+            }
+        }
+
+        function clearSession() {
+            if (videoProcessor) {
+                videoProcessor.clearSession();
+            }
+        }
+
+        // Initialize the ultra-fast video processor when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-            new VideoProcessor();
+            videoProcessor = new UltraFastVideoProcessor();
         });
     </script>
 </body>

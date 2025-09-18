@@ -34,6 +34,25 @@ executor = ThreadPoolExecutor(max_workers=8)
 model = None
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
+# Low-level performance knobs (accuracy-neutral)
+try:
+    # Enable cuDNN autotuner and TF32 where beneficial
+    if torch.backends.cudnn.is_available():
+        torch.backends.cudnn.benchmark = True
+        torch.backends.cudnn.allow_tf32 = True
+    if hasattr(torch.backends, 'cuda'):
+        torch.backends.cuda.matmul.allow_tf32 = True
+    # Avoid CPU thread oversubscription
+    torch.set_num_threads(max(1, torch.get_num_threads()))
+except Exception:
+    pass
+
+try:
+    # Limit OpenCV threading to avoid contention with Torch threads
+    cv2.setNumThreads(1)
+except Exception:
+    pass
+
 # Performance settings
 TARGET_SIZE = 640  # YOLO optimal size
 JPEG_QUALITY = 60  # Aggressive compression for speed
@@ -77,6 +96,16 @@ def load_model():
         _ = model(dummy_img, conf=0.3, verbose=False)
     
     print(f"Model loaded on {device} with optimizations enabled")
+    
+    # Start periodic cleanup task
+    import asyncio
+    asyncio.create_task(periodic_cleanup())
+
+async def periodic_cleanup():
+    """Periodic cleanup task to remove old sessions"""
+    while True:
+        await asyncio.sleep(300)  # Run every 5 minutes
+        cleanup_old_sessions()
 
 class TrajectoryReq(BaseModel):
     points: List[List[float]]
@@ -173,7 +202,7 @@ class ArcClassification:
 class TrajectoryAnalyzer:
     """Main trajectory analysis engine"""
     
-    def __init__(self, max_distance_threshold: float = 50.0, min_trajectory_length: int = 5):
+    def __init__(self, max_distance_threshold: float = 120.0, min_trajectory_length: int = 3):
         self.max_distance_threshold = max_distance_threshold
         self.min_trajectory_length = min_trajectory_length
         self.active_trajectories: Dict[str, Trajectory] = {}
@@ -187,14 +216,19 @@ class TrajectoryAnalyzer:
 
     def process_detections(self, detections: List[Dict], frame_index: int, timestamp: float, frame: np.ndarray = None) -> Dict:
         """Process new detections and update trajectories"""
+        print(f"Processing detections for frame {frame_index}: {len(detections)} detections")
+        
         # Convert detections to our format
         new_detections = self._convert_detections(detections, frame_index, timestamp)
+        print(f"Converted to {len(new_detections)} detection objects")
         
         # Associate with existing trajectories
         associated_trajectories = self._associate_detections(new_detections)
+        print(f"Associated with {sum(len(dets) for dets in associated_trajectories.values())} existing trajectories")
         
         # Create new trajectories for unassociated detections
         new_trajectories = self._create_new_trajectories(new_detections, associated_trajectories, frame)
+        print(f"Created {len(new_trajectories)} new trajectories")
         
         # Update trajectory statistics
         self._update_trajectory_stats()
@@ -204,6 +238,8 @@ class TrajectoryAnalyzer:
         
         # Calculate/update center line
         self.calculate_center_line()
+        
+        print(f"Current state: {len(self.active_trajectories)} active, {len(self.completed_trajectories)} completed")
         
         return {
             'active_trajectories': len(self.active_trajectories),
@@ -391,13 +427,38 @@ class TrajectoryAnalyzer:
         for traj_id, trajectory in self.active_trajectories.items():
             if trajectory.points and len(trajectory.points) >= self.min_trajectory_length:
                 last_update = trajectory.points[-1].timestamp
-                if current_time - last_update > 2.0:  # 2 seconds timeout
+                # For video processing, use a shorter timeout (0.5 seconds)
+                # Also complete trajectories that have enough points and haven't been updated recently
+                if current_time - last_update > 0.5:  # 0.5 seconds timeout for video processing
                     trajectory.is_active = False
                     self.completed_trajectories.append(trajectory)
                     completed_ids.append(traj_id)
+                    print(f"Completed trajectory {traj_id} with {len(trajectory.points)} points")
         
         for traj_id in completed_ids:
             del self.active_trajectories[traj_id]
+
+    def force_complete_long_trajectories(self, min_points: int = 10):
+        """Force complete trajectories that have enough points for analysis"""
+        completed_ids = []
+        
+        print(f"Force completing trajectories with min_points={min_points}")
+        print(f"Active trajectories before: {len(self.active_trajectories)}")
+        
+        for traj_id, trajectory in self.active_trajectories.items():
+            if trajectory.points and len(trajectory.points) >= min_points:
+                trajectory.is_active = False
+                self.completed_trajectories.append(trajectory)
+                completed_ids.append(traj_id)
+                print(f"Force completed trajectory {traj_id} with {len(trajectory.points)} points")
+            else:
+                print(f"Trajectory {traj_id} has {len(trajectory.points) if trajectory.points else 0} points (need {min_points})")
+        
+        for traj_id in completed_ids:
+            del self.active_trajectories[traj_id]
+        
+        print(f"Active trajectories after: {len(self.active_trajectories)}")
+        print(f"Completed trajectories: {len(self.completed_trajectories)}")
 
     def calculate_center_line(self):
         """Calculate optimal center line using PCA"""
@@ -766,6 +827,32 @@ def get_session_analyzer(session_id: str) -> TrajectoryAnalyzer:
         session_analyzers[session_id] = TrajectoryAnalyzer()
     return session_analyzers[session_id]
 
+def clear_session_data(session_id: str):
+    """Clear all data for a specific session"""
+    if session_id in session_analyzers:
+        del session_analyzers[session_id]
+    if session_id in session_trajectories:
+        del session_trajectories[session_id]
+    print(f"Cleared all data for session: {session_id}")
+
+def cleanup_old_sessions():
+    """Clean up old sessions to prevent memory buildup"""
+    current_time = time.time()
+    sessions_to_remove = []
+    
+    # Remove sessions older than 1 hour
+    for session_id in list(session_analyzers.keys()):
+        # Simple heuristic: if session has no recent activity, remove it
+        analyzer = session_analyzers[session_id]
+        if not analyzer.active_trajectories and not analyzer.completed_trajectories:
+            sessions_to_remove.append(session_id)
+    
+    for session_id in sessions_to_remove:
+        clear_session_data(session_id)
+    
+    if sessions_to_remove:
+        print(f"Cleaned up {len(sessions_to_remove)} old sessions")
+
 # Pydantic models for new endpoints
 class TrajectoryAnalysisReq(BaseModel):
     detections: List[Dict]
@@ -810,12 +897,14 @@ def preprocess_image_fast(file_bytes):
     return frame
 
 def get_image_hash(frame):
-    """Generate hash for caching"""
+    """Generate hash for caching from ndarray bytes"""
     return hashlib.md5(frame.tobytes()).hexdigest()
 
-def perform_inference(frame):
-    """Ultra-optimized inference with aggressive caching"""
-    frame_hash = get_image_hash(frame)
+def perform_inference(frame, frame_hash: str = None):
+    """Ultra-optimized inference with aggressive caching.
+    Accepts optional precomputed hash to avoid ndarray.tobytes() cost.
+    """
+    frame_hash = frame_hash or get_image_hash(frame)
     
     # Check cache first (most common case)
     if frame_hash in frame_cache:
@@ -882,10 +971,10 @@ def perform_inference_batch(frames):
     
     return all_detections
 
-def draw_boxes(frame, detections, center_line=None, trajectory_points=None, trajectory_images=None):
+def draw_boxes(frame, detections, center_line=None, trajectory_points=None, trajectory_images=None, session_id=None):
     """Ultra-optimized box drawing with center line and trajectory content"""
-    # Draw center line if provided
-    if center_line:
+    # Only draw center line if it belongs to the current session
+    if center_line and session_id:
         start_point = (int(center_line.start_x), int(center_line.start_y))
         end_point = (int(center_line.end_x), int(center_line.end_y))
         cv2.line(frame, start_point, end_point, (255, 0, 0), 2)  # Blue line for center line
@@ -894,8 +983,8 @@ def draw_boxes(frame, detections, center_line=None, trajectory_points=None, traj
         cv2.circle(frame, start_point, 5, (255, 0, 0), -1)  # Blue circle for start
         cv2.circle(frame, end_point, 5, (255, 0, 0), -1)    # Blue circle for end
     
-    # Draw trajectory content if provided
-    if trajectory_points and trajectory_images:
+    # Only draw trajectory content if it belongs to the current session
+    if trajectory_points and trajectory_images and session_id:
         for i, (point, img) in enumerate(zip(trajectory_points, trajectory_images)):
             if img is not None and i % 3 == 0:  # Show every third frame only
                 # Use original bounding box size
@@ -960,8 +1049,9 @@ async def detect(file: UploadFile = File(...), session_id: Optional[str] = Form(
     performance_stats['total_requests'] += 1
     
     content = await file.read()
+    content_hash = hashlib.md5(content).hexdigest()
     frame = await run_in_threadpool(preprocess_image_fast, content)
-    detections = await run_in_threadpool(perform_inference, frame)
+    detections = await run_in_threadpool(perform_inference, frame, content_hash)
     
     # Process trajectory analysis with frame data
     session_analyzer = get_session_analyzer(session_id or 'default')
@@ -1000,7 +1090,7 @@ async def detect(file: UploadFile = File(...), session_id: Optional[str] = Form(
             for point in trajectory.points:
                 trajectory_images.append(point.cropped_image)
         
-        annotated_frame = draw_boxes(frame.copy(), detections, center_line, trajectory_points, trajectory_images)
+        annotated_frame = draw_boxes(frame.copy(), detections, center_line, trajectory_points, trajectory_images, session_id)
         img_base64 = encode_image_fast(annotated_frame)
         data_uri = f"data:image/jpeg;base64,{img_base64}"
         
@@ -1022,8 +1112,9 @@ async def detect_fast(file: UploadFile = File(...), session_id: Optional[str] = 
     performance_stats['total_requests'] += 1
     
     content = await file.read()
+    content_hash = hashlib.md5(content).hexdigest()
     frame = await run_in_threadpool(preprocess_image_fast, content)
-    detections = await run_in_threadpool(perform_inference, frame)
+    detections = await run_in_threadpool(perform_inference, frame, content_hash)
     
     processing_time = time.time() - start_time
     update_performance_stats(processing_time)
@@ -1060,7 +1151,7 @@ async def detect_stream(file: UploadFile = File(...), session_id: Optional[str] 
             for point in trajectory.points:
                 trajectory_images.append(point.cropped_image)
         
-        annotated_frame = draw_boxes(frame.copy(), detections, center_line, trajectory_points, trajectory_images)
+        annotated_frame = draw_boxes(frame.copy(), detections, center_line, trajectory_points, trajectory_images, session_id)
         img_data = encode_image_streaming(annotated_frame)
         if img_data:
             img_base64 = base64.b64encode(img_data).decode()
@@ -1080,7 +1171,7 @@ async def process_image_async(frame, detections, session_id):
             for point in trajectory.points:
                 trajectory_images.append(point.cropped_image)
         
-        annotated_frame = draw_boxes(frame.copy(), detections, center_line, trajectory_points, trajectory_images)
+        annotated_frame = draw_boxes(frame.copy(), detections, center_line, trajectory_points, trajectory_images, session_id)
         img_base64 = encode_image_fast(annotated_frame)
         
         # Store result in cache for retrieval
@@ -1118,26 +1209,21 @@ def process_batch_frames(frames_data):
         frame = preprocess_image(frame_bytes)
         frames.append(frame)
     
-    # Stack frames for batch processing
     if frames:
-        batch_frames = np.stack(frames)
+        # True batched inference in a single forward
+        batched_detections = perform_inference_batch(frames)
+        session_analyzer = get_session_analyzer('default')
+        center_line = session_analyzer.center_line
+        trajectory_points = []
+        for trajectory in session_analyzer.active_trajectories.values():
+            trajectory_points.extend(trajectory.points)
         
-        # Process batch (if YOLO supports it) or process individually
-        for i, frame in enumerate(frames):
-            detections = perform_inference(frame)
-            session_analyzer = get_session_analyzer('default')  # Use default for batch processing
-            center_line = session_analyzer.center_line
-            trajectory_points = []
-            for trajectory in session_analyzer.active_trajectories.values():
-                trajectory_points.extend(trajectory.points)
-            
-            annotated_frame = draw_boxes(frame.copy(), detections, center_line, trajectory_points)
-            
+        for i, (frame, detections) in enumerate(zip(frames, batched_detections)):
+            annotated_frame = draw_boxes(frame.copy(), detections, center_line, trajectory_points, None, 'default')
             # Encode as JPEG
             _, buffer = cv2.imencode('.jpg', annotated_frame, [cv2.IMWRITE_JPEG_QUALITY, JPEG_QUALITY])
             img_base64 = base64.b64encode(buffer).decode()
             data_uri = f"data:image/jpeg;base64,{img_base64}"
-            
             results.append({
                 "frame_index": i,
                 "detections": detections,
@@ -1177,7 +1263,26 @@ async def get_performance_stats():
         "min_latency_ms": round(performance_stats['min_latency'], 2),
         "max_latency_ms": round(performance_stats['max_latency'], 2),
         "cache_size": len(frame_cache),
-        "max_cache_size": CACHE_SIZE
+        "max_cache_size": CACHE_SIZE,
+        "active_sessions": len(session_analyzers),
+        "session_ids": list(session_analyzers.keys())
+    }
+
+@app.get("/debug_sessions")
+async def debug_sessions():
+    """Debug endpoint to see active sessions and their data"""
+    return {
+        "active_sessions": len(session_analyzers),
+        "session_analyzers": list(session_analyzers.keys()),
+        "session_trajectories": list(session_trajectories.keys()),
+        "session_details": {
+            session_id: {
+                "active_trajectories": len(analyzer.active_trajectories),
+                "completed_trajectories": len(analyzer.completed_trajectories),
+                "has_center_line": analyzer.center_line is not None
+            }
+            for session_id, analyzer in session_analyzers.items()
+        }
     }
 
 @app.get("/optimize")
@@ -1213,6 +1318,9 @@ async def analyze_trajectory(req: TrajectoryAnalysisReq):
         analysis_result = session_analyzer.process_detections(
             req.detections, req.frame_index, req.timestamp
         )
+        
+        # Force complete trajectories that have enough points for analysis
+        session_analyzer.force_complete_long_trajectories(min_points=3)
         
         # Get session-specific trajectories
         if req.session_id not in session_trajectories:
@@ -1351,14 +1459,18 @@ async def get_trajectory_summary(session_id: str):
 async def clear_trajectory_session(session_id: str):
     """Clear all trajectory data for a session"""
     try:
-        if session_id in session_trajectories:
-            del session_trajectories[session_id]
-        
-        # Reset session-specific analyzer
-        if session_id in session_analyzers:
-            del session_analyzers[session_id]
-        
+        clear_session_data(session_id)
         return {"success": True, "message": f"Session {session_id} cleared"}
+    
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+@app.post("/clear_session_data")
+async def clear_session_data_endpoint(session_id: str = Form(...)):
+    """Clear all session data - called when new video is uploaded"""
+    try:
+        clear_session_data(session_id)
+        return {"success": True, "message": f"Session {session_id} data cleared"}
     
     except Exception as e:
         return {"success": False, "error": str(e)}
