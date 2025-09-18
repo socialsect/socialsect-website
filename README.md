@@ -4,13 +4,13 @@ A modern, responsive website for Socialsect digital marketing agency built with 
 
 ## Features
 
-- 🚀 Modern React 18 with Vite
-- 📱 Fully responsive design
-- 🎨 Beautiful UI with custom CSS
-- 📧 Contact form with email integration
-- 🔍 SEO optimized
-- 📊 Analytics ready
-- 🚀 Vercel deployment ready
+-  Modern React 18 with Vite
+-  Fully responsive design
+-  Beautiful UI with custom CSS
+-  Contact form with email integration
+-  SEO optimized
+-  Analytics ready
+-  Vercel deployment ready
 
 ## Environment Variables
 
@@ -78,3 +78,4 @@ The project is configured for Vercel deployment with:
 ## License
 
 Private - Socialsect
+                                                            
