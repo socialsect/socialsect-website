@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Eye, EyeOff } from 'lucide-react'
 
 const STORAGE_KEY = 'staging_session_until'
 const HOURS_12_MS = 12 * 60 * 60 * 1000
@@ -8,6 +9,7 @@ export default function StagingGate({ children }) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
 
   useEffect(() => {
     try {
@@ -50,6 +52,7 @@ export default function StagingGate({ children }) {
     try { localStorage.removeItem(STORAGE_KEY) } catch (_) {}
     setAuthorized(false)
     setPassword('')
+    setShowPassword(false)
   }
 
   if (loading) return null
@@ -84,22 +87,45 @@ export default function StagingGate({ children }) {
         </p>
         <form onSubmit={handleSubmit} style={{ marginTop: 16 }}>
           <label htmlFor="staging-password" style={{ display: 'block', fontSize: 13, color: '#c9c9c9', marginBottom: 6 }}>Password</label>
-          <input
-            id="staging-password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter password"
-            style={{
-              width: '100%',
-              padding: '12px 14px',
-              borderRadius: 8,
-              border: '1px solid #2a2a2a',
-              background: '#0d0d0d',
-              color: '#eaeaea',
-              outline: 'none'
-            }}
-          />
+          <div style={{ position: 'relative' }}>
+            <input
+              id="staging-password"
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter password"
+              style={{
+                width: '100%',
+                padding: '12px 45px 12px 14px',
+                borderRadius: 8,
+                border: '1px solid #2a2a2a',
+                background: '#0d0d0d',
+                color: '#eaeaea',
+                outline: 'none'
+              }}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              style={{
+                position: 'absolute',
+                right: 12,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                background: 'none',
+                border: 'none',
+                color: '#c9c9c9',
+                cursor: 'pointer',
+                padding: 4,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+            >
+              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+            </button>
+          </div>
           {error ? (
             <div style={{ color: '#ff6b6b', fontSize: 13, marginTop: 8 }}>{error}</div>
           ) : null}
