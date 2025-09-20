@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ReactLenis from 'lenis/react';
-import { Github, Facebook, Linkedin, Instagram, Mail, Phone, CheckCircle, AlertCircle } from 'lucide-react';
+import { Github, Facebook, Linkedin, Instagram, Mail, Phone, CheckCircle, AlertCircle, X } from 'lucide-react';
 import { FaXTwitter } from "react-icons/fa6";
 import { Skiper49 } from '../../components/carousel/Carousel';
 import './lets-build.css'
