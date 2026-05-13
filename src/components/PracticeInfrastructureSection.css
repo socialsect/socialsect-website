@@ -1,0 +1,144 @@
+.practice-infra {
+  width: 100%;
+  background: var(--surface, #f9f9fb);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  padding: clamp(48px, 8vw, var(--lg, 64px)) var(--gutter, 24px);
+  border-bottom: 1px solid var(--gray, #e2e2e2);
+}
+
+.practice-infra__inner {
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+}
+
+.practice-infra__intro {
+  max-width: 48rem;
+  margin-bottom: clamp(40px, 6vw, 56px);
+}
+
+.practice-infra__eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark-gray, #474555);
+  margin: 0 0 var(--sm, 16px) 0;
+}
+
+.practice-infra__headline {
+  font-family: var(--font-display, 'Newsreader', serif);
+  font-size: clamp(28px, 3.8vw, 40px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--charcoal, #1a1c1d);
+  margin: 0 0 var(--md, 32px) 0;
+}
+
+.practice-infra__subcopy {
+  margin: 0;
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--dark-gray, #474555);
+}
+
+.practice-infra__pillars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4vw, 40px);
+  align-items: start;
+}
+
+.practice-infra__pillar {
+  background: var(--white, #ffffff);
+  border: 1px solid var(--gray, #e2e2e2);
+  padding: clamp(20px, 3vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 100%;
+}
+
+.practice-infra__pillar-title {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--charcoal, #1a1c1d);
+  margin: 0;
+}
+
+.practice-infra__pillar-lead {
+  font-family: var(--font-display, 'Newsreader', serif);
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--primary, #695af2);
+  margin: 0;
+}
+
+.practice-infra__pillar-body {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--dark-gray, #474555);
+  flex: 1;
+}
+
+.practice-infra__pillar-meta {
+  margin: 8px 0 0 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--dark-gray, #474555);
+}
+
+.practice-infra__sep {
+  font-weight: 400;
+  color: var(--dark-gray, #474555);
+  opacity: 0.45;
+}
+
+.practice-infra__tag-link,
+.practice-infra__pillar-cta {
+  color: var(--charcoal, #1a1c1d);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.practice-infra__tag-link:hover,
+.practice-infra__pillar-cta:hover {
+  color: var(--primary, #695af2);
+}
+
+.practice-infra__pillar-cta {
+  font-weight: 600;
+  color: var(--primary, #695af2);
+}
+
+.practice-infra__pillar-cta:hover {
+  color: var(--primary-dark, #503dd8);
+}
+
+.practice-infra__closing {
+  margin: clamp(40px, 6vw, 56px) auto 0;
+  padding-top: clamp(28px, 4vw, 40px);
+  border-top: 1px solid var(--gray, #e2e2e2);
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--charcoal, #1a1c1d);
+  text-align: center;
+  max-width: 48rem;
+}
+
+@media (max-width: 900px) {
+  .practice-infra__pillars {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,52 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  z-index: 9999;
+}
+
+.logo {
+  position: relative;
+  z-index: 2;
+  width: 540px;
+  opacity: 0;
+  transform-origin: center;
+  transform: translateZ(0);
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+}
+
+.path {
+  filter: drop-shadow(0 0 0px #695AF2);
+}
+
+.loader__pixelField {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: clamp(3px, 0.55vw, 9px);
+  padding: clamp(3px, 0.55vw, 9px);
+  pointer-events: none;
+  transform-style: preserve-3d;
+  visibility: hidden;
+}
+
+.loader__pixel {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-shadow:
+    inset 0 0 0 1px rgba(248, 247, 244, 0.72),
+    0 0 0 1px rgba(15, 15, 13, 0.025);
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}

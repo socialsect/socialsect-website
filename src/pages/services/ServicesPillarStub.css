@@ -1,0 +1,37 @@
+.services-pillar-stub {
+  min-height: calc(100vh - var(--navbar-height, 61px) - 120px);
+  padding: var(--lg, 60px) var(--gutter, 24px);
+  font-family: var(--font-body);
+}
+
+.services-pillar-stub__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.services-pillar-stub__back {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.services-pillar-stub__back:hover {
+  text-decoration: underline;
+}
+
+.services-pillar-stub__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  margin: var(--md, 32px) 0 var(--sm, 16px);
+  color: var(--charcoal);
+}
+
+.services-pillar-stub__lede {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  margin: 0;
+}

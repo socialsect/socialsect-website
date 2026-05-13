@@ -1,0 +1,568 @@
+/* ========== Design System Variables ========== */
+:root {
+  /* Colors */
+  --primary: #695AF2;
+  --primary-dark: #503DD8;
+  --white: #FFFFFF;
+  --charcoal: #1A1C1D;
+  --light-gray: #F5F5F7;
+  --gray: #E2E2E2;
+  --dark-gray: #474555;
+  --surface: #F9F9FB;
+  
+  /* Typography */
+  --font-display: 'Newsreader', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Spacing (8px base unit) */
+  --xs: 4px;
+  --sm: 16px;
+  --md: 32px;
+  --lg: 60px;
+  --xl: 128px;
+  
+  /* Sizes */
+  --container-max: 1440px;
+  --gutter: 24px;
+  --margin-desktop: 80px;
+  --margin-mobile: 20px;
+
+  /* CTAs (.cta) */
+  --cta-radius: 4px;
+  --cta-pad-y: 12px;
+  --cta-pad-x: 22px;
+  --cta-font-size: 14px;
+  --cta-font-size-lg: 15px;
+  --cta-pad-y-lg: 14px;
+  --cta-pad-x-lg: 32px;
+}
+
+/* ========== Global Styles ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--white);
+  color: var(--charcoal);
+  line-height: 1.5;
+}
+
+/* ========== Container & Layout ========== */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ========== Typography ========== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 72px;
+  line-height: 80px;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--md);
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--lg);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 500;
+  margin-bottom: var(--md);
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: var(--sm);
+}
+
+/* ========== Buttons ========== */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: none;
+  border: 1px solid var(--charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--charcoal);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--charcoal);
+  border-color: var(--charcoal);
+}
+
+.btn-secondary:hover {
+  background-color: var(--light-gray);
+}
+
+/* ========== Global CTAs (use on <a> or <button>) ========== */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+  padding: var(--cta-pad-y) var(--cta-pad-x);
+  font-family: var(--font-body);
+  font-size: var(--cta-font-size);
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  text-align: center;
+  border-radius: var(--cta-radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+  width: fit-content;
+  box-sizing: border-box;
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.cta--lg {
+  padding: var(--cta-pad-y-lg) var(--cta-pad-x-lg);
+  font-size: var(--cta-font-size-lg);
+}
+
+/* Full-width CTA within a column (centered, capped width) */
+.cta--block {
+  width: 100%;
+  max-width: 22rem;
+  justify-content: center;
+}
+
+.cta--primary {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.cta--primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(105, 90, 242, 0.2);
+}
+
+.cta--secondary {
+  background-color: var(--white);
+  color: var(--charcoal);
+  border-color: var(--charcoal);
+}
+
+.cta--secondary:hover {
+  background-color: var(--light-gray);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Solid light CTA on dark backgrounds (e.g. testimonial panels) */
+.cta--inverse {
+  background-color: var(--white);
+  color: var(--charcoal);
+  border-color: var(--white);
+}
+
+.cta--inverse:hover {
+  background-color: var(--light-gray);
+  border-color: var(--light-gray);
+  color: var(--charcoal);
+}
+
+button.cta {
+  appearance: none;
+  margin: 0;
+  font: inherit;
+}
+
+/* ========== Navigation ========== */
+.navbar {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--md) var(--gutter);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--lg);
+  align-items: center;
+}
+
+.nav-links a:not(.btn) {
+  color: var(--charcoal);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:not(.btn):hover {
+  color: var(--primary);
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  padding: var(--margin-desktop) var(--gutter);
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray);
+}
+
+.hero-content {
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 72px;
+  line-height: 80px;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--md);
+  color: var(--charcoal);
+  font-weight: 400;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 28px;
+  max-width: 800px;
+  margin: 0 auto var(--lg);
+  color: var(--dark-gray);
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--lg);
+  margin-top: var(--lg);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--xs);
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--dark-gray);
+  text-transform: uppercase;
+}
+
+/* ========== Color Architecture Section ========== */
+.color-architecture {
+  padding: var(--margin-desktop) var(--gutter);
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--gray);
+}
+
+.color-architecture h2 {
+  text-align: center;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--lg);
+  margin-top: var(--lg);
+}
+
+.color-item {
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  padding: var(--md);
+}
+
+.color-swatch {
+  width: 100%;
+  height: 120px;
+  margin-bottom: var(--md);
+  border: 1px solid var(--gray);
+}
+
+.color-swatch.primary {
+  background-color: var(--primary);
+}
+
+.color-swatch.white {
+  background-color: var(--white);
+  border: 1px solid var(--charcoal);
+}
+
+.color-swatch.charcoal {
+  background-color: var(--charcoal);
+}
+
+.color-item h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: var(--xs);
+  font-family: var(--font-body);
+}
+
+.color-name {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--dark-gray);
+  margin-bottom: var(--md);
+}
+
+.color-description {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--dark-gray);
+}
+
+/* ========== Typography Section ========== */
+.typography {
+  padding: var(--margin-desktop) var(--gutter);
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray);
+}
+
+.typography h2 {
+  text-align: center;
+}
+
+.typography-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--lg);
+  margin-top: var(--lg);
+}
+
+.typography-item {
+  background-color: var(--surface);
+  border: 1px solid var(--gray);
+  padding: var(--md);
+}
+
+.type-display {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 80px;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+  margin-bottom: var(--md);
+}
+
+.type-headline {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 56px;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+  margin-bottom: var(--md);
+}
+
+.type-body {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--charcoal);
+  margin-bottom: var(--md);
+}
+
+.type-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin-bottom: var(--md);
+}
+
+.type-spec {
+  font-size: 12px;
+  color: var(--dark-gray);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--sm);
+}
+
+.type-description {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--dark-gray);
+}
+
+/* ========== Services Section ========== */
+.services {
+  padding: var(--margin-desktop) var(--gutter);
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--gray);
+}
+
+.services h2 {
+  text-align: center;
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--lg);
+  font-size: 18px;
+  color: var(--dark-gray);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--md);
+  margin-top: var(--lg);
+}
+
+.service-card {
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  padding: var(--md);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.service-number {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--md);
+}
+
+.service-card h3 {
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: var(--md);
+  color: var(--charcoal);
+}
+
+.service-card p {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--dark-gray);
+}
+
+/* Footer styles live in src/components/Footer.css */
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: var(--md);
+  }
+
+  .nav-links {
+    gap: var(--md);
+    flex-direction: column;
+  }
+
+  .hero {
+    padding: var(--margin-mobile) var(--gutter);
+  }
+
+  .color-architecture,
+  .typography,
+  .services {
+    padding: var(--margin-mobile) var(--gutter);
+  }
+
+  .type-display {
+    font-size: 48px;
+  }
+
+  .type-headline {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,41 @@
+/* ========== Cards ========== */
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  padding: var(--md);
+  transition: all 0.3s ease;
+}
+
+.card-default {
+  /* Base card styles */
+}
+
+.card-default:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-elevated {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-elevated:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-flat {
+  background-color: var(--surface);
+  border: none;
+}
+
+.card-dark {
+  background-color: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--sm);
+  }
+}

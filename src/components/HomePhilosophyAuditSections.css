@@ -1,0 +1,136 @@
+/* —— Philosophy: who we partner with —— */
+.home-philosophy {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(56px, 10vw, 100px) var(--gutter, 24px);
+  background: var(--charcoal, #1a1c1d);
+  color: var(--white, #fff);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-philosophy__bg {
+  position: absolute;
+  inset: -40% -20% auto -20%;
+  height: 85%;
+  background: radial-gradient(
+    ellipse 70% 55% at 50% 0%,
+    rgba(105, 90, 242, 0.35) 0%,
+    rgba(105, 90, 242, 0.08) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.home-philosophy__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.home-philosophy__headline {
+  margin: 0 0 clamp(1.25rem, 3vw, 1.75rem);
+  font-family: var(--font-display, 'Newsreader', serif);
+  font-size: clamp(1.65rem, 4.2vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: var(--white, #fff);
+}
+
+.home-philosophy__body {
+  margin: 0;
+  padding-left: clamp(0px, 2vw, 1rem);
+  border-left: 3px solid var(--primary, #695af2);
+  font-size: clamp(1rem, 1.9vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 48rem;
+}
+
+/* —— Audit CTA —— */
+.home-audit-cta {
+  padding: clamp(56px, 10vw, 96px) var(--gutter, 24px);
+  background: linear-gradient(
+    165deg,
+    var(--surface, #f9f9fb) 0%,
+    rgba(105, 90, 242, 0.06) 42%,
+    var(--surface, #f9f9fb) 100%
+  );
+  border-bottom: 1px solid var(--gray, #e2e2e2);
+}
+
+.home-audit-cta__panel {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3rem);
+  background: var(--white, #fff);
+  border-radius: 20px;
+  border: 1px solid rgba(26, 28, 29, 0.06);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 24px 48px -12px rgba(105, 90, 242, 0.12),
+    0 12px 24px -8px rgba(15, 23, 42, 0.08);
+}
+
+.home-audit-cta__headline {
+  margin: 0 0 clamp(1rem, 2.5vw, 1.25rem);
+  font-family: var(--font-display, 'Newsreader', serif);
+  font-size: clamp(1.5rem, 3.8vw, 2.125rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--charcoal, #1a1c1d);
+}
+
+.home-audit-cta__lede {
+  margin: 0 0 clamp(1.75rem, 4vw, 2.25rem);
+  font-size: clamp(1rem, 1.85vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--dark-gray, #474555);
+}
+
+.home-audit-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-bottom: clamp(1.25rem, 3vw, 1.5rem);
+}
+
+.home-audit-cta__cta-primary,
+.home-audit-cta__cta-secondary {
+  width: auto;
+  max-width: none;
+}
+
+.home-audit-cta__cta-primary {
+  flex: 1 1 min(16rem, 100%);
+  justify-content: center;
+}
+
+.home-audit-cta__cta-secondary {
+  flex: 1 1 min(12rem, 100%);
+  justify-content: center;
+}
+
+.home-audit-cta__note {
+  margin: 0;
+  padding-top: clamp(1rem, 2.5vw, 1.25rem);
+  border-top: 1px solid var(--gray, #e2e2e2);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--dark-gray, #474555);
+}
+
+@media (max-width: 520px) {
+  .home-audit-cta__actions {
+    flex-direction: column;
+  }
+
+  .home-audit-cta__cta-primary,
+  .home-audit-cta__cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
