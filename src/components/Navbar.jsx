@@ -269,7 +269,7 @@ export default function Navbar() {
                 Services
                 <ChevronDown size={16} strokeWidth={1} />
               </Link>
-              <div className="dropdown dropdown-mega dropdown-mega--services">
+              <div className="dropdown dropdown-mega dropdown-mega--services dropdown--compact">
                 <div className="dropdown-column">
                   <MegaColumnHead accent={1} label="Build" />
                   <ul className="dropdown-mega__list">
@@ -341,7 +341,7 @@ export default function Navbar() {
                 Insights
                 <ChevronDown size={16} strokeWidth={1} />
               </Link>
-              <div className="dropdown dropdown-mega">
+              <div className="dropdown dropdown-mega dropdown--compact">
                 <div className="dropdown-column">
                   <MegaColumnHead accent={2} label="Insights" />
                   <ul className="dropdown-mega__list">

@@ -377,7 +377,7 @@
   background: var(--light-gray);
 }
 
-.book-call-form__option:has(input:checked) {
+.book-call-form__option--checked {
   border-color: var(--primary);
   background: rgba(105, 90, 242, 0.06);
 }

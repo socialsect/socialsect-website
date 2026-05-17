@@ -97,6 +97,9 @@ export default function BookACallPage() {
   const [form, setForm] = useState(INITIAL_FORM)
   const [submitted, setSubmitted] = useState(false)
 
+  const getOptionClassName = (isChecked, extraClassName = '') =>
+    `book-call-form__option${isChecked ? ' book-call-form__option--checked' : ''}${extraClassName ? ` ${extraClassName}` : ''}`
+
   const updateField = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }))
   }
@@ -259,7 +262,10 @@ export default function BookACallPage() {
                     </p>
                     <div className="book-call-form__options book-call-form__options--grid">
                       {SPECIALTIES.map((option) => (
-                        <label key={option} className="book-call-form__option">
+                        <label
+                          key={option}
+                          className={getOptionClassName(form.specialty === option)}
+                        >
                           <input
                             type="radio"
                             name="specialty"
@@ -314,7 +320,10 @@ export default function BookACallPage() {
                     </legend>
                     <div className="book-call-form__options">
                       {LOCATIONS.map((option) => (
-                        <label key={option} className="book-call-form__option">
+                        <label
+                          key={option}
+                          className={getOptionClassName(form.locations === option)}
+                        >
                           <input
                             type="radio"
                             name="locations"
@@ -339,7 +348,10 @@ export default function BookACallPage() {
                     </p>
                     <div className="book-call-form__options">
                       {MARKETING_OPTIONS.map((option) => (
-                        <label key={option} className="book-call-form__option">
+                        <label
+                          key={option}
+                          className={getOptionClassName(form.marketing === option)}
+                        >
                           <input
                             type="radio"
                             name="marketing"
@@ -388,7 +400,13 @@ export default function BookACallPage() {
                     </p>
                     <div className="book-call-form__options">
                       {CONVERSATION_GOALS.map((option) => (
-                        <label key={option} className="book-call-form__option book-call-form__option--check">
+                        <label
+                          key={option}
+                          className={getOptionClassName(
+                            form.goals.includes(option),
+                            'book-call-form__option--check'
+                          )}
+                        >
                           <input
                             type="checkbox"
                             name="goals"
@@ -406,7 +424,10 @@ export default function BookACallPage() {
                     <legend className="book-call-form__label">How did you find Socialsect?</legend>
                     <div className="book-call-form__options book-call-form__options--grid">
                       {REFERRAL_SOURCES.map((option) => (
-                        <label key={option} className="book-call-form__option">
+                        <label
+                          key={option}
+                          className={getOptionClassName(form.referral === option)}
+                        >
                           <input
                             type="radio"
                             name="referral"

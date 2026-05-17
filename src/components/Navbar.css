@@ -341,14 +341,14 @@
 }
 
 /* Compact dropdown for single-column menus */
-.dropdown:has(.dropdown-column:only-child) {
+.dropdown--compact {
   padding: clamp(1rem, 2vw, 1.35rem);
   gap: 0;
   grid-template-columns: 1fr;
   min-width: min(280px, calc(100vw - 32px));
 }
 
-.dropdown:has(.dropdown-column:only-child) .dropdown-column ul {
+.dropdown--compact .dropdown-column ul {
   gap: 10px;
 }
 
