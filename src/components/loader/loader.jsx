@@ -8,7 +8,7 @@ const PIXELS = Array.from({ length: PIXEL_COLUMNS * PIXEL_ROWS }, (_, id) => id)
 
 export default function Loader({ onComplete }) {
 useEffect(() => {
-  const paths = document.querySelectorAll(".path");
+  const paths = document.querySelectorAll(".loader__logo .path");
   const pixels = gsap.utils.toArray(".loader__pixel");
 
   paths.forEach((path) => {
@@ -36,7 +36,7 @@ useEffect(() => {
 
   tl
     // show logo
-    .to(".logo", {
+    .to(".loader__logo", {
       opacity: 1,
       duration: 0.3,
     })
@@ -71,7 +71,7 @@ useEffect(() => {
       duration: 0.01,
     })
     .to(
-      ".logo",
+      ".loader__logo",
       {
         opacity: 0,
         duration: 1.15,
@@ -99,7 +99,8 @@ useEffect(() => {
       opacity: 0,
       duration: 0.18,
     }, "+=0.05");
-gsap.fromTo(".path",
+gsap.fromTo(
+  ".loader__logo .path",
   { strokeWidth: 10 },
   { strokeWidth: 40, duration: 1.8, ease: "power2.out" }
 );
@@ -115,7 +116,7 @@ gsap.fromTo(".path",
         ))}
       </div>
       <svg 
-  className="logo"
+  className="loader__logo"
   viewBox="0 0 1720 1720"
   xmlns="http://www.w3.org/2000/svg"
 >

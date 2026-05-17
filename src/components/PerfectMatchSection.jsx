@@ -4,7 +4,7 @@ import './PerfectMatchSection.css';
 const POINTS = [
   {
     num: '01',
-    title: 'The fragmentation point',
+    title: 'The broken promises point',
     quote:
       "You're tired of paying for marketing that produces reports, not patients. You've been promised growth before. You're done with activity dressed up as results.",
   },
@@ -16,9 +16,9 @@ const POINTS = [
   },
   {
     num: '03',
-    title: 'The seasonality point',
+    title: 'The dead month point',
     quote:
-      "You know your slow months are coming and you have no system to soften them. January, summer, post-holiday  you react every time instead of planning three months ahead.",
+      "You know your slow months are coming and you have no system to soften them. January comes Summer hits.Post holiday dips You react every time  because there’s no system running ahead of it",
   },
   {
     num: '04',
@@ -55,7 +55,10 @@ export default function PerfectMatchSection() {
 
         <div className="perfect-match__cta-block">
           <p className="perfect-match__closing">
-            If any of that sounds familiar  we should talk.
+    If you nodded at any of
+that , you’re exactly
+who we built this for.
+
           </p>
           <div className="perfect-match__cta-buttons cta-buttons">
             <a href="#" className="btn btn-primary">
@@ -74,7 +77,7 @@ export default function PerfectMatchSection() {
               </svg>
             </a>
             <a href="#" className="btn btn-secondary">
-              See results
+            Read a case study
               <svg
                 className="btn-arrow btn-arrow-down"
                 viewBox="0 0 24 24"

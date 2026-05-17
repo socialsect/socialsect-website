@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './PracticeInfrastructureSection.css';
 
 const PILLARS = [
@@ -79,16 +80,16 @@ export default function PracticeInfrastructureSection() {
                 {pillar.links.map((link, i) => (
                   <React.Fragment key={link.href}>
                     {i > 0 ? <span className="practice-infra__sep"> · </span> : null}
-                    <a href={link.href} className="practice-infra__tag-link">
+                    <Link to={link.href} className="practice-infra__tag-link">
                       {link.label}
-                    </a>
+                    </Link>
                   </React.Fragment>
                 ))}
                 <span className="practice-infra__sep"> · </span>
-                <a href={pillar.ctaHref} className="practice-infra__pillar-cta">
+                <Link to={pillar.ctaHref} className="practice-infra__pillar-cta">
                   {pillar.ctaLabel}
                   <span aria-hidden="true"> →</span>
-                </a>
+                </Link>
               </p>
             </li>
           ))}

@@ -39,7 +39,7 @@ export default function ClientLogoMarquee() {
   return (
     <section className="client-logo-marquee" aria-label="Client logos">
       <div className="client-logo-marquee__inner">
-        <p className="client-logo-marquee__heading">Trusted by:</p>
+        {/* <p className="client-logo-marquee__heading">Trusted by:</p> */}
         <div className="client-logo-marquee__viewport">
           <div className="client-logo-marquee__track">
             {trackLogos.map((src, i) => {

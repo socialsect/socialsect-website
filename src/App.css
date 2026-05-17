@@ -218,46 +218,7 @@ button.cta {
   font: inherit;
 }
 
-/* ========== Navigation ========== */
-.navbar {
-  background-color: var(--white);
-  border-bottom: 1px solid var(--gray);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--md) var(--gutter);
-}
-
-.logo {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--charcoal);
-}
-
-.nav-links {
-  display: flex;
-  gap: var(--lg);
-  align-items: center;
-}
-
-.nav-links a:not(.btn) {
-  color: var(--charcoal);
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 400;
-  transition: color 0.2s ease;
-}
-
-.nav-links a:not(.btn):hover {
-  color: var(--primary);
-}
+/* Navigation styles live in src/components/Navbar.css */
 
 /* ========== Hero Section ========== */
 .hero {
@@ -541,11 +502,6 @@ button.cta {
   .hero-stats {
     flex-direction: column;
     gap: var(--md);
-  }
-
-  .nav-links {
-    gap: var(--md);
-    flex-direction: column;
   }
 
   .hero {

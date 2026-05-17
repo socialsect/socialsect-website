@@ -32,9 +32,9 @@ export default function ServicesPage() {
           </h1>
           <p className="services-hero__sub">
             Most practices have someone for ads, someone for the website, someone for social,
-            someone for SEO — and nobody accountable when the schedule has gaps. We replace all of
+            someone for SEO  and nobody accountable when the schedule has gaps. We replace all of
             them. One team that builds your digital presence, runs your patient acquisition, and
-            creates your brand — all connected, all measured against one thing: patients confirmed
+            creates your brand  all connected, all measured against one thing: patients confirmed
             in your chair.
           </p>
           <div className="services-hero__anchors" role="navigation" aria-label="Jump to service pillars">
@@ -44,7 +44,7 @@ export default function ServicesPage() {
               onClick={() => scrollToPillar('build')}
             >
               <ArrowDown className="services-hero__jump-icon" strokeWidth={2} aria-hidden />
-              <span>Build — digital infrastructure</span>
+              <span>Build  digital infrastructure</span>
             </button>
             <button
               type="button"
@@ -52,7 +52,7 @@ export default function ServicesPage() {
               onClick={() => scrollToPillar('grow')}
             >
               <ArrowDown className="services-hero__jump-icon" strokeWidth={2} aria-hidden />
-              <span>Grow — patient acquisition</span>
+              <span>Grow  patient acquisition</span>
             </button>
             <button
               type="button"
@@ -60,7 +60,7 @@ export default function ServicesPage() {
               onClick={() => scrollToPillar('brand')}
             >
               <ArrowDown className="services-hero__jump-icon" strokeWidth={2} aria-hidden />
-              <span>Brand — creative</span>
+              <span>Brand  creative</span>
             </button>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function ServicesPage() {
               </span>
               <h3 className="services-trio__title">Build</h3>
               <p className="services-trio__body">
-                Your digital foundation. Websites, apps, booking systems, and web tools — built to
+                Your digital foundation. Websites, apps, booking systems, and web tools  built to
                 work together and built to last.
               </p>
               <Link to="/services/build" className="services-trio__explore">
@@ -106,7 +106,7 @@ export default function ServicesPage() {
               </span>
               <h3 className="services-trio__title">Brand</h3>
               <p className="services-trio__body">
-                How your practice looks, sounds, and is remembered — before a patient has ever
+                How your practice looks, sounds, and is remembered  before a patient has ever
                 walked through your door.
               </p>
               <Link to="/services/brand" className="services-trio__explore">
@@ -134,7 +134,7 @@ export default function ServicesPage() {
             <p className="services-detail__body">
               Most practice websites were built by someone who understood design but not medicine.
               They load slowly, don&apos;t rank on Google, and lose patients at the booking step. We
-              build digital infrastructure that understands the patient journey — from first search
+              build digital infrastructure that understands the patient journey  from first search
               to confirmed appointment.
             </p>
             <div className="services-detail__voice">
@@ -143,7 +143,7 @@ export default function ServicesPage() {
                 <p>
                   Your current website is outdated, slow, or doesn&apos;t convert visitors into
                   bookings. You need a booking system that reduces front desk workload. You want a
-                  custom tool built around your specific workflow — not a generic template someone
+                  custom tool built around your specific workflow  not a generic template someone
                   else is also using.
                 </p>
               </blockquote>
@@ -205,10 +205,10 @@ export default function ServicesPage() {
             </h2>
             <p className="services-detail__body">
               Most healthcare agencies run ads and call it a day. We build a full acquisition system
-              — paid search to capture patients already looking for your specialty, social to stay
+               paid search to capture patients already looking for your specialty, social to stay
               visible to patients who aren&apos;t looking yet, and SEO to ensure your practice ranks
               above competitors when it matters most. Every channel connected. Every result measured
-              in confirmed appointments — not impressions.
+              in confirmed appointments  not impressions.
             </p>
             <div className="services-detail__voice">
               <p className="services-detail__voice-label">Who this is for</p>
@@ -216,7 +216,7 @@ export default function ServicesPage() {
                 <p>
                   You&apos;ve spent money on marketing before and couldn&apos;t see where it went.
                   Your agency sent reports. Your schedule didn&apos;t change. You want someone who
-                  treats an empty appointment slot the same way you do — as a problem that needs
+                  treats an empty appointment slot the same way you do  as a problem that needs
                   fixing today, not next quarter.
                 </p>
               </blockquote>
@@ -235,7 +235,7 @@ export default function ServicesPage() {
             <h3 className="services-detail__included-title">What&apos;s included</h3>
 
             <div className="services-detail__block">
-              <h4 className="services-detail__block-title">Google ads — search intent capture</h4>
+              <h4 className="services-detail__block-title">Google ads  search intent capture</h4>
               <ul className="services-detail__list">
                 <li>Targets patients actively searching for your specialty right now</li>
                 <li>Highest-intent channel · highest conversion rate · fastest results</li>
@@ -244,16 +244,16 @@ export default function ServicesPage() {
             </div>
 
             <div className="services-detail__block">
-              <h4 className="services-detail__block-title">Meta ads — awareness + retargeting</h4>
+              <h4 className="services-detail__block-title">Meta ads  awareness + retargeting</h4>
               <ul className="services-detail__list">
                 <li>Builds awareness with your ideal patient profile before they need you</li>
                 <li>Retargets website visitors who landed but didn&apos;t book</li>
-                <li>Lead quality filters built into the ad form — no tyre kickers</li>
+                <li>Lead quality filters built into the ad form  no tyre kickers</li>
               </ul>
             </div>
 
             <div className="services-detail__block">
-              <h4 className="services-detail__block-title">SEO — long-term organic growth</h4>
+              <h4 className="services-detail__block-title">SEO  long-term organic growth</h4>
               <ul className="services-detail__list">
                 <li>Local SEO to rank above competitors in your area consistently</li>
                 <li>Specialty content strategy that builds clinical authority over time</li>
@@ -279,7 +279,7 @@ export default function ServicesPage() {
             </h2>
             <p className="services-detail__body">
               A patient searching for a specialist will visit three or four practice websites before
-              booking. In that moment, the quality of your brand is the quality of your care — in
+              booking. In that moment, the quality of your brand is the quality of your care  in
               their eyes. We make sure what they see reflects what you actually deliver: a premium,
               trustworthy practice that takes their health seriously.
             </p>
@@ -289,7 +289,7 @@ export default function ServicesPage() {
                 <p>
                   Your reputation among colleagues is excellent. Your online presence doesn&apos;t
                   reflect it. You look like every other clinic on the block when you should look like
-                  the obvious choice. You want your brand to do what your work already does — earn
+                  the obvious choice. You want your brand to do what your work already does  earn
                   trust before a word is spoken.
                 </p>
               </blockquote>
@@ -346,7 +346,7 @@ export default function ServicesPage() {
             Every practice is different. An orthopaedic surgeon in Miami running private pay has
             nothing in common with a dental group in Manchester running NHS and private. A package
             that works for one would fail the other. We start every engagement with a two-week
-            diagnostic — understanding your practice, your patients, your competitors, and your
+            diagnostic  understanding your practice, your patients, your competitors, and your
             goals. Everything we build comes from that. Nothing is templated. Nothing is guesswork.
           </p>
 
@@ -394,7 +394,7 @@ export default function ServicesPage() {
             We understand HIPAA compliance, private pay dynamics, insurance friction, referral
             networks, seasonal patient patterns, and the difference between a lead and a patient
             who actually shows up and moves forward with care. We&apos;ve built systems specifically
-            for the challenges that only exist inside private medical practice — because that&apos;s
+            for the challenges that only exist inside private medical practice  because that&apos;s
             all we do.
           </p>
           <ul className="services-private__pills" aria-label="Specialties we help">
@@ -420,7 +420,7 @@ export default function ServicesPage() {
             Don&apos;t know where to start? That&apos;s what the audit is for.
           </h2>
           <p className="services-final-cta__body">
-            In 45 minutes we&apos;ll tell you exactly what&apos;s holding your practice back — whether
+            In 45 minutes we&apos;ll tell you exactly what&apos;s holding your practice back  whether
             it&apos;s your website, your ads, your brand, or all three. No pitch. No agenda. Just
             clarity on what your practice actually needs and in what order.
           </p>

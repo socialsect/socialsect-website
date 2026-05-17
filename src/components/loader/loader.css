@@ -10,7 +10,7 @@
   z-index: 9999;
 }
 
-.logo {
+.loader__logo {
   position: relative;
   z-index: 2;
   width: 540px;
@@ -21,7 +21,7 @@
   backface-visibility: hidden;
 }
 
-.path {
+.loader__logo .path {
   filter: drop-shadow(0 0 0px #695AF2);
 }
 

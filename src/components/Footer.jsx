@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 import { TbBrandLinkedin, TbBrandInstagram } from 'react-icons/tb'
 import { ArrowRight } from 'lucide-react'
@@ -79,25 +80,25 @@ export default function Footer() {
               </h2>
               <ul className="footer__list">
                 <li>
-                  <a href="#specialties-orthopaedic">Orthopaedic surgeons</a>
+                  <Link to="/who-we-help/orthopaedic-surgeons">Orthopaedic surgeons</Link>
                 </li>
                 <li>
-                  <a href="#specialties-dermatologists">Dermatologists</a>
+                  <Link to="/who-we-help/dermatologists">Dermatologists</Link>
                 </li>
                 <li>
-                  <a href="#specialties-medspa">MedSpa owners</a>
+                  <Link to="/who-we-help/medspa-owners">MedSpa owners</Link>
                 </li>
                 <li>
-                  <a href="#specialties-plastic">Plastic surgeons</a>
+                  <Link to="/who-we-help/plastic-surgeons">Plastic surgeons</Link>
                 </li>
                 <li>
-                  <a href="#specialties-dentists">Dentists</a>
+                  <Link to="/who-we-help/dentists">Dentists</Link>
                 </li>
                 <li>
-                  <a href="#specialties" className="footer__link-em">
+                  <Link to="/who-we-help" className="footer__link-em">
                     View all specialties 
                     <ArrowRight size={16} />
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </section>
@@ -108,10 +109,10 @@ export default function Footer() {
               </h2>
               <ul className="footer__list">
                 <li>
-                  <a href="#about">About</a>
+                  <Link to="/about">About</Link>
                 </li>
                 <li>
-                  <a href="#results">Results</a>
+                  <Link to="/results">Results</Link>
                 </li>
                 <li>
                   <a href="#insights-blog">Insights  Blog</a>

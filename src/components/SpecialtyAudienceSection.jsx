@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './SpecialtyAudienceSection.css';
 import { ArrowRight } from 'lucide-react';
 
@@ -47,17 +48,17 @@ export default function SpecialtyAudienceSection() {
           aria-label="Specialties we help"
         >
           {SPECIALTIES.map(({ slug, label }) => (
-            <a key={slug} href={`/who-we-help/${slug}`} className="specialty-audience__pill">
+            <Link key={slug} to={`/who-we-help/${slug}`} className="specialty-audience__pill">
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="specialty-audience__footer">
-          <a href="/who-we-help" className="cta cta--secondary cta--lg cta--block">
+          <Link to="/who-we-help" className="cta cta--secondary cta--lg cta--block">
             See all specialties
             <ArrowRight size={16} />
-          </a>
+          </Link>
          
         </div>
       </div>

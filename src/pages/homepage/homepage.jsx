@@ -17,7 +17,7 @@ export default function HomePage() {
         <div className="hero-left">
           <div className="hero-content">
             {/* Eyebrow */}
-            <p className="eyebrow">For private medical practices · US & UK</p>
+            <p className="eyebrow">For private medical practices — US & UK</p>
 
             {/* Headline */}
             <h1 className="hero-headline">
@@ -32,7 +32,8 @@ export default function HomePage() {
             {/* CTA Buttons */}
             <div className="cta-buttons">
               <a href="#" className="btn btn-primary">
-                See what your practice is missing
+               Audit my practice free 
+
                 <svg className="btn-arrow btn-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -79,7 +80,7 @@ export default function HomePage() {
 
             {/* Trusted By */}
             <div className="trusted-by">
-              <p className="trusted-label">Trusted by</p>
+              {/* <p className="trusted-label">Trusted by</p> */}
               <div className="practice-pills">
                 <a href="https://miamishoulderinstitute.com/" target="_blank" rel="noopener noreferrer" className="practice-pill">
                   Miami Sports & Interventional
