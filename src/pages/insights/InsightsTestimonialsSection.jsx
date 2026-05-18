@@ -12,18 +12,8 @@ const VIDEOS = [
     submitted: false,
   },
   {
-    id: 'medspa',
-    duration: '0:31',
-    meta: 'Client video · MedSpa · London',
-    name: 'Dr. [Name]',
-    submitted: true,
-  },
-  {
-    id: 'medical',
-    duration: '0:44',
-    meta: 'Client video · Medical · US',
-    name: 'Dr. [Name]',
-    submitted: true,
+    id: 'coming-soon',
+    comingSoon: true,
   },
 ]
 
@@ -39,7 +29,7 @@ export default function InsightsTestimonialsSection() {
           <div className="insights-block__head-main">
             <p className="insights-block__label">Testimonials</p>
             <h2 id="insights-testimonials-heading" className="insights-block__title">
-              What clients say  in their own words
+              What clients say in their own words
             </h2>
           </div>
           <Link to="/insights/testimonials" className="insights-block__head-cta">
@@ -48,33 +38,44 @@ export default function InsightsTestimonialsSection() {
           </Link>
         </header>
 
-        <ul className="insights-videos">
+        <ul className="insights-videos insights-videos--two">
           {VIDEOS.map((video) => (
             <li key={video.id}>
-              <article className="insights-video-card">
-                <button
-                  type="button"
-                  className="insights-video-card__thumb"
-                  aria-label={`Play video testimonial from ${video.name}, ${video.duration}`}
-                >
-                  <span className="insights-video-card__thumb-placeholder" aria-hidden />
-                  <span className="insights-video-card__play" aria-hidden>
-                    <Play className="insights-video-card__play-icon" strokeWidth={1} />
-                  </span>
-                  <span className="insights-video-card__duration">{video.duration}</span>
-                </button>
-                <div className="insights-video-card__body">
-                  <p className="insights-video-card__meta">{video.meta}</p>
-                  <p className="insights-video-card__name">{video.name}</p>
-                  {video.submitted ? (
-                    <p className="insights-video-card__badge">Submitted review</p>
-                  ) : (
+              {video.comingSoon ? (
+                <article className="insights-video-card insights-video-card--coming-soon">
+                  <div className="insights-video-card__thumb insights-video-card__thumb--static" aria-hidden>
+                    <span className="insights-video-card__thumb-placeholder" />
+                  </div>
+                  <div className="insights-video-card__body">
+                    <p className="insights-video-card__meta">More coming soon</p>
+                    <p className="insights-video-card__name">Video testimonials</p>
+                    <p className="insights-video-card__badge">
+                      As we publish more client stories, they&apos;ll appear here.
+                    </p>
+                  </div>
+                </article>
+              ) : (
+                <article className="insights-video-card">
+                  <button
+                    type="button"
+                    className="insights-video-card__thumb"
+                    aria-label={`Play video testimonial from ${video.name}, ${video.duration}`}
+                  >
+                    <span className="insights-video-card__thumb-placeholder" aria-hidden />
+                    <span className="insights-video-card__play" aria-hidden>
+                      <Play className="insights-video-card__play-icon" strokeWidth={1} />
+                    </span>
+                    <span className="insights-video-card__duration">{video.duration}</span>
+                  </button>
+                  <div className="insights-video-card__body">
+                    <p className="insights-video-card__meta">{video.meta}</p>
+                    <p className="insights-video-card__name">{video.name}</p>
                     <blockquote className="insights-video-card__quote">
                       &ldquo;{video.quote}&rdquo;
                     </blockquote>
-                  )}
-                </div>
-              </article>
+                  </div>
+                </article>
+              )}
             </li>
           ))}
         </ul>

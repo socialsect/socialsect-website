@@ -1,43 +1,8 @@
-/** Aggregate stats  external SVGs (SVG Repo) + inline calendar icon for consultations. */
-
-function IconConsultations() {
-  return (
-    <svg className="results-aggregate__icon-svg" viewBox="0 0 56 56" aria-hidden>
-      <rect
-        x="12"
-        y="14"
-        width="32"
-        height="34"
-        rx="3"
-        fill="none"
-        stroke="#1A1C1D"
-        strokeWidth="1.75"
-        opacity="0.85"
-      />
-      <path d="M12 22h32" stroke="#1A1C1D" strokeWidth="1.75" opacity="0.5" />
-      <path d="M20 14v-4" stroke="#695AF2" strokeWidth="2" strokeLinecap="round" />
-      <path d="M36 14v-4" stroke="#695AF2" strokeWidth="2" strokeLinecap="round" />
-      <path
-        d="M22 34l4 4 10-10"
-        fill="none"
-        stroke="#695AF2"
-        strokeWidth="2.25"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-
 const STATS = [
-  { value: '2,508+', label: 'Leads generated'},
-  { value: '225+', label: 'Consultations booked'},
-  { value: '36+', label: 'Surgical conversions'},
-  {
-    value: '$1M+',
-    label: 'Revenue generated',
-  },
+  { value: '81%', label: 'Consultation show-up rate' },
+  { value: '16%', label: 'Consultation-to-surgery conversion rate' },
+  { value: '9%', label: 'Lead-to-booked-consultation rate' },
+  { value: '$1M+', label: 'Full case value from one practice' },
 ]
 
 function AggregateHeroIllustration() {
@@ -88,7 +53,7 @@ export default function ResultsAggregateSection() {
         <div className="results-aggregate__intro">
           <div className="results-aggregate__intro-copy">
             <h2 id="results-aggregate-heading" className="results-aggregate__headline">
-              Across all our healthcare clients combined.
+              What good patient acquisition actually looks like.
             </h2>
           </div>
           <div className="results-aggregate__intro-art" aria-hidden>
@@ -99,17 +64,6 @@ export default function ResultsAggregateSection() {
         <ul className="results-aggregate__grid">
           {STATS.map((item) => (
             <li key={item.label} className="results-aggregate__card">
-              <div
-                className={['results-aggregate__card-vis', item.visModifier].filter(Boolean).join(' ')}
-              >
-                {item.kind === 'calendar' ? (
-                  <IconConsultations />
-                ) : (
-                  <div className="results-aggregate__icon-img">
-                    {/* <IconConsultations /> */}
-                  </div>
-                )}
-              </div>
               <p className="results-aggregate__value">{item.value}</p>
               <p className="results-aggregate__label">{item.label}</p>
             </li>
@@ -117,7 +71,8 @@ export default function ResultsAggregateSection() {
         </ul>
 
         <p className="results-aggregate__note">
-          Numbers grow as we take on new clients. All figures are documented and verifiable.
+          These are the numbers from our flagship case study. Every figure is documented and
+          verifiable.
         </p>
       </div>
     </section>

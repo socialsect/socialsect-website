@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './PerfectMatchSection.css';
 
 const POINTS = [
@@ -12,19 +13,19 @@ const POINTS = [
     num: '02',
     title: 'The accountability point',
     quote:
-      "You have more than one vendor touching your practice's growth  and no single person accountable for the outcome. The ads agency blames the website. The website guy says the ads are the problem. You're stuck in the middle.",
+      "You have more than one vendor touching your practice's growth and no single person accountable for the outcome. The ads agency blames the website. The website guy says the ads are the problem. You're stuck in the middle.",
   },
   {
     num: '03',
     title: 'The dead month point',
     quote:
-      "You know your slow months are coming and you have no system to soften them. January comes Summer hits.Post holiday dips You react every time  because there’s no system running ahead of it",
+      "You know your slow months are coming and you have no system to soften them. January comes. Summer hits. Post-holiday dips. You react every time, because there's no system running ahead of it.",
   },
   {
     num: '04',
     title: 'The results point',
     quote:
-      "You want one partner who understands the difference between a lead and a patient in the chair  and is willing to be held to that number.",
+      "You want one partner who understands the difference between a lead and a patient in the chair and is willing to be held to that number.",
   },
 ];
 
@@ -55,14 +56,11 @@ export default function PerfectMatchSection() {
 
         <div className="perfect-match__cta-block">
           <p className="perfect-match__closing">
-    If you nodded at any of
-that , you’re exactly
-who we built this for.
-
+            If you nodded at any of that, you&apos;re exactly who we built this for.
           </p>
           <div className="perfect-match__cta-buttons cta-buttons">
-            <a href="#" className="btn btn-primary">
-              See what your practice is missing
+            <Link to="/book-a-call" className="btn btn-primary">
+              Audit my practice free
               <svg
                 className="btn-arrow btn-arrow-right"
                 viewBox="0 0 24 24"
@@ -75,9 +73,9 @@ who we built this for.
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </a>
-            <a href="#" className="btn btn-secondary">
-            Read a case study
+            </Link>
+            <Link to="/results" className="btn btn-secondary">
+              Read a case study
               <svg
                 className="btn-arrow btn-arrow-down"
                 viewBox="0 0 24 24"
@@ -90,7 +88,7 @@ who we built this for.
                 <line x1="12" y1="5" x2="12" y2="19" />
                 <polyline points="19 12 12 19 5 12" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

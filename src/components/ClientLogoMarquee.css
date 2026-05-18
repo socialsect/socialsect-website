@@ -80,13 +80,6 @@
   object-fit: contain;
 }
 
-.client-logo-marquee__item--interface {
-  padding: 0 clamp(12px, 2vw, 18px);
-  border-radius: 10px;
-  background: blue;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
 @keyframes client-logo-marquee-scroll {
   from {
     transform: translateX(0);

@@ -131,15 +131,13 @@ export default function TestimonialsPage() {
                     <Play strokeWidth={1} aria-hidden />
                     Play video
                   </button>
-                  <a
-                    href={FEATURED_VIDEO.referenceHref}
+                  <Link
+                    to={FEATURED_VIDEO.referenceHref}
                     className="testimonials-featured__btn testimonials-featured__btn--ghost"
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
                     {FEATURED_VIDEO.referenceLabel}
                     <ArrowRight strokeWidth={1} aria-hidden />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>
@@ -155,7 +153,7 @@ export default function TestimonialsPage() {
               Curated testimonials
             </h2>
             <p className="testimonials-section-head__note">
-              Recorded with Socialsect clients · polished but honest
+              Recorded with Socialsect clients. Polished but honest.
             </p>
           </header>
 
@@ -186,7 +184,7 @@ export default function TestimonialsPage() {
                   <span>More videos coming</span>
                 </div>
                 <div className="testimonials-curated-card__body">
-                  <p className="testimonials-curated-card__specialty">Placeholder  future client</p>
+                  <p className="testimonials-curated-card__specialty">Placeholder · future client</p>
                   <p className="testimonials-curated-card__placeholder-copy">
                     As Socialsect works with more practices, this grid fills with their video
                     testimonials.
@@ -321,9 +319,9 @@ export default function TestimonialsPage() {
               See documented case studies
               <ArrowRight strokeWidth={1} aria-hidden />
             </Link>
-            <a href="#reference" className="testimonials-bridge__btn testimonials-bridge__btn--ghost">
+            <Link to="/book-a-call" className="testimonials-bridge__btn testimonials-bridge__btn--ghost">
               Request a reference
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -336,16 +334,16 @@ export default function TestimonialsPage() {
           </h2>
           <p className="testimonials-closing__body">
             Start with a free 45-minute practice audit. No pitch. No packages. If we&apos;re not the
-            right fit, we&apos;ll tell you  and we&apos;ll tell you who is.
+            right fit, we&apos;ll tell you. And we&apos;ll point you to someone who is.
           </p>
           <div className="testimonials-closing__actions">
             <Link to="/book-a-call" className="testimonials-closing__btn testimonials-closing__btn--primary">
               See what your practice is missing
               <ArrowRight strokeWidth={1} aria-hidden />
             </Link>
-            <a href="#reference" className="testimonials-closing__btn testimonials-closing__btn--ghost">
-              Request a reference
-            </a>
+            <Link to="/book-a-call" className="testimonials-closing__btn testimonials-closing__btn--ghost">
+              Request a reference call
+            </Link>
           </div>
         </div>
       </section>

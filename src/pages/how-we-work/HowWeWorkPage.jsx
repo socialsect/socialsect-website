@@ -12,10 +12,10 @@ const PROCESS_SECTIONS = [
 const ENGAGEMENT_STAGES = [
   {
     stage: '01',
-    title: 'Discovery  we learn your practice before we touch anything',
+    title: 'Discovery: we learn your practice before we touch anything',
     week: 'Week 1–2',
     body:
-      'This is the most important stage and the one most agencies skip. We spend two weeks inside your practice  auditing your current patient acquisition, mapping your competitors, analysing your seasonal patterns, understanding your patient profile and what makes a high-value patient for your specific specialty. Nothing is built until this is done. Everything that comes after is built on what we find here.',
+      'This is the most important stage and the one most agencies skip. We spend two weeks inside your practice, auditing your current patient acquisition, mapping your competitors, analysing your seasonal patterns, understanding your patient profile and what makes a high-value patient for your specific specialty. Nothing is built until this is done. Everything that comes after is built on what we find here.',
     deliverables: [
       'Practice audit report',
       'Competitor map',
@@ -26,10 +26,10 @@ const ENGAGEMENT_STAGES = [
   },
   {
     stage: '02',
-    title: 'Strategy  you see the full plan before we start building',
+    title: 'Strategy: you see the full plan before we start building',
     week: 'Week 3–4',
     body:
-      "Based on the discovery, we design the full system  what we're building, in what order, why each decision was made, and what success looks like. You review it. You approve it. We don't build a single thing you haven't signed off on. No surprises, no scope creep, no \"we assumed you wanted that.\"",
+      "Based on the discovery, we design the full system: what we're building, in what order, why each decision was made, and what success looks like. You review it. You approve it. We don't build a single thing you haven't signed off on. No surprises, no scope creep, no \"we assumed you wanted that.\"",
     deliverables: [
       'Strategy document',
       'Full project roadmap',
@@ -40,10 +40,10 @@ const ENGAGEMENT_STAGES = [
   },
   {
     stage: '03',
-    title: 'Build  we execute against the plan, nothing off-piste',
+    title: 'Build: we execute against the plan, nothing off-piste',
     week: 'Week 5–8 · varies by scope',
     body:
-      "This is where the work happens. Website built. Campaigns set up. Brand created. Depending on what you've engaged us for, this phase looks different  but the principle is the same. We execute exactly what was agreed in Stage 02. Weekly check-ins. Full transparency. You always know where we are.",
+      "This is where the work happens. Website built. Campaigns set up. Brand created. Depending on what you've engaged us for, this phase looks different, but the principle is the same. We execute exactly what was agreed in Stage 02. Weekly check-ins. Full transparency. You always know where we are.",
     deliverables: [
       'Weekly progress updates',
       'Staged delivery',
@@ -53,10 +53,10 @@ const ENGAGEMENT_STAGES = [
   },
   {
     stage: '04',
-    title: 'Launch  measured, monitored, nothing left to chance',
+    title: 'Launch: measured, monitored, nothing left to chance',
     week: 'Week 8–9',
     body:
-      'Nothing goes live without a launch checklist signed off. Analytics verified. Tracking confirmed. Every form tested. Every page checked across devices. A 48-hour monitoring window after launch  someone watching in real time so any issue is caught and fixed before it becomes a problem.',
+      'Nothing goes live without a launch checklist signed off. Analytics verified. Tracking confirmed. Every form tested. Every page checked across devices. A 48-hour monitoring window after launch: someone watching in real time so any issue is caught and fixed before it becomes a problem.',
     deliverables: [
       'Pre-launch QA',
       'Analytics setup confirmed',
@@ -66,15 +66,15 @@ const ENGAGEMENT_STAGES = [
   },
   {
     stage: '05',
-    title: 'Iterate  the system gets sharper every single month',
+    title: 'Iterate: the system gets sharper every single month',
     week: 'Month 3 onwards · ongoing',
     body:
-      "This is where most agencies stop. We don't. Every month we review what's working, what isn't, and what needs to change. Seasonal contingencies are activated before the dip hits  not after. You get a monthly report that shows one thing: whether your practice is growing. Not impressions. Not reach. Growth.",
+      "This is where most agencies stop. We don't. Every month we review what's working, what isn't, and what needs to change. Seasonal contingencies are activated before the dip hits, not after. You get a monthly report that shows one thing: whether your practice is growing. Not impressions. Not reach. Growth.",
     deliverables: [
       'Monthly performance review',
       'Results reported in appointments',
       'Seasonal planning ahead of time',
-      'Continuous optimisation',
+      'Continuous optimization',
     ],
   },
 ]
@@ -82,7 +82,7 @@ const ENGAGEMENT_STAGES = [
 const PRACTICE_TRACKS = [
   {
     id: 'build-process',
-    title: 'Build  websites, apps, booking systems, web applications',
+    title: 'Build: websites, apps, booking systems, web applications',
     intro: 'What the 5-stage process looks like specifically for development work',
     phases: [
       {
@@ -103,7 +103,7 @@ const PRACTICE_TRACKS = [
         letter: 'B',
         name: 'Design + build',
         body:
-          'Design system first  colours, typography, components. Then page design. Then development. Staged reviews at design sign-off, then at build completion.',
+          'Design system first: colors, typography, components. Then page design. Then development. Staged reviews at design sign-off, then at build completion.',
         weeks: 'Weeks 5–8',
       },
       {
@@ -117,14 +117,14 @@ const PRACTICE_TRACKS = [
         letter: 'I',
         name: 'Iterate',
         body:
-          'Monthly performance review. Conversion rate optimisation. A/B testing on key pages. SEO tracking. The site improves every month.',
+          'Monthly performance review. Conversion rate optimization. A/B testing on key pages. SEO tracking. The site improves every month.',
         weeks: 'Month 3+',
       },
     ],
   },
   {
     id: 'grow-process',
-    title: 'Grow  Meta ads, Google ads, SEO',
+    title: 'Grow: Meta ads, Google ads, SEO',
     intro: 'What the 5-stage process looks like specifically for patient acquisition',
     phases: [
       {
@@ -138,7 +138,7 @@ const PRACTICE_TRACKS = [
         letter: 'S',
         name: 'Strategy',
         body:
-          'Channel selection and budget allocation. Audience architecture. Messaging framework per channel. Lead qualification criteria. Success metrics defined  cost per confirmed appointment, not cost per lead.',
+          'Channel selection and budget allocation. Audience architecture. Messaging framework per channel. Lead qualification criteria. Success metrics defined, cost per confirmed appointment, not cost per lead.',
         weeks: 'Weeks 3–4',
       },
       {
@@ -159,14 +159,14 @@ const PRACTICE_TRACKS = [
         letter: 'I',
         name: 'Iterate',
         body:
-          'Monthly report in confirmed appointments  not impressions. Seasonal campaign planning 6–8 weeks ahead. Creative refresh every 6–8 weeks. Continuous bid and audience optimisation.',
+          'Monthly report in confirmed appointments, not impressions. Seasonal campaign planning 6–8 weeks ahead. Creative refresh every 6–8 weeks. Continuous bid and audience optimization.',
         weeks: 'Month 3+',
       },
     ],
   },
   {
     id: 'brand-process',
-    title: 'Brand  brand identity, design, video + motion',
+    title: 'Brand: brand identity, design, video + motion',
     intro: 'What the 5-stage process looks like specifically for creative work',
     phases: [
       {
@@ -180,28 +180,28 @@ const PRACTICE_TRACKS = [
         letter: 'S',
         name: 'Strategy + positioning',
         body:
-          'Brand positioning statement. Personality and tone of voice. Messaging hierarchy. Visual direction  three stylescape options presented. One chosen before any design begins.',
+          'Brand positioning statement. Personality and tone of voice. Messaging hierarchy. Visual direction: three stylescape options presented. One chosen before any design begins.',
         weeks: 'Weeks 3–4',
       },
       {
         letter: 'B',
         name: 'Design + production',
         body:
-          'Logo and identity system. Colour and typography. Component library. Collateral design. Video production if in scope. Staged presentations  identity first, then applications.',
+          'Logo and identity system. Color and typography. Component library. Collateral design. Video production if in scope. Staged presentations: identity first, then applications.',
         weeks: 'Weeks 5–8',
       },
       {
         letter: 'L',
         name: 'Delivery + guidelines',
         body:
-          'All files packaged and delivered. Brand guidelines document  covers every use case so the brand stays consistent whether applied by us or anyone else.',
+          'All files packaged and delivered. Brand guidelines document covers every use case so the brand stays consistent whether applied by us or anyone else.',
         weeks: 'Week 9',
       },
       {
         letter: 'I',
         name: 'Ongoing brand management',
         body:
-          "Monthly content and creative production if retained. Brand consistency reviews. New asset creation as the practice grows. The brand evolves  it doesn't go stale.",
+          "Monthly content and creative production if retained. Brand consistency reviews. New asset creation as the practice grows. The brand evolves, it doesn't go stale.",
         weeks: 'Month 3+',
       },
     ],
@@ -219,7 +219,7 @@ const FOUR_TRUTHS = [
     num: '02',
     title: 'We report on results, not activity',
     body:
-      'Your monthly report shows one thing  whether your practice is growing. Appointments booked. Patients confirmed. Revenue attributed. Not impressions, not reach, not "engagement rate."',
+      'Your monthly report shows one thing: whether your practice is growing. Appointments booked. Patients confirmed. Revenue attributed. Not impressions, not reach, not "engagement rate."',
   },
   {
     num: '03',
@@ -261,7 +261,7 @@ const FIRST_30_DAYS = [
 const FAQ_ITEMS = [
   {
     q: 'How long before we see results?',
-    a: 'For patient acquisition campaigns  first results within 30 days of go-live. For SEO  meaningful movement within 90 days. For a new website  live within 8 weeks of strategy sign-off.',
+    a: 'For patient acquisition campaigns: first results within 30 days of go-live. For SEO: meaningful movement within 90 days. For a new website: live within 8 weeks of strategy sign-off.',
   },
   {
     q: 'Who works on our account?',
@@ -277,11 +277,11 @@ const FAQ_ITEMS = [
   },
   {
     q: 'How do you measure success?',
-    a: "In confirmed appointments and revenue  not vanity metrics. We agree on the success metrics before we start and report against them every month. If the number isn't moving, we tell you why and what we're doing about it.",
+    a: "In confirmed appointments and revenue, not vanity metrics. We agree on the success metrics before we start and report against them every month. If the number isn't moving, we tell you why and what we're doing about it.",
   },
   {
     q: 'Do you work with practices outside the US and UK?',
-    a: "Our primary markets are the US and UK. If you're outside these markets, get in touch  we'll tell you honestly whether we can deliver the same quality of work for your location.",
+    a: "Our primary markets are the US and UK. If you're outside these markets, get in touch. We'll tell you honestly whether we can deliver the same quality of work for your location.",
   },
 ]
 
@@ -294,12 +294,12 @@ export default function HowWeWorkPage() {
             No black boxes. No surprises. No disappearing acts.
           </p>
           <h1 id="how-we-work-hero-heading" className="how-we-work-hero__title">
-            Before you sign anything, you&apos;ll know exactly what happens next  week by week.
+            Before you sign anything, you&apos;ll know exactly what happens next, week by week.
           </h1>
           <p className="how-we-work-hero__sub">
             Most agencies onboard you, go quiet for a month, and come back with a report. That&apos;s
-            not how we work. Every engagement at Socialsect follows a documented process  from the
-            diagnostic call to the first result to the ongoing monthly rhythm. This page shows you
+            not how we work. Every engagement at Socialsect follows a documented process, from the
+            practice audit to the first result to the ongoing monthly rhythm. This page shows you
             all of it.
           </p>
 
@@ -327,12 +327,12 @@ export default function HowWeWorkPage() {
         <div className="how-we-work-section__inner">
           <p className="how-we-work-engagement__kicker">Universal engagement model</p>
           <h2 id="how-we-work-engagement-heading" className="how-we-work-engagement__headline">
-            Every engagement  regardless of what you&apos;ve hired us for  follows the same
+            Every engagement, regardless of what you&apos;ve hired us for, follows the same
             spine.
           </h2>
           <p className="how-we-work-engagement__sub">
             Whether you&apos;ve come to us for a website, a patient acquisition system, or a full
-            brand overhaul  the way we work doesn&apos;t change. The deliverables do. The process
+            brand overhaul: the way we work doesn&apos;t change. The deliverables do. The process
             doesn&apos;t.
           </p>
 
@@ -367,7 +367,7 @@ export default function HowWeWorkPage() {
       >
         <div className="how-we-work-section__inner">
           <h2 id="how-we-work-practice-heading" className="how-we-work-practice__headline">
-            What each stage looks like in practice  depending on what you&apos;ve hired us for.
+            What each stage looks like in practice, depending on what you&apos;ve hired us for.
           </h2>
 
           <div className="how-we-work-practice__tracks">
@@ -450,8 +450,8 @@ export default function HowWeWorkPage() {
             ))}
           </ol>
           <p className="how-we-work-first30__summary">
-            From signed contract to first deliverable in your hands  14 days. From signed contract
-            to full system live  8 weeks.
+            From signed contract to first deliverable in your hands, 14 days. From signed contract
+            to full system live, 8 weeks.
           </p>
         </div>
       </section>
@@ -488,16 +488,16 @@ export default function HowWeWorkPage() {
             pitch. No packages. Just a clear starting point.
           </p>
           <div className="how-we-work-closing__actions">
-            <Link to="/#book-call" className="how-we-work-closing__btn how-we-work-closing__btn--primary">
-              See what your practice is missing
+            <Link to="/book-a-call" className="how-we-work-closing__btn how-we-work-closing__btn--primary">
+              Get my free practice audit
               <ArrowRight className="how-we-work-closing__btn-icon" strokeWidth={2} aria-hidden />
             </Link>
             <Link to="/results" className="how-we-work-closing__btn how-we-work-closing__btn--ghost">
-              See our results
+              See results
             </Link>
           </div>
           <p className="how-we-work-closing__note">
-            No commitment. No sales pitch. Just the process  exactly as described on this page.
+            No commitment. No sales pitch. Just the process, exactly as described on this page.
           </p>
         </div>
       </section>

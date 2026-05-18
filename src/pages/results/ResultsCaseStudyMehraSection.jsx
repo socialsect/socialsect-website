@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
-const STATUS_LINES = [
-  'Full metrics in progress',
-  'Case study being documented',
-  'Results verifiable on request',
-  'Reference available',
+const METRICS = [
+  { value: '2,600+', label: 'Backlinks built' },
+  { value: '93%', label: 'Dofollow link rate' },
+  { value: '61', label: 'Linking domains' },
+  { value: '50+', label: 'Keywords ranking page 1–10' },
+  { value: '1,300+', label: 'Monthly organic sessions' },
+  { value: 'AI-cited', label: 'Featured in AI search results consistently' },
 ]
 
 export default function ResultsCaseStudyMehraSection() {
@@ -14,9 +17,11 @@ export default function ResultsCaseStudyMehraSection() {
         <header className="results-case__header">
           <p className="results-case__label">Case study</p>
           <h2 id="results-case-mehra-heading" className="results-case__title">
-            Case study 02 · Aesthetics · US
+            Case study 02 · Dermatology · SEO · UK
           </h2>
-          <p className="results-case__client">Client · Private aesthetic practice</p>
+          <p className="results-case__client">
+            Client · Private dermatology clinic · Skin lesions &amp; minor surgery
+          </p>
         </header>
 
         <div className="results-case__rule" aria-hidden>
@@ -27,44 +32,53 @@ export default function ResultsCaseStudyMehraSection() {
         </div>
 
         <div className="results-case__identity">
-          <h3 className="results-case__name">Dr. Mehra</h3>
-          <p className="results-case__practice">Mehra Aesthetics · United States</p>
+          <h3 className="results-case__name">Dr. Manu Mehra</h3>
+          <p className="results-case__practice">
+            Interface Clinic · London, United Kingdom
+          </p>
         </div>
 
-        <blockquote className="results-case__quote results-case__quote--placeholder">
+        <blockquote className="results-case__quote">
           &ldquo;We had the patients. We didn&apos;t have the system to keep them coming consistently.
           Socialsect built the infrastructure that made growth predictable instead of seasonal.&rdquo;
         </blockquote>
 
-        <ul className="results-case-mehra__status" aria-label="Case study status">
-          {STATUS_LINES.map((line) => (
-            <li key={line} className="results-case-mehra__status-line">
-              <span className="results-case-mehra__dash" aria-hidden>
-                
-              </span>
-              {line}
+        <ul className="results-case__metrics">
+          {METRICS.map(({ value, label }) => (
+            <li key={label} className="results-case__metric">
+              <span className="results-case__metric-value">{value}</span>
+              <span className="results-case__metric-label">{label}</span>
             </li>
           ))}
         </ul>
 
-        <div className="results-case-mehra__note">
-          <p className="results-case-mehra__note-label">Note  placeholder</p>
-          <p className="results-case-mehra__note-body">
-            Full case study to be documented once metrics are confirmed with Dr. Mehra. In the interim,
-            reference is available via the introductory call process. Replace dashes above with real
-            numbers when confirmed.
-          </p>
+        <div className="results-case__columns">
+          <div className="results-case__block">
+            <h4 className="results-case__block-title">What we built</h4>
+            <p className="results-case__block-body">
+              Full SEO authority program, link building strategy, outreach, and placement across
+              healthcare publications and medical directories. Built domain authority from near zero to
+              2,600+ backlinks across 61 linking domains with 93% dofollow rate. Multiple procedure and
+              condition keywords now ranking consistently on page 1–10 of Google, with consistent
+              citation in AI-generated search results.
+            </p>
+          </div>
+          <div className="results-case__block">
+            <h4 className="results-case__block-title">The problem we solved</h4>
+            <p className="results-case__block-body">
+              Interface Clinic had strong clinical credentials, a Fellow of the Royal College of Surgeons
+              performing 2,200+ procedures annually, but virtually no organic search presence. We built
+              the SEO foundation that made Google a reliable second acquisition channel, now running almost
+              neck-and-neck with direct traffic.
+            </p>
+          </div>
         </div>
 
-        <div className="results-case__actions results-case__actions--mehra">
-          <a href="#qualifier-mehra" className="results-case__btn results-case__btn--primary">
-            Talk to Dr. Mehra
+        <div className="results-case__actions">
+          <Link to="/book-a-call" className="results-case__btn results-case__btn--primary">
+            Request a reference call
             <ArrowRight className="results-case__btn-icon" strokeWidth={2} aria-hidden />
-          </a>
-          <a href="#reference-mehra" className="results-case__btn results-case__btn--ghost">
-            Request a reference
-            <ArrowRight className="results-case__btn-icon" strokeWidth={2} aria-hidden />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -5,7 +5,6 @@ export const SPECIALTY_FILTERS = [
   { id: 'medical', label: 'Medical practice' },
   { id: 'medspa', label: 'MedSpa' },
   { id: 'dentistry', label: 'Dentistry' },
-  { id: 'private-equity', label: 'Private equity' },
 ]
 
 export const HERO_STATS = [
@@ -25,61 +24,22 @@ export const FEATURED_VIDEO = {
   practice: 'Miami Sports & Interventional',
   quote:
     'Before Socialsect we were getting hundreds of leads. What we weren\u2019t getting was patients who showed up and moved forward with care. That was the gap. That\u2019s what they fixed.',
-  referenceHref: 'https://miamishoulderinstitute.com/',
-  referenceLabel: 'Talk to Dr. Badia',
+  referenceHref: '/book-a-call',
+  referenceLabel: 'Request a reference call',
   videoSrc: null,
 }
 
-export const CURATED_VIDEOS = [
-  {
-    id: 'mehra',
-    specialty: 'aesthetics',
-    duration: '0:52',
-    specialtyLabel: 'Aesthetics · United States',
-    name: 'Dr. Mehra',
-    practice: 'Mehra Aesthetics',
-    quote:
-      'The diagnostic phase alone was worth more than six months with our previous agency.',
-    videoSrc: null,
-  },
-  {
-    id: 'goldman',
-    specialty: 'medical',
-    duration: '0:38',
-    specialtyLabel: 'Medical practice · United States',
-    name: 'Dr. Goldman',
-    practice: 'Goldman Medical',
-    quote: 'They don\u2019t send vanity reports. They send results. That\u2019s all I ever wanted.',
-    videoSrc: null,
-  },
-]
+/** Hidden until written permission is confirmed. */
+export const CURATED_VIDEOS = []
 
-export const COMMUNITY_VIDEOS = [
-  {
-    id: 'community-medspa',
-    specialty: 'medspa',
-    duration: '0:31',
-    name: 'Dr. [Name]',
-    role: 'MedSpa · London, UK',
-    date: 'Submitted May 2026',
-    videoSrc: null,
-  },
-  {
-    id: 'community-dental',
-    specialty: 'dentistry',
-    duration: '0:44',
-    name: 'Dr. [Name]',
-    role: 'Dental practice · Chicago, US',
-    date: 'Submitted April 2026',
-    videoSrc: null,
-  },
-]
+/** Hidden until real submissions are approved for publication. */
+export const COMMUNITY_VIDEOS = []
 
 export const SUBMIT_STEPS = [
   {
     step: '1',
     title: 'You receive a link',
-    body: 'Socialsect sends you a personalised submission link. It opens a simple recording page  no app download, no login.',
+    body: 'Socialsect sends you a personalized submission link. It opens a simple recording page, no app download, no login.',
   },
   {
     step: '2',
@@ -89,7 +49,7 @@ export const SUBMIT_STEPS = [
   {
     step: '3',
     title: 'It goes live on this page',
-    body: 'We review it and publish it here within 24 hours. No editing. No approval back and forth. What you recorded is what gets published.',
+    body: 'We review it and publish it here within 24 hours. If we have any questions, we\u2019ll reach out first. What you recorded is what we publish.',
   },
 ]
 

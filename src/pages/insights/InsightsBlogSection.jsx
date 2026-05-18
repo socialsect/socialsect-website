@@ -48,7 +48,7 @@ export default function InsightsBlogSection() {
             <li key={article.id}>
               <article className="insights-article-card">
                 <div className="insights-article-card__thumb" aria-hidden>
-                  <span className="insights-article-card__thumb-label">Article thumbnail</span>
+                  <span className="visually-hidden">Article thumbnail</span>
                 </div>
                 <div className="insights-article-card__body">
                   <p className="insights-article-card__category">{article.category}</p>

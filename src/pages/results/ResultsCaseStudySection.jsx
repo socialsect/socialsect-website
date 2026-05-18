@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 const METRICS = [
@@ -5,11 +6,10 @@ const METRICS = [
   { value: '225', label: 'Consultations booked' },
   { value: '183', label: 'Patients who attended' },
   { value: '36', label: 'Surgical conversions' },
-  { value: '$380K+', label: 'Direct revenue' },
-  { value: '$1M+', label: 'Full case value incl. LTV' },
+  { value: '81%', label: 'Consultation show-up rate' },
+  { value: '16%', label: 'Consultation-to-surgery rate' },
 ]
 
-/** Minimal rule accent  same visual language as stat icons (stroke + primary tick). */
 function CaseStudyRuleMark() {
   return (
     <svg className="results-case__rule-svg" viewBox="0 0 120 12" aria-hidden>
@@ -61,11 +61,11 @@ export default function ResultsCaseStudySection() {
         </ul>
 
         <div className="results-case__columns">
-          <div className="results-case__block">
+          <div id="results-case-built" className="results-case__block">
             <h4 className="results-case__block-title">What we built</h4>
             <p className="results-case__block-body">
-              Full patient acquisition system  lead generation, qualification, automated follow-up
-              sequences, conversion tracking, and monthly optimisation. Every number above is pulled
+              Full patient acquisition system, lead generation, qualification, automated follow-up
+              sequences, conversion tracking, and monthly optimization. Every number above is pulled
               directly from the lead management sheet. No rounding. No estimates.
             </p>
           </div>
@@ -80,17 +80,11 @@ export default function ResultsCaseStudySection() {
         </div>
 
         <div className="results-case__actions">
-          <a href="#qualifier" className="results-case__btn results-case__btn--primary">
-            Talk to Dr. Badia
+          <Link to="/book-a-call" className="results-case__btn results-case__btn--primary">
+            Request a reference call
             <ArrowRight className="results-case__btn-icon" strokeWidth={2} aria-hidden />
-          </a>
-          <a href="#case-study-dr-badia-full" className="results-case__btn results-case__btn--ghost">
-            See full case study
-            <ArrowRight className="results-case__btn-icon" strokeWidth={2} aria-hidden />
-          </a>
+          </Link>
         </div>
-
-    
       </div>
     </section>
   )

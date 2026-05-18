@@ -8,7 +8,7 @@ function enrichService(pillar, slug, data) {
     pillar,
     slug,
     ...data,
-    ctaHref: BOOK_A_CALL,
+    ctaHref: data.ctaHref ?? BOOK_A_CALL,
     relatedServices: (data.relatedServices ?? []).map((related) => ({
       ...related,
       path: related.path ?? BOOK_A_CALL,

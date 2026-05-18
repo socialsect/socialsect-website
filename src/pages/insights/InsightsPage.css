@@ -469,6 +469,20 @@
 }
 
 /* Blog articles */
+.insights-videos--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 56rem;
+}
+
+.insights-video-card--coming-soon {
+  border-style: dashed;
+}
+
+.insights-video-card__thumb--static {
+  cursor: default;
+  border-color: var(--gray);
+}
+
 .insights-articles {
   list-style: none;
   margin: 0;
@@ -503,11 +517,7 @@
 }
 
 .insights-article-card__thumb-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--dark-gray);
+  display: none;
 }
 
 .insights-article-card__body {

@@ -42,21 +42,11 @@ export default function ClientLogoMarquee() {
         {/* <p className="client-logo-marquee__heading">Trusted by:</p> */}
         <div className="client-logo-marquee__viewport">
           <div className="client-logo-marquee__track">
-            {trackLogos.map((src, i) => {
-              const isInterface = String(src).toLowerCase().includes('interface');
-              return (
-                <div
-                  className={
-                    isInterface
-                      ? 'client-logo-marquee__item client-logo-marquee__item--interface'
-                      : 'client-logo-marquee__item'
-                  }
-                  key={`${src}-${i}`}
-                >
-                  <img src={src} alt="" loading="lazy" decoding="async" />
-                </div>
-              );
-            })}
+            {trackLogos.map((src, i) => (
+              <div className="client-logo-marquee__item" key={`${src}-${i}`}>
+                <img src={src} alt="" loading="lazy" decoding="async" />
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -25,8 +25,8 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'More of the surgical cases you want. Less dependence on one hospital or one referrer.',
       subcopy: [
-        'Private orthopaedic surgery is a high-demand, high-trust specialty  but most practices grow slowly because they rely on a handful of GP referrers and a single hospital network. One change in those relationships and the list empties.',
-        'We build patient acquisition and referral development systems that give orthopaedic surgeons a resilient, growing private practice  with the case mix they actually want.',
+        'Private orthopaedic surgery is a high-demand, high-trust specialty, but most practices grow slowly because they rely on a handful of GP referrers and a single hospital network. One change in those relationships and the list empties.',
+        'We build patient acquisition and referral development systems that give orthopaedic surgeons a resilient, growing private practice, with the case mix they actually want.',
       ],
     },
     insights: [
@@ -40,32 +40,32 @@ export const orthopaedicSurgeons = {
       },
       {
         title: 'Physiotherapist and sports clinic referral relationships are underused in most practices',
-        body: 'Physios, osteopaths, and sports medicine clinics regularly need a trusted orthopaedic surgeon to refer on. Most practices have no formal programme for building these relationships  despite the high quality of the patients they generate.',
+        body: 'Physios, osteopaths, and sports medicine clinics regularly need a trusted orthopaedic surgeon to refer on. Most practices have no formal programme for building these relationships, despite the high quality of the patients they generate.',
       },
       {
         title: 'Second-opinion seekers are a motivated, high-converting segment',
-        body: 'Patients who have been told they need surgery  or told they don\'t  frequently seek a second opinion privately. A clear second-opinion pathway converts these patients at exceptional rates.',
+        body: 'Patients who have been told they need surgery, or told they don\'t, frequently seek a second opinion privately. A clear second-opinion pathway converts these patients at exceptional rates.',
       },
     ],
     painPoints: {
       headline: 'What orthopaedic surgeons tell us before we start working together.',
       items: [
         { quote: 'My private list is solid but it\'s entirely driven by two or three GP practices. If any of them changed their patterns I\'d be in trouble.' },
-        { quote: 'I do excellent joint replacement work but I\'m not getting the volume of elective cases I want  they seem to be going to surgeons with more marketing presence.' },
+        { quote: 'I do excellent joint replacement work but I\'m not getting the volume of elective cases I want. They seem to be going to surgeons with more marketing presence.' },
         { quote: 'I want to attract more sports cases but I don\'t know how to position for that without it sounding like I\'m abandoning my elective practice.' },
         { quote: 'I\'ve tried Google Ads before and got enquiries from patients who had no idea what private surgery cost. It wasted a lot of consultation time.' },
       ],
     },
     pillars: {
-      build: 'We audit your full patient pipeline  referral sources, direct enquiries, conversion rates  and build the infrastructure to improve each: procedure-specific content, a referral development programme, and tracking that shows you exactly where every booking comes from.',
+      build: 'We audit your full patient pipeline, referral sources, direct enquiries, conversion rates, and build the infrastructure to improve each: procedure-specific content, a referral development programme, and tracking that shows you exactly where every booking comes from.',
       grow: 'We grow your local and national search presence for your highest-value procedures, run paid acquisition campaigns targeting patients with surgical intent rather than early-stage symptom searches, and build a systematic physiotherapy and sports clinic referral network.',
-      brand: 'We establish your surgical authority  in your subspecialty of choice, in your patient outcomes, and in your community  through content, media placements, and a digital presence that communicates the standard of your practice to the patients and referrers you most want.',
+      brand: 'We establish your surgical authority, in your subspecialty of choice, in your patient outcomes, and in your community, through content, media placements, and a digital presence that communicates the standard of your practice to the patients and referrers you most want.',
     },
     proof: {
       clientName: 'Mr. Daniel Farouk',
       specialty: 'Orthopaedic Surgeon',
       location: 'London, UK',
-      quote: 'The sports surgery programme was transformational. Within six months it had become our largest source of new private patients  people who were motivated, fast-moving, and referred everyone they trained with.',
+      quote: 'The sports surgery programme was transformational. Within six months it had become our largest source of new private patients, people who were motivated, fast-moving, and referred everyone they trained with.',
       metrics: [
         { value: '3.4×', label: 'Sports case enquiries' },
         { value: '+58%', label: 'Private surgical volume' },
@@ -95,7 +95,7 @@ export const orthopaedicSurgeons = {
       headline: 'More of the right patients. Less time explaining yourself to the wrong ones.',
       subcopy: [
         'Your work speaks for itself in the operating room. Outside it, you\'re competing with practices that out-market you regardless of their outcomes.',
-        'We build patient acquisition systems for plastic surgeons who want a full schedule of pre-qualified, procedure-ready patients  and the authority positioning to charge what their results deserve.',
+        'We build patient acquisition systems for plastic surgeons who want a full schedule of pre-qualified, procedure-ready patients and the authority positioning to charge what their results deserve.',
       ],
     },
     insights: [
@@ -104,12 +104,12 @@ export const orthopaedicSurgeons = {
         body: 'Rhinoplasty, facelifts, and body contouring carry long decision cycles. Patients research for months before booking. You need to be present and credible at every stage of that journey.',
       },
       {
-        title: 'Before-and-after content is your strongest asset  and your biggest liability',
+        title: 'Before-and-after content is your strongest asset and your biggest liability',
         body: 'When used correctly, visual proof converts. When used carelessly it attracts price-shoppers and undermines clinical authority. Most practices get this balance wrong.',
       },
       {
         title: 'Revision anxiety drives consultations as much as desire',
-        body: 'A significant share of incoming patients have had surgery elsewhere and want it corrected. How your practice handles that conversation  from first click to consultation  determines who you attract.',
+        body: 'A significant share of incoming patients have had surgery elsewhere and want it corrected. How your practice handles that conversation, from first click to consultation, determines who you attract.',
       },
       {
         title: 'Geography matters less than it used to',
@@ -119,7 +119,7 @@ export const orthopaedicSurgeons = {
     painPoints: {
       headline: 'What plastic surgeons tell us before they work with us.',
       items: [
-        { quote: 'I\'m getting enquiries but they\'re not my ideal patient  they just want the cheapest option.' },
+        { quote: 'I\'m getting enquiries but they\'re not my ideal patient. They just want the cheapest option.' },
         { quote: 'My results are excellent but I can\'t communicate that online the way I want to.' },
         { quote: 'I\'ve spent money on ads and got a flood of tyre-kickers with no surgical intent.' },
         { quote: 'My practice runs on word-of-mouth but I have no predictable pipeline beyond that.' },
@@ -127,8 +127,8 @@ export const orthopaedicSurgeons = {
     },
     pillars: {
       build: 'We audit your current funnel and build the infrastructure most practices are missing: a content ecosystem that educates, a website that converts procedure-specific traffic, and tracking that tells you which channel is producing booked consultations.',
-      grow: 'We run paid and organic acquisition programmes calibrated to your highest-margin procedures  every campaign built to surface patients who have already committed to surgery and are choosing their surgeon, not patients still deciding whether to have it.',
-      brand: 'We position you as the clinical authority in your procedures of choice  through SEO content, press placements, and a visual brand that reflects the standard of your work. Patients who arrive already trust you before the consultation begins.',
+      grow: 'We run paid and organic acquisition programmes calibrated to your highest-margin procedures, every campaign built to surface patients who have already committed to surgery and are choosing their surgeon, not patients still deciding whether to have it.',
+      brand: 'We position you as the clinical authority in your procedures of choice, through SEO content, press placements, and a visual brand that reflects the standard of your work. Patients who arrive already trust you before the consultation begins.',
     },
     proof: {
       clientName: 'Dr. Sarah Holt',
@@ -161,10 +161,10 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'cosmetic surgery',
     ctaHref: '/contact/cosmetic-surgeons',
     hero: {
-      headline: 'Attract patients who value the result  not patients who\'re shopping the price.',
+      headline: 'Attract patients who value the result, not patients who\'re shopping the price.',
       subcopy: [
         'Cosmetic surgery is one of the most competitive elective markets online. Practices that win on price attract patients who\'ll leave for someone cheaper. Practices that win on authority attract patients who stay, refer, and return.',
-        'We build acquisition systems that position your cosmetic practice at the quality end of the market  so your schedule fills with the right people.',
+        'We build acquisition systems that position your cosmetic practice at the quality end of the market, so your schedule fills with the right people.',
       ],
     },
     insights: [
@@ -189,21 +189,21 @@ export const orthopaedicSurgeons = {
       headline: 'What cosmetic surgeons say when they come to us.',
       items: [
         { quote: 'I lose patients to practices with bigger Instagram followings even though my outcomes are objectively better.' },
-        { quote: 'I get lots of enquiries but the conversion rate at consultation is poor  patients arrive with completely wrong expectations about cost.' },
+        { quote: 'I get lots of enquiries but the conversion rate at consultation is poor, patients arrive with completely wrong expectations about cost.' },
         { quote: 'I want to stop taking every case that walks in and start being selective, but I don\'t feel I can afford to be yet.' },
         { quote: 'My patient satisfaction scores are excellent but I have no system for turning happy patients into visible social proof.' },
       ],
     },
     pillars: {
       build: 'We build a conversion-optimised practice presence: procedure-specific landing pages with clear credential positioning, a before-and-after gallery system, and an enquiry qualification process that filters for intent before the consultation.',
-      grow: 'We run acquisition campaigns targeting patients in the decision phase of their cosmetic surgery journey  not early-stage researchers  and build organic search authority for the procedure terms your ideal patients use.',
-      brand: 'We craft your surgical identity into a coherent, premium public brand: your patient philosophy, your selection process, your outcomes standard  communicated in a way that attracts patients who want exactly what you offer.',
+      grow: 'We run acquisition campaigns targeting patients in the decision phase of their cosmetic surgery journey, not early-stage researchers, and build organic search authority for the procedure terms your ideal patients use.',
+      brand: 'We craft your surgical identity into a coherent, premium public brand: your patient philosophy, your selection process, your outcomes standard, communicated in a way that attracts patients who want exactly what you offer.',
     },
     proof: {
       clientName: 'Dr. Marcus Webb',
       specialty: 'Cosmetic Surgeon',
       location: 'Manchester, UK',
-      quote: 'I cut my consultation volume by 20% and increased revenue by 35%. The patients we filtered out were never going to book anyway  we just hadn\'t built a way to know that before they arrived.',
+      quote: 'I cut my consultation volume by 20% and increased revenue by 35%. The patients we filtered out were never going to book anyway. We just hadn\'t built a way to know that before they arrived.',
       metrics: [
         { value: '+35%', label: 'Revenue on fewer consultations' },
         { value: '2.7×', label: 'Consultation-to-surgery conversion' },
@@ -232,13 +232,13 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'Build a private vascular practice that grows beyond hospital waiting list overflow.',
       subcopy: [
-        'Private vascular surgery serves patients who need answers faster than the NHS can provide  and patients whose conditions are serious enough to justify paying for a surgeon they trust.',
+        'Private vascular surgery serves patients who need answers faster than the NHS can provide and patients whose conditions are serious enough to justify paying for a surgeon they trust.',
         'We build referral development and patient acquisition systems that give vascular surgeons a resilient, growing private practice with the case mix they want.',
       ],
     },
     insights: [
       {
-        title: 'Varicose vein patients self-refer in large numbers  if you\'re visible',
+        title: 'Varicose vein patients self-refer in large numbers, if you\'re visible',
         body: 'Varicose vein treatment is one of the most directly searched private vascular procedures. Patients with symptomatic veins search for local specialists and book quickly. Practices with strong local SEO for this condition capture significant direct volume.',
       },
       {
@@ -257,16 +257,16 @@ export const orthopaedicSurgeons = {
     painPoints: {
       headline: 'What vascular surgeons tell us when they reach out.',
       items: [
-        { quote: 'My private list is almost entirely NHS overflow  I want to build something that stands independently.' },
+        { quote: 'My private list is almost entirely NHS overflow. I want to build something that stands independently.' },
         { quote: 'I want more venous work privately but I can\'t seem to get visibility for it alongside my arterial reputation.' },
         { quote: 'My referral relationships are with three cardiologists. It works, but it\'s fragile.' },
-        { quote: 'I do complex endovascular work that very few surgeons in the country can do  and nobody outside my hospital knows about it.' },
+        { quote: 'I do complex endovascular work that very few surgeons in the country can do and nobody outside my hospital knows about it.' },
       ],
     },
     pillars: {
       build: 'We audit your private practice infrastructure and build the tools to grow it independently of NHS activity: procedure pathways for venous and arterial cases, GP and specialist referral programmes, and a digital presence that works for both.',
       grow: 'We build your search visibility for varicose vein and vascular condition searches, develop your specialist referral network, and create content that positions your endovascular expertise to the patients who need to know about it.',
-      brand: 'We establish your authority as the leading private vascular specialist in your region  with a clinical identity, patient-facing content, and peer-facing positioning that builds both direct and referred case volume.',
+      brand: 'We establish your authority as the leading private vascular specialist in your region, with a clinical identity, patient-facing content, and peer-facing positioning that builds both direct and referred case volume.',
     },
     proof: {
       clientName: 'Mr. Kwame Asante',
@@ -299,7 +299,7 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'spine surgery',
     ctaHref: '/contact/spine-surgeons',
     hero: {
-      headline: 'More patients who are ready to commit to surgery  and fewer who aren\'t.',
+      headline: 'More patients who are ready to commit to surgery and fewer who aren\'t.',
       subcopy: [
         'Spine surgery carries one of the longest and most complex patient decision journeys in surgery. Patients research obsessively, seek multiple opinions, and frequently delay or abandon the decision entirely.',
         'We build acquisition systems that reach patients earlier, educate them more effectively, and reduce the drop-off between enquiry and booked surgery.',
@@ -308,7 +308,7 @@ export const orthopaedicSurgeons = {
     insights: [
       {
         title: 'Back pain patients are the highest-volume, lowest-converting search audience in orthopaedics',
-        body: 'Most back pain searchers are not surgical candidates  but those who are have very high intent once identified. Content that helps patients self-qualify (and disqualifies those who aren\'t surgical candidates) dramatically improves conversion quality.',
+        body: 'Most back pain searchers are not surgical candidates, but those who are have very high intent once identified. Content that helps patients self-qualify (and disqualifies those who aren\'t surgical candidates) dramatically improves conversion quality.',
       },
       {
         title: 'Second-opinion seeking before spine surgery is nearly universal',
@@ -326,16 +326,16 @@ export const orthopaedicSurgeons = {
     painPoints: {
       headline: 'What spine surgeons tell us when they reach out.',
       items: [
-        { quote: 'I get a lot of enquiries but the patients are often early-stage and not surgical candidates  it wastes a lot of consultation time.' },
+        { quote: 'I get a lot of enquiries but the patients are often early-stage and not surgical candidates, it wastes a lot of consultation time.' },
         { quote: 'I want to be known for minimally invasive techniques but my website was written ten years ago and still leads with open surgery.' },
         { quote: 'My pain management colleagues refer well but inconsistently. I\'d love to have a more structured relationship with more of them.' },
         { quote: 'I have strong outcomes data but I\'ve never found a way to use it in marketing that doesn\'t feel inappropriate.' },
       ],
     },
     pillars: {
-      build: 'We build a patient qualification content system that helps surgical candidates self-identify while filtering out non-surgical enquiries early  improving your consultation conversion rate and reducing wasted time.',
+      build: 'We build a patient qualification content system that helps surgical candidates self-identify while filtering out non-surgical enquiries early, improving your consultation conversion rate and reducing wasted time.',
       grow: 'We develop your search presence for surgical-intent spine terms, build referral relationships with pain specialists and physiotherapists, and create a second-opinion pathway that positions you at the moment patients are most ready to decide.',
-      brand: 'We establish your minimally invasive expertise, outcomes standard, and patient care philosophy as a compelling public brand  through content, patient case studies, and a digital identity that separates you clearly from less specialist competitors.',
+      brand: 'We establish your minimally invasive expertise, outcomes standard, and patient care philosophy as a compelling public brand, through content, patient case studies, and a digital identity that separates you clearly from less specialist competitors.',
     },
     proof: {
       clientName: 'Mr. Tariq Rashid',
@@ -370,7 +370,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'More athletes, active patients, and clubs who trust you with their performance.',
       subcopy: [
-        'Sports medicine sits at the intersection of clinical expertise and performance culture. The patients and organisations that value it most are intensely loyal once they find the right doctor  and they refer within tight networks.',
+        'Sports medicine sits at the intersection of clinical expertise and performance culture. The patients and organisations that value it most are intensely loyal once they find the right doctor and they refer within tight networks.',
         'We build the acquisition and positioning systems that get you in front of those networks and make you the obvious choice when performance and health intersect.',
       ],
     },
@@ -380,12 +380,12 @@ export const orthopaedicSurgeons = {
         body: 'A contract with a professional or semi-professional sports organisation brings consistent caseload, credibility, and access to an athlete network that generates private referrals for years. Most sports medicine doctors don\'t have a systematic approach to winning these.',
       },
       {
-        title: 'Injury prevention content attracts athletes before injury  your highest-value acquisition moment',
+        title: 'Injury prevention content attracts athletes before injury, your highest-value acquisition moment',
         body: 'Active patients who find you through performance and prevention content are easier to retain, more likely to refer, and more open to ongoing care relationships than those who find you only after injury.',
       },
       {
         title: 'Return-to-sport timelines are the conversion metric patients care about most',
-        body: 'Athletes comparing practitioners always ask one question first: how fast will I be back? Surgeons and doctors who make this evidence explicit  with realistic, condition-specific return-to-sport data  convert at significantly higher rates.',
+        body: 'Athletes comparing practitioners always ask one question first: how fast will I be back? Surgeons and doctors who make this evidence explicit, with realistic, condition-specific return-to-sport data, convert at significantly higher rates.',
       },
       {
         title: 'Female athlete health is an underserved and rapidly growing subspecialty',
@@ -395,16 +395,16 @@ export const orthopaedicSurgeons = {
     painPoints: {
       headline: 'What sports medicine doctors tell us when they first reach out.',
       items: [
-        { quote: 'I want to work with professional sports organisations but I don\'t know how to position for those relationships  I\'ve never been shown how.' },
+        { quote: 'I want to work with professional sports organisations but I don\'t know how to position for those relationships, I\'ve never been shown how.' },
         { quote: 'I get great word-of-mouth from athletes but it\'s inconsistent. A quiet month feels very quiet.' },
         { quote: 'I want to be known for a specific sport or patient type but I don\'t want to close doors to other referrals.' },
-        { quote: 'My practice is growing but it\'s entirely based on my personal reputation  I don\'t know what happens if I want to take time off or expand.' },
+        { quote: 'My practice is growing but it\'s entirely based on my personal reputation. I don\'t know what happens if I want to take time off or expand.' },
       ],
     },
     pillars: {
-      build: 'We map the sporting ecosystem in your area  clubs, academies, gyms, and performance centres  and build the outreach strategy, content tools, and digital presence to position you as the medical partner of choice for performance-focused organisations and athletes.',
+      build: 'We map the sporting ecosystem in your area, clubs, academies, gyms, and performance centres, and build the outreach strategy, content tools, and digital presence to position you as the medical partner of choice for performance-focused organisations and athletes.',
       grow: 'We build your organic search presence for sports injury and performance search terms, develop content that attracts athletes at every stage of their season, and create the referral infrastructure that connects physios, coaches, and club staff to your practice.',
-      brand: 'We establish your sports medicine identity  your performance philosophy, your subspecialty expertise, your team and club relationships  as a public brand that attracts both individual athletes and the organisations that send them your way.',
+      brand: 'We establish your sports medicine identity, your performance philosophy, your subspecialty expertise, your team and club relationships, as a public brand that attracts both individual athletes and the organisations that send them your way.',
     },
     proof: {
       clientName: 'Dr. Joanna Kirby',
@@ -454,7 +454,7 @@ export const orthopaedicSurgeons = {
       },
       {
         title: 'Referring dentist relationships need active maintenance to stay productive',
-        body: 'A referring dentist who stops sending cases usually hasn\'t gone elsewhere by choice  they\'ve been won by a competitor who maintained contact more consistently. A structured outreach programme prevents this.',
+        body: 'A referring dentist who stops sending cases usually hasn\'t gone elsewhere by choice, they\'ve been won by a competitor who maintained contact more consistently. A structured outreach programme prevents this.',
       },
       {
         title: 'Orthognathic surgery patients require the most complex patient journey in oral surgery',
@@ -473,7 +473,7 @@ export const orthopaedicSurgeons = {
     pillars: {
       build: 'We audit your referral network, build the gap map of dental practices in your area, and develop the tools and outreach programme to systematically grow new referral relationships.',
       grow: 'We build your direct patient acquisition presence for implants and high-volume procedures, and develop a structured referral programme that keeps existing relationships productive and adds new ones every quarter.',
-      brand: 'We establish your authority as the oral surgeon of choice in your area  through procedure-specific content, case studies, and a digital profile that communicates your surgical scope clearly to both patients and referring practitioners.',
+      brand: 'We establish your authority as the oral surgeon of choice in your area, through procedure-specific content, case studies, and a digital profile that communicates your surgical scope clearly to both patients and referring practitioners.',
     },
     proof: {
       clientName: 'Mr. Andrew Blake',
@@ -510,7 +510,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'Fill your dermatology list with patients who came looking for you specifically.',
       subcopy: [
-        'Dermatology sits at the junction of medical and cosmetic  serving acne patients, eczema sufferers, skin cancer patients, and aesthetic seekers from the same practice. Each segment finds you differently and needs a different message.',
+        'Dermatology sits at the junction of medical and cosmetic, serving acne patients, eczema sufferers, skin cancer patients, and aesthetic seekers from the same practice. Each segment finds you differently and needs a different message.',
         'We build acquisition systems that route the right patients to the right appointments and grow the side of your practice you most want to grow.',
       ],
     },
@@ -525,7 +525,7 @@ export const orthopaedicSurgeons = {
       },
       {
         title: 'Acne and eczema patients have the highest lifetime value when treated holistically',
-        body: 'Chronic skin conditions require ongoing management. Practices that build a holistic treatment relationship  rather than episodic prescribing  see dramatically higher patient retention and revenue per head.',
+        body: 'Chronic skin conditions require ongoing management. Practices that build a holistic treatment relationship, rather than episodic prescribing, see dramatically higher patient retention and revenue per head.',
       },
       {
         title: 'Cosmetic cross-sell to existing medical dermatology patients is a revenue lever most practices ignore',
@@ -542,9 +542,9 @@ export const orthopaedicSurgeons = {
       ],
     },
     pillars: {
-      build: 'We build separate acquisition pathways for medical and cosmetic patients  with messaging, landing pages, and intake funnels calibrated to each patient type\'s specific decision drivers.',
+      build: 'We build separate acquisition pathways for medical and cosmetic patients, with messaging, landing pages, and intake funnels calibrated to each patient type\'s specific decision drivers.',
       grow: 'We grow your visibility for urgent skin concern searches, build chronic condition authority through long-form content, and develop the cosmetic cross-sell pathway that converts existing patients to aesthetic treatment.',
-      brand: 'We establish your dermatological authority  in your subspecialty, your community, and the media  so patients and referrers who find you already know why you\'re the right choice.',
+      brand: 'We establish your dermatological authority, in your subspecialty, your community, and the media, so patients and referrers who find you already know why you\'re the right choice.',
     },
     proof: {
       clientName: 'Dr. Amara Nwosu',
@@ -580,17 +580,17 @@ export const orthopaedicSurgeons = {
       headline: 'More loyal, high-spend patients. Less fighting over discounts.',
       subcopy: [
         'Med spas compete in the most commoditised corner of aesthetics. If your growth strategy is built on promotions, you\'re in a race to the bottom with every other practice in your city.',
-        'We build systems that attract patients who buy on trust and clinical credibility  and spend more with every visit.',
+        'We build systems that attract patients who buy on trust and clinical credibility and spend more with every visit.',
       ],
     },
     insights: [
       {
         title: 'Package sales are the single strongest revenue lever for med spas',
-        body: 'Patients who buy treatment packages have 4–6× the lifetime value of single-treatment buyers. The pathway from first appointment to package sale is a system, not luck  and most med spas have never built it.',
+        body: 'Patients who buy treatment packages have 4–6× the lifetime value of single-treatment buyers. The pathway from first appointment to package sale is a system, not luck and most med spas have never built it.',
       },
       {
         title: 'Your referral programme is almost certainly underperforming',
-        body: 'Most med spas have informal referral approaches. Practices with a structured programme  clear incentives, an active ask, and a follow-up mechanism  see 30–50% more new patients from this source.',
+        body: 'Most med spas have informal referral approaches. Practices with a structured programme, clear incentives, an active ask, and a follow-up mechanism, see 30–50% more new patients from this source.',
       },
       {
         title: 'Male aesthetics is a fast-growing and first-mover market',
@@ -598,7 +598,7 @@ export const orthopaedicSurgeons = {
       },
       {
         title: 'Membership models dramatically increase predictable revenue',
-        body: 'Monthly membership programmes convert single-treatment patients into reliable revenue streams. The offer design, pricing, and communication all matter  and most practices get at least one of them wrong.',
+        body: 'Monthly membership programmes convert single-treatment patients into reliable revenue streams. The offer design, pricing, and communication all matter and most practices get at least one of them wrong.',
       },
     ],
     painPoints: {
@@ -611,9 +611,9 @@ export const orthopaedicSurgeons = {
       ],
     },
     pillars: {
-      build: 'We audit your patient journey, identify the drop-off points in your conversion and retention funnel, and build the systems  CRM, follow-up sequences, booking flow  that close the gaps.',
+      build: 'We audit your patient journey, identify the drop-off points in your conversion and retention funnel, and build the systems, CRM, follow-up sequences, booking flow, that close the gaps.',
       grow: 'We build acquisition campaigns targeting your highest-value treatment areas, develop your local search presence, implement a structured referral programme, and launch the membership model that makes your revenue predictable.',
-      brand: 'We position your med spa as the premium, medically credible destination in your market  not just another aesthetics provider  with a visual identity, content strategy, and authority positioning that reflects the clinical standard you hold.',
+      brand: 'We position your med spa as the premium, medically credible destination in your market, not just another aesthetics provider, with a visual identity, content strategy, and authority positioning that reflects the clinical standard you hold.',
     },
     proof: {
       clientName: 'Christina Moore',
@@ -649,13 +649,13 @@ export const orthopaedicSurgeons = {
       headline: 'More high-value aesthetic patients. Fewer one-and-done treatment seekers.',
       subcopy: [
         'The aesthetic medicine market is saturated. Patients can get Botox on every high street. What they can\'t get everywhere is a medically-led, outcomes-focused practitioner who treats them as an individual.',
-        'We build patient acquisition systems that attract patients who value clinical expertise  and keep them returning.',
+        'We build patient acquisition systems that attract patients who value clinical expertise and keep them returning.',
       ],
     },
     insights: [
       {
         title: 'Treatment loyalty is built in the first 90 days',
-        body: 'Patients who return three or more times in the first year have dramatically higher lifetime value and referral rates. The early patient experience  from first contact to follow-up  determines whether this happens.',
+        body: 'Patients who return three or more times in the first year have dramatically higher lifetime value and referral rates. The early patient experience, from first contact to follow-up, determines whether this happens.',
       },
       {
         title: 'Medical credentials are an underused differentiator',
@@ -663,7 +663,7 @@ export const orthopaedicSurgeons = {
       },
       {
         title: 'Treatment plan consultations generate 2–3× more revenue than single-treatment bookings',
-        body: 'Practices where the consultation naturally leads to a multi-treatment plan  rather than a single procedure booking  generate significantly more revenue per patient without increasing patient volume.',
+        body: 'Practices where the consultation naturally leads to a multi-treatment plan, rather than a single procedure booking, generate significantly more revenue per patient without increasing patient volume.',
       },
       {
         title: 'Social media drives awareness but not high-value bookings on its own',
@@ -673,16 +673,16 @@ export const orthopaedicSurgeons = {
     painPoints: {
       headline: 'What aesthetic practitioners tell us before we start.',
       items: [
-        { quote: 'I spent a fortune on Instagram ads and attracted exactly the patients I didn\'t want  price shoppers who disappear after one treatment.' },
+        { quote: 'I spent a fortune on Instagram ads and attracted exactly the patients I didn\'t want, price shoppers who disappear after one treatment.' },
         { quote: 'My patients love me but they keep getting discounted treatment elsewhere and I have no way to stop them drifting.' },
         { quote: 'I know my clinical results are better than the competition but patients can\'t see that from my website.' },
         { quote: 'I want to grow without discounting. Everyone I\'ve spoken to just tells me to do more promotions.' },
       ],
     },
     pillars: {
-      build: 'We audit your patient acquisition, consultation, and retention touchpoints and build the infrastructure to optimise each  from website to booking system to post-treatment follow-up sequence.',
+      build: 'We audit your patient acquisition, consultation, and retention touchpoints and build the infrastructure to optimise each, from website to booking system to post-treatment follow-up sequence.',
       grow: 'We run acquisition campaigns targeting patients seeking medically-led aesthetic care, and build SEO authority for high-intent treatment and condition search terms in your catchment area.',
-      brand: 'We position your clinical background and treatment philosophy as your primary differentiator  through content, press placements, and a visual identity that communicates authority, not just aesthetics.',
+      brand: 'We position your clinical background and treatment philosophy as your primary differentiator, through content, press placements, and a visual identity that communicates authority, not just aesthetics.',
     },
     proof: {
       clientName: 'Dr. Leila Shah',
@@ -717,13 +717,13 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'More FUE and FUT bookings. Fewer patients who go to Turkey instead.',
       subcopy: [
-        'Hair transplant surgery is one of the most competitive elective markets online  with overseas clinics undercutting on price and over-promising on outcomes. Your job is to reach patients before they make a decision they\'ll regret.',
+        'Hair transplant surgery is one of the most competitive elective markets online, with overseas clinics undercutting on price and over-promising on outcomes. Your job is to reach patients before they make a decision they\'ll regret.',
         'We build practice growth systems that position your quality, qualifications, and outcomes ahead of the price-led market.',
       ],
     },
     insights: [
       {
-        title: 'The medical tourism comparison is unavoidable  so address it, don\'t avoid it',
+        title: 'The medical tourism comparison is unavoidable, so address it, don\'t avoid it',
         body: 'Patients researching hair transplants will find overseas options. Practices that directly explain why UK/US surgical standards, aftercare, and revision risk justify the price premium convert patients who would otherwise leave.',
       },
       {
@@ -732,7 +732,7 @@ export const orthopaedicSurgeons = {
       },
       {
         title: 'Hairline design is an underused emotional purchase driver',
-        body: 'Patients aren\'t just buying hair density  they\'re buying a specific visual outcome. Surgeons who communicate hairline design philosophy and show the artistry of their work attract patients who have moved beyond price comparison.',
+        body: 'Patients aren\'t just buying hair density, they\'re buying a specific visual outcome. Surgeons who communicate hairline design philosophy and show the artistry of their work attract patients who have moved beyond price comparison.',
       },
       {
         title: 'Post-surgery support content drives referrals better than almost any other channel',
@@ -751,7 +751,7 @@ export const orthopaedicSurgeons = {
     pillars: {
       build: 'We build a content and conversion system that meets patients at the research stage, addresses the overseas cost comparison honestly and confidently, and guides patients toward consultation through genuine education.',
       grow: 'We develop your organic search presence for high-intent hair transplant terms and run targeted paid campaigns to reach patients actively comparing UK or US surgeons to overseas alternatives.',
-      brand: 'We craft your surgical identity  your hairline design philosophy, your patient selection standards, your post-op care protocol  into a compelling public brand that attracts patients choosing quality over price.',
+      brand: 'We craft your surgical identity, your hairline design philosophy, your patient selection standards, your post-op care protocol, into a compelling public brand that attracts patients choosing quality over price.',
     },
     proof: {
       clientName: 'Dr. Ravi Patel',
@@ -784,16 +784,16 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'laser clinic',
     ctaHref: '/contact/laser-clinic-owners',
     hero: {
-      headline: 'More laser treatment bookings from clients who come back  not just clients who respond to deals.',
+      headline: 'More laser treatment bookings from clients who come back, not just clients who respond to deals.',
       subcopy: [
         'Laser clinics compete in a market crowded with Groupon offers, flash sales, and price-matching. If your growth is built on promotions, you\'re building loyalty to your discount, not to your clinic.',
-        'We build the client acquisition and retention systems that fill your treatment diary with clients who invest in their results  and keep investing.',
+        'We build the client acquisition and retention systems that fill your treatment diary with clients who invest in their results and keep investing.',
       ],
     },
     insights: [
       {
         title: 'Laser hair removal clients are your highest-volume and highest-retention opportunity',
-        body: 'LHR clients require multiple sessions across 12–18 months, creating a long treatment relationship. Practices that structure this experience well  with great communication, consistent results, and natural upsell pathways  build their most loyal client base from this single treatment.',
+        body: 'LHR clients require multiple sessions across 12–18 months, creating a long treatment relationship. Practices that structure this experience well, with great communication, consistent results, and natural upsell pathways, build their most loyal client base from this single treatment.',
       },
       {
         title: 'Skin rejuvenation and resurfacing search volumes are growing year-on-year',
@@ -813,20 +813,20 @@ export const orthopaedicSurgeons = {
       items: [
         { quote: 'I run promotions every month and my diary is full, but my margins are terrible and clients disappear the moment I stop discounting.' },
         { quote: 'I\'ve invested in equipment that should be generating serious revenue but I can\'t seem to fill the treatment slots for it.' },
-        { quote: 'My LHR clients love the results but very few of them go on to try anything else  there\'s clearly more on the table.' },
+        { quote: 'My LHR clients love the results but very few of them go on to try anything else, there\'s clearly more on the table.' },
         { quote: 'I have no idea which marketing activities are actually driving bookings. I\'m spending money in too many places.' },
       ],
     },
     pillars: {
-      build: 'We audit your client acquisition and retention infrastructure, identify the leaks in your booking funnel, and build the systems  reactivation campaigns, post-treatment follow-up, upsell pathways  that close them.',
+      build: 'We audit your client acquisition and retention infrastructure, identify the leaks in your booking funnel, and build the systems, reactivation campaigns, post-treatment follow-up, upsell pathways, that close them.',
       grow: 'We develop your local SEO for laser treatment search terms, run acquisition campaigns targeting clients with treatment intent rather than deal-seeking behaviour, and build a structured referral programme.',
-      brand: 'We position your clinic as the credible, results-led laser destination in your market  with a visual identity, content strategy, and review management programme that makes your reputation visible and your authority clear.',
+      brand: 'We position your clinic as the credible, results-led laser destination in your market, with a visual identity, content strategy, and review management programme that makes your reputation visible and your authority clear.',
     },
     proof: {
       clientName: 'Zara Hennessy',
       specialty: 'Laser Clinic Owner',
       location: 'Dublin, IE',
-      quote: 'The reactivation campaign was extraordinary  we brought back 140 clients who had finished a laser course and gone quiet. Most of them booked a new treatment within two weeks.',
+      quote: 'The reactivation campaign was extraordinary. We brought back 140 clients who had finished a laser course and gone quiet. Most of them booked a new treatment within two weeks.',
       metrics: [
         { value: '+140', label: 'Reactivated clients (first campaign)' },
         { value: '+63%', label: 'Multi-treatment course uptake' },
@@ -857,7 +857,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'A full private dental practice built on patients who stay, spend, and refer.',
       subcopy: [
-        'Private dentistry is a relationship business. Patients who feel genuinely cared for return every year, invest in elective work, and bring their families. Building a practice full of them is the goal  and it\'s a system, not luck.',
+        'Private dentistry is a relationship business. Patients who feel genuinely cared for return every year, invest in elective work, and bring their families. Building a practice full of them is the goal and it\'s a system, not luck.',
         'We build patient acquisition and retention systems for private dental practices that want predictable, growing revenue without constant discounting or patient churn.',
       ],
     },
@@ -882,7 +882,7 @@ export const orthopaedicSurgeons = {
     painPoints: {
       headline: 'What private dentists tell us when they reach out.',
       items: [
-        { quote: 'I\'m always seeing new patients but I feel like I\'m filling a leaky bucket  I can\'t work out why people aren\'t staying.' },
+        { quote: 'I\'m always seeing new patients but I feel like I\'m filling a leaky bucket. I can\'t work out why people aren\'t staying.' },
         { quote: 'I want to grow my whitening, veneers, and Invisalign work but I can\'t get patients engaged at the check-up stage.' },
         { quote: 'I came off NHS two years ago and my pipeline is inconsistent. Word of mouth works but it\'s not reliable enough.' },
         { quote: 'I\'ve tried Google Ads and just got NHS patients who wanted free treatment.' },
@@ -891,7 +891,7 @@ export const orthopaedicSurgeons = {
     pillars: {
       build: 'We build your patient acquisition and retention infrastructure: a membership programme, a referral system, an active review pipeline, and tracking that tells you exactly where your growth is coming from.',
       grow: 'We develop your local SEO presence for private dentistry search terms, run targeted acquisition campaigns for your elective services, and create the new-patient experience that turns first visits into long-term relationships.',
-      brand: 'We build a practice brand that communicates warmth, clinical expertise, and the private standard your patients are paying for  through a website, visual identity, and content strategy that sets you apart from NHS and budget alternatives.',
+      brand: 'We build a practice brand that communicates warmth, clinical expertise, and the private standard your patients are paying for, through a website, visual identity, and content strategy that sets you apart from NHS and budget alternatives.',
     },
     proof: {
       clientName: 'Dr. Clare Murphy',
@@ -924,9 +924,9 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'orthodontics',
     ctaHref: '/contact/orthodontists',
     hero: {
-      headline: 'More adult aligner starts and clear brace bookings  without competing on price.',
+      headline: 'More adult aligner starts and clear brace bookings, without competing on price.',
       subcopy: [
-        'Orthodontics has changed. Adult aligner treatment is now a significant market  but it\'s also the most competitive, with direct-to-consumer brands undercutting on price and convenience.',
+        'Orthodontics has changed. Adult aligner treatment is now a significant market, but it\'s also the most competitive, with direct-to-consumer brands undercutting on price and convenience.',
         'We build practice growth systems that position your clinical oversight, outcomes, and patient care as the premium choice over mail-order alternatives.',
       ],
     },
@@ -945,22 +945,22 @@ export const orthopaedicSurgeons = {
       },
       {
         title: 'Parent-child combined consultations improve conversion and adult treatment starts',
-        body: 'Practices that frame the consultation as a family conversation  addressing both adolescent and adult treatment in one appointment  see higher case acceptance and significantly more adult aligner starts.',
+        body: 'Practices that frame the consultation as a family conversation, addressing both adolescent and adult treatment in one appointment, see higher case acceptance and significantly more adult aligner starts.',
       },
     ],
     painPoints: {
       headline: 'What orthodontists say when they reach out to us.',
       items: [
         { quote: 'I\'m losing adult aligner patients to direct-to-consumer brands and I have no effective way to address it in my marketing.' },
-        { quote: 'My referral relationships with GDPs are random  some send a lot, most send nothing. I\'ve never had a system for it.' },
+        { quote: 'My referral relationships with GDPs are random, some send a lot, most send nothing. I\'ve never had a system for it.' },
         { quote: 'I want to grow my adult caseload but most of my marketing infrastructure is aimed at parents of teenagers.' },
-        { quote: 'My case acceptance is around 50% and I know it should be higher  I just don\'t know where patients are dropping out.' },
+        { quote: 'My case acceptance is around 50% and I know it should be higher. I just don\'t know where patients are dropping out.' },
       ],
     },
     pillars: {
-      build: 'We build dual patient pathways  one for adolescent cases, one for adult aligner patients  with the content, consultation design, and follow-up sequences each segment requires.',
+      build: 'We build dual patient pathways, one for adolescent cases, one for adult aligner patients, with the content, consultation design, and follow-up sequences each segment requires.',
       grow: 'We develop your GDP referral programme and build your organic and paid presence for adult aligner search terms that attract patients who are ready to invest in proper clinical oversight.',
-      brand: 'We position your clinical expertise and outcome quality as the premium alternative to direct-to-consumer treatment  with content, patient case studies, and media presence that makes the difference visible.',
+      brand: 'We position your clinical expertise and outcome quality as the premium alternative to direct-to-consumer treatment, with content, patient case studies, and media presence that makes the difference visible.',
     },
     proof: {
       clientName: 'Dr. Sandra Williams',
@@ -993,16 +993,16 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'dental implants',
     ctaHref: '/contact/dental-implant-specialists',
     hero: {
-      headline: 'More implant cases from patients who chose you specifically  not the first result they clicked.',
+      headline: 'More implant cases from patients who chose you specifically, not the first result they clicked.',
       subcopy: [
-        'Dental implants are one of the most searched private dental procedures online. Patients comparing options spend weeks in the research phase  reading, comparing, and building trust before they ever book a consultation.',
+        'Dental implants are one of the most searched private dental procedures online. Patients comparing options spend weeks in the research phase, reading, comparing, and building trust before they ever book a consultation.',
         'We build the content and acquisition system that puts you in front of that research process and makes you the obvious choice when they\'re ready to commit.',
       ],
     },
     insights: [
       {
-        title: 'Implant patients convert from trust and clarity  not from price comparison',
-        body: 'Patients who truly understand implants  the procedure, the timeline, the long-term value over dentures  convert at much higher rates and negotiate on price much less. Patient education content is your primary conversion tool.',
+        title: 'Implant patients convert from trust and clarity, not from price comparison',
+        body: 'Patients who truly understand implants, the procedure, the timeline, the long-term value over dentures, convert at much higher rates and negotiate on price much less. Patient education content is your primary conversion tool.',
       },
       {
         title: 'All-on-4 and full-arch restoration patients represent your highest single-case revenue opportunity',
@@ -1023,13 +1023,13 @@ export const orthopaedicSurgeons = {
         { quote: 'I\'m getting enquiries but they\'ve been to three other practices already and they\'re basically price-shopping. I can\'t seem to attract patients who just want the best.' },
         { quote: 'My GDP referrals for implants have dropped significantly over the last two years and I haven\'t built an alternative.' },
         { quote: 'I want to do more full-arch cases but patients come in not knowing what All-on-4 is and the consultation takes three times as long.' },
-        { quote: 'My case photography is excellent but nobody sees it  it\'s buried in a gallery page that gets almost no traffic.' },
+        { quote: 'My case photography is excellent but nobody sees it, it\'s buried in a gallery page that gets almost no traffic.' },
       ],
     },
     pillars: {
-      build: 'We build a patient education ecosystem  procedure guides, case studies, comparison content, and FAQ architecture  that turns your website into the most trusted implant resource in your area and converts research-phase patients before they visit a competitor.',
+      build: 'We build a patient education ecosystem, procedure guides, case studies, comparison content, and FAQ architecture, that turns your website into the most trusted implant resource in your area and converts research-phase patients before they visit a competitor.',
       grow: 'We develop your search presence for high-intent implant terms, build a full-arch patient acquisition campaign, and create the GDP referral programme that keeps your existing relationships strong while adding new ones.',
-      brand: 'We establish your implant authority  in your clinical approach, your outcome standards, your patient experience  as a compelling public brand that wins patients who are choosing their specialist on merit, not proximity.',
+      brand: 'We establish your implant authority, in your clinical approach, your outcome standards, your patient experience, as a compelling public brand that wins patients who are choosing their specialist on merit, not proximity.',
     },
     proof: {
       clientName: 'Dr. Yusuf Okafor',
@@ -1064,7 +1064,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'More gum disease referrals and implant cases. A practice that doesn\'t depend on three GDPs.',
       subcopy: [
-        'Periodontics is almost entirely referral-driven  but most practices have a thin, concentrated referral network and no systematic way to grow it.',
+        'Periodontics is almost entirely referral-driven, but most practices have a thin, concentrated referral network and no systematic way to grow it.',
         'We build referral development systems and patient-facing acquisition tools that diversify your pipeline and make your practice genuinely resilient.',
       ],
     },
@@ -1074,7 +1074,7 @@ export const orthopaedicSurgeons = {
         body: 'In a specialty where relationships are everything, concentration risk is the biggest vulnerability. Broadening to twenty or thirty active referrers transforms stability and case volume.',
       },
       {
-        title: 'Gum disease is dramatically under-diagnosed  patient education content captures self-referrals',
+        title: 'Gum disease is dramatically under-diagnosed, patient education content captures self-referrals',
         body: 'Patients with bleeding gums, recession, or mobility frequently don\'t know specialist periodontal care exists. Educational content that helps them self-identify creates a direct-to-patient acquisition stream most periodontists don\'t have.',
       },
       {
@@ -1090,15 +1090,15 @@ export const orthopaedicSurgeons = {
       headline: 'What periodontists tell us when they contact us.',
       items: [
         { quote: 'I know my three best referrers well and everyone else is a stranger. That feels fragile.' },
-        { quote: 'I want to grow but I don\'t know how to approach GDPs I\'ve never met  cold calling feels wrong for a clinical relationship.' },
+        { quote: 'I want to grow but I don\'t know how to approach GDPs I\'ve never met, cold calling feels wrong for a clinical relationship.' },
         { quote: 'Patients don\'t know periodontists exist until a GDP mentions it. I\'d love to be findable before that.' },
         { quote: 'I do excellent cosmetic periodontal work but it\'s barely mentioned on my website. I get almost no enquiries for it.' },
       ],
     },
     pillars: {
-      build: 'We build your referrer map, design your outreach programme, and create the clinical communication tools  case reports, educational content, practice updates  that make you a valued contact rather than a cold approach.',
+      build: 'We build your referrer map, design your outreach programme, and create the clinical communication tools, case reports, educational content, practice updates, that make you a valued contact rather than a cold approach.',
       grow: 'We build patient-facing content for gum disease self-identification, cosmetic periodontal procedures, and implant maintenance that creates a direct-to-patient stream alongside your referral pipeline.',
-      brand: 'We position you as the periodontal authority in your area  through content, relationships, and a digital presence that makes you the natural first call for GDPs and motivated patients alike.',
+      brand: 'We position you as the periodontal authority in your area, through content, relationships, and a digital presence that makes you the natural first call for GDPs and motivated patients alike.',
     },
     proof: {
       clientName: 'Dr. Elena Torres',
@@ -1136,12 +1136,12 @@ export const orthopaedicSurgeons = {
       headline: 'More private ophthalmology patients. A practice that grows beyond optometrist referrals.',
       subcopy: [
         'Private ophthalmology serves patients who want faster diagnosis, premium lens choices, and a surgeon they can trust for one of the most precious senses they have.',
-        'We build patient acquisition and referral development systems that give your practice a growing, diversified pipeline  not one that stalls when a key optometrist retires.',
+        'We build patient acquisition and referral development systems that give your practice a growing, diversified pipeline, not one that stalls when a key optometrist retires.',
       ],
     },
     insights: [
       {
-        title: 'Premium IOL patients are your highest-value segment  and they need education to find you',
+        title: 'Premium IOL patients are your highest-value segment and they need education to find you',
         body: 'Patients who are candidates for premium intraocular lenses frequently don\'t know the option exists until the consultation. Practices that market premium lens options directly to patients see dramatically higher conversion to premium-grade procedures.',
       },
       {
@@ -1162,14 +1162,14 @@ export const orthopaedicSurgeons = {
       items: [
         { quote: 'My surgical list is entirely dependent on referrals from one optometry group. That feels like a structural risk I need to address.' },
         { quote: 'I want to grow my premium IOL caseload but patients don\'t know the difference between standard and premium lenses until we\'re already in the consultation.' },
-        { quote: 'I\'ve tried PPC for laser eye surgery and just got burned  wrong patients, terrible conversion, no ROI.' },
+        { quote: 'I\'ve tried PPC for laser eye surgery and just got burned, wrong patients, terrible conversion, no ROI.' },
         { quote: 'My outcomes are excellent but I have almost no online presence and I know I\'m losing patients to competitors who market better.' },
       ],
     },
     pillars: {
       build: 'We build a patient education system for your surgical procedures and premium services, and develop a structured optometrist co-management programme that diversifies and deepens your referral pipeline.',
       grow: 'We build your search presence for elective procedure terms, run paid campaigns targeting patients with vision correction intent, and optimise your consultation conversion for premium procedure acceptance.',
-      brand: 'We establish your authority as the trusted ophthalmic surgeon in your area  through patient outcome content, press coverage, and a digital presence that reflects the standard of your care.',
+      brand: 'We establish your authority as the trusted ophthalmic surgeon in your area, through patient outcome content, press coverage, and a digital presence that reflects the standard of your care.',
     },
     proof: {
       clientName: 'Mr. Aarav Mishra',
@@ -1202,7 +1202,7 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'varicose vein treatment',
     ctaHref: '/contact/varicose-vein-specialists',
     hero: {
-      headline: 'More varicose vein patients who came looking for you  and booked without shopping around.',
+      headline: 'More varicose vein patients who came looking for you and booked without shopping around.',
       subcopy: [
         'Varicose vein treatment is one of the most self-referred private procedures in vascular medicine. Patients are motivated, their symptoms are visible, and they actively research treatment options before choosing a specialist.',
         'We build the acquisition systems that capture this search demand and convert it into booked consultations.',
@@ -1218,12 +1218,12 @@ export const orthopaedicSurgeons = {
         body: 'Most patients don\'t know that modern varicose vein treatment is day-case, minimally invasive, and requires little recovery. Clinics that educate on this clearly reduce consultation drop-off and increase booking intent dramatically.',
       },
       {
-        title: 'Venous insufficiency is significantly under-diagnosed  creating a patient education opportunity',
+        title: 'Venous insufficiency is significantly under-diagnosed, creating a patient education opportunity',
         body: 'Many patients with chronic leg heaviness, swelling, or aching haven\'t connected their symptoms to venous disease. Content that helps them self-identify brings in patients who had no idea they were a candidate for treatment.',
       },
       {
         title: 'Patient photography and outcome content converts better in vein treatment than almost any other channel',
-        body: 'Before-and-after imagery of varicose vein treatment  showing both aesthetic and symptomatic improvement  drives higher engagement and enquiry rates than any other content type for this specialty.',
+        body: 'Before-and-after imagery of varicose vein treatment, showing both aesthetic and symptomatic improvement, drives higher engagement and enquiry rates than any other content type for this specialty.',
       },
     ],
     painPoints: {
@@ -1231,14 +1231,14 @@ export const orthopaedicSurgeons = {
       items: [
         { quote: 'I know patients are looking for exactly what I do but I\'m not showing up in the searches that matter.' },
         { quote: 'I get a lot of NHS overflow enquiries from patients expecting to be seen for free. I can\'t seem to attract patients who are genuinely ready to pay privately.' },
-        { quote: 'My clinical results are excellent  the legs look great  but I don\'t have a way to show that online that actually converts.' },
+        { quote: 'My clinical results are excellent, the legs look great, but I don\'t have a way to show that online that actually converts.' },
         { quote: 'I want to grow my private practice but my marketing is three steps behind where it needs to be.' },
       ],
     },
     pillars: {
-      build: 'We build a procedure-specific acquisition funnel  with condition education content, a patient self-assessment pathway, and a booking process that filters for private intent and surgical suitability before the consultation.',
+      build: 'We build a procedure-specific acquisition funnel, with condition education content, a patient self-assessment pathway, and a booking process that filters for private intent and surgical suitability before the consultation.',
       grow: 'We develop your local and regional search visibility for varicose vein and venous insufficiency terms, run paid campaigns targeting patients with symptomatic and aesthetic vein concerns, and build GP and phlebology referral relationships to supplement direct enquiries.',
-      brand: 'We establish your authority as the trusted varicose vein specialist in your area  through treatment outcome content, patient testimonials, and a digital presence that communicates the clinical and aesthetic standard of your results.',
+      brand: 'We establish your authority as the trusted varicose vein specialist in your area, through treatment outcome content, patient testimonials, and a digital presence that communicates the clinical and aesthetic standard of your results.',
     },
     proof: {
       clientName: 'Mr. Patrick Olusegun',
@@ -1273,7 +1273,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'More private ENT patients. A surgical list that doesn\'t depend on hospital overflow.',
       subcopy: [
-        'Private ENT serves a wide patient mix  parents of children with glue ear, adults seeking sinus surgery, hearing restoration patients, and rhinoplasty candidates. Each finds you differently and needs a different message.',
+        'Private ENT serves a wide patient mix, parents of children with glue ear, adults seeking sinus surgery, hearing restoration patients, and rhinoplasty candidates. Each finds you differently and needs a different message.',
         'We build acquisition systems that serve each patient pathway efficiently and give your practice a diversified, growing pipeline.',
       ],
     },
@@ -1305,15 +1305,15 @@ export const orthopaedicSurgeons = {
       ],
     },
     pillars: {
-      build: 'We build condition and procedure-specific patient pathways  for paediatric ENT, adult elective surgery, functional rhinoplasty, and allergy  with dedicated content and frictionless booking flows for each.',
+      build: 'We build condition and procedure-specific patient pathways, for paediatric ENT, adult elective surgery, functional rhinoplasty, and allergy, with dedicated content and frictionless booking flows for each.',
       grow: 'We develop your search visibility for ENT condition and procedure searches, run acquisition campaigns for your highest-value private patient segments, and build a GP referral programme to supplement direct enquiries.',
-      brand: 'We build your ENT authority  positioning your surgical scope, subspecialty interests, and patient care philosophy in a brand that attracts both self-referring patients and referring practitioners with confidence.',
+      brand: 'We build your ENT authority, positioning your surgical scope, subspecialty interests, and patient care philosophy in a brand that attracts both self-referring patients and referring practitioners with confidence.',
     },
     proof: {
       clientName: 'Mr. Christopher Asante',
       specialty: 'ENT Surgeon',
       location: 'London, UK',
-      quote: 'The paediatric pathway brought in families who had been waiting eight months on the NHS. Within three months it was our fastest-growing source of new private patients  driven almost entirely by organic search.',
+      quote: 'The paediatric pathway brought in families who had been waiting eight months on the NHS. Within three months it was our fastest-growing source of new private patients, driven almost entirely by organic search.',
       metrics: [
         { value: '4.4×', label: 'Paediatric ENT enquiries' },
         { value: '+66%', label: 'Private surgical volume' },
@@ -1342,7 +1342,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'More private urology patients. A practice not built around waiting for referrals.',
       subcopy: [
-        'Private urology patients are often highly motivated  they\'ve been waiting too long on the NHS, they\'ve researched their symptoms online, or they need a sensitive conversation they\'d prefer not to have in a busy NHS clinic.',
+        'Private urology patients are often highly motivated, they\'ve been waiting too long on the NHS, they\'ve researched their symptoms online, or they need a sensitive conversation they\'d prefer not to have in a busy NHS clinic.',
         'We build patient acquisition systems that reach these patients at the moment they\'re looking.',
       ],
     },
@@ -1369,20 +1369,20 @@ export const orthopaedicSurgeons = {
       items: [
         { quote: 'I want to grow my men\'s health work but I\'m not sure how to market something sensitive without it looking cheap.' },
         { quote: 'Half my practice is waiting-list private, and the other half is very thin. I want to stop being so dependent on hospital channels.' },
-        { quote: 'I have a strong interest in female urology but almost no enquiries for it  I don\'t think women know they could see me privately.' },
+        { quote: 'I have a strong interest in female urology but almost no enquiries for it. I don\'t think women know they could see me privately.' },
         { quote: 'I tried PPC and it brought in patients expecting NHS care. I need a way to attract genuine private patients.' },
       ],
     },
     pillars: {
-      build: 'We build separate patient pathways for men\'s health, female urology, stone disease, and oncological urology  with the content, booking flows, and intake processes each requires.',
+      build: 'We build separate patient pathways for men\'s health, female urology, stone disease, and oncological urology, with the content, booking flows, and intake processes each requires.',
       grow: 'We develop your search presence for urological condition and procedure terms, run acquisition campaigns for your highest-value patient segments, and build a GP referral programme that diversifies your pipeline.',
-      brand: 'We establish your authority as the trusted private urologist in your area  with a brand identity and content strategy that communicates expertise and discretion in equal measure.',
+      brand: 'We establish your authority as the trusted private urologist in your area, with a brand identity and content strategy that communicates expertise and discretion in equal measure.',
     },
     proof: {
       clientName: 'Mr. James Oluwole',
       specialty: 'Urologist',
       location: 'Manchester, UK',
-      quote: 'The men\'s health content was something I\'d hesitated over  it felt like advertising. But the patients it brought in were exactly who I wanted to see, and they were incredibly loyal.',
+      quote: 'The men\'s health content was something I\'d hesitated over, it felt like advertising. But the patients it brought in were exactly who I wanted to see, and they were incredibly loyal.',
       metrics: [
         { value: '3.7×', label: 'Men\'s health patient enquiries' },
         { value: '+48%', label: 'Private surgical volume' },
@@ -1411,7 +1411,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'Build a private cardiology practice that grows beyond hospital networks.',
       subcopy: [
-        'Private cardiology patients are high-value, long-term, and relationship-driven. But most practices have no system to attract them directly  relying entirely on hospital channels or a handful of GP referrers.',
+        'Private cardiology patients are high-value, long-term, and relationship-driven. But most practices have no system to attract them directly, relying entirely on hospital channels or a handful of GP referrers.',
         'We build practice development programmes that create predictable private cardiology growth through diversified referral networks and direct patient acquisition.',
       ],
     },
@@ -1437,15 +1437,15 @@ export const orthopaedicSurgeons = {
       headline: 'What cardiologists say when they reach out to us.',
       items: [
         { quote: 'I\'m reliant on two referring physicians and my private list suffers every time their referral patterns change.' },
-        { quote: 'I run private cardiac screening but it\'s almost an invisible service  I don\'t know how to market a screening programme without it feeling clinical.' },
+        { quote: 'I run private cardiac screening but it\'s almost an invisible service. I don\'t know how to market a screening programme without it feeling clinical.' },
         { quote: 'I want to grow my private practice but it feels inappropriate to market myself the way cosmetic practices do.' },
         { quote: 'My NHS reputation is excellent but it doesn\'t automatically translate into private referrals.' },
       ],
     },
     pillars: {
-      build: 'We build your GP referral programme, executive health screening pathway, and patient-facing digital infrastructure  with content and tracking systems that make every growth channel visible and manageable.',
+      build: 'We build your GP referral programme, executive health screening pathway, and patient-facing digital infrastructure, with content and tracking systems that make every growth channel visible and manageable.',
       grow: 'We grow your local search presence for cardiac symptom and private cardiology terms and build a systematic GP outreach programme that expands your referral base month by month.',
-      brand: 'We establish your reputation as the trusted, accessible private cardiologist in your area  through patient-facing content, peer relationships, and a digital presence that reflects the standard of your practice.',
+      brand: 'We establish your reputation as the trusted, accessible private cardiologist in your area, through patient-facing content, peer relationships, and a digital presence that reflects the standard of your practice.',
     },
     proof: {
       clientName: 'Dr. Femi Adeyemi',
@@ -1480,7 +1480,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'More private neurology patients who found you at the moment they needed you most.',
       subcopy: [
-        'Neurological symptoms are often frightening and urgent. Patients who can\'t wait for an NHS appointment actively search for private neurologists  and convert quickly when they find a practice that communicates clarity and reassurance.',
+        'Neurological symptoms are often frightening and urgent. Patients who can\'t wait for an NHS appointment actively search for private neurologists and convert quickly when they find a practice that communicates clarity and reassurance.',
         'We build the acquisition systems that put your practice in front of those patients at the right moment.',
       ],
     },
@@ -1506,15 +1506,15 @@ export const orthopaedicSurgeons = {
       headline: 'What neurologists tell us when they first reach out.',
       items: [
         { quote: 'My NHS practice is busy but my private list is thin. I\'m not sure how to bridge the reputation gap.' },
-        { quote: 'I get patients with straightforward migraine diagnoses but I want to be known for more complex cases  I don\'t know how to signal that.' },
-        { quote: 'I keep hearing about patients who couldn\'t find a private neurologist quickly  but they didn\'t find me. I must not be visible enough.' },
+        { quote: 'I get patients with straightforward migraine diagnoses but I want to be known for more complex cases. I don\'t know how to signal that.' },
+        { quote: 'I keep hearing about patients who couldn\'t find a private neurologist quickly, but they didn\'t find me. I must not be visible enough.' },
         { quote: 'Traditional marketing feels completely wrong for neurology. I don\'t know what appropriate looks like for my specialty.' },
       ],
     },
     pillars: {
-      build: 'We build condition-specific patient pathways for your highest-demand presentations  migraine, MS, epilepsy, functional disorders  with content that communicates specialist expertise clearly and compassionately.',
+      build: 'We build condition-specific patient pathways for your highest-demand presentations, migraine, MS, epilepsy, functional disorders, with content that communicates specialist expertise clearly and compassionately.',
       grow: 'We develop your search visibility for neurological condition and symptom searches, build a GP referral programme for complex case management, and create the patient education content that converts self-referring patients.',
-      brand: 'We establish your neurological authority  your subspecialty, your approach to diagnosis, your patient care philosophy  as a public brand that attracts both direct patients and referrers seeking a genuinely expert specialist.',
+      brand: 'We establish your neurological authority, your subspecialty, your approach to diagnosis, your patient care philosophy, as a public brand that attracts both direct patients and referrers seeking a genuinely expert specialist.',
     },
     proof: {
       clientName: 'Dr. Priya Verma',
@@ -1536,7 +1536,7 @@ export const orthopaedicSurgeons = {
       { label: 'Rheumatologists', slug: 'rheumatologists' },
     ],
     finalCta: {
-      headline: 'Patients who need a neurologist aren\'t browsing  they\'re searching with urgency. Let\'s make sure they find you.',
+      headline: 'Patients who need a neurologist aren\'t browsing, they\'re searching with urgency. Let\'s make sure they find you.',
     },
   }
   
@@ -1547,7 +1547,7 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'fertility clinic',
     ctaHref: '/contact/fertility-clinics',
     hero: {
-      headline: 'More patients who chose your clinic  and fewer who chose on price alone.',
+      headline: 'More patients who chose your clinic and fewer who chose on price alone.',
       subcopy: [
         'The fertility treatment decision is one of the most emotionally loaded and financially significant a person or couple will make. Clinics that win on clinical credibility, transparency, and empathy attract patients who are more committed, better prepared, and more loyal.',
         'We build patient acquisition and experience systems for fertility clinics that want to grow on the right terms.',
@@ -1555,8 +1555,8 @@ export const orthopaedicSurgeons = {
     },
     insights: [
       {
-        title: 'Success rate transparency is now a baseline patient expectation  and a differentiator when done well',
-        body: 'Patients comparing fertility clinics scrutinise success rates carefully. Clinics that present their outcomes transparently  with appropriate context about patient mix, age groups, and treatment types  build more trust than those who bury the data.',
+        title: 'Success rate transparency is now a baseline patient expectation and a differentiator when done well',
+        body: 'Patients comparing fertility clinics scrutinise success rates carefully. Clinics that present their outcomes transparently, with appropriate context about patient mix, age groups, and treatment types, build more trust than those who bury the data.',
       },
       {
         title: 'Fertility preservation is the fastest-growing, youngest-converting patient segment',
@@ -1575,15 +1575,15 @@ export const orthopaedicSurgeons = {
       headline: 'What fertility clinic owners and managers say when they contact us.',
       items: [
         { quote: 'We have excellent success rates but we struggle to communicate what makes us different from the larger corporate chains.' },
-        { quote: 'Our patient experience is exceptional but our online presence doesn\'t reflect that at all  patients don\'t know what to expect until they arrive.' },
+        { quote: 'Our patient experience is exceptional but our online presence doesn\'t reflect that at all, patients don\'t know what to expect until they arrive.' },
         { quote: 'We want to grow our egg freezing programme but we haven\'t found a way to reach younger women who aren\'t yet thinking about fertility clinics.' },
         { quote: 'We get a lot of enquiries but our conversion from enquiry to treatment start is lower than it should be. We don\'t know where we\'re losing people.' },
       ],
     },
     pillars: {
-      build: 'We build a patient acquisition and nurture system designed around the fertility treatment decision journey  from fertility awareness content to outcome transparency to emotional experience storytelling.',
+      build: 'We build a patient acquisition and nurture system designed around the fertility treatment decision journey, from fertility awareness content to outcome transparency to emotional experience storytelling.',
       grow: 'We develop your search and paid acquisition presence for IVF, egg freezing, and fertility assessment search terms, and build the conversion optimisation programme that reduces enquiry drop-off and improves treatment start rates.',
-      brand: 'We position your clinic as the clinically credible, emotionally intelligent fertility destination in your market  with a brand identity and patient experience design that converts the patients who are choosing on more than success rate tables.',
+      brand: 'We position your clinic as the clinically credible, emotionally intelligent fertility destination in your market, with a brand identity and patient experience design that converts the patients who are choosing on more than success rate tables.',
     },
     proof: {
       clientName: 'The Meridian Fertility Centre',
@@ -1618,7 +1618,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'More self-referring private physio patients. A practice that grows beyond GP and surgical referrals.',
       subcopy: [
-        'Private physiotherapy has a wide patient base  sports injuries, post-surgical rehab, MSK conditions, neurological rehab  but most practices rely on a narrow set of referral relationships that limit how far they can grow.',
+        'Private physiotherapy has a wide patient base, sports injuries, post-surgical rehab, MSK conditions, neurological rehab, but most practices rely on a narrow set of referral relationships that limit how far they can grow.',
         'We build the acquisition and retention systems that make your practice findable, bookable, and referable by the patients and practitioners who need you most.',
       ],
     },
@@ -1637,7 +1637,7 @@ export const orthopaedicSurgeons = {
       },
       {
         title: 'Outcome measurement is an underused competitive differentiator',
-        body: 'Physiotherapy practices that systematically measure and publish patient outcomes  functional improvement, return-to-sport timelines, patient satisfaction  attract both higher-quality patients and higher-quality referrers.',
+        body: 'Physiotherapy practices that systematically measure and publish patient outcomes, functional improvement, return-to-sport timelines, patient satisfaction, attract both higher-quality patients and higher-quality referrers.',
       },
     ],
     painPoints: {
@@ -1650,9 +1650,9 @@ export const orthopaedicSurgeons = {
       ],
     },
     pillars: {
-      build: 'We build condition-specific content pathways, a seamless online booking experience, and a surgeon and GP referral development programme  creating the full acquisition infrastructure your practice needs to grow beyond word-of-mouth.',
+      build: 'We build condition-specific content pathways, a seamless online booking experience, and a surgeon and GP referral development programme, creating the full acquisition infrastructure your practice needs to grow beyond word-of-mouth.',
       grow: 'We develop your search presence for specific condition and treatment search terms, run targeted campaigns for your highest-value patient segments, and build the structured referral relationships that provide a reliable, growing pipeline.',
-      brand: 'We establish your clinical authority  in your subspecialty of choice, your outcome standards, and your patient care approach  through content and positioning that attracts the patients and practitioners who value what you do.',
+      brand: 'We establish your clinical authority, in your subspecialty of choice, your outcome standards, and your patient care approach, through content and positioning that attracts the patients and practitioners who value what you do.',
     },
     proof: {
       clientName: 'Laura Wexford',
@@ -1688,7 +1688,7 @@ export const orthopaedicSurgeons = {
       headline: 'More patients who\'ve been living with pain and finally found the right specialist.',
       subcopy: [
         'Pain management patients are often at the end of a long, frustrating journey through generalist care. When they find a specialist who speaks their language and offers real answers, they convert, commit, and refer with extraordinary loyalty.',
-        'We build the acquisition systems that put you at the end of that journey  instead of invisible to it.',
+        'We build the acquisition systems that put you at the end of that journey, instead of invisible to it.',
       ],
     },
     insights: [
@@ -1719,15 +1719,15 @@ export const orthopaedicSurgeons = {
       ],
     },
     pillars: {
-      build: 'We build condition-specific content pathways for your highest-demand presentations, procedure-specific pages for interventional work, and a GP and physio referral development programme  with intake processes that manage patient expectations before consultation.',
+      build: 'We build condition-specific content pathways for your highest-demand presentations, procedure-specific pages for interventional work, and a GP and physio referral development programme, with intake processes that manage patient expectations before consultation.',
       grow: 'We develop your search presence for chronic pain and interventional procedure terms, run campaigns targeting patients with high-intent pain management searches, and build the referral infrastructure that creates a sustainable and varied caseload.',
-      brand: 'We establish your pain management authority with sensitivity and clinical precision  building a public profile that attracts patients who are ready to commit to treatment and referrers who trust your clinical standards.',
+      brand: 'We establish your pain management authority with sensitivity and clinical precision, building a public profile that attracts patients who are ready to commit to treatment and referrers who trust your clinical standards.',
     },
     proof: {
       clientName: 'Dr. Nadia Okonkwo',
       specialty: 'Pain Management Specialist',
       location: 'London, UK',
-      quote: 'The chronic back pain content brought in patients who had been suffering for years and just hadn\'t been able to find me. Their gratitude  and their referral behaviour  was remarkable.',
+      quote: 'The chronic back pain content brought in patients who had been suffering for years and just hadn\'t been able to find me. Their gratitude, and their referral behaviour, was remarkable.',
       metrics: [
         { value: '4.7×', label: 'Chronic pain patient enquiries' },
         { value: '+59%', label: 'Interventional procedure referrals' },
@@ -1754,7 +1754,7 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'podiatry',
     ctaHref: '/contact/podiatrists',
     hero: {
-      headline: 'More private podiatry patients  and a practice that grows on more than local word of mouth.',
+      headline: 'More private podiatry patients and a practice that grows on more than local word of mouth.',
       subcopy: [
         'Private podiatry has a broad patient base: diabetic foot patients, sports injury patients, nail surgery candidates, and chronic foot condition sufferers who\'ve been dismissed elsewhere.',
         'We build acquisition systems that make your expertise findable to the patients who need it and ensure the right ones book with you.',
@@ -1763,7 +1763,7 @@ export const orthopaedicSurgeons = {
     insights: [
       {
         title: 'Diabetic foot care patients have the highest clinical need and the strongest referral loyalty',
-        body: 'Podiatrists who develop a visible specialism in diabetic foot assessment and care capture a large, medically motivated patient group  and become the first referral for diabetologists and practice nurses managing diabetic patients in their area.',
+        body: 'Podiatrists who develop a visible specialism in diabetic foot assessment and care capture a large, medically motivated patient group and become the first referral for diabetologists and practice nurses managing diabetic patients in their area.',
       },
       {
         title: 'Nail surgery is a high-volume, self-referring procedure with a fast decision cycle',
@@ -1781,16 +1781,16 @@ export const orthopaedicSurgeons = {
     painPoints: {
       headline: 'What podiatrists tell us when they first contact us.',
       items: [
-        { quote: 'I\'m busy enough but most of my patients come from two or three GP practices and personal recommendation  it\'s fragile.' },
+        { quote: 'I\'m busy enough but most of my patients come from two or three GP practices and personal recommendation, it\'s fragile.' },
         { quote: 'I want to grow my sports podiatry work but I can\'t get visible in that space against larger sports medicine clinics.' },
         { quote: 'I do excellent diabetic foot work but I\'m not the go-to podiatrist for the diabetes clinics in my area and I don\'t know how to change that.' },
         { quote: 'My nail surgery is in demand but I can\'t figure out how to make that visible online in a way that doesn\'t seem trivial.' },
       ],
     },
     pillars: {
-      build: 'We build condition-specific patient pathways for diabetic foot care, nail surgery, and sports podiatry  with the content, booking flows, and intake processes each patient type requires.',
+      build: 'We build condition-specific patient pathways for diabetic foot care, nail surgery, and sports podiatry, with the content, booking flows, and intake processes each patient type requires.',
       grow: 'We develop your search visibility for podiatry condition and procedure searches, build a GP and practice nurse referral programme, and create the sports community content that positions you as the trusted performance podiatrist in your area.',
-      brand: 'We establish your podiatric authority  in your clinical subspecialty, your patient care approach, and your diagnostic precision  through content and positioning that differentiates you clearly from generalist competitors.',
+      brand: 'We establish your podiatric authority, in your clinical subspecialty, your patient care approach, and your diagnostic precision, through content and positioning that differentiates you clearly from generalist competitors.',
     },
     proof: {
       clientName: 'Emma Fitzgerald',
@@ -1823,9 +1823,9 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'rheumatology',
     ctaHref: '/contact/rheumatologists',
     hero: {
-      headline: 'More private rheumatology patients who need you  and the referral network to send them.',
+      headline: 'More private rheumatology patients who need you and the referral network to send them.',
       subcopy: [
-        'Rheumatological conditions are often complex, underdiagnosed, and poorly managed in primary care. Patients who find the right rheumatologist privately are intensely loyal  but most practices have no systematic way to reach them.',
+        'Rheumatological conditions are often complex, underdiagnosed, and poorly managed in primary care. Patients who find the right rheumatologist privately are intensely loyal, but most practices have no systematic way to reach them.',
         'We build acquisition and referral development systems that change that.',
       ],
     },
@@ -1850,16 +1850,16 @@ export const orthopaedicSurgeons = {
     painPoints: {
       headline: 'What rheumatologists say when they reach out.',
       items: [
-        { quote: 'My private practice is thin  I see fewer than 20 private patients a week and I don\'t know how to grow it without it feeling like self-promotion.' },
-        { quote: 'Patients with early inflammatory symptoms are waiting months on the NHS and could come to me privately  but they don\'t know I exist.' },
+        { quote: 'My private practice is thin. I see fewer than 20 private patients a week and I don\'t know how to grow it without it feeling like self-promotion.' },
+        { quote: 'Patients with early inflammatory symptoms are waiting months on the NHS and could come to me privately, but they don\'t know I exist.' },
         { quote: 'I have good relationships with a handful of GPs but no way to systematically build those relationships with GPs I don\'t already know.' },
         { quote: 'I want to be known for my biologics expertise but I don\'t have any marketing infrastructure to support that positioning.' },
       ],
     },
     pillars: {
-      build: 'We build condition-specific patient pathways for RA, lupus, vasculitis, and undifferentiated inflammatory disease  and create the GP referral communication tools that make referring to you easy, reliable, and rewarding.',
+      build: 'We build condition-specific patient pathways for RA, lupus, vasculitis, and undifferentiated inflammatory disease and create the GP referral communication tools that make referring to you easy, reliable, and rewarding.',
       grow: 'We develop your search presence for rheumatological condition and symptom terms, build a structured GP referral programme for inflammatory and autoimmune conditions, and create content that positions your biologics expertise to the patients who need to know about it.',
-      brand: 'We establish your rheumatological authority  through patient education content, peer-facing positioning, and a digital presence that clearly communicates your diagnostic rigour and treatment expertise to patients and referrers.',
+      brand: 'We establish your rheumatological authority, through patient education content, peer-facing positioning, and a digital presence that clearly communicates your diagnostic rigour and treatment expertise to patients and referrers.',
     },
     proof: {
       clientName: 'Dr. Alicia Romero',
@@ -1894,7 +1894,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'More private gastroenterology patients. A practice not dependent on one or two referral sources.',
       subcopy: [
-        'Private gastroenterology has strong fundamentals  gut health awareness is growing, diagnostic procedures are highly sought after privately, and patients with chronic GI conditions are actively seeking specialist management.',
+        'Private gastroenterology has strong fundamentals, gut health awareness is growing, diagnostic procedures are highly sought after privately, and patients with chronic GI conditions are actively seeking specialist management.',
         'We build acquisition systems that capitalise on this demand and give your practice a diversified, predictable patient pipeline.',
       ],
     },
@@ -1926,9 +1926,9 @@ export const orthopaedicSurgeons = {
       ],
     },
     pillars: {
-      build: 'We build clear procedural and condition-specific patient pathways  for colonoscopy, IBS, IBD, and your specialist interests  and create the educational content that converts research-phase patients into booked appointments.',
+      build: 'We build clear procedural and condition-specific patient pathways, for colonoscopy, IBS, IBD, and your specialist interests, and create the educational content that converts research-phase patients into booked appointments.',
       grow: 'We develop your search visibility for private GI procedure and condition terms, build a GP referral development programme, and create content that positions you at the intersection of specialist gastroenterology and growing public gut health awareness.',
-      brand: 'We position your gastroenterological expertise as a trusted authority in your area  bridging clinical depth and accessible patient communication in a way that attracts both direct patients and high-quality referrers.',
+      brand: 'We position your gastroenterological expertise as a trusted authority in your area, bridging clinical depth and accessible patient communication in a way that attracts both direct patients and high-quality referrers.',
     },
     proof: {
       clientName: 'Dr. Samuel Mensah',
@@ -1963,10 +1963,10 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'private GP',
     ctaHref: '/contact/private-gp-practices',
     hero: {
-      headline: 'More registered patients who stay for years  not just for the appointment they can\'t get on the NHS.',
+      headline: 'More registered patients who stay for years, not just for the appointment they can\'t get on the NHS.',
       subcopy: [
         'Private GP is a relationship business built on continuity, trust, and the sense that your doctor genuinely knows you. Patients who find this are intensely loyal and refer their families.',
-        'We build the acquisition and retention systems that grow your registered list with the patients who value long-term private GP care  not one-off appointment seekers.',
+        'We build the acquisition and retention systems that grow your registered list with the patients who value long-term private GP care, not one-off appointment seekers.',
       ],
     },
     insights: [
@@ -1980,7 +1980,7 @@ export const orthopaedicSurgeons = {
       },
       {
         title: 'Employer corporate health packages are a high-value B2B acquisition channel most private GPs ignore',
-        body: 'Employers seeking private healthcare for senior staff represent a scalable revenue stream. A structured B2B marketing programme for this audience operates entirely differently to patient-facing marketing  and most practices have never tried it.',
+        body: 'Employers seeking private healthcare for senior staff represent a scalable revenue stream. A structured B2B marketing programme for this audience operates entirely differently to patient-facing marketing and most practices have never tried it.',
       },
       {
         title: 'Patients leaving NHS dentistry are actively looking for a private GP equivalent',
@@ -1993,13 +1993,13 @@ export const orthopaedicSurgeons = {
         { quote: 'We get a lot of one-off appointment bookings but our registered patient list isn\'t growing the way it should be.' },
         { quote: 'I want to grow our corporate health offering but I\'ve never done B2B marketing and I don\'t know where to start.' },
         { quote: 'We\'re in a wealthy area with huge potential but we don\'t have a systematic way to reach the patients who are most likely to register.' },
-        { quote: 'My practice is full but it\'s full of the wrong mix  I want more registered patients and fewer episodic.' },
+        { quote: 'My practice is full but it\'s full of the wrong mix. I want more registered patients and fewer episodic.' },
       ],
     },
     pillars: {
-      build: 'We build patient registration pathways, annual health check conversion programmes, and the digital infrastructure  from website to booking system to follow-up  that turns first appointments into long-term registered patients.',
+      build: 'We build patient registration pathways, annual health check conversion programmes, and the digital infrastructure, from website to booking system to follow-up, that turns first appointments into long-term registered patients.',
       grow: 'We develop your local acquisition presence for private GP search terms, build a B2B corporate health programme, and create the new-patient experience that registers episodic patients into long-term relationships.',
-      brand: 'We build a practice brand that communicates the private GP experience your ideal patients are looking for  continuity, accessibility, and clinical depth  in a way that makes you the obvious choice.',
+      brand: 'We build a practice brand that communicates the private GP experience your ideal patients are looking for, continuity, accessibility, and clinical depth, in a way that makes you the obvious choice.',
     },
     proof: {
       clientName: 'The Kensington Medical Practice',
@@ -2034,7 +2034,7 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'Every location performing. Every site pulling its weight. One system to manage it all.',
       subcopy: [
-        'Opening a second or third location should accelerate growth  but most multi-site clinic owners discover it multiplies complexity faster than it multiplies revenue. The marketing infrastructure that worked for one site almost never scales cleanly.',
+        'Opening a second or third location should accelerate growth, but most multi-site clinic owners discover it multiplies complexity faster than it multiplies revenue. The marketing infrastructure that worked for one site almost never scales cleanly.',
         'We build growth systems designed specifically for multi-site clinics: location-specific acquisition, consistent brand architecture, and the reporting infrastructure that tells you what\'s actually happening across every site.',
       ],
     },
@@ -2059,16 +2059,16 @@ export const orthopaedicSurgeons = {
     painPoints: {
       headline: 'What multi-location clinic owners say when they reach out.',
       items: [
-        { quote: 'We\'ve grown and the marketing infrastructure hasn\'t kept up  each site is basically doing its own thing with inconsistent results.' },
+        { quote: 'We\'ve grown and the marketing infrastructure hasn\'t kept up. Each site is basically doing its own thing with inconsistent results.' },
         { quote: 'Our second location has been slower to grow than expected and I\'m not sure if it\'s a marketing problem or a local market problem.' },
         { quote: 'I don\'t have visibility across what\'s performing at each site. I can\'t manage what I can\'t measure.' },
         { quote: 'We acquired a third location and its branding is completely different. I need to unify it without alienating its existing patients.' },
       ],
     },
     pillars: {
-      build: 'We audit your full multi-site marketing infrastructure  brand architecture, location SEO, cross-site referral systems, and performance tracking  and build the unified foundation that lets every location compete effectively.',
+      build: 'We audit your full multi-site marketing infrastructure, brand architecture, location SEO, cross-site referral systems, and performance tracking, and build the unified foundation that lets every location compete effectively.',
       grow: 'We build location-specific acquisition strategies within a consistent brand architecture, develop cross-location referral programmes, and implement reporting systems that give you real visibility across the group.',
-      brand: 'We build or consolidate your group brand  ensuring every location communicates the same standard, the same promise, and the same patient experience while maintaining any locally important identity.',
+      brand: 'We build or consolidate your group brand, ensuring every location communicates the same standard, the same promise, and the same patient experience while maintaining any locally important identity.',
     },
     proof: {
       clientName: 'Sarah Tran',
@@ -2110,11 +2110,11 @@ export const orthopaedicSurgeons = {
     insights: [
       {
         title: 'Practice revenue is disproportionately concentrated in a small number of loyal patients',
-        body: 'In most private practices, 20% of patients generate 60–70% of revenue. Identifying, serving, and systematically replicating this patient segment is the highest-leverage growth activity  and most owners have never mapped it explicitly.',
+        body: 'In most private practices, 20% of patients generate 60–70% of revenue. Identifying, serving, and systematically replicating this patient segment is the highest-leverage growth activity and most owners have never mapped it explicitly.',
       },
       {
         title: 'Staff-dependent service delivery is a retention and resilience risk',
-        body: 'When patients are loyal to an individual practitioner rather than to the practice, staff turnover creates patient churn. Building loyalty to the practice brand and experience  not just to individuals  is essential structural protection.',
+        body: 'When patients are loyal to an individual practitioner rather than to the practice, staff turnover creates patient churn. Building loyalty to the practice brand and experience, not just to individuals, is essential structural protection.',
       },
       {
         title: 'Most private practice owners have never audited their enquiry-to-patient conversion process',
@@ -2135,9 +2135,9 @@ export const orthopaedicSurgeons = {
       ],
     },
     pillars: {
-      build: 'We audit your full patient journey  from first touch to loyal patient  and build the infrastructure to optimise every stage: booking systems, intake processes, follow-up sequences, and retention protocols.',
+      build: 'We audit your full patient journey, from first touch to loyal patient, and build the infrastructure to optimise every stage: booking systems, intake processes, follow-up sequences, and retention protocols.',
       grow: 'We build acquisition systems across your highest-ROI channels, develop your referral programme, and create the tracking infrastructure that tells you exactly what\'s growing your practice and what isn\'t.',
-      brand: 'We build a practice brand that outlasts any individual practitioner  with a visual identity, patient experience design, and content strategy that builds loyalty to your name, not your staff.',
+      brand: 'We build a practice brand that outlasts any individual practitioner, with a visual identity, patient experience design, and content strategy that builds loyalty to your name, not your staff.',
     },
     proof: {
       clientName: 'Mr. Thomas Okafor',
@@ -2173,13 +2173,13 @@ export const orthopaedicSurgeons = {
       headline: 'Portfolio-level growth infrastructure. Practice-level patient acquisition. Measurable at every level.',
       subcopy: [
         'Healthcare private equity portfolios face a specific marketing problem: the acquisition strategies that work for individual practices don\'t scale to a portfolio, and the brand consolidation strategies that work for portfolios don\'t account for clinical identity.',
-        'We build growth systems for healthcare PE portfolios that operate across both levels  with the reporting infrastructure to demonstrate value creation at every stage.',
+        'We build growth systems for healthcare PE portfolios that operate across both levels, with the reporting infrastructure to demonstrate value creation at every stage.',
       ],
     },
     insights: [
       {
         title: 'Marketing due diligence on healthcare acquisitions is systematically underweighted',
-        body: 'Most healthcare M&A due diligence focuses on clinical operations and financial performance. Patient acquisition infrastructure, brand equity, referral network concentration, and digital presence are frequently overlooked  and frequently the source of post-acquisition underperformance.',
+        body: 'Most healthcare M&A due diligence focuses on clinical operations and financial performance. Patient acquisition infrastructure, brand equity, referral network concentration, and digital presence are frequently overlooked and frequently the source of post-acquisition underperformance.',
       },
       {
         title: 'Platform practice brand architecture is the most impactful early post-acquisition investment',
@@ -2204,13 +2204,13 @@ export const orthopaedicSurgeons = {
       ],
     },
     pillars: {
-      build: 'We conduct marketing due diligence and infrastructure audits for acquisition targets and portfolio companies  assessing patient acquisition systems, brand equity, digital presence, and referral network concentration, then building the growth infrastructure post-completion.',
+      build: 'We conduct marketing due diligence and infrastructure audits for acquisition targets and portfolio companies, assessing patient acquisition systems, brand equity, digital presence, and referral network concentration, then building the growth infrastructure post-completion.',
       grow: 'We build portfolio-level marketing systems: unified brand architecture, consolidated digital infrastructure, cross-practice referral networks, and the tracking systems that produce the patient acquisition unit economics PE sponsors need.',
-      brand: 'We design and execute brand consolidation programmes for PE-backed healthcare businesses  managing the transition from disparate practice identities to a cohesive platform brand that preserves clinical trust while delivering the valuation benefits of brand consistency.',
+      brand: 'We design and execute brand consolidation programmes for PE-backed healthcare businesses, managing the transition from disparate practice identities to a cohesive platform brand that preserves clinical trust while delivering the valuation benefits of brand consistency.',
     },
     proof: {
       clientName: 'Meridian Health Partners',
-      specialty: 'Healthcare PE  Dental Platform',
+      specialty: 'Healthcare PE, Dental Platform',
       location: 'South-East England',
       quote: 'The pre-exit digital audit identified £680,000 of recurring annual patient acquisition value that wasn\'t previously documented. It changed how we presented the business entirely.',
       metrics: [
@@ -2239,28 +2239,28 @@ export const orthopaedicSurgeons = {
     practiceNoun: 'clinic management',
     ctaHref: '/contact/clinic-managers',
     hero: {
-      headline: 'The growth results your clinicians want  with the evidence your board expects.',
+      headline: 'The growth results your clinicians want, with the evidence your board expects.',
       subcopy: [
         'Clinic managers carry a specific challenge: they\'re responsible for growth outcomes they can\'t clinically control, with budgets that need to justify themselves to both clinicians and finance teams.',
-        'We work with clinic managers as partners  building systems that produce measurable results, that are reportable to your stakeholders, and that free you from managing marketing activity yourself.',
+        'We work with clinic managers as partners, building systems that produce measurable results, that are reportable to your stakeholders, and that free you from managing marketing activity yourself.',
       ],
     },
     insights: [
       {
         title: 'Most clinics spend marketing budget in inverse proportion to channel ROI',
-        body: 'The highest-ROI channels  SEO, referral development, patient reactivation  are under-invested. The lowest-ROI channels  social media, print advertising  absorb most of the budget. An audit almost always reveals significant reallocation opportunities.',
+        body: 'The highest-ROI channels, SEO, referral development, patient reactivation, are under-invested. The lowest-ROI channels, social media, print advertising, absorb most of the budget. An audit almost always reveals significant reallocation opportunities.',
       },
       {
         title: 'Marketing attribution in healthcare is broken in most practices',
-        body: 'If you can\'t trace a booked appointment to the activity that generated it, you\'re making budget decisions in the dark. Building this tracking infrastructure is the foundational step  and most clinic managers have never been given the tools to do it.',
+        body: 'If you can\'t trace a booked appointment to the activity that generated it, you\'re making budget decisions in the dark. Building this tracking infrastructure is the foundational step and most clinic managers have never been given the tools to do it.',
       },
       {
         title: 'Patient satisfaction scores are your most under-leveraged growth asset',
-        body: 'High NPS and satisfaction scores are marketable assets. Practices that actively surface these data points in their acquisition marketing convert new patients at dramatically higher rates  and the data is usually already sitting unused in a spreadsheet.',
+        body: 'High NPS and satisfaction scores are marketable assets. Practices that actively surface these data points in their acquisition marketing convert new patients at dramatically higher rates and the data is usually already sitting unused in a spreadsheet.',
       },
       {
         title: 'CQC or JCI accreditation is a trust signal most practices fail to market',
-        body: 'Outstanding or accredited regulatory ratings are significant credibility signals to prospective patients. They belong prominently in your acquisition channels  not buried in a footer that nobody reads.',
+        body: 'Outstanding or accredited regulatory ratings are significant credibility signals to prospective patients. They belong prominently in your acquisition channels, not buried in a footer that nobody reads.',
       },
     ],
     painPoints: {
@@ -2273,9 +2273,9 @@ export const orthopaedicSurgeons = {
       ],
     },
     pillars: {
-      build: 'We start with a full marketing audit  attributing spend to outcomes, identifying what\'s working and what isn\'t  and build the reporting framework that gives you and your stakeholders clear visibility over every growth channel.',
-      grow: 'We build and manage the growth programme across your highest-ROI channels  with monthly reporting structured to the KPIs your board cares about and a clear, measurable improvement trajectory.',
-      brand: 'We build or refine your practice brand  with a consistent identity, messaging architecture, and quality standards that your clinical and management team can align around, present to stakeholders, and trust.',
+      build: 'We start with a full marketing audit, attributing spend to outcomes, identifying what\'s working and what isn\'t, and build the reporting framework that gives you and your stakeholders clear visibility over every growth channel.',
+      grow: 'We build and manage the growth programme across your highest-ROI channels, with monthly reporting structured to the KPIs your board cares about and a clear, measurable improvement trajectory.',
+      brand: 'We build or refine your practice brand, with a consistent identity, messaging architecture, and quality standards that your clinical and management team can align around, present to stakeholders, and trust.',
     },
     proof: {
       clientName: 'Imogen Clarke',
@@ -2310,14 +2310,14 @@ export const orthopaedicSurgeons = {
     hero: {
       headline: 'Group-level brand power. Practice-level patient acquisition. Both working together.',
       subcopy: [
-        'Running a healthcare group is a different problem to running a single clinic. Coordination, brand consistency, multi-specialty cross-referral, and management infrastructure all need to work together  and they rarely do without a system built for it.',
+        'Running a healthcare group is a different problem to running a single clinic. Coordination, brand consistency, multi-specialty cross-referral, and management infrastructure all need to work together and they rarely do without a system built for it.',
         'We build growth infrastructure designed specifically for healthcare groups: cross-specialty patient pathways, unified brand architecture, and the commercial systems that let your group grow as a whole.',
       ],
     },
     insights: [
       {
         title: 'Cross-specialty referral within a group is the highest-margin growth lever available to group operators',
-        body: 'A patient who comes in for one specialty and is appropriately directed to another within the group has dramatically lower acquisition cost and higher lifetime value. Most groups have no formal cross-referral system  they\'re leaving their most profitable growth channel on the table.',
+        body: 'A patient who comes in for one specialty and is appropriately directed to another within the group has dramatically lower acquisition cost and higher lifetime value. Most groups have no formal cross-referral system, they\'re leaving their most profitable growth channel on the table.',
       },
       {
         title: 'Group brand architecture amplifies every individual practice\'s marketing spend',
@@ -2329,7 +2329,7 @@ export const orthopaedicSurgeons = {
       },
       {
         title: 'The "one-stop" care model is a growing patient preference and an underused market positioning',
-        body: 'Patients who prefer to manage their health within a single trusted provider are growing in number. Healthcare groups that communicate this explicitly  as a feature, not just a footnote  attract a loyal, high-value patient segment.',
+        body: 'Patients who prefer to manage their health within a single trusted provider are growing in number. Healthcare groups that communicate this explicitly, as a feature, not just a footnote, attract a loyal, high-value patient segment.',
       },
     ],
     painPoints: {
@@ -2342,7 +2342,7 @@ export const orthopaedicSurgeons = {
       ],
     },
     pillars: {
-      build: 'We audit your group\'s full marketing and patient journey infrastructure  brand architecture, cross-specialty referral systems, CRM and data consolidation, and acquisition tracking  and build the unified foundation that makes the group more than the sum of its parts.',
+      build: 'We audit your group\'s full marketing and patient journey infrastructure, brand architecture, cross-specialty referral systems, CRM and data consolidation, and acquisition tracking, and build the unified foundation that makes the group more than the sum of its parts.',
       grow: 'We build a cross-specialty referral programme, location-specific acquisition strategies within a consistent group brand, and the reporting systems that give you real commercial visibility across the whole operation.',
       brand: 'We build a group brand and positioning architecture that creates market presence at the group level while giving each specialty and location the individual authority positioning it needs to attract the right patients.',
     },
@@ -2366,7 +2366,7 @@ export const orthopaedicSurgeons = {
       { label: 'Private Practice Owners', slug: 'private-practice-owners' },
     ],
     finalCta: {
-      headline: 'A healthcare group that operates as one  instead of parts  is a system problem. Let\'s solve it.',
+      headline: 'A healthcare group that operates as one, instead of parts, is a system problem. Let\'s solve it.',
     },
   }
   

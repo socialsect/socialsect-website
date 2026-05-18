@@ -744,13 +744,13 @@
 
 .resources-closing__btn--primary {
   color: var(--white);
-  background: var(--charcoal);
-  border: 2px solid var(--charcoal);
+  background: var(--primary);
+  border: 2px solid var(--primary);
 }
 
 .resources-closing__btn--primary:hover {
-  background: var(--primary);
-  border-color: var(--primary);
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
 }
 
 .resources-closing__btn--ghost {

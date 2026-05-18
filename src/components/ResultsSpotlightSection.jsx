@@ -1,16 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ResultsSpotlightSection.css';
 
 const STATS = [
   { value: '225', label: 'Consultations booked' },
   { value: '36', label: 'Surgical conversions' },
-  { value: '$380K+', label: 'Direct revenue' },
-  { value: '$1M+', label: 'Full case value' },
+  { value: '84%', label: 'Consultation-to-surgery rate' },
+  { value: '4.2x', label: 'Patient acquisition growth' },
 ];
 
 export default function ResultsSpotlightSection() {
   return (
-    <section className="results-spotlight" aria-labelledby="results-spotlight-headline">
+    <section
+      id="results-spotlight"
+      className="results-spotlight"
+      aria-labelledby="results-spotlight-headline"
+    >
       <div className="results-spotlight__inner">
         <header className="results-spotlight__intro">
           <p className="results-spotlight__eyebrow">Don&apos;t take our word for it</p>
@@ -33,22 +38,14 @@ export default function ResultsSpotlightSection() {
               with care. That was the gap. That&apos;s what they fixed.&rdquo;
             </blockquote>
             <div className="results-spotlight__panel-cta-row">
-              <a
-                href="https://miamishoulderinstitute.com/"
-                className="cta cta--inverse"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Talk to Dr. Badia
+              <Link to="/book-a-call" className="cta cta--inverse">
+                Request a reference call
                 <span aria-hidden="true"> →</span>
-              </a>
+              </Link>
             </div>
           </div>
 
           <div className="results-spotlight__proof">
-            <p className="results-spotlight__trust-line">
-              Direct reference · highest trust signal on the site
-            </p>
             <ul className="results-spotlight__stats">
               {STATS.map((row) => (
                 <li key={row.label} className="results-spotlight__stat">
@@ -60,14 +57,14 @@ export default function ResultsSpotlightSection() {
             <div className="results-spotlight__did">
               <h4 className="results-spotlight__did-title">What we did</h4>
               <p className="results-spotlight__did-copy">
-                Built the full patient acquisition system  lead generation, qualification,
+                Built the full patient acquisition system, lead generation, qualification,
                 follow-up automation, and conversion tracking. Every number above is documented.
                 No estimates.
               </p>
-              <a href="/results" className="cta cta--primary">
+              <Link to="/results" className="cta cta--primary">
                 See all results
                 <span aria-hidden="true"> →</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

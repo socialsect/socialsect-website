@@ -115,10 +115,10 @@ export default function Footer() {
                   <Link to="/results">Results</Link>
                 </li>
                 <li>
-                  <a href="#insights-blog">Insights  Blog</a>
+                  <Link to="/insights/blog">Blog</Link>
                 </li>
                 <li>
-                  <a href="#insights-resources">Insights  Resources</a>
+                  <Link to="/insights/resources">Resources</Link>
                 </li>
                 <li>
                   <a href="#careers">Careers</a>
@@ -132,15 +132,13 @@ export default function Footer() {
               </h2>
               <ul className="footer__list">
                 <li>
-                  <a href="#book-call">Book a call</a>
+                  <Link to="/book-a-call">Book a call</Link>
                 </li>
                 <li>
-                  <a href="#request-reference">Request a reference</a>
+                  <Link to="/book-a-call">Request a reference</Link>
                 </li>
                 <li>
-                  <a href="#client-portal" className="footer__link-em">
-                    Client portal →
-                  </a>
+                  <a href="#client-portal">Client portal</a>
                 </li>
                 <li>
                   <a href={`mailto:${CONTACT_EMAIL}`} className="footer__email">

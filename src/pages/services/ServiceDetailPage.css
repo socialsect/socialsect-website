@@ -97,6 +97,13 @@
 .service-detail-hero__inner {
   max-width: 720px;
   width: 100%;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 4px;
+}
+
+.service-detail-hero__sub::selection {
+  background: rgba(105, 90, 242, 0.2);
+  color: inherit;
 }
 
 .service-detail-hero__eyebrow {
@@ -277,6 +284,11 @@
   color: var(--dark-gray);
   padding: 8px 0;
   border-bottom: 1px solid var(--gray);
+}
+
+.service-detail-included__outcome-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .service-detail-included__outcome:last-child,

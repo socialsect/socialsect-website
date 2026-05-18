@@ -5,46 +5,45 @@ import './PracticeInfrastructureSection.css';
 const PILLARS = [
   {
     id: 'build',
-    title: 'Build  digital infrastructure',
+    title: 'Build: digital infrastructure',
     lead: 'Your digital foundation, built to convert.',
     body:
-      'Practice websites that rank and convert. Booking systems that reduce front desk load. Custom apps and web tools built around your workflow  not a generic template.',
+      'Practice websites that rank and convert. Booking systems that reduce front desk load. Custom apps and web tools built around your workflow, not a generic template.',
     links: [
       { label: 'Websites', href: '/services/build/websites' },
       { label: 'Apps', href: '/services/build/apps' },
       { label: 'Booking systems', href: '/services/build/systems' },
       { label: 'Web applications', href: '/services/build/web-apps' },
     ],
-    ctaHref: '/services/build',
-    ctaLabel: 'Explore build',
+    ctaHref: '/services#build',
+    ctaLabel: 'See what we build',
   },
   {
     id: 'grow',
-    title: 'Grow  patient acquisition',
+    title: 'Grow: patient acquisition',
     lead: 'Booked appointments, not leads.',
     body:
-      'Paid campaigns that target patients already looking for your specialty. SEO that puts your practice above competitors in local search. Every channel working together, measured in appointments  not clicks.',
+      'Paid campaigns that target patients already looking for your specialty. SEO that puts your practice above competitors in local search. Every channel working together, measured in appointments, not clicks.',
     links: [
       { label: 'Meta ads', href: '/services/grow/meta-ads' },
       { label: 'Google ads', href: '/services/grow/google-ads' },
       { label: 'SEO', href: '/services/grow/seo' },
     ],
-    ctaHref: '/services/grow',
-    ctaLabel: 'Explore grow',
+    ctaHref: '/services#grow',
+    ctaLabel: 'See how we grow practices',
   },
   {
     id: 'brand',
-    title: 'Brand  creative',
+    title: 'Brand: creative',
     lead: 'Look as good as you are.',
     body:
-      "Your brand is what a patient sees before they've met you. We make sure it reflects the calibre of care you deliver  through identity, design, and content that builds trust before the first appointment.",
+      "Your brand is what a patient sees before they've met you. We make sure it reflects the calibre of care you deliver, through identity, design, video, and content that builds trust before the first appointment.",
     links: [
       { label: 'Brand identity', href: '/services/brand/identity' },
       { label: 'Design', href: '/services/brand/design' },
-      { label: 'Video + motion', href: '/services/brand/video' },
     ],
-    ctaHref: '/services/brand',
-    ctaLabel: 'Explore brand',
+    ctaHref: '/results',
+    ctaLabel: 'See our brand work',
   },
 ];
 
@@ -60,13 +59,13 @@ export default function PracticeInfrastructureSection() {
             Everything your practice needs. One team. Full accountability.
           </p>
           <h2 id="practice-infra-headline" className="practice-infra__headline">
-            Most practices are held back not by a lack of ambition  but by a lack of
+            Most practices are held back not by a lack of ambition, but by a lack of
             infrastructure.
           </h2>
           <p className="practice-infra__subcopy">
             You shouldn&apos;t need a separate vendor for your website, your ads, your brand,
-            and your booking system. We build and run all of it  custom to your practice,
-            built to work together, and accountable to one number: patients in the chair.
+            and your booking system. We build and run all of it, custom to your practice,
+            designed to work together, and accountable to one number: patients in the chair.
           </p>
         </header>
 
@@ -97,7 +96,7 @@ export default function PracticeInfrastructureSection() {
 
         <p className="practice-infra__closing">
           No packages. No Bronze / Silver / Gold. Every engagement starts with a diagnostic of
-          your practice. We build what you actually need  not what fits our menu.
+          your practice. We build what you actually need, not what fits our menu.
         </p>
       </div>
     </section>

@@ -15,8 +15,8 @@ export default function InsightsNewsletterSection() {
           New articles and resources when they&apos;re ready  not on a schedule.
         </h2>
         <p className="insights-newsletter__lede">
-          We publish when we have something worth reading. 2–4 times a month. No filler. Unsubscribe
-          any time.
+          The resources have no gate. This is just for new articles when we publish them. We publish
+          when we have something worth reading, 2 to 4 times a month. No filler. Unsubscribe any time.
         </p>
 
         <form className="insights-newsletter__form" onSubmit={handleSubmit} noValidate>

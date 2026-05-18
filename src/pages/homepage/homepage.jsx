@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import ClientLogoMarquee from '../../components/ClientLogoMarquee';
 import PerfectMatchSection from '../../components/PerfectMatchSection';
@@ -17,7 +18,7 @@ export default function HomePage() {
         <div className="hero-left">
           <div className="hero-content">
             {/* Eyebrow */}
-            <p className="eyebrow">For private medical practices — US & UK</p>
+            <p className="eyebrow">For private medical practices (US & UK)</p>
 
             {/* Headline */}
             <h1 className="hero-headline">
@@ -31,15 +32,14 @@ export default function HomePage() {
 
             {/* CTA Buttons */}
             <div className="cta-buttons">
-              <a href="#" className="btn btn-primary">
-               Audit my practice free 
-
+              <Link to="/book-a-call" className="btn btn-primary">
+                Audit my practice free
                 <svg className="btn-arrow btn-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
-              </a>
-              <a href="#" className="btn btn-secondary">
+              </Link>
+              <a href="#results-spotlight" className="btn btn-secondary">
                 See results
                 <svg className="btn-arrow btn-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -73,8 +73,8 @@ export default function HomePage() {
                 <div className="stat-label">Revenue generated</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">78%</div>
-                <div className="stat-label">Healthcare clients</div>
+                <div className="stat-number">4.2x</div>
+                <div className="stat-label">Avg. client ROI</div>
               </div>
             </div>
 

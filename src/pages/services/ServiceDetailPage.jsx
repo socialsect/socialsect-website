@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import './ServiceDetailPage.css'
 import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
+
 export default function ServiceDetailPage({ data }) {
   const {
     pillarLabel,
@@ -16,7 +17,18 @@ export default function ServiceDetailPage({ data }) {
     relatedServices,
     finalCta,
     ctaHref,
+    pageUi = {},
   } = data
+
+  const serviceSlug = path.split('/').pop()
+  const backLabel = pageUi.backLabel ?? pillarLabel
+  const backHref = pageUi.backHref ?? '/services'
+  const includedLabel = pageUi.includedLabel ?? 'What we do + outcomes'
+  const processHeadline = pageUi.processHeadline ?? 'How this works, step by step.'
+  const faqHeadline = pageUi.faqHeadline ?? 'Questions about this service.'
+  const relatedHeadline = pageUi.relatedHeadline ?? 'Often combined with this service.'
+  const primaryCtaLabel = pageUi.finalCtaPrimary ?? 'See what your practice is missing'
+  const secondaryCta = pageUi.finalCtaSecondary ?? { label: 'See how we work', href: '/how-we-work' }
 
   return (
     <main className="service-detail-page">
@@ -33,17 +45,21 @@ export default function ServiceDetailPage({ data }) {
               <li>
                 <Link to="/services">services</Link>
               </li>
+              {!pageUi.skipPillarInBreadcrumb && (
+                <>
+                  <li aria-hidden>
+                    <ChevronRight strokeWidth={1} className="service-detail-breadcrumb__sep" />
+                  </li>
+                  <li>
+                    <span>{pillarLabel.toLowerCase()}</span>
+                  </li>
+                </>
+              )}
               <li aria-hidden>
                 <ChevronRight strokeWidth={1} className="service-detail-breadcrumb__sep" />
               </li>
               <li>
-                <span>{pillarLabel.toLowerCase()}</span>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="service-detail-breadcrumb__sep" />
-              </li>
-              <li>
-                <span aria-current="page">{path.split('/').pop()}</span>
+                <span aria-current="page">{serviceSlug}</span>
               </li>
             </ol>
           </nav>
@@ -51,14 +67,13 @@ export default function ServiceDetailPage({ data }) {
       </div>
 
       <section className="service-detail-hero" aria-labelledby="service-detail-hero-heading">
-      <div className="service-detail-hero__bg-animation" aria-hidden>
-        <DarkVeil speed={0.5} />
-
-  </div>
+        <div className="service-detail-hero__bg-animation" aria-hidden>
+          <DarkVeil speed={0.5} />
+        </div>
 
         <div className="service-detail-hero__inner">
           <p className="service-detail-hero__eyebrow">
-            {pillarLabel} · {serviceLabel}
+            {pillarLabel}: {serviceLabel}
           </p>
           <h1 id="service-detail-hero-heading" className="service-detail-hero__title">
             {hero.headline}
@@ -69,8 +84,8 @@ export default function ServiceDetailPage({ data }) {
             </p>
           ))}
           <nav className="service-detail-hero__nav" aria-label={`${pillarLabel} services`}>
-            <Link to="/services" className="service-detail-hero__pill service-detail-hero__pill--back">
-              ← Back to {pillarLabel}
+            <Link to={backHref} className="service-detail-hero__pill service-detail-hero__pill--back">
+              ← Back to {backLabel}
             </Link>
             {siblings.map(({ slug, label, path: siblingPath }) => (
               <Link key={slug} to={siblingPath} className="service-detail-hero__pill">
@@ -103,13 +118,13 @@ export default function ServiceDetailPage({ data }) {
           </h2>
           <div className="service-detail-included__split">
             <div className="service-detail-included__col">
-              <p className="service-detail-included__col-label">What we do + outcomes</p>
+              <p className="service-detail-included__col-label">{includedLabel}</p>
               <p className="service-detail-included__description">{included.description}</p>
               <ul className="service-detail-included__outcomes">
                 {included.outcomes.map((outcome) => (
                   <li key={outcome} className="service-detail-included__outcome">
                     <span className="service-detail-included__dot" aria-hidden />
-                    {outcome}
+                    <span className="service-detail-included__outcome-text">{outcome}</span>
                   </li>
                 ))}
               </ul>
@@ -123,7 +138,7 @@ export default function ServiceDetailPage({ data }) {
                     {group.items.map((item) => (
                       <li key={item} className="service-detail-included__item">
                         <span className="service-detail-included__dot" aria-hidden />
-                        {item}
+                        <span className="service-detail-included__outcome-text">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -137,7 +152,7 @@ export default function ServiceDetailPage({ data }) {
       <section className="service-detail-process" aria-labelledby="service-detail-process-heading">
         <div className="service-detail-process__inner">
           <h2 id="service-detail-process-heading" className="service-detail-process__headline">
-            How this works  step by step.
+            {processHeadline}
           </h2>
           <div className="service-detail-process__grid">
             {process.map((phase, i) => (
@@ -152,7 +167,7 @@ export default function ServiceDetailPage({ data }) {
             ))}
           </div>
           <p className="service-detail-process__footnote">
-            See the complete process behind every service{' '}
+            See the complete process:{' '}
             <Link to="/how-we-work" className="service-detail-process__link">
               How we work
               <ArrowRight className="service-detail-process__link-icon" strokeWidth={2} aria-hidden />
@@ -164,7 +179,7 @@ export default function ServiceDetailPage({ data }) {
       <section className="service-detail-faq" aria-labelledby="service-detail-faq-heading">
         <div className="service-detail-faq__inner">
           <h2 id="service-detail-faq-heading" className="service-detail-faq__headline">
-            Questions about this service.
+            {faqHeadline}
           </h2>
           <div className="service-detail-faq__grid">
             {faqs.map(({ question, answer }) => (
@@ -180,15 +195,15 @@ export default function ServiceDetailPage({ data }) {
       <section className="service-detail-related" aria-labelledby="service-detail-related-heading">
         <div className="service-detail-related__inner">
           <h2 id="service-detail-related-heading" className="service-detail-related__headline">
-            Often combined with this service.
+            {relatedHeadline}
           </h2>
           <div className="service-detail-related__grid">
-            {relatedServices.map(({ label, reason, path: relatedPath }) => (
+            {relatedServices.map(({ label, reason, path: relatedPath, linkLabel }) => (
               <article key={relatedPath} className="service-detail-related__card">
                 <h3 className="service-detail-related__card-title">{label}</h3>
                 <p className="service-detail-related__card-body">{reason}</p>
                 <Link to={relatedPath} className="service-detail-related__link">
-                  Explore {label}
+                  {linkLabel ?? `Explore ${label}`}
                   <ArrowRight className="service-detail-related__link-icon" strokeWidth={2} aria-hidden />
                 </Link>
               </article>
@@ -213,14 +228,14 @@ export default function ServiceDetailPage({ data }) {
               to={ctaHref}
               className="btn btn-primary service-detail-final-cta__btn service-detail-final-cta__btn--primary"
             >
-              See what your practice is missing
+              {primaryCtaLabel}
               <ArrowRight className="service-detail-final-cta__btn-icon" strokeWidth={2} aria-hidden />
             </Link>
             <Link
-              to="/how-we-work"
+              to={secondaryCta.href}
               className="service-detail-final-cta__btn service-detail-final-cta__btn--secondary"
             >
-              See how we work
+              {secondaryCta.label}
             </Link>
           </div>
           <p className="service-detail-final-cta__note">No packages. No pitch. Just a clear diagnosis.</p>

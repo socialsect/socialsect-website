@@ -49,7 +49,7 @@ const PREVIEWS = [
     title: 'Resources',
     body: (
       <>
-        The tools we use with every client  free.
+        The tools we use with every client, free.
         <br />
         Guides, templates, and checklists. Download what&apos;s useful. No email required for most.
       </>
@@ -72,13 +72,13 @@ export default function InsightsPage() {
             Insights for private medical practices · US & UK
           </p>
           <h1 id="insights-hero-heading" className="insights-hero__title">
-            Everything we know about growing a private medical practice  written by the people
+            Everything we know about growing a private medical practice, written by the people
             doing it.
           </h1>
           <p className="insights-hero__sub">
             Video testimonials from real clients. Articles on patient acquisition, seasonality, and
             practice growth. Free guides and templates used in every Socialsect engagement. All of
-            it here  no paywall, no weekly email.
+            it here, no paywall, no weekly email.
           </p>
 
           <nav

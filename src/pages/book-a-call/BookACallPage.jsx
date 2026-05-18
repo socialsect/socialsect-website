@@ -13,14 +13,14 @@ const EXPECT_STEPS = [
   },
   {
     num: '02',
-    title: 'Introductory call  no pitch',
+    title: 'Introductory call, no pitch',
     timing: 'Within 3–5 days of submission',
     body:
-      "A 30–45 minute conversation. You tell us about your practice. We tell you how we work. We both decide if it makes sense to go further. If it doesn't, we'll say so  and if we know someone better suited, we'll point you there.",
+      "A 30–45 minute conversation. You tell us about your practice. We tell you how we work. We both decide if it makes sense to go further. If it doesn't, we'll say so, and if we know someone better suited, we'll point you there.",
   },
   {
     num: '03',
-    title: "Practice diagnostic  if we're a fit",
+    title: "Practice diagnostic, if we're a fit",
     timing: 'After mutual agreement',
     body:
       'If both sides want to move forward, we begin a two-week diagnostic of your practice. This is where we learn everything we need to build something that actually works for your specific situation.',
@@ -36,13 +36,13 @@ const EXPECT_STEPS = [
 
 const PROMISES = [
   "No sales pitch on the intro call. We agreed to a conversation, not a presentation. We'll keep it that way.",
-  "Honest feedback, even if it's not what you want to hear. If we don't think we're the right fit, we'll tell you  and we'll tell you why.",
+  "Honest feedback, even if it's not what you want to hear. If we don't think we're the right fit, we'll tell you and we'll tell you why.",
   "Your information stays with us. We don't share practice details. We don't add you to a mailing list. We don't follow up fifty times if you go quiet.",
   "One follow-up maximum. If we don't hear back after the intro call, we'll follow up once. After that, the door stays open but we won't chase.",
 ]
 
 const SPECIALTIES = [
-  'Orthopaedics',
+  'Orthopedics',
   'Aesthetics / MedSpa',
   'Dermatology',
   'Dentistry',
@@ -68,7 +68,7 @@ const CONVERSATION_GOALS = [
   'Get an outside perspective on my practice',
   'Understand what a system would look like for me',
   'Request a reference from a current client',
-  'Just exploring  no pressure',
+  'Just exploring, no pressure',
 ]
 
 const REFERRAL_SOURCES = [
@@ -128,7 +128,7 @@ export default function BookACallPage() {
             Tell us about your practice. We&apos;ll tell you honestly whether we can help.
           </h1>
           <p className="book-call-hero__sub">
-            This isn&apos;t a sales call. It&apos;s an introductory conversation  30 to 45 minutes
+            This isn&apos;t a sales call. It&apos;s an introductory conversation, 30 to 45 minutes,
             where you tell us about your practice and we tell you how we work. No pitch. No
             pressure. No proposal unless both sides want to go further. We review every submission
             personally before we book anything. If we don&apos;t think we&apos;re the right fit for
@@ -181,19 +181,6 @@ export default function BookACallPage() {
         </div>
       </section>
 
-      <section className="book-call-quote" aria-label="Client testimonial">
-        <div className="book-call-quote__inner">
-          <blockquote className="book-call-quote__text">
-            &ldquo;The first call felt like talking to someone who&apos;d already read my
-            practice&apos;s file. They knew the problems before I finished describing them.
-            That&apos;s when I knew this was different.&rdquo;
-          </blockquote>
-          <p className="book-call-quote__attribution">
-            Dr. Badia · Miami Sports &amp; Interventional
-          </p>
-        </div>
-      </section>
-
       <section
         id="book-call-form"
         className="book-call-section book-call-form-section"
@@ -202,7 +189,7 @@ export default function BookACallPage() {
         <div className="book-call-section__inner book-call-section__inner--form">
           {submitted ? (
             <div className="book-call-form__success" role="status">
-              <h2 className="book-call-form__success-title">Thank you  we&apos;ve got it.</h2>
+              <h2 className="book-call-form__success-title">Thank you. We&apos;ve got it.</h2>
               <p className="book-call-form__success-body">
                 We review every submission personally. You&apos;ll hear from us within 24 hours  a
                 real reply from a real person, not an automated response or calendar link.
@@ -383,7 +370,7 @@ export default function BookACallPage() {
                       className="book-call-form__textarea"
                       name="challenge"
                       rows={6}
-                      placeholder="Write freely  there's no wrong answer here..."
+                      placeholder="Write freely, there's no wrong answer here.."
                       required
                       value={form.challenge}
                       onChange={(e) => updateField('challenge', e.target.value)}
@@ -501,8 +488,8 @@ export default function BookACallPage() {
             <li className="book-call-unsure__card">
               <h3 className="book-call-unsure__title">We say no too</h3>
               <p className="book-call-unsure__body">
-                We don&apos;t take on every practice that enquires. If we don&apos;t think we&apos;re
-                the right fit, we&apos;ll tell you honestly  and if we know someone better suited,
+                We don&apos;t take on every practice that inquires. If we don&apos;t think we&apos;re
+                the right fit, we&apos;ll tell you honestly, and if we know someone better suited,
                 we&apos;ll point you there.
               </p>
             </li>

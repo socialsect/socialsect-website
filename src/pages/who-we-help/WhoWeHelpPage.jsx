@@ -32,7 +32,7 @@ const HEARD_QUOTES = [
   {
     attribution: 'Dental implant specialist · Chicago',
     quote:
-      "We get plenty of enquiries. High-value cases  implants, full arch  never seem to convert. The leads are there. The right patients aren't.",
+      "We get plenty of enquiries. High-value cases, implants, full arch, never seem to convert. The leads are there. The right patients aren't.",
   },
 ]
 
@@ -59,7 +59,7 @@ const PROBLEM_PATTERNS = [
     index: '04',
     title: 'The visibility gap',
     quote:
-      "You're exceptional at what you do. A patient who found you would never leave. The problem is they can't find you  because a competitor with inferior skills and a better marketing budget is ranking above you.",
+      "You're exceptional at what you do. A patient who found you would never leave. The problem is they can't find you, because a competitor with inferior skills and a better marketing budget is ranking above you.",
   },
 ]
 
@@ -69,12 +69,12 @@ const PILLAR_CARDS = [
     title: 'Build',
     tagline: 'A digital presence that earns trust before the first appointment.',
     body:
-      'Website built for your specialty. Booking system that reduces no-shows. Technology that works the way your practice works  not the other way around.',
+      'Website built for your specialty. Booking system that reduces no-shows. Technology that works the way your practice works, not the other way around.',
   },
   {
     id: 'grow',
     title: 'Grow',
-    tagline: 'Patients who are right for your practice  not just anyone who clicks an ad.',
+    tagline: 'Patients who are right for your practice, not just anyone who clicks an ad.',
     body:
       'We know the difference between a general enquiry and a high-value patient for your specific specialty. We build campaigns that attract the right one.',
   },
@@ -83,7 +83,7 @@ const PILLAR_CARDS = [
     title: 'Brand',
     tagline: 'Look like the obvious choice in your specialty and your market.',
     body:
-      'Brand identity, content, and creative that reflects your clinical excellence  so a patient who finds you online already trusts you before they call.',
+      'Brand identity, content, and creative that reflects your clinical excellence, so a patient who finds you online already trusts you before they call.',
   },
 ]
 
@@ -144,7 +144,7 @@ const SPECIALTY_GROUPS = [
       { label: 'Private GP practices', slug: 'private-gp-practices' },
       { label: 'Multi-location clinic owners', slug: 'multi-location-clinic-owners' },
       { label: 'Private practice owners', slug: 'private-practice-owners' },
-      { label: 'Private equity  healthcare', slug: 'private-equity-healthcare' },
+      { label: 'Private equity, healthcare', slug: 'private-equity-healthcare' },
       { label: 'Clinic managers', slug: 'clinic-managers' },
       { label: 'Healthcare group operators', slug: 'healthcare-group-operators' },
     ],

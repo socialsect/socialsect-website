@@ -131,7 +131,7 @@ export default function BlogPage() {
         <div className="blog-hero__inner">
           <p className="blog-hero__eyebrow">Insights for private medical practices</p>
           <h1 id="blog-hero-heading" className="blog-hero__title">
-            &ldquo;Everything we know about growing a private medical practice  written for the
+            &ldquo;Everything we know about growing a private medical practice, written for the
             people running one.&rdquo;
           </h1>
           <p className="blog-hero__sub">
@@ -147,7 +147,7 @@ export default function BlogPage() {
               type="email"
               autoComplete="email"
               className="blog-hero__input"
-              placeholder="Your email  get notified of new posts"
+              placeholder="Your email, get notified of new posts"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />

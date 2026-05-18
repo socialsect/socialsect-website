@@ -468,7 +468,80 @@
   }
 }
 
-/* ——— Dr. Badia reference process ——— */
+/* ——— Conversion interstitial ——— */
+.results-conversion {
+  padding: var(--xl, 128px) var(--gutter, 24px);
+  background: var(--surface);
+  border-bottom: 1px solid var(--gray);
+}
+
+.results-conversion__inner {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.results-conversion__lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2.125rem);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+  margin: 0 0 var(--md, 32px) 0;
+}
+
+.results-conversion__question {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin: 0 0 var(--md, 32px) 0;
+}
+
+.results-conversion__paths {
+  list-style: none;
+  margin: 0 0 var(--lg, 60px) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm, 16px);
+}
+
+.results-conversion__path {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.results-conversion__path:hover {
+  color: var(--primary-dark);
+}
+
+.results-conversion__path-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  transition: transform 0.2s ease;
+}
+
+.results-conversion__path:hover .results-conversion__path-icon {
+  transform: translateX(3px);
+}
+
+.results-conversion__note {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--dark-gray);
+}
+
+/* ——— Dr. Badia reference process (legacy) ——— */
 .results-process {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -626,6 +699,7 @@
   background: var(--surface);
 }
 
+.results-case-mehra__status {
   list-style: none;
   margin: 0 0 var(--lg, 60px) 0;
   padding: 0 0 0 14px;
@@ -840,8 +914,38 @@
 }
 
 .results-library__body {
-  margin: 0 0 var(--lg, 60px) 0;
+  margin: 0 0 var(--md, 32px) 0;
   font-size: 17px;
+  line-height: 1.65;
+  color: var(--dark-gray);
+}
+
+.results-library__body p {
+  margin: 0 0 1.15em 0;
+}
+
+.results-library__body p:last-child {
+  margin-bottom: 0;
+}
+
+.results-library__ways-label {
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-top: var(--sm, 16px) !important;
+}
+
+.results-library__paths {
+  list-style: none;
+  margin: 0 0 var(--md, 32px) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm, 16px);
+}
+
+.results-library__note {
+  margin: 0;
+  font-size: 15px;
   line-height: 1.65;
   color: var(--dark-gray);
 }

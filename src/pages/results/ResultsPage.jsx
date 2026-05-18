@@ -1,10 +1,9 @@
 import './ResultsPage.css'
 import ResultsAggregateSection from './ResultsAggregateSection'
 import ResultsCaseStudySection from './ResultsCaseStudySection'
-import ResultsDrBadiaProcessSection from './ResultsDrBadiaProcessSection'
+import ResultsConversionInterstitialSection from './ResultsDrBadiaProcessSection'
 import ResultsCaseStudyMehraSection from './ResultsCaseStudyMehraSection'
 import ResultsCaseStudyGoldmanSection from './ResultsCaseStudyGoldmanSection'
-import ResultsTestimonialsSection from './ResultsTestimonialsSection'
 import ResultsCaseLibraryNoteSection from './ResultsCaseLibraryNoteSection'
 import ResultsClosingCtaSection from './ResultsClosingCtaSection'
 
@@ -20,7 +19,7 @@ export default function ResultsPage() {
             Every number on this page is documented. If we can&apos;t prove it, it&apos;s not here.
           </h1>
           <p className="results-hero__sub">
-            Most agencies show you logos and vague success stories. We show you the actual numbers 
+            Most agencies show you logos and vague success stories. We show you the actual numbers:
             leads generated, consultations booked, surgeries converted, revenue attributed. And if you
             want to speak with the practice owner directly, we&apos;ll make that happen. That&apos;s
             how confident we are in what we&apos;ve built.
@@ -29,10 +28,9 @@ export default function ResultsPage() {
       </section>
       <ResultsAggregateSection />
       <ResultsCaseStudySection />
-      <ResultsDrBadiaProcessSection />
+      <ResultsConversionInterstitialSection />
       <ResultsCaseStudyMehraSection />
       <ResultsCaseStudyGoldmanSection />
-      <ResultsTestimonialsSection />
       <ResultsCaseLibraryNoteSection />
       <ResultsClosingCtaSection />
     </main>

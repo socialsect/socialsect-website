@@ -38,7 +38,7 @@ export default function SpecialtyAudienceSection() {
           <p className="specialty-audience__subcopy">
             An orthopaedic surgeon in Miami and a MedSpa owner in London have different patient
             profiles, different insurance dynamics, different seasonal patterns, and different
-            competitors. We build for your practice  not a template designed for someone
+            competitors. We build for your practice, not a template designed for someone
             else&apos;s.
           </p>
         </header>

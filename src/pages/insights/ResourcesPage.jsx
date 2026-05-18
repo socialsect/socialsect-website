@@ -147,7 +147,7 @@ export default function ResourcesPage() {
         <div className="resources-hero__inner">
           <p className="resources-hero__eyebrow">Free · Practical · Built from real practice engagements</p>
           <h1 id="resources-hero-heading" className="resources-hero__title">
-            &ldquo;Tools we use with every client  available free because a good decision starts with
+            &ldquo;Tools we use with every client, available free. Because a good decision starts with
             good information.&rdquo;
           </h1>
           <p className="resources-hero__sub">
@@ -325,9 +325,9 @@ export default function ResourcesPage() {
               See what your practice is missing
               <ArrowRight strokeWidth={1} aria-hidden />
             </Link>
-            <a href="#reference" className="resources-closing__btn resources-closing__btn--ghost">
-              Request a reference
-            </a>
+            <Link to="/book-a-call" className="resources-closing__btn resources-closing__btn--ghost">
+              Request a reference call
+            </Link>
           </div>
           <p className="resources-closing__note">No packages. No pitch. Just a clear diagnosis of your practice.</p>
         </div>

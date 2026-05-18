@@ -17,9 +17,9 @@ export default function InsightsClosingCtaSection() {
             See what your practice is missing
             <ArrowRight className="insights-closing__btn-icon" strokeWidth={1} aria-hidden />
           </Link>
-          <a href="#reference" className="insights-closing__btn insights-closing__btn--ghost">
-            Request a reference
-          </a>
+          <Link to="/book-a-call" className="insights-closing__btn insights-closing__btn--ghost">
+            Request a reference call
+          </Link>
         </div>
       </div>
     </section>

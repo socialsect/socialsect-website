@@ -355,6 +355,36 @@
   font-style: italic;
 }
 
+.about-thanks__cta-wrap {
+  margin: var(--md, 32px) 0;
+}
+
+.about-thanks__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.about-thanks__cta:hover {
+  color: var(--primary-dark);
+}
+
+.about-thanks__cta-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.about-thanks__cta:hover .about-thanks__cta-icon {
+  transform: translateX(3px);
+}
+
 .about-thanks__tags {
   list-style: none;
   margin: 0;
