@@ -346,12 +346,12 @@ export default function Navbar() {
                   <MegaColumnHead accent={2} label="Insights" />
                   <ul className="dropdown-mega__list">
                     <li>
-                      <Link to="/insights#testimonials">
+                      <Link to="/insights/testimonials">
                         <span className="dropdown-mega__link-label">Testimonials</span>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/insights#blog">
+                      <Link to="/insights/blog">
                         <span className="dropdown-mega__link-label">Blog</span>
                       </Link>
                     </li>
