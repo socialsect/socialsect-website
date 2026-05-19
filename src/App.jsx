@@ -18,6 +18,7 @@ import InsightsPage from './pages/insights/InsightsPage'
 import TestimonialsPage from './pages/insights/TestimonialsPage'
 import BlogPage from './pages/insights/BlogPage'
 import ResourcesPage from './pages/insights/ResourcesPage'
+import ClientPortalPage from './pages/client-portal/ClientPortalPage'
 // import Loader from "./components/loader/loader"
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/insights/blog" element={<BlogPage />} />
         <Route path="/insights/resources" element={<ResourcesPage />} />
         <Route path="/book-a-call" element={<BookACallPage />} />
+        <Route path="/client-portal" element={<ClientPortalPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

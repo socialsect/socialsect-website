@@ -98,7 +98,8 @@ html {
 .home-philosophy ::selection,
 .book-call-quote ::selection,
 .results-spotlight__panel ::selection,
-.specialty-proof__case ::selection {
+.specialty-proof__case ::selection,
+.client-portal-soon ::selection {
   background-color: var(--selection-bg-on-dark);
   color: var(--selection-color-on-dark);
 }
@@ -110,7 +111,8 @@ html {
 .home-philosophy ::-moz-selection,
 .book-call-quote ::-moz-selection,
 .results-spotlight__panel ::-moz-selection,
-.specialty-proof__case ::-moz-selection {
+.specialty-proof__case ::-moz-selection,
+.client-portal-soon ::-moz-selection {
   background-color: var(--selection-bg-on-dark);
   color: var(--selection-color-on-dark);
 }

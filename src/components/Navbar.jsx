@@ -4,6 +4,7 @@ import BookCallLink from './BookCallLink'
 import './Navbar.css'
 import { ChevronDown, ExternalLink, Menu, X } from 'lucide-react'
 import { getNavServiceLinks } from '../pages/services/servicesRegistry'
+import { CLIENT_PORTAL_PATH } from '../constants/routes.js'
 
 /** Mega-menu row: label + external-link icon (matches homepage practice pills). */
 function MegaNavLink({ href, children }) {
@@ -367,9 +368,9 @@ export default function Navbar() {
             </div>
 
             <Link to="/about">About</Link>
-            <a href="#client-portal" className="portal-link">
+            <Link to={CLIENT_PORTAL_PATH} className="portal-link">
               Client portal →
-            </a>
+            </Link>
             <BookCallLink className="btn btn-primary">
               Book a call
             </BookCallLink>
@@ -476,9 +477,9 @@ export default function Navbar() {
         </div>
 
         <div className="mobile-nav__footer">
-          <a href="#client-portal" className="mobile-nav__portal" onClick={closeMenu}>
+          <Link to={CLIENT_PORTAL_PATH} className="mobile-nav__portal" onClick={closeMenu}>
             Client portal →
-          </a>
+          </Link>
           <BookCallLink className="btn btn-primary mobile-nav__cta" onClick={closeMenu}>
             Book a call
           </BookCallLink>

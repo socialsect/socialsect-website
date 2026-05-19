@@ -9,11 +9,11 @@
  * Each export is the complete `data` prop for <ServiceDetailPage />.
  *
  * `siblings` = the other services in the same pillar (excluding self).
- * `relatedServices` reference paths from other pillars — cross-sell naturally.
+ * `relatedServices` reference paths from other pillars  cross-sell naturally.
  */
 
 // ─────────────────────────────────────────────────────────────
-// HELPERS — sibling lists (used inside each export)
+// HELPERS  sibling lists (used inside each export)
 // ─────────────────────────────────────────────────────────────
 
 const BUILD_SIBLINGS = [
@@ -39,7 +39,7 @@ const BRAND_SIBLINGS = [
 const siblingsFor = (list, selfSlug) => list.filter(s => s.slug !== selfSlug)
 
 // ─────────────────────────────────────────────────────────────
-// BUILD — 1 of 4: Practice websites
+// BUILD  1 of 4: Practice websites
 // ─────────────────────────────────────────────────────────────
 
 export const practiceWebsites = {
@@ -211,7 +211,7 @@ export const practiceWebsites = {
 }
 
 // ─────────────────────────────────────────────────────────────
-// BUILD — 2 of 4: Mobile apps
+// BUILD  2 of 4: Mobile apps
 // ─────────────────────────────────────────────────────────────
 
 export const mobileApps = {
@@ -383,7 +383,7 @@ export const mobileApps = {
 }
 
 // ─────────────────────────────────────────────────────────────
-// BUILD — 3 of 4: Web applications
+// BUILD  3 of 4: Web applications
 // ─────────────────────────────────────────────────────────────
 
 export const webApplications = {
@@ -557,7 +557,7 @@ export const webApplications = {
 }
 
 // ─────────────────────────────────────────────────────────────
-// BUILD — 4 of 4: Booking + management systems
+// BUILD  4 of 4: Booking + management systems
 // ─────────────────────────────────────────────────────────────
 
 export const bookingManagementSystems = {
@@ -729,7 +729,7 @@ export const bookingManagementSystems = {
 }
 
 // ─────────────────────────────────────────────────────────────
-// GROW — 1 of 3: Meta ads
+// GROW  1 of 3: Meta ads
 // ─────────────────────────────────────────────────────────────
 
 export const metaAds = {
@@ -903,7 +903,7 @@ export const metaAds = {
 }
 
 // ─────────────────────────────────────────────────────────────
-// GROW — 2 of 3: Google ads
+// GROW  2 of 3: Google ads
 // ─────────────────────────────────────────────────────────────
 
 export const googleAds = {
@@ -1077,7 +1077,7 @@ export const googleAds = {
 }
 
 // ─────────────────────────────────────────────────────────────
-// GROW — 3 of 3: SEO
+// GROW  3 of 3: SEO
 // ─────────────────────────────────────────────────────────────
 
 export const seo = {
@@ -1251,7 +1251,7 @@ export const seo = {
 }
 
 // ─────────────────────────────────────────────────────────────
-// BRAND — 1 of 3: Brand identity
+// BRAND  1 of 3: Brand identity
 // ─────────────────────────────────────────────────────────────
 
 export const brandIdentity = {
@@ -1425,7 +1425,7 @@ export const brandIdentity = {
 }
 
 // ─────────────────────────────────────────────────────────────
-// BRAND — 2 of 3: Design
+// BRAND  2 of 3: Design
 // ─────────────────────────────────────────────────────────────
 
 export const design = {
@@ -1599,7 +1599,7 @@ export const design = {
 }
 
 // ─────────────────────────────────────────────────────────────
-// BRAND — 3 of 3: Video + motion
+// BRAND  3 of 3: Video + motion
 // ─────────────────────────────────────────────────────────────
 
 export const videoMotion = {

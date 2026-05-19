@@ -37,7 +37,7 @@ if (error) {
 
 console.log('\n--- Domains on THIS API key\'s account ---')
 if (!data?.data?.length) {
-  console.log('(none — add gosocialsect.com under Resend → Domains)')
+  console.log('(none  add gosocialsect.com under Resend → Domains)')
 } else {
   for (const d of data.data) {
     const mark = d.name === fromDomain ? ' ← should match FROM domain' : ''

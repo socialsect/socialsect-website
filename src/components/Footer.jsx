@@ -3,8 +3,13 @@ import BookCallLink from './BookCallLink'
 import './Footer.css'
 import { TbBrandLinkedin, TbBrandInstagram } from 'react-icons/tb'
 import { ArrowRight } from 'lucide-react'
+import { CLIENT_PORTAL_PATH } from '../constants/routes.js'
 
 const CONTACT_EMAIL = 'hello@gosocialsect.com'
+const LINKEDIN_URL = 'https://www.linkedin.com/company/socialsect'
+const INSTAGRAM_URL = 'https://www.instagram.com/thesocialsect/'
+const CAREERS_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Careers at Socialsect')}`
+const PRIVACY_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Privacy policy')}`
 
 export default function Footer() {
   return (
@@ -21,7 +26,7 @@ export default function Footer() {
               <h2 id="footer-brand-heading" className="footer__col-heading">
                 Brand
               </h2>
-              <a href="/" className="footer__logo-link" aria-label="Socialsect home">
+              <Link to="/" className="footer__logo-link" aria-label="Socialsect home">
                 <img
                   src="/icons/logo.svg"
                   alt=""
@@ -29,13 +34,13 @@ export default function Footer() {
                   width={160}
                   height={50}
                 />
-              </a>
+              </Link>
               <p className="footer__tagline">
                 Predictable growth for private medical practices. US & UK.
               </p>
               <div className="footer__social">
                 <a
-                  href="https://www.linkedin.com/"
+                  href={LINKEDIN_URL}
                   className="footer__social-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -44,7 +49,7 @@ export default function Footer() {
                   <span>LinkedIn</span>
                 </a>
                 <a
-                  href="https://www.instagram.com/"
+                  href={INSTAGRAM_URL}
                   className="footer__social-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -61,16 +66,16 @@ export default function Footer() {
               </h2>
               <ul className="footer__list">
                 <li>
-                  <a href="#build">Build</a>
+                  <Link to="/services#build">Build</Link>
                 </li>
                 <li>
-                  <a href="#grow">Grow</a>
+                  <Link to="/services#grow">Grow</Link>
                 </li>
                 <li>
-                  <a href="#brand">Brand</a>
+                  <Link to="/services#brand">Brand</Link>
                 </li>
                 <li>
-                  <a href="#how-we-work">How we work</a>
+                  <Link to="/how-we-work">How we work</Link>
                 </li>
               </ul>
             </section>
@@ -122,7 +127,7 @@ export default function Footer() {
                   <Link to="/insights/resources">Resources</Link>
                 </li>
                 <li>
-                  <a href="#careers">Careers</a>
+                  <a href={CAREERS_MAILTO}>Careers</a>
                 </li>
               </ul>
             </section>
@@ -139,7 +144,7 @@ export default function Footer() {
                   <BookCallLink>Request a reference</BookCallLink>
                 </li>
                 <li>
-                  <a href="#client-portal">Client portal</a>
+                  <Link to={CLIENT_PORTAL_PATH}>Client portal</Link>
                 </li>
                 <li>
                   <a href={`mailto:${CONTACT_EMAIL}`} className="footer__email">
@@ -156,11 +161,11 @@ export default function Footer() {
               <span className="footer-sub__sep" aria-hidden="true">
                 ·
               </span>
-              <a href="#privacy">Privacy policy</a>
+              <a href={PRIVACY_MAILTO}>Privacy policy</a>
               <span className="footer-sub__sep" aria-hidden="true">
                 ·
               </span>
-              <a href="#faq">FAQ</a>
+              <Link to="/how-we-work#before-every-engagement-faq">FAQ</Link>
               <span className="footer-sub__sep" aria-hidden="true">
                 ·
               </span>
