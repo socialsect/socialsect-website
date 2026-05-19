@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import './HowWeWorkPage.css'
 
@@ -304,7 +305,7 @@ export default function HowWeWorkPage() {
           </p>
 
           <nav className="how-we-work-hero__anchors" aria-label="Jump to sections on this page">
-            <p className="how-we-work-hero__anchors-label">Page anchor links</p>
+            {/* <p className="how-we-work-hero__anchors-label">Page anchor links</p/> */}
             <ul className="how-we-work-hero__anchors-list">
               {PROCESS_SECTIONS.map(({ id, title }) => (
                 <li key={id}>
@@ -324,7 +325,7 @@ export default function HowWeWorkPage() {
         className="how-we-work-section how-we-work-section--first how-we-work-engagement"
         aria-labelledby="how-we-work-engagement-heading"
       >
-        <div className="how-we-work-section__inner">
+        <div className="how-we-work-section__inner" id="universal-engagement-model">
           <p className="how-we-work-engagement__kicker">Universal engagement model</p>
           <h2 id="how-we-work-engagement-heading" className="how-we-work-engagement__headline">
             Every engagement, regardless of what you&apos;ve hired us for, follows the same
@@ -488,7 +489,7 @@ export default function HowWeWorkPage() {
             pitch. No packages. Just a clear starting point.
           </p>
           <div className="how-we-work-closing__actions">
-            <Link to="/book-a-call" className="how-we-work-closing__btn how-we-work-closing__btn--primary">
+            <Link to={BOOK_A_CALL_FORM} className="how-we-work-closing__btn how-we-work-closing__btn--primary">
               Get my free practice audit
               <ArrowRight className="how-we-work-closing__btn-icon" strokeWidth={2} aria-hidden />
             </Link>

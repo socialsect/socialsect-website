@@ -1,4 +1,5 @@
 import React from 'react';
+import { BOOK_A_CALL_FORM } from '../constants/routes.js'
 import { Link } from 'react-router-dom';
 import './PerfectMatchSection.css';
 
@@ -59,7 +60,7 @@ export default function PerfectMatchSection() {
             If you nodded at any of that, you&apos;re exactly who we built this for.
           </p>
           <div className="perfect-match__cta-buttons cta-buttons">
-            <Link to="/book-a-call" className="btn btn-primary">
+            <Link to={BOOK_A_CALL_FORM} className="btn btn-primary">
               Audit my practice free
               <svg
                 className="btn-arrow btn-arrow-right"
@@ -74,7 +75,7 @@ export default function PerfectMatchSection() {
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
-            <Link to="/results" className="btn btn-secondary">
+            <Link to="/results#results-case-badia" className="btn btn-secondary">
               Read a case study
               <svg
                 className="btn-arrow btn-arrow-down"

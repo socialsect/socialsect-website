@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowRight } from 'lucide-react'
 import ProofGrowthIllustration from './ProofGrowthIllustration'
 import './WhoWeHelpPage.css'
@@ -257,7 +258,7 @@ export default function WhoWeHelpPage() {
               <p className="who-we-help-find__foot">
                 Don&apos;t see your specialty? We still work with you. Every private medical practice
                 has the same core problems.{' '}
-                <Link to="/#book-call" className="who-we-help-find__foot-link">
+                <Link to={BOOK_A_CALL_FORM} className="who-we-help-find__foot-link">
                   Book an audit
                 </Link>{' '}
                 and we&apos;ll show you what a system looks like for your specific practice.
@@ -316,7 +317,7 @@ export default function WhoWeHelpPage() {
                       <span className="who-we-help-proof__stat-label">revenue</span>
                     </div>
                   </div>
-                  <Link to="/#book-call" className="who-we-help-proof__case-link">
+                  <Link to={BOOK_A_CALL_FORM} className="who-we-help-proof__case-link">
                     Talk to Dr. Badia
                     <ArrowRight className="who-we-help-proof__case-link-icon" strokeWidth={2} aria-hidden />
                   </Link>
@@ -337,7 +338,7 @@ export default function WhoWeHelpPage() {
                 We don&apos;t have a case study for every specialty yet  because we&apos;re selective
                 about who we work with. But the system we build is the same. The proof is in the
                 diagnostic.{' '}
-                <Link to="/#book-call" className="who-we-help-proof__disclaimer-link">
+                <Link to={BOOK_A_CALL_FORM} className="who-we-help-proof__disclaimer-link">
                   Book a practice audit
                   <ArrowRight
                     className="who-we-help-proof__disclaimer-link-icon"
@@ -363,7 +364,7 @@ export default function WhoWeHelpPage() {
               </p>
               <div className="who-we-help-final-cta__actions">
                 <Link
-                  to="/#book-call"
+                  to={BOOK_A_CALL_FORM}
                   className="btn btn-primary who-we-help-final-cta__btn who-we-help-final-cta__btn--primary"
                 >
                   See what your practice is missing

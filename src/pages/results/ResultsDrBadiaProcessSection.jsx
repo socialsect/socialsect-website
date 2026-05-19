@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowRight } from 'lucide-react'
 
 export default function ResultsConversionInterstitialSection() {
@@ -14,14 +15,14 @@ export default function ResultsConversionInterstitialSection() {
 
         <ul className="results-conversion__paths">
           <li>
-            <Link to="/book-a-call" className="results-conversion__path">
+            <Link to={BOOK_A_CALL_FORM} className="results-conversion__path">
               Book a free practice audit. We&apos;ll map your current acquisition gap and show you
               what the fix looks like for your specialty.
               <ArrowRight className="results-conversion__path-icon" strokeWidth={2} aria-hidden />
             </Link>
           </li>
           <li>
-            <Link to="/book-a-call" className="results-conversion__path">
+            <Link to={BOOK_A_CALL_FORM} className="results-conversion__path">
               Request a reference call. Speak directly with a practice we&apos;ve worked with, peer to
               peer.
               <ArrowRight className="results-conversion__path-icon" strokeWidth={2} aria-hidden />

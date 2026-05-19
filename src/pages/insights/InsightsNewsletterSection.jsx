@@ -1,11 +1,23 @@
 import { useState } from 'react'
+import { submitForm } from '../../lib/submitForm'
 
 export default function InsightsNewsletterSection() {
   const [email, setEmail] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    // Hook up to mailing provider when ready
+    setSubmitting(true)
+    try {
+      await submitForm('/api/newsletter', { email, source: 'insights' })
+      setSubmitted(true)
+      setEmail('')
+    } catch {
+      /* form stays visible */
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -33,9 +45,14 @@ export default function InsightsNewsletterSection() {
             placeholder="Your email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={submitted}
           />
-          <button type="submit" className="insights-newsletter__submit btn btn-primary">
-            Keep me posted
+          <button
+            type="submit"
+            className="insights-newsletter__submit btn btn-primary"
+            disabled={submitting || submitted}
+          >
+            {submitted ? 'You\'re on the list' : submitting ? 'Sending…' : 'Keep me posted'}
           </button>
         </form>
 

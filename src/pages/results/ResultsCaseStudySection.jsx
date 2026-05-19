@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowRight } from 'lucide-react'
 
 const METRICS = [
@@ -21,7 +22,7 @@ function CaseStudyRuleMark() {
 
 export default function ResultsCaseStudySection() {
   return (
-    <section className="results-case" aria-labelledby="results-case-heading">
+    <section className="results-case" aria-labelledby="results-case-heading" id='results-case-badia'>  
       <div className="results-case__inner">
         <header className="results-case__header">
           <p className="results-case__label">Case study</p>
@@ -80,7 +81,7 @@ export default function ResultsCaseStudySection() {
         </div>
 
         <div className="results-case__actions">
-          <Link to="/book-a-call" className="results-case__btn results-case__btn--primary">
+          <Link to={BOOK_A_CALL_FORM} className="results-case__btn results-case__btn--primary">
             Request a reference call
             <ArrowRight className="results-case__btn-icon" strokeWidth={2} aria-hidden />
           </Link>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import BookCallLink from './BookCallLink'
 import './Footer.css'
 import { TbBrandLinkedin, TbBrandInstagram } from 'react-icons/tb'
 import { ArrowRight } from 'lucide-react'
@@ -132,10 +133,10 @@ export default function Footer() {
               </h2>
               <ul className="footer__list">
                 <li>
-                  <Link to="/book-a-call">Book a call</Link>
+                  <BookCallLink>Book a call</BookCallLink>
                 </li>
                 <li>
-                  <Link to="/book-a-call">Request a reference</Link>
+                  <BookCallLink>Request a reference</BookCallLink>
                 </li>
                 <li>
                   <a href="#client-portal">Client portal</a>

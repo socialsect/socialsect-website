@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check, ChevronRight, Plus, Play } from 'lucide-react'
 import InlineVideoPlayer from './InlineVideoPlayer'
@@ -319,7 +320,7 @@ export default function TestimonialsPage() {
               See documented case studies
               <ArrowRight strokeWidth={1} aria-hidden />
             </Link>
-            <Link to="/book-a-call" className="testimonials-bridge__btn testimonials-bridge__btn--ghost">
+            <Link to={BOOK_A_CALL_FORM} className="testimonials-bridge__btn testimonials-bridge__btn--ghost">
               Request a reference
             </Link>
           </div>
@@ -337,11 +338,11 @@ export default function TestimonialsPage() {
             right fit, we&apos;ll tell you. And we&apos;ll point you to someone who is.
           </p>
           <div className="testimonials-closing__actions">
-            <Link to="/book-a-call" className="testimonials-closing__btn testimonials-closing__btn--primary">
+            <Link to={BOOK_A_CALL_FORM} className="testimonials-closing__btn testimonials-closing__btn--primary">
               See what your practice is missing
               <ArrowRight strokeWidth={1} aria-hidden />
             </Link>
-            <Link to="/book-a-call" className="testimonials-closing__btn testimonials-closing__btn--ghost">
+            <Link to={BOOK_A_CALL_FORM} className="testimonials-closing__btn testimonials-closing__btn--ghost">
               Request a reference call
             </Link>
           </div>

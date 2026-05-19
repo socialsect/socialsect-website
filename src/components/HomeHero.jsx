@@ -1,4 +1,5 @@
 import React from 'react';
+import { BOOK_A_CALL_FORM } from '../constants/routes.js'
 import { Link } from 'react-router-dom';
 import './HomeHero.css';
 
@@ -18,7 +19,7 @@ export default function HomeHero() {
           </p>
 
           <div className="cta-links">
-            <Link to="/book-a-call" className="cta-primary">
+            <Link to={BOOK_A_CALL_FORM} className="cta-primary">
               Audit my practice free →
             </Link>
             <a href="#results-spotlight" className="cta-secondary">

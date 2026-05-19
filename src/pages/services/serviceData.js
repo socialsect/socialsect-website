@@ -1,6 +1,11 @@
 import { allServices } from '../../assets/service-content-matrix/allServices.js'
+import { BOOK_A_CALL_FORM, BOOK_A_CALL_PATH } from '../../constants/routes.js'
 
-const BOOK_A_CALL = '/book-a-call'
+function normalizeBookCallHref(href) {
+  if (!href || href === BOOK_A_CALL_PATH) return BOOK_A_CALL_FORM
+  if (href.startsWith(BOOK_A_CALL_PATH) && !href.includes('#')) return BOOK_A_CALL_FORM
+  return href
+}
 
 /** Map client matrix CTAs to live app routes until /contact/* pages exist. */
 function enrichService(pillar, slug, data) {
@@ -8,11 +13,8 @@ function enrichService(pillar, slug, data) {
     pillar,
     slug,
     ...data,
-    ctaHref: data.ctaHref ?? BOOK_A_CALL,
-    relatedServices: (data.relatedServices ?? []).map((related) => ({
-      ...related,
-      path: related.path ?? BOOK_A_CALL,
-    })),
+    ctaHref: normalizeBookCallHref(data.ctaHref),
+    relatedServices: data.relatedServices ?? [],
   }
 }
 

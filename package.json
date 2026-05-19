@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check:resend": "node scripts/check-resend-domain.mjs"
   },
   "dependencies": {
     "face-api.js": "^0.22.2",
@@ -20,6 +21,7 @@
     "react-dom": "^19.2.6",
     "react-icons": "^5.6.0",
     "react-router-dom": "^7.15.0",
+    "resend": "^6.12.3",
     "three": "^0.184.0"
   },
   "devDependencies": {

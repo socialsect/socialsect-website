@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight,
@@ -12,6 +13,7 @@ import {
   ListChecks,
   X,
 } from 'lucide-react'
+import { submitForm } from '../../lib/submitForm'
 import {
   RESOURCE_TYPES,
   RESOURCE_SPECIALTY_OPTIONS,
@@ -73,6 +75,8 @@ export default function ResourcesPage() {
   const [specialtyFilter, setSpecialtyFilter] = useState('all')
   const [gateResource, setGateResource] = useState(null)
   const [gateForm, setGateForm] = useState({ name: '', email: '', specialty: '' })
+  const [gateSubmitting, setGateSubmitting] = useState(false)
+  const [gateError, setGateError] = useState('')
 
   const filtered = useMemo(
     () => filterResources(RESOURCES, { typeId: typeFilter, specialtyId: specialtyFilter }),
@@ -112,9 +116,24 @@ export default function ResourcesPage() {
     }
   }, [gateResource])
 
-  function handleGateSubmit(e) {
+  async function handleGateSubmit(e) {
     e.preventDefault()
-    closeGate()
+    if (!gateResource) return
+    setGateError('')
+    setGateSubmitting(true)
+    try {
+      await submitForm('/api/resource-download', {
+        ...gateForm,
+        resourceTitle: gateResource.title,
+        resourceType: gateResource.type,
+      })
+      setGateForm({ name: '', email: '', specialty: '' })
+      closeGate()
+    } catch (err) {
+      setGateError(err.message || 'Unable to submit. Please try again.')
+    } finally {
+      setGateSubmitting(false)
+    }
   }
 
   return (
@@ -301,7 +320,7 @@ export default function ResourcesPage() {
               <p className="resources-sidebar__cta-sub">
                 A free 45-minute practice audit  live, with us, for your specific practice.
               </p>
-              <Link to="/book-a-call" className="resources-sidebar__cta-btn">
+              <Link to={BOOK_A_CALL_FORM} className="resources-sidebar__cta-btn">
                 Book a practice audit
                 <ArrowRight strokeWidth={1} aria-hidden />
               </Link>
@@ -321,11 +340,11 @@ export default function ResourcesPage() {
             and show you exactly where your practice is losing patients and what to do about it.
           </p>
           <div className="resources-closing__actions">
-            <Link to="/book-a-call" className="resources-closing__btn resources-closing__btn--primary">
+            <Link to={BOOK_A_CALL_FORM} className="resources-closing__btn resources-closing__btn--primary">
               See what your practice is missing
               <ArrowRight strokeWidth={1} aria-hidden />
             </Link>
-            <Link to="/book-a-call" className="resources-closing__btn resources-closing__btn--ghost">
+            <Link to={BOOK_A_CALL_FORM} className="resources-closing__btn resources-closing__btn--ghost">
               Request a reference call
             </Link>
           </div>
@@ -399,8 +418,17 @@ export default function ResourcesPage() {
                   </option>
                 ))}
               </select>
-              <button type="submit" className="resources-gate__submit">
-                {gateResource.type === 'guide' ? 'Send me the guide' : `Send me the ${gateResource.type}`}
+              {gateError && (
+                <p className="resources-gate__error" role="alert">
+                  {gateError}
+                </p>
+              )}
+              <button type="submit" className="resources-gate__submit" disabled={gateSubmitting}>
+                {gateSubmitting
+                  ? 'Sending…'
+                  : gateResource.type === 'guide'
+                    ? 'Send me the guide'
+                    : `Send me the ${gateResource.type}`}
                 <ArrowRight strokeWidth={1} aria-hidden />
               </button>
               <p className="resources-gate__fine">

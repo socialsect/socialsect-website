@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowRight } from 'lucide-react'
 import './AboutPage.css'
 
@@ -284,7 +285,7 @@ export default function AboutPage() {
               I&apos;d love to talk.
             </p>
             <p className="about-thanks__cta-wrap">
-              <Link to="/book-a-call" className="about-thanks__cta">
+              <Link to={BOOK_A_CALL_FORM} className="about-thanks__cta">
                 Book a conversation
                 <ArrowRight className="about-thanks__cta-icon" strokeWidth={2} aria-hidden />
               </Link>
@@ -356,7 +357,7 @@ export default function AboutPage() {
             there&apos;s something worth building together.
           </p>
           <div className="about-closing__actions">
-            <Link to="/book-a-call" className="about-closing__btn about-closing__btn--primary">
+            <Link to={BOOK_A_CALL_FORM} className="about-closing__btn about-closing__btn--primary">
               Start the conversation
               <ArrowRight className="about-closing__btn-icon" strokeWidth={2} aria-hidden />
             </Link>

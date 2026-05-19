@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowRight } from 'lucide-react'
 
 export default function ResultsCaseLibraryNoteSection() {
@@ -28,14 +29,14 @@ export default function ResultsCaseLibraryNoteSection() {
 
         <ul className="results-library__paths">
           <li>
-            <Link to="/book-a-call" className="results-library__cta">
+            <Link to={BOOK_A_CALL_FORM} className="results-library__cta">
               Book a free practice audit (45 minutes). We map your acquisition gap and show you what&apos;s
               possible.
               <ArrowRight className="results-library__cta-icon" strokeWidth={2} aria-hidden />
             </Link>
           </li>
           <li>
-            <Link to="/book-a-call" className="results-library__cta">
+            <Link to={BOOK_A_CALL_FORM} className="results-library__cta">
               Request a reference call. Speak directly with one of the practices above. Peer to peer. No
               scripts.
               <ArrowRight className="results-library__cta-icon" strokeWidth={2} aria-hidden />

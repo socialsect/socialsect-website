@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowRight } from 'lucide-react'
 
 export default function ResultsClosingCtaSection() {
@@ -14,11 +15,11 @@ export default function ResultsClosingCtaSection() {
           clear picture of what&apos;s possible for your specific practice.
         </p>
         <div className="results-closing__actions">
-          <Link to="/book-a-call" className="results-closing__btn results-closing__btn--primary">
+          <Link to={BOOK_A_CALL_FORM} className="results-closing__btn results-closing__btn--primary">
             Book my free practice audit
             <ArrowRight className="results-closing__btn-icon" strokeWidth={2} aria-hidden />
           </Link>
-          <Link to="/book-a-call" className="results-closing__btn results-closing__btn--ghost">
+          <Link to={BOOK_A_CALL_FORM} className="results-closing__btn results-closing__btn--ghost">
             Request a reference call
             <ArrowRight className="results-closing__btn-icon" strokeWidth={2} aria-hidden />
           </Link>

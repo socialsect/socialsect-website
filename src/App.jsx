@@ -13,6 +13,7 @@ import SpecialtyPageRoute from './pages/who-we-help/SpecialtyPageRoute'
 import ResultsPage from './pages/results/ResultsPage'
 import AboutPage from './pages/about/AboutPage'
 import BookACallPage from './pages/book-a-call/BookACallPage'
+import NotFoundPage from './pages/not-found/NotFoundPage'
 import InsightsPage from './pages/insights/InsightsPage'
 import TestimonialsPage from './pages/insights/TestimonialsPage'
 import BlogPage from './pages/insights/BlogPage'
@@ -40,6 +41,7 @@ function App() {
         <Route path="/insights/blog" element={<BlogPage />} />
         <Route path="/insights/resources" element={<ResourcesPage />} />
         <Route path="/book-a-call" element={<BookACallPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

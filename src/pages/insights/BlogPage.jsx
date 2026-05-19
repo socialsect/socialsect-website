@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { Link } from 'react-router-dom'
 import { ArrowDown, ArrowRight, ChevronDown, ChevronRight, Search } from 'lucide-react'
+import { submitForm } from '../../lib/submitForm'
 import {
   BLOG_CATEGORIES,
   BLOG_CATEGORY_OPTIONS,
@@ -69,6 +71,10 @@ export default function BlogPage() {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
   const [email, setEmail] = useState('')
   const [sidebarEmail, setSidebarEmail] = useState('')
+  const [heroSubscribed, setHeroSubscribed] = useState(false)
+  const [sidebarSubscribed, setSidebarSubscribed] = useState(false)
+  const [heroSubmitting, setHeroSubmitting] = useState(false)
+  const [sidebarSubmitting, setSidebarSubmitting] = useState(false)
 
   const filtered = useMemo(
     () =>
@@ -93,12 +99,32 @@ export default function BlogPage() {
     setVisibleCount(PAGE_SIZE)
   }
 
-  function handleHeroSubscribe(e) {
+  async function handleHeroSubscribe(e) {
     e.preventDefault()
+    setHeroSubmitting(true)
+    try {
+      await submitForm('/api/newsletter', { email, source: 'blog-hero' })
+      setHeroSubscribed(true)
+      setEmail('')
+    } catch {
+      /* keep form visible; optional toast later */
+    } finally {
+      setHeroSubmitting(false)
+    }
   }
 
-  function handleSidebarSubscribe(e) {
+  async function handleSidebarSubscribe(e) {
     e.preventDefault()
+    setSidebarSubmitting(true)
+    try {
+      await submitForm('/api/newsletter', { email: sidebarEmail, source: 'blog-sidebar' })
+      setSidebarSubscribed(true)
+      setSidebarEmail('')
+    } catch {
+      /* keep form visible */
+    } finally {
+      setSidebarSubmitting(false)
+    }
   }
 
   return (
@@ -151,8 +177,8 @@ export default function BlogPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button type="submit" className="blog-hero__submit btn btn-primary">
-              Subscribe
+            <button type="submit" className="blog-hero__submit btn btn-primary" disabled={heroSubmitting}>
+              {heroSubscribed ? 'Subscribed' : heroSubmitting ? 'Sending…' : 'Subscribe'}
             </button>
           </form>
         </div>
@@ -341,8 +367,12 @@ export default function BlogPage() {
                   value={sidebarEmail}
                   onChange={(e) => setSidebarEmail(e.target.value)}
                 />
-                <button type="submit" className="blog-sidebar__newsletter-btn">
-                  Keep me posted
+                <button
+                  type="submit"
+                  className="blog-sidebar__newsletter-btn"
+                  disabled={sidebarSubmitting || sidebarSubscribed}
+                >
+                  {sidebarSubscribed ? "You're on the list" : sidebarSubmitting ? 'Sending…' : 'Keep me posted'}
                 </button>
               </form>
             </section>
@@ -353,7 +383,7 @@ export default function BlogPage() {
                 If something here sparked a question about your practice  that&apos;s what the audit
                 is for.
               </p>
-              <Link to="/book-a-call" className="blog-sidebar__cta-btn">
+              <Link to={BOOK_A_CALL_FORM} className="blog-sidebar__cta-btn">
                 Book a practice audit
                 <ArrowRight strokeWidth={1} aria-hidden />
               </Link>

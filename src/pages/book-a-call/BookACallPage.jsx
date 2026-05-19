@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { submitForm } from '../../lib/submitForm'
 import './BookACallPage.css'
 
 const EXPECT_STEPS = [
@@ -82,6 +83,7 @@ const REFERRAL_SOURCES = [
 
 const INITIAL_FORM = {
   name: '',
+  email: '',
   practiceName: '',
   specialty: '',
   specialtyOther: '',
@@ -96,6 +98,8 @@ const INITIAL_FORM = {
 export default function BookACallPage() {
   const [form, setForm] = useState(INITIAL_FORM)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const getOptionClassName = (isChecked, extraClassName = '') =>
     `book-call-form__option${isChecked ? ' book-call-form__option--checked' : ''}${extraClassName ? ` ${extraClassName}` : ''}`
@@ -113,10 +117,19 @@ export default function BookACallPage() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
-    document.getElementById('book-call-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    setSubmitError('')
+    setSubmitting(true)
+    try {
+      await submitForm('/api/book-a-call', form)
+      setSubmitted(true)
+      document.getElementById('book-call-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } catch (err) {
+      setSubmitError(err.message || 'Unable to submit. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -223,6 +236,23 @@ export default function BookACallPage() {
                       required
                       value={form.name}
                       onChange={(e) => updateField('name', e.target.value)}
+                    />
+                  </div>
+
+                  <div className="book-call-form__field">
+                    <label className="book-call-form__label" htmlFor="book-email">
+                      Your email
+                    </label>
+                    <input
+                      id="book-email"
+                      className="book-call-form__input"
+                      type="email"
+                      name="email"
+                      placeholder="you@yourpractice.com"
+                      autoComplete="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => updateField('email', e.target.value)}
                     />
                   </div>
 
@@ -431,8 +461,17 @@ export default function BookACallPage() {
                 </fieldset>
 
                 <div className="book-call-form__submit-wrap">
-                  <button type="submit" className="book-call-form__submit cta cta--primary cta--lg">
-                    Start the conversation
+                  {submitError && (
+                    <p className="book-call-form__error" role="alert">
+                      {submitError}
+                    </p>
+                  )}
+                  <button
+                    type="submit"
+                    className="book-call-form__submit cta cta--primary cta--lg"
+                    disabled={submitting}
+                  >
+                    {submitting ? 'Sending…' : 'Start the conversation'}
                     <ArrowRight className="book-call-form__submit-icon" strokeWidth={2} aria-hidden />
                   </button>
                   <p className="book-call-form__submit-note">

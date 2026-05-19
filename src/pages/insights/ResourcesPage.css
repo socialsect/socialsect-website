@@ -900,6 +900,22 @@
   height: 18px;
 }
 
+.resources-gate__error {
+  margin: 0;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8b2942;
+  background: #fdf2f4;
+  border: 1px solid #f0d4da;
+  border-radius: 4px;
+}
+
+.resources-gate__submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
 .resources-gate__fine {
   margin: 4px 0 0;
   font-size: 12px;

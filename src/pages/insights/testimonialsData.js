@@ -1,3 +1,5 @@
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
+
 export const SPECIALTY_FILTERS = [
   { id: 'all', label: 'All specialties' },
   { id: 'orthopaedics', label: 'Orthopaedics' },
@@ -24,7 +26,7 @@ export const FEATURED_VIDEO = {
   practice: 'Miami Sports & Interventional',
   quote:
     'Before Socialsect we were getting hundreds of leads. What we weren\u2019t getting was patients who showed up and moved forward with care. That was the gap. That\u2019s what they fixed.',
-  referenceHref: '/book-a-call',
+  referenceHref: BOOK_A_CALL_FORM,
   referenceLabel: 'Request a reference call',
   videoSrc: null,
 }

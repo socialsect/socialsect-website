@@ -7,8 +7,14 @@ export default function ScrollToTop() {
   useEffect(() => {
     if (hash) {
       const id = hash.replace('#', '')
+      let attempts = 0
       const scrollToTarget = () => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          return
+        }
+        if (attempts++ < 12) requestAnimationFrame(scrollToTarget)
       }
       requestAnimationFrame(scrollToTarget)
       return

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import './ServicesPage.css'
 
@@ -77,7 +78,7 @@ export default function ServicesPage() {
               <h3 className="services-trio__title">Build</h3>
               <p className="services-trio__body">
                 Your digital foundation. Websites, apps, booking systems, and web tools, built to
-                work together, and designed to last. No generic templates. Built around your workflow.
+                work together, and designed to last. No generic templates. Everything built around your workflow.
               </p>
               <button
                 type="button"
@@ -97,7 +98,7 @@ export default function ServicesPage() {
                 Patient acquisition that delivers confirmed appointments, not leads that go
                 nowhere. Every channel connected. Every result measured.
               </p>
-              <Link to="/book-a-call" className="services-trio__explore">
+              <Link to={BOOK_A_CALL_FORM} className="services-trio__explore">
                 Book a free growth audit
                 <ArrowRight className="services-trio__explore-icon" strokeWidth={2} aria-hidden />
               </Link>
@@ -150,7 +151,7 @@ export default function ServicesPage() {
                 </p>
               </blockquote>
             </div>
-            <Link to="/book-a-call" className="btn btn-primary services-detail__explore-btn">
+            <Link to={BOOK_A_CALL_FORM} className="btn btn-primary services-detail__explore-btn">
               Start with a free practice audit
               <ArrowRight className="services-detail__explore-icon" strokeWidth={2} aria-hidden />
             </Link>
@@ -221,7 +222,7 @@ export default function ServicesPage() {
                 </p>
               </blockquote>
             </div>
-            <Link to="/book-a-call" className="btn btn-primary services-detail__explore-btn">
+            <Link to={BOOK_A_CALL_FORM} className="btn btn-primary services-detail__explore-btn">
               Book a free audit
               <ArrowRight className="services-detail__explore-icon" strokeWidth={2} aria-hidden />
             </Link>
@@ -370,7 +371,7 @@ export default function ServicesPage() {
           </div>
 
           <Link
-            to="/how-we-work"
+            to="/how-we-work#universal-engagement-model"
             className="btn btn-primary services-diagnostic__cta services-detail__explore-btn"
           >
             See the full process behind every service
@@ -421,7 +422,7 @@ export default function ServicesPage() {
           </p>
           <div className="services-final-cta__actions">
             <Link
-              to="/book-a-call"
+              to={BOOK_A_CALL_FORM}
               className="btn btn-primary services-final-cta__btn services-final-cta__btn--primary"
             >
               Book my free audit

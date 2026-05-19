@@ -91,19 +91,13 @@
   min-height: 50vh;
   padding: var(--lg, 60px) var(--gutter, 24px);
   background: #ffffff;
-  text-align: left;
+  text-align: left; 
 }
 
 .service-detail-hero__inner {
   max-width: 720px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.94);
   border-radius: 4px;
-}
-
-.service-detail-hero__sub::selection {
-  background: rgba(105, 90, 242, 0.2);
-  color: inherit;
 }
 
 .service-detail-hero__eyebrow {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BOOK_A_CALL_FORM } from '../constants/routes.js'
 import { Link } from 'react-router-dom';
 import './ResultsSpotlightSection.css';
 
@@ -38,7 +39,7 @@ export default function ResultsSpotlightSection() {
               with care. That was the gap. That&apos;s what they fixed.&rdquo;
             </blockquote>
             <div className="results-spotlight__panel-cta-row">
-              <Link to="/book-a-call" className="cta cta--inverse">
+              <Link to={BOOK_A_CALL_FORM} className="cta cta--inverse">
                 Request a reference call
                 <span aria-hidden="true"> →</span>
               </Link>

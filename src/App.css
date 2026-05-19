@@ -35,6 +35,121 @@
   --cta-font-size-lg: 15px;
   --cta-pad-y-lg: 14px;
   --cta-pad-x-lg: 32px;
+
+  /* UI polish — text selection */
+  --selection-bg: rgba(26, 28, 29, 0.1);
+  --selection-color: var(--charcoal);
+  --selection-bg-on-dark: rgba(255, 255, 255, 0.9);
+  --selection-color-on-dark: var(--charcoal);
+  --scrollbar-track: var(--white);
+  --scrollbar-thumb: #c6c6c9;
+  --scrollbar-thumb-hover: #9a9aa0;
+}
+
+/* ========== Global UI polish ========== */
+html {
+  color-scheme: light;
+  accent-color: var(--primary);
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border: 2px solid var(--scrollbar-track);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-track);
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-color);
+}
+
+::-moz-selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-color);
+}
+
+/*
+ * Light text on charcoal — add .surface-dark to any block (CTAs, quotes, panels).
+ * Legacy BEM suffixes below are covered until markup uses the utility consistently.
+ */
+.surface-dark ::selection,
+.section-dark ::selection,
+[class*='-final-cta'] ::selection,
+[class$='-closing'] ::selection,
+.home-philosophy ::selection,
+.book-call-quote ::selection,
+.results-spotlight__panel ::selection,
+.specialty-proof__case ::selection {
+  background-color: var(--selection-bg-on-dark);
+  color: var(--selection-color-on-dark);
+}
+
+.surface-dark ::-moz-selection,
+.section-dark ::-moz-selection,
+[class*='-final-cta'] ::-moz-selection,
+[class$='-closing'] ::-moz-selection,
+.home-philosophy ::-moz-selection,
+.book-call-quote ::-moz-selection,
+.results-spotlight__panel ::-moz-selection,
+.specialty-proof__case ::-moz-selection {
+  background-color: var(--selection-bg-on-dark);
+  color: var(--selection-color-on-dark);
+}
+
+::placeholder {
+  color: var(--dark-gray);
+  opacity: 0.85;
+}
+
+input,
+textarea,
+select,
+[contenteditable='true'] {
+  caret-color: var(--primary);
+}
+
+a,
+button,
+input,
+textarea,
+select,
+summary,
+[tabindex]:not([tabindex='-1']) {
+  -webkit-tap-highlight-color: rgba(26, 28, 29, 0.08);
+}
+
+:where(a, button, input, textarea, select, summary, [tabindex]:not([tabindex='-1'])):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+:where(a, button, input, textarea, select, summary, [tabindex]:not([tabindex='-1'])):focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* ========== Global Styles ========== */
@@ -46,6 +161,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height, 61px);
 }
 
 body {
@@ -53,6 +169,9 @@ body {
   background-color: var(--white);
   color: var(--charcoal);
   line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ========== Container & Layout ========== */

@@ -1,17 +1,16 @@
 import { allSpecialties } from '../../assets/specialty-content-matrix/content-matrix.js'
-
-const BOOK_A_CALL = '/book-a-call'
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 
 /** Map client matrix CTAs to live app routes until /contact/* pages exist. */
 function withAppRoutes(slug, data) {
   return {
     slug,
     ...data,
-    ctaHref: BOOK_A_CALL,
+    ctaHref: BOOK_A_CALL_FORM,
     proof: {
       ...data.proof,
-      talkToHref: BOOK_A_CALL,
-      referenceHref: BOOK_A_CALL,
+      talkToHref: BOOK_A_CALL_FORM,
+      referenceHref: BOOK_A_CALL_FORM,
     },
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BOOK_A_CALL_FORM } from '../constants/routes.js'
 import { Link } from 'react-router-dom';
 import './HomePhilosophyAuditSections.css';
 import { ArrowRight } from 'lucide-react';
@@ -33,11 +34,11 @@ export default function HomePhilosophyAuditSections() {
             specifically for your practice would look like. No pitch. No packages. Just clarity.
           </p>
           <div className="home-audit-cta__actions">
-            <Link to="/book-a-call" className="cta cta--primary cta--lg home-audit-cta__cta-primary">
+            <Link to={BOOK_A_CALL_FORM} className="cta cta--primary cta--lg home-audit-cta__cta-primary">
               Get my free practice audit
               <ArrowRight size={16} />
             </Link>
-            <Link to="/results" className="cta cta--secondary cta--lg home-audit-cta__cta-secondary">
+            <Link to="/results#results-case-badia" className="cta cta--secondary cta--lg home-audit-cta__cta-secondary">
               Read a case study
               <ArrowRight size={16} />
             </Link>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import BookCallLink from './BookCallLink'
 import './Navbar.css'
 import { ChevronDown, ExternalLink, Menu, X } from 'lucide-react'
 import { getNavServiceLinks } from '../pages/services/servicesRegistry'
@@ -369,9 +370,9 @@ export default function Navbar() {
             <a href="#client-portal" className="portal-link">
               Client portal →
             </a>
-            <Link to="/book-a-call" className="btn btn-primary">
+            <BookCallLink className="btn btn-primary">
               Book a call
-            </Link>
+            </BookCallLink>
           </div>
         </div>
       </div>
@@ -478,9 +479,9 @@ export default function Navbar() {
           <a href="#client-portal" className="mobile-nav__portal" onClick={closeMenu}>
             Client portal →
           </a>
-          <Link to="/book-a-call" className="btn btn-primary mobile-nav__cta" onClick={closeMenu}>
+          <BookCallLink className="btn btn-primary mobile-nav__cta" onClick={closeMenu}>
             Book a call
-          </Link>
+          </BookCallLink>
         </div>
       </div>
     </nav>

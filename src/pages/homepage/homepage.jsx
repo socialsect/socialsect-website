@@ -1,4 +1,5 @@
 import React from 'react';
+import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import ClientLogoMarquee from '../../components/ClientLogoMarquee';
@@ -32,7 +33,7 @@ export default function HomePage() {
 
             {/* CTA Buttons */}
             <div className="cta-buttons">
-              <Link to="/book-a-call" className="btn btn-primary">
+              <Link to={BOOK_A_CALL_FORM} className="btn btn-primary">
                 Audit my practice free
                 <svg className="btn-arrow btn-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -83,15 +84,15 @@ export default function HomePage() {
               {/* <p className="trusted-label">Trusted by</p> */}
               <div className="practice-pills">
                 <a href="https://miamishoulderinstitute.com/" target="_blank" rel="noopener noreferrer" className="practice-pill">
-                  Miami Sports & Interventional
+                  Miami Shoulder Institute
                   <ExternalLink className="external-icon" strokeWidth={1} />
                 </a>
                 <a href="https://interfaceclinic.co.uk/" target="_blank" rel="noopener noreferrer" className="practice-pill">
-                  Mehra Aesthetics
+                  The Interface Specialist Clinic
                   <ExternalLink className="external-icon" strokeWidth={1} />
                 </a>
                 <a href="https://www.nymetrovein.com/" target="_blank" rel="noopener noreferrer" className="practice-pill">
-                  Goldman Medical
+               NY Metrovein Medical
                   <ExternalLink className="external-icon" strokeWidth={1} />
                 </a>
               </div>

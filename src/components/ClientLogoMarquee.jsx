@@ -15,6 +15,10 @@ const FALLBACK_LOGO_SRCS = [
 
 const MIN_TILES_PER_HALF = 18;
 
+function isInterfaceLogo(src) {
+  return /interface/i.test(src);
+}
+
 function getLogoUrlsFromGlob() {
   const urls = Object.values(logoUrlModules).filter(Boolean);
   return urls.sort();
@@ -43,7 +47,12 @@ export default function ClientLogoMarquee() {
         <div className="client-logo-marquee__viewport">
           <div className="client-logo-marquee__track">
             {trackLogos.map((src, i) => (
-              <div className="client-logo-marquee__item" key={`${src}-${i}`}>
+              <div
+                className={`client-logo-marquee__item${
+                  isInterfaceLogo(src) ? ' client-logo-marquee__item--interface' : ''
+                }`}
+                key={`${src}-${i}`}
+              >
                 <img src={src} alt="" loading="lazy" decoding="async" />
               </div>
             ))}

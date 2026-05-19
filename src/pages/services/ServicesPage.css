@@ -7,17 +7,18 @@
 
 .services-hero {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
-  min-height: auto;
-  padding: var(--md, 32px) var(--gutter, 24px) var(--lg, 60px);
+  min-height: calc(100vh - var(--navbar-height, 61px));
+  padding: var(--lg, 60px) var(--gutter, 24px);
   background: var(--white);
   font-family: var(--font-body);
   text-align: left;
+  border-bottom: 1px solid var(--gray);
 }
 
 .services-hero__inner {
-  max-width: 720px;
+  max-width: min(52rem, 100%);
   width: 100%;
   margin: 0;
 }
@@ -34,7 +35,7 @@
 
 .services-hero__title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.25rem);
   font-weight: 400;
   line-height: 1.15;
   color: var(--charcoal);
@@ -44,12 +45,12 @@
 }
 
 .services-hero__sub {
-  font-size: 16px;
+  font-size: clamp(16px, 1.35vw, 18px);
   font-weight: 400;
   line-height: 1.65;
   color: var(--dark-gray);
   margin: 0 0 var(--lg, 60px) 0;
-  max-width: 640px;
+  max-width: 48rem;
   text-align: left;
 }
 
@@ -651,9 +652,9 @@
 
 @media (max-width: 768px) {
   .services-hero {
-    padding: var(--sm, 16px) var(--gutter, 24px) var(--lg, 60px);
     min-height: auto;
-    padding-bottom: var(--lg, 60px);
+    padding: var(--md, 32px) var(--gutter, 24px);
+    padding-bottom: var(--xl, 128px);
   }
 
   .services-hero__jump-btn {
