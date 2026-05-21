@@ -46,6 +46,37 @@
   --scrollbar-thumb-hover: #9a9aa0;
 }
 
+/* ========== Route Loading State ========== */
+.route-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  font-size: 16px;
+  color: var(--dark-gray);
+  font-family: var(--font-body);
+}
+
+.route-loading::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 8px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
 /* ========== Global UI polish ========== */
 html {
   color-scheme: light;

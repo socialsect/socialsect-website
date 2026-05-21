@@ -14,12 +14,17 @@ export default function ScrollToTop() {
           el.scrollIntoView({ behavior: 'smooth', block: 'start' })
           return
         }
-        if (attempts++ < 12) requestAnimationFrame(scrollToTarget)
+        // Retry up to 50 times over ~1.5 seconds to wait for component to mount
+        if (attempts++ < 50) requestAnimationFrame(scrollToTarget)
       }
       requestAnimationFrame(scrollToTarget)
       return
     }
-    window.scrollTo(0, 0)
+    // Use setTimeout to ensure page content is rendered before scrolling
+    const scrollTimer = setTimeout(() => {
+      window.scrollTo(0, 0)
+    }, 0)
+    return () => clearTimeout(scrollTimer)
   }, [pathname, hash])
 
   return null
