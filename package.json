@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "check:resend": "node scripts/check-resend-domain.mjs"
   },
   "dependencies": {

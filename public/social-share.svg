@@ -1,0 +1,25 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Socialsect</title>
+  <desc id="desc">Private medical practice growth in the US and UK.</desc>
+  <defs>
+    <linearGradient id="bg" x1="126" y1="42" x2="1074" y2="588" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A1C1D" />
+      <stop offset="0.48" stop-color="#21262F" />
+      <stop offset="1" stop-color="#695AF2" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(898 154) rotate(140) scale(310 310)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.28" />
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" rx="48" fill="url(#bg)" />
+  <circle cx="932" cy="164" r="220" fill="url(#glow)" />
+  <circle cx="180" cy="524" r="160" fill="#695AF2" fill-opacity="0.22" />
+  <circle cx="1038" cy="492" r="112" fill="#FFFFFF" fill-opacity="0.08" />
+  <rect x="80" y="80" width="1040" height="470" rx="36" stroke="#FFFFFF" stroke-opacity="0.16" />
+  <text x="120" y="196" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="28" letter-spacing="4">SOCIALSECT</text>
+  <text x="120" y="294" fill="#FFFFFF" font-family="Newsreader, Georgia, serif" font-size="70" font-weight="500">Private medical</text>
+  <text x="120" y="370" fill="#FFFFFF" font-family="Newsreader, Georgia, serif" font-size="70" font-weight="500">practice growth.</text>
+  <text x="120" y="448" fill="#E7E4FF" font-family="Inter, Arial, sans-serif" font-size="28">Websites, SEO, paid growth, brand systems, and reporting.</text>
+  <text x="120" y="500" fill="#E7E4FF" font-family="Inter, Arial, sans-serif" font-size="22">US &amp; UK</text>
+</svg>

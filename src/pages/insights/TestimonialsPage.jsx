@@ -7,7 +7,7 @@ import InlineVideoPlayer from './InlineVideoPlayer'
 import {
   SPECIALTY_FILTERS,
   HERO_STATS,
-  FEATURED_VIDEO,
+  FEATURED_VIDEOS,
   CURATED_VIDEOS,
   COMMUNITY_VIDEOS,
   SUBMIT_STEPS,
@@ -22,7 +22,7 @@ function matchesFilter(specialty, filterId) {
 export default function TestimonialsPage() {
   const [filter, setFilter] = useState('all')
 
-  const showFeatured = matchesFilter(FEATURED_VIDEO.specialty, filter)
+  const showFeatured = FEATURED_VIDEOS.some((v) => matchesFilter(v.specialty, filter))
   const curated = useMemo(
     () => CURATED_VIDEOS.filter((v) => matchesFilter(v.specialty, filter)),
     [filter],
@@ -107,46 +107,46 @@ export default function TestimonialsPage() {
       {showFeatured && (
         <section className="testimonials-featured" aria-labelledby="testimonials-featured-heading">
           <div className="testimonials-featured__inner">
-            <h2 id="testimonials-featured-heading" className="visually-hidden">
-              Featured testimonial  {FEATURED_VIDEO.name}
-            </h2>
-            <article className="testimonials-featured__card">
-              <InlineVideoPlayer
-                id="featured-video-play"
-                variant="featured"
-                duration={FEATURED_VIDEO.duration}
-                videoSrc={FEATURED_VIDEO.videoSrc}
-                playLabel={`Play featured video from ${FEATURED_VIDEO.name}`}
-                className="testimonials-featured__player"
-              />
-              <div className="testimonials-featured__info">
-                <p className="testimonials-featured__specialty">{FEATURED_VIDEO.specialtyLabel}</p>
-                <h3 className="testimonials-featured__name">{FEATURED_VIDEO.name}</h3>
-                <p className="testimonials-featured__practice">{FEATURED_VIDEO.practice}</p>
-                <blockquote className="testimonials-featured__quote">
-                  &ldquo;{FEATURED_VIDEO.quote}&rdquo;
-                </blockquote>
-                <div className="testimonials-featured__actions">
-                  <button
-                    type="button"
-                    className="testimonials-featured__btn testimonials-featured__btn--primary"
-                    onClick={() =>
-                      document.getElementById('featured-video-play')?.click()
-                    }
-                  >
-                    <Play strokeWidth={1} aria-hidden />
-                    Play video
-                  </button>
-                  <Link
-                    to={FEATURED_VIDEO.referenceHref}
-                    className="testimonials-featured__btn testimonials-featured__btn--ghost"
-                  >
-                    {FEATURED_VIDEO.referenceLabel}
-                    <ArrowRight strokeWidth={1} aria-hidden />
-                  </Link>
-                </div>
-              </div>
-            </article>
+            <h2 id="testimonials-featured-heading" className="visually-hidden">Featured testimonials</h2>
+            <div className="testimonials-featured__grid">
+              {FEATURED_VIDEOS.filter((v) => matchesFilter(v.specialty, filter)).map((video) => (
+                <article key={video.id} className="testimonials-featured__card">
+                  <InlineVideoPlayer
+                    id={`featured-video-${video.id}`}
+                    variant="featured"
+                    duration={video.duration}
+                    videoSrc={video.videoSrc}
+                    poster={video.poster}
+                    playLabel={`Play featured video from ${video.name}`}
+                    className="testimonials-featured__player"
+                  />
+                  <div className="testimonials-featured__info">
+                    <p className="testimonials-featured__specialty">{video.specialtyLabel}</p>
+                    <h3 className="testimonials-featured__name">{video.name}</h3>
+                    <p className="testimonials-featured__practice">{video.practice}</p>
+                    {video.quote && (
+                      <blockquote className="testimonials-featured__quote">&ldquo;{video.quote}&rdquo;</blockquote>
+                    )}
+                    <div className="testimonials-featured__actions">
+                      <button
+                        type="button"
+                        className="testimonials-featured__btn testimonials-featured__btn--primary"
+                        onClick={() => document.getElementById(`featured-video-${video.id}`)?.click()}
+                      >
+                        <Play strokeWidth={1} aria-hidden />
+                        Play video
+                      </button>
+                      {video.referenceHref && (
+                        <Link to={video.referenceHref} className="testimonials-featured__btn testimonials-featured__btn--ghost">
+                          {video.referenceLabel}
+                          <ArrowRight strokeWidth={1} aria-hidden />
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -170,6 +170,7 @@ export default function TestimonialsPage() {
                   <InlineVideoPlayer
                     duration={video.duration}
                     videoSrc={video.videoSrc}
+                    poster={video.poster}
                     playLabel={`Play video from ${video.name}`}
                   />
                   <div className="testimonials-curated-card__body">
@@ -183,21 +184,7 @@ export default function TestimonialsPage() {
                 </article>
               </li>
             ))}
-            <li>
-              <article className="testimonials-curated-card testimonials-curated-card--placeholder">
-                <div className="testimonials-curated-card__placeholder-thumb">
-                  <Plus strokeWidth={1} aria-hidden />
-                  <span>More videos coming</span>
-                </div>
-                <div className="testimonials-curated-card__body">
-                  <p className="testimonials-curated-card__specialty">Placeholder · future client</p>
-                  <p className="testimonials-curated-card__placeholder-copy">
-                    As Socialsect works with more practices, this grid fills with their video
-                    testimonials.
-                  </p>
-                </div>
-              </article>
-            </li>
+            {/* placeholder removed — real curated videos added via testimonialsData */}
           </ul>
 
           {filter !== 'all' && curated.length === 0 && !showFeatured && (
@@ -227,6 +214,7 @@ export default function TestimonialsPage() {
                     variant="community"
                     duration={video.duration}
                     videoSrc={video.videoSrc}
+                    poster={video.poster}
                     playLabel={`Play community video from ${video.name}`}
                   />
                   <div className="testimonials-community-card__body">

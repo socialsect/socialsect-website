@@ -16,23 +16,56 @@ export const HERO_STATS = [
   { value: '0', label: 'Scripts used' },
 ]
 
-export const FEATURED_VIDEO = {
-  id: 'badia',
-  specialty: 'orthopaedics',
-  duration: '0:47',
-  durationLabel: '47 seconds',
-  specialtyLabel: 'Orthopaedic surgery · Miami, FL',
-  name: 'Dr. Badia',
-  practice: 'Miami Sports & Interventional',
-  quote:
-    'Before Socialsect we were getting hundreds of leads. What we weren\u2019t getting was patients who showed up and moved forward with care. That was the gap. That\u2019s what they fixed.',
-  referenceHref: BOOK_A_CALL_FORM,
-  referenceLabel: 'Request a reference call',
-  videoSrc: null,
-}
+export const FEATURED_VIDEOS = [
+ 
+  {
+    id: 'tyson-dirksen-featured',
+    specialty: 'aesthetics',
+    duration: '0:34',
+    specialtyLabel: 'Evolve Group',
+    name: 'Tyson Dirksen',
+    practice: 'Evolve Group',
+    quote: "Tyson: Worked with Socialsect to refine our patient intake and conversion — short, sharp, and honest.",
+    referenceHref: BOOK_A_CALL_FORM,
+    referenceLabel: 'Request a reference call',
+    videoSrc: '/tyson.mp4',
+    poster: '/posters/tyson.png',
+  },
+]
 
 /** Hidden until written permission is confirmed. */
-export const CURATED_VIDEOS = []
+export const CURATED_VIDEOS = [
+  {
+    id: 'tyson-dirksen',
+    specialty: 'aesthetics',
+    specialtyLabel: 'Evolve Group',
+    duration: '0:34',
+    name: 'Tyson Dirksen',
+    practice: 'Evolve Group',
+    quote: "Tyson: Worked with Socialsect to refine our patient intake and conversion — short, sharp, and honest.",
+    videoSrc: '/tyson.mp4',
+    poster: '/posters/tyson.png',
+  },
+  {
+    id: 'marcus-webb-proof',
+    specialty: 'aesthetics',
+    specialtyLabel: 'Cosmetic surgery · Manchester, UK',
+    duration: '0:52',
+    name: 'Dr. Marcus Webb',
+    practice: 'Private practice',
+    quote:
+      "I cut my consultation volume by 20% and increased revenue by 35%. The patients we filtered out were never going to book anyway. We just hadn't built a way to know that before they arrived.",
+    videoSrc: '/t2.mp4',
+    poster: '/posters/t2.png',
+    metrics: [
+      { value: '+35%', label: 'Revenue on fewer consultations' },
+      { value: '2.7×', label: 'Consultation-to-surgery conversion' },
+      { value: '+62%', label: 'Combination procedure bookings' },
+    ],
+    talkToHref: '/references/marcus-webb',
+    referenceHref: '/contact/reference',
+  },
+]
 
 /** Hidden until real submissions are approved for publication. */
 export const COMMUNITY_VIDEOS = []

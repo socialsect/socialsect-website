@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import SeoManager from './components/SeoManager'
 
 const HomePage = lazy(() => import('./pages/homepage/homepage'))
 const ServicesPage = lazy(() => import('./pages/services/ServicesPage'))
@@ -31,6 +32,7 @@ const routeFallback = (
 function App() {
   return (
     <BrowserRouter>
+      <SeoManager />
       <ScrollToTop />
       <Navbar />
       <Suspense fallback={routeFallback}>

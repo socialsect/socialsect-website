@@ -8,6 +8,7 @@ export default function InlineVideoPlayer({
   playLabel,
   variant = 'default',
   className = '',
+  poster = null,
 }) {
   const videoRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -34,7 +35,16 @@ export default function InlineVideoPlayer({
           onClick={handlePlay}
           aria-label={playLabel || `Play video, ${duration}`}
         >
-          <span className="testimonials-player__gradient" aria-hidden />
+          {poster ? (
+            <img
+              src={poster}
+              alt={playLabel ? `${playLabel} poster` : 'Video poster'}
+              className="testimonials-player__poster"
+              loading="lazy"
+            />
+          ) : (
+            <span className="testimonials-player__gradient" aria-hidden />
+          )}
           <span className="testimonials-player__play-wrap" aria-hidden>
             <Play
               className={`testimonials-player__play-icon${isFeatured ? ' testimonials-player__play-icon--lg' : ''}`}
@@ -53,6 +63,7 @@ export default function InlineVideoPlayer({
               ref={videoRef}
               className="testimonials-player__video"
               src={videoSrc}
+              poster={poster}
               controls
               playsInline
               preload="metadata"
