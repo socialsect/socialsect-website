@@ -6,7 +6,7 @@ import { getSpecialtyData } from '../pages/who-we-help/specialtyData.js'
 
 const SITE_NAME = 'Socialsect'
 const SITE_URL = 'https://gosocialsect.com'
-const DEFAULT_IMAGE = `${SITE_URL}/social-share.svg`
+const DEFAULT_IMAGE = `${SITE_URL}/social-share.png`
 const LINKEDIN_URL = 'https://www.linkedin.com/company/socialsect'
 const INSTAGRAM_URL = 'https://www.instagram.com/thesocialsect/'
 const CONTACT_EMAIL = 'hello@gosocialsect.com'
