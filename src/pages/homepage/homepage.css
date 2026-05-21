@@ -309,8 +309,8 @@
   }
 
   .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 
   .stat-item {
@@ -346,6 +346,11 @@
 
   .eyebrow {
     font-size: 11px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
   .stat-number {

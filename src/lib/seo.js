@@ -174,9 +174,9 @@ function buildServiceDetailSchema(service, pillar) {
 
 function homeConfig() {
   const canonicalUrl = absoluteUrl('/')
-  const title = 'Private medical practice growth in the US & UK | Socialsect'
+  const title = 'Socialsect — Patient Acquisition Systems for Private Medical Practices'
   const description =
-    'Socialsect builds websites, SEO, paid campaigns, brand systems, and reporting for private medical practices that want booked appointments, not vanity metrics.'
+    'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems — one team. No packages. US & UK.'
 
   return {
     title,
