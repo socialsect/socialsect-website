@@ -66,14 +66,32 @@ export default function SeoManager() {
     setManagedMeta(documentHead, { property: 'og:type' }, ogType)
     setManagedMeta(documentHead, { property: 'og:url' }, canonicalUrl)
     setManagedMeta(documentHead, { property: 'og:image' }, image)
+    setManagedMeta(documentHead, { property: 'og:image:secure_url' }, image)
+    setManagedMeta(documentHead, { property: 'og:image:width' }, '1200')
+    setManagedMeta(documentHead, { property: 'og:image:height' }, '630')
+    setManagedMeta(documentHead, { property: 'og:image:type' }, 'image/png')
     setManagedMeta(documentHead, { property: 'og:image:alt' }, title)
     setManagedMeta(documentHead, { property: 'og:site_name' }, 'Socialsect')
     setManagedMeta(documentHead, { property: 'og:locale' }, 'en_US')
+    
+    // Twitter Card Tags
     setManagedMeta(documentHead, { name: 'twitter:card' }, 'summary_large_image')
+    setManagedMeta(documentHead, { name: 'twitter:site' }, '@thesocialsect')
+    setManagedMeta(documentHead, { name: 'twitter:creator' }, '@thesocialsect')
     setManagedMeta(documentHead, { name: 'twitter:title' }, title)
     setManagedMeta(documentHead, { name: 'twitter:description' }, description)
     setManagedMeta(documentHead, { name: 'twitter:image' }, image)
     setManagedMeta(documentHead, { name: 'twitter:image:alt' }, title)
+    
+    // LinkedIn Tags
+    setManagedMeta(documentHead, { property: 'linkedin:url' }, canonicalUrl)
+    setManagedMeta(documentHead, { property: 'linkedin:title' }, title)
+    setManagedMeta(documentHead, { property: 'linkedin:description' }, description)
+    
+    // Pinterest Tags
+    setManagedMeta(documentHead, { property: 'pinterest:url' }, canonicalUrl)
+    setManagedMeta(documentHead, { property: 'pinterest:media' }, image)
+    setManagedMeta(documentHead, { property: 'pinterest:description' }, description)
 
     if (tags.length > 0) {
       setManagedMeta(documentHead, { name: 'keywords' }, tags.join(', '))

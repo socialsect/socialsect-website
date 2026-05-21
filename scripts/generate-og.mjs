@@ -9,7 +9,7 @@ const svgString = `
       <stop offset="1" stop-color="#695AF2" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" rx="48" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#bg)" />
   <circle cx="932" cy="164" r="220" fill="#FFFFFF" fill-opacity="0.08" />
   <circle cx="180" cy="524" r="160" fill="#695AF2" fill-opacity="0.22" />
   <text x="120" y="100" fill="#FFFFFF" font-family="Newsreader, Georgia, serif" font-size="28" font-weight="400">Socialsect</text>
@@ -23,7 +23,7 @@ const svgString = `
 
 try {
   await sharp(Buffer.from(svgString)).png().toFile('public/social-share.png');
-  console.log('✓ OG image created successfully');
+  console.log('✓ OG image created successfully (square corners, full bleed)');
 } catch (e) {
   console.error('Error:', e.message);
   process.exit(1);
