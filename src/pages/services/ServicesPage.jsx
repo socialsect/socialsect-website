@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowDown, ArrowRight } from 'lucide-react'
-import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
+import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 import './ServicesPage.css'
 
 const WHO_WE_HELP_SPECIALTIES = [
@@ -24,7 +24,7 @@ export default function ServicesPage() {
     <main className="services-page">
       <section className="services-hero" aria-labelledby="services-hero-heading">
         <div className="services-hero__bg-animation" aria-hidden>
-          <DarkVeil speed={0.5} />
+          <LazyDarkVeil speed={0.5} />
         </div>
 
         <div className="services-hero__inner">

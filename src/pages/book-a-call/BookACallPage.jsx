@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
+import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 import { submitForm } from '../../lib/submitForm'
 import './BookACallPage.css'
 
@@ -137,7 +137,7 @@ export default function BookACallPage() {
     <main className="book-call-page">
       <section className="book-call-hero" aria-labelledby="book-call-hero-heading">
         <div className="book-call-hero__bg-animation" aria-hidden>
-          <DarkVeil speed={0.5} />
+          <LazyDarkVeil speed={0.5} />
         </div>
 
         <div className="book-call-hero__inner">

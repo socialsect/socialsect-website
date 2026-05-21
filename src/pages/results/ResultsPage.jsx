@@ -1,5 +1,5 @@
 import './ResultsPage.css'
-import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
+import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 import ResultsAggregateSection from './ResultsAggregateSection'
 import ResultsCaseStudySection from './ResultsCaseStudySection'
 import ResultsConversionInterstitialSection from './ResultsDrBadiaProcessSection'
@@ -13,7 +13,7 @@ export default function ResultsPage() {
     <main className="results-page">
       <section className="results-hero" aria-labelledby="results-hero-heading">
         <div className="results-hero__bg-animation" aria-hidden>
-          <DarkVeil speed={0.5} />
+          <LazyDarkVeil speed={0.5} />
         </div>
 
         <div className="results-hero__inner">

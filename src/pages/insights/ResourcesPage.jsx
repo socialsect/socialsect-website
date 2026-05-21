@@ -13,7 +13,7 @@ import {
   ListChecks,
   X,
 } from 'lucide-react'
-import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
+import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 import { submitForm } from '../../lib/submitForm'
 import {
   RESOURCE_TYPES,
@@ -166,7 +166,7 @@ export default function ResourcesPage() {
 
       <section className="resources-hero" aria-labelledby="resources-hero-heading">
         <div className="resources-hero__bg-animation" aria-hidden>
-          <DarkVeil speed={0.5} />
+          <LazyDarkVeil speed={0.5} />
         </div>
 
         <div className="resources-hero__inner">

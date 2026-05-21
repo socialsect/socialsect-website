@@ -175,21 +175,22 @@
 }
 
 .about-identity__photo {
-  width: 100%;
-  background: var(--light-gray);
-  border: 1px solid var(--gray);
+  width: 80%;
+  /* background: var(--light-gray);
+  border: 1px solid var(--gray); */
   border-radius: 4px;
   overflow: hidden;
 }
 
 .about-identity__photo-image {
   display: block;
+  border-radius: 24px;
   width: 100%;
   height: auto;
   object-fit: cover;
   object-position: center center;
 }
-
+s
 .about-identity__photo-caption {
   margin: var(--sm, 16px) 0 0 0;
   font-size: 14px;

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import './ServiceDetailPage.css'
-import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
+import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 
 export default function ServiceDetailPage({ data }) {
   const {
@@ -68,7 +68,7 @@ export default function ServiceDetailPage({ data }) {
 
       <section className="service-detail-hero" aria-labelledby="service-detail-hero-heading">
         <div className="service-detail-hero__bg-animation" aria-hidden>
-          <DarkVeil speed={0.5} />
+          <LazyDarkVeil speed={0.5} />
         </div>
 
         <div className="service-detail-hero__inner">

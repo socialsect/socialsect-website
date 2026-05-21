@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowRight } from 'lucide-react'
+import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 import './AboutPage.css'
 
 const IDENTITY_ROLES = [
@@ -114,6 +115,9 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <section className="about-hero" aria-labelledby="about-hero-heading">
+        <div className="about-hero__bg-animation" aria-hidden>
+          <LazyDarkVeil speed={0.5} />
+        </div>
         <div className="about-hero__inner">
           <p className="about-hero__eyebrow">About</p>
           <h1 id="about-hero-heading" className="about-hero__title">

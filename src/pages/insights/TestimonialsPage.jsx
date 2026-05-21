@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check, ChevronRight, Plus, Play } from 'lucide-react'
-import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
+import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 import InlineVideoPlayer from './InlineVideoPlayer'
 import {
   SPECIALTY_FILTERS,
@@ -60,7 +60,7 @@ export default function TestimonialsPage() {
 
       <section className="testimonials-hero" aria-labelledby="testimonials-hero-heading">
         <div className="testimonials-hero__bg-animation" aria-hidden>
-          <DarkVeil speed={0.5} />
+          <LazyDarkVeil speed={0.5} />
         </div>
 
         <div className="testimonials-hero__inner">

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowDown, ArrowRight } from 'lucide-react'
-import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
+import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 import './HowWeWorkPage.css'
 
 const PROCESS_SECTIONS = [
@@ -292,7 +292,7 @@ export default function HowWeWorkPage() {
     <main className="how-we-work-page">
       <section className="how-we-work-hero" aria-labelledby="how-we-work-hero-heading">
         <div className="how-we-work-hero__bg-animation" aria-hidden>
-          <DarkVeil speed={0.5} />
+          <LazyDarkVeil speed={0.5} />
         </div>
 
         <div className="how-we-work-hero__inner">
