@@ -226,26 +226,10 @@ export default function TestimonialsPage() {
               </li>
             ))}
             <li>
-              <article className="testimonials-community-card testimonials-community-card--placeholder">
-                <div className="testimonials-community-card__placeholder-thumb">
-                  <Plus strokeWidth={1} aria-hidden />
-                  <span>Your video here</span>
-                </div>
-                <p className="testimonials-community-card__placeholder-copy">
-                  Worked with Socialsect? Submit your video review using the link below.
-                </p>
-              </article>
+           
             </li>
             <li>
-              <article className="testimonials-community-card testimonials-community-card--placeholder">
-                <div className="testimonials-community-card__placeholder-thumb">
-                  <Plus strokeWidth={1} aria-hidden />
-                  <span>Your video here</span>
-                </div>
-                <p className="testimonials-community-card__placeholder-copy">
-                  Under 60 seconds. No script needed. Just what you&apos;d tell a colleague.
-                </p>
-              </article>
+             
             </li>
           </ul>
         </div>
