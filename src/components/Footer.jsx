@@ -7,7 +7,7 @@ import { CLIENT_PORTAL_PATH } from '../constants/routes.js'
 
 const CONTACT_EMAIL = 'hello@gosocialsect.com'
 const LINKEDIN_URL = 'https://www.linkedin.com/company/socialsect'
-const INSTAGRAM_URL = 'https://www.instagram.com/thesocialsect/'
+const INSTAGRAM_URL = 'https://www.instagram.com/gosocialsect/'
 const CAREERS_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Careers at Socialsect')}`
 const PRIVACY_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Privacy policy')}`
 
