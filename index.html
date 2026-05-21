@@ -66,10 +66,78 @@
     <!-- Canonical Link -->
     <link rel="canonical" href="https://gosocialsect.com/" />
     
+    <!-- DNS Prefetch for third-party services -->
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    
+    <!-- Preload critical fonts (WOFF2 first) -->
+    <link rel="preload" href="/fonts/Newsreader-VariableFont_opsz,wght.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Inter-VariableFont_opsz,wght.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- Prefetch other font variants for faster loading -->
+    <link rel="prefetch" href="/fonts/Newsreader-Italic-VariableFont_opsz,wght.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="prefetch" href="/fonts/Inter-Italic-VariableFont_opsz,wght.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- Prefetch key routes for faster navigation -->
+    <link rel="prefetch" href="/services" as="fetch" crossorigin />
+    <link rel="prefetch" href="/how-we-work" as="fetch" crossorigin />
+    
     <title>Socialsect :Patient Acquisition Systems for Private Medical Practices</title>
+    
+    <!-- Inline critical CSS -->
+    <style>
+      :root {
+        --primary: #695AF2;
+        --charcoal: #1A1C1D;
+        --white: #FFFFFF;
+        --dark-gray: #474555;
+        --light-gray: #F5F5F7;
+        --gray: #E2E2E2;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 16px;
+        color-scheme: light;
+      }
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: var(--white);
+        color: var(--charcoal);
+      }
+      #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .route-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        font-size: 16px;
+        color: var(--dark-gray);
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- Main app bundle - loaded as module for better caching -->
+    <script type="module" src="/src/main.jsx" defer></script>
+    
+    <!-- Performance monitoring script (loaded after page interactive) -->
+    <script defer>
+      // Monitor Core Web Vitals if available
+      if ('web-vital' in window || 'PerformanceObserver' in window) {
+        // Will be loaded by web-vitals or performance monitoring library
+        window.__PERFORMANCE_MONITORING__ = true;
+      }
+      
+      // Optimize font loading with font-display: swap already set
+      document.documentElement.style.fontDisplay = 'swap';
+    </script>
   </body>
 </html>

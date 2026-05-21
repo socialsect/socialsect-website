@@ -19,6 +19,21 @@ export default defineConfig(({ mode }) => {
     plugins: [react(), devApiPlugin()],
     build: {
       cssMinify: false,
+      rollupOptions: {
+        output: {
+          manualChunks: (id) => {
+            if (id.includes('node_modules')) {
+              if (id.includes('react')) return 'react-vendor'
+              if (id.includes('lucide-react')) return 'lucide-vendor'
+              return 'vendor'
+            }
+            if (id.includes('components')) return 'components'
+            if (id.includes('pages')) return 'pages'
+          },
+        },
+      },
+      chunkSizeWarningLimit: 1500,
+      minify: 'terser',
     },
     server: {
       host: true,

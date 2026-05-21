@@ -175,7 +175,7 @@
 }
 
 .about-identity__photo {
-  width: 80%;
+  width: 100%;
   /* background: var(--light-gray);
   border: 1px solid var(--gray); */
   border-radius: 4px;
