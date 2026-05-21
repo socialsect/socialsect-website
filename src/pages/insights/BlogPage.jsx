@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { Link } from 'react-router-dom'
 import { ArrowDown, ArrowRight, ChevronDown, ChevronRight, Search } from 'lucide-react'
+import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
 import { submitForm } from '../../lib/submitForm'
 import {
   BLOG_CATEGORIES,
@@ -154,6 +155,10 @@ export default function BlogPage() {
       </div>
 
       <section className="blog-hero" aria-labelledby="blog-hero-heading">
+        <div className="blog-hero__bg-animation" aria-hidden>
+          <DarkVeil speed={0.5} />
+        </div>
+
         <div className="blog-hero__inner">
           <p className="blog-hero__eyebrow">Insights for private medical practices</p>
           <h1 id="blog-hero-heading" className="blog-hero__title">

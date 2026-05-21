@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
 import { submitForm } from '../../lib/submitForm'
 import './BookACallPage.css'
 
@@ -135,6 +136,10 @@ export default function BookACallPage() {
   return (
     <main className="book-call-page">
       <section className="book-call-hero" aria-labelledby="book-call-hero-heading">
+        <div className="book-call-hero__bg-animation" aria-hidden>
+          <DarkVeil speed={0.5} />
+        </div>
+
         <div className="book-call-hero__inner">
           <p className="book-call-hero__eyebrow">The first step is just a conversation</p>
           <h1 id="book-call-hero-heading" className="book-call-hero__title">

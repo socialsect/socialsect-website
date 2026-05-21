@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import ReferenceRequestModal from '../../components/ReferenceRequestModal'
+import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
 import './SpecialtyPage.css'
 
 const PILLAR_ORDER = [
@@ -31,6 +32,10 @@ export default function SpecialtyPage({ data, slug }) {
   return (
     <main className="specialty-page">
       <section className="specialty-hero" aria-labelledby="specialty-hero-heading">
+        <div className="specialty-hero__bg-animation" aria-hidden>
+          <DarkVeil speed={0.5} />
+        </div>
+
         <div className="specialty-hero__inner">
           <p className="specialty-hero__eyebrow">
             For {specialtyLabel} · Private practice · US &amp; UK

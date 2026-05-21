@@ -24,24 +24,6 @@ export const TYPE_LEGEND = [
   { type: 'report', label: 'Report', hint: 'Original research · data-backed' },
 ]
 
-export const DOWNLOAD_STEPS = [
-  {
-    step: '1',
-    title: 'No gate:',
-    body: 'Click and download. That\u2019s it. No email needed.',
-  },
-  {
-    step: '2',
-    title: 'Email gate:',
-    body: 'Enter your name, email, and specialty. The resource lands in your inbox.',
-  },
-  {
-    step: '3',
-    title: 'No spam:',
-    body: 'We send the resource. That\u2019s it. We don\u2019t add you to a drip campaign.',
-  },
-]
-
 export const MOST_DOWNLOADED = [
   { type: 'guide', title: 'Practice Growth Diagnostic' },
   { type: 'checklist', title: 'Pre-slow-season checklist', badgeLabel: 'Checklist' },
@@ -56,6 +38,24 @@ export const GATE_SPECIALTY_OPTIONS = [
   'Dentistry',
   'Aesthetics',
   'Other',
+]
+
+export const DOWNLOAD_STEPS = [
+  {
+    step: '1',
+    title: 'Request it:',
+    body: 'Click download and enter your email in the popup.',
+  },
+  {
+    step: '2',
+    title: 'We send it:',
+    body: 'We email the resource to you shortly after you submit the form.',
+  },
+  {
+    step: '3',
+    title: 'No spam:',
+    body: "That\'s it. No drip campaign and no extra marketing emails from this form.",
+  },
 ]
 
 export const FEATURED_RESOURCE = {

@@ -13,6 +13,7 @@ import {
   ListChecks,
   X,
 } from 'lucide-react'
+import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
 import { submitForm } from '../../lib/submitForm'
 import {
   RESOURCE_TYPES,
@@ -20,7 +21,6 @@ import {
   TYPE_LEGEND,
   DOWNLOAD_STEPS,
   MOST_DOWNLOADED,
-  GATE_SPECIALTY_OPTIONS,
   FEATURED_RESOURCE,
   RESOURCES,
   filterResources,
@@ -74,9 +74,10 @@ export default function ResourcesPage() {
   const [typeFilter, setTypeFilter] = useState('all')
   const [specialtyFilter, setSpecialtyFilter] = useState('all')
   const [gateResource, setGateResource] = useState(null)
-  const [gateForm, setGateForm] = useState({ name: '', email: '', specialty: '' })
+  const [gateEmail, setGateEmail] = useState('')
   const [gateSubmitting, setGateSubmitting] = useState(false)
   const [gateError, setGateError] = useState('')
+  const [gateSubmitted, setGateSubmitted] = useState(false)
 
   const filtered = useMemo(
     () => filterResources(RESOURCES, { typeId: typeFilter, specialtyId: specialtyFilter }),
@@ -86,12 +87,10 @@ export default function ResourcesPage() {
   const totalCount = RESOURCES.length
 
   function handleDownload(resource) {
-    if (resource.gated) {
-      setGateResource(resource)
-      setGateForm({ name: '', email: '', specialty: '' })
-      return
-    }
-    // Hook up direct download when files are available
+    setGateResource(resource)
+    setGateEmail('')
+    setGateError('')
+    setGateSubmitted(false)
   }
 
   function handleFeaturedDownload() {
@@ -100,6 +99,10 @@ export default function ResourcesPage() {
 
   function closeGate() {
     setGateResource(null)
+    setGateEmail('')
+    setGateError('')
+    setGateSubmitting(false)
+    setGateSubmitted(false)
   }
 
   useEffect(() => {
@@ -123,12 +126,11 @@ export default function ResourcesPage() {
     setGateSubmitting(true)
     try {
       await submitForm('/api/resource-download', {
-        ...gateForm,
+        email: gateEmail,
         resourceTitle: gateResource.title,
         resourceType: gateResource.type,
       })
-      setGateForm({ name: '', email: '', specialty: '' })
-      closeGate()
+      setGateSubmitted(true)
     } catch (err) {
       setGateError(err.message || 'Unable to submit. Please try again.')
     } finally {
@@ -163,6 +165,10 @@ export default function ResourcesPage() {
       </div>
 
       <section className="resources-hero" aria-labelledby="resources-hero-heading">
+        <div className="resources-hero__bg-animation" aria-hidden>
+          <DarkVeil speed={0.5} />
+        </div>
+
         <div className="resources-hero__inner">
           <p className="resources-hero__eyebrow">Free · Practical · Built from real practice engagements</p>
           <h1 id="resources-hero-heading" className="resources-hero__title">
@@ -171,8 +177,8 @@ export default function ResourcesPage() {
           </h1>
           <p className="resources-hero__sub">
             Guides, templates, and checklists built from real engagements with private practices in the
-            US and UK. Download what&apos;s useful. No catch. No weekly email sequence. Just the
-            resource.
+            US and UK. Request what&apos;s useful and we&apos;ll email it to you shortly. No catch. No
+            weekly email sequence. Just the resource.
           </p>
           <ul className="resources-hero__legend" aria-label="Resource types">
             {TYPE_LEGEND.map(({ type, label, hint }) => (
@@ -253,7 +259,7 @@ export default function ResourcesPage() {
                 <li>{FEATURED_RESOURCE.format}</li>
                 <li>{FEATURED_RESOURCE.time}</li>
                 <li>{FEATURED_RESOURCE.specialty}</li>
-                <li>No email required</li>
+                <li>Email delivery</li>
               </ul>
               <button
                 type="button"
@@ -369,72 +375,54 @@ export default function ResourcesPage() {
               {gateResource.title}
             </h3>
             <p className="resources-gate__sub">
-              Tell us where to send it  and which specialty you&apos;re in so we can make sure
-              it&apos;s relevant to you.
+              Enter your email and we&apos;ll send this resource to your inbox shortly. No spam. No
+              drip campaign.
             </p>
-            <form className="resources-gate__form" onSubmit={handleGateSubmit}>
-              <label className="visually-hidden" htmlFor="gate-name">
-                Your name
-              </label>
-              <input
-                id="gate-name"
-                type="text"
-                autoComplete="name"
-                required
-                className="resources-gate__input"
-                placeholder="Your name"
-                value={gateForm.name}
-                onChange={(e) => setGateForm((f) => ({ ...f, name: e.target.value }))}
-              />
-              <label className="visually-hidden" htmlFor="gate-email">
-                Your email address
-              </label>
-              <input
-                id="gate-email"
-                type="email"
-                autoComplete="email"
-                required
-                className="resources-gate__input"
-                placeholder="Your email address"
-                value={gateForm.email}
-                onChange={(e) => setGateForm((f) => ({ ...f, email: e.target.value }))}
-              />
-              <label className="visually-hidden" htmlFor="gate-specialty">
-                Your specialty
-              </label>
-              <select
-                id="gate-specialty"
-                required
-                className="resources-gate__select"
-                value={gateForm.specialty}
-                onChange={(e) => setGateForm((f) => ({ ...f, specialty: e.target.value }))}
-              >
-                <option value="" disabled>
-                  Your specialty
-                </option>
-                {GATE_SPECIALTY_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
-              {gateError && (
-                <p className="resources-gate__error" role="alert">
-                  {gateError}
+            {gateSubmitted ? (
+              <div className="resources-gate__success" role="status" aria-live="polite">
+                <p className="resources-gate__success-title">You&apos;re in.</p>
+                <p className="resources-gate__success-body">
+                  We&apos;ll email <strong>{gateResource.title}</strong> to <strong>{gateEmail}</strong>
+                  shortly.
                 </p>
-              )}
-              <button type="submit" className="resources-gate__submit" disabled={gateSubmitting}>
-                {gateSubmitting
-                  ? 'Sending…'
-                  : gateResource.type === 'guide'
-                    ? 'Send me the guide'
-                    : `Send me the ${gateResource.type}`}
-                <ArrowRight strokeWidth={1} aria-hidden />
-              </button>
-              <p className="resources-gate__fine">
-                No spam. No drip campaign. Just the resource in your inbox.
-              </p>
-            </form>
+                <button type="button" className="resources-gate__submit" onClick={closeGate}>
+                  Close
+                  <ArrowRight strokeWidth={1} aria-hidden />
+                </button>
+                <p className="resources-gate__fine">
+                  Check your inbox in a few minutes. If you don&apos;t see it, look in spam or
+                  promotions.
+                </p>
+              </div>
+            ) : (
+              <form className="resources-gate__form" onSubmit={handleGateSubmit}>
+                <label className="visually-hidden" htmlFor="gate-email">
+                  Your email address
+                </label>
+                <input
+                  id="gate-email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="resources-gate__input"
+                  placeholder="Your email address"
+                  value={gateEmail}
+                  onChange={(e) => setGateEmail(e.target.value)}
+                />
+                {gateError && (
+                  <p className="resources-gate__error" role="alert">
+                    {gateError}
+                  </p>
+                )}
+                <button type="submit" className="resources-gate__submit" disabled={gateSubmitting}>
+                  {gateSubmitting ? 'Sending…' : 'Email me the resource'}
+                  <ArrowRight strokeWidth={1} aria-hidden />
+                </button>
+                <p className="resources-gate__fine">
+                  No spam. No drip campaign. Just the resource in your inbox.
+                </p>
+              </form>
+            )}
           </div>
         </div>
       )}

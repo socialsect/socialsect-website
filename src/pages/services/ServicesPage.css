@@ -6,6 +6,7 @@
 }
 
 .services-hero {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -15,9 +16,21 @@
   font-family: var(--font-body);
   text-align: left;
   border-bottom: 1px solid var(--gray);
+  overflow: hidden;
+}
+
+.services-hero__bg-animation {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .services-hero__inner {
+  position: relative;
+  z-index: 1;
   max-width: min(52rem, 100%);
   width: 100%;
   margin: 0;

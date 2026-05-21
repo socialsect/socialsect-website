@@ -7,6 +7,7 @@
 }
 
 .about-hero {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -15,9 +16,21 @@
   background: var(--white);
   text-align: left;
   border-bottom: 1px solid var(--gray);
+  overflow: hidden;
+}
+
+.about-hero__bg-animation {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .about-hero__inner {
+  position: relative;
+  z-index: 1;
   max-width: 52rem;
   width: 100%;
   margin: 0;
@@ -111,6 +124,8 @@
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--white);
   border-top: 1px solid var(--gray);
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
 }
 
 .about-section--surface {
@@ -160,24 +175,19 @@
 }
 
 .about-identity__photo {
-  position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  max-height: 420px;
   background: var(--light-gray);
-  border: 1px dashed var(--gray);
+  border: 1px solid var(--gray);
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
-.about-identity__photo-hint {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--dark-gray);
+.about-identity__photo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .about-identity__photo-caption {
@@ -476,6 +486,8 @@
   background: var(--charcoal);
   color: var(--white);
   border-top: 1px solid var(--gray);
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 520px;
 }
 
 .about-closing__inner {

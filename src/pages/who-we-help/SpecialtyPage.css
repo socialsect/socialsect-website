@@ -9,16 +9,29 @@
 
 /* Hero  aligned with .who-we-help-hero */
 .specialty-hero {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   min-height: calc(100vh - var(--navbar-height, 61px));
   padding: var(--lg, 60px) var(--gutter, 24px);
   background: var(--white);
+  overflow: hidden;
   text-align: left;
 }
 
+.specialty-hero__bg-animation {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 .specialty-hero__inner {
+  position: relative;
+  z-index: 1;
   max-width: 720px;
   width: 100%;
   margin: 0;

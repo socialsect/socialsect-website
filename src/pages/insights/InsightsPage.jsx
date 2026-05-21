@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowDown, ArrowRight, Video, FileText, BookOpen } from 'lucide-react'
+import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
 import InsightsTestimonialsSection from './InsightsTestimonialsSection'
 import InsightsBlogSection from './InsightsBlogSection'
 import InsightsResourcesSection from './InsightsResourcesSection'
@@ -51,7 +52,7 @@ const PREVIEWS = [
       <>
         The tools we use with every client, free.
         <br />
-        Guides, templates, and checklists. Download what&apos;s useful. No email required for most.
+        Guides, templates, and checklists. Request what&apos;s useful and we&apos;ll email it to you.
       </>
     ),
     cta: 'Browse resources',
@@ -67,6 +68,10 @@ export default function InsightsPage() {
   return (
     <main className="insights-page">
       <section className="insights-hero" aria-labelledby="insights-hero-heading">
+        <div className="insights-hero__bg-animation" aria-hidden>
+          <DarkVeil speed={0.5} />
+        </div>
+
         <div className="insights-hero__inner">
           <p className="insights-hero__eyebrow">
             Insights for private medical practices · US & UK

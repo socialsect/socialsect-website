@@ -158,10 +158,18 @@ export default function AboutPage() {
           </h2>
 
           <figure className="about-identity__figure">
-            <div className="about-identity__photo" aria-hidden="true">
-              <span className="about-identity__photo-hint">Photo placeholder</span>
+            <div className="about-identity__photo">
+              <img
+                src="/team/rayansh.png"
+                alt="Rayansh smiling at a table with a laptop"
+                className="about-identity__photo-image"
+                width="800"
+                height="800"
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+              />
             </div>
-            
           </figure>
 
           <ul className="about-identity__grid">
