@@ -10,5 +10,5 @@ export default function SpecialtyPageRoute() {
     return <Navigate to="/who-we-help" replace />
   }
 
-  return <SpecialtyPage data={data} />
+  return <SpecialtyPage data={data} slug={specialty} />
 }

@@ -84,7 +84,7 @@
   flex-shrink: 0;
 }
 
-/* Hero — ~50vh per wireframe */
+/* Hero  ~50vh per wireframe */
 .service-detail-hero {
   display: flex;
   align-items: center;
@@ -217,7 +217,7 @@
   color: var(--dark-gray);
 }
 
-/* What's included — split */
+/* What's included  split */
 .service-detail-included {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--white);

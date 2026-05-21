@@ -62,7 +62,7 @@
   }
 }
 
-/* ——— Aggregate stats + vectors ——— */
+/*  Aggregate stats + vectors  */
 .results-aggregate {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -201,7 +201,7 @@
   }
 }
 
-/* ——— Case study (Dr. Badia) ——— */
+/*  Case study (Dr. Badia)  */
 .results-case {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--white);
@@ -468,7 +468,7 @@
   }
 }
 
-/* ——— Conversion interstitial ——— */
+/*  Conversion interstitial  */
 .results-conversion {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -612,7 +612,7 @@
   }
 }
 
-/* ——— Dr. Badia reference process (legacy) ——— */
+/*  Dr. Badia reference process (legacy)  */
 .results-process {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -765,7 +765,7 @@
   }
 }
 
-/* ——— Case study 02 (Mehra) ——— */
+/*  Case study 02 (Mehra)  */
 .results-case--mehra {
   background: var(--surface);
 }
@@ -853,7 +853,7 @@
   justify-content: flex-start;
 }
 
-/* ——— Testimonials (07) ——— */
+/*  Testimonials (07)  */
 .results-testimonials {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -962,7 +962,7 @@
   color: var(--dark-gray);
 }
 
-/* ——— Case library / selective note ——— */
+/*  Case library / selective note  */
 .results-library {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--white);
@@ -1047,7 +1047,7 @@
   transform: translateX(3px);
 }
 
-/* ——— Closing CTA ——— */
+/*  Closing CTA  */
 .results-closing {
   padding: clamp(72px, 10vw, 120px) var(--gutter, 24px);
   background: var(--charcoal);

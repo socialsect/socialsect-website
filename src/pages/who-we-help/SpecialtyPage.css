@@ -1,4 +1,4 @@
-/* Page shell — matches .who-we-help-page */
+/* Page shell  matches .who-we-help-page */
 .specialty-page {
   width: 100%;
   margin: 0;
@@ -7,7 +7,7 @@
   font-family: var(--font-body);
 }
 
-/* Hero — aligned with .who-we-help-hero */
+/* Hero  aligned with .who-we-help-hero */
 .specialty-hero {
   display: flex;
   align-items: center;
@@ -69,7 +69,7 @@
   flex-shrink: 0;
 }
 
-/* Insights — surface band, 3-column grid */
+/* Insights  surface band, 3-column grid */
 .specialty-insights {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -127,7 +127,7 @@
   margin: 0;
 }
 
-/* Pain points — white band, italic quotes */
+/* Pain points  white band, italic quotes */
 .specialty-pain {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--white);
@@ -178,7 +178,7 @@
   color: var(--charcoal);
 }
 
-/* Pillars — surface band */
+/* Pillars  surface band */
 .specialty-pillars {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -242,7 +242,7 @@
   margin: 0;
 }
 
-/* Proof — white band, dark case card + metrics */
+/* Proof  white band, dark case card + metrics */
 .specialty-proof {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--white);
@@ -366,11 +366,13 @@
   justify-content: center;
   gap: 8px;
   flex: 1 1 min(12rem, 100%);
+  font-family: var(--font-body);
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
   border-radius: 4px;
   padding: 14px 20px;
+  cursor: pointer;
   transition:
     background 0.2s ease,
     color 0.2s ease,
@@ -406,7 +408,7 @@
   flex-shrink: 0;
 }
 
-/* Related specialties — surface band */
+/* Related specialties  surface band */
 .specialty-related {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -487,7 +489,7 @@
   transform: translateX(3px);
 }
 
-/* Final CTA — matches .who-we-help-final-cta */
+/* Final CTA  matches .who-we-help-final-cta */
 .specialty-final-cta {
   position: relative;
   overflow: hidden;
@@ -554,6 +556,7 @@
   text-decoration: none;
   border-radius: 4px;
   padding: 14px 28px;
+  cursor: pointer;
   transition:
     background 0.2s ease,
     color 0.2s ease,

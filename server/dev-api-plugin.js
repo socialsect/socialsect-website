@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { loadEnv } from 'vite'
 import { processBookACall } from '../lib/handlers/book-a-call.js'
 import { processNewsletter } from '../lib/handlers/newsletter.js'
+import { processReferenceRequest } from '../lib/handlers/reference-request.js'
 import { processResourceDownload } from '../lib/handlers/resource-download.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -12,6 +13,7 @@ const repoRoot = path.resolve(projectRoot, '..')
 const ROUTES = {
   '/api/book-a-call': processBookACall,
   '/api/newsletter': processNewsletter,
+  '/api/reference-request': processReferenceRequest,
   '/api/resource-download': processResourceDownload,
 }
 
@@ -84,7 +86,10 @@ export function devApiPlugin() {
             }
           }
 
-          const result = await processor(payload)
+          const requestMeta = {
+            userAgent: req.headers['user-agent'] ?? '',
+          }
+          const result = await processor(payload, requestMeta)
           res.statusCode = 200
           res.setHeader('Content-Type', 'application/json')
           res.end(JSON.stringify(result))

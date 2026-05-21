@@ -11,6 +11,7 @@
     "check:resend": "node scripts/check-resend-domain.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.106.1",
     "face-api.js": "^0.22.2",
     "framer-motion": "^12.38.0",
     "gsap": "^3.15.0",

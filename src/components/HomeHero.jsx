@@ -11,7 +11,11 @@ export default function HomeHero() {
           <p className="eyebrow">For private medical practices (US & UK)</p>
 
           <h1 className="hero-headline">
-            You spent a decade becoming a great doctor. You shouldn&apos;t spend another figuring out marketing.
+            <span className="hero-headline__line">You spent a decade becoming</span>
+            <span className="hero-headline__line">a great doctor.</span>
+            <span className="hero-headline__stanza-break" aria-hidden="true" />
+            <span className="hero-headline__line">You shouldn&apos;t spend another</span>
+            <span className="hero-headline__line">figuring out marketing.</span>
           </h1>
 
           <p className="hero-subheadline">
@@ -37,16 +41,16 @@ export default function HomeHero() {
         <div className="proof-content">
           <div className="stats-grid">
             <div className="stat-item">
-              <div className="stat-number">225</div>
+              <div className="stat-number">70%</div>
+              <div className="stat-label">Consultation-to-surgery rate</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">10,000+</div>
               <div className="stat-label">Consultations booked</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">36</div>
-              <div className="stat-label">Surgical cases</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">$1M+</div>
-              <div className="stat-label">Revenue generated</div>
+              <div className="stat-number">$10M+</div>
+              <div className="stat-label">Patient pipeline influenced</div>
             </div>
             <div className="stat-item">
               <div className="stat-number">4.2x</div>

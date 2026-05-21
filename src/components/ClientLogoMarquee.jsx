@@ -8,20 +8,29 @@ const logoUrlModules = import.meta.glob(
 
 /** Public URLs if glob finds nothing (e.g. misconfigured build)  files in public/client-logos/ */
 const FALLBACK_LOGO_SRCS = [
-  '/client-logos/interface.png',
+  '/client-logos/interface1.png',
   '/client-logos/msi.png',
   '/client-logos/nymv.png',
+  '/client-logos/III.png',
 ];
 
 const MIN_TILES_PER_HALF = 18;
 
-function isInterfaceLogo(src) {
-  return /interface/i.test(src);
+/** Logos exported on black; screen blend removes the plate on white strips */
+function needsScreenBlend(src) {
+  return /nymv|III\.png/i.test(src);
+}
+
+function isWideLogo(src) {
+  return /III/i.test(src);
 }
 
 function getLogoUrlsFromGlob() {
   const urls = Object.values(logoUrlModules).filter(Boolean);
-  return urls.sort();
+  const hasInterfaceSvg = urls.some((u) => /interface\.svg/i.test(u));
+  return urls
+    .filter((u) => !(hasInterfaceSvg && /interface\.png/i.test(u)))
+    .sort();
 }
 
 function buildSeamlessTrack(urls) {
@@ -49,8 +58,8 @@ export default function ClientLogoMarquee() {
             {trackLogos.map((src, i) => (
               <div
                 className={`client-logo-marquee__item${
-                  isInterfaceLogo(src) ? ' client-logo-marquee__item--interface' : ''
-                }`}
+                  needsScreenBlend(src) ? ' client-logo-marquee__item--screen' : ''
+                }${isWideLogo(src) ? ' client-logo-marquee__item--wide' : ''}`}
                 key={`${src}-${i}`}
               >
                 <img src={src} alt="" loading="lazy" decoding="async" />

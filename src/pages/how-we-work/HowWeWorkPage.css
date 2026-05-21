@@ -155,7 +155,7 @@
   text-align: left;
 }
 
-/* ——— Universal engagement model (spine + stages) ——— */
+/*  Universal engagement model (spine + stages)  */
 .how-we-work-engagement {
   border-bottom: 1px solid var(--gray);
 }
@@ -289,7 +289,7 @@
   line-height: 1;
 }
 
-/* ——— In practice (Build / Grow / Brand tracks) ——— */
+/*  In practice (Build / Grow / Brand tracks)  */
 .how-we-work-practice {
   border-bottom: 1px solid var(--gray);
 }
@@ -420,7 +420,7 @@
   color: var(--primary);
 }
 
-/* ——— Four truths ——— */
+/*  Four truths  */
 .how-we-work-truths {
   border-bottom: 1px solid var(--gray);
 }
@@ -479,7 +479,7 @@
   color: var(--dark-gray);
 }
 
-/* ——— First 30 days ——— */
+/*  First 30 days  */
 .how-we-work-first30 {
   border-bottom: 1px solid var(--gray);
 }
@@ -556,7 +556,7 @@
   border-top: 1px solid var(--gray);
 }
 
-/* ——— FAQ ——— */
+/*  FAQ  */
 .how-we-work-faq {
   border-bottom: 1px solid var(--gray);
 }
@@ -606,7 +606,7 @@
   color: var(--dark-gray);
 }
 
-/* ——— Closing CTA ——— */
+/*  Closing CTA  */
 .how-we-work-closing {
   padding: clamp(72px, 10vw, 120px) var(--gutter, 24px);
   background: var(--charcoal);

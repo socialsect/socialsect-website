@@ -1,0 +1,123 @@
+.tools-partners-marquee__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.tools-partners-marquee {
+  --tools-partners-marquee-duration: 55s;
+  width: 100%;
+  background: var(--surface, #f9f9fb);
+  border-bottom: 1px solid var(--gray, #e2e2e2);
+  padding: clamp(28px, 4vw, 40px) 0;
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.tools-partners-marquee__inner {
+  max-width: var(--container-max, 1440px);
+  margin: 0 auto;
+  padding: 0 var(--gutter, 24px);
+}
+
+.tools-partners-marquee__heading {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark-gray, #474555);
+  margin: 0 0 clamp(16px, 2.5vw, 22px) 0;
+  text-align: center;
+}
+
+.tools-partners-marquee__viewport {
+  overflow: hidden;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+.tools-partners-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6vw, 80px);
+  width: max-content;
+  animation: tools-partners-marquee-scroll var(--tools-partners-marquee-duration, 55s) linear
+    infinite;
+}
+
+.tools-partners-marquee__track:hover {
+  animation-play-state: paused;
+}
+
+.tools-partners-marquee__item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  min-height: 40px;
+  color: #5c5c66;
+}
+
+.tools-partners-marquee__icon {
+  width: auto;
+  height: 28px;
+  display: block;
+}
+
+.tools-partners-marquee__img {
+  height: 22px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  opacity: 0.72;
+  filter: grayscale(1);
+}
+
+@keyframes tools-partners-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tools-partners-marquee__viewport {
+    mask-image: none;
+    -webkit-mask-image: none;
+    min-height: auto;
+  }
+
+  .tools-partners-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    row-gap: 20px;
+    column-gap: clamp(28px, 4vw, 56px);
+  }
+}

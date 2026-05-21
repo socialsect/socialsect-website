@@ -6,7 +6,7 @@
   font-family: var(--font-body);
 }
 
-/* —— Hero —— */
+/*  Hero  */
 .client-portal-hero {
   display: flex;
   align-items: center;
@@ -76,7 +76,7 @@
   max-width: 44rem;
 }
 
-/* —— Modules —— */
+/*  Modules  */
 .client-portal-modules {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -160,7 +160,7 @@
   margin: 0;
 }
 
-/* —— Trust —— */
+/*  Trust  */
 .client-portal-trust {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--white);
@@ -222,7 +222,7 @@
   margin: 0;
 }
 
-/* —— Coming soon CTA —— */
+/*  Coming soon CTA  */
 .client-portal-soon {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--charcoal);

@@ -54,11 +54,20 @@
   font-family: var(--font-display);
   font-size: 56px;
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.08;
   color: var(--charcoal);
   margin: 0 0 var(--sm) 0;
   letter-spacing: -0.02em;
-text-align: left;
+  text-align: left;
+}
+
+.hero-headline__line {
+  display: block;
+}
+
+.hero-headline__stanza-break {
+  display: block;
+  height: 0.55em;
 }
 
 /* Sub-headline */
@@ -148,19 +157,20 @@ text-align: left;
 
 .proof-content {
   width: 100%;
-  max-width: 400px;
+  max-width: 480px;
 }
 
 /* Stats Grid */
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px 30px;
+  gap: 48px 36px;
   margin-bottom: var(--lg);
 }
 
 .stat-item {
-  text-align: center;
+  text-align: left;
+  padding: 4px 0;
 }
 
 .stat-number {
@@ -173,10 +183,11 @@ text-align: left;
 }
 
 .stat-label {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: var(--dark-gray);
-  line-height: 1.4;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
 }
 
 /* Trusted By Section */

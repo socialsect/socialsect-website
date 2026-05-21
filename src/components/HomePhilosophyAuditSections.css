@@ -1,4 +1,4 @@
-/* —— Philosophy: who we partner with —— */
+/*  Philosophy: who we partner with  */
 .home-philosophy {
   position: relative;
   overflow: hidden;
@@ -49,7 +49,7 @@
   max-width: 48rem;
 }
 
-/* —— Audit CTA —— */
+/*  Audit CTA  */
 .home-audit-cta {
   padding: clamp(56px, 10vw, 96px) var(--gutter, 24px);
   background: linear-gradient(

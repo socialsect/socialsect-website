@@ -3,6 +3,7 @@ import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import ClientLogoMarquee from '../../components/ClientLogoMarquee';
+// import ToolsPartnersMarquee from '../../components/ToolsPartnersMarquee';
 import PerfectMatchSection from '../../components/PerfectMatchSection';
 import PracticeInfrastructureSection from '../../components/PracticeInfrastructureSection';
 import ProcessClaritySection from '../../components/ProcessClaritySection';
@@ -23,7 +24,11 @@ export default function HomePage() {
 
             {/* Headline */}
             <h1 className="hero-headline">
-              You spent a decade becoming a great doctor. You shouldn't spend another figuring out marketing.
+              <span className="hero-headline__line">You spent a decade becoming</span>
+              <span className="hero-headline__line">a great doctor.</span>
+              <span className="hero-headline__stanza-break" aria-hidden="true" />
+              <span className="hero-headline__line">You shouldn&apos;t spend another</span>
+              <span className="hero-headline__line">figuring out marketing.</span>
             </h1>
 
             {/* Sub-headline */}
@@ -62,16 +67,16 @@ export default function HomePage() {
             {/* Stats Grid */}
             <div className="stats-grid">
               <div className="stat-item">
-                <div className="stat-number">225</div>
+                <div className="stat-number">70%</div>
+                <div className="stat-label">Consultation-to-surgery rate</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">10,000+</div>
                 <div className="stat-label">Consultations booked</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">36</div>
-                <div className="stat-label">Surgical cases</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">$1M+</div>
-                <div className="stat-label">Revenue generated</div>
+                <div className="stat-number">$10M+</div>
+                <div className="stat-label">Patient pipeline influenced</div>
               </div>
               <div className="stat-item">
                 <div className="stat-number">4.2x</div>
@@ -102,6 +107,7 @@ export default function HomePage() {
       </section>
 
       <ClientLogoMarquee />
+      {/* <ToolsPartnersMarquee /> */}
       <PerfectMatchSection />
       <PracticeInfrastructureSection />
       <ProcessClaritySection />

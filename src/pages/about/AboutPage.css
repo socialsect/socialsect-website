@@ -106,7 +106,7 @@
   }
 }
 
-/* ——— Identity + healthcare sections (aligned with other inner pages) ——— */
+/*  Identity + healthcare sections (aligned with other inner pages)  */
 .about-section {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--white);
@@ -250,7 +250,7 @@
   }
 }
 
-/* ——— Book excerpt ——— */
+/*  Book excerpt  */
 .about-section__kicker {
   font-size: 12px;
   font-weight: 600;
@@ -280,7 +280,7 @@
   margin: 0;
 }
 
-/* ——— Principles ——— */
+/*  Principles  */
 .about-principles__list {
   list-style: none;
   margin: 0;
@@ -328,7 +328,7 @@
   color: var(--dark-gray);
 }
 
-/* ——— Thank you / personal close ——— */
+/*  Thank you / personal close  */
 .about-thanks__signoff {
   margin: var(--lg, 60px) 0;
   padding-top: var(--md, 32px);
@@ -407,7 +407,7 @@
   border-radius: 4px;
 }
 
-/* ——— Team ——— */
+/*  Team  */
 .about-team__intro {
   font-size: clamp(16px, 1.35vw, 18px);
   line-height: 1.65;
@@ -470,7 +470,7 @@
   border-left: 3px solid var(--primary);
 }
 
-/* ——— Closing CTA ——— */
+/*  Closing CTA  */
 .about-closing {
   padding: clamp(72px, 10vw, 120px) var(--gutter, 24px);
   background: var(--charcoal);

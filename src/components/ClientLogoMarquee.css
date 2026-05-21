@@ -80,11 +80,13 @@
   object-fit: contain;
 }
 
-.client-logo-marquee__item--interface img {
-  background:  #bcb6b6;
-  padding: 10px 16px;
-  border-radius: 8px;
-  box-sizing: content-box;
+.client-logo-marquee__item--wide img {
+  max-height: 52px;
+  max-width: 260px;
+}
+
+.client-logo-marquee__item--screen img {
+  mix-blend-mode: screen;
 }
 
 @keyframes client-logo-marquee-scroll {

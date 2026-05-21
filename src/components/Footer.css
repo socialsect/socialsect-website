@@ -1,4 +1,4 @@
-/* ========== Footer — light glass + soft neo, primary accent ========== */
+/* ========== Footer  light glass + soft neo, primary accent ========== */
 .footer {
   padding: var(--sm) 8px 10px;
   background: transparent;
@@ -77,7 +77,7 @@
     clamp(20px, 3vw, 36px);
 }
 
-/* Corner nails — dark “pin heads” so they read on the light panel */
+/* Corner nails  dark “pin heads” so they read on the light panel */
 .footer__nail {
   position: absolute;
   z-index: 3;
@@ -234,7 +234,7 @@
   color: var(--primary-dark);
 }
 
-/* Sub-footer — single row */
+/* Sub-footer  single row */
 .footer-sub {
   margin-top: clamp(var(--md), 4vw, var(--lg));
   padding-top: var(--md);

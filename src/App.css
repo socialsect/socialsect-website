@@ -36,7 +36,7 @@
   --cta-pad-y-lg: 14px;
   --cta-pad-x-lg: 32px;
 
-  /* UI polish — text selection */
+  /* UI polish  text selection */
   --selection-bg: rgba(26, 28, 29, 0.1);
   --selection-color: var(--charcoal);
   --selection-bg-on-dark: rgba(255, 255, 255, 0.9);
@@ -88,7 +88,7 @@ html {
 }
 
 /*
- * Light text on charcoal — add .surface-dark to any block (CTAs, quotes, panels).
+ * Light text on charcoal  add .surface-dark to any block (CTAs, quotes, panels).
  * Legacy BEM suffixes below are covered until markup uses the utility consistently.
  */
 .surface-dark ::selection,

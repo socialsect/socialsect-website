@@ -419,7 +419,7 @@
   padding-left: 0;
 }
 
-/* Regular nav links (exclude .btn e.g. Book a call — keep App.css button colors) */
+/* Regular nav links (exclude .btn e.g. Book a call  keep App.css button colors) */
 .nav-links > a:not(.btn) {
   color: var(--charcoal);
   text-decoration: none;

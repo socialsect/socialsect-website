@@ -1,4 +1,4 @@
-/* Page shell — matches .services-page */
+/* Page shell  matches .services-page */
 .who-we-help-page {
   width: 100%;
   margin: 0;
@@ -7,7 +7,7 @@
   font-family: var(--font-body);
 }
 
-/* Hero — aligned with .services-hero */
+/* Hero  aligned with .services-hero */
 .who-we-help-hero {
   display: flex;
   align-items: center;
@@ -80,7 +80,7 @@
   color: var(--primary);
 }
 
-/* “We’ve heard this before” — surface band like .services-trio */
+/* “We’ve heard this before”  surface band like .services-trio */
 .who-we-help-heard {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -162,7 +162,7 @@
   max-width: 720px;
 }
 
-/* Four problems — white band (alternates with surface) */
+/* Four problems  white band (alternates with surface) */
 .who-we-help-problems {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--white);
@@ -232,7 +232,7 @@
   color: var(--charcoal);
 }
 
-/* Specialty directory — surface band, pills like Services “private” */
+/* Specialty directory  surface band, pills like Services “private” */
 .who-we-help-find {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--surface);
@@ -336,7 +336,7 @@
   text-decoration: underline;
 }
 
-/* Build / Grow / Brand — white band, trio layout like Services */
+/* Build / Grow / Brand  white band, trio layout like Services */
 .who-we-help-pillars {
   padding: var(--xl, 128px) var(--gutter, 24px);
   background: var(--white);
@@ -714,7 +714,7 @@
   flex-shrink: 0;
 }
 
-/* Final CTA — matches Services charcoal band */
+/* Final CTA  matches Services charcoal band */
 .who-we-help-final-cta {
   position: relative;
   overflow: hidden;

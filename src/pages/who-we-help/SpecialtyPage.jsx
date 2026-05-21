@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import ReferenceRequestModal from '../../components/ReferenceRequestModal'
 import './SpecialtyPage.css'
 
 const PILLAR_ORDER = [
@@ -8,7 +10,7 @@ const PILLAR_ORDER = [
   { id: 'brand', title: 'Brand' },
 ]
 
-export default function SpecialtyPage({ data }) {
+export default function SpecialtyPage({ data, slug }) {
   const {
     specialtyLabel,
     practiceNoun,
@@ -22,7 +24,9 @@ export default function SpecialtyPage({ data }) {
     ctaHref,
   } = data
 
+  const [referenceModalOpen, setReferenceModalOpen] = useState(false)
   const auditCtaLabel = `Get a growth audit for your ${practiceNoun} practice`
+  const referenceCaseMeta = `${proof.specialty} · ${proof.location}`
 
   return (
     <main className="specialty-page">
@@ -123,20 +127,14 @@ export default function SpecialtyPage({ data }) {
                 ))}
               </ul>
               <div className="specialty-proof__actions">
-                <Link
-                  to={proof.talkToHref}
-                  className="specialty-proof__btn specialty-proof__btn--primary"
-                >
-                  Talk to {proof.clientName}
-                  <ArrowRight className="specialty-proof__btn-icon" strokeWidth={2} aria-hidden />
-                </Link>
-                <Link
-                  to={proof.referenceHref}
+                <button
+                  type="button"
                   className="specialty-proof__btn specialty-proof__btn--secondary"
+                  onClick={() => setReferenceModalOpen(true)}
                 >
                   Request a reference
                   <ArrowRight className="specialty-proof__btn-icon" strokeWidth={2} aria-hidden />
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -183,18 +181,28 @@ export default function SpecialtyPage({ data }) {
               {auditCtaLabel}
               <ArrowRight className="specialty-final-cta__btn-icon" strokeWidth={2} aria-hidden />
             </Link>
-            <Link
-              to={proof.referenceHref}
+            <button
+              type="button"
               className="specialty-final-cta__btn specialty-final-cta__btn--secondary"
+              onClick={() => setReferenceModalOpen(true)}
             >
               Request a reference
-            </Link>
+            </button>
           </div>
           <p className="specialty-final-cta__note">
             No packages. No pitch. A conversation built around your practice.
           </p>
         </div>
       </section>
+
+      <ReferenceRequestModal
+        open={referenceModalOpen}
+        onClose={() => setReferenceModalOpen(false)}
+        referenceClient={proof.clientName}
+        referenceCaseMeta={referenceCaseMeta}
+        pageSpecialty={specialtyLabel}
+        pageSlug={slug}
+      />
     </main>
   )
 }
