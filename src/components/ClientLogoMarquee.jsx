@@ -55,16 +55,28 @@ export default function ClientLogoMarquee() {
         {/* <p className="client-logo-marquee__heading">Trusted by:</p> */}
         <div className="client-logo-marquee__viewport">
           <div className="client-logo-marquee__track">
-            {trackLogos.map((src, i) => (
-              <div
-                className={`client-logo-marquee__item${
-                  needsScreenBlend(src) ? ' client-logo-marquee__item--screen' : ''
-                }${isWideLogo(src) ? ' client-logo-marquee__item--wide' : ''}`}
-                key={`${src}-${i}`}
-              >
-                <img src={src} alt="" loading="lazy" decoding="async" />
-              </div>
-            ))}
+            {trackLogos.map((src, i) => {
+              const isSvg = /\.svg$/i.test(src)
+              const base = src.replace(/\.(png|jpg|jpeg|webp)$/i, '')
+              return (
+                <div
+                  className={`client-logo-marquee__item${
+                    needsScreenBlend(src) ? ' client-logo-marquee__item--screen' : ''
+                  }${isWideLogo(src) ? ' client-logo-marquee__item--wide' : ''}`}
+                  key={`${src}-${i}`}
+                >
+                  {isSvg ? (
+                    <img src={src} alt="" loading="lazy" decoding="async" />
+                  ) : (
+                    <picture>
+                      <source srcSet={`${base}.avif`} type="image/avif" />
+                      <source srcSet={`${base}.webp`} type="image/webp" />
+                      <img src={src} alt="" loading="lazy" decoding="async" />
+                    </picture>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

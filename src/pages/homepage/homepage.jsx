@@ -109,13 +109,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <DeferredSection load={loadClientLogoMarquee} minHeight={160} />
-      <DeferredSection load={loadPerfectMatchSection} minHeight={760} />
-      <DeferredSection load={loadPracticeInfrastructureSection} minHeight={820} />
-      <DeferredSection load={loadProcessClaritySection} minHeight={760} />
-      <DeferredSection load={loadResultsSpotlightSection} minHeight={820} />
-      <DeferredSection load={loadSpecialtyAudienceSection} minHeight={840} />
-      <DeferredSection load={loadHomePhilosophyAuditSections} minHeight={640} />
+      <DeferredSection load={loadClientLogoMarquee} minHeight={200} />
+      <DeferredSection load={loadPerfectMatchSection} minHeight={960} />
+      <DeferredSection load={loadPracticeInfrastructureSection} minHeight={1120} />
+      <DeferredSection load={loadProcessClaritySection} minHeight={980} />
+      <DeferredSection load={loadResultsSpotlightSection} minHeight={960} />
+      <DeferredSection load={loadSpecialtyAudienceSection} minHeight={900} />
+      <DeferredSection load={loadHomePhilosophyAuditSections} minHeight={920} />
     </main>
   );
 }
