@@ -57,7 +57,6 @@ export default function ClientLogoMarquee() {
           <div className="client-logo-marquee__track">
             {trackLogos.map((src, i) => {
               const isSvg = /\.svg$/i.test(src)
-              const base = src.replace(/\.(png|jpg|jpeg|webp)$/i, '')
               return (
                 <div
                   className={`client-logo-marquee__item${
@@ -65,15 +64,7 @@ export default function ClientLogoMarquee() {
                   }${isWideLogo(src) ? ' client-logo-marquee__item--wide' : ''}`}
                   key={`${src}-${i}`}
                 >
-                  {isSvg ? (
-                    <img src={src} alt="" loading="lazy" decoding="async" />
-                  ) : (
-                    <picture>
-                      <source srcSet={`${base}.avif`} type="image/avif" />
-                      <source srcSet={`${base}.webp`} type="image/webp" />
-                      <img src={src} alt="" loading="lazy" decoding="async" />
-                    </picture>
-                  )}
+                  <img src={src} alt="" loading="lazy" decoding="async" />
                 </div>
               )
             })}
