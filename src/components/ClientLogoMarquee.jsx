@@ -56,7 +56,6 @@ export default function ClientLogoMarquee() {
         <div className="client-logo-marquee__viewport">
           <div className="client-logo-marquee__track">
             {trackLogos.map((src, i) => {
-              const isSvg = /\.svg$/i.test(src)
               return (
                 <div
                   className={`client-logo-marquee__item${
