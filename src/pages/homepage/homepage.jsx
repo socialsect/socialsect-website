@@ -2,15 +2,18 @@ import React from 'react';
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
-import ClientLogoMarquee from '../../components/ClientLogoMarquee';
-// import ToolsPartnersMarquee from '../../components/ToolsPartnersMarquee';
-import PerfectMatchSection from '../../components/PerfectMatchSection';
-import PracticeInfrastructureSection from '../../components/PracticeInfrastructureSection';
-import ProcessClaritySection from '../../components/ProcessClaritySection';
-import ResultsSpotlightSection from '../../components/ResultsSpotlightSection';
-import SpecialtyAudienceSection from '../../components/SpecialtyAudienceSection';
-import HomePhilosophyAuditSections from '../../components/HomePhilosophyAuditSections';
+import DeferredSection from '../../components/DeferredSection';
 import './homepage.css';
+
+const loadClientLogoMarquee = () => import('../../components/ClientLogoMarquee');
+const loadPerfectMatchSection = () => import('../../components/PerfectMatchSection');
+const loadPracticeInfrastructureSection = () =>
+  import('../../components/PracticeInfrastructureSection');
+const loadProcessClaritySection = () => import('../../components/ProcessClaritySection');
+const loadResultsSpotlightSection = () => import('../../components/ResultsSpotlightSection');
+const loadSpecialtyAudienceSection = () => import('../../components/SpecialtyAudienceSection');
+const loadHomePhilosophyAuditSections = () =>
+  import('../../components/HomePhilosophyAuditSections');
 
 export default function HomePage() {
   return (
@@ -106,14 +109,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ClientLogoMarquee />
-      {/* <ToolsPartnersMarquee /> */}
-      <PerfectMatchSection />
-      <PracticeInfrastructureSection />
-      <ProcessClaritySection />
-      <ResultsSpotlightSection />
-      <SpecialtyAudienceSection />
-      <HomePhilosophyAuditSections />
+      <DeferredSection load={loadClientLogoMarquee} minHeight={160} />
+      <DeferredSection load={loadPerfectMatchSection} minHeight={760} />
+      <DeferredSection load={loadPracticeInfrastructureSection} minHeight={820} />
+      <DeferredSection load={loadProcessClaritySection} minHeight={760} />
+      <DeferredSection load={loadResultsSpotlightSection} minHeight={820} />
+      <DeferredSection load={loadSpecialtyAudienceSection} minHeight={840} />
+      <DeferredSection load={loadHomePhilosophyAuditSections} minHeight={640} />
     </main>
   );
 }

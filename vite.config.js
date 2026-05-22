@@ -27,8 +27,6 @@ export default defineConfig(({ mode }) => {
               if (id.includes('lucide-react')) return 'lucide-vendor'
               return 'vendor'
             }
-            if (id.includes('components')) return 'components'
-            if (id.includes('pages')) return 'pages'
           },
         },
       },
