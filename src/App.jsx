@@ -5,8 +5,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import SeoManager from './components/SeoManager'
-
-const HomePage = lazy(() => import('./pages/homepage/homepage'))
+import HomePage from './pages/homepage/homepage'
 const ServicesPage = lazy(() => import('./pages/services/ServicesPage'))
 const ServicesPillarStub = lazy(() => import('./pages/services/ServicesPillarStub'))
 const ServiceDetailRoute = lazy(() => import('./pages/services/ServiceDetailRoute'))
