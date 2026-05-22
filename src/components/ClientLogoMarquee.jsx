@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import './ClientLogoMarquee.css';
 
 const logoUrlModules = import.meta.glob(
-  '../../public/client-logos/*.{png,jpg,jpeg,svg,webp}',
+  '../../public/client-logos/*.{png,jpg,jpeg,svg}',
   { eager: true, import: 'default', query: '?url' }
 );
 

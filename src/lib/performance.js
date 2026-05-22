@@ -48,15 +48,8 @@ export function deferNonCriticalStyles() {
 }
 
 function loadNonCriticalCSS() {
-  // Load utility/component-specific CSS after page interactive
-  const nonCriticalCSS = [
-    '/src/components/HomeHero.css',
-    '/src/components/ClientLogoMarquee.css',
-  ];
-  
-  nonCriticalCSS.forEach(href => {
-    loadCSSAsync(href, 'all');
-  });
+  // No additional CSS is loaded here. The homepage and marquee now rely on
+  // the bundled stylesheet imports so we don't reintroduce late style swaps.
 }
 
 /**
