@@ -115,7 +115,7 @@ export default function HomePage() {
       <DeferredSection load={loadProcessClaritySection} minHeight={980} />
       <DeferredSection load={loadResultsSpotlightSection} minHeight={960} />
       <DeferredSection load={loadSpecialtyAudienceSection} minHeight={900} />
-      <DeferredSection load={loadHomePhilosophyAuditSections} minHeight={920} />
+      <DeferredSection load={loadHomePhilosophyAuditSections} minHeight={1240} />
     </main>
   );
 }
