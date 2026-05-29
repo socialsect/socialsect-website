@@ -3,6 +3,7 @@ import { allSpecialties } from '../assets/specialty-content-matrix/content-matri
 import { SERVICE_PILLARS } from '../pages/services/servicesRegistry.js'
 import { getServiceData } from '../pages/services/serviceData.js'
 import { getSpecialtyData } from '../pages/who-we-help/specialtyData.js'
+import { SEO_PAGE_META_OVERRIDES } from './seoPageMeta.js'
 
 const SITE_NAME = 'Socialsect'
 const SITE_URL = 'https://gosocialsect.com'
@@ -129,6 +130,16 @@ function buildItemList(items) {
       name: item.name,
       url: item.url,
     })),
+  }
+}
+
+function applyPageMetaOverrides(config, pathname) {
+  const override = SEO_PAGE_META_OVERRIDES[pathname]
+  if (!override) return config
+
+  return {
+    ...config,
+    ...override,
   }
 }
 
@@ -581,24 +592,24 @@ export function getSeoConfig(pathname) {
 
   for (const { path, config } of exactMatches) {
     if (matchPath({ path, end: true }, cleanPath)) {
-      return config()
+      return applyPageMetaOverrides(config(), cleanPath)
     }
   }
 
   const serviceDetailMatch = matchPath('/services/:pillar/:service', cleanPath)
   if (serviceDetailMatch) {
-    return serviceDetailConfig(cleanPath, serviceDetailMatch.params)
+    return applyPageMetaOverrides(serviceDetailConfig(cleanPath, serviceDetailMatch.params), cleanPath)
   }
 
   const servicePillarMatch = matchPath('/services/:pillar', cleanPath)
   if (servicePillarMatch) {
-    return servicesPillarConfig(cleanPath, servicePillarMatch.params)
+    return applyPageMetaOverrides(servicesPillarConfig(cleanPath, servicePillarMatch.params), cleanPath)
   }
 
   const specialtyMatch = matchPath('/who-we-help/:specialty', cleanPath)
   if (specialtyMatch) {
-    return specialtyConfig(cleanPath, specialtyMatch.params)
+    return applyPageMetaOverrides(specialtyConfig(cleanPath, specialtyMatch.params), cleanPath)
   }
 
-  return notFoundConfig()
+  return applyPageMetaOverrides(notFoundConfig(), cleanPath)
 }
