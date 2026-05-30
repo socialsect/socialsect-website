@@ -13,6 +13,8 @@
     "check:resend": "node scripts/check-resend-domain.mjs"
   },
   "dependencies": {
+    "@portabletext/react": "^6.2.0",
+    "@sanity/client": "^7.22.1",
     "@supabase/supabase-js": "^2.106.1",
     "face-api.js": "^0.22.2",
     "framer-motion": "^12.38.0",

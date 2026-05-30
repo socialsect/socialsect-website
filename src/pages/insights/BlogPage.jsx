@@ -1,28 +1,50 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
-import { submitForm } from '../../lib/submitForm'
-import './BlogPage.css'
+import { getArticles } from '../../lib/articles'
+import './BlogListing.css'
+
+function formatDate(value) {
+  if (!value) return ''
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(new Date(value))
+}
 
 export default function BlogPage() {
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
+  const [articles, setArticles] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
-  async function handleSubmit(e) {
-    e.preventDefault()
-    setSubmitting(true)
-    try {
-      await submitForm('/api/newsletter', { email, source: 'blog-waitlist' })
-      setSubmitted(true)
-      setEmail('')
-    } catch {
-      /* keep form visible */
-    } finally {
-      setSubmitting(false)
+  useEffect(() => {
+    let isMounted = true
+
+    async function loadArticles() {
+      try {
+        const data = await getArticles()
+        if (isMounted) {
+          setArticles(data)
+        }
+      } catch (err) {
+        if (isMounted) {
+          setError(err instanceof Error ? err.message : 'Failed to load articles')
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false)
+        }
+      }
     }
-  }
+
+    loadArticles()
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
 
   return (
     <main className="blog-page">
@@ -58,52 +80,64 @@ export default function BlogPage() {
         <div className="blog-hero__inner">
           <p className="blog-hero__eyebrow">Insights for private medical practices</p>
           <h1 id="blog-hero-heading" className="blog-hero__title">
-            Blog coming soon
+            Blog
           </h1>
           <p className="blog-hero__sub">
-            We are still working on the blog behind the scenes. New articles are being put
-            together now and should be coming up any time. If you want a reminder when they are
-            live, leave your email below and we will keep you posted.
+            Articles on patient acquisition, SEO, paid media, brand, and practice growth.
           </p>
+        </div>
+      </section>
 
-          <div className="blog-coming-soon" aria-labelledby="blog-coming-soon-heading">
-            <p className="blog-coming-soon__label">Coming soon</p>
-            <h2 id="blog-coming-soon-heading" className="blog-coming-soon__title">
-              Want to be reminded when the first posts land?
-            </h2>
-            <p className="blog-coming-soon__text">
-              Fresh posts on patient acquisition, SEO, brand, and practice growth will be here
-              shortly. Leave your email and we will send you a note as soon as the blog is live.
-            </p>
-            <form className="blog-coming-soon__form" onSubmit={handleSubmit} noValidate>
-              <label htmlFor="blog-coming-soon-email" className="visually-hidden">
-                Email address for blog updates
-              </label>
-              <input
-                id="blog-coming-soon-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="blog-coming-soon__input"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={submitted}
-              />
-              <button
-                type="submit"
-                className="blog-coming-soon__submit btn btn-primary"
-                disabled={submitting || submitted}
-              >
-                <span>{submitted ? 'You are on the list' : submitting ? 'Sending...' : 'Remind me'}</span>
-                <ArrowRight strokeWidth={1} aria-hidden />
-              </button>
-            </form>
-            <p className="blog-coming-soon__note">
-              No spam. Just a quick note through Resend when the blog is ready.
-            </p>
-          </div>
+      <section className="blog-listing">
+        <div className="blog-listing__inner">
+          {loading && <p className="blog-state">Loading articles...</p>}
+          {error && !loading && <p className="blog-state" role="alert">{error}</p>}
+
+          {!loading && !error && (
+            <>
+              {articles.length === 0 ? (
+                <p className="blog-state">No articles found in Sanity yet.</p>
+              ) : (
+                <div className="blog-grid">
+                  {articles.map((article) => {
+                    const imageUrl = article.featuredImage?.asset?.url
+                    const imageAlt = article.featuredImageAlt || article.title
+
+                    return (
+                      <article key={article._id} className="blog-card">
+                        <Link to={`/insights/blog/${article.slug}`} className="blog-card__image-link">
+                          <div className="blog-card__image-shell">
+                            {imageUrl ? (
+                              <img className="blog-card__image" src={imageUrl} alt={imageAlt} loading="lazy" />
+                            ) : (
+                              <div className="blog-card__image blog-card__image--placeholder" aria-hidden>
+                                <span>Socialsect</span>
+                              </div>
+                            )}
+                          </div>
+                        </Link>
+
+                        <div className="blog-card__body">
+                          <p className="blog-card__meta">
+                            {article.readingTime || 'Article'}
+                            {article.publishedAt ? ` · ${formatDate(article.publishedAt)}` : ''}
+                          </p>
+                          <h2 className="blog-card__title">
+                            <Link to={`/insights/blog/${article.slug}`}>{article.title}</Link>
+                          </h2>
+                          <p className="blog-card__excerpt">{article.excerpt || article.metaDescription}</p>
+                          <Link to={`/insights/blog/${article.slug}`} className="blog-card__cta">
+                            Read article
+                            <ArrowRight strokeWidth={1} aria-hidden />
+                          </Link>
+                        </div>
+                      </article>
+                    )
+                  })}
+                </div>
+              )}
+            </>
+          )}
         </div>
       </section>
     </main>

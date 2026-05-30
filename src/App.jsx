@@ -19,8 +19,10 @@ const NotFoundPage = lazy(() => import('./pages/not-found/NotFoundPage'))
 const InsightsPage = lazy(() => import('./pages/insights/InsightsPage'))
 const TestimonialsPage = lazy(() => import('./pages/insights/TestimonialsPage'))
 const BlogPage = lazy(() => import('./pages/insights/BlogPage'))
+const BlogArticlePage = lazy(() => import('./pages/insights/BlogArticlePage'))
 const ResourcesPage = lazy(() => import('./pages/insights/ResourcesPage'))
 const ClientPortalPage = lazy(() => import('./pages/client-portal/ClientPortalPage'))
+const SanityArticlesTestPage = lazy(() => import('./pages/debug/SanityArticlesTestPage'))
 
 const routeFallback = (
   <div className="route-loading" role="status" aria-live="polite">
@@ -48,9 +50,11 @@ function App() {
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/insights/testimonials" element={<TestimonialsPage />} />
           <Route path="/insights/blog" element={<BlogPage />} />
+          <Route path="/insights/blog/:slug" element={<BlogArticlePage />} />
           <Route path="/insights/resources" element={<ResourcesPage />} />
           <Route path="/book-a-call" element={<BookACallPage />} />
           <Route path="/client-portal" element={<ClientPortalPage />} />
+          <Route path="/debug/sanity-articles" element={<SanityArticlesTestPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
