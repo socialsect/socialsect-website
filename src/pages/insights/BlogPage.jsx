@@ -96,7 +96,7 @@ export default function BlogPage() {
           {!loading && !error && (
             <>
               {articles.length === 0 ? (
-                <p className="blog-state">No articles found in Sanity yet.</p>
+                <p className="blog-state">Articles are coming soon</p>
               ) : (
                 <div className="blog-grid">
                   {articles.map((article) => {
