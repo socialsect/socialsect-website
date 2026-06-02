@@ -1,5 +1,4 @@
 import { getSeoConfig } from './src/lib/seo.js'
-import { getArticleBySlug } from './src/lib/articles.js'
 
 export default async function middleware(req) {
   const ua = req.headers.get('user-agent') || ''
@@ -60,8 +59,12 @@ export default async function middleware(req) {
 
     if (slug) {
       try {
-        const article = await getArticleBySlug(slug)
-        if (article) {
+        // Fetch article metadata from API endpoint (Node.js runtime, safe from Sanity)
+        const metaUrl = new URL(`/api/articles/${slug}`, url)
+        const response = await fetch(metaUrl.toString())
+
+        if (response.ok) {
+          const article = await response.json()
           const meta = fromBlogArticle(article, url.origin, pathname)
 
           return new Response(buildHTML(meta, url.href), {
@@ -204,10 +207,11 @@ function pageMetaFromSeoConfig(seoMeta, origin) {
   }
 }
 
-function fromBlogArticle(article, origin, pathname) {
-  const title = article.metaTitle || article.title || 'Socialsect'
-  const description = article.metaDescription || article.excerpt || ''
-  const imageUrl = article.featuredImage?.asset?.url
+function fromBlogArticle(metadata, origin, pathname) {
+  // metadata comes from /api/articles/[slug] endpoint (safe format)
+  const title = metadata.title || 'Socialsect'
+  const description = metadata.description || ''
+  const imageUrl = metadata.image
   const image = imageUrl
     ? imageUrl.startsWith('http')
       ? imageUrl
@@ -216,12 +220,12 @@ function fromBlogArticle(article, origin, pathname) {
 
   return {
     title,
-    h1: article.title || title,
+    h1: title,
     description,
     image,
-    canonical: article.canonicalUrl || `${origin}${pathname}`,
-    type: 'article',
-    robots: article.robots,
+    canonical: metadata.canonical || `${origin}${pathname}`,
+    type: metadata.type || 'article',
+    robots: metadata.robots,
     ogTitle: title,
     ogDescription: description,
     ogSiteName: 'Socialsect',
