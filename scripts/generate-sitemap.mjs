@@ -1,13 +1,22 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { createClient } from '@sanity/client'
 import { allServices } from '../src/assets/service-content-matrix/allServices.js'
 import { allSpecialties } from '../src/assets/specialty-content-matrix/content-matrix.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
 const siteUrl = 'https://gosocialsect.com'
-const today = '2026-05-22'
+const today = new Date().toISOString().split('T')[0]
+
+// Sanity client setup
+const sanity = createClient({
+  projectId: 'nj6mz3im',
+  dataset: 'production',
+  apiVersion: '2025-05-30',
+  useCdn: true,
+})
 
 const staticRoutes = [
   '/',
@@ -25,6 +34,27 @@ const staticRoutes = [
 const serviceRoutes = allServices.map(({ path: routePath }) => routePath)
 const specialtyRoutes = allSpecialties.map(({ slug }) => `/who-we-help/${slug}`)
 
+// Fetch blog articles from Sanity
+let blogRoutes = []
+try {
+  const articles = await sanity.fetch(`*[_type == "post"] {
+    "slug": slug.current,
+    publishedAt,
+    updatedAt,
+    _updatedAt
+  }`)
+  
+  blogRoutes = articles.map(article => ({
+    path: `/insights/blog/${article.slug}`,
+    lastmod: article.updatedAt || article.publishedAt || article._updatedAt || today
+  }))
+  
+  console.log(`✓ Fetched ${blogRoutes.length} articles from Sanity`)
+} catch (error) {
+  console.error('✗ Failed to fetch articles from Sanity:', error.message)
+  console.log('Continuing with static routes only...')
+}
+
 const routes = [...staticRoutes, ...serviceRoutes, ...specialtyRoutes]
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -37,7 +67,16 @@ ${routes
   </url>`,
   )
   .join('\n')}
+${blogRoutes
+  .map(
+    ({ path: routePath, lastmod }) => `  <url>
+    <loc>${siteUrl}${routePath}</loc>
+    <lastmod>${typeof lastmod === 'string' ? lastmod.split('T')[0] : today}</lastmod>
+  </url>`,
+  )
+  .join('\n')}
 </urlset>
 `
 
 await fs.writeFile(path.join(rootDir, 'public', 'sitemap.xml'), sitemap)
+console.log('✓ Sitemap generated successfully')

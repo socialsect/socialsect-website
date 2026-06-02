@@ -1,4 +1,4 @@
-import { sanity } from './sanity'
+import { sanity } from './sanity.js'
 
 const ARTICLE_FIELDS = `
   _id,
