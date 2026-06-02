@@ -564,11 +564,29 @@ function notFoundConfig() {
     title,
     description,
     canonicalUrl,
-    image: DEFAULT_IMAGE,
+    image: `${SITE_URL}/social-share-404.png`,
     robots: NOINDEX_ROBOTS,
     ogType: 'website',
     tags: ['404', 'page not found'],
     schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
+function blogArticleConfig(pathname, params) {
+  const canonicalUrl = absoluteUrl(`/insights/blog/${params.slug}`)
+  const title = 'Socialsect blog article'
+  const description =
+    'Expert articles for private medical practice growth, SEO, paid media, and website conversion from Socialsect.'
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: DEFAULT_IMAGE,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'article',
+    tags: ['blog article', 'private medical practice marketing', 'healthcare SEO'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl, type: 'Article' })],
   }
 }
 
@@ -609,6 +627,11 @@ export function getSeoConfig(pathname) {
   const specialtyMatch = matchPath('/who-we-help/:specialty', cleanPath)
   if (specialtyMatch) {
     return applyPageMetaOverrides(specialtyConfig(cleanPath, specialtyMatch.params), cleanPath)
+  }
+
+  const articleMatch = matchPath('/insights/blog/:slug', cleanPath)
+  if (articleMatch) {
+    return applyPageMetaOverrides(blogArticleConfig(cleanPath, articleMatch.params), cleanPath)
   }
 
   return applyPageMetaOverrides(notFoundConfig(), cleanPath)

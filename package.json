@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "optimize:client-logos": "node scripts/resize-client-logo-assets.mjs",
+    "generate:og-404": "node generate-og-404-image.js",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "check:resend": "node scripts/check-resend-domain.mjs"
   },
