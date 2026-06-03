@@ -305,6 +305,8 @@ export default function Navbar() {
               </div>
             </div>
 
+            <Link to="/products">Products</Link>
+
             <Link to="/how-we-work">How we work</Link>
 
             <div className={`nav-item${isWhoWeHelp ? ' nav-item--active' : ''}`}>
@@ -422,6 +424,10 @@ export default function Navbar() {
               ))}
             </MobileNavBlock>
           </MobileNavGroup>
+
+          <Link to="/products" className="mobile-nav__top-link" onClick={closeMenu}>
+            Products
+          </Link>
 
           <Link to="/how-we-work" className="mobile-nav__top-link" onClick={closeMenu}>
             How we work

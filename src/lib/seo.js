@@ -226,6 +226,24 @@ function servicesConfig() {
   }
 }
 
+function productsConfig() {
+  const canonicalUrl = absoluteUrl('/products')
+  const title = 'Whisper and Client Dashboard for practice teams | Socialsect'
+  const description =
+    'See how Whisper and Client Dashboard help practice teams capture anonymous feedback, keep clients informed, and keep work documented across every project.'
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: DEFAULT_IMAGE,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: ['practice products', 'client dashboard', 'anonymous feedback', 'practice management'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
 function serviceDetailConfig(pathname, params) {
   const data = getServiceData(params.pillar, params.service)
   if (!data) return servicesConfig()
@@ -596,6 +614,7 @@ export function getSeoConfig(pathname) {
   const exactMatches = [
     { path: '/', config: homeConfig },
     { path: '/services', config: servicesConfig },
+    { path: '/products', config: productsConfig },
     { path: '/how-we-work', config: howWeWorkConfig },
     { path: '/who-we-help', config: whoWeHelpConfig },
     { path: '/results', config: resultsConfig },

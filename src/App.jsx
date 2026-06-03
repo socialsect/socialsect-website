@@ -9,6 +9,7 @@ import HomePage from './pages/homepage/homepage'
 const ServicesPage = lazy(() => import('./pages/services/ServicesPage'))
 const ServicesPillarStub = lazy(() => import('./pages/services/ServicesPillarStub'))
 const ServiceDetailRoute = lazy(() => import('./pages/services/ServiceDetailRoute'))
+const ProductsPage = lazy(() => import('./pages/products/ProductsPage'))
 const HowWeWorkPage = lazy(() => import('./pages/how-we-work/HowWeWorkPage'))
 const WhoWeHelpPage = lazy(() => import('./pages/who-we-help/WhoWeHelpPage'))
 const SpecialtyPageRoute = lazy(() => import('./pages/who-we-help/SpecialtyPageRoute'))
@@ -42,6 +43,7 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:pillar/:service" element={<ServiceDetailRoute />} />
           <Route path="/services/:pillar" element={<ServicesPillarStub />} />
+          <Route path="/products" element={<ProductsPage />} />
           <Route path="/how-we-work" element={<HowWeWorkPage />} />
           <Route path="/who-we-help" element={<WhoWeHelpPage />} />
           <Route path="/who-we-help/:specialty" element={<SpecialtyPageRoute />} />
