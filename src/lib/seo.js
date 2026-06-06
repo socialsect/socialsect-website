@@ -3,6 +3,7 @@ import { allSpecialties } from '../assets/specialty-content-matrix/content-matri
 import { SERVICE_PILLARS } from '../pages/services/servicesRegistry.js'
 import { getServiceData } from '../pages/services/serviceData.js'
 import { getSpecialtyData } from '../pages/who-we-help/specialtyData.js'
+import { getRegionLandingData } from '../pages/dermatologists/regionLandingData.js'
 import { SEO_PAGE_META_OVERRIDES } from './seoPageMeta.js'
 
 const SITE_NAME = 'Socialsect'
@@ -573,6 +574,28 @@ function clientPortalConfig() {
   }
 }
 
+function regionLandingConfig(pathname, params) {
+  const data = getRegionLandingData(params.pageSlug)
+  if (!data) {
+    return notFoundConfig()
+  }
+
+  const canonicalUrl = absoluteUrl(pathname)
+  const title = data.metaTitle
+  const description = data.metaDescription
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: DEFAULT_IMAGE,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: data.tags ?? ['dermatologist SEO', 'healthcare SEO', 'local SEO'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
 function notFoundConfig() {
   const canonicalUrl = absoluteUrl('/404')
   const title = 'Page not found | Socialsect'
@@ -646,6 +669,11 @@ export function getSeoConfig(pathname) {
   const specialtyMatch = matchPath('/who-we-help/:specialty', cleanPath)
   if (specialtyMatch) {
     return applyPageMetaOverrides(specialtyConfig(cleanPath, specialtyMatch.params), cleanPath)
+  }
+
+  const regionLandingMatch = matchPath('/seo-services-for-dermatologists-:pageSlug', cleanPath)
+  if (regionLandingMatch) {
+    return applyPageMetaOverrides(regionLandingConfig(cleanPath, regionLandingMatch.params), cleanPath)
   }
 
   const articleMatch = matchPath('/insights/blog/:slug', cleanPath)

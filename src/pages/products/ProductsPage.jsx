@@ -21,6 +21,7 @@ const PRODUCTS = [
     ],
     images: ['/products/whisper.png', '/products/whisper2.png'],
   },
+  
   {
     id: 'dashboard',
     title: 'Client Dashboard',

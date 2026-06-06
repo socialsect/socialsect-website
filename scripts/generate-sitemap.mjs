@@ -29,6 +29,13 @@ const staticRoutes = [
   '/insights/testimonials',
   '/insights/resources',
   '/book-a-call',
+  '/seo-services-for-dermatologists-new-york',
+  '/seo-services-for-dermatologists-los-angeles-ca',
+  '/seo-services-for-dermatologists-miami-fl',
+  '/seo-services-for-dermatologists-chicago-il',
+  '/seo-services-for-dermatologists-in-houston-tx',
+  '/seo-services-for-dermatologists-in-dallas-tx',
+  '/seo-services-for-dermatologists-in-phoenix-az',
 ]
 
 const serviceRoutes = allServices.map(({ path: routePath }) => routePath)

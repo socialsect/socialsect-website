@@ -23,6 +23,7 @@ const BlogPage = lazy(() => import('./pages/insights/BlogPage'))
 const BlogArticlePage = lazy(() => import('./pages/insights/BlogArticlePage'))
 const ResourcesPage = lazy(() => import('./pages/insights/ResourcesPage'))
 const ClientPortalPage = lazy(() => import('./pages/client-portal/ClientPortalPage'))
+const RegionLandingPage = lazy(() => import('./pages/dermatologists/RegionLandingPage'))
 const SanityArticlesTestPage = lazy(() => import('./pages/debug/SanityArticlesTestPage'))
 
 const routeFallback = (
@@ -55,6 +56,7 @@ function App() {
           <Route path="/insights/blog/:slug" element={<BlogArticlePage />} />
           <Route path="/insights/resources" element={<ResourcesPage />} />
           <Route path="/book-a-call" element={<BookACallPage />} />
+          <Route path="/seo-services-for-dermatologists/:pageSlug" element={<RegionLandingPage />} />
           <Route path="/client-portal" element={<ClientPortalPage />} />
           <Route path="/debug/sanity-articles" element={<SanityArticlesTestPage />} />
           <Route path="*" element={<NotFoundPage />} />
