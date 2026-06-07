@@ -671,7 +671,7 @@ export function getSeoConfig(pathname) {
     return applyPageMetaOverrides(specialtyConfig(cleanPath, specialtyMatch.params), cleanPath)
   }
 
-  const regionLandingMatch = matchPath('/seo-services-for-dermatologists-:pageSlug', cleanPath)
+  const regionLandingMatch = matchPath('/seo-services-for-dermatologists/:pageSlug', cleanPath)
   if (regionLandingMatch) {
     return applyPageMetaOverrides(regionLandingConfig(cleanPath, regionLandingMatch.params), cleanPath)
   }
