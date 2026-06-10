@@ -1,3 +1,75 @@
+# ==================================================
+# SocialSect Robots.txt
+# https://gosocialsect.com
+# SEO + GEO + AI Search Optimized
+# ==================================================
+
 User-agent: *
 Allow: /
+
+# Block sensitive areas
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
 Sitemap: https://gosocialsect.com/sitemap.xml
+
+# ==================================================
+# AI Crawlers
+# ==================================================
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: GoogleOther-Image
+Allow: /
+
+User-agent: GoogleOther-Video
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ==================================================
+# Crawl Efficiency
+# ==================================================
+
+User-agent: *
+Crawl-delay: 1
+
