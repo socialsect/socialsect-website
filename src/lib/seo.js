@@ -574,6 +574,24 @@ function clientPortalConfig() {
   }
 }
 
+function avivaConfig() {
+  const canonicalUrl = absoluteUrl('/aviva')
+  const title = 'Private observation for Aviva Medical Spa | Socialsect'
+  const description =
+    'A private, personalized observation page prepared for Ava Franzoni and Aviva Medical Spa by Socialsect.'
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: DEFAULT_IMAGE,
+    robots: NOINDEX_ROBOTS,
+    ogType: 'website',
+    tags: [],
+    schemas: [buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
 function regionLandingConfig(pathname, params) {
   const data = getRegionLandingData(params.pageSlug)
   if (!data) {
@@ -648,6 +666,7 @@ export function getSeoConfig(pathname) {
     { path: '/insights/blog', config: blogConfig },
     { path: '/book-a-call', config: bookCallConfig },
     { path: '/client-portal', config: clientPortalConfig },
+    { path: '/aviva', config: avivaConfig },
   ]
 
   for (const { path, config } of exactMatches) {

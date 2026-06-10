@@ -23,6 +23,7 @@ const BlogPage = lazy(() => import('./pages/insights/BlogPage'))
 const BlogArticlePage = lazy(() => import('./pages/insights/BlogArticlePage'))
 const ResourcesPage = lazy(() => import('./pages/insights/ResourcesPage'))
 const ClientPortalPage = lazy(() => import('./pages/client-portal/ClientPortalPage'))
+const AvivaPage = lazy(() => import('./pages/aviva/AvivaPage'))
 const RegionLandingPage = lazy(() => import('./pages/dermatologists/RegionLandingPage'))
 const SanityArticlesTestPage = lazy(() => import('./pages/debug/SanityArticlesTestPage'))
 
@@ -58,6 +59,7 @@ function App() {
           <Route path="/book-a-call" element={<BookACallPage />} />
           <Route path="/seo-services-for-dermatologists/:pageSlug" element={<RegionLandingPage />} />
           <Route path="/client-portal" element={<ClientPortalPage />} />
+          <Route path="/aviva" element={<AvivaPage />} />
           <Route path="/debug/sanity-articles" element={<SanityArticlesTestPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
