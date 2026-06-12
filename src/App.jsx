@@ -1,4 +1,5 @@
-import { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
+import AutoplayVideoModal from './components/AutoplayVideoModal'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -34,6 +35,19 @@ const routeFallback = (
 )
 
 function App() {
+  const [videoOpen, setVideoOpen] = useState(false)
+
+  useEffect(() => {
+    try {
+      const dismissed = localStorage.getItem('videoModalDismissed')
+      if (dismissed === '1') return undefined
+    } catch (err) {
+      // ignore localStorage errors
+    }
+
+    const timer = setTimeout(() => setVideoOpen(true), 10000)
+    return () => clearTimeout(timer)
+  }, [])
   return (
     <BrowserRouter>
       <SeoManager />
@@ -64,6 +78,15 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+      <AutoplayVideoModal
+        open={videoOpen}
+        onClose={() => {
+          try {
+            localStorage.setItem('videoModalDismissed', '1')
+          } catch (err) {}
+          setVideoOpen(false)
+        }}
+      />
       <Footer />
     </BrowserRouter>
   )

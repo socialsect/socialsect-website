@@ -3,6 +3,7 @@ import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import DeferredSection from '../../components/DeferredSection';
+import StatsViz from '../../components/StatsViz';
 import './homepage.css';
 
 const loadClientLogoMarquee = () => import('../../components/ClientLogoMarquee');
@@ -49,12 +50,12 @@ export default function HomePage() {
                 </svg>
               </Link>
               <a href="#results-spotlight" className="btn btn-secondary">
-                See results
-                <svg className="btn-arrow btn-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="12" y1="5" x2="12" y2="19"></line>
-                  <polyline points="19 12 12 19 5 12"></polyline>
-                </svg>
-              </a>
+                  See results
+                  <svg className="btn-arrow btn-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                  </svg>
+                </a>
             </div>
 
             {/* Trust Line */}
@@ -67,25 +68,8 @@ export default function HomePage() {
         {/* Right Column - Proof/Stats */}
         <div className="hero-right">
           <div className="proof-content">
-            {/* Stats Grid */}
-            <div className="stats-grid">
-              <div className="stat-item">
-                <div className="stat-number">70%</div>
-                <div className="stat-label">Consultation-to-surgery rate</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">10,000+</div>
-                <div className="stat-label">Consultations booked</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">$10M+</div>
-                <div className="stat-label">Patient pipeline influenced</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">4.2x</div>
-                <div className="stat-label">Avg. client ROI</div>
-              </div>
-            </div>
+            {/* Visual stats */}
+            <StatsViz />
 
             {/* Trusted By */}
             <div className="trusted-by">
@@ -109,13 +93,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <DeferredSection load={loadClientLogoMarquee} minHeight={200} />
-      <DeferredSection load={loadPerfectMatchSection} minHeight={960} />
-      <DeferredSection load={loadPracticeInfrastructureSection} minHeight={1120} />
-      <DeferredSection load={loadProcessClaritySection} minHeight={980} />
-      <DeferredSection load={loadResultsSpotlightSection} minHeight={960} />
-      <DeferredSection load={loadSpecialtyAudienceSection} minHeight={900} />
-      <DeferredSection load={loadHomePhilosophyAuditSections} minHeight={1240} />
+      
+
+      <DeferredSection load={loadClientLogoMarquee} minHeight={'200px'} />
+      <DeferredSection load={loadPerfectMatchSection} minHeight={'50vh'} />
+      <DeferredSection load={loadPracticeInfrastructureSection} minHeight={'60vh'} />
+      <DeferredSection load={loadProcessClaritySection} minHeight={'50vh'} />
+      <DeferredSection load={loadResultsSpotlightSection} minHeight={'60vh'} />
+      <DeferredSection load={loadSpecialtyAudienceSection} minHeight={'50vh'} />
+      <DeferredSection load={loadHomePhilosophyAuditSections} minHeight={'60vh'} />
     </main>
   );
 }
