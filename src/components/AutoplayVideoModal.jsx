@@ -46,7 +46,7 @@ export default function AutoplayVideoModal({ open, onClose }) {
             className="video-modal__iframe"
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/0zPW0oAuNIQ?si=Vv9fd-BlwokPFme2"
+            src="https://www.youtube.com/embed/0zPW0oAuNIQ?si=Vv9fd-BlwokPFme2&autoplay=1&mute=1&playsinline=1"
             title="Conversation: Rayansh Singh & Dr. Julia L. Jackson"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
