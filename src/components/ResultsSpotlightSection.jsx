@@ -15,19 +15,21 @@ const STATS = [
     ),
   },
   {
-    value: '36',
-    label: 'Surgical conversions',
+   value: '4.2x',
+    label: 'Patient acquisition growth',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M5 17L10 9l3 5 2-3 4 6" stroke="#695af2" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="16" cy="6" r="2" stroke="#695af2" strokeWidth="1.5" fill="none"/>
-        <line x1="14" y1="6" x2="8" y2="6" stroke="#695af2" strokeWidth="1.5" strokeLinecap="round"/>
+        <circle cx="8" cy="8" r="3" stroke="#695af2" strokeWidth="1.6" fill="none"/>
+        <circle cx="15" cy="8" r="3" stroke="#695af2" strokeWidth="1.6" fill="none"/>
+        <path d="M2 19c0-3 2.7-5 6-5s6 2 6 5" stroke="#695af2" strokeWidth="1.6" strokeLinecap="round"/>
+        <path d="M15 13c2.3.4 4 2 4 4.5" stroke="#695af2" strokeWidth="1.6" strokeLinecap="round"/>
+        <path d="M19 8.5c1.1.6 2 1.8 2 3.5" stroke="#695af2" strokeWidth="1.4" strokeLinecap="round"/>
       </svg>
     ),
   },
   {
-    value: '84%',
-    label: 'Consultation-to-surgery rate',
+    value: '0$',
+    label: 'Spent on guesswork',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M3 15l5-5 4 4 6-8" stroke="#695af2" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -36,8 +38,8 @@ const STATS = [
     ),
   },
   {
-    value: '4.2x',
-    label: 'Patient acquisition growth',
+    value: 'English+Spanish',
+    label: 'Bilingual Funnel',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="8" cy="8" r="3" stroke="#695af2" strokeWidth="1.6" fill="none"/>
