@@ -197,8 +197,13 @@ const MOBILE_WHO_SECTIONS = [
   { accent: 5, title: 'Practice and clinic owners', links: WHO_PRACTICE },
 ]
 
+const SCROLL_DELTA = 8
+const HIDE_AFTER_Y = 72
+const IDLE_SHOW_MS = 200
+
 export default function Navbar() {
   const { pathname } = useLocation()
+  const isHome = pathname === '/'
   const isWhoWeHelp = pathname === '/who-we-help' || pathname.startsWith('/who-we-help/')
   const isInsights = pathname === '/insights' || pathname.startsWith('/insights/')
   const isServices =
@@ -206,6 +211,9 @@ export default function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false)
   const [openGroup, setOpenGroup] = useState(null)
+  const [navVisible, setNavVisible] = useState(true)
+  const [navScrolled, setNavScrolled] = useState(false)
+  const [navRevealing, setNavRevealing] = useState(false)
 
   const closeMenu = () => {
     setMenuOpen(false)
@@ -219,7 +227,69 @@ export default function Navbar() {
   useEffect(() => {
     setMenuOpen(false)
     setOpenGroup(null)
+    setNavVisible(true)
+    setNavScrolled(false)
+    setNavRevealing(false)
   }, [pathname])
+
+  useEffect(() => {
+    if (!navRevealing) return undefined
+    const timer = window.setTimeout(() => setNavRevealing(false), 520)
+    return () => window.clearTimeout(timer)
+  }, [navRevealing])
+
+  const showNavbar = () => {
+    setNavVisible((wasVisible) => {
+      if (!wasVisible) setNavRevealing(true)
+      return true
+    })
+  }
+
+  useEffect(() => {
+    if (menuOpen) {
+      setNavVisible(true)
+      return undefined
+    }
+
+    let lastY = window.scrollY
+    let idleId = null
+    let frame = null
+
+    const onScroll = () => {
+      if (frame !== null) return
+
+      frame = window.requestAnimationFrame(() => {
+        frame = null
+        const y = window.scrollY
+        const delta = y - lastY
+
+        setNavScrolled(y > 16)
+
+        if (y <= 4) {
+          showNavbar()
+        } else if (delta > SCROLL_DELTA && y > HIDE_AFTER_Y) {
+          setNavVisible(false)
+          setNavRevealing(false)
+        } else if (delta < -SCROLL_DELTA) {
+          showNavbar()
+        }
+
+        clearTimeout(idleId)
+        idleId = window.setTimeout(() => showNavbar(), IDLE_SHOW_MS)
+
+        lastY = y
+      })
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      clearTimeout(idleId)
+      if (frame !== null) window.cancelAnimationFrame(frame)
+    }
+  }, [menuOpen])
 
   useEffect(() => {
     if (!menuOpen) return undefined
@@ -236,8 +306,21 @@ export default function Navbar() {
   }, [menuOpen])
 
   return (
-    <nav className={`navbar${menuOpen ? ' navbar--menu-open' : ''}`}>
-      <div className="container">
+    <>
+    <nav
+      className={[
+        'navbar',
+        isHome ? 'navbar--hero' : '',
+        navScrolled ? 'navbar--scrolled' : '',
+        navVisible ? 'navbar--visible' : 'navbar--hidden',
+        navRevealing ? 'navbar--revealing' : '',
+        menuOpen ? 'navbar--menu-open' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      aria-hidden={!navVisible && !menuOpen}
+    >
+      <div className="container navbar__container">
         <div className="nav-content">
           <Link to="/" className="logo" aria-label="Socialsect home" onClick={closeMenu}>
             <img
@@ -261,8 +344,9 @@ export default function Navbar() {
             {menuOpen ? <X strokeWidth={1} aria-hidden /> : <Menu strokeWidth={1} aria-hidden />}
           </button>
 
-          {/* Desktop navigation */}
+          {/* Desktop navigation — center links */}
           <div className="nav-links nav-links--desktop">
+            <div className="nav-links__center">
             <div className={`nav-item${isServices ? ' nav-item--active' : ''}`}>
               <Link
                 to="/services"
@@ -305,7 +389,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link to="/products">Products</Link>
+            {!isHome && <Link to="/products">Products</Link>}
 
             <Link to="/how-we-work">How we work</Link>
 
@@ -370,6 +454,10 @@ export default function Navbar() {
             </div>
 
             <Link to="/about">About</Link>
+            </div>
+          </div>
+
+          <div className="nav-links__actions nav-links__actions--desktop">
             <Link to={CLIENT_PORTAL_PATH} className="portal-link">
               Client portal →
             </Link>
@@ -379,6 +467,9 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+    </nav>
+
+    {!isHome && <div className="navbar-spacer" aria-hidden="true" />}
 
       <button
         type="button"
@@ -491,6 +582,6 @@ export default function Navbar() {
           </BookCallLink>
         </div>
       </div>
-    </nav>
+    </>
   )
 }

@@ -39,14 +39,37 @@ export default function PerfectMatchSection() {
           <h2 id="perfect-match-headline" className="perfect-match__headline">
             We&apos;re a perfect match if...
           </h2>
+          <p className="perfect-match__subtext">
+            We work with specific types of practice owners
+          </p>
+          <p className="perfect-match__built-for">
+            Built for you,
+          </p>
+          <p className="perfect-match__brand">SOCIALSECT</p>
+          <p className="perfect-match__talk">
+            If this sounds like you, we should talk
+          </p>
         </div>
 
         <ol className="perfect-match__list">
           {POINTS.map((item) => (
             <li key={item.num} className="perfect-match__item">
-              <span className="perfect-match__num" aria-hidden="true">
-                {item.num}
-              </span>
+              <div className="perfect-match__icon-wrapper">
+                <svg
+                  className="perfect-match__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+                <span className="perfect-match__num" aria-hidden="true">
+                  {item.num}
+                </span>
+              </div>
               <div className="perfect-match__body">
                 <h3 className="perfect-match__title">{item.title}</h3>
                 <blockquote className="perfect-match__quote">{item.quote}</blockquote>
@@ -56,9 +79,12 @@ export default function PerfectMatchSection() {
         </ol>
 
         <div className="perfect-match__cta-block">
-          <p className="perfect-match__closing">
-            If you nodded at any of that, you&apos;re exactly who we built this for.
-          </p>
+          <div className="perfect-match__cta-content">
+         
+            <p className="perfect-match__closing">
+              If you nodded at any of that, you&apos;re exactly who we built this for.
+            </p>
+          </div>
           <div className="perfect-match__cta-buttons cta-buttons">
             <Link to={BOOK_A_CALL_FORM} className="btn btn-primary">
               Audit my practice free

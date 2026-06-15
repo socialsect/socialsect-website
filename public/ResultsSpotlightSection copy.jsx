@@ -7,12 +7,6 @@ const STATS = [
   {
     value: '225',
     label: 'Consultations booked',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="3" y="4" width="16" height="15" rx="2" stroke="#695af2" strokeWidth="1.6" fill="none"/>
-        <path d="M7 2v4M15 2v4M3 9h16" stroke="#695af2" strokeWidth="1.6" strokeLinecap="round"/>
-      </svg>
-    ),
   },
   {
     value: '36',
@@ -70,18 +64,22 @@ export default function ResultsSpotlightSection() {
           {/* Left dark panel with text + photo side by side */}
           <div className="results-spotlight__panel">
             <div className="results-spotlight__panel-text">
-              <p className="results-spotlight__panel-label">Featured Practice</p>
-              <h3 className="results-spotlight__name">Dr. Alejandro Badia</h3>
+              <p className="results-spotlight__panel-label">Client</p>
+              <h3 className="results-spotlight__name">Dr. Badia</h3>
               <p className="results-spotlight__practice">
-                Internationally renowned hand and upper extremity orthopedic surgeon
+                Miami Sports &amp; Interventional Orthopaedic, shoulder &amp; elbow surgery
                 Miami, FL
               </p>
-              <p className="results-spotlight__description">
-                Dr. Badia is a pioneer in orthopedic care, treating complex conditions of the hand, wrist, elbow, and shoulder at the Badia Hand to Shoulder Center. A Cornell and NYU graduate, he previously served as Chief of Hand Surgery at Baptist Hospital of Miami and co-founded the Miami Anatomical Research Center (M.A.R.C.)—the world's largest surgical cadaveric training lab. He also founded OrthoNOW®, the first orthopedic urgent care center in South Florida, revolutionizing immediate access to orthopedic care.
-              </p>
+              <blockquote className="results-spotlight__quote">
+                <span className="results-spotlight__quote-mark">&ldquo;&ldquo;</span>
+                Before Socialsect we were getting leads. What we weren&apos;t getting was
+                patients who showed up, were serious about treatment, and actually moved forward
+                with care.{' '}
+                <strong>That was the gap. That&apos;s what they fixed.</strong>
+              </blockquote>
               <div className="results-spotlight__panel-cta-row">
                 <Link to={BOOK_A_CALL_FORM} className="cta cta--inverse">
-                  Get similar results <span aria-hidden="true">→</span>
+                  Request a reference call <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>
@@ -111,7 +109,6 @@ export default function ResultsSpotlightSection() {
 
             <div className="results-spotlight__did">
               <h4 className="results-spotlight__did-title">
-               
                 What we did
               </h4>
               <p className="results-spotlight__did-copy">

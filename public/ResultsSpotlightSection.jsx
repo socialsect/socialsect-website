@@ -70,18 +70,22 @@ export default function ResultsSpotlightSection() {
           {/* Left dark panel with text + photo side by side */}
           <div className="results-spotlight__panel">
             <div className="results-spotlight__panel-text">
-              <p className="results-spotlight__panel-label">Featured Practice</p>
-              <h3 className="results-spotlight__name">Dr. Alejandro Badia</h3>
+              <p className="results-spotlight__panel-label">Client</p>
+              <h3 className="results-spotlight__name">Dr. Badia</h3>
               <p className="results-spotlight__practice">
-                Internationally renowned hand and upper extremity orthopedic surgeon
+                Miami Sports &amp; Interventional Orthopaedic, shoulder &amp; elbow surgery
                 Miami, FL
               </p>
-              <p className="results-spotlight__description">
-                Dr. Badia is a pioneer in orthopedic care, treating complex conditions of the hand, wrist, elbow, and shoulder at the Badia Hand to Shoulder Center. A Cornell and NYU graduate, he previously served as Chief of Hand Surgery at Baptist Hospital of Miami and co-founded the Miami Anatomical Research Center (M.A.R.C.)—the world's largest surgical cadaveric training lab. He also founded OrthoNOW®, the first orthopedic urgent care center in South Florida, revolutionizing immediate access to orthopedic care.
-              </p>
+              <blockquote className="results-spotlight__quote">
+                <span className="results-spotlight__quote-mark">&ldquo;&ldquo;</span>
+                Before Socialsect we were getting leads. What we weren&apos;t getting was
+                patients who showed up, were serious about treatment, and actually moved forward
+                with care.{' '}
+                <strong>That was the gap. That&apos;s what they fixed.</strong>
+              </blockquote>
               <div className="results-spotlight__panel-cta-row">
                 <Link to={BOOK_A_CALL_FORM} className="cta cta--inverse">
-                  Get similar results <span aria-hidden="true">→</span>
+                  Request a reference call <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>
@@ -100,7 +104,9 @@ export default function ResultsSpotlightSection() {
             <ul className="results-spotlight__stats">
               {STATS.map((row) => (
                 <li key={row.label} className="results-spotlight__stat">
-            
+                  {/* <div className="results-spotlight__stat-icon" aria-hidden="true">
+                    {row.icon}
+                  </div> */}
                   <div className="results-spotlight__stat-body">
                     <span className="results-spotlight__stat-value">{row.value}</span>
                     <span className="results-spotlight__stat-label">{row.label}</span>
@@ -111,7 +117,12 @@ export default function ResultsSpotlightSection() {
 
             <div className="results-spotlight__did">
               <h4 className="results-spotlight__did-title">
-               
+                <span className="results-spotlight__did-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="9" cy="9" r="8" stroke="#695af2" strokeWidth="1.5" fill="none"/>
+                    <path d="M5.5 9l2.5 2.5 5-5" stroke="#695af2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
                 What we did
               </h4>
               <p className="results-spotlight__did-copy">

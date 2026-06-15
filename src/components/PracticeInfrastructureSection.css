@@ -1,8 +1,12 @@
+/* ============================================================
+   PracticeInfrastructureSection
+   ============================================================ */
+
 .practice-infra {
   width: 100%;
   background: var(--surface, #f9f9fb);
   font-family: var(--font-body, 'Inter', sans-serif);
-  padding: clamp(48px, 8vw, var(--lg, 64px)) var(--gutter, 24px);
+  padding: clamp(48px, 8vw, 72px) var(--gutter, 24px);
   border-bottom: 1px solid var(--gray, #e2e2e2);
 }
 
@@ -11,134 +15,392 @@
   margin: 0 auto;
 }
 
-.practice-infra__intro {
-  max-width: 48rem;
-  margin-bottom: clamp(40px, 6vw, 56px);
+/* ── Eyebrow bar ── */
+.practice-infra__eyebrow-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: clamp(32px, 5vw, 48px);
+}
+
+.practice-infra__eyebrow-line {
+  width: 32px;
+  height: 2px;
+  background: var(--primary, #695af2);
+  flex-shrink: 0;
 }
 
 .practice-infra__eyebrow {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--dark-gray, #474555);
-  margin: 0 0 var(--sm, 16px) 0;
+  margin: 0;
+}
+
+/* ── Intro two-column ── */
+.practice-infra__intro {
+  margin-bottom: clamp(40px, 6vw, 56px);
+}
+
+.practice-infra__intro-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+.practice-infra__intro-text {
+  max-width: 44rem;
 }
 
 .practice-infra__headline {
   font-family: var(--font-display, 'Newsreader', serif);
-  font-size: clamp(28px, 3.8vw, 40px);
+  font-size: clamp(28px, 3.6vw, 42px);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.18;
   letter-spacing: -0.02em;
   color: var(--charcoal, #1a1c1d);
-  margin: 0 0 var(--md, 32px) 0;
+  margin: 0 0 28px 0;
+}
+
+.practice-infra__headline em {
+  font-style: italic;
+  color: var(--primary, #695af2);
 }
 
 .practice-infra__subcopy {
   margin: 0;
-  font-size: clamp(16px, 1.8vw, 18px);
+  font-size: clamp(15px, 1.6vw, 17px);
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--dark-gray, #474555);
 }
 
+.practice-infra__subcopy strong {
+  font-weight: 600;
+  color: var(--charcoal, #1a1c1d);
+}
+
+/* ── Right graphic: orbital (left) + checklist cards (right) ── */
+.practice-infra__graphic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+  min-height: 280px;
+}
+
+/* Orbital SVG — takes fixed width, bleeds left */
+.practice-infra__orbital {
+  flex-shrink: 0;
+  width: 100px;
+  height: 280px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.practice-infra__ss-badge {
+  position: relative;
+  z-index: 5;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--primary, #695af2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.practice-infra__ss-logo {
+  width: 48px;
+  height: 48px;
+  filter: brightness(0) invert(1);
+}
+
+/* Checklist cards stack */
+.practice-infra__checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+}
+
+.practice-infra__check-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--white, #ffffff);
+  border: 1px solid var(--gray, #e2e2e2);
+  border-left: 3px solid var(--primary, #695af2);
+  padding: 14px 18px;
+  min-height: 52px;
+}
+
+.practice-infra__check-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary, #695af2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.practice-infra__check-icon svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
+.practice-infra__check-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.practice-infra__check-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--charcoal, #1a1c1d);
+  line-height: 1.3;
+}
+
+.practice-infra__check-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--dark-gray, #474555);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* ── Pillar cards ── */
 .practice-infra__pillars {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(28px, 4vw, 40px);
-  align-items: start;
+  gap: clamp(20px, 3vw, 28px);
+  align-items: stretch;
 }
 
 .practice-infra__pillar {
   background: var(--white, #ffffff);
   border: 1px solid var(--gray, #e2e2e2);
-  padding: clamp(20px, 3vw, 28px);
+  padding: clamp(24px, 3vw, 32px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  min-height: 100%;
 }
 
-.practice-infra__pillar-title {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--charcoal, #1a1c1d);
-  margin: 0;
+.practice-infra__pillar-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--surface, #f9f9fb);
+  border: 1px solid var(--gray, #e2e2e2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--primary, #695af2);
+}
+
+.practice-infra__pillar-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  display: block;
+}
+
+.practice-infra__pillar-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark-gray, #474555);
+  margin: 0 0 8px 0;
 }
 
 .practice-infra__pillar-lead {
   font-family: var(--font-display, 'Newsreader', serif);
-  font-size: clamp(18px, 2.2vw, 22px);
+  font-size: clamp(20px, 2.2vw, 26px);
   font-weight: 400;
-  line-height: 1.3;
-  color: var(--primary, #695af2);
-  margin: 0;
+  line-height: 1.2;
+  color: var(--charcoal, #1a1c1d);
+  margin: 0 0 14px 0;
+}
+
+.practice-infra__pillar-divider {
+  width: 28px;
+  height: 2px;
+  background: var(--primary, #695af2);
+  margin-bottom: 16px;
+  flex-shrink: 0;
 }
 
 .practice-infra__pillar-body {
-  margin: 0;
-  font-size: 15px;
+  margin: 0 0 20px 0;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--dark-gray, #474555);
   flex: 1;
 }
 
 .practice-infra__pillar-meta {
-  margin: 8px 0 0 0;
+  margin: 0;
   font-size: 13px;
-  font-weight: 500;
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 1.8;
   color: var(--dark-gray, #474555);
+  border-top: 1px solid var(--gray, #e2e2e2);
+  padding-top: 16px;
 }
 
 .practice-infra__sep {
-  font-weight: 400;
   color: var(--dark-gray, #474555);
-  opacity: 0.45;
+  opacity: 0.4;
 }
 
-.practice-infra__tag-link,
-.practice-infra__pillar-cta {
+.practice-infra__tag-link {
   color: var(--charcoal, #1a1c1d);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.practice-infra__tag-link:hover,
-.practice-infra__pillar-cta:hover {
+.practice-infra__tag-link:hover {
   color: var(--primary, #695af2);
 }
 
 .practice-infra__pillar-cta {
-  font-weight: 600;
   color: var(--primary, #695af2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 .practice-infra__pillar-cta:hover {
   color: var(--primary-dark, #503dd8);
 }
 
-.practice-infra__closing {
-  margin: clamp(40px, 6vw, 56px) auto 0;
-  padding-top: clamp(28px, 4vw, 40px);
+/* ── Bottom principles bar ── */
+.practice-infra__principles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: clamp(40px, 6vw, 60px);
   border-top: 1px solid var(--gray, #e2e2e2);
-  font-size: clamp(16px, 1.8vw, 18px);
+  border-bottom: 1px solid var(--gray, #e2e2e2);
+}
+
+.practice-infra__principle {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  padding: clamp(20px, 3vw, 28px) clamp(16px, 2vw, 24px);
+  border-right: 1px solid var(--gray, #e2e2e2);
+}
+
+.practice-infra__principle:last-child {
+  border-right: none;
+}
+
+/* icon wrapper — fixed square so SVG sizes correctly */
+.practice-infra__principle-icon-wrap {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary, #695af2);
+}
+
+.practice-infra__principle-icon-wrap svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  display: block;
+}
+
+.practice-infra__principle-text {
+  font-size: 13px;
   font-weight: 500;
   line-height: 1.55;
   color: var(--charcoal, #1a1c1d);
-  text-align: center;
-  max-width: 48rem;
+  padding-top: 4px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .practice-infra__graphic {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .practice-infra__orbital {
+    width: 100%;
+    height: 160px;
+  }
+
+  .practice-infra__checklist {
+    width: 100%;
+  }
 }
 
 @media (max-width: 900px) {
+  .practice-infra__intro-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
   .practice-infra__pillars {
     grid-template-columns: 1fr;
+  }
+
+  .practice-infra__principles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .practice-infra__principle:nth-child(2) {
+    border-right: none;
+  }
+
+  .practice-infra__principle:nth-child(3) {
+    border-right: 1px solid var(--gray, #e2e2e2);
+    border-top: 1px solid var(--gray, #e2e2e2);
+  }
+
+  .practice-infra__principle:nth-child(4) {
+    border-right: none;
+    border-top: 1px solid var(--gray, #e2e2e2);
+  }
+}
+
+@media (max-width: 600px) {
+  .practice-infra__principles {
+    grid-template-columns: 1fr;
+  }
+
+  .practice-infra__principle {
+    border-right: none;
+    border-bottom: 1px solid var(--gray, #e2e2e2);
+  }
+
+  .practice-infra__principle:last-child {
+    border-bottom: none;
   }
 }

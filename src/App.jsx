@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react'
-import AutoplayVideoModal from './components/AutoplayVideoModal'
+// import AutoplayVideoModal from './components/AutoplayVideoModal'
+import PodcastBanner from './components/PodcastBanner'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -78,7 +79,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-      <AutoplayVideoModal
+      {/* <AutoplayVideoModal
         open={videoOpen}
         onClose={() => {
           try {
@@ -86,7 +87,8 @@ function App() {
           } catch (err) {}
           setVideoOpen(false)
         }}
-      />
+      /> */}
+      <PodcastBanner />
       <Footer />
     </BrowserRouter>
   )
