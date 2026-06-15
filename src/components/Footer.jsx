@@ -107,8 +107,8 @@ export default function Footer() {
         <h2 className="footer__col-heading">CONTACT</h2>
 
         <div className="footer__contact">
-          <div>+1 (631) 792 6023</div>
-          <div>{CONTACT_EMAIL}</div>
+          <div><a href="tel:+16317926023">+1 (631) 792 6023</a></div>
+          <div><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></div>
           <div>Lewes ,DEL</div>
         </div>
 
