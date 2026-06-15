@@ -761,7 +761,7 @@
 }
 
 /* ========== Mobile menu toggle ========== */
-.navbar .visually-hidden {
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -911,6 +911,7 @@
   align-items: center;
   justify-content: center;
   width: 52px;
+  height: 52px;
   flex-shrink: 0;
   padding: 0;
   color: var(--charcoal);
@@ -923,6 +924,11 @@
 .mobile-nav__group-toggle svg {
   width: 20px;
   height: 20px;
+  fill: none;
+  stroke: var(--charcoal);
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
   transition: transform 0.25s ease;
 }
 
