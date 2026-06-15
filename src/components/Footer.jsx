@@ -5,7 +5,7 @@ import { TbBrandLinkedin, TbBrandInstagram } from 'react-icons/tb'
 import { ArrowRight } from 'lucide-react'
 import { CLIENT_PORTAL_PATH } from '../constants/routes.js'
 
-const CONTACT_EMAIL = 'hello@gosocialsect.com'
+const CONTACT_EMAIL = 'sales@gosocialsect.com'
 const LINKEDIN_URL = 'https://www.linkedin.com/company/socialsect'
 const INSTAGRAM_URL = 'https://www.instagram.com/gosocialsect/'
 const CAREERS_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Careers at Socialsect')}`
@@ -30,7 +30,7 @@ export default function Footer() {
       <div>
         <h3>Your appointment book is our bottom line.</h3>
         <p>
-          Let's build a system that keeps it full—every month.
+          Let's build a system that keeps it full every month.
         </p>
       </div>
     </div>
@@ -107,9 +107,9 @@ export default function Footer() {
         <h2 className="footer__col-heading">CONTACT</h2>
 
         <div className="footer__contact">
-          <div>(305) 404-8757</div>
+          <div>+1 (631) 792 6023</div>
           <div>{CONTACT_EMAIL}</div>
-          <div>Miami, FL</div>
+          <div>Lewes ,DEL</div>
         </div>
 
         <BookCallLink className="footer__audit-link">
