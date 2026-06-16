@@ -167,8 +167,15 @@
 
   .home-philosophy__image-wrap {
     grid-row: auto;
-    max-height: 340px;
-    aspect-ratio: 16 / 9;
+    max-height: none;
+    aspect-ratio: auto;
+  }
+
+  .home-philosophy__image-wrap img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center center;
   }
 
   .home-philosophy__features {

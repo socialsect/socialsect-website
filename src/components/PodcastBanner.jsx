@@ -1,22 +1,100 @@
-import React, { useState, useEffect } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useLayoutEffect,
+} from 'react'
 import './PodcastBanner.css'
 
 const PodcastBanner = () => {
   const [isOpen, setIsOpen] = useState(true)
   const [dragging, setDragging] = useState(false)
+  const [position, setPosition] = useState(null)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const bannerRef = useRef(null)
+  const positionRef = useRef({ x: 0, y: 0 })
 
-  const [position, setPosition] = useState(() => {
-    const saved = localStorage.getItem(
-      'podcastBannerPosition'
-    )
+  useLayoutEffect(() => {
+  // Use clientWidth/clientHeight — more reliable than innerWidth/innerHeight on mobile
+  // These exclude scrollbars and match the actual visible viewport
+  const vw = document.documentElement.clientWidth
+  const vh = document.documentElement.clientHeight
+  //   const vw = document.documentElement.clientWidth
+  // const vh = document.documentElement.clientHeight
+  console.log('viewport:', vw, vh)
+  console.log('saved position:', localStorage.getItem('podcastBannerPosition'))
+   if (!localStorage.getItem('podcastBannerPositionV2')) {
+    localStorage.removeItem('podcastBannerPosition')
+    localStorage.setItem('podcastBannerPositionV2', '1')
+  }
 
-    return saved
-      ? JSON.parse(saved)
-      : {
-          x: window.innerWidth - 340,
-          y: window.innerHeight - 140,
+  // Approximate banner dimensions to avoid getBoundingClientRect() returning 0
+  // on a visibility:hidden element. Adjust if your banner size changes.
+  const BANNER_W = vw <= 768 ? 180 : 220
+  const BANNER_H = vw <= 768 ? 56 : 70
+  const PADDING = 16
+
+  const maxX = vw - BANNER_W - PADDING
+  const maxY = vh - BANNER_H - PADDING
+
+  let initialPosition = null
+  try {
+    const saved = localStorage.getItem('podcastBannerPosition')
+    initialPosition = saved ? JSON.parse(saved) : null
+  } catch {
+    initialPosition = null
+  }
+
+  const nextPosition =
+    initialPosition &&
+    typeof initialPosition.x === 'number' &&
+    typeof initialPosition.y === 'number'
+      ? {
+          x: Math.min(Math.max(PADDING, initialPosition.x), maxX),
+          y: Math.min(Math.max(PADDING, initialPosition.y), maxY),
         }
-  })
+      : { x: maxX, y: maxY } // bottom-right corner
+
+  setPosition(nextPosition)
+  positionRef.current = nextPosition
+}, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      const banner = bannerRef.current
+      const current = positionRef.current
+      if (!banner || current == null) return
+
+      const rect = banner.getBoundingClientRect()
+      const maxX = Math.max(
+        16,
+        window.innerWidth - rect.width - 16
+      )
+      const maxY = Math.max(
+        16,
+        window.innerHeight - rect.height - 16
+      )
+
+      const nextPosition = {
+        x: Math.min(
+          Math.max(16, current.x),
+          maxX
+        ),
+        y: Math.min(
+          Math.max(16, current.y),
+          maxY
+        ),
+      }
+
+      positionRef.current = nextPosition
+      setPosition(nextPosition)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
     const dismissed = localStorage.getItem(
@@ -27,25 +105,41 @@ const PodcastBanner = () => {
       setIsOpen(false)
     }
   }, [])
-const [showTooltip, setShowTooltip] = useState(false)
-useEffect(() => {
-  const seen = localStorage.getItem(
-    'podcastBannerTooltipSeen'
-  )
 
-  if (!seen) {
-    setShowTooltip(true)
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setMenuOpen(document.body.style.overflow === 'hidden')
+    })
 
-    setTimeout(() => {
-      setShowTooltip(false)
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['style'],
+    })
 
-      localStorage.setItem(
-        'podcastBannerTooltipSeen',
-        '1'
-      )
-    }, 4000)
-  }
-}, [])
+    return () => observer.disconnect()
+  }, [])
+
+  const [showTooltip, setShowTooltip] = useState(false)
+
+  useEffect(() => {
+    const seen = localStorage.getItem(
+      'podcastBannerTooltipSeen'
+    )
+
+    if (!seen) {
+      setShowTooltip(true)
+
+      setTimeout(() => {
+        setShowTooltip(false)
+
+        localStorage.setItem(
+          'podcastBannerTooltipSeen',
+          '1'
+        )
+      }, 4000)
+    }
+  }, [])
+
   const handleClose = () => {
     setIsOpen(false)
     localStorage.setItem(
@@ -89,8 +183,7 @@ useEffect(() => {
         event.touches?.[0]?.clientY ||
         event.clientY
 
-      const banner =
-        document.querySelector('.podcast-banner')
+      const banner = bannerRef.current
 
       if (!banner) return
 
@@ -120,6 +213,7 @@ useEffect(() => {
       }
 
       setPosition(newPos)
+      positionRef.current = newPos
     }
 
     const stop = () => {
@@ -127,7 +221,7 @@ useEffect(() => {
 
       localStorage.setItem(
         'podcastBannerPosition',
-        JSON.stringify(position)
+        JSON.stringify(positionRef.current)
       )
 
       window.removeEventListener(
@@ -172,21 +266,30 @@ useEffect(() => {
 
   return (
     <div
+      ref={bannerRef}
       className={`podcast-banner ${
         !isOpen
           ? 'podcast-banner--collapsed'
           : ''
       }`}
-      
       onMouseDown={startDrag}
       onTouchStart={startDrag}
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-        cursor: dragging
-          ? 'grabbing'
-          : 'grab',
-      }}
+      style={
+        position
+          ? {
+              left: `${position.x}px`,
+              top: `${position.y}px`,
+              cursor: dragging
+                ? 'grabbing'
+                : 'grab',
+              visibility: menuOpen ? 'hidden' : undefined,
+            }
+          : {
+              visibility: 'hidden',
+              left: '16px',
+              top: '16px',
+            }
+      }
     >
       {isOpen && (
         <span className="podcast-banner__label">
