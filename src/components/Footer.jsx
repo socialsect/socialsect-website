@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import BookCallLink from './BookCallLink'
 import './Footer.css'
 import { TbBrandLinkedin, TbBrandInstagram } from 'react-icons/tb'
+import { FaGithub } from 'react-icons/fa'
 import { ArrowRight } from 'lucide-react'
 import { CLIENT_PORTAL_PATH } from '../constants/routes.js'
 
@@ -64,6 +65,9 @@ export default function Footer() {
 
           <a href={INSTAGRAM_URL}>
             <TbBrandInstagram />
+          </a>
+          <a href="https://github.com/socialsect" target="_blank" rel="noopener noreferrer" aria-label="Socialsect on GitHub">
+            <FaGithub />
           </a>
         </div>
       </section>

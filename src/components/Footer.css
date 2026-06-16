@@ -243,9 +243,7 @@
 }
 
 @media (max-width: 767px) {
-  .footer {
-    padding: 8px 8px 80px; /* reduced — just enough for podcast banner */
-  }
+
 
   .footer__card {
     border-radius: 20px;
