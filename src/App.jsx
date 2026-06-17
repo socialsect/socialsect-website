@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react'
 // import AutoplayVideoModal from './components/AutoplayVideoModal'
 import PodcastBanner from './components/PodcastBanner'
+import GrowthAuditorLauncher from './components/growth-auditor/GrowthAuditorLauncher'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -89,6 +90,7 @@ function App() {
         }}
       /> */}
       <PodcastBanner />
+      <GrowthAuditorLauncher />
       <Footer />
     </BrowserRouter>
   )

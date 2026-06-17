@@ -1,0 +1,63 @@
+.auditor-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: var(--primary, #695AF2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(105, 90, 242, 0.3);
+  transition: all 0.2s ease;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+}
+
+.auditor-launcher:hover {
+  background: var(--primary-dark, #503DD8);
+  box-shadow: 0 6px 16px rgba(105, 90, 242, 0.4);
+  transform: translateY(-2px);
+}
+
+.auditor-launcher:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(105, 90, 242, 0.3);
+}
+
+.auditor-launcher__icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.auditor-launcher__label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 480px) {
+  .auditor-launcher {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 11px;
+  }
+
+  .auditor-launcher__icon {
+    font-size: 18px;
+  }
+
+  .auditor-launcher__label {
+    font-size: 9px;
+  }
+}

@@ -176,19 +176,23 @@
 }
 
 .navbar--hero .btn-primary {
-  background:var(--primary);
-  border: none !important;
-  border-radius: 8px !important;
-  padding: 11px 22px !important;
+  background-color: var(--primary) !important;
+  border: 1px solid var(--primary) !important;
+  border-radius: 6px !important;
+  padding: 12px 28px !important;
   font-size: 14px !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   white-space: nowrap;
+  position: relative;
+  letter-spacing: 0.01em;
+  box-shadow: 0 3px 10px rgba(105, 90, 242, 0.22) !important;
 }
 
 .navbar--hero .btn-primary:hover {
-  background: linear-gradient(135deg, #8b6ff7 0%, #6b9af1 100%) !important;
-  box-shadow: 0 6px 24px rgba(105, 90, 242, 0.45);
-  transform: none;
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  box-shadow: 0 6px 18px rgba(105, 90, 242, 0.32) !important;
+  transform: translateY(-1px) !important;
 }
 
 .navbar--hero .nav-menu-toggle {
@@ -240,6 +244,12 @@
     opacity: 1;
     filter: blur(0);
   }
+}
+
+@keyframes btn-pulse-glow {
+  0% { box-shadow: 0 3px 10px rgba(105, 90, 242, 0.22); }
+  50% { box-shadow: 0 4px 14px rgba(105, 90, 242, 0.28); }
+  100% { box-shadow: 0 3px 10px rgba(105, 90, 242, 0.22); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -727,17 +737,74 @@
 }
 
 .btn-primary {
-  padding: 10px 20px !important;
-  font-size: 14px !important;
-  border-radius: 6px !important;
-  font-weight: 600 !important;
-  transition: all 0.2s ease !important;
+  padding: 12px 28px !important;
+  font-size: 15px !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
   border: 1px solid var(--primary) !important;
+  animation: btn-pulse-glow 3s ease-in-out infinite !important;
+  position: relative;
+  letter-spacing: 0.3px;
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(105, 90, 242, 0.3) !important;
+  transform: translateY(-3px) scale(1.08) !important;
+  box-shadow: 0 8px 28px rgba(105, 90, 242, 0.5) !important;
+  background: linear-gradient(135deg, var(--primary) 0%, #5a7fee 100%) !important;
+  animation: none !important;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(1.05) !important;
+}
+
+/* Extra emphasis for the main CTA in the navbar — premium, restrained style */
+.nav-cta--book-call {
+  padding: 14px 40px !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  background-color: var(--primary) !important;
+  border: 2px solid var(--primary) !important;
+  color: var(--white) !important;
+  box-shadow: 0 6px 20px rgba(105, 90, 242, 0.4) !important;
+  animation: btn-pulse-glow 2s ease-in-out infinite !important;
+  z-index: 3 !important;
+  position: relative;
+}
+
+.nav-cta--book-call::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 0 rgba(105, 90, 242, 0.5);
+  transition: box-shadow 0.3s ease;
+  pointer-events: none;
+}
+
+.nav-cta--book-call:hover::before {
+  box-shadow: 0 0 0 6px rgba(105, 90, 242, 0);
+}
+
+.nav-cta--book-call:hover {
+  background-color: var(--white) !important;
+  border: 2px solid var(--primary-dark) !important;
+  color: var(--primary) !important;
+  box-shadow: 0 8px 24px rgba(105, 90, 242, 0.6) !important;
+  transform: translateY(-4px) scale(1.07) !important;
+  animation: none !important;
+}
+
+
+.nav-cta--book-call:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  box-shadow: 0 8px 24px rgba(105, 90, 242, 0.35) !important;
+  transform: translateY(-2px) !important;
 }
 
 @media (max-width: 1200px) {

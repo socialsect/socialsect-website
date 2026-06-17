@@ -5,6 +5,8 @@ import { processBookACall } from '../lib/handlers/book-a-call.js'
 import { processNewsletter } from '../lib/handlers/newsletter.js'
 import { processReferenceRequest } from '../lib/handlers/reference-request.js'
 import { processResourceDownload } from '../lib/handlers/resource-download.js'
+import { processChat } from '../lib/handlers/chat.js'
+import { processAuditChat } from '../lib/handlers/audit-chat.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const projectRoot = path.resolve(__dirname, '..')
@@ -15,6 +17,8 @@ const ROUTES = {
   '/api/newsletter': processNewsletter,
   '/api/reference-request': processReferenceRequest,
   '/api/resource-download': processResourceDownload,
+  '/api/chat': processChat,
+  '/api/chat/audit': processAuditChat,
 }
 
 function loadProjectEnv(mode = 'development') {

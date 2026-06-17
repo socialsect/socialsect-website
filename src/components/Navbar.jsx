@@ -461,7 +461,7 @@ export default function Navbar() {
             <Link to={CLIENT_PORTAL_PATH} className="portal-link">
               Client portal →
             </Link>
-            <BookCallLink className="btn btn-primary">
+            <BookCallLink className="btn btn-primary nav-cta--book-call">
               Book a call
             </BookCallLink>
           </div>

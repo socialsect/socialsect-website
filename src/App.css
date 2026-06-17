@@ -262,13 +262,14 @@ p {
 }
 
 .btn-primary {
-  background-color: var(--primary);
+  background-color:#695AF2;
+  
   color: var(--white);
   border-color: var(--charcoal);
-}
+} 
 
 .btn-primary:hover {
-  background-color: var(--primary-dark);
+  background-color: #695AF2;
   transform: translateY(-2px);
   color: var(--white);
   border-color: var(--white);
