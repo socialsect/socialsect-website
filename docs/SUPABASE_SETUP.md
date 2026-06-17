@@ -1,5 +1,4 @@
 # Supabase submission logging
-
 Every form submission follows this order:
 
 1. **Team email** → `RESEND_NOTIFY_EMAILS`
