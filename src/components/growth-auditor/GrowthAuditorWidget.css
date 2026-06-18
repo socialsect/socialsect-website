@@ -299,6 +299,72 @@
   transform: translateY(-1px);
 }
 
+/* Audit Form */
+.audit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-top: 1px solid var(--gray, #E2E2E2);
+}
+
+.audit-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.audit-form__input {
+  padding: 11px 12px;
+  border: 1px solid var(--gray, #E2E2E2);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+.audit-form__input:focus {
+  outline: none;
+  border-color: var(--primary, #695AF2);
+  box-shadow: 0 0 0 3px rgba(105, 90, 242, 0.1);
+}
+
+.audit-form__input:disabled {
+  background: var(--light-gray, #F5F5F7);
+  color: var(--dark-gray, #474555);
+  cursor: not-allowed;
+}
+
+.audit-form__input::placeholder {
+  color: var(--dark-gray, #474555);
+}
+
+.audit-form__submit {
+  width: 100%;
+  padding: 12px 20px;
+  background: var(--primary, #695AF2);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  margin-top: 4px;
+}
+
+.audit-form__submit:hover:not(:disabled) {
+  background: var(--primary-dark, #503DD8);
+  transform: translateY(-1px);
+}
+
+.audit-form__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .chat-widget {

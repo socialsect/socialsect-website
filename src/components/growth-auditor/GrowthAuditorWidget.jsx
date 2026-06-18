@@ -11,8 +11,15 @@ export default function GrowthAuditorWidget({ onClose }) {
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
-  const [auditData, setAuditData] = useState({ name: '', email: '', website: '' })
-  const [auditStep, setAuditStep] = useState('name') // name | email | website | analyzing | complete
+  
+  // Audit form state
+  const [auditForm, setAuditForm] = useState({
+    name: '',
+    company: '',
+    email: '',
+    website: ''
+  })
+  const [auditResult, setAuditResult] = useState(null)
   const [error, setError] = useState(null)
   const messagesEndRef = useRef(null)
 
@@ -36,8 +43,7 @@ export default function GrowthAuditorWidget({ onClose }) {
     } else if (selectedMode === 'audit') {
       setMode('audit')
       addMessage("Let's audit my website", 'user')
-      setAuditStep('name')
-      addMessage("Great! Let's start with your name. What should I call you?", 'bot')
+      addMessage("Perfect! Please fill in your details below and I'll analyze your website.", 'bot')
     } else if (selectedMode === 'question') {
       setMode('question')
       setInput('')
@@ -49,10 +55,22 @@ export default function GrowthAuditorWidget({ onClose }) {
     setError(null)
 
     try {
+      // Build conversation history (convert display messages to chat format)
+      const conversationHistory = messages
+        .filter(msg => msg.type !== 'bot' || !msg.text.includes('Thinking'))
+        .slice(-10) // last 10 messages
+        .map(msg => ({
+          role: msg.type === 'user' ? 'user' : 'assistant',
+          content: msg.text
+        }))
+
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: query, mode: 'info' })
+        body: JSON.stringify({ 
+          message: query,
+          conversationHistory: conversationHistory
+        })
       })
 
       if (!response.ok) {
@@ -89,68 +107,79 @@ export default function GrowthAuditorWidget({ onClose }) {
     }
   }
 
-  const handleAuditInput = (value) => {
-    if (auditStep === 'name') {
-      if (value.trim().length > 0) {
-        setAuditData(prev => ({ ...prev, name: value }))
-        addMessage(value, 'user')
-        setAuditStep('email')
-        addMessage("Thanks! Now, what's your email address?", 'bot')
-        setInput('')
-      }
-    } else if (auditStep === 'email') {
-      if (value.includes('@')) {
-        setAuditData(prev => ({ ...prev, email: value }))
-        addMessage(value, 'user')
-        setAuditStep('website')
-        addMessage("Perfect! What's your website URL? (e.g., mymedicalclinic.com)", 'bot')
-        setInput('')
-      }
-    } else if (auditStep === 'website') {
-      if (value.trim().length > 0) {
-        setAuditData(prev => ({ ...prev, website: value }))
-        addMessage(value, 'user')
-        setAuditStep('analyzing')
-        addMessage('Analyzing your website...', 'bot')
-        runWebsiteAudit(auditData.name, auditData.email, value)
-        setInput('')
-      }
-    }
+  const handleAuditFormChange = (e) => {
+    const { name, value } = e.target
+    setAuditForm(prev => ({ ...prev, [name]: value }))
   }
 
-  const runWebsiteAudit = async (name, email, website) => {
+  const submitAuditForm = async (e) => {
+    e.preventDefault()
+    
+    // Validate form
+    if (!auditForm.name.trim() || !auditForm.company.trim() || !auditForm.email.trim() || !auditForm.website.trim()) {
+      setError('Please fill in all fields')
+      return
+    }
+
+    // Validate email
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(auditForm.email)) {
+      setError('Please enter a valid email address')
+      return
+    }
+
     setLoading(true)
     setError(null)
 
     try {
-      // Build transcript
-      const transcript = messages.map(m => `${m.type === 'user' ? 'You' : 'Assistant'}: ${m.text}`).join('\n')
+      addMessage(`Auditing ${auditForm.website}...`, 'user')
+      addMessage('Analyzing your website. This may take a moment...', 'bot')
 
+      // Normalize URL
+      let url = auditForm.website.trim()
+      if (!url.startsWith('http')) {
+        url = 'https://' + url
+      }
+
+      console.log('[Widget] Submitting audit for:', { name: auditForm.name, company: auditForm.company, email: auditForm.email, website: url })
+
+      // Send to backend audit endpoint
       const response = await fetch('/api/chat/audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name,
-          email,
-          website,
-          conversationTranscript: transcript
+          name: auditForm.name,
+          company: auditForm.company,
+          email: auditForm.email,
+          website: url,
+          conversationTranscript: ''
         })
       })
 
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: response.statusText }))
+        console.error('[Widget] API error response:', errorData)
+        throw new Error(errorData.error || `API error: ${response.status}`)
+      }
+
       const data = await response.json()
+      console.log('[Widget] Audit response:', { success: data.success, hasAnalysis: !!data.analysis })
 
       if (data.success) {
-        addMessage(data.analysis, 'bot')
-        addMessage("We've sent your full audit analysis to your email. Our team will reach out to schedule a 10-15 minute strategy call to discuss these findings and next steps.", 'bot')
-        setAuditStep('complete')
+        setAuditResult(data)
         setMode('result')
+        
+        // Clear the "Analyzing..." message and add results
+        setMessages(prev => prev.slice(0, -1))
+        addMessage(data.analysis, 'bot')
+        addMessage("We've sent a detailed report to your email. Our team will reach out to schedule a strategy call to discuss how we can help optimize your site.", 'bot')
       } else {
         setError(data.error || 'Audit failed. Please try again.')
-        setAuditStep('website')
+        setMessages(prev => prev.slice(0, -1)) // Remove "Analyzing..." message
       }
     } catch (err) {
-      setError('Network error during audit. Please try again.')
-      setAuditStep('website')
+      console.error('[Widget] Audit error:', err)
+      setError(`Error: ${err.message}. Please check your internet connection and try again.`)
+      setMessages(prev => prev.slice(0, -1)) // Remove "Analyzing..." message
     } finally {
       setLoading(false)
     }
@@ -168,11 +197,23 @@ export default function GrowthAuditorWidget({ onClose }) {
     setError(null)
 
     try {
+      // Build conversation history (convert display messages to chat format)
+      const conversationHistory = messages
+        .filter(msg => msg.type !== 'bot' || !msg.text.includes('Thinking'))
+        .slice(-10) // last 10 messages
+        .map(msg => ({
+          role: msg.type === 'user' ? 'user' : 'assistant',
+          content: msg.text
+        }))
+
       // Just send to backend - it will handle the AI response
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: question, mode: 'question' })
+        body: JSON.stringify({ 
+          message: question,
+          conversationHistory: conversationHistory
+        })
       })
 
       if (!response.ok) {
@@ -252,18 +293,15 @@ export default function GrowthAuditorWidget({ onClose }) {
               </svg>
               Learn About Socialsect
             </button>
-            <div className="chat-menu__button-wrapper">
-              <button 
-                className="chat-menu__button chat-menu__button--disabled"
-                disabled
-              >
-                <svg className="chat-menu__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m0 2a8 8 0 100 16 8 8 0 000-16m1 4h-2v6h2V8m-1 8a1 1 0 110 2 1 1 0 010-2z"/>
-                </svg>
-                Audit My Website
-              </button>
-              <span className="chat-menu__badge">Coming Soon</span>
-            </div>
+            <button 
+              className="chat-menu__button"
+              onClick={() => handleModeSelect('audit')}
+            >
+              <svg className="chat-menu__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m0 2a8 8 0 100 16 8 8 0 000-16m1 4h-2v6h2V8m-1 8a1 1 0 110 2 1 1 0 010-2z"/>
+              </svg>
+              Audit My Website
+            </button>
             <button 
               className="chat-menu__button"
               onClick={() => handleModeSelect('question')}
@@ -296,41 +334,77 @@ export default function GrowthAuditorWidget({ onClose }) {
         )}
 
         {/* Input */}
-        {(mode === 'info' || mode === 'question' || (mode === 'audit' && auditStep !== 'complete' && auditStep !== 'analyzing')) && mode !== 'menu' && (
+        {mode === 'audit' && !loading && (
+          <form onSubmit={submitAuditForm} className="chat-widget__form audit-form">
+            {error && <p className="chat-widget__error">{error}</p>}
+            <div className="audit-form__fields">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={auditForm.name}
+                onChange={handleAuditFormChange}
+                disabled={loading}
+                className="audit-form__input"
+              />
+              <input
+                type="text"
+                name="company"
+                placeholder="Company/Practice Name"
+                value={auditForm.company}
+                onChange={handleAuditFormChange}
+                disabled={loading}
+                className="audit-form__input"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={auditForm.email}
+                onChange={handleAuditFormChange}
+                disabled={loading}
+                className="audit-form__input"
+              />
+              <input
+                type="text"
+                name="website"
+                placeholder="Website URL (e.g., example.com)"
+                value={auditForm.website}
+                onChange={handleAuditFormChange}
+                disabled={loading}
+                className="audit-form__input"
+              />
+            </div>
+            <button 
+              type="submit"
+              disabled={loading || !auditForm.name.trim() || !auditForm.company.trim() || !auditForm.email.trim() || !auditForm.website.trim()}
+              className="audit-form__submit"
+            >
+              {loading ? 'Analyzing...' : 'Analyze My Website'}
+            </button>
+          </form>
+        )}
+
+        {/* Regular chat input for info and question modes */}
+        {(mode === 'info' || mode === 'question') && (
           <form onSubmit={handleQuestionSubmit} className="chat-widget__form">
             {error && <p className="chat-widget__error">{error}</p>}
             <div className="chat-widget__input-group">
               <input
-                type={auditStep === 'email' ? 'email' : 'text'}
-                placeholder={
-                  auditStep === 'name' ? 'Type your name...' :
-                  auditStep === 'email' ? 'Type your email...' :
-                  auditStep === 'website' ? 'Type your website URL...' :
-                  'Type your message...'
-                }
+                type="text"
+                placeholder="Type your message..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={loading}
                 className="chat-widget__input"
               />
-              {mode === 'audit' ? (
-                <button 
-                  type="button"
-                  onClick={() => handleAuditInput(input)}
-                  disabled={loading || !input.trim()}
-                  className="chat-widget__send"
-                >
-                  →
-                </button>
-              ) : (
-                <button 
-                  type="submit"
-                  disabled={loading || !input.trim()}
-                  className="chat-widget__send"
-                >
-                  →
-                </button>
-              )}
+              <button 
+                type="submit"
+                disabled={loading || !input.trim()}
+                className="chat-widget__send"
+              >
+                →
+              </button>
             </div>
           </form>
         )}
