@@ -519,6 +519,20 @@
 .blog-main {
   padding: var(--lg, 60px) var(--gutter, 24px) var(--xl, 128px);
   background: var(--surface);
+  position: relative;
+}
+
+.blog-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/stethoscope.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .blog-main__inner {
@@ -528,6 +542,8 @@
   grid-template-columns: minmax(0, 1fr) 280px;
   gap: clamp(24px, 4vw, 40px);
   align-items: start;
+  position: relative;
+  z-index: 1;
 }
 
 .blog-grid {

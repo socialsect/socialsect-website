@@ -75,6 +75,9 @@ export default function ResourcesPage() {
   const [specialtyFilter, setSpecialtyFilter] = useState('all')
   const [gateResource, setGateResource] = useState(null)
   const [gateEmail, setGateEmail] = useState('')
+  const [gateName, setGateName] = useState('')
+  const [gateWebsite, setGateWebsite] = useState('')
+  const [gateLocation, setGateLocation] = useState('')
   const [gateSubmitting, setGateSubmitting] = useState(false)
   const [gateError, setGateError] = useState('')
   const [gateSubmitted, setGateSubmitted] = useState(false)
@@ -89,6 +92,9 @@ export default function ResourcesPage() {
   function handleDownload(resource) {
     setGateResource(resource)
     setGateEmail('')
+    setGateName('')
+    setGateWebsite('')
+    setGateLocation('')
     setGateError('')
     setGateSubmitted(false)
   }
@@ -100,6 +106,9 @@ export default function ResourcesPage() {
   function closeGate() {
     setGateResource(null)
     setGateEmail('')
+    setGateName('')
+    setGateWebsite('')
+    setGateLocation('')
     setGateError('')
     setGateSubmitting(false)
     setGateSubmitted(false)
@@ -127,6 +136,9 @@ export default function ResourcesPage() {
     try {
       await submitForm('/api/resource-download', {
         email: gateEmail,
+        name: gateName,
+        website: gateWebsite,
+        location: gateLocation,
         resourceTitle: gateResource.title,
         resourceType: gateResource.type,
       })
@@ -396,6 +408,19 @@ export default function ResourcesPage() {
               </div>
             ) : (
               <form className="resources-gate__form" onSubmit={handleGateSubmit}>
+                <label className="visually-hidden" htmlFor="gate-name">
+                  Your name
+                </label>
+                <input
+                  id="gate-name"
+                  type="text"
+                  autoComplete="name"
+                  required
+                  className="resources-gate__input"
+                  placeholder="Your name"
+                  value={gateName}
+                  onChange={(e) => setGateName(e.target.value)}
+                />
                 <label className="visually-hidden" htmlFor="gate-email">
                   Your email address
                 </label>
@@ -408,6 +433,32 @@ export default function ResourcesPage() {
                   placeholder="Your email address"
                   value={gateEmail}
                   onChange={(e) => setGateEmail(e.target.value)}
+                />
+                <label className="visually-hidden" htmlFor="gate-website">
+                  Business website
+                </label>
+                <input
+                  id="gate-website"
+                  type="url"
+                  autoComplete="url"
+                  required
+                  className="resources-gate__input"
+                  placeholder="Business website (e.g., example.com)"
+                  value={gateWebsite}
+                  onChange={(e) => setGateWebsite(e.target.value)}
+                />
+                <label className="visually-hidden" htmlFor="gate-location">
+                  Location
+                </label>
+                <input
+                  id="gate-location"
+                  type="text"
+                  autoComplete="off"
+                  required
+                  className="resources-gate__input"
+                  placeholder="Location (city, country)"
+                  value={gateLocation}
+                  onChange={(e) => setGateLocation(e.target.value)}
                 />
                 {gateError && (
                   <p className="resources-gate__error" role="alert">
