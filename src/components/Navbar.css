@@ -270,6 +270,7 @@
   align-items: center;
   padding: var(--md) var(--gutter);
   position: relative;
+  gap: 8px;
 }
 
 .navbar .logo {
@@ -807,6 +808,20 @@
   transform: translateY(-2px) !important;
 }
 
+/* Mobile adjustments for Book a Call button in header */
+@media (max-width: 768px) {
+  .nav-cta--book-call {
+    padding: 10px 16px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    white-space: nowrap;
+  }
+
+  .nav-cta--book-call:hover {
+    transform: translateY(-1px) !important;
+  }
+}
+
 @media (max-width: 1200px) {
   .dropdown {
     max-width: min(920px, calc(100vw - 32px));
@@ -1175,6 +1190,12 @@
 
   .nav-menu-toggle {
     display: flex;
+    flex-shrink: 0;
+    order: 3;
+  }
+
+  .nav-links__actions--desktop {
+    display: none !important;
   }
 
   .nav-overlay {
@@ -1188,6 +1209,10 @@
 
   .nav-links--desktop {
     display: none !important;
+  }
+
+  .portal-link {
+    display: none;
   }
 
   .nav-item:hover .dropdown,
