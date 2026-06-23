@@ -26,7 +26,17 @@ Every chat conversation is now automatically reviewed by the AI model and sent t
   - **Action Items**: What happened (e.g., "Audit triggered", "Question answered")
   - **Next Steps**: What the team should do
 
-### 3. Chat Transcript Mailer (`lib/chat-transcript-mailer.js`)
+### 3. Lead Detection (`lib/chat-transcript-mailer.js`)
+- Automatically extracts **email addresses** and **website URLs** from conversation
+- If BOTH email and website are present → conversation is marked as a **QUALIFIED LEAD**
+- Lead emails get:
+  - **🔥 LEAD badge** in email subject line
+  - **Highlighted golden section** at top of email
+  - **Clickable email link** (mailto)
+  - **Clickable website link** (opens in browser)
+  - **"Recommended action: Follow up within 24 hours"** reminder
+
+### 4. Chat Transcript Mailer (`lib/chat-transcript-mailer.js`)
 - Generates formatted HTML email with:
   - AI overview section (highlighted)
   - Full conversation transcript with color-coded speaker roles
@@ -36,10 +46,14 @@ Every chat conversation is now automatically reviewed by the AI model and sent t
 
 ## Email Format
 
-**Subject**: `Chat Transcript Review - [timestamp]`
+**Subject**: `Chat Transcript Review - [timestamp]` or `Chat Transcript Review 🔥 LEAD - [timestamp]` (if qualified lead detected)
 
 **Content**:
 ```
+🔥 QUALIFIED LEAD DETECTED (if both email + website found)
+├─ Email: [clickable link]
+└─ Website: [clickable link]
+
 AI Overview (highlighted in purple)
 ├─ Key topics, intent, sentiment
 ├─ Engagement level

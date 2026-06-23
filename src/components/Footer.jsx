@@ -10,7 +10,6 @@ const CONTACT_EMAIL = 'sales@gosocialsect.com'
 const LINKEDIN_URL = 'https://www.linkedin.com/company/socialsect'
 const INSTAGRAM_URL = 'https://www.instagram.com/gosocialsect/'
 const CAREERS_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Careers at Socialsect')}`
-const PRIVACY_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Privacy policy')}`
 
 export default function Footer() {
   return (
@@ -127,7 +126,7 @@ export default function Footer() {
       <div className="footer-sub__row">
         <span>© 2026 Socialsect</span>
         <span>•</span>
-        <a href={PRIVACY_MAILTO}>Privacy policy</a>
+        <Link to="/privacy-policy">Privacy policy</Link>
         <span>•</span>
         <span>Terms of service</span>
       </div>

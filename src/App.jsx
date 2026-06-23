@@ -29,6 +29,8 @@ const ClientPortalPage = lazy(() => import('./pages/client-portal/ClientPortalPa
 const AvivaPage = lazy(() => import('./pages/aviva/AvivaPage'))
 const RegionLandingPage = lazy(() => import('./pages/dermatologists/RegionLandingPage'))
 const SanityArticlesTestPage = lazy(() => import('./pages/debug/SanityArticlesTestPage'))
+const PrivacyPolicyPage = lazy(() => import('./pages/privacy/PrivacyPolicyPage'))
+const VisibilityPage = lazy(() => import('./pages/visibility/index'))
 
 const routeFallback = (
   <div className="route-loading" role="status" aria-live="polite">
@@ -77,6 +79,8 @@ function App() {
           <Route path="/client-portal" element={<ClientPortalPage />} />
           <Route path="/aviva" element={<AvivaPage />} />
           <Route path="/debug/sanity-articles" element={<SanityArticlesTestPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/where-your-implant-practice-is-going-wrong" element={<VisibilityPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
