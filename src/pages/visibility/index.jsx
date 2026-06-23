@@ -103,21 +103,32 @@ export default function VisibilityPage() {
       });
 
       const responseText = await response.text();
-      // console.log('Raw Response:', responseText);
+      const timestamp = new Date().toISOString();
+      console.log(`[${timestamp}] ========== VISIBILITY FORM SUBMIT START ==========`);
+      console.log(`[${timestamp}] API Response Status: ${response.status}`);
+      console.log(`[${timestamp}] Response Length: ${responseText.length} chars`);
 
       let data;
       try {
         data = JSON.parse(responseText);
+        console.log(`[${timestamp}] ✓ Response parsed successfully`);
       } catch (parseError) {
-        console.error('Failed to parse JSON:', parseError, 'Response:', responseText);
+        console.error(`[${timestamp}] ❌ JSON Parse Error:`, parseError.message);
+        console.error(`[${timestamp}] Response: ${responseText.substring(0, 300)}`);
         setFormState('error');
         setLoading(false);
         return;
       }
 
-      console.log('API Response:', data);
+      console.log(`[${timestamp}] API Response:`, data);
 
       if (response.ok && data.snapshot) {
+        console.log(`[${timestamp}] ✓ Success! Snapshot data source: ${data.data?.dataSource}`);
+        console.log(`[${timestamp}] Scores:`, {
+          visibility: data.snapshot.visibilityScore,
+          performance: data.snapshot.performanceScore,
+          mobile: data.snapshot.mobileScore,
+        });
         setSnapshotData(data.snapshot);
 
         if (window.gtag) {
