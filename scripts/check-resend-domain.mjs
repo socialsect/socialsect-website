@@ -11,14 +11,14 @@ import { buildFromAddress, parseEmailAddress } from '../lib/env.js'
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 Object.assign(process.env, loadEnv('development', root, ''))
 
-const apiKey = process.env.RESEND_API_KEY
+const apiKey = process.env.RESEND2
 const fromRaw = process.env.RESEND_FROM_EMAIL || ''
 const fromSent = buildFromAddress()
 const fromAddress = parseEmailAddress(fromRaw || fromSent)
 const fromDomain = fromAddress.includes('@') ? fromAddress.split('@')[1] : '(could not parse)'
 
 if (!apiKey) {
-  console.error('Missing RESEND_API_KEY in socialsect-website/.env')
+  console.error('Missing RESEND2 in socialsect-website/.env')
   process.exit(1)
 }
 

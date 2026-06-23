@@ -614,6 +614,23 @@ function regionLandingConfig(pathname, params) {
   }
 }
 
+function visibilityConfig() {
+  const canonicalUrl = absoluteUrl('/where-your-implant-practice-is-going-wrong')
+  const title = 'Free Implant Practice Visibility Snapshot | Socialsect'
+  const description = 'See how your implant practice compares to local competitors. Get your free visibility audit showing reviews gap, competitor position, and missed patient opportunities.'
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: DEFAULT_IMAGE,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: ['implant dentistry', 'visibility audit', 'practice marketing', 'implant practice', 'dental visibility'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
 function notFoundConfig() {
   const canonicalUrl = absoluteUrl('/404')
   const title = 'Page not found | Socialsect'
@@ -667,6 +684,7 @@ export function getSeoConfig(pathname) {
     { path: '/book-a-call', config: bookCallConfig },
     { path: '/client-portal', config: clientPortalConfig },
     { path: '/aviva', config: avivaConfig },
+    { path: '/where-your-implant-practice-is-going-wrong', config: visibilityConfig },
   ]
 
   for (const { path, config } of exactMatches) {

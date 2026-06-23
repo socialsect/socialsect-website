@@ -9,8 +9,8 @@ export default function VisibilityPage() {
     email: '',
   });
   const [errors, setErrors] = useState({});
+  const [snapshotData, setSnapshotData] = useState(null);
 
-  // Prefill email from URL parameter
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const emailParam = params.get('email');
@@ -21,7 +21,6 @@ export default function VisibilityPage() {
       setFormData(prev => ({ ...prev, email: emailParam }));
     }
 
-    // Track page view
     if (window.gtag) {
       window.gtag('event', 'page_view', {
         page_path: '/visibility',
@@ -31,7 +30,6 @@ export default function VisibilityPage() {
       });
     }
 
-    // LinkedIn Pixel
     if (window.lintrk) {
       window.lintrk('track', { conversion_id: 13582007 });
     }
@@ -62,7 +60,6 @@ export default function VisibilityPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validation
     const newErrors = {};
     if (!formData.website.trim()) {
       newErrors.website = 'Website URL is required';
@@ -81,7 +78,6 @@ export default function VisibilityPage() {
       return;
     }
 
-    // Track form started
     if (window.gtag) {
       window.gtag('event', 'form_started', {
         form_name: 'visibility_snapshot',
@@ -92,25 +88,38 @@ export default function VisibilityPage() {
     setFormState('loading');
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 3000));
-
-      // Make actual submission
+      const normalizedUrl = formData.website.startsWith('http') ? formData.website : `https://${formData.website}`;
+      
+      // Call PageSpeed API to get real data
       const response = await fetch('/api/visibility-snapshot', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...formData,
-          website: formData.website.startsWith('http') ? formData.website : `https://${formData.website}`,
+          website: normalizedUrl,
+          email: formData.email,
           source: new URLSearchParams(window.location.search).get('source') || 'direct',
           campaign: new URLSearchParams(window.location.search).get('campaign') || 'organic',
-          niche: 'implant-dentistry',
-          timestamp: new Date().toISOString(),
         }),
       });
 
-      if (response.ok) {
-        // Track snapshot requested
+      const responseText = await response.text();
+      console.log('Raw Response:', responseText);
+
+      let data;
+      try {
+        data = JSON.parse(responseText);
+      } catch (parseError) {
+        console.error('Failed to parse JSON:', parseError, 'Response:', responseText);
+        setFormState('error');
+        setLoading(false);
+        return;
+      }
+
+      console.log('API Response:', data);
+
+      if (response.ok && data.snapshot) {
+        setSnapshotData(data.snapshot);
+
         if (window.gtag) {
           window.gtag('event', 'snapshot_requested', {
             form_name: 'visibility_snapshot',
@@ -118,7 +127,6 @@ export default function VisibilityPage() {
           });
         }
 
-        // Track lead submitted
         if (window.gtag) {
           window.gtag('event', 'lead_submitted', {
             form_name: 'visibility_snapshot',
@@ -126,7 +134,6 @@ export default function VisibilityPage() {
           });
         }
 
-        // Meta Pixel
         if (window.fbq) {
           window.fbq('track', 'Lead', {
             content_name: 'Visibility Snapshot',
@@ -216,15 +223,106 @@ export default function VisibilityPage() {
               </div>
             )}
 
-            {formState === 'success' && (
+            {formState === 'success' && snapshotData && (
               <div className="success-state">
-                <div className="success-icon">✓</div>
-                <h3>Your snapshot request has been received.</h3>
-                <p>
-                  We're reviewing your practice visibility and will send the snapshot to <strong>{formData.email}</strong>. 
-                  If there's a clear opportunity, someone from Socialsect may also send a short breakdown.
-                </p>
-                <a href="/" className="visit-btn">Visit Socialsect</a>
+                <div className="snapshot-report">
+                  <div className="report-header">
+                    <h3>Your Visibility Snapshot</h3>
+                    <p className="report-subheader">Analysis for {formData.website}</p>
+                  </div>
+
+                  {/* Core Metrics */}
+                  <div className="metrics-grid">
+                    <div className="metric-card">
+                      <div className="metric-label">Visibility Score</div>
+                      <div className="metric-value">{snapshotData.visibilityScore}</div>
+                      <div className="metric-status" data-status={snapshotData.visibilityStatus}>
+                        {snapshotData.visibilityStatus === 'good' ? '✓ Strong' : snapshotData.visibilityStatus === 'fair' ? '⚠ Needs Work' : '✗ Weak'}
+                      </div>
+                    </div>
+
+                    <div className="metric-card">
+                      <div className="metric-label">Performance Score</div>
+                      <div className="metric-value">{snapshotData.performanceScore}</div>
+                      <div className="metric-status" data-status={snapshotData.performanceStatus}>
+                        {snapshotData.performanceStatus === 'good' ? '✓ Good' : snapshotData.performanceStatus === 'fair' ? '⚠ Fair' : '✗ Poor'}
+                      </div>
+                    </div>
+
+                    <div className="metric-card">
+                      <div className="metric-label">Mobile Experience</div>
+                      <div className="metric-value">{snapshotData.mobileScore}</div>
+                      <div className="metric-status" data-status={snapshotData.mobileStatus}>
+                        {snapshotData.mobileStatus === 'good' ? '✓ Optimized' : snapshotData.mobileStatus === 'fair' ? '⚠ Partial' : '✗ Issues'}
+                      </div>
+                    </div>
+
+                    <div className="metric-card">
+                      <div className="metric-label">Booking Experience</div>
+                      <div className="metric-value">{snapshotData.bookingScore}</div>
+                      <div className="metric-status" data-status={snapshotData.bookingStatus}>
+                        {snapshotData.bookingStatus === 'good' ? '✓ Smooth' : snapshotData.bookingStatus === 'fair' ? '⚠ Friction' : '✗ Blocked'}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Key Findings */}
+                  <div className="findings-section">
+                    <h4>Key Findings</h4>
+                    <div className="findings-list">
+                      {snapshotData.findings.map((finding, idx) => (
+                        <div key={idx} className="finding-item">
+                          <span className={`finding-icon ${finding.type}`}>
+                            {finding.type === 'opportunity' ? '→' : finding.type === 'strength' ? '✓' : '!'}
+                          </span>
+                          <div>
+                            <div className="finding-title">{finding.title}</div>
+                            <div className="finding-detail">{finding.detail}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Missed Opportunity */}
+                  <div className="opportunity-section">
+                    <h4>Estimated Missed Opportunity</h4>
+                    <div className="opportunity-content">
+                      <div className="opportunity-stat">
+                        <div className="opp-number">{snapshotData.missedConsults}</div>
+                        <div className="opp-label">Potential consults/month</div>
+                      </div>
+                      <div className="opportunity-stat">
+                        <div className="opp-number">${snapshotData.estimatedValue}</div>
+                        <div className="opp-label">Monthly revenue impact</div>
+                      </div>
+                    </div>
+                    <p className="opportunity-note">
+                      Based on {snapshotData.localMarketSize} nearby practices and average implant case value of $12,000-$15,000
+                    </p>
+                  </div>
+
+                  {/* Next Steps */}
+                  <div className="next-steps-section">
+                    <h4>What Happens Next</h4>
+                    <ol className="steps-list">
+                      <li>We'll email this snapshot to <strong>{formData.email}</strong></li>
+                      <li>If a significant gap exists, our team will send a brief strategic breakdown</li>
+                      <li>You'll have a clear roadmap to close your visibility gaps</li>
+                    </ol>
+                  </div>
+
+                  <button 
+                    onClick={() => {
+                      setFormState('form');
+                      setSnapshotData(null);
+                      setFormData({ website: '', email: '' });
+                    }}
+                    className="new-audit-btn"
+                  >
+                    Analyze Another Practice
+                  </button>
+                </div>
               </div>
             )}
 

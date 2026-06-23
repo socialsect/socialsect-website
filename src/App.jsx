@@ -84,15 +84,6 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-      {/* <AutoplayVideoModal
-        open={videoOpen}
-        onClose={() => {
-          try {
-            localStorage.setItem('videoModalDismissed', '1')
-          } catch (err) {}
-          setVideoOpen(false)
-        }}
-      /> */}
       <PodcastBanner />
       <GrowthAuditorLauncher />
       <Footer />

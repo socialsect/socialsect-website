@@ -76,7 +76,7 @@ export function devApiPlugin() {
         }
 
         try {
-          if (!process.env.RESEND_API_KEY) {
+          if (!process.env.RESEND2) {
             loadProjectEnv(server.config.mode)
           }
 
