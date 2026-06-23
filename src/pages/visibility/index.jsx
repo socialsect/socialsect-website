@@ -103,7 +103,7 @@ export default function VisibilityPage() {
       });
 
       const responseText = await response.text();
-      console.log('Raw Response:', responseText);
+      // console.log('Raw Response:', responseText);
 
       let data;
       try {
