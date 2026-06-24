@@ -16,7 +16,6 @@ If Supabase is misconfigured, emails still send; a warning is logged in the serv
 3. Paste the contents of `supabase/migrations/001_unified_submissions.sql` and click **Run**.
 
 You should see table **`public.submissions`** under **Table Editor**.
-
 ---
 
 ## 2. Get API credentials
