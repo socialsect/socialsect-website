@@ -631,6 +631,12 @@ input.error {
   font-size: 14px;
 }
 
+.report-data-source {
+  color: #b45309;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
 /* Metrics Grid */
 .metrics-grid {
   display: grid;

@@ -389,7 +389,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            {!isHome && <Link to="/products">Products</Link>}
+            <Link to="/products">Products</Link>
 
             <Link to="/how-we-work">How we work</Link>
 

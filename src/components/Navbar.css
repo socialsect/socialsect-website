@@ -443,15 +443,16 @@
   grid-template-columns: repeat(5, minmax(0, 1fr));
   width: min(1280px, calc(100vw - 40px)) !important;
   max-width: min(1280px, calc(100vw - 40px)) !important;
-  position: absolute;
-  left: 50%;
-  right: auto;
-  top: calc(100% + var(--nav-dropdown-gap));
-  transform: translateX(-50%) translateY(-8px) !important;
+  position: fixed !important;
+  left: 20px !important;
+  right: 20px !important;
+  margin-inline: auto;
+  top: calc(var(--navbar-height) + var(--nav-dropdown-gap)) !important;
+  transform: translateY(-8px) !important;
 }
 
 .nav-item:hover .dropdown-lg.dropdown-mega--who {
-  transform: translateX(-50%) translateY(0) !important;
+  transform: translateY(0) !important;
 }
 
 .nav-item:hover .dropdown-lg {

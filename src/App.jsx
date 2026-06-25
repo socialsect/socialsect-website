@@ -31,6 +31,7 @@ const RegionLandingPage = lazy(() => import('./pages/dermatologists/RegionLandin
 const SanityArticlesTestPage = lazy(() => import('./pages/debug/SanityArticlesTestPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/privacy/PrivacyPolicyPage'))
 const VisibilityPage = lazy(() => import('./pages/visibility/index'))
+const VeinVisibilityPage = lazy(() => import('./pages/visibility/vein'))
 
 const routeFallback = (
   <div className="route-loading" role="status" aria-live="polite">
@@ -81,6 +82,7 @@ function App() {
           <Route path="/debug/sanity-articles" element={<SanityArticlesTestPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/where-your-implant-practice-is-going-wrong" element={<VisibilityPage />} />
+          <Route path="/where-your-vein-clinic-is-going-wrong" element={<VeinVisibilityPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

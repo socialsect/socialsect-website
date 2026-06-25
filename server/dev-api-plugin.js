@@ -7,6 +7,7 @@ import { processReferenceRequest } from '../lib/handlers/reference-request.js'
 import { processResourceDownload } from '../lib/handlers/resource-download.js'
 import { processChat } from '../lib/handlers/chat.js'
 import { processAuditChat } from '../lib/handlers/audit-chat.js'
+import { processVisibilitySnapshot } from '../lib/handlers/visibility-snapshot.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const projectRoot = path.resolve(__dirname, '..')
@@ -19,6 +20,7 @@ const ROUTES = {
   '/api/resource-download': processResourceDownload,
   '/api/chat': processChat,
   '/api/chat/audit': processAuditChat,
+  '/api/visibility-snapshot': processVisibilitySnapshot,
 }
 
 function loadProjectEnv(mode = 'development') {

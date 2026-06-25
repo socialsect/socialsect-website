@@ -631,6 +631,24 @@ function visibilityConfig() {
   }
 }
 
+function veinVisibilityConfig() {
+  const canonicalUrl = absoluteUrl('/where-your-vein-clinic-is-going-wrong')
+  const title = 'Free Vein Clinic Visibility Snapshot | Socialsect'
+  const description =
+    'See how your vein clinic compares to local competitors. Get your free visibility snapshot covering local SEO, patient trust, website performance, and booking experience.'
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: undefined,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: ['vein clinic', 'visibility audit', 'vascular marketing', 'vein treatment', 'local SEO'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
 function notFoundConfig() {
   const canonicalUrl = absoluteUrl('/404')
   const title = 'Page not found | Socialsect'
@@ -685,6 +703,7 @@ export function getSeoConfig(pathname) {
     { path: '/client-portal', config: clientPortalConfig },
     { path: '/aviva', config: avivaConfig },
     { path: '/where-your-implant-practice-is-going-wrong', config: visibilityConfig },
+    { path: '/where-your-vein-clinic-is-going-wrong', config: veinVisibilityConfig },
   ]
 
   for (const { path, config } of exactMatches) {
