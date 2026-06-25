@@ -1,0 +1,8 @@
+@import './index.css';
+@import './App.css';
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

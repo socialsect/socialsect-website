@@ -1,4 +1,4 @@
-import { getSeoConfig } from './src/lib/seo.js'
+import { getSeoConfig } from './lib/seo.js'
 
 export default async function middleware(req) {
   const ua = req.headers.get('user-agent') || ''

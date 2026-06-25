@@ -1,0 +1,131 @@
+import Script from 'next/script'
+import Providers from './providers'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import PodcastBanner from '@/components/PodcastBanner'
+import GrowthAuditorLauncher from '@/components/growth-auditor/GrowthAuditorLauncher'
+import '@/globals.css'
+
+export const viewport = {
+  themeColor: '#695AF2',
+}
+
+export const metadata = {
+  metadataBase: new URL('https://gosocialsect.com'),
+  title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+  description:
+    'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems — one team. No packages. US & UK.',
+  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  openGraph: {
+    siteName: 'Socialsect',
+    locale: 'en_US',
+    type: 'website',
+    title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+    description:
+      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems — one team. No packages. US & UK.',
+    url: 'https://gosocialsect.com/',
+    images: [
+      {
+        url: 'https://gosocialsect.com/social-share.png',
+        width: 1200,
+        height: 630,
+        alt: 'Socialsect - private medical practice growth',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@thesocialsect',
+    creator: '@thesocialsect',
+    title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+    description:
+      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems — one team. No packages. US & UK.',
+    images: ['https://gosocialsect.com/social-share.png'],
+  },
+  icons: {
+    icon: [
+      { url: '/icons/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' },
+      { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/icons/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Socialsect',
+  },
+  other: {
+    'linkedin:url': 'https://gosocialsect.com/',
+    'linkedin:title': 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+    'linkedin:description':
+      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems — one team. No packages. US & UK.',
+    'pinterest:url': 'https://gosocialsect.com/',
+    'pinterest:media': 'https://gosocialsect.com/social-share.png',
+    'pinterest:description':
+      'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+  },
+}
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link
+          rel="preload"
+          href="/fonts/Newsreader-VariableFont_opsz,wght.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Inter-VariableFont_opsz,wght.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
+        <Script
+          type="module"
+          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.esm.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          noModule
+          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.js"
+          strategy="beforeInteractive"
+        />
+      </head>
+      <body>
+        <Providers>
+          <div className="app-shell">
+            <Navbar />
+            {children}
+            <PodcastBanner />
+            <GrowthAuditorLauncher />
+            <Footer />
+          </div>
+        </Providers>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DT57D4YWRB');
+          `}
+        </Script>
+      </body>
+    </html>
+  )
+}

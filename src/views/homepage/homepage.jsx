@@ -2,17 +2,13 @@ import React from 'react';
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js';
 import { Link } from 'react-router-dom';
 import { Calendar, CircleDollarSign, TrendingUp, Users } from 'lucide-react';
-import DeferredSection from '../../components/DeferredSection';
+import PerfectMatchSection from '../../components/PerfectMatchSection';
+import PracticeInfrastructureSection from '../../components/PracticeInfrastructureSection';
+import ProcessClaritySection from '../../components/ProcessClaritySection';
+import ResultsSpotlightSection from '../../components/ResultsSpotlightSection';
+import SpecialtyAudienceSection from '../../components/SpecialtyAudienceSection';
+import HomePhilosophyAuditSections from '../../components/HomePhilosophyAuditSections';
 import './homepage.css';
-
-const loadPerfectMatchSection = () => import('../../components/PerfectMatchSection');
-const loadPracticeInfrastructureSection = () =>
-  import('../../components/PracticeInfrastructureSection');
-const loadProcessClaritySection = () => import('../../components/ProcessClaritySection');
-const loadResultsSpotlightSection = () => import('../../components/ResultsSpotlightSection');
-const loadSpecialtyAudienceSection = () => import('../../components/SpecialtyAudienceSection');
-const loadHomePhilosophyAuditSections = () =>
-  import('../../components/HomePhilosophyAuditSections');
 
 const HERO_STATS = [
   { icon: Calendar, number: '10,000+', label: 'Consultations booked for clients' },
@@ -118,7 +114,6 @@ export default function HomePage() {
           <div className="hero-stats-bar">
             {HERO_STATS.map(({ number, label }) => (
               <div className="hero-stat" key={label}>
-                {/* <Icon className="hero-stat__icon" strokeWidth={1.5} aria-hidden /> */}
                 <div className="hero-stat__number">{number}</div>
                 <div className="hero-stat__label">{label}</div>
               </div>
@@ -151,12 +146,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <DeferredSection load={loadPerfectMatchSection} minHeight={'50vh'} />
-      <DeferredSection load={loadPracticeInfrastructureSection} minHeight={'60vh'} />
-      <DeferredSection load={loadProcessClaritySection} minHeight={'50vh'} />
-      <DeferredSection load={loadResultsSpotlightSection} minHeight={'60vh'} />
-      <DeferredSection load={loadSpecialtyAudienceSection} minHeight={'50vh'} />
-      <DeferredSection load={loadHomePhilosophyAuditSections} minHeight={'60vh'} />
+      <PerfectMatchSection />
+      <PracticeInfrastructureSection />
+      <ProcessClaritySection />
+      <ResultsSpotlightSection />
+      <SpecialtyAudienceSection />
+      <HomePhilosophyAuditSections />
     </main>
   );
 }

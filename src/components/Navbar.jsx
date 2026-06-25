@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+'use client'
+
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import BookCallLink from './BookCallLink'
 import './Navbar.css'
 import { ChevronDown, ExternalLink, Menu, X } from 'lucide-react'
-import { getNavServiceLinks } from '../pages/services/servicesRegistry'
+import { getNavServiceLinks } from '../views/services/servicesRegistry'
 import { CLIENT_PORTAL_PATH } from '../constants/routes.js'
 
 /** Mega-menu row: label + external-link icon (matches homepage practice pills). */
@@ -199,7 +201,7 @@ const MOBILE_WHO_SECTIONS = [
 
 const SCROLL_DELTA = 8
 const HIDE_AFTER_Y = 72
-const IDLE_SHOW_MS = 200
+const IDLE_SHOW_MS = 450
 
 export default function Navbar() {
   const { pathname } = useLocation()
@@ -214,6 +216,7 @@ export default function Navbar() {
   const [navVisible, setNavVisible] = useState(true)
   const [navScrolled, setNavScrolled] = useState(false)
   const [navRevealing, setNavRevealing] = useState(false)
+  const navHiddenRef = useRef(false)
 
   const closeMenu = () => {
     setMenuOpen(false)
@@ -224,9 +227,26 @@ export default function Navbar() {
     setOpenGroup((current) => (current === id ? null : id))
   }
 
+  const showNavbar = useCallback((withReveal = true) => {
+    const wasHidden = navHiddenRef.current
+    navHiddenRef.current = false
+    setNavVisible(true)
+    if (withReveal && wasHidden) {
+      setNavRevealing(true)
+    }
+  }, [])
+
+  const hideNavbar = useCallback(() => {
+    if (navHiddenRef.current) return
+    navHiddenRef.current = true
+    setNavVisible(false)
+    setNavRevealing(false)
+  }, [])
+
   useEffect(() => {
     setMenuOpen(false)
     setOpenGroup(null)
+    navHiddenRef.current = false
     setNavVisible(true)
     setNavScrolled(false)
     setNavRevealing(false)
@@ -238,15 +258,9 @@ export default function Navbar() {
     return () => window.clearTimeout(timer)
   }, [navRevealing])
 
-  const showNavbar = () => {
-    setNavVisible((wasVisible) => {
-      if (!wasVisible) setNavRevealing(true)
-      return true
-    })
-  }
-
   useEffect(() => {
     if (menuOpen) {
+      navHiddenRef.current = false
       setNavVisible(true)
       return undefined
     }
@@ -268,14 +282,17 @@ export default function Navbar() {
         if (y <= 4) {
           showNavbar()
         } else if (delta > SCROLL_DELTA && y > HIDE_AFTER_Y) {
-          setNavVisible(false)
-          setNavRevealing(false)
+          hideNavbar()
         } else if (delta < -SCROLL_DELTA) {
           showNavbar()
         }
 
         clearTimeout(idleId)
-        idleId = window.setTimeout(() => showNavbar(), IDLE_SHOW_MS)
+        idleId = window.setTimeout(() => {
+          if (navHiddenRef.current) {
+            showNavbar()
+          }
+        }, IDLE_SHOW_MS)
 
         lastY = y
       })
@@ -289,7 +306,7 @@ export default function Navbar() {
       clearTimeout(idleId)
       if (frame !== null) window.cancelAnimationFrame(frame)
     }
-  }, [menuOpen])
+  }, [menuOpen, hideNavbar, showNavbar])
 
   useEffect(() => {
     if (!menuOpen) return undefined

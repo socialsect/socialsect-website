@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 import { useLocation, matchPath } from 'react-router-dom'
 import { getSeoConfig } from '../lib/seo'
