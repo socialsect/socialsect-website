@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { ArrowDown, ArrowRight, Video, FileText, BookOpen } from 'lucide-react'
 import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
 import InsightsTestimonialsSection from './InsightsTestimonialsSection'
@@ -132,7 +134,7 @@ export default function InsightsPage() {
                     <ArrowRight className="insights-preview-card__cta-icon" strokeWidth={1} aria-hidden />
                   </button>
                 ) : (
-                  <Link to={href} className="insights-preview-card__cta">
+                  <Link href={href} className="insights-preview-card__cta">
                     {cta}
                     <ArrowRight className="insights-preview-card__cta-icon" strokeWidth={1} aria-hidden />
                   </Link>

@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowRight } from 'lucide-react'
 
@@ -14,11 +16,11 @@ export default function InsightsClosingCtaSection() {
           honestly where the gaps are.
         </p>
         <div className="insights-closing__actions">
-          <Link to={BOOK_A_CALL_FORM} className="insights-closing__btn insights-closing__btn--primary">
+          <Link href={BOOK_A_CALL_FORM} className="insights-closing__btn insights-closing__btn--primary">
             See what your practice is missing
             <ArrowRight className="insights-closing__btn-icon" strokeWidth={1} aria-hidden />
           </Link>
-          <Link to={BOOK_A_CALL_FORM} className="insights-closing__btn insights-closing__btn--ghost">
+          <Link href={BOOK_A_CALL_FORM} className="insights-closing__btn insights-closing__btn--ghost">
             Request a reference call
           </Link>
         </div>

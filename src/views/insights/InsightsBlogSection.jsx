@@ -1,26 +1,17 @@
-import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+'use client'
 
-const ARTICLES = [
-  {
-    id: 'slow-january',
-    category: 'Patient acquisition',
-    title: 'Why your slow January isn\u2019t a seasonality problem',
-    meta: '8 min read · All specialties',
-  },
-  {
-    id: 'meta-leads',
-    category: 'Lead quality',
-    title: 'The real reason your Meta leads don\u2019t show up',
-    meta: '7 min read · Paid ads',
-  },
-  {
-    id: 'website-convert',
-    category: 'Website + SEO',
-    title: 'What a private practice website actually needs to convert',
-    meta: '6 min read · All specialties',
-  },
-]
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { BLOG_ARTICLES } from './blogData'
+
+// Get the 3 most recent featured articles
+const ARTICLES = BLOG_ARTICLES.slice(0, 3).map((article) => ({
+  id: article.id,
+  slug: article.slug,
+  category: article.category,
+  title: article.title,
+  meta: `${article.readTime} · ${article.specialtyLabel}`,
+}))
 
 export default function InsightsBlogSection() {
   return (
@@ -37,7 +28,7 @@ export default function InsightsBlogSection() {
               Latest from the blog
             </h2>
           </div>
-          <Link to="/insights/blog" className="insights-block__head-cta">
+          <Link href="/insights/blog" className="insights-block__head-cta">
             Read all articles
             <ArrowRight className="insights-block__cta-icon" strokeWidth={1} aria-hidden />
           </Link>
@@ -46,22 +37,24 @@ export default function InsightsBlogSection() {
         <ul className="insights-articles">
           {ARTICLES.map((article) => (
             <li key={article.id}>
-              <article className="insights-article-card">
-                <div className="insights-article-card__thumb" aria-hidden>
-                  <span className="visually-hidden">Article thumbnail</span>
-                </div>
-                <div className="insights-article-card__body">
-                  <p className="insights-article-card__category">{article.category}</p>
-                  <h3 className="insights-article-card__title">&ldquo;{article.title}&rdquo;</h3>
-                  <p className="insights-article-card__meta">{article.meta}</p>
-                </div>
-              </article>
+              <Link href={`/insights/blog/${article.slug}`}>
+                <article className="insights-article-card">
+                  <div className="insights-article-card__thumb" aria-hidden>
+                    <span className="visually-hidden">Article thumbnail</span>
+                  </div>
+                  <div className="insights-article-card__body">
+                    <p className="insights-article-card__category">{article.category}</p>
+                    <h3 className="insights-article-card__title">&ldquo;{article.title}&rdquo;</h3>
+                    <p className="insights-article-card__meta">{article.meta}</p>
+                  </div>
+                </article>
+              </Link>
             </li>
           ))}
         </ul>
 
         <div className="insights-block__footer">
-          <Link to="/insights/blog" className="insights-block__footer-cta">
+          <Link href="/insights/blog" className="insights-block__footer-cta">
             Read all articles
             <ArrowRight className="insights-block__cta-icon" strokeWidth={1} aria-hidden />
           </Link>

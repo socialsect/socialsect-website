@@ -199,9 +199,8 @@ const MOBILE_WHO_SECTIONS = [
   { accent: 5, title: 'Practice and clinic owners', links: WHO_PRACTICE },
 ]
 
-const SCROLL_DELTA = 8
-const HIDE_AFTER_Y = 72
-const IDLE_SHOW_MS = 450
+const SCROLL_DELTA = 5
+const HIDE_AFTER_Y = 60
 
 export default function Navbar() {
   const { pathname } = useLocation()
@@ -266,7 +265,6 @@ export default function Navbar() {
     }
 
     let lastY = window.scrollY
-    let idleId = null
     let frame = null
 
     const onScroll = () => {
@@ -279,20 +277,18 @@ export default function Navbar() {
 
         setNavScrolled(y > 16)
 
+        // Always show navbar at the very top
         if (y <= 4) {
-          showNavbar()
-        } else if (delta > SCROLL_DELTA && y > HIDE_AFTER_Y) {
+          showNavbar(false)
+        } 
+        // Hide on scroll down
+        else if (delta > SCROLL_DELTA && y > HIDE_AFTER_Y) {
           hideNavbar()
-        } else if (delta < -SCROLL_DELTA) {
-          showNavbar()
+        } 
+        // Show on scroll up
+        else if (delta < -SCROLL_DELTA) {
+          showNavbar(true)
         }
-
-        clearTimeout(idleId)
-        idleId = window.setTimeout(() => {
-          if (navHiddenRef.current) {
-            showNavbar()
-          }
-        }, IDLE_SHOW_MS)
 
         lastY = y
       })
@@ -303,7 +299,6 @@ export default function Navbar() {
 
     return () => {
       window.removeEventListener('scroll', onScroll)
-      clearTimeout(idleId)
       if (frame !== null) window.cancelAnimationFrame(frame)
     }
   }, [menuOpen, hideNavbar, showNavbar])

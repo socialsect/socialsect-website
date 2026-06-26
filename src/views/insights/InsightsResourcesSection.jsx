@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { ArrowRight, FileText, ListChecks, ClipboardList } from 'lucide-react'
 
 const RESOURCES = [
@@ -40,7 +42,7 @@ export default function InsightsResourcesSection() {
               Free resources for practice owners
             </h2>
           </div>
-          <Link to="/insights/resources" className="insights-block__head-cta">
+          <Link href="/insights/resources" className="insights-block__head-cta">
             See all resources
             <ArrowRight className="insights-block__cta-icon" strokeWidth={1} aria-hidden />
           </Link>
@@ -67,7 +69,7 @@ export default function InsightsResourcesSection() {
         </ul>
 
         <div className="insights-block__footer">
-          <Link to="/insights/resources" className="insights-block__footer-cta">
+          <Link href="/insights/resources" className="insights-block__footer-cta">
             Browse all resources
             <ArrowRight className="insights-block__cta-icon" strokeWidth={1} aria-hidden />
           </Link>

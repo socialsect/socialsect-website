@@ -31,7 +31,8 @@ export default function DeferredSection({
       }
     }
 
-    const margin = Number.parseInt(rootMargin, 10) || 300
+    // More aggressive loading - check if within 500px of viewport
+    const margin = Number.parseInt(rootMargin, 10) || 500
     const rect = container.getBoundingClientRect()
     if (rect.top <= window.innerHeight + margin) {
       loadComponent()

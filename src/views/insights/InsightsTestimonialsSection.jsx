@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { ArrowRight, Play } from 'lucide-react'
 
 const VIDEOS = [
@@ -32,7 +34,7 @@ export default function InsightsTestimonialsSection() {
               What clients say in their own words
             </h2>
           </div>
-          <Link to="/insights/testimonials" className="insights-block__head-cta">
+          <Link href="/insights/testimonials" className="insights-block__head-cta">
             See all testimonials
             <ArrowRight className="insights-block__cta-icon" strokeWidth={1} aria-hidden />
           </Link>
@@ -81,7 +83,7 @@ export default function InsightsTestimonialsSection() {
         </ul>
 
         <div className="insights-block__footer">
-          <Link to="/insights/testimonials" className="insights-block__footer-cta">
+          <Link href="/insights/testimonials" className="insights-block__footer-cta">
             Watch all testimonials
             <ArrowRight className="insights-block__cta-icon" strokeWidth={1} aria-hidden />
           </Link>

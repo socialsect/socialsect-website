@@ -1,3 +1,5 @@
+'use client'
+
 import './AboutIdentitySection.css'
 
 const IDENTITY_ROLES = [
