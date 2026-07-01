@@ -1,6 +1,4 @@
-'use client'
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
 import { getArticles } from '../../lib/articles'
@@ -15,37 +13,13 @@ function formatDate(value) {
   }).format(new Date(value))
 }
 
-export default function BlogPage() {
-  const [articles, setArticles] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
-
-  useEffect(() => {
-    let isMounted = true
-
-    async function loadArticles() {
-      try {
-        const data = await getArticles()
-        if (isMounted) {
-          setArticles(data)
-        }
-      } catch (err) {
-        if (isMounted) {
-          setError(err instanceof Error ? err.message : 'Failed to load articles')
-        }
-      } finally {
-        if (isMounted) {
-          setLoading(false)
-        }
-      }
-    }
-
-    loadArticles()
-
-    return () => {
-      isMounted = false
-    }
-  }, [])
+export default async function BlogPage() {
+  let articles = []
+  try {
+    articles = await getArticles()
+  } catch {
+    // articles stays empty — show the coming-soon fallback
+  }
 
   return (
     <main className="blog-page">
@@ -54,13 +28,13 @@ export default function BlogPage() {
           <nav aria-label="Breadcrumb">
             <ol className="blog-breadcrumb__list">
               <li>
-                <Link to="/">gosocialsect.com</Link>
+                <Link href="/">gosocialsect.com</Link>
               </li>
               <li aria-hidden>
                 <ChevronRight strokeWidth={1} className="blog-breadcrumb__sep" />
               </li>
               <li>
-                <Link to="/insights">insights</Link>
+                <Link href="/insights">insights</Link>
               </li>
               <li aria-hidden>
                 <ChevronRight strokeWidth={1} className="blog-breadcrumb__sep" />
@@ -91,53 +65,46 @@ export default function BlogPage() {
 
       <section className="blog-listing">
         <div className="blog-listing__inner">
-          {loading && <p className="blog-state">Loading articles...</p>}
-          {error && !loading && <p className="blog-state" role="alert">{error}</p>}
+          {articles.length === 0 ? (
+            <p className="blog-state">Articles are coming soon</p>
+          ) : (
+            <div className="blog-grid">
+              {articles.map((article) => {
+                const imageUrl = article.featuredImage?.asset?.url
+                const imageAlt = article.featuredImageAlt || article.title
 
-          {!loading && !error && (
-            <>
-              {articles.length === 0 ? (
-                <p className="blog-state">Articles are coming soon</p>
-              ) : (
-                <div className="blog-grid">
-                  {articles.map((article) => {
-                    const imageUrl = article.featuredImage?.asset?.url
-                    const imageAlt = article.featuredImageAlt || article.title
-
-                    return (
-                      <article key={article._id} className="blog-card">
-                        <Link to={`/insights/blog/${article.slug}`} className="blog-card__image-link">
-                          <div className="blog-card__image-shell">
-                            {imageUrl ? (
-                              <img className="blog-card__image" src={imageUrl} alt={imageAlt} loading="lazy" />
-                            ) : (
-                              <div className="blog-card__image blog-card__image--placeholder" aria-hidden>
-                                <span>Socialsect</span>
-                              </div>
-                            )}
+                return (
+                  <article key={article._id} className="blog-card">
+                    <Link href={`/insights/blog/${article.slug}`} className="blog-card__image-link">
+                      <div className="blog-card__image-shell">
+                        {imageUrl ? (
+                          <img className="blog-card__image" src={imageUrl} alt={imageAlt} loading="lazy" />
+                        ) : (
+                          <div className="blog-card__image blog-card__image--placeholder" aria-hidden>
+                            <span>Socialsect</span>
                           </div>
-                        </Link>
+                        )}
+                      </div>
+                    </Link>
 
-                        <div className="blog-card__body">
-                          <p className="blog-card__meta">
-                            {article.readingTime || 'Article'}
-                            {article.publishedAt ? ` · ${formatDate(article.publishedAt)}` : ''}
-                          </p>
-                          <h2 className="blog-card__title">
-                            <Link to={`/insights/blog/${article.slug}`}>{article.title}</Link>
-                          </h2>
-                          <p className="blog-card__excerpt">{article.excerpt || article.metaDescription}</p>
-                          <Link to={`/insights/blog/${article.slug}`} className="blog-card__cta">
-                            Read article
-                            <ArrowRight strokeWidth={1} aria-hidden />
-                          </Link>
-                        </div>
-                      </article>
-                    )
-                  })}
-                </div>
-              )}
-            </>
+                    <div className="blog-card__body">
+                      <p className="blog-card__meta">
+                        {article.readingTime || 'Article'}
+                        {article.publishedAt ? ` · ${formatDate(article.publishedAt)}` : ''}
+                      </p>
+                      <h2 className="blog-card__title">
+                        <Link href={`/insights/blog/${article.slug}`}>{article.title}</Link>
+                      </h2>
+                      <p className="blog-card__excerpt">{article.excerpt || article.metaDescription}</p>
+                      <Link href={`/insights/blog/${article.slug}`} className="blog-card__cta">
+                        Read article
+                        <ArrowRight strokeWidth={1} aria-hidden />
+                      </Link>
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
           )}
         </div>
       </section>
