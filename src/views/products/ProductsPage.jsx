@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'

@@ -1,3 +1,4 @@
+'use client'
 import './ResultsPage.css'
 import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 import ResultsAggregateSection from './ResultsAggregateSection'

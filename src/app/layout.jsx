@@ -4,7 +4,11 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PodcastBanner from '@/components/PodcastBanner'
 import GrowthAuditorLauncher from '@/components/growth-auditor/GrowthAuditorLauncher'
+import { getSeoConfig } from '@/lib/seo'
 import '@/globals.css'
+
+// Global site-level schemas injected on every page (org + website)
+const globalSchemas = getSeoConfig('/').schemas.slice(0, 2)
 
 export const viewport = {
   themeColor: '#695AF2',
@@ -73,6 +77,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {globalSchemas.map((schema, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link

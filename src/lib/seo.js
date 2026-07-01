@@ -666,6 +666,55 @@ function notFoundConfig() {
   }
 }
 
+function privacyPolicyConfig() {
+  const canonicalUrl = absoluteUrl('/privacy-policy')
+  const title = 'Privacy Policy | Socialsect'
+  const description =
+    'Read the Socialsect privacy policy covering how we collect, use, and protect your personal data.'
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: DEFAULT_IMAGE,
+    robots: 'noindex, nofollow',
+    ogType: 'website',
+    tags: [],
+    schemas: [buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
+export function getBlogArticleSeo(pathname, params, articleData) {
+  const canonicalUrl = absoluteUrl(`/insights/blog/${params.slug}`)
+  const title = (articleData?.title ? `${articleData.title} | Socialsect` : 'Socialsect Blog | Healthcare Marketing Insights')
+  const description = articleData?.description || articleData?.excerpt || 'Expert articles for private medical practice growth, SEO, paid media, and website conversion from Socialsect.'
+  const image = articleData?.image || DEFAULT_IMAGE
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleData?.title || title,
+    description,
+    url: canonicalUrl,
+    image,
+    author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    ...(articleData?.publishedAt && { datePublished: articleData.publishedAt }),
+    ...(articleData?.updatedAt && { dateModified: articleData.updatedAt }),
+  }
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image,
+    robots: articleData?.robots || DEFAULT_ROBOTS,
+    ogType: 'article',
+    tags: ['blog article', 'private medical practice marketing', 'healthcare SEO'],
+    schemas: [buildOrganizationSchema(), buildWebsiteSchema(), articleSchema],
+  }
+}
+
 function blogArticleConfig(pathname, params) {
   const canonicalUrl = absoluteUrl(`/insights/blog/${params.slug}`)
   const title = 'Socialsect blog article'
@@ -681,6 +730,43 @@ function blogArticleConfig(pathname, params) {
     ogType: 'article',
     tags: ['blog article', 'private medical practice marketing', 'healthcare SEO'],
     schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl, type: 'Article' })],
+  }
+}
+
+/**
+ * Convert a getSeoConfig result to a Next.js Metadata object.
+ * Use this in generateMetadata() or static metadata exports.
+ */
+export function toNextMetadata(cfg) {
+  const imageArr = cfg.image ? [{ url: cfg.image, width: 1200, height: 630, alt: cfg.title }] : [{ url: DEFAULT_IMAGE, width: 1200, height: 630, alt: cfg.title }]
+
+  return {
+    title: cfg.title,
+    description: cfg.description,
+    robots: cfg.robots,
+    alternates: { canonical: cfg.canonicalUrl },
+    openGraph: {
+      siteName: SITE_NAME,
+      locale: 'en_US',
+      type: cfg.ogType ?? 'website',
+      title: cfg.title,
+      description: cfg.description,
+      url: cfg.canonicalUrl,
+      images: imageArr,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@thesocialsect',
+      creator: '@thesocialsect',
+      title: cfg.title,
+      description: cfg.description,
+      images: imageArr.map((i) => i.url),
+    },
+    other: {
+      'linkedin:url': cfg.canonicalUrl,
+      'linkedin:title': cfg.title,
+      'linkedin:description': cfg.description,
+    },
   }
 }
 
@@ -704,10 +790,11 @@ export function getSeoConfig(pathname) {
     { path: '/aviva', config: avivaConfig },
     { path: '/where-your-implant-practice-is-going-wrong', config: visibilityConfig },
     { path: '/where-your-vein-clinic-is-going-wrong', config: veinVisibilityConfig },
+    { path: '/privacy-policy', config: privacyPolicyConfig },
   ]
 
   for (const { path, config } of exactMatches) {
-    if (matchPath({ path, end: true }, cleanPath)) {
+    if (matchPath(path, cleanPath)) {
       return applyPageMetaOverrides(config(), cleanPath)
     }
   }

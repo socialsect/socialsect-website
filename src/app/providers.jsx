@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect } from 'react'
-import SeoManager from '@/components/SeoManager'
 import ScrollToTop from '@/components/ScrollToTop'
 import { enableResourcePrefetch, deferNonCriticalStyles } from '@/lib/performance'
 
@@ -17,7 +16,6 @@ export default function Providers({ children }) {
 
   return (
     <>
-      <SeoManager />
       <ScrollToTop />
       {children}
     </>

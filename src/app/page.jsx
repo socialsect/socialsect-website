@@ -1,7 +1,15 @@
-'use client'
+import { getSeoConfig, toNextMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import HomePageClient from '@/views/homepage/homepage'
 
-import HomePage from '@/views/homepage/homepage'
+const cfg = getSeoConfig('/')
+export const metadata = toNextMetadata(cfg)
 
 export default function Page() {
-  return <HomePage />
+  return (
+    <>
+      <JsonLd schemas={cfg.schemas} />
+      <HomePageClient />
+    </>
+  )
 }

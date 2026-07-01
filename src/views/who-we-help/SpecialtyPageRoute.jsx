@@ -1,3 +1,4 @@
+'use client'
 import { Navigate, useParams } from 'react-router-dom'
 import { getSpecialtyData } from './specialtyData'
 import SpecialtyPage from './SpecialtyPage'

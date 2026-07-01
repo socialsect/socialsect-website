@@ -1,3 +1,4 @@
+'use client'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import './ServicesPillarStub.css'
 

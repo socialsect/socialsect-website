@@ -1,3 +1,5 @@
+'use client'
+
 const STATS = [
   { value: '81%', label: 'Consultation show-up rate' },
   { value: '16%', label: 'Consultation-to-surgery conversion rate' },

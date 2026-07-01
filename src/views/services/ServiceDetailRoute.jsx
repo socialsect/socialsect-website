@@ -1,3 +1,4 @@
+'use client'
 import { Navigate, useParams } from 'react-router-dom'
 import { getServiceData } from './serviceData'
 import ServiceDetailPage from './ServiceDetailPage'

@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 import { ArrowRight, X } from 'lucide-react'
 import { submitForm } from '../lib/submitForm'

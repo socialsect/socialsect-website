@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect } from 'react';
 import SpeedCalculator from '../../components/speed-calculator/SpeedCalculator';
 import '../visibility/visibility.css';

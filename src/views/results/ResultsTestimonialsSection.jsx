@@ -1,3 +1,5 @@
+'use client'
+
 import { ArrowDown } from 'lucide-react'
 
 const QUOTES = [

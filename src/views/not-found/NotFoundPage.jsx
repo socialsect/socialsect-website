@@ -1,3 +1,4 @@
+'use client'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Home } from 'lucide-react'
 import BookCallLink from '../../components/BookCallLink'
