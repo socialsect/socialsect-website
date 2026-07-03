@@ -20,39 +20,13 @@
   max-width: 600px;
 }
 
-.about-identity__iam-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(24px, 4vw, 48px);
-  margin: 0 0 clamp(24px, 3vw, 36px);
-}
-
-.about-identity__iam-illustration {
-  width: clamp(160px, 22vw, 280px);
-  height: auto;
-  flex-shrink: 0;
-  opacity: 0.9;
-}
-
-@media (max-width: 600px) {
-  .about-identity__iam-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .about-identity__iam-illustration {
-    width: clamp(140px, 55vw, 220px);
-  }
-}
-
 .about-identity__iam {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 400;
   color: var(--charcoal);
   letter-spacing: -0.03em;
-  margin: 0;
+  margin: 0 0 clamp(24px, 3vw, 36px);
   line-height: 1;
 }
 

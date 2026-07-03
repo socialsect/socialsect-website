@@ -37,17 +37,7 @@ export default function AboutIdentitySection() {
           I&apos;ve never believed you can understand someone from a job title.
         </h2>
 
-        <div className="about-identity__iam-row">
-          <p className="about-identity__iam">I am</p>
-          <img
-            src="/illustrations/about-iam.svg"
-            alt=""
-            aria-hidden="true"
-            className="about-identity__iam-illustration"
-            width="280"
-            height="280"
-          />
-        </div>
+        <p className="about-identity__iam">I am</p>
 
         <ul className="about-identity__grid">
           {IDENTITY_ROLES.map(({ icon, title, body }) => (
