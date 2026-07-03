@@ -106,16 +106,6 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
-        <Script
-          type="module"
-          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.esm.js"
-          strategy="beforeInteractive"
-        />
-        <Script
-          noModule
-          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.js"
-          strategy="beforeInteractive"
-        />
       </head>
       <body>
         <Providers>
@@ -127,6 +117,11 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </Providers>
+        <Script
+          type="module"
+          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.esm.js"
+          strategy="afterInteractive"
+        />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">
           {`

@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" fill="none">
+  <defs>
+    <!-- Purple gradient fill -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#695AF2" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#695AF2" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="grad-v" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#695AF2" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#695AF2" stop-opacity="0.04"/>
+    </linearGradient>
+
+    <linearGradient id="grad-book" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#695AF2" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#8B7FF5" stop-opacity="0.04"/>
+    </linearGradient>
+
+    <!-- Clip circle for quadrant sections -->
+    <clipPath id="clip-tl">
+      <rect x="0" y="0" width="240" height="240"/>
+    </clipPath>
+    <clipPath id="clip-tr">
+      <rect x="240" y="0" width="240" height="240"/>
+    </clipPath>
+    <clipPath id="clip-bl">
+      <rect x="0" y="240" width="240" height="240"/>
+    </clipPath>
+    <clipPath id="clip-br">
+      <rect x="240" y="240" width="240" height="240"/>
+    </clipPath>
+    <clipPath id="clip-circle">
+      <circle cx="240" cy="240" r="220"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background glow -->
+  <circle cx="240" cy="240" r="220" fill="url(#glow)"/>
+
+  <!-- Outer circle border -->
+  <circle cx="240" cy="240" r="218" stroke="#695AF2" stroke-width="0.8" opacity="0.2"/>
+
+  <!-- Divider cross lines -->
+  <line x1="240" y1="30" x2="240" y2="450" stroke="#695AF2" stroke-width="0.6" opacity="0.15" clip-path="url(#clip-circle)"/>
+  <line x1="30" y1="240" x2="450" y2="240" stroke="#695AF2" stroke-width="0.6" opacity="0.15" clip-path="url(#clip-circle)"/>
+
+  <!-- Subtle quadrant fills -->
+  <path d="M240 240 L240 22 A218 218 0 0 0 22 240 Z" fill="#695AF2" opacity="0.03"/>
+  <path d="M240 240 L458 240 A218 218 0 0 0 240 22 Z" fill="#695AF2" opacity="0.03"/>
+  <path d="M240 240 L22 240 A218 218 0 0 0 240 458 Z" fill="#695AF2" opacity="0.03"/>
+  <path d="M240 240 L240 458 A218 218 0 0 0 458 240 Z" fill="#695AF2" opacity="0.03"/>
+
+  <!-- ─────────────────────────────────── -->
+  <!-- TOP LEFT — AUTHOR                  -->
+  <!-- ─────────────────────────────────── -->
+
+  <!-- Large open book, top-left quadrant, centred at ~(120,120) -->
+  <!-- Book shadow/base -->
+  <ellipse cx="120" cy="148" rx="52" ry="6" fill="#695AF2" opacity="0.07"/>
+
+  <!-- Left page -->
+  <path d="M120 72 L68 82 L68 140 L120 132 Z"
+        fill="url(#grad-book)" stroke="#695AF2" stroke-width="1.4" stroke-linejoin="round" opacity="0.9"/>
+  <!-- Right page -->
+  <path d="M120 72 L172 82 L172 140 L120 132 Z"
+        fill="url(#grad-book)" stroke="#695AF2" stroke-width="1.4" stroke-linejoin="round" opacity="0.9"/>
+  <!-- Spine highlight -->
+  <line x1="120" y1="72" x2="120" y2="132" stroke="#695AF2" stroke-width="2" opacity="0.5"/>
+
+  <!-- Left page lines (handwriting feel) -->
+  <line x1="80"  y1="96"  x2="114" y2="92"  stroke="#695AF2" stroke-width="0.9" opacity="0.4" stroke-linecap="round"/>
+  <line x1="80"  y1="104" x2="114" y2="100" stroke="#695AF2" stroke-width="0.9" opacity="0.4" stroke-linecap="round"/>
+  <line x1="80"  y1="112" x2="114" y2="108" stroke="#695AF2" stroke-width="0.9" opacity="0.4" stroke-linecap="round"/>
+  <line x1="80"  y1="120" x2="106" y2="117" stroke="#695AF2" stroke-width="0.9" opacity="0.4" stroke-linecap="round"/>
+  <!-- Right page lines -->
+  <line x1="126" y1="92"  x2="160" y2="96"  stroke="#695AF2" stroke-width="0.9" opacity="0.4" stroke-linecap="round"/>
+  <line x1="126" y1="100" x2="160" y2="104" stroke="#695AF2" stroke-width="0.9" opacity="0.4" stroke-linecap="round"/>
+  <line x1="126" y1="108" x2="160" y2="112" stroke="#695AF2" stroke-width="0.9" opacity="0.4" stroke-linecap="round"/>
+  <line x1="126" y1="117" x2="148" y2="120" stroke="#695AF2" stroke-width="0.9" opacity="0.4" stroke-linecap="round"/>
+
+  <!-- Small quill pen accent -->
+  <path d="M158 74 Q168 62 174 68 Q164 72 158 86 Q156 78 158 74 Z"
+        fill="#695AF2" opacity="0.25"/>
+  <line x1="158" y1="86" x2="152" y2="96" stroke="#695AF2" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Label -->
+  <text x="120" y="164" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="12" letter-spacing="0.12em"
+        fill="#695AF2" opacity="0.6">AUTHOR</text>
+
+  <!-- ─────────────────────────────────── -->
+  <!-- TOP RIGHT — TRAVELER               -->
+  <!-- ─────────────────────────────────── -->
+
+  <!-- Globe centred at (360, 120) -->
+  <!-- Globe glow -->
+  <circle cx="360" cy="112" r="46" fill="#695AF2" opacity="0.05"/>
+  <!-- Globe outline -->
+  <circle cx="360" cy="112" r="44" stroke="#695AF2" stroke-width="1.5" opacity="0.75"/>
+  <!-- Vertical ellipses (meridians) -->
+  <ellipse cx="360" cy="112" rx="20" ry="44" stroke="#695AF2" stroke-width="0.8" opacity="0.35"/>
+  <ellipse cx="360" cy="112" rx="38" ry="18" stroke="#695AF2" stroke-width="0.8" opacity="0.35"/>
+  <!-- Equator -->
+  <line x1="316" y1="112" x2="404" y2="112" stroke="#695AF2" stroke-width="0.8" opacity="0.35"/>
+  <!-- Upper parallels -->
+  <path d="M325 92 Q360 86 395 92" stroke="#695AF2" stroke-width="0.7" fill="none" opacity="0.3"/>
+  <path d="M318 132 Q360 138 402 132" stroke="#695AF2" stroke-width="0.7" fill="none" opacity="0.3"/>
+
+  <!-- Compass rose on top of globe -->
+  <g transform="translate(360,112)">
+    <!-- N -->
+    <polygon points="0,-11 -4,-4 4,-4" fill="#695AF2" opacity="0.6"/>
+    <!-- S -->
+    <polygon points="0,11 -4,4 4,4" fill="#695AF2" opacity="0.2"/>
+    <!-- E -->
+    <polygon points="11,0 4,-4 4,4" fill="#695AF2" opacity="0.2"/>
+    <!-- W -->
+    <polygon points="-11,0 -4,-4 -4,4" fill="#695AF2" opacity="0.2"/>
+    <!-- Center dot -->
+    <circle cx="0" cy="0" r="2.5" fill="#695AF2" opacity="0.55"/>
+  </g>
+
+  <!-- Flight path arc -->
+  <path d="M320 148 Q350 156 392 142" stroke="#695AF2" stroke-width="1" fill="none" stroke-dasharray="3 4" opacity="0.4" stroke-linecap="round"/>
+  <!-- Small plane dot -->
+  <circle cx="360" cy="153" r="3" fill="#695AF2" opacity="0.4"/>
+
+  <!-- Label -->
+  <text x="360" y="172" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="12" letter-spacing="0.12em"
+        fill="#695AF2" opacity="0.6">TRAVELER</text>
+
+  <!-- ─────────────────────────────────── -->
+  <!-- BOTTOM LEFT — BOXER                -->
+  <!-- ─────────────────────────────────── -->
+
+  <!-- Two boxing gloves centred ~(120, 355) -->
+
+  <!-- LEFT GLOVE -->
+  <g transform="translate(88,345)">
+    <!-- Wrist cuff -->
+    <rect x="-16" y="18" width="32" height="14" rx="4"
+          fill="url(#grad-v)" stroke="#695AF2" stroke-width="1.3" opacity="0.8"/>
+    <!-- Cuff stripe -->
+    <line x1="-16" y1="24" x2="16" y2="24" stroke="#695AF2" stroke-width="0.8" opacity="0.4"/>
+    <!-- Glove body -->
+    <path d="M-18 18 L-18 -8 Q-18 -22 -6 -24 Q4 -26 8 -18 Q14 -24 20 -18 Q22 -10 16 -2 L16 18 Z"
+          fill="url(#grad-v)" stroke="#695AF2" stroke-width="1.3" stroke-linejoin="round" opacity="0.9"/>
+    <!-- Thumb -->
+    <path d="M16 -2 Q26 -6 26 2 Q26 10 16 10"
+          stroke="#695AF2" stroke-width="1.2" fill="rgba(105,90,242,0.08)" stroke-linecap="round"/>
+    <!-- Knuckle lines -->
+    <line x1="-10" y1="-16" x2="-2"  y2="-18" stroke="#695AF2" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>
+    <line x1="-2"  y1="-18" x2="6"   y2="-16" stroke="#695AF2" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>
+  </g>
+
+  <!-- RIGHT GLOVE (mirrored) -->
+  <g transform="translate(152,345) scale(-1,1)">
+    <!-- Wrist cuff -->
+    <rect x="-16" y="18" width="32" height="14" rx="4"
+          fill="url(#grad-v)" stroke="#695AF2" stroke-width="1.3" opacity="0.8"/>
+    <line x1="-16" y1="24" x2="16" y2="24" stroke="#695AF2" stroke-width="0.8" opacity="0.4"/>
+    <!-- Glove body -->
+    <path d="M-18 18 L-18 -8 Q-18 -22 -6 -24 Q4 -26 8 -18 Q14 -24 20 -18 Q22 -10 16 -2 L16 18 Z"
+          fill="url(#grad-v)" stroke="#695AF2" stroke-width="1.3" stroke-linejoin="round" opacity="0.9"/>
+    <!-- Thumb -->
+    <path d="M16 -2 Q26 -6 26 2 Q26 10 16 10"
+          stroke="#695AF2" stroke-width="1.2" fill="rgba(105,90,242,0.08)" stroke-linecap="round"/>
+    <!-- Knuckle lines -->
+    <line x1="-10" y1="-16" x2="-2"  y2="-18" stroke="#695AF2" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>
+    <line x1="-2"  y1="-18" x2="6"   y2="-16" stroke="#695AF2" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>
+  </g>
+
+  <!-- Impact marks between gloves -->
+  <line x1="116" y1="318" x2="124" y2="324" stroke="#695AF2" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+  <line x1="124" y1="314" x2="120" y2="322" stroke="#695AF2" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+
+  <!-- Label -->
+  <text x="120" y="388" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="12" letter-spacing="0.12em"
+        fill="#695AF2" opacity="0.6">BOXER</text>
+
+  <!-- ─────────────────────────────────── -->
+  <!-- BOTTOM RIGHT — FOUNDER             -->
+  <!-- ─────────────────────────────────── -->
+
+  <!-- Lightbulb centred at (360, 345) -->
+
+  <!-- Glow behind bulb -->
+  <circle cx="360" cy="336" r="36" fill="#695AF2" opacity="0.06"/>
+
+  <!-- Bulb glass dome -->
+  <path d="M360 292 Q322 292 322 320 Q322 338 334 348 L334 362 L386 362 L386 348 Q398 338 398 320 Q398 292 360 292 Z"
+        fill="url(#grad-v)" stroke="#695AF2" stroke-width="1.5" stroke-linejoin="round" opacity="0.9"/>
+
+  <!-- Filament inside -->
+  <path d="M344 332 L350 320 L360 330 L370 320 L376 332"
+        stroke="#695AF2" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+
+  <!-- Base rings -->
+  <rect x="334" y="362" width="52" height="8" rx="3"
+        fill="url(#grad-v)" stroke="#695AF2" stroke-width="1.2" opacity="0.8"/>
+  <rect x="338" y="370" width="44" height="6" rx="3"
+        fill="url(#grad-v)" stroke="#695AF2" stroke-width="1.2" opacity="0.7"/>
+  <!-- Screw tip -->
+  <path d="M348 376 Q360 382 372 376" stroke="#695AF2" stroke-width="1.2" fill="none" opacity="0.5" stroke-linecap="round"/>
+
+  <!-- Radiating sparkle lines -->
+  <line x1="360" y1="282" x2="360" y2="274" stroke="#695AF2" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+  <line x1="380" y1="286" x2="386" y2="280" stroke="#695AF2" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+  <line x1="340" y1="286" x2="334" y2="280" stroke="#695AF2" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+  <line x1="398" y1="302" x2="406" y2="298" stroke="#695AF2" stroke-width="1.2" stroke-linecap="round" opacity="0.3"/>
+  <line x1="322" y1="302" x2="314" y2="298" stroke="#695AF2" stroke-width="1.2" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Mini growth chart beneath bulb (replaces label row) -->
+  <polyline points="334,396 344,390 354,393 366,384 378,387 388,378"
+            stroke="#695AF2" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+  <circle cx="388" cy="378" r="2.5" fill="#695AF2" opacity="0.5"/>
+
+  <!-- Label -->
+  <text x="360" y="414" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="12" letter-spacing="0.12em"
+        fill="#695AF2" opacity="0.6">FOUNDER</text>
+
+  <!-- ─────────────────────────────────── -->
+  <!-- CENTRE — monogram ring             -->
+  <!-- ─────────────────────────────────── -->
+  <circle cx="240" cy="240" r="30" fill="rgba(105,90,242,0.08)" stroke="#695AF2" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="240" cy="240" r="22" fill="rgba(105,90,242,0.10)" stroke="#695AF2" stroke-width="0.6" opacity="0.35"/>
+  <!-- Four small corner diamonds on the divider cross -->
+  <rect x="236.5" y="206.5" width="7" height="7" rx="1" transform="rotate(45 240 210)" fill="#695AF2" opacity="0.25"/>
+  <rect x="236.5" y="266.5" width="7" height="7" rx="1" transform="rotate(45 240 270)" fill="#695AF2" opacity="0.25"/>
+  <rect x="206.5" y="236.5" width="7" height="7" rx="1" transform="rotate(45 210 240)" fill="#695AF2" opacity="0.25"/>
+  <rect x="266.5" y="236.5" width="7" height="7" rx="1" transform="rotate(45 270 240)" fill="#695AF2" opacity="0.25"/>
+
+</svg>

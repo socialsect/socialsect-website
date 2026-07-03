@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import BookCallLink from './BookCallLink'
 import './Footer.css'
 import { TbBrandLinkedin, TbBrandInstagram } from 'react-icons/tb'
@@ -228,10 +228,10 @@ export default function Footer() {
         <h2 className="footer__col-heading">SOLUTIONS</h2>
 
         <ul className="footer__list">
-          <li><Link to="/services#build">Build <ArrowRight size={18}/></Link></li>
-          <li><Link to="/services#grow">Grow <ArrowRight size={18}/></Link></li>
-          <li><Link to="/services#brand">Brand <ArrowRight size={18}/></Link></li>
-          <li><Link to="/how-we-work">How we work <ArrowRight size={18}/></Link></li>
+          <li><Link href="/services#build">Build <ArrowRight size={18}/></Link></li>
+          <li><Link href="/services#grow">Grow <ArrowRight size={18}/></Link></li>
+          <li><Link href="/services#brand">Brand <ArrowRight size={18}/></Link></li>
+          <li><Link href="/how-we-work">How we work <ArrowRight size={18}/></Link></li>
         </ul>
       </section>
 
@@ -239,11 +239,11 @@ export default function Footer() {
         <h2 className="footer__col-heading">WHO WE HELP</h2>
 
         <ul className="footer__list">
-          <li><Link to="/who-we-help/orthopaedic-surgeons">Orthopaedic surgeons <ArrowRight size={18}/></Link></li>
-          <li><Link to="/who-we-help/dermatologists">Dermatologists <ArrowRight size={18}/></Link></li>
-          <li><Link to="/who-we-help/medspa-owners">MedSpa owners <ArrowRight size={18}/></Link></li>
-          <li><Link to="/who-we-help/plastic-surgeons">Plastic surgeons <ArrowRight size={18}/></Link></li>
-          <li><Link to="/who-we-help/dentists">Dentists <ArrowRight size={18}/></Link></li>
+          <li><Link href="/who-we-help/orthopaedic-surgeons">Orthopaedic surgeons <ArrowRight size={18}/></Link></li>
+          <li><Link href="/who-we-help/dermatologists">Dermatologists <ArrowRight size={18}/></Link></li>
+          <li><Link href="/who-we-help/medspa-owners">MedSpa owners <ArrowRight size={18}/></Link></li>
+          <li><Link href="/who-we-help/plastic-surgeons">Plastic surgeons <ArrowRight size={18}/></Link></li>
+          <li><Link href="/who-we-help/dentists">Dentists <ArrowRight size={18}/></Link></li>
         </ul>
       </section>
 
@@ -251,10 +251,10 @@ export default function Footer() {
         <h2 className="footer__col-heading">COMPANY</h2>
 
         <ul className="footer__list">
-          <li><Link to="/about">About <ArrowRight size={18}/></Link></li>
-          <li><Link to="/results">Results <ArrowRight size={18}/></Link></li>
-          <li><Link to="/insights/blog">Blog <ArrowRight size={18}/></Link></li>
-          <li><Link to="/insights/resources">Resources <ArrowRight size={18}/></Link></li>
+          <li><Link href="/about">About <ArrowRight size={18}/></Link></li>
+          <li><Link href="/results">Results <ArrowRight size={18}/></Link></li>
+          <li><Link href="/insights/blog">Blog <ArrowRight size={18}/></Link></li>
+          <li><Link href="/insights/resources">Resources <ArrowRight size={18}/></Link></li>
           <li><a href={CAREERS_MAILTO}>Careers <ArrowRight size={18}/></a></li>
         </ul>
       </section>
@@ -279,7 +279,7 @@ export default function Footer() {
       <div className="footer-sub__row">
         <span>© 2026 Socialsect</span>
         <span>•</span>
-        <Link to="/privacy-policy">Privacy policy</Link>
+        <Link href="/privacy-policy">Privacy policy</Link>
         <span>•</span>
         <span>Terms of service</span>
       </div>

@@ -1,7 +1,8 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import BookCallLink from './BookCallLink'
 import './Navbar.css'
 import { ChevronDown, ExternalLink, Menu, X } from 'lucide-react'
@@ -21,7 +22,7 @@ function MegaNavLink({ href, children }) {
 /** Internal route  specialty pages under /who-we-help */
 function MegaNavRouteLink({ to, children }) {
   return (
-    <Link to={to}>
+    <Link href={to}>
       <span className="dropdown-mega__link-label">{children}</span>
     </Link>
   )
@@ -82,7 +83,7 @@ function MobileNavGroup({ id, label, to, isOpen, onToggle, onNavigate, children 
     <div className={`mobile-nav__group${isOpen ? ' mobile-nav__group--open' : ''}`}>
       <div className="mobile-nav__group-head">
         {to ? (
-          <Link to={to} className="mobile-nav__group-link" onClick={onNavigate}>
+          <Link href={to} className="mobile-nav__group-link" onClick={onNavigate}>
             {label}
           </Link>
         ) : (
@@ -130,7 +131,7 @@ function MobileNavItem({ to, href, children, onNavigate, external }) {
   }
   return (
     <li>
-      <Link to={to} className="mobile-nav__item" onClick={onNavigate}>
+      <Link href={to} className="mobile-nav__item" onClick={onNavigate}>
         {children}
       </Link>
     </li>
@@ -203,7 +204,7 @@ const SCROLL_DELTA = 5
 const HIDE_AFTER_Y = 60
 
 export default function Navbar() {
-  const { pathname } = useLocation()
+  const pathname = usePathname()
   const isHome = pathname === '/'
   const isWhoWeHelp = pathname === '/who-we-help' || pathname.startsWith('/who-we-help/')
   const isInsights = pathname === '/insights' || pathname.startsWith('/insights/')
@@ -334,7 +335,7 @@ export default function Navbar() {
     >
       <div className="container navbar__container">
         <div className="nav-content">
-          <Link to="/" className="logo" aria-label="Socialsect home" onClick={closeMenu}>
+          <Link href="/" className="logo" aria-label="Socialsect home" onClick={closeMenu}>
             <img
               src="/icons/logo.svg"
               alt=""
@@ -361,7 +362,7 @@ export default function Navbar() {
             <div className="nav-links__center">
             <div className={`nav-item${isServices ? ' nav-item--active' : ''}`}>
               <Link
-                to="/services"
+                href="/services"
                 className={`dropdown-toggle${isServices ? ' nav-link--active' : ''}`}
               >
                 Services
@@ -401,13 +402,13 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link to="/products">Products</Link>
+            <Link href="/products">Products</Link>
 
-            <Link to="/how-we-work">How we work</Link>
+            <Link href="/how-we-work">How we work</Link>
 
             <div className={`nav-item${isWhoWeHelp ? ' nav-item--active' : ''}`}>
               <Link
-                to="/who-we-help"
+                href="/who-we-help"
                 className={`dropdown-toggle${isWhoWeHelp ? ' nav-link--active' : ''}`}
               >
                 Who we help
@@ -431,11 +432,11 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link to="/results">Results</Link>
+            <Link href="/results">Results</Link>
 
             <div className={`nav-item${isInsights ? ' nav-item--active' : ''}`}>
               <Link
-                to="/insights"
+                href="/insights"
                 className={`dropdown-toggle${isInsights ? ' nav-link--active' : ''}`}
               >
                 Insights
@@ -446,17 +447,17 @@ export default function Navbar() {
                   <MegaColumnHead accent={2} label="Insights" />
                   <ul className="dropdown-mega__list">
                     <li>
-                      <Link to="/insights/testimonials">
+                      <Link href="/insights/testimonials">
                         <span className="dropdown-mega__link-label">Testimonials</span>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/insights/blog">
+                      <Link href="/insights/blog">
                         <span className="dropdown-mega__link-label">Blog</span>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/insights/resources">
+                      <Link href="/insights/resources">
                         <span className="dropdown-mega__link-label">Resources</span>
                       </Link>
                     </li>
@@ -465,12 +466,12 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link to="/about">About</Link>
+            <Link href="/about">About</Link>
             </div>
           </div>
 
           <div className="nav-links__actions nav-links__actions--desktop">
-            <Link to={CLIENT_PORTAL_PATH} className="portal-link">
+            <Link href={CLIENT_PORTAL_PATH} className="portal-link">
               Client portal →
             </Link>
             <BookCallLink className="btn btn-primary nav-cta--book-call">
@@ -528,11 +529,11 @@ export default function Navbar() {
             </MobileNavBlock>
           </MobileNavGroup>
 
-          <Link to="/products" className="mobile-nav__top-link" onClick={closeMenu}>
+          <Link href="/products" className="mobile-nav__top-link" onClick={closeMenu}>
             Products
           </Link>
 
-          <Link to="/how-we-work" className="mobile-nav__top-link" onClick={closeMenu}>
+          <Link href="/how-we-work" className="mobile-nav__top-link" onClick={closeMenu}>
             How we work
           </Link>
 
@@ -555,7 +556,7 @@ export default function Navbar() {
             ))}
           </MobileNavGroup>
 
-          <Link to="/results" className="mobile-nav__top-link" onClick={closeMenu}>
+          <Link href="/results" className="mobile-nav__top-link" onClick={closeMenu}>
             Results
           </Link>
 
@@ -580,13 +581,13 @@ export default function Navbar() {
             </ul>
           </MobileNavGroup>
 
-          <Link to="/about" className="mobile-nav__top-link" onClick={closeMenu}>
+          <Link href="/about" className="mobile-nav__top-link" onClick={closeMenu}>
             About
           </Link>
         </div>
 
         <div className="mobile-nav__footer">
-          <Link to={CLIENT_PORTAL_PATH} className="mobile-nav__portal" onClick={closeMenu}>
+          <Link href={CLIENT_PORTAL_PATH} className="mobile-nav__portal" onClick={closeMenu}>
             Client portal →
           </Link>
           <BookCallLink className="btn btn-primary mobile-nav__cta" onClick={closeMenu}>
