@@ -5,25 +5,25 @@ import './AboutIdentitySection.css'
 const IDENTITY_ROLES = [
   {
     icon: 'laptop-outline',
-    title: 'Author',
+    title: 'An Author',
     body:
       'I wrote A Suitcase of Memories, a book about the things we carry with us. Writing taught me to listen before I speak, and to find the story underneath the story.',
   },
   {
     icon: 'map-outline',
-    title: 'Traveler',
+    title: 'A Traveler',
     body:
       "I've built Socialsect across time zones, India, the US, the UK. Somewhere between all the airports and different clocks, I learned that the best businesses are built on understanding people, not markets.",
   },
   {
     icon: 'barbell-outline',
-    title: 'Boxer',
+    title: 'A Boxer',
     body:
       "Boxing taught me that the most important fight is the one you have with yourself before you ever step into the ring. Most things worth doing are uncomfortable before they're rewarding.",
   },
   {
     icon: 'id-card-outline',
-    title: 'Founder',
+    title: 'And obviously a Founder',
     body:
       "I built Socialsect because I kept seeing brilliant doctors, people who had dedicated their lives to their craft, being let down by agencies that didn't understand their world. I decided to build something that did.",
   },

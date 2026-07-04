@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
@@ -97,11 +97,22 @@ const INITIAL_FORM = {
   referral: '',
 }
 
+const FORM_STEPS = [
+  { title: 'Your details', description: 'Start with the basics so we know who to reply to.' },
+  { title: 'Your practice', description: 'A little context about the clinic or practice.' },
+  { title: 'Where you are', description: 'Tell us where you operate and how many locations you run.' },
+  { title: 'Current situation', description: "What's happening now, in your own words." },
+  { title: 'Conversation goal', description: 'Help us make the first reply useful and relevant.' },
+]
+
 export default function BookACallPage() {
   const [form, setForm] = useState(INITIAL_FORM)
+  const [currentStep, setCurrentStep] = useState(0)
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
+  const formRef = useRef(null)
+  const isLastStep = currentStep === FORM_STEPS.length - 1
 
   const getOptionClassName = (isChecked, extraClassName = '') =>
     `book-call-form__option${isChecked ? ' book-call-form__option--checked' : ''}${extraClassName ? ` ${extraClassName}` : ''}`
@@ -119,8 +130,32 @@ export default function BookACallPage() {
     }))
   }
 
+  const validateCurrentStep = () => formRef.current?.reportValidity() ?? true
+
+  const moveToStep = (step) => {
+    setSubmitError('')
+    setCurrentStep(step)
+    document.getElementById('book-call-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  const handleNextStep = () => {
+    if (!validateCurrentStep()) return
+    moveToStep(Math.min(currentStep + 1, FORM_STEPS.length - 1))
+  }
+
+  const handlePreviousStep = () => {
+    moveToStep(Math.max(currentStep - 1, 0))
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!isLastStep) {
+      handleNextStep()
+      return
+    }
+
+    if (!validateCurrentStep()) return
+
     setSubmitError('')
     setSubmitting(true)
     try {
@@ -224,10 +259,38 @@ export default function BookACallPage() {
                 wrong answers.
               </p>
 
-              <form className="book-call-form" onSubmit={handleSubmit} noValidate>
-                <fieldset className="book-call-form__group">
-                  <legend className="book-call-form__legend">About you</legend>
+              <form ref={formRef} className="book-call-form" onSubmit={handleSubmit} noValidate>
+                <div className="book-call-form__progress" aria-label="Contact form progress">
+                  <p className="book-call-form__step-count">
+                    Step {currentStep + 1} of {FORM_STEPS.length}
+                  </p>
+                  <div className="book-call-form__dots" role="tablist" aria-label="Form steps">
+                    {FORM_STEPS.map((step, index) => (
+                      <button
+                        key={step.title}
+                        type="button"
+                        className={`book-call-form__dot${
+                          index === currentStep ? ' book-call-form__dot--active' : ''
+                        }${index < currentStep ? ' book-call-form__dot--complete' : ''}`}
+                        aria-label={`Go to ${step.title}`}
+                        aria-current={index === currentStep ? 'step' : undefined}
+                        disabled={index > currentStep}
+                        onClick={() => moveToStep(index)}
+                      />
+                    ))}
+                  </div>
+                </div>
 
+                <fieldset className="book-call-form__group book-call-form__step-panel">
+                  <legend className="book-call-form__legend">
+                    {FORM_STEPS[currentStep].title}
+                  </legend>
+                  <p className="book-call-form__step-description">
+                    {FORM_STEPS[currentStep].description}
+                  </p>
+
+                  {currentStep === 0 && (
+                    <>
                   <div className="book-call-form__field">
                     <label className="book-call-form__label" htmlFor="book-name">
                       Your name
@@ -261,7 +324,11 @@ export default function BookACallPage() {
                       onChange={(e) => updateField('email', e.target.value)}
                     />
                   </div>
+                    </>
+                  )}
 
+                  {currentStep === 1 && (
+                    <>
                   <div className="book-call-form__field">
                     <label className="book-call-form__label" htmlFor="book-practice">
                       Your practice name
@@ -313,7 +380,11 @@ export default function BookACallPage() {
                       />
                     )}
                   </fieldset>
+                    </>
+                  )}
 
+                  {currentStep === 2 && (
+                    <>
                   <div className="book-call-form__field">
                     <label className="book-call-form__label" htmlFor="book-location">
                       Where is your practice based?
@@ -332,10 +403,6 @@ export default function BookACallPage() {
                       onChange={(e) => updateField('location', e.target.value)}
                     />
                   </div>
-                </fieldset>
-
-                <fieldset className="book-call-form__group">
-                  <legend className="book-call-form__legend">About your practice</legend>
 
                   <fieldset className="book-call-form__fieldset">
                     <legend className="book-call-form__label">
@@ -360,7 +427,11 @@ export default function BookACallPage() {
                       ))}
                     </div>
                   </fieldset>
+                    </>
+                  )}
 
+                  {currentStep === 3 && (
+                    <>
                   <fieldset className="book-call-form__fieldset">
                     <legend className="book-call-form__label">
                       What does your current marketing look like?
@@ -388,10 +459,6 @@ export default function BookACallPage() {
                       ))}
                     </div>
                   </fieldset>
-                </fieldset>
-
-                <fieldset className="book-call-form__group">
-                  <legend className="book-call-form__legend">About what you need</legend>
 
                   <div className="book-call-form__field">
                     <label className="book-call-form__label" htmlFor="book-challenge">
@@ -412,7 +479,11 @@ export default function BookACallPage() {
                       onChange={(e) => updateField('challenge', e.target.value)}
                     />
                   </div>
+                    </>
+                  )}
 
+                  {currentStep === 4 && (
+                    <>
                   <fieldset className="book-call-form__fieldset">
                     <legend className="book-call-form__label">
                       What are you hoping to get out of this conversation?
@@ -464,6 +535,9 @@ export default function BookACallPage() {
                       ))}
                     </div>
                   </fieldset>
+                    </>
+                  )}
+
                 </fieldset>
 
                 <div className="book-call-form__submit-wrap">
@@ -472,14 +546,31 @@ export default function BookACallPage() {
                       {submitError}
                     </p>
                   )}
-                  <button
-                    type="submit"
-                    className="book-call-form__submit cta cta--primary cta--lg"
-                    disabled={submitting}
-                  >
-                    {submitting ? 'Sending…' : 'Start the conversation'}
-                    <ArrowRight className="book-call-form__submit-icon" strokeWidth={2} aria-hidden />
-                  </button>
+                  <div className="book-call-form__nav">
+                    {currentStep > 0 && (
+                      <button
+                        type="button"
+                        className="book-call-form__back"
+                        onClick={handlePreviousStep}
+                        disabled={submitting}
+                      >
+                        Back
+                      </button>
+                    )}
+                    <button
+                      type={isLastStep ? 'submit' : 'button'}
+                      className="book-call-form__submit cta cta--primary cta--lg"
+                      onClick={isLastStep ? undefined : handleNextStep}
+                      disabled={submitting}
+                    >
+                      {submitting
+                        ? 'Sending…'
+                        : isLastStep
+                          ? 'Start the conversation'
+                          : 'Continue'}
+                      <ArrowRight className="book-call-form__submit-icon" strokeWidth={2} aria-hidden />
+                    </button>
+                  </div>
                   <p className="book-call-form__submit-note">
                     We review every submission personally. You&apos;ll hear from us within 24 hours.
                     <br />

@@ -365,11 +365,36 @@
 
 @media (max-width: 768px) {
   .about-hero {
-    grid-template-rows: auto 70vw;
+    display: flex;
+    flex-direction: column;
   }
 
   .about-hero__left {
-    padding: calc(var(--navbar-height) + 32px) var(--gutter) 32px;
+    padding: calc(var(--navbar-height) + 24px) var(--gutter) 28px;
+  }
+
+  .about-hero__right {
+    display: flex;
+    flex-direction: column;
+    background: var(--about-hero-bg);
+  }
+
+  .about-hero__photo {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    height: auto;
+    max-height: 78vh;
+  }
+
+  .about-hero__right .hero-testimonial {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin: -32px var(--gutter) 0;
+    z-index: 1;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 
   .hero-headline {
