@@ -1,9 +1,12 @@
+/* eslint-disable react-refresh/only-export-components */
+
 import Script from 'next/script'
 import Providers from './providers'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PodcastBanner from '@/components/PodcastBanner'
 import GrowthAuditorLauncher from '@/components/growth-auditor/GrowthAuditorLauncher'
+import IntroLoader from '@/components/IntroLoader'
 import { getSeoConfig } from '@/lib/seo'
 import '@/globals.css'
 
@@ -11,6 +14,9 @@ import '@/globals.css'
 const globalSchemas = getSeoConfig('/').schemas.slice(0, 2)
 
 export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
   themeColor: '#695AF2',
 }
 
@@ -77,6 +83,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (sessionStorage.getItem('hasSeenIntro')) {
+                  document.documentElement.dataset.hasSeenIntro = '1';
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
         {globalSchemas.map((schema, i) => (
           <script
             key={i}
@@ -108,6 +125,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <IntroLoader />
         <Providers>
           <div className="app-shell">
             <Navbar />
