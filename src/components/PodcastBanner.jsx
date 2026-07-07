@@ -55,7 +55,7 @@ const PodcastBanner = () => {
           x: Math.min(Math.max(PADDING, initialPosition.x), maxX),
           y: Math.min(Math.max(PADDING, initialPosition.y), maxY),
         }
-      : { x: maxX, y: maxY } // bottom-right corner
+      : { x: PADDING, y: maxY } // bottom-left corner
 
   setPosition(nextPosition)
   positionRef.current = nextPosition
