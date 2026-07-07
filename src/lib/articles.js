@@ -25,6 +25,17 @@ const ARTICLE_FIELDS = `
       }
     }
   },
+  "author": author->{
+    _id,
+    name,
+    image,
+    bio,
+    "slug": slug.current,
+    "socialLinks": socialLinks[]{
+      platform,
+      url
+    }
+  },
   body[]{
     ...,
     _type == "image" => {
@@ -55,5 +66,33 @@ export async function getArticleBySlug(slug) {
   return sanity.fetch(
     `*[_type == "post" && slug.current == $slug][0]{${ARTICLE_FIELDS}}`,
     { slug },
+  )
+}
+
+export async function getAuthorBySlug(slug) {
+  if (!slug) return null
+
+  return sanity.fetch(
+    `*[_type == "author" && slug.current == $slug][0]{
+      _id,
+      name,
+      image,
+      bio,
+      "slug": slug.current,
+      "socialLinks": socialLinks[]{
+        platform,
+        url
+      }
+    }`,
+    { slug },
+  )
+}
+
+export async function getArticlesByAuthor(authorSlug) {
+  if (!authorSlug) return []
+
+  return sanity.fetch(
+    `*[_type == "post" && author->slug.current == $authorSlug] | order(coalesce(publishedAt, _createdAt) desc){${ARTICLE_FIELDS}}`,
+    { authorSlug },
   )
 }

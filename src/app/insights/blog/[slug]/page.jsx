@@ -44,8 +44,9 @@ export async function generateMetadata({ params }) {
       description,
       url: canonical,
       images: [{ url: image, width: 1200, height: 630, alt: title }],
-      ...(article?.publishedAt && { publishedTime: article.publishedAt }),
-      ...(article?.updatedAt && { modifiedTime: article.updatedAt }),
+      ...(article?.updatedAt
+        ? { publishedTime: article.updatedAt, modifiedTime: article.updatedAt }
+        : article?.publishedAt && { publishedTime: article.publishedAt }),
     },
     twitter: {
       card: 'summary_large_image',
@@ -76,7 +77,7 @@ export default async function Page({ params }) {
         description: article.metaDescription || article.excerpt || '',
         image,
         url: canonical,
-        datePublished: article.publishedAt,
+        datePublished: article.updatedAt || article.publishedAt,
         dateModified: article.updatedAt || article.publishedAt,
         author: { '@type': 'Organization', '@id': `${SITE_URL}/#organization` },
         publisher: { '@id': `${SITE_URL}/#organization` },

@@ -212,6 +212,57 @@
   line-height: 1.7;
 }
 
+.article-author {
+  margin-bottom: 28px;
+}
+
+.article-author__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--gray);
+  border-radius: 14px;
+}
+
+.article-author__image {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.article-author__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.article-author__name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.article-author__name a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.article-author__name a:hover {
+  text-decoration: underline;
+}
+
+.article-author__bio {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--dark-gray);
+}
+
 @media (max-width: 720px) {
   .article-layout {
     padding-top: 32px;

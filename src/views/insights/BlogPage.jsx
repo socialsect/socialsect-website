@@ -121,7 +121,11 @@ export default function BlogPage() {
                         <div className="blog-card__body">
                           <p className="blog-card__meta">
                             {article.readingTime || 'Article'}
-                            {article.publishedAt ? ` · ${formatDate(article.publishedAt)}` : ''}
+                            {article.updatedAt
+                              ? ` · Updated ${formatDate(article.updatedAt)}`
+                              : article.publishedAt
+                                ? ` · ${formatDate(article.publishedAt)}`
+                                : ''}
                           </p>
                           <h2 className="blog-card__title">
                             <Link to={`/insights/blog/${article.slug}`}>{article.title}</Link>

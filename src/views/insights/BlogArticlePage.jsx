@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 import { PortableText } from '@portabletext/react'
 import { getArticleBySlug } from '../../lib/articles'
+import InlineBlogForm from '../../components/InlineBlogForm'
 import './BlogArticlePage.css'
 
 const portableTextComponents = {
@@ -126,11 +127,46 @@ export default function BlogArticlePage() {
       <article className="article-layout">
         <header className="article-hero">
           <div className="article-hero__inner">
-            <p className="article-hero__meta">{article.readingTime || 'Article'}</p>
+            <p className="article-hero__meta">
+              {article.readingTime || 'Article'}
+              {article.updatedAt
+                ? ` · Updated ${new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(article.updatedAt))}`
+                : article.publishedAt
+                  ? ` · ${new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(article.publishedAt))}`
+                  : ''}
+            </p>
             <h1 className="article-hero__title">{article.title}</h1>
             {article.excerpt && <p className="article-hero__excerpt">{article.excerpt}</p>}
           </div>
         </header>
+
+        {article.author && (
+          <div className="article-author">
+            <div className="article-author__inner">
+              {article.author.image && (
+                <img
+                  className="article-author__image"
+                  src={article.author.image}
+                  alt={article.author.name}
+                />
+              )}
+              <div className="article-author__info">
+                <p className="article-author__name">
+                  {article.author.slug ? (
+                    <Link to={`/insights/blog/author/${article.author.slug}`}>
+                      {article.author.name}
+                    </Link>
+                  ) : (
+                    article.author.name
+                  )}
+                </p>
+                {article.author.bio && (
+                  <p className="article-author__bio">{article.author.bio}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
 
         {imageUrl && (
           <figure className="article-featured-image">
@@ -139,7 +175,19 @@ export default function BlogArticlePage() {
         )}
 
         <div className="article-body">
-          <PortableText value={article.body || []} components={portableTextComponents} />
+          {(() => {
+            const blocks = article.body || []
+            const mid = Math.floor(blocks.length / 2)
+            const firstHalf = blocks.slice(0, mid)
+            const secondHalf = blocks.slice(mid)
+            return (
+              <>
+                <PortableText value={firstHalf} components={portableTextComponents} />
+                <InlineBlogForm />
+                <PortableText value={secondHalf} components={portableTextComponents} />
+              </>
+            )
+          })()}
         </div>
 
         {Array.isArray(article.faqs) && article.faqs.length > 0 && (
