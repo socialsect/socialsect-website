@@ -13,7 +13,7 @@ const PRODUCTS = [
     title: 'Whisper',
     label: 'Anonymous employee feedback',
     copy:
-      'Give your team a safe, anonymous place to share suggestions, concerns, and ideas. Admins see only the feedback—never the sender—so the process stays focused on improvement, not blame.',
+      'Give your team a safe, anonymous place to share suggestions, concerns, and ideas. Admins see only the feedbacknever the senderso the process stays focused on improvement, not blame.',
     features: [
       'Structured anonymous submissions',
       'Admin-only suggestion review',
@@ -189,7 +189,7 @@ export default function ProductsPage() {
 
           {submitted ? (
             <div className="demo-form__success" role="status">
-              <h3>Thanks — your demo request is on its way.</h3>
+              <h3>Thanks  your demo request is on its way.</h3>
               <p>
                 We&apos;ll review your request and reach out within 24 hours to schedule the right walkthrough.
               </p>

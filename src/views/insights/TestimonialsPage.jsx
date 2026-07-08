@@ -185,7 +185,7 @@ export default function TestimonialsPage() {
                 </article>
               </li>
             ))}
-            {/* placeholder removed — real curated videos added via testimonialsData */}
+            {/* placeholder removed  real curated videos added via testimonialsData */}
           </ul>
 
           {filter !== 'all' && curated.length === 0 && !showFeatured && (

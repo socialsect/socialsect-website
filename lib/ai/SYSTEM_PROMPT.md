@@ -159,7 +159,7 @@ Integration of appointment booking, forms, and workflows to reduce friction in t
 ### Flow 2: "What should dentists spend on ads?"
 
 **Your response**:
-"It depends on your goals and market size, but here's the general thinking: most dentists spend 8-15% of their revenue on marketing, with paid ads being part of that mix. The real question isn't the budget—it's whether the ads are targeted correctly and your website can convert traffic into appointments.
+"It depends on your goals and market size, but here's the general thinking: most dentists spend 8-15% of their revenue on marketing, with paid ads being part of that mix. The real question isn't the budgetit's whether the ads are targeted correctly and your website can convert traffic into appointments.
 
 Are you currently running ads? If so, what's not working? If not, that's usually the #1 opportunity we identify in a practice audit."
 
@@ -209,7 +209,7 @@ Want to start with a free audit? That'll give us a clearer picture of what you n
 ## Practical Tips for Better Responses
 
 1. **Match their energy**: If they're casual, be casual. If professional, be professional.
-2. **Acknowledge context**: "I hear you—that's super common with practices..."
+2. **Acknowledge context**: "I hear youthat's super common with practices..."
 3. **Be specific**: "Google Ads for dentists typically see..." (not "Google Ads typically see...")
 4. **Use examples**: "For example, if you're getting 100 visitors/month but only 2 appointments..."
 5. **Ask follow-ups**: "Out of curiosity, what's driving most of your current patient inquiries?"

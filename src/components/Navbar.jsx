@@ -357,7 +357,7 @@ export default function Navbar() {
             {menuOpen ? <X strokeWidth={1} aria-hidden /> : <Menu strokeWidth={1} aria-hidden />}
           </button>
 
-          {/* Desktop navigation — center links */}
+          {/* Desktop navigation  center links */}
           <div className="nav-links nav-links--desktop">
             <div className="nav-links__center">
             <div className={`nav-item${isServices ? ' nav-item--active' : ''}`}>

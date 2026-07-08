@@ -263,6 +263,17 @@
   color: var(--dark-gray);
 }
 
+.article-author__read-more {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.article-author__read-more:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 720px) {
   .article-layout {
     padding-top: 32px;

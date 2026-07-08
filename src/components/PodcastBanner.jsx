@@ -17,7 +17,7 @@ const PodcastBanner = () => {
   const positionRef = useRef({ x: 0, y: 0 })
 
   useLayoutEffect(() => {
-  // Use clientWidth/clientHeight — more reliable than innerWidth/innerHeight on mobile
+  // Use clientWidth/clientHeight  more reliable than innerWidth/innerHeight on mobile
   // These exclude scrollbars and match the actual visible viewport
   const vw = document.documentElement.clientWidth
   const vh = document.documentElement.clientHeight

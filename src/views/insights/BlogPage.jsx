@@ -15,12 +15,13 @@ function formatDate(value) {
   }).format(new Date(value))
 }
 
-export default function BlogPage() {
-  const [articles, setArticles] = useState([])
-  const [loading, setLoading] = useState(true)
+export default function BlogPage({ articles: initialArticles }) {
+  const [articles, setArticles] = useState(initialArticles || [])
+  const [loading, setLoading] = useState(!initialArticles)
   const [error, setError] = useState('')
 
   useEffect(() => {
+    if (initialArticles) return
     let isMounted = true
 
     async function loadArticles() {
@@ -45,7 +46,7 @@ export default function BlogPage() {
     return () => {
       isMounted = false
     }
-  }, [])
+  }, [initialArticles])
 
   return (
     <main className="blog-page">

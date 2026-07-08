@@ -53,7 +53,7 @@ export const implantVisibilityContent = {
     { title: 'Visibility', detail: 'determines if patients even find you in local search' },
     { title: 'Trust signals', detail: '(reviews, credentials, before/afters) influence comparison' },
     { title: 'Booking friction', detail: 'determines who moves from browsers to bookers' },
-    { title: 'One missed consult', detail: 'can cost $8,000—$15,000 in case value' },
+    { title: 'One missed consult', detail: 'can cost $8,000$15,000 in case value' },
   ],
   finalCtaTitle: 'Find out where your practice stands',
   finalCtaSubheadline: 'Generate your free Implant Practice Visibility Snapshot',

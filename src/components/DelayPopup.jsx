@@ -96,7 +96,7 @@ export default function DelayPopup() {
           <>
             <p className="delay-popup__eyebrow">Free practice growth insights</p>
             <h2 className="delay-popup__title">
-              Get articles on patient acquisition, SEO, and paid ads — written for private practices.
+              Get articles on patient acquisition, SEO, and paid ads  written for private practices.
             </h2>
             <p className="delay-popup__desc">
               No spam. Unsubscribe any time.

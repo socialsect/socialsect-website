@@ -126,7 +126,7 @@ export default function ResultsSpotlightSection() {
                 What we did
               </h4>
               <p className="results-spotlight__did-copy">
-                Built the full patient acquisition system — from lead generation and
+                Built the full patient acquisition system  from lead generation and
                 qualification to follow-up automation and conversion tracking.
               </p>
               <p className="results-spotlight__did-copy results-spotlight__did-copy--note">

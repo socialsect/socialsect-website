@@ -13,7 +13,7 @@ const ORG_SCHEMA = {
   url: SITE_URL,
 }
 
-// Deduplicate the Sanity fetch — called once in generateMetadata and once in Page
+// Deduplicate the Sanity fetch  called once in generateMetadata and once in Page
 const getArticle = cache(getArticleBySlug)
 
 export async function generateMetadata({ params }) {
@@ -103,9 +103,10 @@ export default async function Page({ params }) {
           key={i}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          suppressHydrationWarning
         />
       ))}
-      <BlogArticlePage />
+      <BlogArticlePage article={article} />
     </>
   )
 }

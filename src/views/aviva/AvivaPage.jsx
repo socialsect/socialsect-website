@@ -41,7 +41,7 @@ export default function AvivaPage() {
                 observation directly.
               </p>
               <p className="aviva-letter-preview__signature">
-                — Rayansh Singh
+                 Rayansh Singh
                 <br />
                 Founder, Socialsect
               </p>
@@ -94,7 +94,7 @@ export default function AvivaPage() {
               interest is created."
             </p>
             <span className="aviva-quote-card__attribution">
-              — Rayansh Singh, Founder, Socialsect
+               Rayansh Singh, Founder, Socialsect
             </span>
           </div>
         </div>

@@ -188,7 +188,7 @@ function homeConfig() {
   const canonicalUrl = absoluteUrl('/')
   const title = 'Socialsect :Patient Acquisition Systems for Private Medical Practices'
   const description =
-    'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems — one team. No packages. US & UK.'
+    'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.'
 
   return {
     title,

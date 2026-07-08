@@ -4,23 +4,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   IconBone,           // Orthopaedic surgeons
-  IconBodyScan,       // Dermatologists — body/skin scan
+  IconBodyScan,       // Dermatologists  body/skin scan
   IconSparkles,       // MedSpa owners
-  IconScissors,       // Plastic surgeons — surgical scissors
+  IconScissors,       // Plastic surgeons  surgical scissors
   IconDental,         // Dentists
   IconEye,            // Ophthalmologists
   IconFaceId,         // Aesthetic practitioners
-  IconHeartbeat,      // Vascular surgeons — pulse/vessels
+  IconHeartbeat,      // Vascular surgeons  pulse/vessels
   IconStethoscope,    // Private GP practices
-  IconNeedle,         // Cosmetic surgeons — injections/sutures
+  IconNeedle,         // Cosmetic surgeons  injections/sutures
   IconDna,            // Fertility clinics
-  IconDisabled2,      // Spine surgeons — figure with back/posture
+  IconDisabled2,      // Spine surgeons  figure with back/posture
   IconRun,            // Sports medicine doctors
   IconBandage,        // Pain management specialists
-  IconMedicalCross,   // Orthodontists — dental/medical cross
-  IconMicroscope,     // Hair transplant surgeons — follicle/precision
+  IconMedicalCross,   // Orthodontists  dental/medical cross
+  IconMicroscope,     // Hair transplant surgeons  follicle/precision
   IconMassage,        // Physiotherapists
-  IconActivityHeartbeat, // Cardiologists — ECG line
+  IconActivityHeartbeat, // Cardiologists  ECG line
 } from '@tabler/icons-react';
 import './SpecialtyAudienceSection.css';
 

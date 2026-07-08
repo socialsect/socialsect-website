@@ -93,7 +93,7 @@
   min-height: 280px;
 }
 
-/* Orbital SVG — takes fixed width, bleeds left */
+/* Orbital SVG  takes fixed width, bleeds left */
 .practice-infra__orbital {
   flex-shrink: 0;
   width: 100px;
@@ -315,7 +315,7 @@
   border-right: none;
 }
 
-/* icon wrapper — fixed square so SVG sizes correctly */
+/* icon wrapper  fixed square so SVG sizes correctly */
 .practice-infra__principle-icon-wrap {
   flex-shrink: 0;
   width: 36px;

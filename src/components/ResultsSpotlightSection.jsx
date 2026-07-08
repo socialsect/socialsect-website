@@ -81,7 +81,7 @@ export default function ResultsSpotlightSection() {
                 Miami, FL
               </p>
               <p className="results-spotlight__description">
-                Dr. Badia is a pioneer in orthopedic care, treating complex conditions of the hand, wrist, elbow, and shoulder at the Badia Hand to Shoulder Center. A Cornell and NYU graduate, he previously served as Chief of Hand Surgery at Baptist Hospital of Miami and co-founded the Miami Anatomical Research Center (M.A.R.C.)—the world's largest surgical cadaveric training lab. He also founded OrthoNOW®, the first orthopedic urgent care center in South Florida, revolutionizing immediate access to orthopedic care.
+                Dr. Badia is a pioneer in orthopedic care, treating complex conditions of the hand, wrist, elbow, and shoulder at the Badia Hand to Shoulder Center. A Cornell and NYU graduate, he previously served as Chief of Hand Surgery at Baptist Hospital of Miami and co-founded the Miami Anatomical Research Center (M.A.R.C.)the world's largest surgical cadaveric training lab. He also founded OrthoNOW®, the first orthopedic urgent care center in South Florida, revolutionizing immediate access to orthopedic care.
               </p>
               <div className="results-spotlight__panel-cta-row">
                 <Link to={BOOK_A_CALL_FORM} className="cta cta--inverse">
@@ -119,7 +119,7 @@ export default function ResultsSpotlightSection() {
                 What we did
               </h4>
               <p className="results-spotlight__did-copy">
-                Built the full patient acquisition system — from lead generation and
+                Built the full patient acquisition system  from lead generation and
                 qualification to follow-up automation and conversion tracking.
               </p>
               <p className="results-spotlight__did-copy results-spotlight__did-copy--note">

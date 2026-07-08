@@ -124,7 +124,7 @@ export default function HomePhilosophyAuditSections() {
 
    
 
-          {/* Feature strip — spans full width */}
+          {/* Feature strip  spans full width */}
           <div className="home-philosophy__features" role="list">
             {FEATURES.map((f) => (
               <div className="home-philosophy__feature" role="listitem" key={f.title}>

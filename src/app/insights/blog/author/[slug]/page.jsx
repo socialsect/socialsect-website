@@ -1,5 +1,5 @@
 import { cache } from 'react'
-import { getAuthorBySlug } from '@/lib/articles'
+import { getAuthorBySlug, getArticlesByAuthor } from '@/lib/articles'
 import AuthorPage from '@/views/insights/AuthorPage'
 
 const SITE_URL = 'https://gosocialsect.com'
@@ -17,22 +17,31 @@ export async function generateMetadata({ params }) {
     }
   }
 
+  const ogDescription = Array.isArray(author.bio)
+    ? author.bio.map((b) => b.children?.map((c) => c.text).join('') || '').join(' ').slice(0, 160)
+    : (author.bio || `Articles written by ${author.name} on Socialsect.`)
+
   return {
     title: `${author.name} | Socialsect Blog`,
-    description: author.bio || `Articles written by ${author.name} on Socialsect.`,
+    description: ogDescription,
     alternates: { canonical: `${SITE_URL}/insights/blog/author/${slug}` },
     openGraph: {
       siteName: 'Socialsect',
       locale: 'en_US',
       type: 'profile',
       title: `${author.name} | Socialsect Blog`,
-      description: author.bio,
+      description: ogDescription,
       url: `${SITE_URL}/insights/blog/author/${slug}`,
-      ...(author.image && { images: [{ url: author.image, width: 400, height: 400, alt: author.name }] }),
+      ...(author.image?.asset?.url && { images: [{ url: author.image.asset.url, width: 400, height: 400, alt: author.name }] }),
     },
   }
 }
 
 export default async function Page({ params }) {
-  return <AuthorPage />
+  const { slug: authorSlug } = await params
+  const [author, articles] = await Promise.all([
+    getAuthorBySlug(authorSlug),
+    getArticlesByAuthor(authorSlug),
+  ])
+  return <AuthorPage author={author} articles={articles} />
 }

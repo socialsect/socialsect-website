@@ -28,7 +28,7 @@ const ARTICLE_FIELDS = `
   "author": author->{
     _id,
     name,
-    image,
+    "image": image{ asset->{ url } },
     bio,
     "slug": slug.current,
     "socialLinks": socialLinks[]{
@@ -76,7 +76,7 @@ export async function getAuthorBySlug(slug) {
     `*[_type == "author" && slug.current == $slug][0]{
       _id,
       name,
-      image,
+      "image": image{ asset->{ url } },
       bio,
       "slug": slug.current,
       "socialLinks": socialLinks[]{

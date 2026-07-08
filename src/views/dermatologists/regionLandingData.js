@@ -52,7 +52,7 @@ const regionLandingPages = [
       {
         title: 'Dermatology Website SEO',
         content: [
-          'A website should do more than look professional—it should attract and convert patients.',
+          'A website should do more than look professionalit should attract and convert patients.',
         ],
         bullets: [
           'Technical SEO audits',

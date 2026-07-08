@@ -14,7 +14,7 @@ export default function AboutPage() {
       {/* Dark Hero Section */}
       <section className="about-hero" aria-labelledby="about-hero-heading">
 
-        {/* Left — dark background + text */}
+        {/* Left  dark background + text */}
         <div className="about-hero__left">
           <div className="hero-copy">
             <p className="hero-eyebrow">
@@ -81,7 +81,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Right — photo, fully visible */}
+        {/* Right  photo, fully visible */}
         <div className="about-hero__right" aria-hidden="true">
           <img
             src="/team/rayansh.png"

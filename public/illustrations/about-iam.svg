@@ -51,7 +51,7 @@
   <path d="M240 240 L240 458 A218 218 0 0 0 458 240 Z" fill="#695AF2" opacity="0.03"/>
 
   <!-- ─────────────────────────────────── -->
-  <!-- TOP LEFT — AUTHOR                  -->
+  <!-- TOP LEFT  AUTHOR                  -->
   <!-- ─────────────────────────────────── -->
 
   <!-- Large open book, top-left quadrant, centred at ~(120,120) -->
@@ -90,7 +90,7 @@
         fill="#695AF2" opacity="0.6">AUTHOR</text>
 
   <!-- ─────────────────────────────────── -->
-  <!-- TOP RIGHT — TRAVELER               -->
+  <!-- TOP RIGHT  TRAVELER               -->
   <!-- ─────────────────────────────────── -->
 
   <!-- Globe centred at (360, 120) -->
@@ -133,7 +133,7 @@
         fill="#695AF2" opacity="0.6">TRAVELER</text>
 
   <!-- ─────────────────────────────────── -->
-  <!-- BOTTOM LEFT — BOXER                -->
+  <!-- BOTTOM LEFT  BOXER                -->
   <!-- ─────────────────────────────────── -->
 
   <!-- Two boxing gloves centred ~(120, 355) -->
@@ -184,7 +184,7 @@
         fill="#695AF2" opacity="0.6">BOXER</text>
 
   <!-- ─────────────────────────────────── -->
-  <!-- BOTTOM RIGHT — FOUNDER             -->
+  <!-- BOTTOM RIGHT  FOUNDER             -->
   <!-- ─────────────────────────────────── -->
 
   <!-- Lightbulb centred at (360, 345) -->
@@ -227,7 +227,7 @@
         fill="#695AF2" opacity="0.6">FOUNDER</text>
 
   <!-- ─────────────────────────────────── -->
-  <!-- CENTRE — monogram ring             -->
+  <!-- CENTRE  monogram ring             -->
   <!-- ─────────────────────────────────── -->
   <circle cx="240" cy="240" r="30" fill="rgba(105,90,242,0.08)" stroke="#695AF2" stroke-width="1.2" opacity="0.6"/>
   <circle cx="240" cy="240" r="22" fill="rgba(105,90,242,0.10)" stroke="#695AF2" stroke-width="0.6" opacity="0.35"/>

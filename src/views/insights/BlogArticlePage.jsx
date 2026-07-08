@@ -7,6 +7,21 @@ import { getArticleBySlug } from '../../lib/articles'
 import InlineBlogForm from '../../components/InlineBlogForm'
 import './BlogArticlePage.css'
 
+function extractBioText(bio) {
+  if (!bio) return ''
+  if (typeof bio === 'string') return bio
+  if (Array.isArray(bio)) {
+    return bio
+      .map((block) =>
+        block._type === 'block' && block.children
+          ? block.children.map((c) => c.text || '').join('')
+          : '',
+      )
+      .join('\n')
+  }
+  return ''
+}
+
 const portableTextComponents = {
   types: {
     image: ({ value }) => {
@@ -30,13 +45,14 @@ const portableTextComponents = {
   },
 }
 
-export default function BlogArticlePage() {
+export default function BlogArticlePage({ article: initialArticle }) {
   const { slug } = useParams()
-  const [article, setArticle] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [article, setArticle] = useState(initialArticle || null)
+  const [loading, setLoading] = useState(!initialArticle)
   const [error, setError] = useState('')
 
   useEffect(() => {
+    if (initialArticle) return
     let isMounted = true
 
     async function loadArticle() {
@@ -61,7 +77,7 @@ export default function BlogArticlePage() {
     return () => {
       isMounted = false
     }
-  }, [slug])
+  }, [slug, initialArticle])
 
   if (loading) {
     return (
@@ -143,13 +159,13 @@ export default function BlogArticlePage() {
         {article.author && (
           <div className="article-author">
             <div className="article-author__inner">
-              {article.author.image && (
-                <img
-                  className="article-author__image"
-                  src={article.author.image}
-                  alt={article.author.name}
-                />
-              )}
+                {article.author.image?.asset?.url && (
+                  <img
+                    className="article-author__image"
+                    src={article.author.image.asset.url}
+                    alt={article.author.name}
+                  />
+                )}
               <div className="article-author__info">
                 <p className="article-author__name">
                   {article.author.slug ? (
@@ -161,7 +177,17 @@ export default function BlogArticlePage() {
                   )}
                 </p>
                 {article.author.bio && (
-                  <p className="article-author__bio">{article.author.bio}</p>
+                  <p className="article-author__bio">
+                    {extractBioText(article.author.bio).slice(0, 120)}
+                    {extractBioText(article.author.bio).length > 120 && (
+                      <>
+                        ...{' '}
+                        <Link to={`/insights/blog/author/${article.author.slug}`} className="article-author__read-more">
+                          Read more
+                        </Link>
+                      </>
+                    )}
+                  </p>
                 )}
               </div>
             </div>

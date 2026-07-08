@@ -22,7 +22,7 @@ You should see table **`public.submissions`** under **Table Editor**.
 
 1. In the project, go to **Project Settings** (gear) → **API**.
 2. Copy:
-   - **Project URL** → `SUPABASE_URL` (must end at `.supabase.co` — **do not** add `/rest/v1/`)
+   - **Project URL** → `SUPABASE_URL` (must end at `.supabase.co`  **do not** add `/rest/v1/`)
    - **service_role** key (under *Project API keys*) → `SUPABASE_SERVICE_ROLE_KEY`
 
 Use the **service_role** key only on the server (Vercel env + local `.env`). Never put it in the React app or commit it to git.

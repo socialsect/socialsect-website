@@ -61,7 +61,7 @@ export default function AboutTeamSection() {
           ))}
         </ul>
         <p className="about-team__note">
-          Beyond this core team, we work with a carefully chosen network of specialists — strategists, creatives, developers, and analysts — brought in when your practice needs specific expertise. Every person in that network has worked with us before. Nobody arrives on your project as a stranger.
+          Beyond this core team, we work with a carefully chosen network of specialists  strategists, creatives, developers, and analysts  brought in when your practice needs specific expertise. Every person in that network has worked with us before. Nobody arrives on your project as a stranger.
         </p>
       </div>
     </section>
