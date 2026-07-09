@@ -13,7 +13,6 @@ const TEAM = [
     yearsExp: 4,
     nickname: 'The Conductor',
     healthcareExperience: '3+ years',
-    linkedin: '#',
     bio: [
       "Every project has a hundred moving parts. Jaspal is the one who knows where each one is at any given moment.",
       "Calm, organized, and impossible to rattle  he keeps the entire team aligned without anyone feeling managed.",
@@ -30,7 +29,6 @@ const TEAM = [
     yearsExp: 3,
     nickname: 'The Connector',
     healthcareExperience: '2+ years',
-    linkedin: '#',
     bio: [
       "Harshul is the first voice a client hears and the reason they stay. He translates what a practice needs into what we build.",
       "Part strategist, part translator  he makes sure no detail gets lost between the pitch and the delivery.",
@@ -47,13 +45,28 @@ const TEAM = [
     yearsExp: 6,
     nickname: 'The Meta Whisperer',
     healthcareExperience: '5+ years',
-    linkedin: '#',
     bio: [
       "Gurshan lives inside Meta the way some people live inside books. He understands the difference between an ad that gets clicks and an ad that gets patients.",
       "Every campaign he runs starts with the same question: what actually moves the needle for this practice.",
     ],
     superpowers: ['Meta Ads optimization', 'Audience targeting', 'Creative testing at scale'],
     kryptonite: ['Vanity metrics', 'Ad accounts with no tracking'],
+  },
+  {
+    role: 'Brand experience',
+    name: 'Navya',
+    photo: '/team/navya.png',
+    photoHover: '/team/navya.png',
+    modalPhoto: '/team/navya.png',
+    yearsExp: 2,
+    nickname: 'The Curator',
+    healthcareExperience: '1+ years',
+    bio: [
+      "Navya makes sure every client touchpoint feels intentional. From onboarding to reporting, she designs the experience around clarity and trust.",
+      "She notices the details others skip  and those details are usually what make a client feel like they're in good hands.",
+    ],
+    superpowers: ['Client experience design', 'Onboarding flows', 'Cross-team coordination'],
+    kryptonite: ['Misaligned expectations', 'Slack overload', 'Unclear ownership'],
   },
   {
     role: 'Technical SEO',
@@ -64,47 +77,12 @@ const TEAM = [
     yearsExp: 7,
     nickname: 'The Architect',
     healthcareExperience: '6+ years',
-    linkedin: '#',
     bio: [
       "Patient acquisition starts before a patient knows they need you. Swapnil makes sure your practice is the first thing they find.",
       "He thinks in crawl budgets, site structure, and Core Web Vitals  and somehow makes all of it make sense.",
     ],
     superpowers: ['Technical audits', 'Site architecture', 'Core Web Vitals'],
     kryptonite: ['Broken redirects', 'Duplicate content'],
-  },
-  {
-    role: 'SEO content strategy',
-    name: 'Sushant',
-    photo: '/team/sushant.png',
-    photoHover: '/team/sushant.png',
-    modalPhoto: '/team/sushant.png',
-    yearsExp: 5,
-    nickname: 'The Wordsmith',
-    healthcareExperience: '4+ years',
-    linkedin: '#',
-    bio: [
-      "Where Swapnil builds the foundation, Sushant builds the content architecture. Together they cover everything from technical crawlability to authority-building content.",
-      "He writes for the patient first and the algorithm second  which is exactly why it works for both.",
-    ],
-    superpowers: ['Content strategy', 'Keyword research', 'E-E-A-T optimization'],
-    kryptonite: ['Thin content', 'Missed deadlines'],
-  },
-  {
-    role: 'WordPress development',
-    name: 'Faraz',
-    photo: '/team/faraz.png',
-    photoHover: '/team/faraz.png',
-    modalPhoto: '/team/faraz.png',
-    yearsExp: 4,
-    nickname: 'The Builder',
-    healthcareExperience: '3+ years',
-    linkedin: '#',
-    bio: [
-      "Fast, clean, and zero shortcuts. Faraz handles the builds that need to move quickly without losing quality. The practices he builds for convert.",
-      "He treats every site like it's his own portfolio piece  which means yours gets the same care.",
-    ],
-    superpowers: ['WordPress development', 'Page speed optimization', 'Pixel-perfect builds'],
-    kryptonite: ['Bloated plugins', 'Unoptimized images'],
   },
   {
     role: 'Revenue outreach',
@@ -115,7 +93,6 @@ const TEAM = [
     yearsExp: 3,
     nickname: 'The Inbox Architect',
     healthcareExperience: '2+ years',
-    linkedin: '#',
     bio: [
       "Vimlesh designs the conversations that happen before a patient ever books. Every email sequence is built to warm, nurture, and convert.",
       "He thinks of inboxes as living systems  and treats every send as a chance to build trust, not just deliver a message.",
@@ -132,7 +109,6 @@ const TEAM = [
     yearsExp: 2,
     nickname: 'The Magnet',
     healthcareExperience: '1+ years',
-    linkedin: '#',
     bio: [
       "Krish finds the patients before they start searching. He maps the journey from awareness to appointment and builds touchpoints along the way.",
       "Part data, part instinct  he knows which channels pull and which ones just make noise.",
@@ -141,21 +117,36 @@ const TEAM = [
     kryptonite: ['Channels with no tracking', 'Vanity metrics', 'Slow feedback loops'],
   },
   {
-    role: 'Brand experience',
-    name: 'Navya',
-    photo: '/team/navya.png',
-    photoHover: '/team/navya.png',
-    modalPhoto: '/team/navya.png',
-    yearsExp: 2,
-    nickname: 'The Curator',
-    healthcareExperience: '1+ years',
-    linkedin: '#',
+    role: 'WordPress development',
+    name: 'Faraz',
+    photo: '/team/faraz.png',
+    photoHover: '/team/faraz.png',
+    modalPhoto: '/team/faraz.png',
+    yearsExp: 4,
+    nickname: 'The Builder',
+    healthcareExperience: '3+ years',
     bio: [
-      "Navya makes sure every client touchpoint feels intentional. From onboarding to reporting, she designs the experience around clarity and trust.",
-      "She notices the details others skip  and those details are usually what make a client feel like they're in good hands.",
+      "Fast, clean, and zero shortcuts. Faraz handles the builds that need to move quickly without losing quality. The practices he builds for convert.",
+      "He treats every site like it's his own portfolio piece  which means yours gets the same care.",
     ],
-    superpowers: ['Client experience design', 'Onboarding flows', 'Cross-team coordination'],
-    kryptonite: ['Misaligned expectations', 'Slack overload', 'Unclear ownership'],
+    superpowers: ['WordPress development', 'Page speed optimization', 'Pixel-perfect builds'],
+    kryptonite: ['Bloated plugins', 'Unoptimized images'],
+  },
+  {
+    role: 'SEO content strategy',
+    name: 'Sushant',
+    photo: '/team/sushant.png',
+    photoHover: '/team/sushant.png',
+    modalPhoto: '/team/sushant.png',
+    yearsExp: 5,
+    nickname: 'The Wordsmith',
+    healthcareExperience: '4+ years',
+    bio: [
+      "Where Swapnil builds the foundation, Sushant builds the content architecture. Together they cover everything from technical crawlability to authority-building content.",
+      "He writes for the patient first and the algorithm second  which is exactly why it works for both.",
+    ],
+    superpowers: ['Content strategy', 'Keyword research', 'E-E-A-T optimization'],
+    kryptonite: ['Thin content', 'Missed deadlines'],
   },
 ]
 
@@ -304,14 +295,7 @@ export default function AboutTeamSection() {
                 </div>
               </div>
 
-              <a
-                href={TEAM[active].linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="about-team__modal-linkedin"
-              >
-                Connect on LinkedIn →
-              </a>
+
             </div>
           </div>
         </div>

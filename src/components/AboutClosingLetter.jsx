@@ -11,7 +11,7 @@ export default function AboutClosingLetter() {
           <div className="about-closing-letter__lines" aria-hidden="true" />
 
           <div className="about-closing-letter__top-row">
-            <span className="about-closing-letter__date">July 10, 2026</span>
+            {/* <span className="about-closing-letter__date">July 10, 2026</span> */}
             <div className="about-closing-letter__doodle">
               <img
                 src="/illustrations/morning-news.svg"
@@ -25,7 +25,7 @@ export default function AboutClosingLetter() {
           </div>
 
           <h2 id="about-closing-letter-heading" className="about-closing-letter__title">
-            If you&apos;ve read this far—<br />
+            If you&apos;ve read this far ,<br />
             thank you.
           </h2>
 
