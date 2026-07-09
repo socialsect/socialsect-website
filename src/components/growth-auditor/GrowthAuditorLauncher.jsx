@@ -10,14 +10,16 @@ export default function GrowthAuditorLauncher() {
   return (
     <>
       {!isOpen && (
-        <button 
-          className="auditor-launcher"
-          onClick={() => setIsOpen(true)}
-          aria-label="Open website growth auditor"
-        >
-          <span className="auditor-launcher__icon">✓</span>
-          <span className="auditor-launcher__label">Audit</span>
-        </button>
+        <div className="auditor-launcher-wrapper">
+          <span className="auditor-launcher__tooltip">How may I help you today?</span>
+          <button 
+            className="auditor-launcher"
+            onClick={() => setIsOpen(true)}
+            aria-label="Open website growth auditor"
+          >
+            <img className="auditor-launcher__icon" src="/chatbot-icon.png" alt="Chat" />
+          </button>
+        </div>
       )}
       
       {isOpen && (

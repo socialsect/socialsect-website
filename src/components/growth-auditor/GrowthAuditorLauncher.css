@@ -1,63 +1,90 @@
-.auditor-launcher {
+.auditor-launcher-wrapper {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 56px;
-  height: 56px;
-  background: var(--primary, #695AF2);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 24px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(105, 90, 242, 0.3);
-  transition: all 0.2s ease;
   z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.auditor-launcher {
+  width: 90px;
+  height: 90px;
+  background: none;
+  border: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 2px;
-  font-size: 12px;
+  padding: 0;
 }
 
 .auditor-launcher:hover {
-  background: var(--primary-dark, #503DD8);
-  box-shadow: 0 6px 16px rgba(105, 90, 242, 0.4);
   transform: translateY(-2px);
 }
 
 .auditor-launcher:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(105, 90, 242, 0.3);
 }
 
 .auditor-launcher__icon {
-  font-size: 20px;
-  line-height: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(105, 90, 242, 0.5)) drop-shadow(0 0 24px rgba(105, 90, 242, 0.25));
 }
 
-.auditor-launcher__label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+.auditor-launcher__tooltip {
+  background: white;
+  color: #333;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: tooltipFadeIn 0.3s ease;
+}
+
+.auditor-launcher__tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  right: 24px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  transform: rotate(45deg);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 480px) {
-  .auditor-launcher {
+  .auditor-launcher-wrapper {
     bottom: 16px;
     right: 16px;
-    width: 48px;
-    height: 48px;
-    font-size: 11px;
   }
 
-  .auditor-launcher__icon {
-    font-size: 18px;
+  .auditor-launcher {
+    width: 64px;
+    height: 64px;
   }
 
-  .auditor-launcher__label {
-    font-size: 9px;
+  .auditor-launcher__tooltip {
+    font-size: 12px;
+    padding: 8px 12px;
   }
 }

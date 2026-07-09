@@ -156,6 +156,28 @@ export default function BlogArticlePage({ article: initialArticle }) {
           </div>
         </header>
 
+        {imageUrl && (
+          <figure className="article-featured-image">
+            <img src={imageUrl} alt={imageAlt} />
+          </figure>
+        )}
+
+        <div className="article-body">
+          {(() => {
+            const blocks = article.body || []
+            const mid = Math.floor(blocks.length / 2)
+            const firstHalf = blocks.slice(0, mid)
+            const secondHalf = blocks.slice(mid)
+            return (
+              <>
+                <PortableText value={firstHalf} components={portableTextComponents} />
+                <InlineBlogForm />
+                <PortableText value={secondHalf} components={portableTextComponents} />
+              </>
+            )
+          })()}
+        </div>
+
         {article.author && (
           <div className="article-author">
             <div className="article-author__inner">
@@ -193,28 +215,6 @@ export default function BlogArticlePage({ article: initialArticle }) {
             </div>
           </div>
         )}
-
-        {imageUrl && (
-          <figure className="article-featured-image">
-            <img src={imageUrl} alt={imageAlt} />
-          </figure>
-        )}
-
-        <div className="article-body">
-          {(() => {
-            const blocks = article.body || []
-            const mid = Math.floor(blocks.length / 2)
-            const firstHalf = blocks.slice(0, mid)
-            const secondHalf = blocks.slice(mid)
-            return (
-              <>
-                <PortableText value={firstHalf} components={portableTextComponents} />
-                <InlineBlogForm />
-                <PortableText value={secondHalf} components={portableTextComponents} />
-              </>
-            )
-          })()}
-        </div>
 
         {Array.isArray(article.faqs) && article.faqs.length > 0 && (
           <section className="article-faqs" aria-labelledby="article-faqs-heading">
