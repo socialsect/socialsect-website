@@ -6,7 +6,6 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PodcastBanner from '@/components/PodcastBanner'
 import GrowthAuditorLauncher from '@/components/growth-auditor/GrowthAuditorLauncher'
-import IntroLoader from '@/components/IntroLoader'
 import { getSeoConfig } from '@/lib/seo'
 import '@/globals.css'
 
@@ -126,7 +125,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <IntroLoader />
         <Providers>
           <div className="app-shell">
             <Navbar />

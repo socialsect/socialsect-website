@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { createClient } from '@sanity/client'
 import { allServices } from '../src/assets/service-content-matrix/allServices.js'
 import { allSpecialties } from '../src/assets/specialty-content-matrix/content-matrix.js'
+import { regionLandingPageMap } from '../src/views/dermatologists/regionLandingData.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
@@ -29,17 +30,11 @@ const staticRoutes = [
   '/insights/testimonials',
   '/insights/resources',
   '/book-a-call',
-  '/seo-services-for-dermatologists-new-york',
-  '/seo-services-for-dermatologists-los-angeles-ca',
-  '/seo-services-for-dermatologists-miami-fl',
-  '/seo-services-for-dermatologists-chicago-il',
-  '/seo-services-for-dermatologists-in-houston-tx',
-  '/seo-services-for-dermatologists-in-dallas-tx',
-  '/seo-services-for-dermatologists-in-phoenix-az',
 ]
 
 const serviceRoutes = allServices.map(({ path: routePath }) => routePath)
 const specialtyRoutes = allSpecialties.map(({ slug }) => `/who-we-help/${slug}`)
+const regionLandingRoutes = Object.values(regionLandingPageMap).map(({ path: routePath }) => routePath)
 
 // Fetch blog articles from Sanity
 let blogRoutes = []
@@ -62,7 +57,7 @@ try {
   console.log('Continuing with static routes only...')
 }
 
-const routes = [...staticRoutes, ...serviceRoutes, ...specialtyRoutes]
+const routes = [...staticRoutes, ...serviceRoutes, ...specialtyRoutes, ...regionLandingRoutes]
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
