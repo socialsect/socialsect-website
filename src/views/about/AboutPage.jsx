@@ -4,8 +4,10 @@ import Link from 'next/link'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { ArrowRight } from 'lucide-react'
 import AboutIdentitySection from '../../components/AboutIdentitySection'
+import AboutSuitcaseSection from '../../components/AboutSuitcaseSection'
 import AboutPrinciplesSection from '../../components/AboutPrinciplesSection'
 import AboutTeamSection from '../../components/AboutTeamSection'
+import AboutClosingLetter from '../../components/AboutClosingLetter'
 import './AboutPage.css'
 
 export default function AboutPage() {
@@ -40,8 +42,16 @@ export default function AboutPage() {
                 My name is Rayansh. I&apos;m the founder of Socialsect. I&apos;m also a writer, a traveler, and a boxer. Not necessarily in that order depending on the week.
               </p>
               <p>
-                I wrote a book called <em>A Suitcase of Memories</em>. It&apos;s about the things we carry with us, the places, the people, the moments that shape us. Writing it taught me that the most important thing you can do in any relationship is to show up honestly.
+                I wrote a book called <em>A Suitcase of Memories</em>. It&apos;s about the things we carry with us , the places, the people, the moments that shape us without us realising. Writing it taught me something I&apos;ve tried to bring into everything I do since: that the most important thing you can do in any relationship , personal or professional , is show up honestly.
               </p>
+              <p>
+                This page is me doing exactly that. Before we talk business, before we discuss your practice, before any of that , I wanted you to know who you&apos;d be working with. Because I believe you can only build something real with someone you actually know.
+              </p>
+            </div>
+
+            <div className="hero-signature">
+              <span className="hero-signature__dash">,</span> Rayansh
+              {/* <span className="hero-signature__role">Founder, Socialsect · Author </span> */}
             </div>
 
             <div className="hero-cta-buttons">
@@ -89,6 +99,7 @@ export default function AboutPage() {
             className="about-hero__photo"
             fetchPriority="high"
             decoding="async"
+            draggable="false"
           />
           <blockquote className="hero-testimonial">
             <span className="hero-testimonial__quote" aria-hidden="true">
@@ -109,8 +120,10 @@ export default function AboutPage() {
 
       {/* Sections */}
       <AboutIdentitySection />
+      <AboutSuitcaseSection />
       <AboutPrinciplesSection />
       <AboutTeamSection />
+      <AboutClosingLetter />
 
       {/* Closing CTA Section */}
       <section className="about-closing" aria-labelledby="about-closing-heading">

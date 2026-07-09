@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Team Wheel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#695af2;
+    --ink:#0a0a0a;
+    --paper:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:var(--paper);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Inter',sans-serif;
+    padding:40px 20px;
+  }
+  .wheel-wrap{
+    position:relative;
+    width:min(90vw,780px);
+    aspect-ratio:1/1;
+  }
+  svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
+
+  .slice-outline{
+    fill:none;
+    stroke:var(--paper);
+    stroke-width:2.2;
+  }
+
+  .hub{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:25%; height:25%;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--paper);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    z-index:5;
+    box-shadow:0 0 0 4px var(--paper);
+  }
+  .hub-mark{
+    font-family:'Newsreader',serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(15px,2.8vw,24px);
+    line-height:1;
+  }
+  .hub-sub{
+    margin-top:6px;
+    font-size:8.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+
+  .label{
+    position:absolute;
+    text-align:center;
+    color:#fff;
+    pointer-events:none;
+    width:100%;
+    transform:translate(-50%,-50%);
+  }
+  .name{
+    font-weight:700;
+    font-size:clamp(11px,1.5vw,14px);
+    text-shadow:0 1px 6px rgba(0,0,0,.55);
+  }
+  .role{
+    margin-top:3px;
+    font-size:clamp(9px,1.1vw,10.5px);
+    color:#e7e4ff;
+    letter-spacing:.03em;
+    text-shadow:0 1px 6px rgba(0,0,0,.55);
+  }
+
+  .caption{
+    text-align:center;
+    margin-top:28px;
+    font-size:12px;
+    color:#6b6b6b;
+    letter-spacing:.05em;
+  }
+</style>
+</head>
+<body>
+<div>
+  <div class="wheel-wrap" id="wheel"></div>
+  <p class="caption">Replace each photoUrl in the team array with the real photo</p>
+</div>
+
+<script>
+const team = [
+  {name:"Vinayak",  role:"Founder",   photo:"https://i.pravatar.cc/500?img=12"},
+  {name:"Rayansh",  role:"Ops",       photo:"https://i.pravatar.cc/500?img=33"},
+  {name:"Krish",    role:"Outreach",  photo:"https://i.pravatar.cc/500?img=15"},
+  {name:"Member 4", role:"Design",    photo:"https://i.pravatar.cc/500?img=45"},
+  {name:"Member 5", role:"Dev",       photo:"https://i.pravatar.cc/500?img=22"},
+  {name:"Member 6", role:"Dev",       photo:"https://i.pravatar.cc/500?img=51"},
+  {name:"Member 7", role:"Marketing", photo:"https://i.pravatar.cc/500?img=48"},
+  {name:"Member 8", role:"Sales",     photo:"https://i.pravatar.cc/500?img=60"},
+];
+
+const wheel = document.getElementById('wheel');
+const n = team.length;
+const cx = 50, cy = 50;
+const outerR = 46;
+const innerR = 13;
+const gap = 1.4; // degrees of gap between slices
+
+function polarToCartesian(cx, cy, r, angleDeg){
+  const rad = (angleDeg - 90) * Math.PI / 180;
+  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+}
+
+function donutSlicePath(cx, cy, rOuter, rInner, startAngle, endAngle){
+  const outerStart = polarToCartesian(cx, cy, rOuter, startAngle);
+  const outerEnd   = polarToCartesian(cx, cy, rOuter, endAngle);
+  const innerStart = polarToCartesian(cx, cy, rInner, endAngle);
+  const innerEnd   = polarToCartesian(cx, cy, rInner, startAngle);
+  const largeArc = (endAngle - startAngle) <= 180 ? "0" : "1";
+  return [
+    "M", outerStart.x, outerStart.y,
+    "A", rOuter, rOuter, 0, largeArc, 1, outerEnd.x, outerEnd.y,
+    "L", innerStart.x, innerStart.y,
+    "A", rInner, rInner, 0, largeArc, 0, innerEnd.x, innerEnd.y,
+    "Z"
+  ].join(" ");
+}
+
+let defs = `<defs>`;
+let slices = "";
+let outlines = "";
+const step = 360 / n;
+
+team.forEach((m, i) => {
+  const startAngle = i * step + gap / 2;
+  const endAngle = (i + 1) * step - gap / 2;
+  const path = donutSlicePath(cx, cy, outerR, innerR, startAngle, endAngle);
+  const clipId = `clip-${i}`;
+  const gradId = `shade-${i}`;
+
+  defs += `
+    <clipPath id="${clipId}"><path d="${path}"/></clipPath>
+    <radialGradient id="${gradId}" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.72"/>
+    </radialGradient>`;
+
+  slices += `
+    <g clip-path="url(#${clipId})">
+      <image href="${m.photo}" x="${cx-outerR}" y="${cy-outerR}" width="${outerR*2}" height="${outerR*2}" preserveAspectRatio="xMidYMid slice"/>
+      <path d="${path}" fill="url(#${gradId})"/>
+    </g>`;
+
+  outlines += `<path class="slice-outline" d="${path}"/>`;
+});
+
+defs += `</defs>`;
+
+const svg = `<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+  ${defs}
+  ${slices}
+  ${outlines}
+  <circle cx="${cx}" cy="${cy}" r="${outerR}" fill="none" stroke="#0a0a0a" stroke-width="1.4"></circle>
+</svg>`;
+
+wheel.innerHTML = svg;
+
+// Hub
+const hub = document.createElement('div');
+hub.className = 'hub';
+hub.innerHTML = `<div class="hub-mark">Socialsect</div><div class="hub-sub">Team</div>`;
+wheel.appendChild(hub);
+
+// Name/role labels, placed at each slice's mid-angle, mid-radius
+const labelR = (innerR + outerR) / 2;
+team.forEach((m, i) => {
+  const midAngle = i * step + step / 2;
+  const p = polarToCartesian(cx, cy, labelR, midAngle);
+  const el = document.createElement('div');
+  el.className = 'label';
+  el.style.left = p.x + '%';
+  el.style.top = p.y + '%';
+  el.innerHTML = `<div class="name">${m.name}</div><div class="role">${m.role}</div>`;
+  wheel.appendChild(el);
+});
+</script>
+</body>
+</html>

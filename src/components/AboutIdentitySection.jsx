@@ -64,10 +64,13 @@ export default function AboutIdentitySection() {
                 I spent two weeks learning their practice before I touched anything. The patient profile. The insurance friction. The seasonal patterns. It was a systems problem dressed up as a marketing problem. I fixed the system. It worked.
               </p>
               <p>
-                That&apos;s when I understood something I haven&apos;t been able to shake since: doctors dedicate a decade to becoming exceptional at something that requires their full attention every single day. And then they&apos;re expected to also become marketers, technologists, brand strategists, with no training, no time, and no one accountable for the result.
+                That&apos;s when I understood something I haven&apos;t been able to shake since: doctors are among the most dedicated professionals in the world. They spend a decade training to become exceptional at something that requires their full attention every single day. And then they&apos;re expected to also become marketers, technologists, brand strategists, and growth operators , with no training, no time, and no one accountable for the result.
               </p>
               <p>
                 That&apos;s not fair. And it&apos;s fixable. That&apos;s why Socialsect exists.
+              </p>
+              <p>
+                Today, almost everything we do is for private medical practices in the US and UK. Not because it&apos;s the most convenient market. Because it&apos;s the one where I know we can make a genuine difference , and where I know the doctors working with us deserve better than what they&apos;ve been getting.
               </p>
             </div>
           </div>

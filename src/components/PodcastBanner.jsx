@@ -17,21 +17,9 @@ const PodcastBanner = () => {
   const positionRef = useRef({ x: 0, y: 0 })
 
   useLayoutEffect(() => {
-  // Use clientWidth/clientHeight  more reliable than innerWidth/innerHeight on mobile
-  // These exclude scrollbars and match the actual visible viewport
   const vw = document.documentElement.clientWidth
   const vh = document.documentElement.clientHeight
-  //   const vw = document.documentElement.clientWidth
-  // const vh = document.documentElement.clientHeight
-  console.log('viewport:', vw, vh)
-  console.log('saved position:', localStorage.getItem('podcastBannerPosition'))
-   if (!localStorage.getItem('podcastBannerPositionV2')) {
-    localStorage.removeItem('podcastBannerPosition')
-    localStorage.setItem('podcastBannerPositionV2', '1')
-  }
 
-  // Approximate banner dimensions to avoid getBoundingClientRect() returning 0
-  // on a visibility:hidden element. Adjust if your banner size changes.
   const BANNER_W = vw <= 768 ? 180 : 220
   const BANNER_H = vw <= 768 ? 56 : 70
   const PADDING = 16
@@ -39,23 +27,7 @@ const PodcastBanner = () => {
   const maxX = vw - BANNER_W - PADDING
   const maxY = vh - BANNER_H - PADDING
 
-  let initialPosition = null
-  try {
-    const saved = localStorage.getItem('podcastBannerPosition')
-    initialPosition = saved ? JSON.parse(saved) : null
-  } catch {
-    initialPosition = null
-  }
-
-  const nextPosition =
-    initialPosition &&
-    typeof initialPosition.x === 'number' &&
-    typeof initialPosition.y === 'number'
-      ? {
-          x: Math.min(Math.max(PADDING, initialPosition.x), maxX),
-          y: Math.min(Math.max(PADDING, initialPosition.y), maxY),
-        }
-      : { x: PADDING, y: maxY } // bottom-left corner
+  const nextPosition = { x: PADDING, y: maxY }
 
   setPosition(nextPosition)
   positionRef.current = nextPosition

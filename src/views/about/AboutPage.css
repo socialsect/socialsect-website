@@ -129,6 +129,29 @@
   color: var(--white);
 }
 
+/* Hero Signature */
+.hero-signature {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--white);
+  margin-top: 32px;
+  line-height: 1.4;
+}
+
+.hero-signature__dash {
+  margin-right: 8px;
+}
+
+.hero-signature__role {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--about-hero-text-muted);
+  margin-top: 4px;
+}
+
 /* CTA Buttons */
 .hero-cta-buttons {
   display: flex;
