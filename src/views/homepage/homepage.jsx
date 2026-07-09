@@ -19,7 +19,7 @@ const HERO_STATS = [
 ];
 
 const TRUSTED_PRACTICES = [
-  { name: 'Miami Should Institute', href: 'https://miamishoulderinstitute.com/' },
+  { name: 'Miami Shoulder Institute', href: 'https://miamishoulderinstitute.com/' },
   { name: 'The Interface Specialist Clinic', href: 'https://interfaceclinic.co.uk/' },
   { name: 'NY Metrovein Medical', href: 'https://www.nymetrovein.com/' },
   { name: 'L&P Aesthetics', href: null },
