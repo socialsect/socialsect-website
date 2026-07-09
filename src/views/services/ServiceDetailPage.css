@@ -38,52 +38,6 @@
   border: 0;
 }
 
-/* Breadcrumb */
-.service-detail-breadcrumb {
-  padding: var(--sm, 16px) var(--gutter, 24px);
-  background: transparent !important;
-  border-bottom: 1px solid var(--gray);
-}
-
-.service-detail-breadcrumb__inner {
-  max-width: var(--container-max, 1440px);
-  margin: 0 auto;
-}
-
-.service-detail-breadcrumb__list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: lowercase;
-  color: var(--dark-gray);
-}
-
-.service-detail-breadcrumb__list a {
-  color: var(--dark-gray);
-  text-decoration: none;
-}
-
-.service-detail-breadcrumb__list a:hover {
-  color: var(--primary);
-}
-
-.service-detail-breadcrumb__list span[aria-current] {
-  color: var(--charcoal);
-}
-
-.service-detail-breadcrumb__sep {
-  width: 14px;
-  height: 14px;
-  color: var(--dark-gray);
-  flex-shrink: 0;
-}
-
 /* Hero  ~50vh per wireframe */
 .service-detail-hero {
   display: flex;

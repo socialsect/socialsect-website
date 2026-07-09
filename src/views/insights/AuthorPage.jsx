@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { getAuthorBySlug, getArticlesByAuthor } from '../../lib/articles'
 import './AuthorPage.css'
 
@@ -78,21 +78,6 @@ export default function AuthorPage({ author: initialAuthor, articles: initialArt
 
   return (
     <main className="author-page">
-      <div className="author-page__breadcrumb">
-        <div className="author-page__breadcrumb-inner">
-          <nav aria-label="Breadcrumb">
-            <ol className="author-page__breadcrumb-list">
-              <li><Link to="/">gosocialsect.com</Link></li>
-              <li aria-hidden><ChevronRight strokeWidth={1} className="author-page__breadcrumb-sep" /></li>
-              <li><Link to="/insights">insights</Link></li>
-              <li aria-hidden><ChevronRight strokeWidth={1} className="author-page__breadcrumb-sep" /></li>
-              <li><Link to="/insights/blog">blog</Link></li>
-              <li aria-hidden><ChevronRight strokeWidth={1} className="author-page__breadcrumb-sep" /></li>
-              <li><span aria-current="page">{author.name}</span></li>
-            </ol>
-          </nav>
-        </div>
-      </div>
 
       <section className="author-page__hero">
         <div className="author-page__hero-inner">
@@ -130,7 +115,7 @@ export default function AuthorPage({ author: initialAuthor, articles: initialArt
                   <article key={article._id} className="author-page__card">
                     {imageUrl && (
                       <Link to={`/insights/blog/${article.slug}`} className="author-page__card-image-link">
-                        <img className="author-page__card-image" src={imageUrl} alt="" loading="lazy" />
+                        <img className="author-page__card-image" src={imageUrl} alt={article.title} loading="lazy" />
                       </Link>
                     )}
                     <div className="author-page__card-body">

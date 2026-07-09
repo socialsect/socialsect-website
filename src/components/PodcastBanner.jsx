@@ -307,7 +307,7 @@ const PodcastBanner = () => {
       >
         <img
           src="/icons/apple-podcasts-icon.svg"
-          alt=""
+          alt="Apple Podcasts"
           className="podcast-banner__platform-icon"
         />
       </a>
@@ -320,7 +320,7 @@ const PodcastBanner = () => {
       >
         <img
           src="/icons/spotify-icon.svg"
-          alt=""
+          alt="Spotify"
           className="podcast-banner__platform-icon"
         />
       </a>

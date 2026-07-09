@@ -149,7 +149,7 @@ export default function ProductsPage() {
                 </ul>
                 <div className="product-tile__images">
                   {product.images.map((src) => (
-                    <img key={src} src={src} alt="" className="product-tile__image" />
+                    <img key={src} src={src} alt={`${product.title} screenshot`} className="product-tile__image" />
                   ))}
                 </div>
               </article>

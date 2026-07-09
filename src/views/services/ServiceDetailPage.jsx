@@ -1,7 +1,7 @@
 'use client'
 
 import { Link } from 'react-router-dom'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import './ServiceDetailPage.css'
 import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 
@@ -34,39 +34,6 @@ export default function ServiceDetailPage({ data }) {
 
   return (
     <main className="service-detail-page">
-      <div className="service-detail-breadcrumb">
-        <div className="service-detail-breadcrumb__inner">
-          <nav aria-label="Breadcrumb">
-            <ol className="service-detail-breadcrumb__list">
-              <li>
-                <Link to="/">gosocialsect.com</Link>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="service-detail-breadcrumb__sep" />
-              </li>
-              <li>
-                <Link to="/services">services</Link>
-              </li>
-              {!pageUi.skipPillarInBreadcrumb && (
-                <>
-                  <li aria-hidden>
-                    <ChevronRight strokeWidth={1} className="service-detail-breadcrumb__sep" />
-                  </li>
-                  <li>
-                    <span>{pillarLabel.toLowerCase()}</span>
-                  </li>
-                </>
-              )}
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="service-detail-breadcrumb__sep" />
-              </li>
-              <li>
-                <span aria-current="page">{serviceSlug}</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
 
       <section className="service-detail-hero" aria-labelledby="service-detail-hero-heading">
         <div className="service-detail-hero__bg-animation" aria-hidden>

@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { ChevronRight } from 'lucide-react'
 import { PortableText } from '@portabletext/react'
 import { getArticleBySlug } from '../../lib/articles'
 import InlineBlogForm from '../../components/InlineBlogForm'
@@ -110,35 +109,6 @@ export default function BlogArticlePage({ article: initialArticle }) {
 
   return (
     <main className="article-page">
-      <div className="article-breadcrumb">
-        <div className="article-breadcrumb__inner">
-          <nav aria-label="Breadcrumb">
-            <ol className="article-breadcrumb__list">
-              <li>
-                <Link to="/">gosocialsect.com</Link>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="article-breadcrumb__sep" />
-              </li>
-              <li>
-                <Link to="/insights">insights</Link>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="article-breadcrumb__sep" />
-              </li>
-              <li>
-                <Link to="/insights/blog">blog</Link>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="article-breadcrumb__sep" />
-              </li>
-              <li>
-                <span aria-current="page">{article.title}</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
 
       <article className="article-layout">
         <header className="article-hero">

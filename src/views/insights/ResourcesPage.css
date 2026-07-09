@@ -18,50 +18,6 @@
   border: 0;
 }
 
-/* Breadcrumb */
-.resources-breadcrumb {
-  padding: var(--sm, 16px) var(--gutter, 24px);
-  background: var(--white);
-  border-bottom: 1px solid var(--gray);
-}
-
-.resources-breadcrumb__inner {
-  max-width: var(--container-max, 1440px);
-  margin: 0 auto;
-}
-
-.resources-breadcrumb__list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--dark-gray);
-}
-
-.resources-breadcrumb__list a {
-  color: var(--dark-gray);
-  text-decoration: none;
-}
-
-.resources-breadcrumb__list a:hover {
-  color: var(--primary);
-}
-
-.resources-breadcrumb__list span[aria-current] {
-  color: var(--charcoal);
-}
-
-.resources-breadcrumb__sep {
-  width: 14px;
-  height: 14px;
-  opacity: 0.5;
-}
-
 /* Type badges */
 .resources-type-badge {
   display: inline-flex;

@@ -7,7 +7,6 @@ import {
   BarChart3,
   BookOpen,
   ChevronDown,
-  ChevronRight,
   ClipboardList,
   FileText,
   LayoutTemplate,
@@ -153,29 +152,6 @@ export default function ResourcesPage() {
 
   return (
     <main className="resources-page">
-      <div className="resources-breadcrumb">
-        <div className="resources-breadcrumb__inner">
-          <nav aria-label="Breadcrumb">
-            <ol className="resources-breadcrumb__list">
-              <li>
-                <Link to="/">gosocialsect.com</Link>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="resources-breadcrumb__sep" />
-              </li>
-              <li>
-                <Link to="/insights">insights</Link>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="resources-breadcrumb__sep" />
-              </li>
-              <li>
-                <span aria-current="page">resources</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
 
       <section className="resources-hero" aria-labelledby="resources-hero-heading">
         <div className="resources-hero__bg-animation" aria-hidden>

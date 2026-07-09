@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import DarkVeil from '../../components/dark-veil/DarkVeil.jsx'
 import { getArticles } from '../../lib/articles'
 import './BlogListing.css'
@@ -50,29 +50,6 @@ export default function BlogPage({ articles: initialArticles }) {
 
   return (
     <main className="blog-page">
-      <div className="blog-breadcrumb">
-        <div className="blog-breadcrumb__inner">
-          <nav aria-label="Breadcrumb">
-            <ol className="blog-breadcrumb__list">
-              <li>
-                <Link to="/">gosocialsect.com</Link>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="blog-breadcrumb__sep" />
-              </li>
-              <li>
-                <Link to="/insights">insights</Link>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="blog-breadcrumb__sep" />
-              </li>
-              <li>
-                <span aria-current="page">blog</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
 
       <section className="blog-hero" aria-labelledby="blog-hero-heading">
         <div className="blog-hero__bg-animation" aria-hidden>

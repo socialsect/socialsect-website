@@ -89,7 +89,7 @@ export default function Footer() {
    <div className="footer__card">
   <div className="footer__cta">
     <div className="footer__cta-left">
-      <img className="footer__cta-icon" src="/calendar.svg" alt="" />
+      <img className="footer__cta-icon" src="/calendar.svg" alt="Calendar icon" />
         
       
 
@@ -201,7 +201,7 @@ export default function Footer() {
 
         <img
           src="/icons/logo.svg"
-          alt=""
+          alt="Socialsect logo"
           className="footer__logo"
         />
 

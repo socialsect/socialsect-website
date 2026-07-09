@@ -2,7 +2,7 @@
 import { useMemo, useState } from 'react'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Check, ChevronRight, Plus, Play } from 'lucide-react'
+import { ArrowRight, Check, Plus, Play } from 'lucide-react'
 import LazyDarkVeil from '../../components/dark-veil/LazyDarkVeil.jsx'
 import InlineVideoPlayer from './InlineVideoPlayer'
 import {
@@ -35,29 +35,6 @@ export default function TestimonialsPage() {
 
   return (
     <main className="testimonials-page">
-      <div className="testimonials-breadcrumb">
-        <div className="testimonials-breadcrumb__inner">
-          <nav aria-label="Breadcrumb">
-            <ol className="testimonials-breadcrumb__list">
-              <li>
-                <Link to="/">gosocialsect.com</Link>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="testimonials-breadcrumb__sep" />
-              </li>
-              <li>
-                <Link to="/insights">insights</Link>
-              </li>
-              <li aria-hidden>
-                <ChevronRight strokeWidth={1} className="testimonials-breadcrumb__sep" />
-              </li>
-              <li>
-                <span aria-current="page">testimonials</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
 
       <section className="testimonials-hero" aria-labelledby="testimonials-hero-heading">
         <div className="testimonials-hero__bg-animation" aria-hidden>
