@@ -11,7 +11,7 @@ export default function GrowthAuditorLauncher() {
     <>
       {!isOpen && (
         <div className="auditor-launcher-wrapper">
-          <span className="auditor-launcher__tooltip">How may I help you today?</span>
+          <span className="auditor-launcher__tooltip">Ask us anything</span>
           <button 
             className="auditor-launcher"
             onClick={() => setIsOpen(true)}

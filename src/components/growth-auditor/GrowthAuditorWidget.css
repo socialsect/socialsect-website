@@ -45,7 +45,15 @@
   justify-content: space-between;
   padding: 16px 20px;
   border-bottom: 1px solid var(--gray, #E2E2E2);
-  background: white;
+  background: #FAFAF8;
+}
+
+.chat-widget__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--charcoal, #1A1C1D);
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .chat-widget__title {

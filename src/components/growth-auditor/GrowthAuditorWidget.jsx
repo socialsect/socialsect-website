@@ -8,7 +8,7 @@ export default function GrowthAuditorWidget({ onClose }) {
   const [messages, setMessages] = useState([
     {
       type: 'bot',
-      text: "Hi! I'm Socialsect's AI growth assistant. I can help you learn about our services, audit your website, or answer questions about healthcare marketing. What would you like to do?"
+      text: "Hey. I'm here to talk about growing your practice. No pitch, no pressure. Ask me about what we do, how we work, or whether we can help. Or just see what's on your mind."
     }
   ])
   const [input, setInput] = useState('')
@@ -256,7 +256,7 @@ export default function GrowthAuditorWidget({ onClose }) {
       <div className="chat-widget">
         {/* Header */}
         <div className="chat-widget__header">
-          <h2 className="chat-widget__title">Socialsect AI Assistant</h2>
+          <h2 className="chat-widget__title">Socialsect</h2>
           <button 
             className="chat-widget__close"
             onClick={onClose}
