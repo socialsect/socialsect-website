@@ -102,7 +102,7 @@ Create a popup lead form with the following behavior:
 * Prevent popup spam.
 * Maintain existing UI design.
 
----
+--
 
 ## Development Rules
 
