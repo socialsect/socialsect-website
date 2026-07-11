@@ -26,6 +26,7 @@ export const SERVICE_PILLARS = [
       { slug: 'identity', label: 'Brand identity' },
       { slug: 'design', label: 'Design' },
       { slug: 'video', label: 'Video + motion' },
+      { slug: 'content-library', label: 'Content library' },
     ],
   },
 ]
