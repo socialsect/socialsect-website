@@ -1,5 +1,5 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { useState, useRef, useCallback, useMemo } from 'react'
 import { Play } from 'lucide-react'
 import './ContentLibrary.css'
 
@@ -59,8 +59,22 @@ function buildUrls(rawUrl) {
 
 function ReelCard({ reel }) {
   const [playing, setPlaying] = useState(false);
+  const videoRef = useRef(null);
   const { thumb, video } = buildUrls(reel.url);
   const isReady = Boolean(video);
+
+  const handlePlay = useCallback(() => {
+    setPlaying(true);
+    // Small delay so the video element is visible before calling play()
+    // iOS requires a user gesture on the element itself, so we use the ref
+    requestAnimationFrame(() => {
+      if (videoRef.current) {
+        videoRef.current.play().catch(() => {
+          // Silently catch — user can tap native play if autoplay fails
+        });
+      }
+    });
+  }, []);
 
   return (
     <div className="reel-card">
@@ -71,33 +85,38 @@ function ReelCard({ reel }) {
               paste Cloudinary URL for &ldquo;{reel.title}&rdquo;
             </span>
           </div>
-        ) : !playing ? (
-          <button
-            onClick={() => setPlaying(true)}
-            className="reel-card__play-btn"
-            aria-label={`Play ${reel.title}`}
-          >
-            <img
-              src={thumb}
-              alt=""
-              className="reel-card__thumb"
-              loading="lazy"
-            />
-            <span className="reel-card__overlay" />
-            <span className="reel-card__play-icon">
-              <Play size={20} fill="currentColor" />
-            </span>
-          </button>
         ) : (
-          <video
-            className="reel-card__video"
-            src={video}
-            poster={thumb}
-            controls
-            autoPlay
-            playsInline
-            muted
-          />
+          <>
+            {!playing && (
+              <button
+                onClick={handlePlay}
+                className="reel-card__play-btn"
+                aria-label={`Play ${reel.title}`}
+              >
+                <img
+                  src={thumb}
+                  alt=""
+                  className="reel-card__thumb"
+                  loading="lazy"
+                />
+                <span className="reel-card__overlay" />
+                <span className="reel-card__play-icon">
+                  <Play size={20} fill="currentColor" />
+                </span>
+              </button>
+            )}
+
+            <video
+              ref={videoRef}
+              className={`reel-card__video ${playing ? "reel-card__video--visible" : ""}`}
+              src={video}
+              poster={thumb}
+              controls={playing}
+              playsInline
+              muted
+              preload="metadata"
+            />
+          </>
         )}
 
         <span className="reel-card__number">
