@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Calendar, CircleDollarSign, TrendingUp, Users } from 'lucide-react';
 import PerfectMatchSection from '../../components/PerfectMatchSection';
 import PracticeInfrastructureSection from '../../components/PracticeInfrastructureSection';
+import ContentLibraryCarousel from '../../components/ContentLibraryCarousel';
 import ProcessClaritySection from '../../components/ProcessClaritySection';
 import ResultsSpotlightSection from '../../components/ResultsSpotlightSection';
 import SpecialtyAudienceSection from '../../components/SpecialtyAudienceSection';
@@ -149,6 +150,7 @@ export default function HomePage() {
 
       <PerfectMatchSection />
       <PracticeInfrastructureSection />
+      <ContentLibraryCarousel />
       <ProcessClaritySection />
       <ResultsSpotlightSection />
       <SpecialtyAudienceSection />
