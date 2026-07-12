@@ -54,9 +54,10 @@ function CarouselCard({ reel }) {
 
   const handlePlay = useCallback(() => {
     setPlaying(true);
-    requestAnimationFrame(() => {
+    // iOS needs a small delay for the visibility transition to begin
+    setTimeout(() => {
       videoRef.current?.play().catch(() => {});
-    });
+    }, 50);
   }, []);
 
   return (
@@ -89,13 +90,17 @@ function CarouselCard({ reel }) {
               className={`clc-card__video ${playing ? "clc-card__video--visible" : ""}`}
               src={video}
               poster={thumb}
-              controls={playing}
+              controls
               playsInline
               muted
               preload="metadata"
             />
           </>
         )}
+      </div>
+      <div className="clc-card__info">
+        <span className="clc-card__title">{reel.title}</span>
+        <span className="clc-card__tag">{reel.vertical}</span>
       </div>
     </div>
   );
