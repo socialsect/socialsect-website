@@ -1,6 +1,6 @@
 'use client'
-import { useRef, useState, useCallback, useMemo } from 'react'
-import { Play, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useRef, useState, useCallback } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import './ContentLibraryCarousel.css'
 
@@ -47,56 +47,31 @@ function buildUrls(rawUrl) {
 }
 
 function CarouselCard({ reel }) {
-  const [playing, setPlaying] = useState(false);
-  const videoRef = useRef(null);
   const { thumb, video } = buildUrls(reel.url);
   const isReady = Boolean(video);
 
-  const handlePlay = useCallback(() => {
-    setPlaying(true);
-    // iOS needs a small delay for the visibility transition to begin
-    setTimeout(() => {
-      videoRef.current?.play().catch(() => {});
-    }, 50);
-  }, []);
+  if (!isReady) {
+    return (
+      <div className="clc-card">
+        <div className="clc-card__media">
+          <div className="clc-card__placeholder" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="clc-card">
       <div className="clc-card__media">
-        {!isReady ? (
-          <div className="clc-card__placeholder" />
-        ) : (
-          <>
-            {!playing && (
-              <button
-                onClick={handlePlay}
-                className="clc-card__play-btn"
-                aria-label={`Play ${reel.title}`}
-              >
-                <img
-                  src={thumb}
-                  alt=""
-                  className="clc-card__thumb"
-                  loading="lazy"
-                />
-                <span className="clc-card__overlay" />
-                <span className="clc-card__play-icon">
-                  <Play size={16} fill="currentColor" />
-                </span>
-              </button>
-            )}
-            <video
-              ref={videoRef}
-              className={`clc-card__video ${playing ? "clc-card__video--visible" : ""}`}
-              src={video}
-              poster={thumb}
-              controls
-              playsInline
-              muted
-              preload="metadata"
-            />
-          </>
-        )}
+        <video
+          className="clc-card__video"
+          src={video}
+          poster={thumb}
+          controls
+          playsInline
+          muted
+          preload="metadata"
+        />
       </div>
       <div className="clc-card__info">
         <span className="clc-card__title">{reel.title}</span>
