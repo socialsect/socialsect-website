@@ -2,6 +2,7 @@
 import { useRef, useState, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import VideoPlayer from './VideoPlayer'
 import './ContentLibraryCarousel.css'
 
 const REELS = [
@@ -30,7 +31,6 @@ const REELS = [
   { id: "023", title: "Patient Testimonial — Aug 21", vertical: "Testimonials", url: "https://res.cloudinary.com/us5bum0a/video/upload/WhatsApp_Video_2025-08-21_at_10.53.43_PM_1_zsfipq.mp4" },
   { id: "024", title: "Patient Testimonial — Aug 21 (Alt)", vertical: "Testimonials", url: "https://res.cloudinary.com/us5bum0a/video/upload/WhatsApp_Video_2025-08-21_at_5.53.49_PM_1_xqgno8.mp4" },
   { id: "025", title: "Patient Testimonial — Aug 21 (Alt 2)", vertical: "Testimonials", url: "https://res.cloudinary.com/us5bum0a/video/upload/WhatsApp_Video_2025-08-21_at_5.53.49_PM_xoyvng.mp4" },
-  { id: "026", title: "Patient Testimonial — Sep 4", vertical: "Testimonials", url: "https://res.cloudinary.com/us5bum0a/video/upload/WhatsApp_Video_2025-09-04_at_1.18.04_PM_d4dvn3.mp4" },
 ];
 
 function buildUrls(rawUrl) {
@@ -63,15 +63,7 @@ function CarouselCard({ reel }) {
   return (
     <div className="clc-card">
       <div className="clc-card__media">
-        <video
-          className="clc-card__video"
-          src={video}
-          poster={thumb}
-          controls
-          playsInline
-          muted
-          preload="metadata"
-        />
+        <VideoPlayer src={video} poster={thumb} />
       </div>
       <div className="clc-card__info">
         <span className="clc-card__title">{reel.title}</span>
@@ -98,7 +90,6 @@ export default function ContentLibraryCarousel() {
     if (!el) return;
     const amount = el.clientWidth * 0.6;
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
-    // Update after scroll
     setTimeout(updateScrollState, 400);
   }, [updateScrollState]);
 

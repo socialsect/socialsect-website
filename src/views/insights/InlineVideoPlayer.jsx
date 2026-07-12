@@ -1,7 +1,8 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Play } from 'lucide-react'
+import VideoPlayer from '../../../components/VideoPlayer'
 
 export default function InlineVideoPlayer({
   id,
@@ -12,15 +13,9 @@ export default function InlineVideoPlayer({
   className = '',
   poster = null,
 }) {
-  const videoRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
 
   function handlePlay() {
-    if (videoSrc && videoRef.current) {
-      setIsPlaying(true)
-      videoRef.current.play().catch(() => {})
-      return
-    }
     setIsPlaying(true)
   }
 
@@ -61,14 +56,10 @@ export default function InlineVideoPlayer({
       ) : (
         <div className="testimonials-player__active">
           {videoSrc ? (
-            <video
-              ref={videoRef}
-              className="testimonials-player__video"
+            <VideoPlayer
               src={videoSrc}
               poster={poster}
-              controls
-              playsInline
-              preload="metadata"
+              className="testimonials-player__video"
             />
           ) : (
             <div className="testimonials-player__placeholder" role="status">

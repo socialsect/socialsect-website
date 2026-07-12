@@ -1,6 +1,6 @@
 'use client'
-import { useState, useRef, useCallback, useMemo } from 'react'
-import { Play } from 'lucide-react'
+import { useState, useMemo } from 'react'
+import VideoPlayer from '../../components/VideoPlayer'
 import './ContentLibrary.css'
 
 const VERTICALS = [
@@ -13,7 +13,6 @@ const VERTICALS = [
   "Testimonials",
 ];
 
-// All reels are portrait (9:16) — shot on phone for social/ads
 const REELS = [
   { id: "001", title: "Ortho Patient Journey", vertical: "Orthopaedics", url: "https://res.cloudinary.com/us5bum0a/video/upload/1_trjeza.mp4" },
   { id: "002", title: "Shoulder Procedure — Surgical Walkthrough", vertical: "Orthopaedics", url: "https://res.cloudinary.com/us5bum0a/video/upload/0214_2_1_sebosk.mov" },
@@ -40,7 +39,6 @@ const REELS = [
   { id: "023", title: "Patient Testimonial — Aug 21", vertical: "Testimonials", url: "https://res.cloudinary.com/us5bum0a/video/upload/WhatsApp_Video_2025-08-21_at_10.53.43_PM_1_zsfipq.mp4" },
   { id: "024", title: "Patient Testimonial — Aug 21 (Alt)", vertical: "Testimonials", url: "https://res.cloudinary.com/us5bum0a/video/upload/WhatsApp_Video_2025-08-21_at_5.53.49_PM_1_xqgno8.mp4" },
   { id: "025", title: "Patient Testimonial — Aug 21 (Alt 2)", vertical: "Testimonials", url: "https://res.cloudinary.com/us5bum0a/video/upload/WhatsApp_Video_2025-08-21_at_5.53.49_PM_xoyvng.mp4" },
-  { id: "026", title: "Patient Testimonial — Sep 4", vertical: "Testimonials", url: "https://res.cloudinary.com/us5bum0a/video/upload/WhatsApp_Video_2025-09-04_at_1.18.04_PM_d4dvn3.mp4" },
 ];
 
 function buildUrls(rawUrl) {
@@ -48,7 +46,6 @@ function buildUrls(rawUrl) {
     return { thumb: null, video: null };
   }
   const [prefix, rest] = rawUrl.split("/upload/");
-  // Force mp4 + h264 so iOS plays videos reliably
   const video = `${prefix}/upload/f_mp4,q_auto,vc_h264/${rest}`;
   const thumb = `${prefix}/upload/f_jpg,q_auto,so_0/${rest}`.replace(
     /\.(mp4|mov|MP4|MOV)$/,
@@ -58,65 +55,20 @@ function buildUrls(rawUrl) {
 }
 
 function ReelCard({ reel }) {
-  const [playing, setPlaying] = useState(false);
-  const videoRef = useRef(null);
   const { thumb, video } = buildUrls(reel.url);
   const isReady = Boolean(video);
-
-  const handlePlay = useCallback(() => {
-    setPlaying(true);
-    // Small delay so the video element is visible before calling play()
-    // iOS requires a user gesture on the element itself, so we use the ref
-    requestAnimationFrame(() => {
-      if (videoRef.current) {
-        videoRef.current.play().catch(() => {
-          // Silently catch — user can tap native play if autoplay fails
-        });
-      }
-    });
-  }, []);
 
   return (
     <div className="reel-card">
       <div className="reel-card__media">
-        {!isReady ? (
+        {isReady ? (
+          <VideoPlayer src={video} poster={thumb} />
+        ) : (
           <div className="reel-card__placeholder">
             <span className="reel-card__placeholder-text">
               paste Cloudinary URL for &ldquo;{reel.title}&rdquo;
             </span>
           </div>
-        ) : (
-          <>
-            {!playing && (
-              <button
-                onClick={handlePlay}
-                className="reel-card__play-btn"
-                aria-label={`Play ${reel.title}`}
-              >
-                <img
-                  src={thumb}
-                  alt=""
-                  className="reel-card__thumb"
-                  loading="lazy"
-                />
-                <span className="reel-card__overlay" />
-                <span className="reel-card__play-icon">
-                  <Play size={20} fill="currentColor" />
-                </span>
-              </button>
-            )}
-
-            <video
-              ref={videoRef}
-              className={`reel-card__video ${playing ? "reel-card__video--visible" : ""}`}
-              src={video}
-              poster={thumb}
-              controls={playing}
-              playsInline
-              muted
-              preload="metadata"
-            />
-          </>
         )}
 
         <span className="reel-card__number">
