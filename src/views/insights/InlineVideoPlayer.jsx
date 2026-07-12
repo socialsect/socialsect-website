@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Play } from 'lucide-react'
-import VideoPlayer from '../../../components/VideoPlayer'
+import VideoPlayer from '../../components/VideoPlayer'
 
 export default function InlineVideoPlayer({
   id,
