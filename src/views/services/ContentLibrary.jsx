@@ -96,6 +96,7 @@ function ReelCard({ reel }) {
             controls
             autoPlay
             playsInline
+            muted
           />
         )}
 
