@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import { PortableText } from '@portabletext/react'
 import { getArticleBySlug } from '../../lib/articles'
 import InlineBlogForm from '../../components/InlineBlogForm'
+import { socialIcon } from '../../lib/social-icons'
 import './BlogArticlePage.css'
 
 function extractBioText(bio) {
@@ -180,6 +181,25 @@ export default function BlogArticlePage({ article: initialArticle }) {
                       </>
                     )}
                   </p>
+                )}
+                {article.author.socialLinks?.length > 0 && (
+                  <div className="article-author__links">
+                    {article.author.socialLinks.map((link, i) => {
+                      const Icon = socialIcon(link.platform)
+                      return (
+                        <a
+                          key={i}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="article-author__link"
+                          aria-label={link.platform}
+                        >
+                          <Icon size={14} strokeWidth={1.5} />
+                        </a>
+                      )
+                    })}
+                  </div>
                 )}
               </div>
             </div>

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { getAuthorBySlug, getArticlesByAuthor } from '../../lib/articles'
+import { socialIcon } from '../../lib/social-icons'
 import './AuthorPage.css'
 
 function extractBioText(bio) {
@@ -78,7 +79,6 @@ export default function AuthorPage({ author: initialAuthor, articles: initialArt
 
   return (
     <main className="author-page">
-
       <section className="author-page__hero">
         <div className="author-page__hero-inner">
           <div className="author-page__profile">
@@ -90,11 +90,21 @@ export default function AuthorPage({ author: initialAuthor, articles: initialArt
               {author.bio && <p className="author-page__bio">{extractBioText(author.bio)}</p>}
               {author.socialLinks && author.socialLinks.length > 0 && (
                 <div className="author-page__links">
-                  {author.socialLinks.map((link, i) => (
-                    <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="author-page__link">
-                      {link.platform}
-                    </a>
-                  ))}
+                  {author.socialLinks.map((link, i) => {
+                    const Icon = socialIcon(link.platform)
+                    return (
+                      <a
+                        key={i}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="author-page__link"
+                        aria-label={link.platform}
+                      >
+                        <Icon size={18} strokeWidth={1.5} />
+                      </a>
+                    )
+                  })}
                 </div>
               )}
             </div>

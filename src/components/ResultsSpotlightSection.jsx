@@ -31,7 +31,7 @@ const STATS = [
   },
   {
     value: '0$',
-    label: 'Spent on guesswork',
+    label: 'Wasted on guesswork',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M3 15l5-5 4 4 6-8" stroke="#695af2" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -40,8 +40,8 @@ const STATS = [
     ),
   },
   {
-    value: 'English+Spanish',
-    label: 'Bilingual Funnel',
+    value: 'English + Spanish',
+    label: 'Bilingual funnel',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="8" cy="8" r="3" stroke="#695af2" strokeWidth="1.6" fill="none"/>
@@ -63,10 +63,10 @@ export default function ResultsSpotlightSection() {
     >
       <div className="results-spotlight__inner">
         <header className="results-spotlight__intro">
-          <p className="results-spotlight__eyebrow">Don&apos;t take our word for it</p>
+          <p className="results-spotlight__eyebrow">Don&apos;t just take our word for it</p>
           <h2 id="results-spotlight-headline" className="results-spotlight__headline">
             Real practices. Real numbers.<br />
-            <em>No rounding up.</em>
+            <em>Nothing rounded up.</em>
           </h2>
         </header>
 
@@ -77,11 +77,11 @@ export default function ResultsSpotlightSection() {
               <p className="results-spotlight__panel-label">Featured Practice</p>
               <h3 className="results-spotlight__name">Dr. Alejandro Badia</h3>
               <p className="results-spotlight__practice">
-                Internationally renowned hand and upper extremity orthopedic surgeon
+                Hand and upper extremity orthopedic surgeon
                 Miami, FL
               </p>
               <p className="results-spotlight__description">
-                Dr. Badia is a pioneer in orthopedic care, treating complex conditions of the hand, wrist, elbow, and shoulder at the Badia Hand to Shoulder Center. A Cornell and NYU graduate, he previously served as Chief of Hand Surgery at Baptist Hospital of Miami and co-founded the Miami Anatomical Research Center (M.A.R.C.)the world's largest surgical cadaveric training lab. He also founded OrthoNOW®, the first orthopedic urgent care center in South Florida, revolutionizing immediate access to orthopedic care.
+                Dr. Badia treats complex conditions of the hand, wrist, elbow, and shoulder at the Badia Hand to Shoulder Center. He trained at Cornell and NYU, later serving as Chief of Hand Surgery at Baptist Hospital of Miami, and co-founded the Miami Anatomical Research Center, the largest surgical cadaveric training lab in the world. He also started OrthoNOW, South Florida's first orthopedic urgent care center.
               </p>
               <div className="results-spotlight__panel-cta-row">
                 <Link to={BOOK_A_CALL_FORM} className="cta cta--inverse">
@@ -119,11 +119,11 @@ export default function ResultsSpotlightSection() {
                 What we did
               </h4>
               <p className="results-spotlight__did-copy">
-                Built the full patient acquisition system  from lead generation and
-                qualification to follow-up automation and conversion tracking.
+                Built the whole patient acquisition system: lead generation, qualification,
+                follow-up automation, and conversion tracking.
               </p>
               <p className="results-spotlight__did-copy results-spotlight__did-copy--note">
-                Every number above is documented. No estimates.
+                Every number above is documented, not estimated.
               </p>
               <Link to="/results" className="cta cta--primary">
                 See all results <span aria-hidden="true">→</span>

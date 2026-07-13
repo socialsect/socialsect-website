@@ -18,7 +18,7 @@
 .author-page__hero {
   background: var(--white);
   border-bottom: 1px solid var(--gray);
-  padding: 48px var(--gutter, 24px);
+  padding: 64px var(--gutter, 24px);
 }
 
 .author-page__hero-inner {
@@ -28,17 +28,18 @@
 
 .author-page__profile {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 32px;
   max-width: 64rem;
 }
 
 .author-page__avatar {
-  width: 112px;
-  height: 112px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
 
 .author-page__info {
@@ -74,20 +75,21 @@
 .author-page__link {
   display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--primary);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--dark-gray);
   background: var(--surface);
   border: 1px solid var(--gray);
-  border-radius: 100px;
+  border-radius: 50%;
   text-decoration: none;
-  transition: border-color 0.2s, color 0.2s;
+  transition: all 0.2s;
 }
 
 .author-page__link:hover {
+  color: var(--primary);
   border-color: var(--primary);
-  color: var(--primary-dark);
+  background: color-mix(in srgb, var(--primary) 6%, transparent);
 }
 
 .author-page__articles {
