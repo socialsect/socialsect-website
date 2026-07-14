@@ -4,6 +4,8 @@ import { SERVICE_PILLARS } from '../views/services/servicesRegistry.js'
 import { getServiceData } from '../views/services/serviceData.js'
 import { getSpecialtyData } from '../views/who-we-help/specialtyData.js'
 import { getRegionLandingData } from '../views/dermatologists/regionLandingData.js'
+import { getOrmLandingData } from '../views/orthopaedic/ormLandingData.js'
+import { getPlasticSurgeonLandingData } from '../views/plastic-surgeons/plasticSurgeonLandingData.js'
 import { SEO_PAGE_META_OVERRIDES } from './seoPageMeta.js'
 
 const SITE_NAME = 'Socialsect'
@@ -614,6 +616,50 @@ function regionLandingConfig(pathname, params) {
   }
 }
 
+function ormLandingConfig(pathname, params) {
+  const data = getOrmLandingData(params.pageSlug)
+  if (!data) {
+    return notFoundConfig()
+  }
+
+  const canonicalUrl = absoluteUrl(pathname)
+  const title = data.metaTitle
+  const description = data.metaDescription
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: undefined,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: data.tags ?? ['orthopaedic ORM', 'healthcare reputation', 'review management'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
+function plasticSurgeonLandingConfig(pathname, params) {
+  const data = getPlasticSurgeonLandingData(params.pageSlug)
+  if (!data) {
+    return notFoundConfig()
+  }
+
+  const canonicalUrl = absoluteUrl(pathname)
+  const title = data.metaTitle
+  const description = data.metaDescription
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: undefined,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: data.tags ?? ['plastic surgeon marketing', 'healthcare marketing', 'cosmetic surgery SEO'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
 function visibilityConfig() {
   const canonicalUrl = absoluteUrl('/where-your-implant-practice-is-going-wrong')
   const title = 'Free Implant Practice Visibility Snapshot | Socialsect'
@@ -817,6 +863,16 @@ export function getSeoConfig(pathname) {
   const regionLandingMatch = matchPath('/seo-services-for-dermatologists/:pageSlug', cleanPath)
   if (regionLandingMatch) {
     return applyPageMetaOverrides(regionLandingConfig(cleanPath, regionLandingMatch.params), cleanPath)
+  }
+
+  const ormLandingMatch = matchPath('/orm-for-orthopaedic-surgeons/:pageSlug', cleanPath)
+  if (ormLandingMatch) {
+    return applyPageMetaOverrides(ormLandingConfig(cleanPath, ormLandingMatch.params), cleanPath)
+  }
+
+  const plasticSurgeonLandingMatch = matchPath('/healthcare-marketing-for-plastic-surgeons/:pageSlug', cleanPath)
+  if (plasticSurgeonLandingMatch) {
+    return applyPageMetaOverrides(plasticSurgeonLandingConfig(cleanPath, plasticSurgeonLandingMatch.params), cleanPath)
   }
 
   const articleMatch = matchPath('/insights/blog/:slug', cleanPath)

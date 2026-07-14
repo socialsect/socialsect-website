@@ -30,6 +30,8 @@ const ResourcesPage = lazy(() => import('./pages/insights/ResourcesPage'))
 const ClientPortalPage = lazy(() => import('./pages/client-portal/ClientPortalPage'))
 const AvivaPage = lazy(() => import('./pages/aviva/AvivaPage'))
 const RegionLandingPage = lazy(() => import('./pages/dermatologists/RegionLandingPage'))
+const OrmLandingPage = lazy(() => import('./views/orthopaedic/OrmLandingPage'))
+const PlasticSurgeonLandingPage = lazy(() => import('./views/plastic-surgeons/PlasticSurgeonLandingPage'))
 const SanityArticlesTestPage = lazy(() => import('./pages/debug/SanityArticlesTestPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/privacy/PrivacyPolicyPage'))
 const VisibilityPage = lazy(() => import('./pages/visibility/index'))
@@ -80,6 +82,8 @@ function App() {
           <Route path="/insights/resources" element={<ResourcesPage />} />
           <Route path="/book-a-call" element={<BookACallPage />} />
           <Route path="/seo-services-for-dermatologists/:pageSlug" element={<RegionLandingPage />} />
+          <Route path="/orm-for-orthopaedic-surgeons/:pageSlug" element={<OrmLandingPage />} />
+          <Route path="/healthcare-marketing-for-plastic-surgeons/:pageSlug" element={<PlasticSurgeonLandingPage />} />
           <Route path="/client-portal" element={<ClientPortalPage />} />
           <Route path="/aviva" element={<AvivaPage />} />
           <Route path="/debug/sanity-articles" element={<SanityArticlesTestPage />} />
