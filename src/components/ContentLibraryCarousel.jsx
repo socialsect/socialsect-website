@@ -63,7 +63,7 @@ function CarouselCard({ reel }) {
   return (
     <div className="clc-card">
       <div className="clc-card__media">
-        <VideoPlayer src={video} poster={thumb} />
+        <VideoPlayer src={video} poster={thumb} autoPlay loop />
       </div>
       <div className="clc-card__info">
         <span className="clc-card__title">{reel.title}</span>

@@ -3,33 +3,16 @@ import { useRef, useState, useCallback, useEffect } from 'react'
 import { Play, Pause, Volume2, VolumeX, Maximize, Minimize } from 'lucide-react'
 import './VideoPlayer.css'
 
-const EVENT_NAME = 'vp-play'
-
-let currentPlayingId = null
-
-function broadcastPlay(id) {
-  if (currentPlayingId && currentPlayingId !== id) {
-    window.dispatchEvent(new CustomEvent(EVENT_NAME, { detail: { except: id } }))
-  }
-  currentPlayingId = id
-}
-
-function broadcastPause(id) {
-  if (currentPlayingId === id) {
-    currentPlayingId = null
-  }
-}
-
 let idCounter = 0
 
-export default function VideoPlayer({ src, poster, className = '', autoPlay = false }) {
+export default function VideoPlayer({ src, poster, className = '', autoPlay = false, loop = false }) {
   const containerRef = useRef(null)
   const videoRef = useRef(null)
   const progressRef = useRef(null)
   const hideControlsTimer = useRef(null)
   const idRef = useRef(`vp-${++idCounter}`)
 
-  const [playing, setPlaying] = useState(false)
+  const [playing, setPlaying] = useState(autoPlay)
   const [muted, setMuted] = useState(autoPlay)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
@@ -48,13 +31,11 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
     const v = videoRef.current
     if (!v) return
     if (v.paused) {
-      broadcastPlay(idRef.current)
       v.play().catch(() => {})
       setPlaying(true)
     } else {
       v.pause()
       setPlaying(false)
-      broadcastPause(idRef.current)
     }
   }, [])
 
@@ -84,20 +65,6 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
     }
   }, [])
 
-  // Listen for global play events — pause this video when another starts
-  useEffect(() => {
-    const handler = (e) => {
-      if (e.detail.except === idRef.current) return
-      const v = videoRef.current
-      if (v && !v.paused) {
-        v.pause()
-        setPlaying(false)
-      }
-    }
-    window.addEventListener(EVENT_NAME, handler)
-    return () => window.removeEventListener(EVENT_NAME, handler)
-  }, [])
-
   useEffect(() => {
     const v = videoRef.current
     if (!v) return
@@ -109,7 +76,6 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
     const onLoadedMetadata = () => setDuration(v.duration)
     const onEnded = () => {
       setPlaying(false)
-      broadcastPause(idRef.current)
     }
     const onPlay = () => setPlaying(true)
     const onPause = () => setPlaying(false)
@@ -128,6 +94,26 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
       v.removeEventListener('pause', onPause)
     }
   }, [])
+
+  // Auto-play when visible, pause when off-screen
+  useEffect(() => {
+    if (!autoPlay) return
+    const v = videoRef.current
+    if (!v) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          v.play().catch(() => {})
+        } else {
+          v.pause()
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(v)
+    return () => observer.disconnect()
+  }, [autoPlay])
 
   useEffect(() => {
     const onFsChange = () => setIsFullscreen(Boolean(document.fullscreenElement))
@@ -166,7 +152,9 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
         src={src}
         poster={poster}
         playsInline
+        loop={loop}
         muted={muted}
+        autoPlay={autoPlay || undefined}
         preload="metadata"
         onClick={togglePlay}
       />
