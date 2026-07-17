@@ -10,7 +10,6 @@
 
 ### Requirements
 
-
 * All blog author information already exists in Sanity CMS.
 * Fetch author data directly from Sanity.
 * Display author information on every blog post.
