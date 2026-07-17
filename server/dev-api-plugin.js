@@ -94,6 +94,7 @@ export function devApiPlugin() {
 
           const requestMeta = {
             userAgent: req.headers['user-agent'] ?? '',
+            ip: req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.headers['x-real-ip'] || '',
           }
           const result = await processor(payload, requestMeta)
           res.statusCode = 200

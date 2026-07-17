@@ -24,7 +24,7 @@
   border-radius: 2px;
 }
 
-/* Paper texture — pure CSS noise */
+/* Paper texture  pure CSS noise */
 .about-closing-letter__paper::before {
   content: '';
   position: absolute;
@@ -95,7 +95,7 @@
   z-index: 1;
 }
 
-/* ===== Top row — date + doodle ===== */
+/* ===== Top row  date + doodle ===== */
 .about-closing-letter__top-row {
   display: flex;
   justify-content: space-between;

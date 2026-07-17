@@ -489,7 +489,7 @@ const plasticSurgeonLandingPages = [
       },
     ],
     statement: {
-      quote: 'In Miami, aesthetics is not just a service — it\'s a lifestyle.',
+      quote: 'In Miami, aesthetics is not just a service  it\'s a lifestyle.',
       body: 'Your marketing must match the sophistication and premium quality of your practice. We help you build a brand that resonates with Miami\'s discerning patients.',
     },
     faq: [

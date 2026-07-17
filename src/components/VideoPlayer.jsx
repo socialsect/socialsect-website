@@ -5,7 +5,7 @@ import './VideoPlayer.css'
 
 let idCounter = 0
 
-export default function VideoPlayer({ src, poster, className = '', autoPlay = false, loop = false }) {
+export default function VideoPlayer({ src, poster, className = '', autoPlay = false, loop = false, onLoadedData }) {
   const containerRef = useRef(null)
   const videoRef = useRef(null)
   const progressRef = useRef(null)
@@ -73,7 +73,10 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
       setCurrentTime(v.currentTime)
       setProgress(v.duration ? (v.currentTime / v.duration) * 100 : 0)
     }
-    const onLoadedMetadata = () => setDuration(v.duration)
+    const onLoadedMetadata = () => {
+      setDuration(v.duration)
+      if (onLoadedData) onLoadedData()
+    }
     const onEnded = () => {
       setPlaying(false)
     }
@@ -142,7 +145,7 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
   return (
     <div
       ref={containerRef}
-      className={`vp ${className} ${playing ? 'vp--playing' : ''} ${showControls ? 'vp--controls-visible' : ''}`}
+      className={`vp ${className} ${playing ? 'vp--playing' : ''} ${showControls ? 'vp--controls-visible' : ''} ${isFullscreen ? 'vp--fullscreen' : ''}`}
       onMouseMove={resetHideTimer}
       onMouseLeave={() => playing && setShowControls(false)}
     >

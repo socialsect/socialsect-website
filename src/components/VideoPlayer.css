@@ -18,6 +18,10 @@
   object-fit: cover;
 }
 
+.vp--fullscreen .vp__video {
+  object-fit: contain;
+}
+
 /* ── Center play button ── */
 
 .vp__center-play {
