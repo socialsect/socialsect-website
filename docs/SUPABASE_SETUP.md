@@ -8,7 +8,7 @@ Every form submission follows this order:
 If Supabase is misconfigured, emails still send; a warning is logged in the server console.
 
 ---
-
+,
 ## 1. Create the table
 
 1. Open [Supabase Dashboard](https://supabase.com/dashboard) and select your project.
