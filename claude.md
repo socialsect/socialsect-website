@@ -18,6 +18,7 @@
 * Author page should include:
 
 
+
   * Author name
   * Author image
   * Author bio
