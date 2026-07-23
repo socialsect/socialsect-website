@@ -57,11 +57,18 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
 
   const toggleFullscreen = useCallback(() => {
     const el = containerRef.current
+    const v = videoRef.current
     if (!el) return
     if (!document.fullscreenElement) {
-      el.requestFullscreen().catch(() => {})
+      if (el.requestFullscreen) {
+        el.requestFullscreen().catch(() => {})
+      } else if (v && v.webkitEnterFullscreen) {
+        v.webkitEnterFullscreen()
+      }
     } else {
-      document.exitFullscreen().catch(() => {})
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {})
+      }
     }
   }, [])
 

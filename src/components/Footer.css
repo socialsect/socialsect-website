@@ -24,10 +24,13 @@
 .footer__contact a{
   text-decoration: none;
   color: #222;
+  transition: all 0.3s ease-in-out;
+}
+.footer__phone-link{
   border: 1px solid #695af1;
   border-radius: 12px;
   padding: 8px 16px;
-  transition: all 0.3s ease-in-out;
+  text-decoration: none;
 }
 .footer__contact a:hover{
   background-color: #695af1;
@@ -376,6 +379,9 @@
 
   .footer__contact a {
     font-size: 12px;
+  }
+
+  .footer__phone-link {
     padding: 6px 10px;
   }
 
