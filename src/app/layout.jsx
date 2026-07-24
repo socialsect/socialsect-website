@@ -97,7 +97,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                // Intercept ALL link-stylesheet insertions BEFORE they're added to DOM
+                // Intercept ALL link-stylesheet creation BEFORE they're added to DOM
                 function deferLink(el) {
                   if (el.tagName.toLowerCase() === 'link' &&
                       el.rel === 'stylesheet' &&
@@ -108,6 +108,7 @@ export default function RootLayout({ children }) {
                     el.addEventListener('load', function(){ this.media = 'all'; });
                   }
                 }
+                // Catch elements created via createElement by wrapping appendChild
                 var origAppendChild = Node.prototype.appendChild;
                 Node.prototype.appendChild = function(child) {
                   if (child && child.tagName) deferLink(child);
@@ -117,6 +118,19 @@ export default function RootLayout({ children }) {
                 Node.prototype.insertBefore = function(child, ref) {
                   if (child && child.tagName) deferLink(child);
                   return origInsertBefore.call(this, child, ref);
+                };
+                // Catch elements created directly, before any insertion
+                var origCreateElement = document.createElement;
+                document.createElement = function(tag, opts) {
+                  var el = origCreateElement.call(document, tag, opts);
+                  if (el && el.tagName) {
+                    var origSetAttribute = el.setAttribute.bind(el);
+                    el.setAttribute = function(name, value) {
+                      origSetAttribute(name, value);
+                      if (name === 'rel' && value === 'stylesheet') deferLink(el);
+                    };
+                  }
+                  return el;
                 };
                 // Also defer any existing stylesheets
                 var existing=document.querySelectorAll('link[rel=stylesheet]');
@@ -142,18 +156,20 @@ export default function RootLayout({ children }) {
         ))}
         {/* Fonts load via @font-face with font-display:swap — no preload to avoid bandwidth contention */}
         {/* Preconnect hints for third-party origins */}
+        <link rel="preload" href="/fonts/Inter-VariableFont_opsz,wght.woff2" as="font" type="font/woff2" crossOrigin="anonymous" fetchPriority="high" />
+        <link rel="preload" href="/fonts/Newsreader-VariableFont_opsz,wght.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Non-blocking Google Fonts: print media ensures it doesn't block paint */}
+        {/* Dancing Script decorative font — single weight only */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap"
           rel="stylesheet"
           media="print"
           onLoad="this.media='all'"
         />
         <noscript>
           <link
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap"
             rel="stylesheet"
           />
         </noscript>
