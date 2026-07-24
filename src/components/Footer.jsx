@@ -211,11 +211,11 @@ export default function Footer() {
         </p>
 
         <div className="footer__social">
-          <a href={LINKEDIN_URL}>
+          <a href={LINKEDIN_URL} aria-label="Socialsect on LinkedIn">
             <TbBrandLinkedin />
           </a>
 
-          <a href={INSTAGRAM_URL}>
+          <a href={INSTAGRAM_URL} aria-label="Socialsect on Instagram">
             <TbBrandInstagram />
           </a>
           <a href="https://github.com/socialsect" target="_blank" rel="noopener noreferrer" aria-label="Socialsect on GitHub">

@@ -301,6 +301,7 @@ const PodcastBanner = () => {
         <button
           className="podcast-banner__close"
           onClick={handleClose}
+          aria-label="Close podcast banner"
         >
           <svg
             viewBox="0 0 24 24"
@@ -315,6 +316,7 @@ const PodcastBanner = () => {
         <button
           className="podcast-banner__expand"
           onClick={handleOpen}
+          aria-label="Open podcast banner"
         >
           <svg
             viewBox="0 0 24 24"
