@@ -93,6 +93,26 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){
+                var d = document;
+                var mo = new MutationObserver(function(){
+                  var els = d.querySelectorAll('link[rel=stylesheet]');
+                  for(var i=0;i<els.length;i++){
+                    var e=els[i];
+                    if(e.href&&e.href.indexOf('googleapis')===-1&&e.media!=='print'){
+                      e.media='print';
+                      e.addEventListener('load',function(){this.media='all'});
+                    }
+                  }
+                });
+                mo.observe(d.head,{childList:true,subtree:true});
+              })();
+            `,
+          }}
+        />
         {globalSchemas.map((schema, i) => (
           <script
             key={i}
