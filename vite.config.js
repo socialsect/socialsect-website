@@ -18,7 +18,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), devApiPlugin()],
     build: {
-      cssMinify: false,
+      cssMinify: true,
+      cssCodeSplit: true,
       rollupOptions: {
         output: {
           manualChunks: (id) => {

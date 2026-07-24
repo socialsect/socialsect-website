@@ -192,7 +192,7 @@ export default function ProcessClaritySection() {
 
         {/* ── CTA ── */}
         <div className="process-clarity__cta-wrap">
-          <Link to="/process" className="process-clarity__cta">
+          <Link to="/how-we-work" className="process-clarity__cta">
             See the full process for every service <span aria-hidden="true">→</span>
           </Link>
         </div>

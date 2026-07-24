@@ -119,10 +119,20 @@ export default function RootLayout({ children }) {
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://unpkg.com" />
+        {/* Non-blocking Google Fonts: print media ensures it doesn't block paint */}
         <link
           href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap"
           rel="stylesheet"
+          media="print"
+          onLoad="this.media='all'"
         />
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap"
+            rel="stylesheet"
+          />
+        </noscript>
       </head>
       <body>
         <Providers>

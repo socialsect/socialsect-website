@@ -1,8 +1,18 @@
 'use client'
 
+import { useEffect } from 'react'
 import './AboutClosingLetter.css'
 
 export default function AboutClosingLetter() {
+  // Non-blocking Google Fonts load for Caveat + Patrick Hand
+  useEffect(() => {
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.href = 'https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&display=swap'
+    link.media = 'print'
+    link.onload = () => { link.media = 'all' }
+    document.head.appendChild(link)
+  }, [])
   return (
     <section className="about-closing-letter" aria-labelledby="about-closing-letter-heading">
       <div className="about-closing-letter__desk">
