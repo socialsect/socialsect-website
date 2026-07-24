@@ -40,7 +40,7 @@
 .content-library__title {
   max-width: 48rem;
   margin: 0 auto;
-  font-family: 'Newsreader', serif;
+  font-family: var(--font-display);
   font-size: 3rem;
   line-height: 1.1;
   color: #141414;
@@ -78,7 +78,7 @@
 }
 
 .content-library__stat-number {
-  font-family: 'Newsreader', serif;
+  font-family: var(--font-display);
   font-size: 3.25rem;
   line-height: 1;
   color: #695af2;

@@ -154,25 +154,9 @@ export default function RootLayout({ children }) {
             suppressHydrationWarning
           />
         ))}
-        {/* Fonts load via @font-face with font-display:swap — no preload to avoid bandwidth contention */}
         {/* Preconnect hints for third-party origins */}
-        <link rel="preload" href="/fonts/Inter-VariableFont_opsz,wght.woff2" as="font" type="font/woff2" crossOrigin="anonymous" fetchPriority="high" />
-        <link rel="preload" href="/fonts/Newsreader-VariableFont_opsz,wght.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Dancing Script decorative font — single weight only */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap"
-          rel="stylesheet"
-          media="print"
-          onLoad="this.media='all'"
-        />
-        <noscript>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
       </head>
       <body>
         <Providers>
@@ -184,11 +168,6 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </Providers>
-        <Script
-          type="module"
-          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.esm.js"
-          strategy="afterInteractive"
-        />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="lazyOnload" />
         <Script id="gtag-init" strategy="lazyOnload">
           {`
