@@ -3,8 +3,7 @@
 /* Base critical typography */
 @font-face {
   font-family: 'Newsreader';
-  src: url('/fonts/Newsreader-VariableFont_opsz,wght.woff2') format('woff2'),
-       url('/fonts/Newsreader-VariableFont_opsz,wght.ttf') format('truetype');
+  src: url('/fonts/Newsreader-VariableFont_opsz,wght.woff2') format('woff2');
   font-weight: 100 900;
   font-stretch: 75% 100%;
   font-style: normal;
@@ -13,8 +12,7 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2'),
-       url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  src: url('/fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2');
   font-weight: 100 900;
   font-stretch: 75% 100%;
   font-style: normal;

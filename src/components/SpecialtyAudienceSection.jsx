@@ -149,7 +149,7 @@ export default function SpecialtyAudienceSection() {
           <div className="specialty-audience__map" aria-hidden="true">
             <img
             draggable="false"
-              src="/map.png"
+              src="/map.webp"
               alt=""
               className="specialty-audience__map-img"
             />

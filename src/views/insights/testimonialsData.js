@@ -29,7 +29,7 @@ export const FEATURED_VIDEOS = [
     referenceHref: BOOK_A_CALL_FORM,
     referenceLabel: 'Request a reference call',
     videoSrc: '/tyson.mp4',
-    poster: '/posters/tyson.png',
+    poster: '/posters/tyson.webp',
   },
 ]
 
@@ -44,7 +44,7 @@ export const CURATED_VIDEOS = [
     practice: 'Evolve Group',
     quote: "Tyson: Worked with Socialsect to refine our patient intake and conversion  short, sharp, and honest.",
     videoSrc: '/tyson.mp4',
-    poster: '/posters/tyson.png',
+    poster: '/posters/tyson.webp',
   },
   {
     id: 'marcus-webb-proof',
@@ -56,7 +56,7 @@ export const CURATED_VIDEOS = [
     quote:
       "I cut my consultation volume by 20% and increased revenue by 35%. The patients we filtered out were never going to book anyway. We just hadn't built a way to know that before they arrived.",
     videoSrc: '/t2.mp4',
-    poster: '/posters/t2.png',
+    poster: '/posters/t2.webp',
     metrics: [
       { value: '+35%', label: 'Revenue on fewer consultations' },
       { value: '2.7×', label: 'Consultation-to-surgery conversion' },

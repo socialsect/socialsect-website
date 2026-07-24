@@ -119,7 +119,7 @@ export default function HomePhilosophyAuditSections() {
             </p>
           </div>       {/* Right: photo */}
           <div className="home-philosophy__image-wrap">
-            <img src="/ray.png" alt="Ray, practice growth strategist" />
+            <img src="/ray.webp" alt="Ray, practice growth strategist" />
           </div>
 
    

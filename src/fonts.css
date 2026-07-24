@@ -1,11 +1,11 @@
 /* ========== Local Font Declarations ========== */
 /* Variable fonts for optimal performance - single file handles all weights 400-700 */
+/* Only WOFF2 served — TTF removed to reduce payload by ~2.5MB */
 
 /* Newsreader - Display Font */
 @font-face {
   font-family: 'Newsreader';
-  src: url('/fonts/Newsreader-VariableFont_opsz,wght.woff2') format('woff2'),
-       url('/fonts/Newsreader-VariableFont_opsz,wght.ttf') format('truetype');
+  src: url('/fonts/Newsreader-VariableFont_opsz,wght.woff2') format('woff2');
   font-weight: 100 900;
   font-stretch: 75% 100%;
   font-style: normal;
@@ -16,8 +16,7 @@
 /* Newsreader Italic */
 @font-face {
   font-family: 'Newsreader';
-  src: url('/fonts/Newsreader-Italic-VariableFont_opsz,wght.woff2') format('woff2'),
-       url('/fonts/Newsreader-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  src: url('/fonts/Newsreader-Italic-VariableFont_opsz,wght.woff2') format('woff2');
   font-weight: 100 900;
   font-stretch: 75% 100%;
   font-style: italic;
@@ -28,8 +27,7 @@
 /* Inter - Body Font */
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2'),
-       url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  src: url('/fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2');
   font-weight: 100 900;
   font-stretch: 75% 100%;
   font-style: normal;
@@ -40,8 +38,7 @@
 /* Inter Italic */
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2'),
-       url('/fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
   font-weight: 100 900;
   font-stretch: 75% 100%;
   font-style: italic;

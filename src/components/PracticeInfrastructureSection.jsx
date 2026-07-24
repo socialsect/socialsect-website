@@ -140,7 +140,7 @@ function OrbitalGraphic() {
   return (
 <div className="practice-infra__graphic" aria-hidden="true">
   <img
-    src="/hubgraphic.png"
+    src="/hubgraphic.webp"
     draggable="false"
     alt=""
     style={{ width: '100%', height: 'auto', display: 'block' }}

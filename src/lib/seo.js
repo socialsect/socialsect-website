@@ -10,7 +10,7 @@ import { SEO_PAGE_META_OVERRIDES } from './seoPageMeta.js'
 
 const SITE_NAME = 'Socialsect'
 const SITE_URL = 'https://gosocialsect.com'
-const DEFAULT_IMAGE = `${SITE_URL}/social-share.png`
+const DEFAULT_IMAGE = `${SITE_URL}/social-share.webp`
 const LINKEDIN_URL = 'https://www.linkedin.com/company/socialsect'
 const INSTAGRAM_URL = 'https://www.instagram.com/thesocialsect/'
 const CONTACT_EMAIL = 'hello@gosocialsect.com'
@@ -422,7 +422,7 @@ function aboutConfig() {
       '@id': `${SITE_URL}/#organization`,
     },
     url: canonicalUrl,
-    image: `${SITE_URL}/team/rayansh.png`,
+    image: `${SITE_URL}/team/rayansh.webp`,
     alumniOf: 'Socialsect',
   }
 
@@ -704,7 +704,7 @@ function notFoundConfig() {
     title,
     description,
     canonicalUrl,
-    image: `${SITE_URL}/social-share-404.png`,
+    image: `${SITE_URL}/social-share-404.webp`,
     robots: NOINDEX_ROBOTS,
     ogType: 'website',
     tags: ['404', 'page not found'],

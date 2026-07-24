@@ -20,7 +20,7 @@ const PRODUCTS = [
       'Clear feedback categories',
       'Actionable insights for leadership',
     ],
-    images: ['/products/whisper.png', '/products/whisper2.png'],
+    images: ['/products/whisper.webp', '/products/whisper2.webp'],
   },
   
   {
@@ -35,7 +35,7 @@ const PRODUCTS = [
       'Team roles and ownership',
       'Built-in communication channels',
     ],
-    images: ['/products/dash.png', '/products/dash2.png'],
+    images: ['/products/dash.webp', '/products/dash2.webp'],
   },
 ]
 

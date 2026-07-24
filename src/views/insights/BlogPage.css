@@ -526,7 +526,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/stethoscope.png');
+  background-image: url('/stethoscope.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

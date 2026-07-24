@@ -17,7 +17,7 @@ export default function GrowthAuditorLauncher() {
             onClick={() => setIsOpen(true)}
             aria-label="Open website growth auditor"
           >
-            <img className="auditor-launcher__icon" src="/chatbot-icon.png" alt="Chat" />
+            <img className="auditor-launcher__icon" src="/chatbot-icon.webp" alt="Chat" />
           </button>
         </div>
       )}

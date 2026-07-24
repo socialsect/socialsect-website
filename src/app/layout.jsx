@@ -35,7 +35,7 @@ export const metadata = {
     url: 'https://gosocialsect.com/',
     images: [
       {
-        url: 'https://gosocialsect.com/social-share.png',
+        url: 'https://gosocialsect.com/social-share.webp',
         width: 1200,
         height: 630,
         alt: 'Socialsect - private medical practice growth',
@@ -49,7 +49,7 @@ export const metadata = {
     title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
     description:
       'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
-    images: ['https://gosocialsect.com/social-share.png'],
+    images: ['https://gosocialsect.com/social-share.webp'],
   },
   icons: {
     icon: [
@@ -72,7 +72,7 @@ export const metadata = {
     'linkedin:description':
       'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
     'pinterest:url': 'https://gosocialsect.com/',
-    'pinterest:media': 'https://gosocialsect.com/social-share.png',
+    'pinterest:media': 'https://gosocialsect.com/social-share.webp',
     'pinterest:description':
       'Socialsect : Patient Acquisition Systems for Private Medical Practices',
   },

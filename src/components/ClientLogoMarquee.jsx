@@ -10,10 +10,10 @@ const logoUrlModules = import.meta.glob(
 
 /** Public URLs if glob finds nothing (e.g. misconfigured build)  files in public/client-logos/ */
 const FALLBACK_LOGO_SRCS = [
-  '/client-logos/interface1.png',
-  '/client-logos/msi.png',
-  '/client-logos/nymv.png',
-  '/client-logos/III.png',
+  '/client-logos/interface1.webp',
+  '/client-logos/msi.webp',
+  '/client-logos/nymv.webp',
+  '/client-logos/III.webp',
 ];
 
 const MIN_TILES_PER_HALF = 18;

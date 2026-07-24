@@ -94,7 +94,7 @@ export default function AboutPage() {
         {/* Right  photo, fully visible */}
         <div className="about-hero__right" aria-hidden="true">
           <img
-            src="/team/rayansh.png"
+            src="/team/rayansh.webp"
             alt="Rayansh, Founder of Socialsect"
             className="about-hero__photo"
             fetchPriority="high"

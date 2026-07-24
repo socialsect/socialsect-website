@@ -32,7 +32,7 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="home-hero__bg" aria-hidden="true">
           <img
-            src="/images/hero-surgeon.png"
+            src="/images/hero-surgeon.webp"
             alt=""
             className="home-hero__bg-image"
             fetchPriority="high"
