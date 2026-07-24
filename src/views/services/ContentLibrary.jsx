@@ -46,9 +46,8 @@ function buildUrls(rawUrl) {
   }
   const [prefix, rest] = rawUrl.split("/upload/");
   const video = `${prefix}/upload/f_mp4,q_auto,vc_h264/${rest}`;
-  const thumb = `${prefix}/upload/f_jpg,q_auto,so_0/${rest}`.replace(
-    /\.(mp4|mov|MP4|MOV)$/,
-    ".jpg"
+  const thumb = `${prefix}/upload/f_webp,q_auto,w_480,c_fill,g_auto,so_0/${rest}`.replace(
+    /\.(mp4|mov|MP4|MOV)$/, ".jpg"
   );
   return { thumb, video };
 }

@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState, useCallback } from 'react'
+import { useRef, useState, useCallback, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import VideoPlayer from './VideoPlayer'
@@ -39,9 +39,9 @@ function buildUrls(rawUrl) {
   }
   const [prefix, rest] = rawUrl.split("/upload/");
   const video = `${prefix}/upload/f_mp4,q_auto,vc_h264/${rest}`;
-  const thumb = `${prefix}/upload/f_jpg,q_auto,so_0/${rest}`.replace(
-    /\.(mp4|mov|MP4|MOV)$/,
-    ".jpg"
+  // Responsive Cloudinary thumb: WebP, 480px wide, cropped
+  const thumb = `${prefix}/upload/f_webp,q_auto,w_480,c_fill,g_auto,so_0/${rest}`.replace(
+    /\.(mp4|mov|MP4|MOV)$/, ".jpg"
   );
   return { thumb, video };
 }
@@ -49,6 +49,25 @@ function buildUrls(rawUrl) {
 function CarouselCard({ reel }) {
   const { thumb, video } = buildUrls(reel.url);
   const isReady = Boolean(video);
+  const cardRef = useRef(null)
+  const [shouldLoad, setShouldLoad] = useState(false)
+
+  // Only load video src when card is near viewport
+  useEffect(() => {
+    if (!cardRef.current) return
+    const el = cardRef.current
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   if (!isReady) {
     return (
@@ -61,9 +80,15 @@ function CarouselCard({ reel }) {
   }
 
   return (
-    <div className="clc-card">
+    <div className="clc-card" ref={cardRef}>
       <div className="clc-card__media">
-        <VideoPlayer src={video} poster={thumb} autoPlay loop />
+        {shouldLoad ? (
+          <VideoPlayer src={video} poster={thumb} autoPlay loop />
+        ) : (
+          <div className="clc-card__placeholder">
+            {thumb && <img src={thumb} alt="" className="clc-card__thumb" loading="lazy" />}
+          </div>
+        )}
       </div>
       <div className="clc-card__info">
         <span className="clc-card__title">{reel.title}</span>

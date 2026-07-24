@@ -170,6 +170,13 @@
 .clc-card__placeholder {
   position: absolute;
   inset: 0;
+  background: #141414;
+}
+
+.clc-card__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .clc-card__video {
