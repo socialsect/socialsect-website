@@ -98,15 +98,23 @@ export default function RootLayout({ children }) {
             __html: `
               (function(){
                 var d = document;
-                var mo = new MutationObserver(function(){
-                  var els = d.querySelectorAll('link[rel=stylesheet]');
-                  for(var i=0;i<els.length;i++){
-                    var e=els[i];
-                    if(e.href&&e.href.indexOf('googleapis')===-1&&e.media!=='print'){
+                function deferCSS(e){
+                  if(e.href&&e.href.indexOf('googleapis')===-1&&e.media!=='print'){
+                    var loaded=false;
+                    try{loaded=!!e.sheet}catch(x){}
+                    if(!loaded){
                       e.media='print';
-                      e.addEventListener('load',function(){this.media='all'});
+                      e.onload=function(){this.media='all'};
                     }
                   }
+                }
+                // Defer initial stylesheets (that haven't loaded yet)
+                var existing=d.querySelectorAll('link[rel=stylesheet]');
+                for(var i=0;i<existing.length;i++){deferCSS(existing[i]);}
+                // Observe dynamically-added stylesheets
+                var mo=new MutationObserver(function(){
+                  var els=d.querySelectorAll('link[rel=stylesheet]');
+                  for(var i=0;i<els.length;i++){deferCSS(els[i]);}
                 });
                 mo.observe(d.head,{childList:true,subtree:true});
               })();
