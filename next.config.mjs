@@ -15,6 +15,7 @@ const nextConfig = {
   // Enable critical CSS inlining via critters
   experimental: {
     optimizeCss: true,
+    browsersListForSwc: true,
   },
 
   // Image optimization

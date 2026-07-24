@@ -3,6 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie 11",
+    "not op_mini all"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "node scripts/generate-sitemap.mjs || true && next build --webpack && node scripts/inline-critical-css.mjs",

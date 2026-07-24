@@ -97,18 +97,20 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                // Intercept ALL link-stylesheet creation BEFORE they're added to DOM
+                // Defer any link that would block render (stylesheet or preload-as-style)
                 function deferLink(el) {
-                  if (el.tagName.toLowerCase() === 'link' &&
-                      el.rel === 'stylesheet' &&
+                  if (el.tagName && el.tagName.toLowerCase() === 'link' &&
                       el.href &&
                       el.href.indexOf('googleapis') === -1 &&
                       el.media !== 'print') {
-                    el.media = 'print';
-                    el.addEventListener('load', function(){ this.media = 'all'; });
+                    var isBlocking = el.rel === 'stylesheet' || el.getAttribute('as') === 'style';
+                    if (isBlocking) {
+                      el.media = 'print';
+                      el.addEventListener('load', function(){ this.media = 'all'; });
+                    }
                   }
                 }
-                // Catch elements created via createElement by wrapping appendChild
+                // Catch elements added via appendChild/insertBefore
                 var origAppendChild = Node.prototype.appendChild;
                 Node.prototype.appendChild = function(child) {
                   if (child && child.tagName) deferLink(child);
@@ -119,7 +121,7 @@ export default function RootLayout({ children }) {
                   if (child && child.tagName) deferLink(child);
                   return origInsertBefore.call(this, child, ref);
                 };
-                // Catch elements created directly, before any insertion
+                // Catch elements created directly via createElement
                 var origCreateElement = document.createElement;
                 document.createElement = function(tag, opts) {
                   var el = origCreateElement.call(document, tag, opts);
@@ -132,14 +134,28 @@ export default function RootLayout({ children }) {
                   }
                   return el;
                 };
-                // Also defer any existing stylesheets
-                var existing=document.querySelectorAll('link[rel=stylesheet]');
+                // Intercept rel property setter (Next.js does el.rel='stylesheet' on preloads)
+                try {
+                  var origRelDescriptor = Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'rel');
+                  Object.defineProperty(HTMLLinkElement.prototype, 'rel', {
+                    get: function() { return this.getAttribute('rel'); },
+                    set: function(value) {
+                      if (value === 'stylesheet' && this.href && this.href.indexOf('googleapis') === -1 && this.media !== 'print') {
+                        this.setAttribute('media', 'print');
+                        this.addEventListener('load', function(){ this.media = 'all'; });
+                      }
+                      this.setAttribute('rel', value);
+                    }
+                  });
+                } catch(e){}
+                // Defer any existing stylesheets OR preload-as-style links in the HTML
+                var existing=document.querySelectorAll('link[rel=stylesheet], link[rel=preload][as=style]');
                 for(var i=0;i<existing.length;i++){
                   var e=existing[i];
                   if(e.href&&e.href.indexOf('googleapis')===-1&&e.media!=='print'){
                     try{ if(e.sheet)continue }catch(x){}
                     e.media='print';
-                    e.onload=function(){this.media='all'};
+                    e.addEventListener('load',function(){this.media='all'});
                   }
                 }
               })();
