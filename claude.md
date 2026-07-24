@@ -8,7 +8,6 @@
 
 ## Task 1: Blog Author Integration
 
-
 ### Requirements
 
 
