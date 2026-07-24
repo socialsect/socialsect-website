@@ -97,20 +97,29 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
-                var d = document;
-                // Intercept appendChild to defer stylesheets BEFORE they're added to DOM
+                // Intercept ALL link-stylesheet insertions BEFORE they're added to DOM
+                function deferLink(el) {
+                  if (el.tagName.toLowerCase() === 'link' &&
+                      el.rel === 'stylesheet' &&
+                      el.href &&
+                      el.href.indexOf('googleapis') === -1 &&
+                      el.media !== 'print') {
+                    el.media = 'print';
+                    el.addEventListener('load', function(){ this.media = 'all'; });
+                  }
+                }
                 var origAppendChild = Node.prototype.appendChild;
                 Node.prototype.appendChild = function(child) {
-                  if (child && child.tagName && child.tagName.toLowerCase() === 'link' &&
-                      child.rel === 'stylesheet' && child.href &&
-                      child.href.indexOf('googleapis') === -1 && child.media !== 'print') {
-                    child.media = 'print';
-                    child.addEventListener('load', function(){ this.media = 'all'; });
-                  }
+                  if (child && child.tagName) deferLink(child);
                   return origAppendChild.call(this, child);
                 };
-                // Defer any existing stylesheets
-                var existing=d.querySelectorAll('link[rel=stylesheet]');
+                var origInsertBefore = Node.prototype.insertBefore;
+                Node.prototype.insertBefore = function(child, ref) {
+                  if (child && child.tagName) deferLink(child);
+                  return origInsertBefore.call(this, child, ref);
+                };
+                // Also defer any existing stylesheets
+                var existing=document.querySelectorAll('link[rel=stylesheet]');
                 for(var i=0;i<existing.length;i++){
                   var e=existing[i];
                   if(e.href&&e.href.indexOf('googleapis')===-1&&e.media!=='print'){
