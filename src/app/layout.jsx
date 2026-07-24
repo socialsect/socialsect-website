@@ -134,20 +134,6 @@ export default function RootLayout({ children }) {
                   }
                   return el;
                 };
-                // Intercept rel property setter (Next.js does el.rel='stylesheet' on preloads)
-                try {
-                  var origRelDescriptor = Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'rel');
-                  Object.defineProperty(HTMLLinkElement.prototype, 'rel', {
-                    get: function() { return this.getAttribute('rel'); },
-                    set: function(value) {
-                      if (value === 'stylesheet' && this.href && this.href.indexOf('googleapis') === -1 && this.media !== 'print') {
-                        this.setAttribute('media', 'print');
-                        this.addEventListener('load', function(){ this.media = 'all'; });
-                      }
-                      this.setAttribute('rel', value);
-                    }
-                  });
-                } catch(e){}
                 // Defer any existing stylesheets OR preload-as-style links in the HTML
                 var existing=document.querySelectorAll('link[rel=stylesheet], link[rel=preload][as=style]');
                 for(var i=0;i<existing.length;i++){
