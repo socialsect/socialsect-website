@@ -12,6 +12,11 @@ const nextConfig = {
     VITE_SANITY_API_VERSION: process.env.VITE_SANITY_API_VERSION,
   },
 
+  // Critical CSS inlining (uses critters)
+  experimental: {
+    optimizeCss: true,
+  },
+
   // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
