@@ -98,25 +98,27 @@ export default function RootLayout({ children }) {
             __html: `
               (function(){
                 var d = document;
-                function deferCSS(e){
+                // Intercept appendChild to defer stylesheets BEFORE they're added to DOM
+                var origAppendChild = Node.prototype.appendChild;
+                Node.prototype.appendChild = function(child) {
+                  if (child && child.tagName && child.tagName.toLowerCase() === 'link' &&
+                      child.rel === 'stylesheet' && child.href &&
+                      child.href.indexOf('googleapis') === -1 && child.media !== 'print') {
+                    child.media = 'print';
+                    child.addEventListener('load', function(){ this.media = 'all'; });
+                  }
+                  return origAppendChild.call(this, child);
+                };
+                // Defer any existing stylesheets
+                var existing=d.querySelectorAll('link[rel=stylesheet]');
+                for(var i=0;i<existing.length;i++){
+                  var e=existing[i];
                   if(e.href&&e.href.indexOf('googleapis')===-1&&e.media!=='print'){
-                    var loaded=false;
-                    try{loaded=!!e.sheet}catch(x){}
-                    if(!loaded){
-                      e.media='print';
-                      e.onload=function(){this.media='all'};
-                    }
+                    try{ if(e.sheet)continue }catch(x){}
+                    e.media='print';
+                    e.onload=function(){this.media='all'};
                   }
                 }
-                // Defer initial stylesheets (that haven't loaded yet)
-                var existing=d.querySelectorAll('link[rel=stylesheet]');
-                for(var i=0;i<existing.length;i++){deferCSS(existing[i]);}
-                // Observe dynamically-added stylesheets
-                var mo=new MutationObserver(function(){
-                  var els=d.querySelectorAll('link[rel=stylesheet]');
-                  for(var i=0;i<els.length;i++){deferCSS(els[i]);}
-                });
-                mo.observe(d.head,{childList:true,subtree:true});
               })();
             `,
           }}
@@ -129,25 +131,10 @@ export default function RootLayout({ children }) {
             suppressHydrationWarning
           />
         ))}
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link
-          rel="preload"
-          href="/fonts/Newsreader-VariableFont_opsz,wght.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Inter-VariableFont_opsz,wght.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        {/* Fonts load via @font-face with font-display:swap — no preload to avoid bandwidth contention */}
+        {/* Preconnect hints for third-party origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://unpkg.com" />
         {/* Non-blocking Google Fonts: print media ensures it doesn't block paint */}
         <link
           href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap"
@@ -177,8 +164,8 @@ export default function RootLayout({ children }) {
           src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.esm.js"
           strategy="afterInteractive"
         />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="afterInteractive" />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="lazyOnload" />
+        <Script id="gtag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

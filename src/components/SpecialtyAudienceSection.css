@@ -114,6 +114,7 @@
   text-decoration: none;
   color: var(--charcoal, #1a1c1d);
   transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  will-change: transform;
 }
 
 

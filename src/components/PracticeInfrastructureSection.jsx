@@ -143,6 +143,8 @@ function OrbitalGraphic() {
     src="/hubgraphic.webp"
     draggable="false"
     alt=""
+    width="844"
+    height="469"
     style={{ width: '100%', height: 'auto', display: 'block' }}
   />
 </div>

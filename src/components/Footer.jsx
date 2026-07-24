@@ -203,6 +203,8 @@ export default function Footer() {
           src="/icons/logo.svg"
           alt="Socialsect logo"
           className="footer__logo"
+          width="80"
+          height="80"
         />
 
         <p className="footer__tagline">
