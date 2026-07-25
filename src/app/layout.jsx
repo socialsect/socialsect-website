@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/next'
 import Providers from './providers'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -117,6 +118,14 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </Providers>
+        <Analytics />
+        <Script
+          type="module"
+          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.esm.js"
+          strategy="afterInteractive"
+        />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="lazyOnload" />
         <Script id="gtag-init" strategy="lazyOnload">
           {`
