@@ -30,7 +30,7 @@
   border: 1px solid #695af1;
   border-radius: 12px;
   padding: 8px 16px;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .footer__contact a:hover{
   background-color: #695af1;
@@ -79,7 +79,7 @@
 
 .footer__cta p{
   margin:8px 0 0;
-  color:#666;
+  color:#4a4a4a;
 }
 
 .footer__cta-button-wrapper {
@@ -234,7 +234,7 @@
 .footer-sub__row{
   display:flex;
   gap:12px;
-  color:#777;
+  color:#595959;
 }
 
 .footer__stethoscope{
