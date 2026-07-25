@@ -45,41 +45,41 @@ const PROMISES = [
 ]
 
 const SPECIALTIES = [
-  'Orthopedics',
-  'Aesthetics / MedSpa',
+  'Orthopedic surgery',
+  'Plastic / cosmetic surgery',
   'Dermatology',
-  'Dentistry',
-  'Plastic surgery',
+  'Dentistry / implant practice',
   'Ophthalmology',
-  'Private GP',
+  'MedSpa / aesthetics',
+  'Private GP / family practice',
   'Other',
 ]
 
-const LOCATIONS = ['1 location', '2–3 locations', '4+ locations']
+const LOCATIONS = ['Single practice', '2–3 locations', '4+ locations']
 
 const MARKETING_OPTIONS = [
-  'We have nothing in place',
-  'Word of mouth only',
-  "We have an agency but it's not working",
-  'We run ads ourselves',
-  'We have multiple vendors',
-  'We have a system but want to improve it',
+  'We have no marketing in place',
+  'Word of mouth and referrals only',
+  'We have a website but it does not generate leads',
+  'We run Google/Meta ads but results are inconsistent',
+  'We have an agency but it is underperforming',
+  'We have multiple vendors and nothing is connected',
 ]
 
 const CONVERSATION_GOALS = [
-  'Understand if Socialsect is the right fit',
-  'Get an outside perspective on my practice',
-  'Understand what a system would look like for me',
-  'Request a reference from a current client',
-  'Just exploring, no pressure',
+  'Understand what a patient acquisition system looks like for us',
+  'Get an honest review of our current marketing spend',
+  'See if Socialsect is the right fit for our practice',
+  'Explore what you would do differently from our current agency',
+  'Just exploring — no commitment',
 ]
 
 const REFERRAL_SOURCES = [
-  'Cold email or outreach',
-  'Referred by someone',
   'Google search',
   'LinkedIn',
-  'Spoke with a current client',
+  'Referred by a current client',
+  'Instagram / social media',
+  'Podcast / content',
   'Other',
 ]
 
@@ -98,11 +98,11 @@ const INITIAL_FORM = {
 }
 
 const FORM_STEPS = [
-  { title: 'Your details', description: 'Start with the basics so we know who to reply to.' },
-  { title: 'Your practice', description: 'A little context about the clinic or practice.' },
-  { title: 'Where you are', description: 'Tell us where you operate and how many locations you run.' },
-  { title: 'Current situation', description: "What's happening now, in your own words." },
-  { title: 'Conversation goal', description: 'Help us make the first reply useful and relevant.' },
+  { title: 'About you', description: 'Who are we speaking with? Name and email so we can reply.' },
+  { title: 'Your practice', description: 'What kind of practice do you run and what do you specialize in?' },
+  { title: 'Your locations', description: 'Where are your patients coming from and how many locations do you operate?' },
+  { title: 'Current situation', description: 'What are you doing now for patient acquisition and where is it falling short?' },
+  { title: 'Next step', description: 'What would make this conversation most useful for you?' },
 ]
 
 export default function BookACallPage() {
@@ -242,11 +242,12 @@ export default function BookACallPage() {
       >
         <div className="book-call-section__inner book-call-section__inner--form">
           {submitted ? (
-            <div className="book-call-form__success" role="status">
-              <h2 className="book-call-form__success-title">Thank you. We&apos;ve got it.</h2>
+              <div className="book-call-form__success" role="status">
+              <h2 className="book-call-form__success-title">Thank you. We have your submission.</h2>
               <p className="book-call-form__success-body">
-                We review every submission personally. You&apos;ll hear from us within 24 hours  a
-                real reply from a real person, not an automated response or calendar link.
+                A senior member of our team will review your practice details and reply within 24 hours.
+                Not an automated response. A real person who will read what you wrote and come prepared
+                for a genuine conversation about your practice.
               </p>
             </div>
           ) : (
@@ -293,14 +294,14 @@ export default function BookACallPage() {
                     <>
                   <div className="book-call-form__field">
                     <label className="book-call-form__label" htmlFor="book-name">
-                      Your name
+                      Full name
                     </label>
                     <input
                       id="book-name"
                       className="book-call-form__input"
                       type="text"
                       name="name"
-                      placeholder="Dr. / your full name"
+                      placeholder="Dr. Jane Smith"
                       autoComplete="name"
                       required
                       value={form.name}
@@ -310,14 +311,14 @@ export default function BookACallPage() {
 
                   <div className="book-call-form__field">
                     <label className="book-call-form__label" htmlFor="book-email">
-                      Your email
+                      Work email
                     </label>
                     <input
                       id="book-email"
                       className="book-call-form__input"
                       type="email"
                       name="email"
-                      placeholder="you@yourpractice.com"
+                      placeholder="jane@yourpractice.com"
                       autoComplete="email"
                       required
                       value={form.email}
@@ -331,14 +332,14 @@ export default function BookACallPage() {
                     <>
                   <div className="book-call-form__field">
                     <label className="book-call-form__label" htmlFor="book-practice">
-                      Your practice name
+                      Practice or clinic name
                     </label>
                     <input
                       id="book-practice"
                       className="book-call-form__input"
                       type="text"
                       name="practiceName"
-                      placeholder="Practice or clinic name"
+                      placeholder="e.g. Miami Shoulder Institute"
                       required
                       value={form.practiceName}
                       onChange={(e) => updateField('practiceName', e.target.value)}
@@ -346,9 +347,9 @@ export default function BookACallPage() {
                   </div>
 
                   <fieldset className="book-call-form__fieldset">
-                    <legend className="book-call-form__label">Your specialty</legend>
+                    <legend className="book-call-form__label">What is your specialty?</legend>
                     <p className="book-call-form__hint">
-                      Pick the one that fits best  or type your own.
+                      Select the one that best describes your practice.
                     </p>
                     <div className="book-call-form__options book-call-form__options--grid">
                       {SPECIALTIES.map((option) => (
@@ -387,7 +388,7 @@ export default function BookACallPage() {
                     <>
                   <div className="book-call-form__field">
                     <label className="book-call-form__label" htmlFor="book-location">
-                      Where is your practice based?
+                      Where is your practice located?
                     </label>
                     <p className="book-call-form__hint">
                       City and country. We work primarily with US and UK practices.
@@ -397,7 +398,7 @@ export default function BookACallPage() {
                       className="book-call-form__input"
                       type="text"
                       name="location"
-                      placeholder="City, Country"
+                      placeholder="e.g. Miami, FL"
                       required
                       value={form.location}
                       onChange={(e) => updateField('location', e.target.value)}
@@ -408,6 +409,9 @@ export default function BookACallPage() {
                     <legend className="book-call-form__label">
                       How many locations do you operate?
                     </legend>
+                    <p className="book-call-form__hint">
+                      This helps us understand the scale of your practice.
+                    </p>
                     <div className="book-call-form__options">
                       {LOCATIONS.map((option) => (
                         <label
@@ -434,11 +438,10 @@ export default function BookACallPage() {
                     <>
                   <fieldset className="book-call-form__fieldset">
                     <legend className="book-call-form__label">
-                      What does your current marketing look like?
+                      What are you currently doing to attract new patients?
                     </legend>
                     <p className="book-call-form__hint">
-                      Be honest  this helps us understand where you&apos;re starting from, not
-                      where you should be.
+                      Be honest — this helps us understand where you are now, not where you think you should be.
                     </p>
                     <div className="book-call-form__options">
                       {MARKETING_OPTIONS.map((option) => (
@@ -462,18 +465,17 @@ export default function BookACallPage() {
 
                   <div className="book-call-form__field">
                     <label className="book-call-form__label" htmlFor="book-challenge">
-                      What&apos;s the biggest challenge your practice is facing right now?
+                      What is the single biggest problem you want to solve right now?
                     </label>
                     <p className="book-call-form__hint">
-                      This is the most important question on this form. Don&apos;t give us the
-                      polished version  give us the real one. What keeps you up at night?
+                      Not enough consultations? Inconsistent lead flow? Agency not delivering? Tell us what is actually keeping you up at night.
                     </p>
                     <textarea
                       id="book-challenge"
                       className="book-call-form__textarea"
                       name="challenge"
                       rows={6}
-                      placeholder="Write freely, there's no wrong answer here.."
+                      placeholder="e.g. We are spending $8K/month on Google Ads but only getting a few bookings. Our website does not convert visitors into patients."
                       required
                       value={form.challenge}
                       onChange={(e) => updateField('challenge', e.target.value)}
@@ -486,11 +488,10 @@ export default function BookACallPage() {
                     <>
                   <fieldset className="book-call-form__fieldset">
                     <legend className="book-call-form__label">
-                      What are you hoping to get out of this conversation?
+                      What would make this conversation most useful for you?
                     </legend>
                     <p className="book-call-form__hint">
-                      Understanding your expectations helps us make the call as useful as possible
-                      for you.
+                      Select all that apply so we can come prepared.
                     </p>
                     <div className="book-call-form__options">
                       {CONVERSATION_GOALS.map((option) => (
@@ -515,7 +516,7 @@ export default function BookACallPage() {
                   </fieldset>
 
                   <fieldset className="book-call-form__fieldset">
-                    <legend className="book-call-form__label">How did you find Socialsect?</legend>
+                    <legend className="book-call-form__label">How did you hear about Socialsect?</legend>
                     <div className="book-call-form__options book-call-form__options--grid">
                       {REFERRAL_SOURCES.map((option) => (
                         <label
@@ -572,13 +573,12 @@ export default function BookACallPage() {
                     </button>
                   </div>
                   <p className="book-call-form__submit-note">
-                    We review every submission personally. You&apos;ll hear from us within 24 hours.
+                    Every submission is reviewed by a senior team member. You will hear from us within 24 hours with a thoughtful reply.
                     <br />
-                    No automated responses. No immediate calendar link. Just a real reply from a real
-                    person.
+                    No automated responses. No calendar link. Just a real person who understands healthcare marketing.
                   </p>
                   <p className="book-call-form__privacy">
-                    Your information is never shared or sold. One follow-up maximum.
+                    Your information is never shared or sold. We follow up once at most.
                   </p>
                 </div>
               </form>

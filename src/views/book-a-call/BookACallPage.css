@@ -86,7 +86,7 @@
 }
 
 .book-call-section__inner--form {
-  max-width: 40rem;
+  max-width: 48rem;
 }
 
 .book-call-section__kicker {
@@ -267,9 +267,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--sm, 16px);
-  padding: 16px 0 var(--sm, 16px);
-  border-top: 1px solid var(--gray);
-  border-bottom: 1px solid var(--gray);
+  padding: 0 0 var(--md, 32px);
 }
 
 .book-call-form__step-count {
@@ -284,46 +282,40 @@
 .book-call-form__dots {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .book-call-form__dot {
-  width: 10px;
-  height: 10px;
+  width: 32px;
+  height: 4px;
   padding: 0;
-  border: 1px solid var(--gray);
-  border-radius: 50%;
-  background: var(--white);
+  border: none;
+  border-radius: 2px;
+  background: var(--gray);
   cursor: pointer;
   transition:
-    border-color 0.2s ease,
     background 0.2s ease,
     transform 0.2s ease;
 }
 
 .book-call-form__dot:hover:not(:disabled) {
-  border-color: var(--charcoal);
-  transform: scale(1.15);
+  background: var(--charcoal);
 }
 
 .book-call-form__dot--active {
-  border-color: var(--primary);
   background: var(--primary);
-  box-shadow: 0 0 0 4px rgba(105, 90, 242, 0.12);
 }
 
 .book-call-form__dot--complete {
-  border-color: var(--charcoal);
   background: var(--charcoal);
 }
 
 .book-call-form__dot:disabled {
   cursor: default;
-  opacity: 0.45;
 }
 
 .book-call-form__step-panel {
-  min-height: 440px;
+  min-height: 0;
 }
 
 .book-call-form__step-description {
@@ -348,9 +340,8 @@
   font-weight: 400;
   line-height: 1.25;
   color: var(--charcoal);
-  margin: 0 0 var(--md, 32px) 0;
-  padding: 0 0 var(--sm, 16px) 0;
-  border-bottom: 1px solid var(--gray);
+  margin: 0 0 var(--sm, 16px) 0;
+  padding: 0;
 }
 
 .book-call-form__fieldset {
@@ -392,14 +383,14 @@
 .book-call-form__textarea {
   display: block;
   width: 100%;
-  padding: 12px 14px;
+  padding: 14px 16px;
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.45;
   color: var(--charcoal);
   background: var(--white);
   border: 1px solid var(--gray);
-  border-radius: 4px;
+  border-radius: 8px;
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
@@ -443,17 +434,18 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 12px 14px;
+  padding: 14px 16px;
   font-size: 14px;
   line-height: 1.45;
   color: var(--charcoal);
   background: var(--white);
   border: 1px solid var(--gray);
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   transition:
     border-color 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .book-call-form__option:hover {
@@ -464,6 +456,7 @@
 .book-call-form__option--checked {
   border-color: var(--primary);
   background: rgba(105, 90, 242, 0.06);
+  box-shadow: 0 0 0 1px var(--primary);
 }
 
 .book-call-form__option input {
@@ -496,15 +489,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
-  padding: 10px 18px;
+  min-height: 44px;
+  padding: 10px 20px;
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
   color: var(--charcoal);
   background: var(--white);
   border: 1px solid var(--gray);
-  border-radius: var(--cta-radius, 4px);
+  border-radius: 8px;
   cursor: pointer;
   transition:
     border-color 0.2s ease,
@@ -537,7 +530,7 @@
   color: #8b2942;
   background: #fdf2f4;
   border: 1px solid #f0d4da;
-  border-radius: var(--cta-radius, 4px);
+  border-radius: 8px;
 }
 
 .book-call-form__submit:disabled {
