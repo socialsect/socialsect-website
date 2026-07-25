@@ -132,7 +132,8 @@ export default function ProcessClaritySection() {
 
           <div className="process-clarity__diagnosis-card">
             <div className="process-clarity__diagnosis-icon">
-<img src="/diagnosis.svg" alt="Diagnosis icon" width={"100px"} height={"100px"} />            </div>
+<img src="/diagnosis.svg" alt="Diagnosis icon" width="100" height="75" />
+            </div>
             <div className="process-clarity__diagnosis-body">
               <p className="process-clarity__diagnosis-kicker">Diagnosis First</p>
               <p className="process-clarity__diagnosis-copy">

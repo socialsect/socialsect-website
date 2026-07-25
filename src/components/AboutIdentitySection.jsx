@@ -2,6 +2,37 @@
 
 import './AboutIdentitySection.css'
 
+const ICONS = {
+  'laptop-outline': (
+    <svg viewBox="0 0 512 512" fill="none" stroke="currentColor" strokeWidth="32" strokeLinejoin="round" aria-hidden="true">
+      <rect x="48" y="96" width="416" height="304" rx="32" ry="32" />
+      <line x1="16" y1="400" x2="496" y2="400" />
+    </svg>
+  ),
+  'map-outline': (
+    <svg viewBox="0 0 512 512" fill="none" stroke="currentColor" strokeWidth="32" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M313.27 124.64L383 96l-128-48-128 48-69.73-28.36A16 16 0 0032 82.12v312.55a16 16 0 0010.12 14.67l69.73 28.36L240 440l128-48 69.73 28.36a16 16 0 0022.27-14.68V99.74a16 16 0 00-9.73-14.67z" />
+      <line x1="256" y1="96" x2="256" y2="440" />
+    </svg>
+  ),
+  'barbell-outline': (
+    <svg viewBox="0 0 512 512" fill="none" stroke="currentColor" strokeWidth="32" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M144 144h224v224H144z" />
+      <path d="M48 256h16M80 256h32M128 256h256M384 256h32M448 256h16" />
+      <path d="M176 112v32M256 112v32M336 112v32M176 368v32M256 368v32M336 368v32" />
+    </svg>
+  ),
+  'id-card-outline': (
+    <svg viewBox="0 0 512 512" fill="none" stroke="currentColor" strokeWidth="32" strokeLinejoin="round" aria-hidden="true">
+      <rect x="48" y="112" width="416" height="288" rx="32" ry="32" />
+      <circle cx="240" cy="208" r="48" />
+      <path d="M160 336a64 64 0 01128 0" />
+      <line x1="328" y1="192" x2="384" y2="192" strokeLinecap="round" />
+      <line x1="328" y1="224" x2="384" y2="224" strokeLinecap="round" />
+    </svg>
+  ),
+}
+
 const IDENTITY_ROLES = [
   {
     icon: 'laptop-outline',
@@ -43,7 +74,7 @@ export default function AboutIdentitySection() {
           {IDENTITY_ROLES.map(({ icon, title, body }) => (
             <li key={title} className="about-identity__card">
               <span className="about-identity__card-icon" aria-hidden="true">
-                <ion-icon name={icon}></ion-icon>
+                {ICONS[icon]}
               </span>
               <h3 className="about-identity__card-title">{title}</h3>
               <p className="about-identity__card-body">{body}</p>

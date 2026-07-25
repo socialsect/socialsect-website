@@ -9,6 +9,9 @@ import PodcastBanner from '@/components/PodcastBanner'
 import GrowthAuditorLauncher from '@/components/growth-auditor/GrowthAuditorLauncher'
 import { getSeoConfig } from '@/lib/seo'
 import '@/globals.css'
+import '@/index.css'
+import '@/fonts.css'
+import '@/App.css'
 
 // Global site-level schemas injected on every page (org + website)
 const globalSchemas = getSeoConfig('/').schemas.slice(0, 2)
@@ -94,6 +97,7 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+
         {globalSchemas.map((schema, i) => (
           <script
             key={i}
@@ -102,38 +106,7 @@ export default function RootLayout({ children }) {
             suppressHydrationWarning
           />
         ))}
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link
-          rel="preload"
-          href="/fonts/Newsreader-VariableFont_opsz,wght.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Inter-VariableFont_opsz,wght.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://unpkg.com" />
-        {/* Non-blocking Google Fonts: print media ensures it doesn't block paint */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap"
-          rel="stylesheet"
-          media="print"
-          onLoad="this.media='all'"
-        />
-        <noscript>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
+
       </head>
       <body>
         <Providers>
@@ -153,6 +126,8 @@ export default function RootLayout({ children }) {
         />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="lazyOnload" />
+        <Script id="gtag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

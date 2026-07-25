@@ -31,7 +31,7 @@
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.8125rem;
   letter-spacing: 0.3em;
-  color: #695af2;
+  color: #5849e5;
   margin-bottom: 1.25rem;
   text-transform: uppercase;
   font-weight: 500;
@@ -40,7 +40,7 @@
 .content-library__title {
   max-width: 48rem;
   margin: 0 auto;
-  font-family: 'Newsreader', serif;
+  font-family: var(--font-display);
   font-size: 3rem;
   line-height: 1.1;
   color: #141414;
@@ -78,10 +78,10 @@
 }
 
 .content-library__stat-number {
-  font-family: 'Newsreader', serif;
+  font-family: var(--font-display);
   font-size: 3.25rem;
   line-height: 1;
-  color: #695af2;
+  color: #5849e5;
   font-weight: 400;
   letter-spacing: -0.03em;
 }
@@ -122,14 +122,14 @@
 }
 
 .content-library__filter:hover {
-  border-color: #695af2;
+  border-color: #5849e5;
   color: #141414;
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(105, 90, 242, 0.15);
 }
 
 .content-library__filter--active {
-  border-color: #695af2;
+  border-color: #5849e5;
   background: #695af2;
   color: #fff;
   box-shadow: 0 2px 8px rgba(105, 90, 242, 0.3);
@@ -309,7 +309,7 @@
   background: rgba(105, 90, 242, 0.08);
   font-size: 0.6875rem;
   font-weight: 500;
-  color: #695af2;
+  color: #5849e5;
   white-space: nowrap;
   letter-spacing: 0.02em;
 }

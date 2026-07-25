@@ -12,6 +12,11 @@ const nextConfig = {
     VITE_SANITY_API_VERSION: process.env.VITE_SANITY_API_VERSION,
   },
 
+  // Enable critical CSS inlining via critters
+  experimental: {
+    optimizeCss: true,
+  },
+
   // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -20,7 +25,7 @@ const nextConfig = {
     minimumCacheTTL: 86400, // cache optimized images for 24h
   },
 
-  // Performance headers
+  // Performance headers + Security headers
   async headers() {
     return [
       {
@@ -57,6 +62,16 @@ const nextConfig = {
         source: '/(.*)\\.(webp|avif|svg)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      // Security headers for all routes (Best Practices)
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains' },
+          { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'none'" },
         ],
       },
     ]

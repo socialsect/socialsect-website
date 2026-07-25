@@ -16,7 +16,7 @@ Disallow: /admin/
 
 # Sitemap
 Sitemap: https://gosocialsect.com/sitemap.xml
-LLMS.TXT: https://gosocialsect.com/llms.txt
+# LLMS.TXT reference: https://gosocialsect.com/llms.txt
 # ==================================================
 # AI Crawlers
 # ==================================================

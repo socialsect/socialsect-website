@@ -1,3 +1,28 @@
+/* ========== Fallback fonts with metric-matched size-adjust ========== */
+/* Prevents layout shift when custom font loads (font-display: swap) */
+
+/* Inter fallback — matches Inter metrics to eliminate swap reflow */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  size-adjust: 107.0%;
+  ascent-override: 89%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Newsreader fallback — matches Newsreader metrics */
+@font-face {
+  font-family: 'Newsreader Fallback';
+  src: local('Georgia');
+  size-adjust: 98.5%;
+  ascent-override: 100%;
+  descent-override: 27%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ========== Local Font Declarations ========== */
 /* Variable fonts for optimal performance - single file handles all weights 400-700 */
 /* Only WOFF2 served — TTF removed to reduce payload by ~2.5MB */

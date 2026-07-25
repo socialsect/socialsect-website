@@ -35,12 +35,12 @@
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.2em;
-  color: #695af2;
+  color: #5849e5;
   margin-bottom: 0.5rem;
 }
 
 .clc__title {
-  font-family: 'Newsreader', serif;
+  font-family: var(--font-display);
   font-size: 2rem;
   line-height: 1.1;
   color: #141414;
@@ -140,6 +140,7 @@
   background: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
+  will-change: transform;
 }
 
 .clc-card:hover {

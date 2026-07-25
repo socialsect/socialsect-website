@@ -56,7 +56,7 @@
 /* italic purple emphasis  matches screenshot */
 .home-philosophy__headline em {
   font-style: italic;
-  color: #7b6ef6;
+  color: #5849e5;
 }
 
 .home-philosophy__divider {
@@ -86,7 +86,7 @@
 
 /* purple inline link / emphasis inside body */
 .home-philosophy__body strong {
-  color: #7b6ef6;
+  color: #5849e5;
   font-weight: 400;
 }
 
@@ -140,7 +140,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #695af2;
+  color: #5849e5;
   margin-top: 2px;
 }
 
@@ -263,7 +263,7 @@
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
   background: rgba(105, 90, 242, 0.12);
-  color: #695af2;
+  color: #5849e5;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -286,7 +286,7 @@
 
 .home-audit-cta__highlight em {
   font-style: italic;
-  color: #695af2;
+  color: #5849e5;
 }
 
 .home-audit-cta__underline {
@@ -329,7 +329,7 @@
   align-items: center;
   justify-content: center;
   background: rgba(105, 90, 242, 0.12);
-  color: #695af2;
+  color: #5849e5;
 }
 
 .home-audit-cta__mini-feature-text {
@@ -390,7 +390,7 @@
   align-items: center;
   justify-content: center;
   background: rgba(105, 90, 242, 0.1);
-  color: #695af2;
+  color: #5849e5;
 }
 
 .home-audit-cta__checklist-text h3 {

@@ -1,16 +1,23 @@
 'use client'
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js';
 import { Link } from 'react-router-dom';
 import { Calendar, CircleDollarSign, TrendingUp, Users } from 'lucide-react';
-import PerfectMatchSection from '../../components/PerfectMatchSection';
-import PracticeInfrastructureSection from '../../components/PracticeInfrastructureSection';
-import ContentLibraryCarousel from '../../components/ContentLibraryCarousel';
-import ProcessClaritySection from '../../components/ProcessClaritySection';
-import ResultsSpotlightSection from '../../components/ResultsSpotlightSection';
-import SpecialtyAudienceSection from '../../components/SpecialtyAudienceSection';
-import HomePhilosophyAuditSections from '../../components/HomePhilosophyAuditSections';
 import './homepage.css';
+
+// Lazy-load below-fold sections to reduce initial JS bundle
+const PerfectMatchSection = lazy(() => import('../../components/PerfectMatchSection'));
+const PracticeInfrastructureSection = lazy(() => import('../../components/PracticeInfrastructureSection'));
+const ContentLibraryCarousel = lazy(() => import('../../components/ContentLibraryCarousel'));
+const ProcessClaritySection = lazy(() => import('../../components/ProcessClaritySection'));
+const ResultsSpotlightSection = lazy(() => import('../../components/ResultsSpotlightSection'));
+const SpecialtyAudienceSection = lazy(() => import('../../components/SpecialtyAudienceSection'));
+const HomePhilosophyAuditSections = lazy(() => import('../../components/HomePhilosophyAuditSections'));
+const AskAISection = lazy(() => import('../../components/AskAISection'));
+
+const SECTION_PLACEHOLDER = (
+  <div style={{ minHeight: 200, background: 'transparent' }} aria-hidden="true" />
+);
 
 const HERO_STATS = [
   { icon: Calendar, number: '10,000+', label: 'Consultations booked for clients' },
@@ -148,13 +155,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <PerfectMatchSection />
-      <PracticeInfrastructureSection />
-      <ContentLibraryCarousel />
-      <ProcessClaritySection />
-      <ResultsSpotlightSection />
-      <SpecialtyAudienceSection />
-      <HomePhilosophyAuditSections />
+      <Suspense fallback={SECTION_PLACEHOLDER}><PerfectMatchSection /></Suspense>
+      <Suspense fallback={SECTION_PLACEHOLDER}><PracticeInfrastructureSection /></Suspense>
+      <Suspense fallback={SECTION_PLACEHOLDER}><ContentLibraryCarousel /></Suspense>
+      <Suspense fallback={SECTION_PLACEHOLDER}><ProcessClaritySection /></Suspense>
+      <Suspense fallback={SECTION_PLACEHOLDER}><ResultsSpotlightSection /></Suspense>
+      <Suspense fallback={SECTION_PLACEHOLDER}><SpecialtyAudienceSection /></Suspense>
+      <Suspense fallback={SECTION_PLACEHOLDER}><HomePhilosophyAuditSections /></Suspense>
+      <Suspense fallback={SECTION_PLACEHOLDER}><AskAISection /></Suspense>
     </main>
   );
 }

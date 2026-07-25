@@ -92,7 +92,7 @@ export default function ResultsSpotlightSection() {
             <div className="results-spotlight__panel-photo">
               <img
               draggable="false"
-                src="/drbadia.jpg"
+                src="/drbadia.webp"
                 alt="Dr. Badia holding his book Healthcare from the Trenches"
                 className="results-spotlight__photo-img"
               />
