@@ -1,0 +1,102 @@
+.ask-ai-section {
+  padding: clamp(48px, 7vw, 80px) var(--gutter, 24px);
+  background: var(--surface, #f9f9fb);
+}
+
+.ask-ai-section__container {
+  position: relative;
+  overflow: hidden;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(40px, 5vw, 64px);
+  background: linear-gradient(
+    160deg,
+    rgba(105, 90, 242, 0.07) 0%,
+    rgba(105, 90, 242, 0.03) 45%,
+    var(--surface, #f9f9fb) 100%
+  );
+  border: 1px solid rgba(105, 90, 242, 0.08);
+  border-radius: 28px;
+}
+
+.ask-ai-section__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ask-ai-section__headline {
+  font-family: var(--font-display, 'Newsreader', serif);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--charcoal, #1a1c1d);
+  margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.ask-ai-section__subtext {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.9375rem, 1.55vw, 1.0625rem);
+  line-height: 1.7;
+  color: var(--dark-gray, #474555);
+  margin: 0 0 clamp(24px, 3vw, 40px);
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ask-ai-section__buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ask-ai-section__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: var(--charcoal, #1A1C1D);
+  border: 1px solid var(--charcoal, #1A1C1D);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--white, #FFFFFF);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.ask-ai-section__btn:hover {
+  background: transparent;
+  color: var(--charcoal, #1A1C1D);
+}
+
+.ask-ai-section__btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.ask-ai-section__btn-text {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .ask-ai-section__buttons {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .ask-ai-section__btn {
+    justify-content: center;
+  }
+}
