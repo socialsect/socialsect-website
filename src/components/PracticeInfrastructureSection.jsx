@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Image from 'next/image';
 import './PracticeInfrastructureSection.css';
 
 /* ── Pillar icon SVGs ── */
@@ -139,13 +140,15 @@ const PRINCIPLES = [
 function OrbitalGraphic() {
   return (
 <div className="practice-infra__graphic" aria-hidden="true">
-  <img
+  <Image
     src="/hubgraphic.webp"
     draggable="false"
     alt=""
-    width="844"
-    height="469"
-    style={{ width: '100%', height: 'auto', display: 'block' }}
+    width={844}
+    height={469}
+    sizes="(max-width: 768px) 100vw, 545px"
+    priority
+    style={{ width: '100%', height: 'auto' }}
   />
 </div>
   );

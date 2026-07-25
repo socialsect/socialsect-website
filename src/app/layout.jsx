@@ -8,6 +8,9 @@ import PodcastBanner from '@/components/PodcastBanner'
 import GrowthAuditorLauncher from '@/components/growth-auditor/GrowthAuditorLauncher'
 import { getSeoConfig } from '@/lib/seo'
 import '@/globals.css'
+import '@/index.css'
+import '@/fonts.css'
+import '@/App.css'
 
 // Global site-level schemas injected on every page (org + website)
 const globalSchemas = getSeoConfig('/').schemas.slice(0, 2)
@@ -102,9 +105,7 @@ export default function RootLayout({ children }) {
             suppressHydrationWarning
           />
         ))}
-        {/* Preconnect hints for third-party origins */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
       </head>
       <body>
         <Providers>

@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "browserslist": [
-    "last 2 versions",
-    "not dead",
-    "not ie 11",
-    "not op_mini all"
+    "Chrome >= 92",
+    "Firefox >= 90",
+    "Safari >= 15.4",
+    "Edge >= 92"
   ],
   "scripts": {
     "dev": "next dev",
