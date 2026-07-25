@@ -65,6 +65,12 @@
   font-size: 28px;
 }
 
+.about-identity__card-icon svg {
+  width: 28px;
+  height: 28px;
+  color: #695AF2;
+}
+
 .about-identity__card-title {
   font-size: 18px;
   font-weight: 500;
