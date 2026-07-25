@@ -93,61 +93,7 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(){
-                // Defer any link that would block render (stylesheet or preload-as-style)
-                function deferLink(el) {
-                  if (el.tagName && el.tagName.toLowerCase() === 'link' &&
-                      el.href &&
-                      el.href.indexOf('googleapis') === -1 &&
-                      el.media !== 'print') {
-                    var isBlocking = el.rel === 'stylesheet' || el.getAttribute('as') === 'style';
-                    if (isBlocking) {
-                      el.media = 'print';
-                      el.addEventListener('load', function(){ this.media = 'all'; });
-                    }
-                  }
-                }
-                // Catch elements added via appendChild/insertBefore
-                var origAppendChild = Node.prototype.appendChild;
-                Node.prototype.appendChild = function(child) {
-                  if (child && child.tagName) deferLink(child);
-                  return origAppendChild.call(this, child);
-                };
-                var origInsertBefore = Node.prototype.insertBefore;
-                Node.prototype.insertBefore = function(child, ref) {
-                  if (child && child.tagName) deferLink(child);
-                  return origInsertBefore.call(this, child, ref);
-                };
-                // Catch elements created directly via createElement
-                var origCreateElement = document.createElement;
-                document.createElement = function(tag, opts) {
-                  var el = origCreateElement.call(document, tag, opts);
-                  if (el && el.tagName) {
-                    var origSetAttribute = el.setAttribute.bind(el);
-                    el.setAttribute = function(name, value) {
-                      origSetAttribute(name, value);
-                      if (name === 'rel' && value === 'stylesheet') deferLink(el);
-                    };
-                  }
-                  return el;
-                };
-                // Defer any existing stylesheets OR preload-as-style links in the HTML
-                var existing=document.querySelectorAll('link[rel=stylesheet], link[rel=preload][as=style]');
-                for(var i=0;i<existing.length;i++){
-                  var e=existing[i];
-                  if(e.href&&e.href.indexOf('googleapis')===-1&&e.media!=='print'){
-                    try{ if(e.sheet)continue }catch(x){}
-                    e.media='print';
-                    e.addEventListener('load',function(){this.media='all'});
-                  }
-                }
-              })();
-            `,
-          }}
-        />
+
         {globalSchemas.map((schema, i) => (
           <script
             key={i}
