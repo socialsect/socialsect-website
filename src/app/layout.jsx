@@ -124,8 +124,6 @@ export default function RootLayout({ children }) {
           src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.esm.js"
           strategy="afterInteractive"
         />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="afterInteractive" />
-        <Script id="gtag-init" strategy="afterInteractive">
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="lazyOnload" />
         <Script id="gtag-init" strategy="lazyOnload">
           {`
