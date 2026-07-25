@@ -13,6 +13,7 @@ const ProcessClaritySection = lazy(() => import('../../components/ProcessClarity
 const ResultsSpotlightSection = lazy(() => import('../../components/ResultsSpotlightSection'));
 const SpecialtyAudienceSection = lazy(() => import('../../components/SpecialtyAudienceSection'));
 const HomePhilosophyAuditSections = lazy(() => import('../../components/HomePhilosophyAuditSections'));
+const AskAISection = lazy(() => import('../../components/AskAISection'));
 
 const SECTION_PLACEHOLDER = (
   <div style={{ minHeight: 200, background: 'transparent' }} aria-hidden="true" />
@@ -161,6 +162,7 @@ export default function HomePage() {
       <Suspense fallback={SECTION_PLACEHOLDER}><ResultsSpotlightSection /></Suspense>
       <Suspense fallback={SECTION_PLACEHOLDER}><SpecialtyAudienceSection /></Suspense>
       <Suspense fallback={SECTION_PLACEHOLDER}><HomePhilosophyAuditSections /></Suspense>
+      <Suspense fallback={SECTION_PLACEHOLDER}><AskAISection /></Suspense>
     </main>
   );
 }
