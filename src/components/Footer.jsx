@@ -89,7 +89,7 @@ export default function Footer() {
    <div className="footer__card">
   <div className="footer__cta">
     <div className="footer__cta-left">
-      <img className="footer__cta-icon" src="/calendar.svg" alt="Calendar icon" width="24" height="24" />
+      <img className="footer__cta-icon" src="/calendar.svg" alt="Calendar icon" width="24" height="24" draggable="false" />
         
       
 
@@ -205,6 +205,7 @@ export default function Footer() {
           className="footer__logo"
           width="80"
           height="80"
+          draggable="false"
         />
 
         <p className="footer__tagline">

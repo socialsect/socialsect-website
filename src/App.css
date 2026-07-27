@@ -38,7 +38,7 @@
 
   /* UI polish  text selection */
   --selection-bg: rgba(26, 28, 29, 0.1);
-  --selection-color: var(--charcoal);
+  --selection-color: currentColor;
   --selection-bg-on-dark: rgba(255, 255, 255, 0.9);
   --selection-color-on-dark: var(--charcoal);
   --scrollbar-track: var(--white);
