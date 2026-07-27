@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react'
 // import AutoplayVideoModal from './components/AutoplayVideoModal'
+import IntroLoader from './components/IntroLoader'
 import PodcastBanner from './components/PodcastBanner'
 import GrowthAuditorLauncher from './components/growth-auditor/GrowthAuditorLauncher'
 import DelayPopup from './components/DelayPopup'
@@ -60,6 +61,7 @@ function App() {
   return (
     <BrowserRouter>
       <SeoManager />
+      <IntroLoader />
       <ScrollToTop />
       <Navbar />
       <Suspense fallback={routeFallback}>

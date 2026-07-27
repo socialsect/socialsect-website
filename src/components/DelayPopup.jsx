@@ -44,10 +44,10 @@ export default function DelayPopup() {
           const remaining = 30000 - elapsed
           timer = setTimeout(show, remaining)
         } else {
-          timer = setTimeout(show, 4000 + Math.random() * 1000)
+          timer = setTimeout(show, 10000 + Math.random() * 2000)
         }
       } catch {
-        timer = setTimeout(show, 4000)
+        timer = setTimeout(show, 10000)
       }
     }
 

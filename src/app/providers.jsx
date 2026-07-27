@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import IntroLoader from '@/components/IntroLoader'
 import ScrollToTop from '@/components/ScrollToTop'
 import DelayPopup from '@/components/DelayPopup'
 import { enableResourcePrefetch, deferNonCriticalStyles } from '@/lib/performance'
@@ -20,6 +21,7 @@ export default function Providers({ children }) {
 
   return (
     <>
+      <IntroLoader />
       <ScrollToTop />
       {children}
       <DelayPopup key={pathname} />
