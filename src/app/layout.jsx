@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 
+import Script from 'next/script'
 import Providers from './providers'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -133,14 +134,6 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
-        <Script id="gtag-init" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-DT57D4YWRB');
-          `}
-        </Script>
       </body>
     </html>
   )
