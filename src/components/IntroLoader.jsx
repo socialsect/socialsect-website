@@ -25,6 +25,12 @@ export default function IntroLoader() {
     let skipTimer
     let reducedMotionQuery
 
+    // Skip loader on mobile devices (<=768px)
+    if (window.innerWidth <= 768) {
+      setState('idle')
+      return undefined
+    }
+
     try {
       if (sessionStorage.getItem(STORAGE_KEY)) {
         skipTimer = window.setTimeout(() => {
