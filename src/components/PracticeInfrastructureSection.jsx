@@ -147,6 +147,7 @@ function OrbitalGraphic() {
     width={844}
     height={469}
     sizes="(max-width: 768px) 100vw, 545px"
+    loading="lazy"
     priority
     style={{ width: '100%', height: 'auto' }}
   />
