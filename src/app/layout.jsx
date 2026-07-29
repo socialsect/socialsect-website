@@ -116,11 +116,6 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </Providers>
-        <Script
-          type="module"
-          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.esm.js"
-          strategy="afterInteractive"
-        />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-DT57D4YWRB" strategy="lazyOnload" />
         <Script id="gtag-init" strategy="lazyOnload">
           {`

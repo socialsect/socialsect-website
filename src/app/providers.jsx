@@ -1,11 +1,13 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import IntroLoader from '@/components/IntroLoader'
 import ScrollToTop from '@/components/ScrollToTop'
 import DelayPopup from '@/components/DelayPopup'
 import { enableResourcePrefetch, deferNonCriticalStyles } from '@/lib/performance'
+
+const IntroLoader = dynamic(() => import('@/components/IntroLoader'), { ssr: false })
 
 export default function Providers({ children }) {
   const pathname = usePathname()
