@@ -209,4 +209,18 @@
   .specialty-audience__card {
     padding: 12px;
   }
+
+  .specialty-audience__headline {
+    font-size: clamp(24px, 6vw, 30px);
+  }
+}
+
+@media (max-width: 400px) {
+  .specialty-audience__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .specialty-audience__card {
+    padding: 10px 14px;
+  }
 }
