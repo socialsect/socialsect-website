@@ -77,8 +77,21 @@ const nextConfig = {
     ]
   },
 
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     config.resolve.alias['react-router-dom'] = path.join(__dirname, 'src/lib/router-shim.jsx')
+
+    // Remove polyfills for modern browsers (Chrome 92+, Firefox 90+, Safari 15.4+)
+    if (!isServer) {
+      const originalEntry = config.entry
+      config.entry = async () => {
+        const entries = await originalEntry()
+        if (entries['polyfills']) {
+          delete entries['polyfills']
+        }
+        return entries
+      }
+    }
+
     return config
   },
   turbopack: {
