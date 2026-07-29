@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-sitemap.mjs || true && next build && node scripts/inline-critical-css.mjs || true",
+    "build": "node scripts/generate-sitemap.mjs || true && next build --webpack",
     "start": "next start",
     "lint": "eslint .",
     "preview": "next start",
