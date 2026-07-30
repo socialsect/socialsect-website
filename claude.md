@@ -22,6 +22,7 @@
   * Social links (if available)
   * List of author's published articles
 
+
 ### Notes
 
 * Do not hardcode author data.
