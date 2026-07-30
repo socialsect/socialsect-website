@@ -784,7 +784,10 @@ function blogArticleConfig(pathname, params) {
  * Use this in generateMetadata() or static metadata exports.
  */
 export function toNextMetadata(cfg) {
-  const imageArr = cfg.image ? [{ url: cfg.image, width: 1200, height: 630, alt: cfg.title }] : [{ url: DEFAULT_IMAGE, width: 1200, height: 630, alt: cfg.title }]
+  const ogImageUrl = cfg.image
+    ? cfg.image
+    : `${SITE_URL}/api/og?title=${encodeURIComponent(cfg.title)}&description=${encodeURIComponent(cfg.description || '')}&type=${cfg.ogType || 'website'}`
+  const imageArr = [{ url: ogImageUrl, width: 1200, height: 630, alt: cfg.title }]
 
   return {
     title: cfg.title,
