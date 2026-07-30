@@ -20,108 +20,105 @@ export async function GET(request) {
             height: 630,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
-            background: 'linear-gradient(135deg, #695AF2 0%, #4338CA 50%, #312E81 100%)',
+            position: 'relative',
+            overflow: 'hidden',
+            background: 'linear-gradient(153deg, #1A1C1D 0%, #21262F 48%, #695AF2 100%)',
+            fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
             padding: '60px',
-            fontFamily: 'system-ui, -apple-system, sans-serif',
           }}
         >
-          {/* Top: logo + type badge */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 16,
-            }}
-          >
-            <img
-              src={LOGO_URL}
-              width={48}
-              height={48}
-              style={{ borderRadius: 8 }}
-            />
-            <span
-              style={{
-                fontSize: 18,
-                color: '#D4D0FF',
-                letterSpacing: '0.05em',
-                textTransform: 'uppercase',
-              }}
-            >
-              {type === 'article' ? 'Article' : 'Socialsect'}
+          {/* Decorative circles like the existing OG design */}
+          <div style={{
+            position: 'absolute',
+            right: -100,
+            top: -60,
+            width: 500,
+            height: 500,
+            borderRadius: '50%',
+            background: 'rgba(255,255,255,0.04)',
+          }} />
+          <div style={{
+            position: 'absolute',
+            left: -80,
+            bottom: -80,
+            width: 360,
+            height: 360,
+            borderRadius: '50%',
+            background: 'rgba(105,90,242,0.18)',
+          }} />
+
+          {/* Logo + type badge */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 16,
+          }}>
+            <img src={LOGO_URL} width={40} height={40} style={{ borderRadius: 8 }} />
+            <span style={{
+              fontSize: 16,
+              color: '#A5B4FC',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              fontWeight: 500,
+            }}>
+              Socialsect
             </span>
           </div>
 
-          {/* Center: title + description */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              maxWidth: '90%',
-            }}
-          >
-            <h1
-              style={{
-                fontSize: 56,
-                fontWeight: 700,
-                color: 'white',
-                margin: 0,
-                lineHeight: 1.15,
-                textShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                overflow: 'hidden',
-                display: '-webkit-box',
-                WebkitLineClamp: 3,
-                WebkitBoxOrient: 'vertical',
-              }}
-            >
+          {/* Center content */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            flex: 1,
+            maxWidth: '85%',
+          }}>
+            <h1 style={{
+              fontSize: 52,
+              fontWeight: 500,
+              fontFamily: '"Newsreader", Georgia, "Times New Roman", serif',
+              color: '#FFFFFF',
+              margin: 0,
+              lineHeight: 1.2,
+              letterSpacing: '-0.01em',
+              overflow: 'hidden',
+              display: '-webkit-box',
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: 'vertical',
+            }}>
               {title}
             </h1>
             {description && (
-              <p
-                style={{
-                  fontSize: 28,
-                  fontWeight: 400,
-                  color: '#D4D0FF',
-                  margin: '16px 0 0 0',
-                  lineHeight: 1.3,
-                  overflow: 'hidden',
-                  display: '-webkit-box',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
-                }}
-              >
+              <p style={{
+                fontSize: 24,
+                fontWeight: 400,
+                color: '#C4B5FD',
+                margin: '20px 0 0 0',
+                lineHeight: 1.4,
+                overflow: 'hidden',
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+              }}>
                 {description}
               </p>
             )}
           </div>
 
-          {/* Bottom: brand + URL */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: '100%',
-              borderTop: '1px solid rgba(255,255,255,0.15)',
-              paddingTop: 24,
-            }}
-          >
-            <span
-              style={{
-                fontSize: 20,
-                color: '#A5B4FC',
-                fontWeight: 500,
-              }}
-            >
-              Socialsect
-            </span>
-            <span
-              style={{
-                fontSize: 16,
-                color: '#A5B4FC',
-              }}
-            >
+          {/* Bottom bar */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+            borderTop: '1px solid rgba(255,255,255,0.08)',
+            paddingTop: 24,
+          }}>
+            <span style={{
+              fontSize: 18,
+              color: '#9CA3AF',
+              fontWeight: 400,
+            }}>
               gosocialsect.com
             </span>
           </div>
@@ -133,22 +130,20 @@ export async function GET(request) {
       },
     )
   } catch (error) {
-    // Fallback: return generic social share image if OG generation fails
     return new ImageResponse(
       (
-        <div
-          style={{
-            width: 1200,
-            height: 630,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: '#695AF2',
-            color: 'white',
-            fontSize: 48,
-            fontWeight: 700,
-          }}
-        >
+        <div style={{
+          width: 1200,
+          height: 630,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: '#1A1C1D',
+          color: '#FFFFFF',
+          fontSize: 40,
+          fontWeight: 500,
+          fontFamily: '"Inter", system-ui, sans-serif',
+        }}>
           Socialsect
         </div>
       ),
