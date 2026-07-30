@@ -1,6 +1,6 @@
 import { ImageResponse } from '@vercel/og'
 
-export const runtime = 'edge'
+export const runtime = 'nodejs'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://gosocialsect.com'
 const LOGO_URL = `${SITE_URL}/icons/logo.svg`
