@@ -526,6 +526,16 @@ export default function Navbar() {
             </MobileNavBlock>
           </MobileNavGroup>
 
+          <a
+            href="https://wa.me/16317926023?text=Hi%20Socialsect!%20I'd%20like%20to%20book%20a%20call%20to%20discuss%20how%20you%20can%20help%20grow%20my%20practice."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-nav__top-link"
+            onClick={closeMenu}
+          >
+            Book a call
+          </a>
+
           <Link href="/products" className="mobile-nav__top-link" onClick={closeMenu}>
             Products
           </Link>

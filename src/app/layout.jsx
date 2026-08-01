@@ -4,7 +4,7 @@ import Script from 'next/script'
 import Providers from './providers'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import PodcastBanner from '@/components/PodcastBanner'
+
 import GrowthAuditorLauncher from '@/components/growth-auditor/GrowthAuditorLauncher'
 import { getSeoConfig } from '@/lib/seo'
 import '@/globals.css'
@@ -111,7 +111,7 @@ export default function RootLayout({ children }) {
           <div className="app-shell">
             <Navbar />
             {children}
-            <PodcastBanner />
+
             <GrowthAuditorLauncher />
             <Footer />
           </div>

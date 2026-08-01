@@ -224,6 +224,12 @@ export default function Footer() {
           <a href="https://github.com/socialsect" target="_blank" rel="noopener noreferrer" aria-label="Socialsect on GitHub">
             <FaGithub />
           </a>
+          <a href="https://podcasts.apple.com/us/podcast/one-day-with-ray/id1896923883" target="_blank" rel="noopener noreferrer" aria-label="One Day with Ray on Apple Podcasts">
+            <img src="/icons/apple-podcasts-icon.svg" alt="Apple Podcasts" width="20" height="20" draggable="false" />
+          </a>
+          <a href="https://open.spotify.com/show/033xRQ9iPlF7Y24nB7IS4e" target="_blank" rel="noopener noreferrer" aria-label="One Day with Ray on Spotify">
+            <img src="/icons/spotify-icon.svg" alt="Spotify" width="20" height="20" draggable="false" />
+          </a>
         </div>
       </section>
 
@@ -283,8 +289,7 @@ export default function Footer() {
         <span>© 2026 Socialsect</span>
         <span>•</span>
         <Link href="/privacy-policy">Privacy policy</Link>
-        <span>•</span>
-        <span>Terms of service</span>
+
       </div>
     </div>
   </div>

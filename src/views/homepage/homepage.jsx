@@ -38,13 +38,19 @@ export default function HomePage() {
     <main className="homepage">
       <section className="home-hero">
         <div className="home-hero__bg" aria-hidden="true">
-          <img
-            src="/images/hero-surgeon.webp"
-            alt=""
-            className="home-hero__bg-image"
-            fetchPriority="high"
-            decoding="async"
-          />
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcSet="/images/hero-surgeon-phone.webp"
+            />
+            <img
+              src="/images/hero-surgeon.webp"
+              alt=""
+              className="home-hero__bg-image"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
           <div className="home-hero__overlay" />
         </div>
 
@@ -71,7 +77,7 @@ export default function HomePage() {
 
               <div className="hero-cta-buttons">
                 <Link to={BOOK_A_CALL_FORM} className="hero-btn hero-btn--primary">
-                  Audit my practice free
+                  Book a strategy call
                   <svg
                     className="hero-btn__arrow hero-btn__arrow--right"
                     viewBox="0 0 24 24"
@@ -86,8 +92,8 @@ export default function HomePage() {
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </Link>
-                <a href="#results-spotlight" className="hero-btn hero-btn--secondary">
-                  See real results
+                <Link to="/results" className="hero-btn hero-btn--secondary">
+                  See our work
                   <svg
                     className="hero-btn__arrow hero-btn__arrow--down"
                     viewBox="0 0 24 24"
@@ -101,7 +107,7 @@ export default function HomePage() {
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <polyline points="19 12 12 19 5 12" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -156,7 +162,7 @@ export default function HomePage() {
       </section>
 
       <Suspense fallback={SECTION_PLACEHOLDER}><PerfectMatchSection /></Suspense>
-      <Suspense fallback={SECTION_PLACEHOLDER}><PracticeInfrastructureSection /></Suspense>
+      {/* <Suspense fallback={SECTION_PLACEHOLDER}><PracticeInfrastructureSection /></Suspense> */}
       <Suspense fallback={SECTION_PLACEHOLDER}><ContentLibraryCarousel /></Suspense>
       <Suspense fallback={SECTION_PLACEHOLDER}><ProcessClaritySection /></Suspense>
       <Suspense fallback={SECTION_PLACEHOLDER}><ResultsSpotlightSection /></Suspense>

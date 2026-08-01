@@ -370,6 +370,10 @@ a.hero-trust__logo:hover {
 }
 
 @media (max-width: 768px) {
+  .home-hero__bg-image {
+    object-position: right center;
+  }
+
   .home-hero__content {
     padding-top: calc(var(--navbar-height) + 32px);
     padding-bottom: 32px;

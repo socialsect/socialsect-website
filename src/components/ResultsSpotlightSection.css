@@ -57,6 +57,18 @@
   align-items: stretch;
 }
 
+.results-spotlight__layout--reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+}
+
+.results-spotlight__layout--reverse .results-spotlight__panel {
+  order: 2;
+}
+
+.results-spotlight__layout--reverse .results-spotlight__proof {
+  order: 1;
+}
+
 /* ── LEFT: dark panel with text + photo side-by-side ── */
 .results-spotlight__panel {
   background: var(--charcoal, #1a1c1d);
