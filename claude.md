@@ -29,6 +29,7 @@
 * Use existing Sanity schema if available.
 * Maintain current blog design.
 
+
 ---
 
 ## Task 2: Replace Published Date with Updated Date
