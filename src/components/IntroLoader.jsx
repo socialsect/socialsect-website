@@ -19,50 +19,7 @@ export default function IntroLoader() {
   const [state, setState] = useState('visible')
 
   useEffect(() => {
-    let exitTimer
-    let unmountTimer
-    let startTimer
-    let skipTimer
-    let reducedMotionQuery
-
-    // Skip loader on mobile devices (<=768px)
-    if (window.innerWidth <= 768) {
-      setState('idle')
-      return undefined
-    }
-
-    try {
-      if (sessionStorage.getItem(STORAGE_KEY)) {
-        skipTimer = window.setTimeout(() => {
-          setState('idle')
-        }, 0)
-        return undefined
-      }
-      sessionStorage.setItem(STORAGE_KEY, '1')
-    } catch {
-      return undefined
-    }
-
-    reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const reduced = reducedMotionQuery.matches
-
-    startTimer = window.setTimeout(() => {
-      setState(reduced ? 'reduced' : 'visible')
-
-      exitTimer = window.setTimeout(() => {
-        setState('exiting')
-        unmountTimer = window.setTimeout(() => {
-          setState('idle')
-        }, reduced ? REDUCED_MOTION_EXIT_MS : EXIT_ANIMATION_MS)
-      }, reduced ? 60 : EXIT_DELAY_MS)
-    }, 0)
-
-    return () => {
-      if (skipTimer) window.clearTimeout(skipTimer)
-      if (startTimer) window.clearTimeout(startTimer)
-      if (exitTimer) window.clearTimeout(exitTimer)
-      if (unmountTimer) window.clearTimeout(unmountTimer)
-    }
+    setState('idle')
   }, [])
 
   if (state === 'idle') return null
