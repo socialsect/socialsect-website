@@ -19,6 +19,7 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
   const [currentTime, setCurrentTime] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [showControls, setShowControls] = useState(true)
+  const [isBuffering, setIsBuffering] = useState(autoPlay)
 
   const formatTime = (s) => {
     if (!s || !isFinite(s)) return '0:00'
@@ -89,12 +90,18 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
     }
     const onPlay = () => setPlaying(true)
     const onPause = () => setPlaying(false)
+    const onWaiting = () => setIsBuffering(true)
+    const onPlaying = () => setIsBuffering(false)
+    const onCanPlay = () => setIsBuffering(false)
 
     v.addEventListener('timeupdate', onTimeUpdate)
     v.addEventListener('loadedmetadata', onLoadedMetadata)
     v.addEventListener('ended', onEnded)
     v.addEventListener('play', onPlay)
     v.addEventListener('pause', onPause)
+    v.addEventListener('waiting', onWaiting)
+    v.addEventListener('playing', onPlaying)
+    v.addEventListener('canplay', onCanPlay)
 
     return () => {
       v.removeEventListener('timeupdate', onTimeUpdate)
@@ -102,6 +109,9 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
       v.removeEventListener('ended', onEnded)
       v.removeEventListener('play', onPlay)
       v.removeEventListener('pause', onPause)
+      v.removeEventListener('waiting', onWaiting)
+      v.removeEventListener('playing', onPlaying)
+      v.removeEventListener('canplay', onCanPlay)
     }
   }, [])
 
@@ -169,10 +179,16 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
         onClick={togglePlay}
       />
 
-      {!playing && (
+      {!playing && !isBuffering && (
         <button className="vp__center-play" onClick={togglePlay} aria-label="Play">
           <Play size={28} fill="currentColor" />
         </button>
+      )}
+
+      {isBuffering && (
+        <div className="vp__buffering">
+          <div className="vp__spinner" />
+        </div>
       )}
 
       <div className="vp__bar">
