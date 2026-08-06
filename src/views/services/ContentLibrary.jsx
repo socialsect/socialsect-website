@@ -1,6 +1,7 @@
 'use client'
 import { useState, useMemo, useRef, useEffect } from 'react'
 import VideoPlayer from '../../components/VideoPlayer'
+import { isPreloaded } from '../../lib/videoPreloader'
 import './ContentLibrary.css'
 
 const VERTICALS = [
@@ -51,10 +52,12 @@ function ReelCard({ reel }) {
   const { thumb, video } = buildUrls(reel.url);
   const isReady = Boolean(video);
   const cardRef = useRef(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const cached = isPreloaded(video);
+  const [shouldLoad, setShouldLoad] = useState(cached);
+  const [isLoaded, setIsLoaded] = useState(cached);
 
   useEffect(() => {
+    if (cached) return;
     if (!cardRef.current) return;
     const el = cardRef.current;
     const observer = new IntersectionObserver(
@@ -68,7 +71,7 @@ function ReelCard({ reel }) {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [cached]);
 
   return (
     <div ref={cardRef} className={`reel-card ${!isLoaded ? 'reel-card--loading' : ''}`}>

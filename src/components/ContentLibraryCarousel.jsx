@@ -3,6 +3,7 @@ import { useRef, useState, useCallback, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import VideoPlayer from './VideoPlayer'
+import { isPreloaded, preloadAll } from '../lib/videoPreloader'
 import './ContentLibraryCarousel.css'
 
 const REELS = [
@@ -40,13 +41,18 @@ function buildUrls(rawUrl) {
   return { thumb: null, video: rawUrl };
 }
 
-function CarouselCard({ reel }) {
+function CarouselCard({ reel, onLoaded }) {
   const { thumb, video } = buildUrls(reel.url);
   const isReady = Boolean(video);
   const cardRef = useRef(null)
-  const [shouldLoad, setShouldLoad] = useState(false)
+  const [shouldLoad, setShouldLoad] = useState(isPreloaded(video))
+  const alreadyPreloaded = useRef(isPreloaded(video))
 
   useEffect(() => {
+    if (alreadyPreloaded.current) {
+      if (onLoaded) onLoaded()
+      return
+    }
     if (!cardRef.current) return
     const el = cardRef.current
     const observer = new IntersectionObserver(
@@ -76,7 +82,7 @@ function CarouselCard({ reel }) {
     <div className="clc-card" ref={cardRef}>
       <div className="clc-card__media">
         {shouldLoad ? (
-          <VideoPlayer src={video} poster={thumb} autoPlay loop />
+          <VideoPlayer src={video} poster={thumb} autoPlay loop onLoadedData={onLoaded} />
         ) : (
           <div className="clc-card__placeholder">
             <div className="clc-card__spinner" />
@@ -95,6 +101,7 @@ export default function ContentLibraryCarousel() {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const preloadStarted = useRef(false);
 
   const updateScrollState = useCallback(() => {
     const el = scrollRef.current;
@@ -110,6 +117,16 @@ export default function ContentLibraryCarousel() {
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
     setTimeout(updateScrollState, 400);
   }, [updateScrollState]);
+
+  useEffect(() => {
+    if (preloadStarted.current) return
+    preloadStarted.current = true
+    const urls = REELS.map((r) => r.url).filter(Boolean)
+    const timer = setTimeout(() => {
+      preloadAll(urls, { batchSize: 2, delayMs: 600 })
+    }, 2000)
+    return () => clearTimeout(timer)
+  }, []);
 
   return (
     <section className="clc">
