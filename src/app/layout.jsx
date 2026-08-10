@@ -22,66 +22,121 @@ export const viewport = {
   themeColor: '#695AF2',
 }
 
-export const metadata = {
-  metadataBase: new URL('https://gosocialsect.com'),
-  title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
-  description:
-    'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
-  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-  openGraph: {
-    siteName: 'Socialsect',
-    locale: 'en_US',
-    type: 'website',
-    title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
-    description:
-      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
-    url: 'https://gosocialsect.com/',
-    images: [
-      {
-        url: 'https://gosocialsect.com/social-share.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Socialsect - private medical practice growth',
+export function generateMetadata() {
+  const isReviewMode = process.env.NEXT_PUBLIC_REVIEW_MODE === 'true'
+
+  if (isReviewMode) {
+    return {
+      title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+      description:
+        'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
+      robots: 'noindex, nofollow, noarchive, nosnippet',
+      openGraph: {
+        siteName: 'Socialsect',
+        locale: 'en_US',
+        type: 'website',
+        title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+        description:
+          'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
+        images: [
+          {
+            url: 'https://gosocialsect.com/social-share.webp',
+            width: 1200,
+            height: 630,
+            alt: 'Socialsect - private medical practice growth',
+          },
+        ],
       },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@thesocialsect',
-    creator: '@thesocialsect',
+      twitter: {
+        card: 'summary_large_image',
+        site: '@thesocialsect',
+        creator: '@thesocialsect',
+        title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+        description:
+          'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
+        images: ['https://gosocialsect.com/social-share.webp'],
+      },
+      icons: {
+        icon: [
+          { url: '/icons/favicon.svg', type: 'image/svg+xml' },
+          { url: '/favicon.ico' },
+          { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+          { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+        ],
+        apple: '/icons/apple-touch-icon.png',
+      },
+      manifest: '/site.webmanifest',
+      appleWebApp: {
+        capable: true,
+        statusBarStyle: 'black-translucent',
+        title: 'Socialsect',
+      },
+    }
+  }
+
+  return {
+    metadataBase: new URL('https://gosocialsect.com'),
     title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
     description:
       'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
-    images: ['https://gosocialsect.com/social-share.webp'],
-  },
-  icons: {
-    icon: [
-      { url: '/icons/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico' },
-      { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-    ],
-    apple: '/icons/apple-touch-icon.png',
-  },
-  manifest: '/site.webmanifest',
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'black-translucent',
-    title: 'Socialsect',
-  },
-  other: {
-    'linkedin:url': 'https://gosocialsect.com/',
-    'linkedin:title': 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
-    'linkedin:description':
-      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
-    'pinterest:url': 'https://gosocialsect.com/',
-    'pinterest:media': 'https://gosocialsect.com/social-share.webp',
-    'pinterest:description':
-      'Socialsect : Patient Acquisition Systems for Private Medical Practices',
-  },
+    robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    openGraph: {
+      siteName: 'Socialsect',
+      locale: 'en_US',
+      type: 'website',
+      title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+      description:
+        'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
+      url: 'https://gosocialsect.com/',
+      images: [
+        {
+          url: 'https://gosocialsect.com/social-share.webp',
+          width: 1200,
+          height: 630,
+          alt: 'Socialsect - private medical practice growth',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@thesocialsect',
+      creator: '@thesocialsect',
+      title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+      description:
+        'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
+      images: ['https://gosocialsect.com/social-share.webp'],
+    },
+    icons: {
+      icon: [
+        { url: '/icons/favicon.svg', type: 'image/svg+xml' },
+        { url: '/favicon.ico' },
+        { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+        { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      ],
+      apple: '/icons/apple-touch-icon.png',
+    },
+    manifest: '/site.webmanifest',
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'black-translucent',
+      title: 'Socialsect',
+    },
+    other: {
+      'linkedin:url': 'https://gosocialsect.com/',
+      'linkedin:title': 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+      'linkedin:description':
+        'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
+      'pinterest:url': 'https://gosocialsect.com/',
+      'pinterest:media': 'https://gosocialsect.com/social-share.webp',
+      'pinterest:description':
+        'Socialsect : Patient Acquisition Systems for Private Medical Practices',
+    },
+  }
 }
 
 export default function RootLayout({ children }) {
+  const isReviewMode = process.env.NEXT_PUBLIC_REVIEW_MODE === 'true'
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -97,7 +152,7 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        {globalSchemas.map((schema, i) => (
+        {!isReviewMode && globalSchemas.map((schema, i) => (
           <script
             key={i}
             type="application/ld+json"

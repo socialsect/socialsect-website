@@ -15,7 +15,9 @@ const LINKEDIN_URL = 'https://www.linkedin.com/company/socialsect'
 const INSTAGRAM_URL = 'https://www.instagram.com/thesocialsect/'
 const CONTACT_EMAIL = 'hello@gosocialsect.com'
 const DEFAULT_ROBOTS = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
-const NOINDEX_ROBOTS = 'noindex, nofollow, noarchive'
+const NOINDEX_ROBOTS = 'noindex, nofollow, noarchive, nosnippet'
+
+const REVIEW_MODE = process.env.NEXT_PUBLIC_REVIEW_MODE === 'true'
 
 function absoluteUrl(pathname = '/') {
   const normalizedPath = pathname.startsWith('/') ? pathname : `/${pathname}`
@@ -784,6 +786,19 @@ function blogArticleConfig(pathname, params) {
  * Use this in generateMetadata() or static metadata exports.
  */
 export function toNextMetadata(cfg) {
+  if (REVIEW_MODE) {
+    return {
+      title: cfg.title || undefined,
+      description: cfg.description || undefined,
+      robots: cfg.robots,
+      openGraph: cfg.image
+        ? {
+            images: [{ url: cfg.image, width: 1200, height: 630, alt: cfg.title }],
+          }
+        : undefined,
+    }
+  }
+
   const ogImageUrl = cfg.image
     ? cfg.image
     : `${SITE_URL}/api/og?title=${encodeURIComponent(cfg.title)}&description=${encodeURIComponent(cfg.description || '')}&type=${cfg.ogType || 'website'}`
@@ -820,6 +835,19 @@ export function toNextMetadata(cfg) {
 }
 
 export function getSeoConfig(pathname) {
+  if (REVIEW_MODE) {
+    return {
+      title: '',
+      description: '',
+      canonicalUrl: '',
+      image: '',
+      robots: NOINDEX_ROBOTS,
+      ogType: 'website',
+      tags: [],
+      schemas: [],
+    }
+  }
+
   const cleanPath = pathname.replace(/\/+$/, '') || '/'
 
   const exactMatches = [

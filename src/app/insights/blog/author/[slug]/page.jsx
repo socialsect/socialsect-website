@@ -4,6 +4,8 @@ import AuthorPage from '@/views/insights/AuthorPage'
 
 const SITE_URL = 'https://gosocialsect.com'
 
+const IS_REVIEW_MODE = process.env.NEXT_PUBLIC_REVIEW_MODE === 'true'
+
 const getAuthor = cache(getAuthorBySlug)
 
 export async function generateMetadata({ params }) {
@@ -20,6 +22,22 @@ export async function generateMetadata({ params }) {
   const ogDescription = Array.isArray(author.bio)
     ? author.bio.map((b) => b.children?.map((c) => c.text).join('') || '').join(' ').slice(0, 160)
     : (author.bio || `Articles written by ${author.name} on Socialsect.`)
+
+  if (IS_REVIEW_MODE) {
+    return {
+      title: `${author.name} | Socialsect Blog`,
+      description: ogDescription,
+      robots: 'noindex, nofollow, noarchive, nosnippet',
+      openGraph: {
+        siteName: 'Socialsect',
+        locale: 'en_US',
+        type: 'profile',
+        title: `${author.name} | Socialsect Blog`,
+        description: ogDescription,
+        ...(author.image?.asset?.url && { images: [{ url: author.image.asset.url, width: 400, height: 400, alt: author.name }] }),
+      },
+    }
+  }
 
   return {
     title: `${author.name} | Socialsect Blog`,

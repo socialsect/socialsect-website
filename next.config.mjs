@@ -64,6 +64,20 @@ const nextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
+      // Review/staging noindex header
+      ...(process.env.NEXT_PUBLIC_REVIEW_MODE === 'true'
+        ? [
+            {
+              source: '/(.*)',
+              headers: [
+                {
+                  key: 'X-Robots-Tag',
+                  value: 'noindex, nofollow, noarchive, nosnippet',
+                },
+              ],
+            },
+          ]
+        : []),
       // Security headers for all routes (Best Practices)
       {
         source: '/:path*',

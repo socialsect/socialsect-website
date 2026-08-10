@@ -13,6 +13,8 @@ const ORG_SCHEMA = {
   url: SITE_URL,
 }
 
+const IS_REVIEW_MODE = process.env.NEXT_PUBLIC_REVIEW_MODE === 'true'
+
 // Deduplicate the Sanity fetch  called once in generateMetadata and once in Page
 const getArticle = cache(getArticleBySlug)
 
@@ -28,6 +30,31 @@ export async function generateMetadata({ params }) {
     article?.excerpt ||
     'Expert articles for private medical practice growth, SEO, paid media, and conversion from Socialsect.'
   const image = article?.featuredImage?.asset?.url ?? DEFAULT_IMAGE
+
+  if (IS_REVIEW_MODE) {
+    return {
+      title,
+      description,
+      robots: 'noindex, nofollow, noarchive, nosnippet',
+      openGraph: {
+        siteName: 'Socialsect',
+        locale: 'en_US',
+        type: 'article',
+        title,
+        description,
+        images: [{ url: image, width: 1200, height: 630, alt: title }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        site: '@thesocialsect',
+        creator: '@thesocialsect',
+        title,
+        description,
+        images: [image],
+      },
+    }
+  }
+
   const canonical = article?.canonicalUrl || `${SITE_URL}/insights/blog/${slug}`
   const robots = article?.robots || DEFAULT_ROBOTS
 
@@ -62,6 +89,10 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   const { slug } = await params
   const article = await getArticle(slug)
+
+  if (IS_REVIEW_MODE) {
+    return <BlogArticlePage article={article} />
+  }
 
   const title = article
     ? `${article.metaTitle || article.title} | Socialsect`

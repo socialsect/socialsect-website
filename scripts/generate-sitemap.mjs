@@ -13,6 +13,21 @@ const rootDir = path.resolve(__dirname, '..')
 const siteUrl = 'https://gosocialsect.com'
 const today = new Date().toISOString().split('T')[0]
 
+const isReviewMode = process.env.NEXT_PUBLIC_REVIEW_MODE === 'true'
+
+if (isReviewMode) {
+  await fs.writeFile(
+    path.join(rootDir, 'public', 'sitemap.xml'),
+    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>'
+  )
+  await fs.writeFile(
+    path.join(rootDir, 'public', 'robots.txt'),
+    '# Review/staging — no sitemap\nUser-agent: *\nAllow: /\n'
+  )
+  console.log('✓ Review mode: wrote empty sitemap and review robots.txt')
+  process.exit(0)
+}
+
 // Sanity client setup
 const sanity = createClient({
   projectId: 'nj6mz3im',
