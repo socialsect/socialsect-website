@@ -1,9 +1,9 @@
 'use client'
-import { useRef, useState, useCallback, useEffect } from 'react'
+import { useRef, useState, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import VideoPlayer from './VideoPlayer'
-import { isPreloaded, preloadAll } from '../lib/videoPreloader'
+import { isPreloaded } from '../lib/videoPreloader'
 import './ContentLibraryCarousel.css'
 
 const REELS = [
@@ -62,7 +62,7 @@ function CarouselCard({ reel, onLoaded }) {
           observer.disconnect()
         }
       },
-      { rootMargin: '600px' }
+      { rootMargin: '1200px' }
     )
     observer.observe(el)
     return () => observer.disconnect()
@@ -101,7 +101,6 @@ export default function ContentLibraryCarousel() {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  const preloadStarted = useRef(false);
 
   const updateScrollState = useCallback(() => {
     const el = scrollRef.current;
@@ -117,16 +116,6 @@ export default function ContentLibraryCarousel() {
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
     setTimeout(updateScrollState, 400);
   }, [updateScrollState]);
-
-  useEffect(() => {
-    if (preloadStarted.current) return
-    preloadStarted.current = true
-    const urls = REELS.map((r) => r.url).filter(Boolean)
-    const timer = setTimeout(() => {
-      preloadAll(urls, { batchSize: 2, delayMs: 600 })
-    }, 2000)
-    return () => clearTimeout(timer)
-  }, []);
 
   return (
     <section className="clc">
