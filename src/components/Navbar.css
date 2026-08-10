@@ -26,7 +26,6 @@
     background-color 0.35s ease,
     border-color 0.35s ease,
     box-shadow 0.35s ease;
-  will-change: transform, opacity;
 }
 
 .navbar--hidden {

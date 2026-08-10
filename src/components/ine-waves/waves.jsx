@@ -186,7 +186,18 @@ const Threads = ({ color = THREADS_COLOR, amplitude = 1, distance = 0, enableMou
       container.addEventListener('mouseleave', handleMouseLeave);
     }
 
+    let visible = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => { visible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(container);
+
     function update(t) {
+      if (!visible) {
+        animationFrameId.current = requestAnimationFrame(update);
+        return;
+      }
       if (enableMouseInteraction) {
         const smoothing = 0.05;
         currentMouse[0] += smoothing * (targetMouse[0] - currentMouse[0]);
@@ -206,6 +217,7 @@ const Threads = ({ color = THREADS_COLOR, amplitude = 1, distance = 0, enableMou
 
     return () => {
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
+      observer.disconnect();
       window.removeEventListener('resize', resize);
 
       if (enableMouseInteraction) {

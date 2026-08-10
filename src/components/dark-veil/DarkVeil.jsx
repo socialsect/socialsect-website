@@ -184,8 +184,13 @@ export default function DarkVeil({
 
     const start = performance.now();
     let frame = 0;
+    let visible = true;
 
     const loop = () => {
+      if (!visible) {
+        frame = requestAnimationFrame(loop);
+        return;
+      }
       program.uniforms.uTime.value = ((performance.now() - start) / 1000) * speed;
       program.uniforms.uHueShift.value = hueShift;
       program.uniforms.uNoise.value = noiseIntensity;
@@ -197,10 +202,17 @@ export default function DarkVeil({
       frame = requestAnimationFrame(loop);
     };
 
+    const observer = new IntersectionObserver(
+      ([entry]) => { visible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(parent);
+
     loop();
 
     return () => {
       cancelAnimationFrame(frame);
+      observer.disconnect();
       window.removeEventListener('resize', resize);
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale, blend]);

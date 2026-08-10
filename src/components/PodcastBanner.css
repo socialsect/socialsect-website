@@ -27,14 +27,12 @@
       rgba(225,218,255,.42) 100%
     );
 
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
   box-shadow:
     0 8px 24px rgba(26,28,29,.08),
     0 24px 56px rgba(26,28,29,.14);
-
-  will-change: transform;
 }
 
 .podcast-banner--collapsed {

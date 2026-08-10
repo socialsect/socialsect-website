@@ -63,6 +63,10 @@ const TRUSTED_PRACTICES = [
 ];
 
 export default function HomePage() {
+  useEffect(() => {
+    preloadAll(CAROUSEL_VIDEO_URLS, { batchSize: 3, delayMs: 400 })
+  }, []);
+
   return (
     <main className="homepage">
       <section className="home-hero">
