@@ -9,9 +9,7 @@
 
 ## Task 1: Blog Author Integration
 
-
 ### Requirements
-
 
 * All blog author information already exists in Sanity CMS.
 * Fetch author data directly from Sanity.
