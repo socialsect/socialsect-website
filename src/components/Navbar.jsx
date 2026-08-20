@@ -206,6 +206,7 @@ const HIDE_AFTER_Y = 60
 export default function Navbar() {
   const pathname = usePathname()
   const isHome = pathname === '/'
+  const isDarkHero = isHome || pathname === '/dubai'
   const isWhoWeHelp = pathname === '/who-we-help' || pathname.startsWith('/who-we-help/')
   const isInsights = pathname === '/insights' || pathname.startsWith('/insights/')
   const isServices =
@@ -323,7 +324,7 @@ export default function Navbar() {
     <nav
       className={[
         'navbar',
-        isHome ? 'navbar--hero' : '',
+        isDarkHero ? 'navbar--hero' : '',
         navScrolled ? 'navbar--scrolled' : '',
         navVisible ? 'navbar--visible' : 'navbar--hidden',
         navRevealing ? 'navbar--revealing' : '',
@@ -479,7 +480,7 @@ export default function Navbar() {
       </div>
     </nav>
 
-    {!isHome && <div className="navbar-spacer" aria-hidden="true" />}
+    {!isDarkHero && <div className="navbar-spacer" aria-hidden="true" />}
 
       <button
         type="button"

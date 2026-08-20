@@ -32,6 +32,7 @@ const staticRoutes = [
   '/insights/testimonials',
   '/insights/resources',
   '/book-a-call',
+  '/dubai',
 ]
 
 const serviceRoutes = allServices.map(({ path: routePath }) => routePath)

@@ -1,0 +1,1174 @@
+/* ============================================================
+   DubaiPage.css
+   Mirrors the Socialsect homepage design language:
+   dark cinematic hero, Newsreader serif headlines, signature
+   purple (#695af2), editorial light sections, dark closing CTA.
+   ============================================================ */
+
+.dubai-page {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+:root {
+  --dubai-bg: #050505;
+  --dubai-gradient: #695af1;
+  --dubai-text-muted: rgba(255, 255, 255, 0.55);
+  --dubai-stats-bg: rgba(20, 20, 22, 0.72);
+}
+
+/* ========== Hero (dark cinematic, matches homepage) ========== */
+.dubai-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--dubai-bg);
+  font-family: var(--font-body);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.dubai-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.dubai-hero__bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.dubai-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 5, 5, 0.97) 0%,
+    rgba(5, 5, 5, 0.88) 38%,
+    rgba(5, 5, 5, 0.45) 62%,
+    rgba(5, 5, 5, 0.2) 100%
+  );
+}
+
+.dubai-hero__content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+  padding: calc(var(--navbar-height) + 48px) var(--gutter) 40px;
+}
+
+.dubai-hero__main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: end;
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+/* Eyebrow */
+.dubai-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dubai-text-muted);
+  margin: 0 0 28px;
+}
+
+.dubai-hero-eyebrow__line {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--dubai-gradient);
+  flex-shrink: 0;
+}
+
+/* Headline */
+.dubai-hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.08;
+  color: var(--white);
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+.dubai-hero-headline__line {
+  display: block;
+}
+
+.dubai-hero-headline__line--gradient {
+  font-style: italic;
+  background: var(--dubai-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Sub-headline */
+.dubai-hero-subheadline {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 36px;
+  max-width: 440px;
+}
+
+/* CTA Buttons */
+.dubai-hero-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.dubai-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1.5px solid transparent;
+}
+
+.dubai-hero-btn--primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.dubai-hero-btn--primary:hover {
+  box-shadow: 0 6px 28px rgba(105, 90, 242, 0.5);
+  transform: translateY(-1px);
+}
+
+.dubai-hero-btn--secondary {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.dubai-hero-btn--secondary:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dubai-hero-btn__arrow {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.dubai-hero-btn:hover .dubai-hero-btn__arrow--right {
+  transform: translateX(3px);
+}
+
+.dubai-hero-btn:hover .dubai-hero-btn__arrow--down {
+  transform: translateY(3px);
+}
+
+/* Testimonial */
+.dubai-hero-testimonial {
+  margin: 0;
+  padding: 0 0 8px;
+  max-width: 340px;
+  justify-self: end;
+  align-self: end;
+}
+
+.dubai-hero-testimonial__quote {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 700;
+  background: var(--dubai-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 12px;
+  letter-spacing: -0.04em;
+}
+
+.dubai-hero-testimonial__text {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 20px;
+}
+
+.dubai-hero-testimonial__divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #5849e5 0%, rgba(91, 141, 239, 0.2) 100%);
+  margin-bottom: 16px;
+}
+
+.dubai-hero-testimonial__attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-style: normal;
+}
+
+.dubai-hero-testimonial__attribution cite {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  font-style: normal;
+}
+
+.dubai-hero-testimonial__attribution span {
+  font-size: 13px;
+  color: var(--dubai-text-muted);
+}
+
+/* Stats Bar */
+.dubai-hero-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: var(--dubai-stats-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 28px 16px;
+  margin-bottom: 36px;
+}
+
+.dubai-hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dubai-hero-stat:last-child {
+  border-right: none;
+}
+
+.dubai-hero-stat__number {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.dubai-hero-stat__label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dubai-text-muted);
+  line-height: 1.4;
+}
+
+/* Trust Bar */
+.dubai-hero-trust {
+  text-align: center;
+  padding-bottom: 8px;
+}
+
+.dubai-hero-trust__label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dubai-text-muted);
+  margin: 0 0 20px;
+}
+
+.dubai-hero-trust__logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 4vw, 48px);
+}
+
+.dubai-hero-trust__logo {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+a.dubai-hero-trust__logo:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.dubai-hero-trust__more {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+/* ========== Client logo marquee (light strip) ========== */
+.dubai-marquee {
+  width: 100%;
+  background: var(--white, #ffffff);
+  border-bottom: 1px solid var(--gray, #e2e2e2);
+  padding: clamp(36px, 5vw, 52px) 0;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  overflow: hidden;
+}
+
+.dubai-marquee__viewport {
+  overflow: hidden;
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.dubai-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: clamp(48px, 7vw, 100px);
+  width: max-content;
+  animation: dubai-marquee-scroll 50s linear infinite;
+}
+
+.dubai-marquee__track:hover {
+  animation-play-state: paused;
+}
+
+.dubai-marquee__item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  min-height: 72px;
+}
+
+.dubai-marquee__item img {
+  max-height: 56px;
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.dubai-marquee__item--wide img {
+  max-height: 52px;
+  max-width: 260px;
+}
+
+.dubai-marquee__item--screen img {
+  mix-blend-mode: screen;
+}
+
+@keyframes dubai-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ========== Expansion section (dark, animated waves) ========== */
+.dubai-expansion {
+  position: relative;
+  width: 100%;
+  background: var(--dubai-bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  overflow: hidden;
+}
+
+.dubai-expansion__animation {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.dubai-expansion__aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.dubai-expansion__aurora--a {
+  width: 70vw;
+  height: 70vw;
+  left: -15vw;
+  top: -20vw;
+  background: radial-gradient(circle, rgba(105, 90, 242, 0.4) 0%, rgba(105, 90, 242, 0) 65%);
+  animation: dubai-aurora-a 26s ease-in-out infinite alternate;
+}
+
+.dubai-expansion__aurora--b {
+  width: 60vw;
+  height: 60vw;
+  right: -12vw;
+  bottom: -18vw;
+  background: radial-gradient(circle, rgba(91, 141, 239, 0.3) 0%, rgba(91, 141, 239, 0) 65%);
+  animation: dubai-aurora-b 32s ease-in-out infinite alternate;
+}
+
+@keyframes dubai-aurora-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6vw, 4vw, 0) scale(1.15);
+  }
+}
+
+@keyframes dubai-aurora-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-5vw, -3vw, 0) scale(1.1);
+  }
+}
+
+.dubai-expansion__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 5, 0.92) 0%,
+    rgba(5, 5, 5, 0.55) 45%,
+    rgba(5, 5, 5, 0.92) 100%
+  );
+}
+
+.dubai-expansion__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(64px, 10vw, 120px) var(--gutter);
+}
+
+.dubai-expansion__intro {
+  max-width: 46rem;
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.dubai-expansion__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 14px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--dubai-gradient);
+  display: inline-block;
+}
+
+.dubai-expansion__headline {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.2vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin: 4px 0 24px;
+}
+
+.dubai-expansion__headline em {
+  font-style: italic;
+  background: linear-gradient(90deg, #695af1 0%, #8f83ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.dubai-expansion__copy {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 16px;
+  max-width: 46rem;
+}
+
+/* Route markers: US → UK → UAE */
+.dubai-expansion__route {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.dubai-expansion__market {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dubai-expansion__market-top {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.dubai-expansion__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--dubai-gradient);
+  flex-shrink: 0;
+}
+
+.dubai-expansion__dot--active {
+  box-shadow: 0 0 0 4px rgba(105, 90, 242, 0.25), 0 0 18px rgba(105, 90, 242, 0.6);
+}
+
+.dubai-expansion__route-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(105, 90, 242, 0.6), rgba(105, 90, 242, 0.15));
+}
+
+.dubai-expansion__market-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0 0 4px;
+}
+
+.dubai-expansion__market-status {
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+/* Pillars */
+.dubai-expansion__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 24px);
+}
+
+.dubai-expansion__pillar {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: clamp(24px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.dubai-expansion__pillar:hover {
+  border-color: rgba(105, 90, 242, 0.6);
+  background: rgba(105, 90, 242, 0.08);
+  transform: translateY(-3px);
+}
+
+.dubai-expansion__pillar-num {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--dubai-gradient);
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+}
+
+.dubai-expansion__pillar-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 400;
+  color: var(--white);
+  margin: 0 0 10px;
+}
+
+.dubai-expansion__pillar-copy {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 20px;
+  flex: 1;
+}
+
+.dubai-expansion__pillar-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.dubai-expansion__pillar-link:hover {
+  color: var(--dubai-gradient);
+}
+
+/* ========== Record section (light, results-spotlight style) ========== */
+.dubai-record {
+  width: 100%;
+  background: var(--white);
+  font-family: var(--font-body);
+  padding: clamp(48px, 8vw, 72px) var(--gutter, 24px);
+  border-bottom: 1px solid var(--gray, #e2e2e2);
+}
+
+.dubai-record__inner {
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+}
+
+.dubai-record__intro {
+  max-width: 42rem;
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+
+.dubai-record__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark-gray, #474555);
+  margin: 0 0 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary, #695af2);
+  display: inline-block;
+}
+
+.dubai-record__headline {
+  font-family: var(--font-display, 'Georgia', serif);
+  font-size: clamp(32px, 4.2vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--charcoal, #1a1c1d);
+  margin: 8px 0 0 0;
+}
+
+.dubai-record__headline em {
+  font-style: italic;
+  color: var(--primary, #695af2);
+}
+
+.dubai-record__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--gray, #e8e8ed);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+
+.dubai-record__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: clamp(20px, 2.5vw, 28px) clamp(16px, 2vw, 24px);
+  border-right: 1px solid var(--gray, #e8e8ed);
+}
+
+.dubai-record__stat:last-child {
+  border-right: none;
+}
+
+.dubai-record__stat-value {
+  font-family: var(--font-display, 'Georgia', serif);
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--primary, #695af2);
+}
+
+.dubai-record__stat-label {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--dark-gray, #474555);
+}
+
+/* Proof panel (dark) */
+.dubai-record__proof-panel {
+  background: var(--charcoal, #1a1c1d);
+  color: var(--white);
+  border-radius: 4px;
+  padding: clamp(28px, 4vw, 44px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: clamp(24px, 3vw, 48px);
+  align-items: end;
+}
+
+.dubai-record__proof-kicker {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 12px;
+}
+
+.dubai-record__proof-copy {
+  margin: 0;
+  font-size: clamp(15px, 1.6vw, 17px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 26rem;
+}
+
+.dubai-record__proof-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 32px;
+}
+
+.dubai-record__proof-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dubai-record__proof-value {
+  font-family: var(--font-display, 'Georgia', serif);
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.dubai-record__proof-label {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.dubai-record__proof-panel .dubai-record__proof-attribution {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ========== Specialties section (light grid) ========== */
+.dubai-specialties {
+  width: 100%;
+  background: var(--white);
+  font-family: var(--font-body);
+  padding: clamp(48px, 8vw, 72px) var(--gutter, 24px);
+  border-bottom: 1px solid var(--gray, #e2e2e2);
+}
+
+.dubai-specialties__inner {
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+}
+
+.dubai-specialties__intro {
+  max-width: 38rem;
+  margin-bottom: clamp(32px, 4.5vw, 48px);
+}
+
+.dubai-specialties__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark-gray, #474555);
+  margin: 0 0 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary, #695af2);
+  display: inline-block;
+}
+
+.dubai-specialties__headline {
+  font-family: var(--font-display, 'Georgia', serif);
+  font-size: clamp(30px, 4vw, 50px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--charcoal, #1a1c1d);
+  margin: 8px 0 16px;
+}
+
+.dubai-specialties__headline em {
+  font-style: italic;
+  color: var(--primary, #695af2);
+}
+
+.dubai-specialties__subcopy {
+  margin: 0;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--dark-gray, #474555);
+}
+
+.dubai-specialties__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 20px);
+}
+
+.dubai-specialties__card {
+  border: 1px solid var(--gray, #e8e8ed);
+  border-radius: 4px;
+  padding: clamp(20px, 2.4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.dubai-specialties__card:hover {
+  border-color: var(--primary, #695af2);
+  transform: translateY(-2px);
+}
+
+.dubai-specialties__num {
+  font-family: var(--font-display, 'Georgia', serif);
+  font-size: 14px;
+  color: var(--primary, #695af2);
+  letter-spacing: 0.04em;
+}
+
+.dubai-specialties__title {
+  font-family: var(--font-display, 'Georgia', serif);
+  font-size: clamp(19px, 2vw, 23px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--charcoal, #1a1c1d);
+  margin: 0;
+}
+
+.dubai-specialties__copy {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--dark-gray, #474555);
+}
+
+/* Client results section (reuses results-page card styles) */
+.dubai-clients__subcopy {
+  margin: 0;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--dark-gray, #474555);
+  max-width: 46rem;
+  padding-top: 12px;
+}
+
+/* ========== Closing CTA (dark, matches about-closing) ========== */
+.dubai-closing {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dubai-bg);
+  overflow: hidden;
+}
+
+.dubai-closing__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.dubai-closing__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(123, 92, 245, 0.15) 0%,
+    rgba(91, 141, 239, 0.05) 50%,
+    transparent 100%
+  );
+}
+
+.dubai-closing__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 760px;
+  width: 100%;
+  padding: clamp(60px, 10vw, 100px) var(--gutter);
+}
+
+.dubai-closing__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--white);
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+.dubai-closing__body {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 48px;
+}
+
+.dubai-closing__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dubai-closing__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.dubai-closing__btn--primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.dubai-closing__btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(123, 92, 245, 0.4);
+}
+
+.dubai-closing__btn--ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.dubai-closing__btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.dubai-closing__btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1100px) {
+  .dubai-hero__main {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .dubai-hero-testimonial {
+    justify-self: start;
+    max-width: 480px;
+  }
+
+  .dubai-hero-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 0;
+    padding: 24px 12px;
+  }
+
+  .dubai-hero-stat {
+    border-right: none;
+    padding: 0 20px;
+  }
+
+  .dubai-hero-stat:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dubai-expansion__pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .dubai-record__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dubai-record__stat:nth-child(2n) {
+    border-right: none;
+  }
+
+  .dubai-record__proof-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .dubai-specialties__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dubai-hero__content {
+    padding-top: calc(var(--navbar-height) + 32px);
+    padding-bottom: 32px;
+  }
+
+  .dubai-hero-headline {
+    font-size: 36px;
+  }
+
+  .dubai-hero-subheadline {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .dubai-hero-cta-buttons {
+    flex-direction: column;
+  }
+
+  .dubai-hero-btn {
+    width: 100%;
+  }
+
+  .dubai-hero-stats-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dubai-hero-trust__logos {
+    gap: 16px 24px;
+  }
+
+  .dubai-hero-trust__logo {
+    font-size: 10px;
+  }
+
+  .dubai-expansion__route {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .dubai-expansion__market-top {
+    justify-content: center;
+  }
+
+  .dubai-expansion__route-line {
+    display: none;
+  }
+
+  .dubai-record__proof-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dubai-hero-headline {
+    font-size: 32px;
+  }
+
+  .dubai-hero-stats-bar {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .dubai-hero-stat {
+    border-right: none !important;
+    padding: 0 16px;
+  }
+
+  .dubai-hero-testimonial__text {
+    font-size: 15px;
+  }
+
+  .dubai-record__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dubai-record__stat {
+    border-right: none !important;
+  }
+
+  .dubai-specialties__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dubai-expansion__animation {
+    opacity: 0.15;
+  }
+
+  .dubai-expansion__aurora {
+    animation: none;
+  }
+
+  .dubai-marquee__viewport {
+    mask-image: none;
+    -webkit-mask-image: none;
+    min-height: auto;
+  }
+
+  .dubai-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    row-gap: 24px;
+  }
+}
