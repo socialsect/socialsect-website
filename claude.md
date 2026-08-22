@@ -7,6 +7,7 @@
 * Preserve all existing behavior.
 
 
+
 ## Task 1: Blog Author Integration
 
 ### Requirements
