@@ -6,6 +6,7 @@ import { getSpecialtyData } from '../views/who-we-help/specialtyData.js'
 import { getRegionLandingData } from '../views/dermatologists/regionLandingData.js'
 import { getOrmLandingData } from '../views/orthopaedic/ormLandingData.js'
 import { getPlasticSurgeonLandingData } from '../views/plastic-surgeons/plasticSurgeonLandingData.js'
+import { getDentistLandingData } from '../views/dentists/dentistLandingData.js'
 import { SEO_PAGE_META_OVERRIDES } from './seoPageMeta.js'
 
 const SITE_NAME = 'Socialsect'
@@ -660,6 +661,28 @@ function plasticSurgeonLandingConfig(pathname, params) {
   }
 }
 
+function dentistLandingConfig(pathname) {
+  const data = getDentistLandingData('seo-services-for-dentists-in-new-york')
+  if (!data) {
+    return notFoundConfig()
+  }
+
+  const canonicalUrl = absoluteUrl(pathname)
+  const title = data.metaTitle
+  const description = data.metaDescription
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: undefined,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: data.tags ?? ['dentist SEO', 'dental SEO', 'local SEO for dentists'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
 function visibilityConfig() {
   const canonicalUrl = absoluteUrl('/where-your-implant-practice-is-going-wrong')
   const title = 'Free Implant Practice Visibility Snapshot | Socialsect'
@@ -895,6 +918,11 @@ export function getSeoConfig(pathname) {
   const plasticSurgeonLandingMatch = matchPath('/healthcare-marketing-for-plastic-surgeons/:pageSlug', cleanPath)
   if (plasticSurgeonLandingMatch) {
     return applyPageMetaOverrides(plasticSurgeonLandingConfig(cleanPath, plasticSurgeonLandingMatch.params), cleanPath)
+  }
+
+  const dentistLandingMatch = matchPath('/seo-services-for-dentists-in-new-york', cleanPath)
+  if (dentistLandingMatch) {
+    return applyPageMetaOverrides(dentistLandingConfig(cleanPath), cleanPath)
   }
 
   const articleMatch = matchPath('/insights/blog/:slug', cleanPath)

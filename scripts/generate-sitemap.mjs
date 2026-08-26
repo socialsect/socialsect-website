@@ -7,6 +7,7 @@ import { allSpecialties } from '../src/assets/specialty-content-matrix/content-m
 import { regionLandingPageMap } from '../src/views/dermatologists/regionLandingData.js'
 import { ormLandingPageMap } from '../src/views/orthopaedic/ormLandingData.js'
 import { plasticSurgeonLandingPageMap } from '../src/views/plastic-surgeons/plasticSurgeonLandingData.js'
+import { dentistLandingPageMap } from '../src/views/dentists/dentistLandingData.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
@@ -40,6 +41,7 @@ const specialtyRoutes = allSpecialties.map(({ slug }) => `/who-we-help/${slug}`)
 const regionLandingRoutes = Object.values(regionLandingPageMap).map(({ path: routePath }) => routePath)
 const ormLandingRoutes = Object.values(ormLandingPageMap).map(({ path: routePath }) => routePath)
 const plasticSurgeonLandingRoutes = Object.values(plasticSurgeonLandingPageMap).map(({ path: routePath }) => routePath)
+const dentistLandingRoutes = Object.values(dentistLandingPageMap).map(({ path: routePath }) => routePath)
 
 // Fetch blog articles from Sanity
 let blogRoutes = []
@@ -62,7 +64,7 @@ try {
   console.log('Continuing with static routes only...')
 }
 
-const routes = [...staticRoutes, ...serviceRoutes, ...specialtyRoutes, ...regionLandingRoutes, ...ormLandingRoutes, ...plasticSurgeonLandingRoutes]
+const routes = [...staticRoutes, ...serviceRoutes, ...specialtyRoutes, ...regionLandingRoutes, ...ormLandingRoutes, ...plasticSurgeonLandingRoutes, ...dentistLandingRoutes]
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
