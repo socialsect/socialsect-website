@@ -1,18 +1,18 @@
 'use client'
 import { useMemo } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
-import { getPlasticSurgeonLandingData } from './plasticSurgeonLandingData.js'
-import './PlasticSurgeonLandingPage.css'
+import { getOrthopaedicSeoLandingData } from './orthopaedicSurgeonsSeoData.js'
+import '../dentists/DentistLandingPage.css'
 
-export default function PlasticSurgeonLandingPage({ pageSlug: propSlug }) {
+export default function OrthopaedicSurgeonsSeoLandingPage({ pageSlug: propSlug }) {
   const params = useParams()
   const pageSlug = propSlug ?? params.pageSlug
-  const data = useMemo(() => getPlasticSurgeonLandingData(pageSlug), [pageSlug])
+  const data = useMemo(() => getOrthopaedicSeoLandingData(pageSlug), [pageSlug])
 
   if (!data) {
-    return <Navigate to="/" replace />
+    return null
   }
 
   return (
@@ -26,7 +26,7 @@ export default function PlasticSurgeonLandingPage({ pageSlug: propSlug }) {
           <div className="ps-hero__content">
             <p className="ps-hero__eyebrow">
               <span className="ps-hero__eyebrow-line" aria-hidden="true" />
-              Plastic Surgery Marketing
+              Orthopaedic SEO
             </p>
             <h1 id="ps-hero-heading" className="ps-hero__headline">
               {data.heroHeadline}

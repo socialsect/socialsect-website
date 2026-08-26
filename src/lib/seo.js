@@ -7,6 +7,7 @@ import { getRegionLandingData } from '../views/dermatologists/regionLandingData.
 import { getOrmLandingData } from '../views/orthopaedic/ormLandingData.js'
 import { getPlasticSurgeonLandingData } from '../views/plastic-surgeons/plasticSurgeonLandingData.js'
 import { getDentistLandingData } from '../views/dentists/dentistLandingData.js'
+import { getOrthopaedicSeoLandingData } from '../views/orthopaedic-surgeons/orthopaedicSurgeonsSeoData.js'
 import { SEO_PAGE_META_OVERRIDES } from './seoPageMeta.js'
 
 const SITE_NAME = 'Socialsect'
@@ -662,7 +663,8 @@ function plasticSurgeonLandingConfig(pathname, params) {
 }
 
 function dentistLandingConfig(pathname) {
-  const data = getDentistLandingData('seo-services-for-dentists-in-new-york')
+  const slug = pathname.replace(/^\//, '')
+  const data = getDentistLandingData(slug)
   if (!data) {
     return notFoundConfig()
   }
@@ -683,6 +685,50 @@ function dentistLandingConfig(pathname) {
   }
 }
 
+function orthopaedicSeoLandingConfig(pathname) {
+  const slug = pathname.replace(/^\//, '')
+  const data = getOrthopaedicSeoLandingData(slug)
+  if (!data) {
+    return notFoundConfig()
+  }
+
+  const canonicalUrl = absoluteUrl(pathname)
+  const title = data.metaTitle
+  const description = data.metaDescription
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: undefined,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: data.tags ?? ['orthopaedic SEO', 'orthopedic SEO', 'orthopedic surgeon SEO'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+function plasticSeoLandingConfig(pathname) {
+  const slug = pathname.replace(/^\//, '')
+  const data = getPlasticSurgeonLandingData(slug)
+  if (!data) {
+    return notFoundConfig()
+  }
+
+  const canonicalUrl = absoluteUrl(pathname)
+  const title = data.metaTitle
+  const description = data.metaDescription
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: undefined,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: data.tags ?? ['plastic surgeon SEO', 'plastic surgery SEO', 'cosmetic surgery SEO'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
 function visibilityConfig() {
   const canonicalUrl = absoluteUrl('/where-your-implant-practice-is-going-wrong')
   const title = 'Free Implant Practice Visibility Snapshot | Socialsect'
@@ -920,9 +966,46 @@ export function getSeoConfig(pathname) {
     return applyPageMetaOverrides(plasticSurgeonLandingConfig(cleanPath, plasticSurgeonLandingMatch.params), cleanPath)
   }
 
-  const dentistLandingMatch = matchPath('/seo-services-for-dentists-in-new-york', cleanPath)
+  const dentistLandingMatch = matchPath('/seo-services-for-dentists-in-new-york', cleanPath) ||
+    matchPath('/seo-services-for-dentists-in-los-angeles', cleanPath) ||
+    matchPath('/seo-services-for-dentists-in-miami', cleanPath) ||
+    matchPath('/seo-services-for-dentists-in-chicago', cleanPath) ||
+    matchPath('/seo-services-for-dentists-in-houston', cleanPath) ||
+    matchPath('/seo-services-for-dentists-in-dallas', cleanPath) ||
+    matchPath('/seo-services-for-dentists-in-phoenix', cleanPath) ||
+    matchPath('/seo-services-for-dentists-in-seattle', cleanPath) ||
+    matchPath('/seo-services-for-dentists-in-boston', cleanPath) ||
+    matchPath('/seo-services-for-dentists-in-atlanta', cleanPath)
   if (dentistLandingMatch) {
     return applyPageMetaOverrides(dentistLandingConfig(cleanPath), cleanPath)
+  }
+
+  const orthopaedicSeoLandingMatch = matchPath('/seo-services-orthopaedic-surgeons-los-angeles', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons-new-york', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons-miami', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons-chicago', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons-houston', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons-dallas', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons-phoenix', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons-atlanta', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons-seattle', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons-boston', cleanPath)
+  if (orthopaedicSeoLandingMatch) {
+    return applyPageMetaOverrides(orthopaedicSeoLandingConfig(cleanPath), cleanPath)
+  }
+
+  const plasticSeoLandingMatch = matchPath('/seo-services-for-plastic-surgeons-new-york', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons-los-angeles', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons-miami', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons-chicago', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons-houston', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons-dallas', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons-phoenix', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons-atlanta', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons-seattle', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons-boston', cleanPath)
+  if (plasticSeoLandingMatch) {
+    return applyPageMetaOverrides(plasticSeoLandingConfig(cleanPath), cleanPath)
   }
 
   const articleMatch = matchPath('/insights/blog/:slug', cleanPath)
