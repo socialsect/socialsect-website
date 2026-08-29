@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Socialsect UAE — Patient Acquisition for Medical Practices</title>
+<meta name="description" content="A patient acquisition system built for private medical practices in the UAE. Before we talk about marketing, tell us about your clinic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #111113;
+  --paper: #f7f4ee;
+  --white: #ffffff;
+  --muted: #68666c;
+  --purple: #7657ff;
+  --purple-hover: #6548e6;
+  --lav: #eee9ff;
+  --line: #e0dbd3;
+  --dark: #0e0e10;
+  --dark-surface: #1a1a1d;
+  --dark-line: #2a2a2d;
+  --cream: #f7f4ee;
+  --green: #dff5e7;
+  --max: 1140px;
+  --radius: 18px;
+  --radius-lg: 28px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { text-decoration: none; color: inherit; }
+button, input, textarea, select { font: inherit; }
+img { display: block; max-width: 100%; }
+.wrap { width: min(100% - 32px, var(--max)); margin: auto; }
+
+/* ─── NAV ─── */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  background: rgba(247,244,238,.88);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.nav-inner {
+  height: 72px; display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  display: flex; align-items: center; gap: 0;
+}
+.logo svg { height: 38px; width: auto; }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.lang-pill {
+  padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--white); font-size: 13px; color: var(--ink); cursor: pointer;
+}
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 11px 20px; border-radius: 12px; background: var(--ink); color: var(--white);
+  font-weight: 700; font-size: 13px; border: 0; cursor: pointer;
+  transition: background .2s;
+}
+.nav-cta:hover { background: #2a2a2d; }
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 16px 24px; border-radius: 12px; font-weight: 700; font-size: 15px;
+  border: 0; cursor: pointer; transition: all .2s; text-decoration: none;
+}
+.btn-purple { background: var(--purple); color: var(--white); }
+.btn-purple:hover { background: var(--purple-hover); }
+.btn-dark { background: var(--ink); color: var(--white); }
+.btn-dark:hover { background: #2a2a2d; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn-ghost:hover { background: var(--white); }
+
+/* ─── EYEBROW ─── */
+.eyebrow {
+  text-transform: uppercase; letter-spacing: .14em; font-size: 11.5px;
+  font-weight: 800; color: var(--muted); margin-bottom: 16px;
+}
+.eyebrow-purple { color: var(--purple); }
+.eyebrow-light { color: rgba(255,255,255,.45); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100svh; display: grid; align-items: center;
+  padding: 130px 0 70px; background: var(--cream);
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center;
+}
+.hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(46px, 6.2vw, 86px); line-height: .97; letter-spacing: -.045em;
+  font-weight: 500; margin: 0 0 24px; color: var(--ink);
+}
+.hero h1 em { font-style: italic; }
+.hero-copy {
+  font-size: clamp(17px, 1.8vw, 21px); line-height: 1.55;
+  color: #4f4d52; max-width: 600px;
+}
+.hero-copy strong { color: var(--ink); }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+.hero-note { font-size: 12px; color: var(--muted); margin-top: 16px; }
+
+/* VSL Card */
+.vsl-card {
+  background: var(--dark); color: var(--white); border-radius: var(--radius-lg);
+  padding: 32px; min-height: 460px; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 30px 80px rgba(0,0,0,.18);
+}
+.vsl-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 72% 28%, rgba(118,87,255,.35), transparent 40%),
+              linear-gradient(160deg, rgba(255,255,255,.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+.vsl-card .video-label {
+  font-size: 11px; color: rgba(255,255,255,.4); letter-spacing: .1em;
+  text-transform: uppercase; font-weight: 700; margin-bottom: 24px;
+}
+.vsl-card .play {
+  width: 72px; height: 72px; border-radius: 50%; background: var(--white); color: var(--ink);
+  display: flex; align-items: center; justify-content: center; font-size: 24px;
+  padding-left: 3px; box-shadow: 0 0 0 10px rgba(255,255,255,.08);
+  cursor: pointer; transition: transform .2s;
+}
+.vsl-card .play:hover { transform: scale(1.06); }
+.vsl-card h3 {
+  font-family: 'Playfair Display', Georgia, serif; font-size: 26px;
+  line-height: 1.3; margin: 24px 0 8px; font-weight: 500;
+}
+.vsl-card p { font-size: 13px; color: rgba(255,255,255,.45); margin: 0; }
+
+/* ─── PROOF BAR ─── */
+.proof-bar {
+  background: var(--dark); color: var(--white); border-top: 1px solid var(--dark-line);
+  overflow: hidden;
+}
+.proof-bar .wrap {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.proof-bit {
+  padding: 36px 24px; text-align: center;
+  border-right: 1px solid var(--dark-line);
+}
+.proof-bit:last-child { border-right: none; }
+.proof-bit b {
+  display: block; font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px; letter-spacing: -.02em;
+}
+.proof-bit span { font-size: 14px; color: rgba(255,255,255,.5); }
+
+/* ─── SECTION BASE ─── */
+.section { padding: 110px 0; border-top: 1px solid var(--line); }
+.section-dark { background: var(--dark); color: var(--white); border-top: none; }
+.section-cream { background: var(--cream); }
+.section-lav { background: var(--lav); }
+.section-white { background: var(--white); }
+.center { text-align: center; }
+.lead {
+  font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 700px;
+}
+.center .lead { margin-left: auto; margin-right: auto; }
+
+/* ─── PROBLEM ─── */
+.problem-grid {
+  display: grid; grid-template-columns: .85fr 1.15fr; gap: 54px; align-items: center;
+}
+.phone {
+  width: min(100%, 380px); margin: auto;
+  background: var(--dark); border-radius: 44px; padding: 14px;
+  box-shadow: 0 30px 70px rgba(0,0,0,.22);
+}
+.phone-screen {
+  background: #ebe6dc; border-radius: 34px; padding: 24px; min-height: 520px;
+}
+.msg-title {
+  font-size: 12px; font-weight: 800; color: #8a857d; margin-bottom: 22px;
+  letter-spacing: .02em;
+}
+.message {
+  background: var(--white); border-radius: 16px; padding: 13px 16px;
+  margin-bottom: 10px; box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  font-size: 14px; line-height: 1.4;
+}
+.message small { display: block; color: #999; margin-top: 5px; font-size: 11px; }
+.problem-line {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(36px, 4.5vw, 62px); line-height: 1.05; letter-spacing: -.04em;
+  font-weight: 500;
+}
+.khalas-pill {
+  display: inline-block; padding: 5px 14px; border: 1.5px solid var(--purple);
+  color: var(--purple); border-radius: 999px; font-family: 'Inter', sans-serif;
+  font-size: .42em; vertical-align: middle; letter-spacing: 0; font-weight: 600;
+}
+
+/* ─── INTERACTIVE SPECIALTIES ─── */
+.choice-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 36px;
+}
+.choice {
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px; text-align: left; min-height: 110px;
+  cursor: pointer; transition: all .2s; position: relative;
+}
+.choice:hover, .choice.active {
+  transform: translateY(-3px); background: var(--lav); border-color: var(--purple);
+}
+.choice strong { display: block; font-size: 17px; margin-bottom: 4px; }
+.choice span { display: block; color: var(--muted); font-size: 13px; }
+.choice .arrow { position: absolute; right: 16px; bottom: 14px; color: var(--purple); font-size: 14px; }
+.dynamic {
+  margin-top: 18px; padding: 28px; border-radius: var(--radius); background: var(--dark);
+  color: var(--white); display: none;
+}
+.dynamic.show { display: block; animation: fadeUp .35s ease; }
+.dynamic h3 {
+  font-family: 'Playfair Display', Georgia, serif; font-size: 30px;
+  margin-bottom: 6px; font-weight: 500;
+}
+.mini-options { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 16px; }
+.mini-options button {
+  background: #232426; color: var(--white); border: 1px solid #3a3a3d;
+  border-radius: 999px; padding: 10px 16px; cursor: pointer; font-size: 14px;
+  transition: all .2s;
+}
+.mini-options button:hover { background: var(--white); color: var(--ink); }
+
+/* ─── HEARD / SOCIAL PROOF CARDS ─── */
+.heard-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 36px;
+}
+.heard-card {
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+  background: var(--white);
+}
+.heard-card q {
+  display: block; font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px; line-height: 1.35; color: var(--ink); font-style: italic;
+  margin-bottom: 14px; quotes: none;
+}
+.heard-card p { font-size: 15px; color: var(--muted); margin: 0; line-height: 1.55; }
+
+/* ─── RAY SECTION ─── */
+.ray-grid {
+  display: grid; grid-template-columns: .92fr 1.08fr; gap: 54px; align-items: center;
+}
+.ray-card {
+  background: var(--dark); color: var(--white); border-radius: var(--radius-lg);
+  padding: 40px; min-height: 500px; display: flex; flex-direction: column;
+  justify-content: space-between; position: relative; overflow: hidden;
+}
+.ray-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 60% 40%, rgba(118,87,255,.25), transparent 50%);
+  pointer-events: none;
+}
+.ray-card .scribble {
+  font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.2; font-weight: 500; font-style: italic;
+  margin-top: 20px; position: relative; z-index: 1;
+}
+.ray-card p { font-size: 16px; color: rgba(255,255,255,.6); line-height: 1.6; position: relative; z-index: 1; }
+.ray-card .sig {
+  font-family: 'Playfair Display', Georgia, serif; font-size: 28px;
+  font-style: italic; color: var(--purple); position: relative; z-index: 1;
+}
+.ray-copy h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(34px, 4vw, 56px); line-height: 1.02; letter-spacing: -.04em;
+  font-weight: 500; margin: 0 0 22px;
+}
+.ray-copy p { font-size: 17px; line-height: 1.7; color: #4f4d52; max-width: 540px; }
+.ray-copy p strong { color: var(--ink); }
+
+/* ─── PAIN / WHAT HAPPENED ─── */
+.pain-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 36px;
+}
+.pain {
+  border: 1px solid var(--line); background: var(--white); border-radius: var(--radius);
+  padding: 28px; cursor: pointer; transition: all .2s;
+}
+.pain:hover, .pain.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.pain strong { font-size: 19px; line-height: 1.3; }
+.answer {
+  display: none; margin-top: 18px; border-radius: var(--radius-lg);
+  padding: 36px; background: var(--ink); color: var(--white);
+}
+.answer.show { display: block; animation: fadeUp .3s ease; }
+.answer h3 {
+  font-family: 'Playfair Display', Georgia, serif; font-size: 32px;
+  margin-bottom: 10px; font-weight: 500;
+}
+.answer p { color: #b0b0b0; line-height: 1.65; font-size: 16px; }
+.funnel { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.funnel span {
+  padding: 8px 14px; border-radius: 999px; background: #222224; font-size: 13px;
+  font-weight: 600; letter-spacing: .04em;
+}
+.funnel .arrow-sep { background: none; padding: 8px 2px; }
+
+/* ─── OFFER ─── */
+.offer-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 54px; align-items: start;
+}
+.offer-grid h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(36px, 4.5vw, 60px); line-height: 1.02; letter-spacing: -.04em;
+  font-weight: 500; margin: 0 0 20px;
+}
+.offer-card { display: flex; flex-direction: column; gap: 18px; }
+.offer-line {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 22px; background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.check {
+  width: 28px; height: 28px; border-radius: 50%; background: var(--lav);
+  color: var(--purple); display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 14px; flex-shrink: 0;
+}
+.offer-line strong { display: block; font-size: 16px; margin-bottom: 2px; }
+.offer-line small { color: var(--muted); font-size: 14px; line-height: 1.5; }
+
+/* ─── UAE LOCAL ─── */
+.local-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 36px;
+}
+.local-card {
+  border: 1px solid var(--line); border-radius: 20px; padding: 24px;
+  background: var(--white);
+}
+.local-card b { display: block; font-size: 17px; margin-bottom: 4px; }
+.local-card span { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.aed-statement {
+  margin-top: 44px; font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(34px, 4.5vw, 62px); letter-spacing: -.04em; line-height: 1.05;
+  font-weight: 500;
+}
+.aed-statement span { text-decoration: line-through; color: #9a9590; }
+
+/* ─── PROOF SECTION ─── */
+.proof-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px;
+}
+.proof-card {
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 38px; min-height: 320px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.proof-num {
+  font-family: 'Playfair Display', Georgia, serif; color: var(--purple);
+  font-size: clamp(72px, 8vw, 120px); line-height: .82; letter-spacing: -.06em;
+  font-weight: 500;
+}
+.proof-card h3 { font-size: 20px; margin: 18px 0 8px; font-weight: 700; }
+.proof-card p { color: var(--muted); font-size: 15px; line-height: 1.55; margin: 0; }
+.disclaimer {
+  font-size: 13px; color: var(--muted); line-height: 1.5;
+  margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line);
+}
+
+/* ─── VSL SECTION ─── */
+.vsl-section .vsl-box {
+  aspect-ratio: 16 / 9; border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, #1e1e20, #0a0a0a);
+  display: grid; place-items: center; border: 1px solid #2a2a2d;
+  position: relative; overflow: hidden; margin-top: 36px;
+}
+.vsl-section .play-lg {
+  width: 88px; height: 88px; border-radius: 50%; background: var(--white);
+  color: var(--ink); display: grid; place-items: center; font-size: 28px;
+  padding-left: 4px; cursor: pointer;
+  box-shadow: 0 0 0 12px rgba(255,255,255,.07);
+  transition: transform .2s;
+}
+.vsl-section .play-lg:hover { transform: scale(1.06); }
+.vsl-meta {
+  display: flex; justify-content: space-between; margin-top: 14px;
+  color: rgba(255,255,255,.4); font-size: 13px;
+}
+
+/* ─── KARAK CTA ─── */
+.karak-letter {
+  max-width: 900px; margin: auto;
+}
+.karak-letter h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(40px, 5vw, 72px); line-height: 1; letter-spacing: -.04em;
+  font-weight: 500; margin: 0 0 24px;
+}
+.karak-letter .karak-sub {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 2.5vw, 30px); line-height: 1.3; color: var(--ink);
+  margin-bottom: 20px;
+}
+.karak-letter p { font-size: 17px; line-height: 1.7; color: #4f4d52; max-width: 700px; }
+.karak-letter p strong { color: var(--ink); }
+.karak-letter .close-line {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(20px, 2vw, 26px); font-style: italic; color: var(--ink);
+  margin-top: 20px;
+}
+.karak-letter .sig {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px; font-style: italic; color: var(--purple); margin-top: 20px;
+}
+
+/* ─── FORM ─── */
+.form-grid {
+  display: grid; grid-template-columns: .85fr 1.15fr; gap: 50px; align-items: start;
+}
+.form-grid h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(36px, 4.5vw, 60px); line-height: 1.02; letter-spacing: -.04em;
+  font-weight: 500; margin: 0 0 18px;
+}
+.form-card {
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 32px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.08);
+}
+.progress {
+  height: 4px; background: #eee; border-radius: 99px;
+  overflow: hidden; margin-bottom: 28px;
+}
+.progress-bar {
+  height: 100%; width: 16%; background: var(--purple);
+  border-radius: 99px; transition: width .35s ease;
+}
+.step { display: none; }
+.step.active { display: block; animation: fadeUp .3s ease; }
+.step h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 32px; line-height: 1.1; letter-spacing: -.03em;
+  font-weight: 500; margin-bottom: 22px;
+}
+.field {
+  width: 100%; padding: 16px 0; border: 0; border-bottom: 1px solid #ccc;
+  outline: 0; font-size: 19px; background: transparent; color: var(--ink);
+  transition: border-color .2s;
+}
+.field:focus { border-color: var(--purple); }
+.field::placeholder { color: #b0b0b0; }
+.form-nav {
+  display: flex; justify-content: space-between; align-items: center; margin-top: 28px;
+}
+.form-back {
+  border: 0; background: transparent; cursor: pointer; color: var(--muted);
+  font-size: 14px; font-weight: 600; padding: 0;
+}
+.form-back:hover { color: var(--ink); }
+.options { display: grid; gap: 10px; margin-top: 4px; }
+.opt {
+  padding: 15px 18px; border: 1px solid var(--line); border-radius: 14px;
+  cursor: pointer; background: var(--paper); text-align: left; font-size: 15px;
+  transition: all .2s;
+}
+.opt:hover { border-color: var(--purple); background: var(--lav); }
+.opt.chosen { border-color: var(--purple); background: var(--purple); color: var(--white); }
+.consent {
+  display: flex; align-items: flex-start; gap: 10px; margin-top: 22px;
+  font-size: 13px; color: var(--muted); cursor: pointer; line-height: 1.5;
+}
+.consent input { margin-top: 3px; accent-color: var(--purple); }
+
+/* ─── DONE STATE ─── */
+.done-state {
+  text-align: center; padding: 20px 0;
+}
+.done-tick {
+  width: 56px; height: 56px; border-radius: 50%; background: var(--lav);
+  color: var(--purple); display: inline-flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 800; margin-bottom: 18px;
+}
+.done-state h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(36px, 4vw, 52px); line-height: 1.05; letter-spacing: -.03em;
+  font-weight: 500; margin: 10px 0 16px;
+}
+.done-box {
+  background: var(--cream); border-radius: 16px; padding: 20px;
+  text-align: left; margin-top: 20px;
+}
+.done-box strong { display: block; font-size: 15px; margin-bottom: 6px; }
+.done-box p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.55; }
+.done-whatsapp {
+  background: var(--dark); color: var(--white); border-radius: 16px;
+  padding: 18px; margin-top: 16px; text-align: left; font-size: 14px;
+}
+.done-whatsapp small { color: rgba(255,255,255,.4); display: block; margin-bottom: 8px; }
+.done-sig {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px; font-style: italic; color: var(--purple); margin-top: 20px;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  padding: 36px 0; font-size: 12px; color: var(--muted);
+  display: flex; justify-content: space-between; border-top: 1px solid var(--line);
+}
+
+/* ─── STICKY MOBILE CTA ─── */
+.sticky-cta {
+  display: none; position: fixed; z-index: 90; bottom: 16px;
+  left: 16px; right: 16px; text-align: center;
+  padding: 16px; background: var(--purple); color: var(--white);
+  border-radius: 14px; font-weight: 800; font-size: 14px;
+  box-shadow: 0 10px 30px rgba(118,87,255,.3);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .hero-grid, .problem-grid, .ray-grid, .offer-grid, .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .choice-grid, .heard-grid, .local-grid { grid-template-columns: 1fr 1fr; }
+  .proof-grid { grid-template-columns: 1fr; }
+  .vsl-card { min-height: 380px; }
+  .ray-card { min-height: 360px; }
+  .sticky-cta { display: block; }
+  .proof-bar .wrap { grid-template-columns: 1fr 1fr; }
+  .proof-bit:nth-child(2) { border-right: none; }
+  .proof-bit:nth-child(-n+2) { border-bottom: 1px solid var(--dark-line); }
+}
+@media (max-width: 600px) {
+  .wrap { width: min(100% - 24px, var(--max)); }
+  .nav-cta, .lang-pill { display: none; }
+  .choice-grid, .heard-grid, .local-grid, .pain-grid { grid-template-columns: 1fr; }
+  .section { padding: 80px 0; }
+  .hero { padding-top: 100px; min-height: auto; }
+  .hero-actions { display: flex; flex-direction: column; }
+  .hero-actions .btn { width: 100%; }
+  .form-card { padding: 24px; }
+  .footer { padding-bottom: 90px; }
+}
+
+/* ─── RTL ─── */
+html[dir="rtl"] { direction: rtl; text-align: right; }
+html[dir="rtl"] .hero h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3 { text-align: right; }
+html[dir="rtl"] .hero-copy { text-align: right; }
+html[dir="rtl"] .eyebrow { text-align: right; }
+html[dir="rtl"] .lead { text-align: right; }
+html[dir="rtl"] .problem-line { text-align: right; }
+html[dir="rtl"] .karak-letter { text-align: right; }
+html[dir="rtl"] .karak-letter p,
+html[dir="rtl"] .karak-letter .karak-sub { text-align: right; }
+html[dir="rtl"] .ray-copy { text-align: right; }
+html[dir="rtl"] .ray-copy p { text-align: right; }
+html[dir="rtl"] .heard-card q { text-align: right; }
+html[dir="rtl"] .heard-card p { text-align: right; }
+html[dir="rtl"] .offer-line { text-align: right; }
+html[dir="rtl"] .offer-line small { text-align: right; }
+html[dir="rtl"] .local-card { text-align: right; }
+html[dir="rtl"] .local-card span { text-align: right; }
+html[dir="rtl"] .proof-card p,
+html[dir="rtl"] .proof-card h3 { text-align: right; }
+html[dir="rtl"] .disclaimer { text-align: right; }
+html[dir="rtl"] .proof-num { text-align: right; }
+html[dir="rtl"] .step h3 { text-align: right; }
+html[dir="rtl"] .field { text-align: right; }
+html[dir="rtl"] .done-state { text-align: center; }
+html[dir="rtl"] .done-box { text-align: right; }
+html[dir="rtl"] .done-box p { text-align: right; }
+html[dir="rtl"] .done-whatsapp { text-align: right; }
+html[dir="rtl"] .nav-cta { direction: rtl; }
+html[dir="rtl"] .btn { font-family: 'Inter', sans-serif; }
+html[dir="rtl"] .hero-actions { direction: rtl; }
+html[dir="rtl"] .form-nav { direction: rtl; }
+html[dir="rtl"] .mini-options { direction: rtl; }
+html[dir="rtl"] .funnel { direction: rtl; }
+html[dir="rtl"] .choice { text-align: right; }
+html[dir="rtl"] .choice .arrow { right: auto; left: 16px; }
+html[dir="rtl"] .pain { text-align: right; }
+html[dir="rtl"] .answer { text-align: right; }
+html[dir="rtl"] .answer h3 { text-align: right; }
+html[dir="rtl"] .answer p { text-align: right; }
+html[dir="rtl"] .offer-grid > div:first-child { text-align: right; }
+html[dir="rtl"] .offer-grid > div:first-child p { text-align: right; }
+html[dir="rtl"] .section-dark .center { text-align: center; }
+html[dir="rtl"] .section-dark .lead { text-align: center; }
+html[dir="rtl"] .vsl-meta { direction: ltr; }
+html[dir="rtl"] .aed-statement { text-align: right; }
+html[dir="rtl"] .close-line { text-align: right; }
+html[dir="rtl"] .footer { direction: ltr; text-align: center; }
+html[dir="rtl"] .sticky-cta { direction: ltr; text-align: center; }
+html[dir="rtl"] .proof-bit { padding: 40px 20px; }
+html[dir="rtl"] .proof-bit b { font-size: 24px; }
+html[dir="rtl"] .proof-bit span { font-size: 15px; color: rgba(255,255,255,.5); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="/uae" aria-label="Socialsect UAE">
+      <svg viewBox="0 0 1720 1720" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M411.583 1083.62L68.462 740.498C60.4674 732.505 56.038 721.446 56.9554 710.18C72.474 519.577 217.353 368.789 389.43 349.154C595.151 325.681 799.986 494.197 812.233 727.929C813.37 763.242 790.049 793.97 758.553 801.512C723.654 809.869 685.489 788.137 673.859 750.829C672.939 747.877 672.567 744.736 672.422 741.648C665.055 585.192 534.137 475.448 409.985 487.988C321.017 496.973 240.293 568.276 210.218 667.48C206.031 681.289 210.051 696.321 220.255 706.525C312.183 798.453 404.11 890.38 496.038 982.308C499.327 985.597 502.218 989.364 504.027 993.649C516.413 1022.99 510.239 1056.24 488.947 1076.55C473.073 1091.69 453.547 1095.11 439.547 1095.21C429.045 1095.29 419.01 1091.05 411.583 1083.62Z" fill="#695AF2"/>
+        <path d="M457.525 637.214L800.646 980.337C808.641 988.33 813.07 999.389 812.153 1010.66C796.635 1201.26 651.756 1352.05 479.678 1371.68C273.957 1395.15 69.1225 1226.64 56.8758 992.906C55.7385 957.593 79.0598 926.865 110.556 919.324C145.454 910.966 183.62 932.698 195.249 970.006C196.169 972.958 196.541 976.1 196.686 979.188C204.053 1135.64 334.972 1245.39 459.124 1232.85C548.092 1223.86 628.816 1152.56 658.891 1053.36C663.077 1039.55 659.057 1024.51 648.853 1014.31C556.925 922.382 464.998 830.456 373.07 738.528C369.781 735.238 366.89 731.472 365.081 727.186C352.696 697.841 358.869 664.6 380.161 644.29C396.036 629.146 415.561 625.729 429.561 625.625C440.064 625.548 450.098 629.788 457.525 637.214Z" fill="#695AF2"/>
+        <path d="M1262.12 1083.62L918.995 740.498C911.001 732.505 906.571 721.446 907.489 710.18C923.007 519.577 1067.88 368.789 1239.96 349.154C1445.68 325.681 1650.52 494.197 1662.77 727.929C1663.9 763.242 1640.58 793.97 1609.09 801.512C1574.19 809.869 1536.02 788.137 1524.39 750.829C1523.47 747.877 1523.1 744.736 1522.96 741.648C1515.59 585.192 1384.67 475.448 1260.52 487.988C1171.55 496.973 1090.83 568.276 1060.75 667.48C1056.56 681.289 1060.58 696.321 1070.79 706.525C1162.72 798.453 1254.64 890.38 1346.57 982.308C1349.86 985.597 1352.75 989.364 1354.56 993.649C1366.95 1022.99 1360.77 1056.24 1339.48 1076.55C1323.61 1091.69 1304.08 1095.11 1290.08 1095.21C1279.58 1095.29 1269.54 1091.05 1262.12 1083.62Z" fill="#695AF2"/>
+        <path d="M1308.06 637.214L1651.18 980.337C1659.17 988.33 1663.6 999.389 1662.69 1010.66C1647.17 1201.26 1502.29 1352.05 1330.21 1371.68C1124.49 1395.15 919.656 1226.64 907.409 992.906C906.272 957.593 929.593 926.865 961.089 919.324C995.988 910.966 1034.15 932.698 1045.78 970.006C1046.7 972.958 1047.07 976.1 1047.22 979.188C1054.59 1135.64 1185.51 1245.39 1309.66 1232.85C1398.63 1223.86 1479.35 1152.56 1509.42 1053.36C1513.61 1039.55 1509.59 1024.51 1499.39 1014.31C1407.46 922.382 1315.53 830.456 1223.6 738.528C1220.31 735.238 1217.42 731.472 1215.61 727.186C1203.23 697.841 1209.4 664.6 1230.69 644.29C1246.57 629.146 1266.09 625.729 1280.09 625.625C1290.6 625.548 1300.63 629.788 1308.06 637.214Z" fill="#695AF2"/>
+      </svg>
+    </a>
+    <div class="nav-right">
+      <button class="lang-pill" id="langToggle" onclick="toggleLang()" aria-label="Toggle language">EN &nbsp;|&nbsp; العربية</button>
+      <a class="nav-cta" href="#form-section">Let's have karak →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow" data-ar="للعيادات الطبية الخاصة في الإمارات">For private medical practices across the UAE</div>
+      <h1 data-ar="عيادتك ممتازة.<br><em>يعني… ليش النمو ما يحس כאילו؟</em>">Your clinic is good.<br><em>Yaani… why doesn't growth feel like it?</em></h1>
+      <div class="hero-copy">
+        <span data-en="You've probably already had enough people tell you what your clinic needs. More ads. More content. More leads." data-ar="غالباً عندك ناس كثير قالوا لك شوي تحتاج عيادتك. إعلانات أكثر. محتوى أكثر. ليدات أكثر.">You've probably already had enough people tell you what your clinic needs. More ads. More content. More leads.</span>
+        <strong data-en="I don't want to sell you another one." data-ar="ما أبي أبيعك واحد ثاني.">I don't want to sell you another one.</strong>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-purple" href="#form-section" data-en="Let's have karak →" data-ar="خلينا نشرب كرك ←">Let's have karak →</a>
+        <a class="btn btn-ghost" href="#ray-section" data-en="Who is Ray?" data-ar="مين راي؟">Who is Ray?</a>
+      </div>
+      <div class="hero-note" data-en="No Zoom pitch. If it makes sense, Ray will meet you personally in the UAE." data-ar="ما فيه عرض زووم. لو يناسب، راي بيقابلك شخصياً في الإمارات.">No Zoom pitch. If it makes sense, Ray will meet you personally in the UAE.</div>
+    </div>
+    <div class="vsl-card">
+      <div class="video-label" data-en="90 seconds with Ray · no deck, no pitch" data-ar="90 ثانية مع راي · بدون عرض، بدون بيتشر">90 seconds with Ray · no deck, no pitch</div>
+      <div>
+        <div class="play" role="button" aria-label="Play video">▶</div>
+      </div>
+      <div>
+        <h3 data-en='"Tell me what you want for the clinic. I'll tell you what I see."' data-ar='"قولي وش تبين للعيادة. أنا بقولك وش أشوف."'>"Tell me what you want for the clinic. I'll tell you what I see."</h3>
+        <p data-en="A conversation, not a presentation." data-ar="حوار، مو عرض.">A conversation, not a presentation.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="wrap">
+    <div class="proof-bit"><b data-en="700+ consultations" data-ar="700+ استشارة">700+ consultations</b><span data-en="one medical practice · 5 months" data-ar="عيادة طبية واحدة · 5 شهور">one medical practice · 5 months</span></div>
+    <div class="proof-bit"><b data-en="225+ consultations" data-ar="225+ استشارة">225+ consultations</b><span data-en="Miami Shoulder Institute" data-ar="معهد ميامي للكتف">Miami Shoulder Institute</span></div>
+    <div class="proof-bit"><b data-en="Healthcare only" data-ar="صحة فقط">Healthcare only</b><span data-en="not every business under the sun" data-ar="مو كل бизнес تحت الشمس">not every business under the sun</span></div>
+    <div class="proof-bit"><b data-en="Now in the UAE" data-ar="الآن في الإمارات">Now in the UAE</b><span data-en="meeting clinic owners personally" data-ar="نقابل أصحاب العيادات شخصياً">meeting clinic owners personally</span></div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section section-cream">
+  <div class="wrap problem-grid">
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="msg-title" data-en="Today · Clinic WhatsApp" data-ar="اليوم · واتساب العيادة">Today · Clinic WhatsApp</div>
+        <div class="message" data-en="Hi doctor, price?" data-ar="السلام دكتور، السعر؟">Hi doctor, price?<small>10:12 AM</small></div>
+        <div class="message" data-en="Where is the clinic?" data-ar="وين العيادة؟">Where is the clinic?<small>10:18 AM</small></div>
+        <div class="message" data-en="Do you speak Arabic?" data-ar="تتكلم عربي؟">Do you speak Arabic?<small>10:26 AM</small></div>
+        <div class="message" data-en="I'm interested. Call me." data-ar="مهتم. اتصل فيني.">I'm interested. Call me.<small>11:03 AM</small></div>
+        <div class="message" data-en="No answer." data-ar="ما فيه رد.">No answer.<small>1:42 PM</small></div>
+        <div class="message" data-en="Booked somewhere else." data-ar="حجز في مكان ثاني.">Booked somewhere else.<small>4:18 PM</small></div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow" data-en="The UAE reality" data-ar="واقع الإمارات">The UAE reality</div>
+      <div class="problem-line" data-en="Getting an enquiry isn't always the hard part." data-ar="الحصول على استفسار مو دايم الصعب.">Getting an enquiry isn't always the hard part.</div>
+      <p class="lead" style="margin-top:20px">
+        <span data-en="The money often disappears somewhere between" data-ar="الفلوس غالباً تختفي somewhere between">The money often disappears somewhere between</span> <strong data-en='"I'm interested"' data-ar='"أنا مهتم"'>"I'm interested"</strong> <span data-en="and" data-ar="و">and</span> <strong data-en='"appointment confirmed."' data-ar='"الموعد مؤكد."'>"appointment confirmed."</strong>
+      </p>
+      <div class="problem-line" style="font-size:clamp(28px,3.5vw,48px);margin-top:28px" data-en="That's the part we care about." data-ar="هذا الجزء يهمنا.">That's the part we care about. <span class="khalas-pill">Khalas.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE SPECIALTIES -->
+<section class="section section-white">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Yalla. Forget marketing for a second." data-ar="يلا. ننسى التسويق لحظة.">Yalla. Forget marketing for a second.</div>
+    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,4.5vw,60px);line-height:1.02;letter-spacing:-.04em;font-weight:500;margin:0 0 14px" data-en="What do you actually want more patients for?" data-ar="وش تبين مرضى أكثر عشانه؟">What do you actually want more patients for?</h2>
+    <p class="lead" data-en="Pick one. We'll make the rest of this page a little more relevant to your clinic." data-ar="اختر واحد. بنخلي باقي الصفحة أكثر صلة بعيادتك.">Pick one. We'll make the rest of this page a little more relevant to your clinic.</p>
+
+    <div class="choice-grid" id="specialties">
+      <div class="choice" data-name="Dental"><strong data-en="Dental" data-ar="أسنان">Dental</strong><span data-en="Implants, cosmetic, general" data-ar="زراعة، تجميل، عام">Implants, cosmetic, general</span><div class="arrow">↗</div></div>
+      <div class="choice" data-name="Aesthetics"><strong data-en="Aesthetics" data-ar="تجميل">Aesthetics</strong><span data-en="Injectables, skin, body" data-ar="حقن، بشرة، جسم">Injectables, skin, body</span><div class="arrow">↗</div></div>
+      <div class="choice" data-name="Dermatology"><strong data-en="Dermatology" data-ar="جلدية">Dermatology</strong><span data-en="Medical + cosmetic" data-ar="طبية + تجميلية">Medical + cosmetic</span><div class="arrow">↗</div></div>
+      <div class="choice" data-name="Orthopaedics"><strong data-en="Orthopaedics" data-ar="عظام">Orthopaedics</strong><span data-en="Knee, shoulder, spine, sports" data-ar="ركبة، كتف، عمود فقري، رياضة">Knee, shoulder, spine, sports</span><div class="arrow">↗</div></div>
+      <div class="choice" data-name="Plastic Surgery"><strong data-en="Plastic Surgery" data-ar="جراحة تجميلية">Plastic Surgery</strong><span data-en="Consultations for key procedures" data-ar="استشارات للإجراءات الرئيسية">Consultations for key procedures</span><div class="arrow">↗</div></div>
+      <div class="choice" data-name="Other"><strong data-en="Something else" data-ar="شيء ثاني">Something else</strong><span data-en="Tell us what you do" data-ar="قولنا وش تسوي">Tell us what you do</span><div class="arrow">↗</div></div>
+    </div>
+
+    <div class="dynamic" id="dynamic">
+      <div class="eyebrow eyebrow-light">Okay. <span id="specialtyLabel">Dental</span>.</div>
+      <h3 data-en="What would actually make a difference right now?" data-ar="وش فعلاً يسوي فرق الحين؟">What would actually make a difference right now?</h3>
+      <div class="mini-options">
+        <button data-en="More qualified enquiries" data-ar="استفسارات مؤهلة أكثر">More qualified enquiries</button>
+        <button data-en="More booked consultations" data-ar="استشارات محجوزة أكثر">More booked consultations</button>
+        <button data-en="Grow a specific treatment" data-ar="نمي علاج معين">Grow a specific treatment</button>
+        <button data-en="Better follow-up" data-ar="متابعة أحسن">Better follow-up</button>
+        <button data-en="Something else" data-ar="شيء ثاني">Something else</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAYBE THIS SOUNDS FAMILIAR -->
+<section class="section section-cream">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Maybe this sounds familiar" data-ar="يمكن هذا يbuzz familiar">Maybe this sounds familiar</div>
+    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;letter-spacing:-.04em;font-weight:500;margin:0 0 14px" data-en='"We just want the right patients."' data-ar='"نبين المرضى الصح بس."'>"We just want the right patients."</h2>
+    <div class="heard-grid">
+      <div class="heard-card">
+        <q data-en="We've already tried marketing." data-ar="noinspection جربنا التسويق قبل.">We've already tried marketing.</q>
+        <p data-en="Fair. I wouldn't ask you to trust another pitch." data-ar="حلو. ما بطلب منك تثق بعرض ثاني.">Fair. I wouldn't ask you to trust another pitch.</p>
+      </div>
+      <div class="heard-card">
+        <q data-en="People ask the price… then disappear." data-ar="الناس يسألون السعر… وبعدين يختفون.">People ask the price… then disappear.</q>
+        <p data-en="Yaani, something isn't connecting. Let's understand what." data-ar="يعني، شي مو متصالح. خلنا نفهم وش.">Yaani, something isn't connecting. Let's understand what.</p>
+      </div>
+      <div class="heard-card">
+        <q data-en="We know the clinic can do better." data-ar="نعرف العيادة تقدر تسوي أحسن.">We know the clinic can do better.</q>
+        <p data-en='Good. That's a much better conversation than "we need more leads."' data-ar='حلو. هذي محادثة أحسن بكثير من "نبي лидات أكثر."'>Good. That's a much better conversation than "we need more leads."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RAY SECTION -->
+<section class="section section-white" id="ray-section">
+  <div class="wrap ray-grid">
+    <div class="ray-card">
+      <div>
+        <div class="eyebrow eyebrow-light">Ray</div>
+        <div class="scribble" data-en="For me, this isn't a transaction." data-ar="لي، هذي مو صفقة.">For me, this isn't a transaction.</div>
+      </div>
+      <div>
+        <p data-en="Your clinic has your name, reputation and years of work behind it. I treat that seriously." data-ar="عيادتك فيها اسمك وسمعتك وسنين شغل وراها. أنا أتعامل مع هالشي بجدية.">Your clinic has your name, reputation and years of work behind it. I treat that seriously.</p>
+        <div class="sig">— Ray</div>
+      </div>
+    </div>
+    <div class="ray-copy">
+      <div class="eyebrow" data-en="The person on the other side" data-ar="الشخص على الطرف الثاني">The person on the other side</div>
+      <h2 data-en="I want to know your clinic before I tell you how to grow it." data-ar="أبي أعرف عيادتك قبل ما أقولك كيف تنموها.">I want to know your clinic before I tell you how to grow it.</h2>
+      <p data-en="What are you proud of? What isn't moving? Which service do you actually want more of? What have you tried already?" data-ar="وش فخور فيه؟ وش ما يتحرك؟ أي خدمة تبيها أكثر؟ وش جربته قبل؟">What are you proud of? What isn't moving? Which service do you actually want more of? What have you tried already?</p>
+      <p><span data-en="I'll be candid. If I think we can help, I'll tell you how. If I don't," data-ar="بكون صريح. لو أ think نقدر نساعد، بقولك كيف. لو ما أ think،">I'll be candid. If I think we can help, I'll tell you how. If I don't,</span> <strong>khalas</strong> <span data-en="— I'll tell you that too." data-ar="— بقولك بعد.">— I'll tell you that too.</span></p>
+      <p><strong data-en="No account-manager theatre. No pressure to sign while we're sitting together." data-ar="ما فيه دراما. ما فيه ضغط نوقع وأنت جالس معنا.">No account-manager theatre. No pressure to sign while we're sitting together.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENED LAST TIME -->
+<section class="section section-cream" id="tried">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Quick question" data-ar="سؤال سريع">Quick question</div>
+    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;letter-spacing:-.04em;font-weight:500;margin:0 0 14px" data-en="What happened the last time you tried marketing?" data-ar="وش صار آخر مرة جربت التسويق؟">What happened the last time you tried marketing?</h2>
+    <div class="pain-grid">
+      <div class="pain" data-answer="wrong"><strong data-en="Lots of leads. Wrong people." data-ar="اليدات كثيرة. الناس غلط.">Lots of leads. Wrong people.</strong></div>
+      <div class="pain" data-answer="book"><strong data-en="People enquired. Few booked." data-ar="الناس استفسروا. قليل حجزوا.">People enquired. Few booked.</strong></div>
+      <div class="pain" data-answer="return"><strong data-en="We spent money. Couldn't see the return." data-ar="صرفنا فلوس. ما شفنا العائد.">We spent money. Couldn't see the return.</strong></div>
+      <div class="pain" data-answer="new"><strong data-en="We've never really tried it properly." data-ar="ما جربناه صح قبل.">We've never really tried it properly.</strong></div>
+    </div>
+    <div class="answer" id="answerBox">
+      <h3 id="answerTitle"></h3>
+      <p id="answerText"></p>
+      <div class="funnel" id="answerFunnel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WORKING TOGETHER LOOKS LIKE -->
+<section class="section section-white">
+  <div class="wrap offer-grid">
+    <div>
+      <div class="eyebrow" data-en="If we decide to work together" data-ar="لو قررنا نشتغل مع بعض">If we decide to work together</div>
+      <h2 data-en="Built around your clinic.<br>Not our package." data-ar="مبني حول عيادتك.<br>مو باقتنا.">Built around your clinic.<br>Not our package.</h2>
+      <p class="lead" data-en="You shouldn't have to figure out five different vendors or translate your clinic to an agency every week." data-ar="ما理يك تفكر بخمس موردين مختلفين أو تترجم عيادتك لوكالة كل أسبوع.">You shouldn't have to figure out five different vendors or translate your clinic to an agency every week.</p>
+      <p style="font-size:16px;color:#4f4d52;margin-top:16px;line-height:1.6" data-en="You take care of the medicine. We'll take care of making the growth side make sense." data-ar="إنت تعتني بالطب. إحنا نعتني إن الجنب اللي ينمو يصير منطقي.">You take care of the medicine. We'll take care of making the growth side make sense.</p>
+    </div>
+    <div class="offer-card">
+      <div class="offer-line">
+        <span class="check">✓</span>
+        <div><strong data-en="Your clinic. Your priorities." data-ar="عيادتك. أولوياتك.">Your clinic. Your priorities.</strong><small data-en="We build around what you actually want to grow." data-ar="نبني حول اللي تبيه فعلاً تنميه.">We build around what you actually want to grow.</small></div>
+      </div>
+      <div class="offer-line">
+        <span class="check">✓</span>
+        <div><strong data-en="English + العربية when needed." data-ar="إنجليزي + عربي когда нужно.">English + العربية when needed.</strong><small data-ar="لأن هذي الإمارات، مو حملة أمريكانية مقلوبة مضاف لها درهم." data-en="Because this is the UAE, not a copied US campaign with AED added.">Because this is the UAE, not a copied US campaign with AED added.</small></div>
+      </div>
+      <div class="offer-line">
+        <span class="check">✓</span>
+        <div><strong data-en="One team around the growth." data-ar="فريق واحد حول النمو.">One team around the growth.</strong><small data-en="Strategy, creative, paid acquisition, web, search and follow-up where they make sense." data-ar="استراتيجية، إبداع، اكتتاب مدفوع، ويب، بحث ومتابعة وين ما تناسب.">Strategy, creative, paid acquisition, web, search and follow-up where they make sense.</small></div>
+      </div>
+      <div class="offer-line">
+        <span class="check">✓</span>
+        <div><strong data-en="Ray stays close." data-ar="راي يبقى قريب.">Ray stays close.</strong><small data-en="You don't become another logo on a dashboard after onboarding." data-ar="ما تصير شعار ثاني على لوحة معلومات بعد التسجيل.">You don't become another logo on a dashboard after onboarding.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UAE LOCAL -->
+<section class="section section-cream">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Built for how business happens here" data-ar="مبني على كيف الشغل يصير هنا">Built for how business happens here</div>
+    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;letter-spacing:-.04em;font-weight:500;margin:0 0 14px" data-en="The UAE deserves its own approach." data-ar="الإمارات تستاهل منهجها الخاص.">The UAE deserves its own approach.</h2>
+    <div class="local-grid">
+      <div class="local-card"><b data-en="English + العربية" data-ar="إنجليزي + عربي">English + العربية</b><span data-en="Talk to patients in the language they prefer." data-ar="تكلم مع المرضى باللغة اللي يفضلونها.">Talk to patients in the language they prefer.</span></div>
+      <div class="local-card"><b data-en="WhatsApp-first" data-ar="واتساب أولاً">WhatsApp-first</b><span data-en="Because that's often where the real conversation happens." data-ar="لأن غالباً المحادثة الحقيقية تصير هناك.">Because that's often where the real conversation happens.</span></div>
+      <div class="local-card"><b data-en="Fast human response" data-ar="رد بشري سريع">Fast human response</b><span data-en="A real person qualifies intent before your team wastes time." data-ar="شخص حقيقي يأكد النية قبل ما فريقك يضيع وقته.">A real person qualifies intent before your team wastes time.</span></div>
+      <div class="local-card"><b data-en="Clinic-specific" data-ar="محدد للعيادة">Clinic-specific</b><span data-en="One treatment, one patient, one clear objective." data-ar="علاج واحد، مريض واحد، هدف واضح واحد.">One treatment, one patient, one clear objective.</span></div>
+      <div class="local-card"><b data-en="UAE economics" data-ar="اقتصادات الإمارات">UAE economics</b><span data-en="We work backwards from what a booked patient is worth to you." data-ar="نشتغل من ورا لمتى المريض المحجوز يساوي لك.">We work backwards from what a booked patient is worth to you.</span></div>
+      <div class="local-card"><b data-en="Real outcomes" data-ar="نتائج حقيقية">Real outcomes</b><span data-en="Qualified → booked → attended. Not just 'leads generated.'" data-ar="مؤهل → محجوز → حضر. مو بس 'ليدات تم توليدها.'">Qualified → booked → attended. Not just "leads generated."</span></div>
+    </div>
+    <div class="aed-statement" data-en="Because changing" data-ar="لأن تغيير">Because changing <span>$</span> <span data-en="to" data-ar="إلى">to</span> <strong>AED</strong><br data-en="doesn't make a strategy local." data-ar="ما يصير استراتيجية محلية.">doesn't make a strategy local.</div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section section-white">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Proof, not a promise" data-ar="أدلة، مو وعد">Proof, not a promise</div>
+    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,4.5vw,56px);line-height:1.05;letter-spacing:-.04em;font-weight:500;margin:0 0 14px" data-en="We've done this with doctors before." data-ar="سوينا هالشي مع أطباء قبل.">We've done this with doctors before.</h2>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div>
+          <div class="proof-num">700+</div>
+          <h3 data-en="booked consultations" data-ar="استشارات محجوزة">booked consultations</h3>
+          <p data-en="for one medical practice in approximately five months." data-ar="لعيادة طبية واحدة في حوالي خمس شهور.">for one medical practice in approximately five months.</p>
+        </div>
+        <div class="disclaimer" data-en="2,971 patient enquiries generated during the engagement. Past case study — your clinic will be different." data-ar="2,971 استفسار مريض تم توليدها خلال التعاون. دراسة حالة سابقة — عيادتك بتكون مختلفة.">2,971 patient enquiries generated during the engagement. Past case study — your clinic will be different.</div>
+      </div>
+      <div class="proof-card">
+        <div>
+          <div class="proof-num">225+</div>
+          <h3 data-en="booked consultations" data-ar="استشارات محجوزة">booked consultations</h3>
+          <p data-en="for Miami Shoulder Institute / Dr. Alejandro Badia." data-ar="لمعهد ميامي للكتف / د. أليخاندرو باديا.">for Miami Shoulder Institute / Dr. Alejandro Badia.</p>
+        </div>
+        <div class="disclaimer" data-en="2,572 enquiries · approximately $22,963 in ad spend. US case study — not a UAE projection." data-ar="2,572 استفسار · حوالي $22,963 في صرف إعلاني. دراسة حالة أمريكية — مو توقع إماراتي.">2,572 enquiries · approximately $22,963 in ad spend. US case study — not a UAE projection.</div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:28px"><strong data-en="Those are their numbers. Yours will be different." data-ar="هذي أرقامهم. أرقامك بتكون مختلفة.">Those are their numbers. Yours will be different.</strong> <span data-en="Different clinic. Different patients. Different treatment economics. We'd rather understand yours than pretend somebody else's results are a promise." data-ar="عيادة مختلفة. مرضى مختلفين. اقتصادات علاج مختلفة. نفضل نفهم أرقامك من إننا نتظاهر إن نتائج غيرك هي وعد.">Different clinic. Different patients. Different treatment economics. We'd rather understand yours than pretend somebody else's results are a promise.</span></p>
+  </div>
+</section>
+
+<!-- VSL -->
+<section class="section section-dark vsl-section">
+  <div class="wrap center">
+    <div class="eyebrow eyebrow-light" data-en="Since we haven't met yet" data-ar="لأننا ما لقينا بعد">Since we haven't met yet</div>
+    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,4.5vw,60px);line-height:1.02;letter-spacing:-.04em;font-weight:500;margin:0 0 14px" data-en="Let me explain what I'd do if this were my clinic." data-ar="خليني أشرح وش أسوي لو هذي عيادتي.">Let me explain what I'd do if this were my clinic.</h2>
+    <p class="lead" style="color:rgba(255,255,255,.5);margin:auto" data-en="No webinar. No secret formula. Just a short conversation about how I would look at patient acquisition here." data-ar="ما فيه ويبنار. ما فيه صيغة سرية. بس محادثة قصيرة عن كيف أشوف اكتساب المرضى هنا.">No webinar. No secret formula. Just a short conversation about how I would look at patient acquisition here.</p>
+    <div class="vsl-box">
+      <div class="play-lg" role="button" aria-label="Play video">▶</div>
+    </div>
+    <div class="vsl-meta">
+      <span>3–4 minutes · English</span>
+      <span>العربية subtitles</span>
+    </div>
+  </div>
+</section>
+
+<!-- ONE THING BEFORE YOU DECIDE -->
+<section class="section section-cream">
+  <div class="wrap">
+    <div style="max-width:860px;margin:auto">
+      <div class="eyebrow" data-en="One thing before you decide" data-ar="شيء واحد قبل ما تقرر">One thing before you decide</div>
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,4vw,52px);line-height:1.08;letter-spacing:-.04em;font-weight:500;margin:0 0 22px" data-en="Your clinic has your name on it.<br>Ours does too." data-ar="عيادتك فيها اسمك.<br>وإحنا بعد.">Your clinic has your name on it.<br>Ours does too.</h2>
+      <p style="font-size:17px;line-height:1.75;color:#4f4d52" data-en="You shouldn't trust someone with your reputation because they showed you a good presentation. So don't." data-ar="ما لازم تثق بشخص بسمعتك لأنه عرض لك عرض حلو. فـ لا.">You shouldn't trust someone with your reputation because they showed you a good presentation. So don't.</p>
+      <p style="font-size:17px;line-height:1.75;color:#4f4d52;margin-top:14px" data-en="Tell us about your clinic. We'll look at it. We'll ask questions. And if I genuinely believe we can help, we'll show you what we'd do." data-ar="قولنا عن عيادتك. بنشوفها. بنسأل أسئلة. و لو أ thinks فعلاً نقدر نساعد، بنوريك وش نسوي.">Tell us about your clinic. We'll look at it. We'll ask questions. And if I genuinely believe we can help, we'll show you what we'd do.</p>
+      <p style="font-size:17px;line-height:1.75;color:#4f4d52;margin-top:14px"><strong data-en="If I don't think we can? I'll tell you." data-ar="لو ما أ thinks نقدر؟ بقولك.">If I don't think we can? I'll tell you.</strong></p>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-style:italic;color:var(--purple);margin-top:20px">— Ray</div>
+    </div>
+  </div>
+</section>
+
+<!-- LET'S HAVE KARAK -->
+<section class="section section-lav" id="karak">
+  <div class="wrap">
+    <div class="karak-letter">
+      <div class="eyebrow eyebrow-purple" data-en='No "book a sales call"' data-ar="ما فيه 'احجز مكالمة مبيعات'">No "book a sales call"</div>
+      <h2 data-en="Let's have karak." data-ar="خلينا نشرب كرك.">Let's have karak.</h2>
+      <div class="karak-sub" data-en="You tell me about the clinic.<br>I ask a few questions.<br>I tell you what I see." data-ar="إنت تقولي عن العيادة.<br>أنا أسأل كم سؤال.<br>أقولك وش أشوف.">You tell me about the clinic.<br>I ask a few questions.<br>I tell you what I see.</div>
+      <p data-en="No deck. No 45-minute pitch. No pressure to decide anything there." data-ar="ما فيه عرض. ما فيه بيتشر 45 دقيقة. ما فيه ضغط تقرر أي شيء هناك.">No deck. No 45-minute pitch. No pressure to decide anything there.</p>
+      <p><strong data-en="If you're in Dubai, Abu Dhabi, Sharjah — or elsewhere in the UAE — and it makes sense, I'll come meet you personally." data-ar="لو أنت في دبي، أبوظبي، الشارقة — أو أي مكان في الإمارات — و يناسب، بجي أقابلك شخصياً.">If you're in Dubai, Abu Dhabi, Sharjah — or elsewhere in the UAE — and it makes sense, I'll come meet you personally.</strong></p>
+      <p data-en="Maybe we find something worth building together. Maybe we don't." data-ar="يمكن نلقى شي يستاهل نبنيه مع بعض. يمكن لا.">Maybe we find something worth building together. Maybe we don't.</p>
+      <div class="close-line" data-en="Either way, shukran for the karak." data-ar="بكل الأحوال، شكراً على الكرك.">Either way, shukran for the karak.</div>
+      <a class="btn btn-purple" href="#form-section" style="margin-top:20px" data-en="Tell Ray where to meet →" data-ar="قول لراي وين تقابلون ←">Tell Ray where to meet →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section section-cream" id="form-section">
+  <div class="wrap">
+    <div class="form-grid">
+      <div>
+        <div class="eyebrow" data-en="That's enough about me" data-ar=" خلنا نكفي عن كلامي">That's enough about me</div>
+        <h2 data-en="Where should we have karak?" data-ar="وين نشرب كرك؟">Where should we have karak?</h2>
+        <p class="lead" data-en="Just enough for me to know who I'm meeting." data-ar="بس عشان أعرف مين بقابله.">Just enough for me to know who I'm meeting.</p>
+        <p class="lead" style="margin-top:12px"><strong data-en="English or العربية — whichever is easier." data-ar="إنجليزي أو عربي — أيهم أسهل.">English or العربية — whichever is easier.</strong></p>
+      </div>
+
+      <div class="form-card">
+        <div class="progress"><div class="progress-bar" id="prog"></div></div>
+
+        <div class="step active">
+          <h3 data-en="What's your name?" data-ar="وش اسمك؟">What's your name?</h3>
+          <input class="field" id="nameInput" placeholder="Your name" data-placeholder-ar="اسمك">
+          <div class="form-nav"><span></span><button class="btn btn-purple next" data-en="Continue →" data-ar="كمّل ←">Continue →</button></div>
+        </div>
+
+        <div class="step">
+          <h3 data-en="Which clinic?" data-ar="أي عيادة؟">Which clinic?</h3>
+          <input class="field" id="clinicInput" placeholder="Clinic name" data-placeholder-ar="اسم العيادة">
+          <input class="field" id="websiteInput" placeholder="Website or Instagram (optional)" data-placeholder-ar="موقع أو انستقرام (اختياري)" style="margin-top:12px">
+          <div class="form-nav"><button class="form-back" data-en="← Back" data-ar="→ رجوع">← Back</button><button class="btn btn-purple next" data-en="Continue →" data-ar="كمّل ←">Continue →</button></div>
+        </div>
+
+        <div class="step">
+          <h3 data-en="Where in the UAE?" data-ar="وين في الإمارات؟">Where in the UAE?</h3>
+          <div class="options">
+            <button class="opt" data-value="Dubai">Dubai</button>
+            <button class="opt" data-value="Abu Dhabi">Abu Dhabi</button>
+            <button class="opt" data-value="Sharjah">Sharjah</button>
+            <button class="opt" data-value="Al Ain">Al Ain</button>
+            <button class="opt" data-value="Other">Somewhere else</button>
+          </div>
+          <div class="form-nav"><button class="form-back" data-en="← Back" data-ar="→ رجوع">← Back</button><button class="btn btn-purple next" data-en="Continue →" data-ar="كمّل ←">Continue →</button></div>
+        </div>
+
+        <div class="step">
+          <h3 data-en="One thing you want to change?" data-ar="شيء واحد تبيه يتغير؟">One thing you want to change?</h3>
+          <textarea class="field" id="goalInput" style="min-height:100px;resize:vertical;border-bottom:1px solid #ccc" placeholder="Say it normally. No marketing language." data-placeholder-ar="قولها عادي. بدون لغة تسويق."></textarea>
+          <div class="form-nav"><button class="form-back" data-en="← Back" data-ar="→ رجوع">← Back</button><button class="btn btn-purple next" data-en="Continue →" data-ar="كمّل ←">Continue →</button></div>
+        </div>
+
+        <div class="step">
+          <h3 data-en="WhatsApp?" data-ar="واتساب؟">WhatsApp?</h3>
+          <input class="field" id="whatsappInput" placeholder="+971 ..." data-placeholder-ar="+971 ...">
+          <div class="options" style="margin-top:18px">
+            <button class="opt">English</button>
+            <button class="opt">العربية</button>
+            <button class="opt" data-en="Either is fine" data-ar="أيهم عادي">Either is fine</button>
+          </div>
+          <label class="consent"><input type="checkbox"> <span data-en="You can contact me about meeting and my clinic." data-ar="تقدر تتواصل معي عن لقاء وعيادتي.">You can contact me about meeting and my clinic.</span></label>
+          <div class="form-nav"><button class="form-back" data-en="← Back" data-ar="→ رجوع">← Back</button><button class="btn btn-purple next" id="submitBtn" data-en="Let's have karak →" data-ar="خلينا نشرب كرك ←">Let's have karak →</button></div>
+        </div>
+
+        <div class="step">
+          <div class="done-state">
+            <div class="done-tick">✓</div>
+            <div class="eyebrow eyebrow-purple" data-en="Khalas." data-ar="خلاص.">Khalas.</div>
+            <h3><span data-en="Karak soon," data-ar="كرك قريباً،">Karak soon,</span> <span id="doneName">Doctor</span>.</h3>
+            <p class="lead" style="margin:18px auto" data-en="I'll look at the clinic before we meet, so we can skip the introductions and talk about what actually matters." data-ar="بتشوف العيادة قبل ما نتقابل، عشان نتجاوز التعريف ونتكلم عن اللي يهم فعلاً.">I'll look at the clinic before we meet, so we can skip the introductions and talk about what actually matters.</p>
+            <div class="done-box">
+              <strong data-en="What happens next?" data-ar="وش يصير بعدين؟">What happens next?</strong>
+              <p data-en="A real person from our UAE team reviews what you've shared, then contacts you in English or Arabic." data-ar="شخص حقيقي من فريق الإمارات يشيك على اللي كتبته، ويتواصل معك بالإنجليزي أو العربي.">A real person from our UAE team reviews what you've shared, then contacts you in English or Arabic.</p>
+            </div>
+            <div class="done-whatsapp">
+              <small>Socialsect UAE · WhatsApp</small>
+              <div><span data-en="Hi" data-ar="مرحبا">Hi</span> <span id="msgName">there</span>, <span data-en="Ray's team here. We had a look at your clinic…" data-ar="فريق راي هنا. شفنا عيادتك…">Ray's team here. We had a look at your clinic…</span></div>
+            </div>
+            <div class="done-sig">— Ray</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer">
+    <span>© 2026 Socialsect · UAE</span>
+    <span>Healthcare growth · UAE</span>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<a href="#form-section" class="sticky-cta" data-en="Let's have karak →" data-ar="خلينا نشرب كرك ←">Let's have karak →</a>
+
+<script>
+/* ─── LANGUAGE TOGGLE ─── */
+let currentLang = localStorage.getItem('ss-lang') || 'en';
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'ar' : 'en';
+  localStorage.setItem('ss-lang', currentLang);
+  applyLang();
+}
+
+function applyLang() {
+  const html = document.documentElement;
+  const pill = document.getElementById('langToggle');
+
+  if (currentLang === 'ar') {
+    html.setAttribute('dir', 'rtl');
+    html.setAttribute('lang', 'ar');
+    pill.innerHTML = 'العربية &nbsp;|&nbsp; EN';
+  } else {
+    html.removeAttribute('dir');
+    html.setAttribute('lang', 'en');
+    pill.innerHTML = 'EN &nbsp;|&nbsp; العربية';
+  }
+
+  /* Swap text content from data-en / data-ar */
+  document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+    const text = currentLang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+    if (text) el.innerHTML = text;
+  });
+
+  /* Swap placeholders — store originals on first run */
+  document.querySelectorAll('[data-placeholder-ar]').forEach(el => {
+    if (!el.hasAttribute('data-placeholder-en')) {
+      el.setAttribute('data-placeholder-en', el.getAttribute('placeholder') || '');
+    }
+    const ph = currentLang === 'ar' ? el.getAttribute('data-placeholder-ar') : el.getAttribute('data-placeholder-en');
+    if (ph !== null) el.setAttribute('placeholder', ph);
+  });
+}
+
+/* Apply saved language on load */
+applyLang();
+
+/* ─── SPECIALTY SELECTION ─── */
+const choices = [...document.querySelectorAll('.choice')];
+const dynamic = document.getElementById('dynamic');
+const specialtyLabel = document.getElementById('specialtyLabel');
+choices.forEach(c => {
+  c.addEventListener('click', () => {
+    choices.forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    specialtyLabel.textContent = c.dataset.name;
+    dynamic.classList.add('show');
+    setTimeout(() => dynamic.scrollIntoView({ behavior: 'smooth', block: 'center' }), 120);
+  });
+});
+
+/* ─── PAIN / WHAT HAPPENED ─── */
+const painData = {
+  wrong: {
+    title: { en: "I know why that's frustrating.", ar: "أعرف ليش هذا محبط." },
+    text: { en: "You didn't ask for a spreadsheet full of names and phone numbers. You wanted people who were actually considering treatment.", ar: "ما طلبت جدول أرقام وأسماء. نبت الناس اللي فعلاً يفكرون بالعلاج." },
+    funnel: ["LEAD", "QUALIFIED", "BOOKED", "ATTENDED"]
+  },
+  book: {
+    title: { en: "Then I wouldn't start by increasing your ad budget.", ar: "فـ ما أبدأ بزيادة ميزانية إعلاناتك." },
+    text: { en: "First I'd look at response time, WhatsApp, language, call handling, follow-up and what happens after someone says \"I'll think about it.\" Sometimes the biggest leak isn't the advertising.", ar: "أول شي بشوف وقت الرد، واتساب، اللغة، رد المكالمة، المتابعة وش يصير بعد ما أحد يقول 'بفكر.' أحياناً أكبر تسريب مو الإعلانات." },
+    funnel: ["ENQUIRY", "RESPONSE", "CONVERSATION", "BOOKING"]
+  },
+  return: {
+    title: { en: "Then the first job is to make the numbers visible.", ar: "فـ أول شغلة نسويها نخلي الأرقام واضحة." },
+    text: { en: "What did you spend? What became a real enquiry? What booked? What attended? What was one new patient worth? Without that, nobody can tell you whether marketing actually worked.", ar: "وش صرفت؟ وش صار استفسار حقيقي؟ وش حجز؟ وش حضر؟ كم ساوى مريض جديد؟ بدون هذا، أحد ما يقدر يقولك إذا التسويق فعلاً نفع." },
+    funnel: ["AED SPENT", "QUALIFIED", "ATTENDED", "VALUE"]
+  },
+  new: {
+    title: { en: "Good. Then we don't have old baggage to copy.", ar: "حلو. فـ ما عندنا أمتعة قديمة نقلدها." },
+    text: { en: "We can start with one service, understand the economics, build the journey properly and test it without turning your clinic into a marketing experiment.", ar: "نقدر نبدأ بخدمة واحدة، نفهم الاقتصاد، نبني الرحلة صح ونجرّبها بدون ما نحول عيادتك لتجربة تسويقية." },
+    funnel: ["ONE SERVICE", "ONE PATIENT", "ONE JOURNEY", "ONE SCORECARD"]
+  }
+};
+const pains = [...document.querySelectorAll('.pain')];
+const answerBox = document.getElementById('answerBox');
+pains.forEach(p => p.addEventListener('click', () => {
+  pains.forEach(x => x.classList.remove('active'));
+  p.classList.add('active');
+  const d = painData[p.dataset.answer];
+  const lang = currentLang;
+  document.getElementById('answerTitle').textContent = d.title[lang];
+  document.getElementById('answerText').textContent = d.text[lang];
+  document.getElementById('answerFunnel').innerHTML = d.funnel.map((x, i) =>
+    i < d.funnel.length - 1 ? `<span>${x}</span><span class="arrow-sep">→</span>` : `<span>${x}</span>`
+  ).join('');
+  answerBox.classList.add('show');
+}));
+
+/* ─── MULTI-STEP FORM ─── */
+const steps = [...document.querySelectorAll('.step')];
+const prog = document.getElementById('prog');
+let idx = 0;
+
+function showStep() {
+  steps.forEach((s, i) => s.toggle('active', i === idx));
+  prog.style.width = ((idx + 1) / steps.length * 100) + '%';
+}
+
+/* Track selected options per group */
+const selected = {};
+
+document.querySelectorAll('.opt').forEach(o => {
+  o.addEventListener('click', () => {
+    o.parentElement.querySelectorAll('.opt').forEach(x => x.classList.remove('chosen'));
+    o.classList.add('chosen');
+    const group = o.parentElement;
+    const groupKey = group.id || group.style.marginTop ? 'other' : 'unknown';
+    /* Identify group by parent step index */
+    const stepEl = o.closest('.step');
+    const stepIdx = steps.indexOf(stepEl);
+    if (stepIdx === 2) selected.location = o.dataset.value || o.textContent.trim();
+    if (stepIdx === 4) selected.language = o.textContent.trim();
+  });
+});
+
+/* Nav buttons */
+document.querySelectorAll('.next').forEach(btn => btn.addEventListener('click', async () => {
+  if (idx < steps.length - 1) {
+    idx++;
+    showStep();
+    document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    /* If this is the last step (done state), submit the form */
+    if (idx === steps.length - 1) {
+      const nameVal = document.getElementById('nameInput').value.trim() || 'Doctor';
+      document.getElementById('doneName').textContent = nameVal;
+      document.getElementById('msgName').textContent = nameVal;
+
+      const payload = {
+        name: document.getElementById('nameInput').value.trim(),
+        clinic: document.getElementById('clinicInput').value.trim(),
+        website: document.getElementById('websiteInput').value.trim(),
+        location: selected.location || '',
+        goal: document.getElementById('goalInput').value.trim(),
+        whatsapp: document.getElementById('whatsappInput').value.trim(),
+        language: selected.language || '',
+        consent: document.querySelector('.consent input')?.checked || false,
+        sourcePageUrl: window.location.href,
+      };
+
+      try {
+        const res = await fetch('/api/uae-karak', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          console.error('UAE form submission failed:', err.error || res.status);
+        }
+      } catch (err) {
+        console.error('UAE form submission error:', err);
+      }
+    }
+  }
+}));
+
+document.querySelectorAll('.form-back').forEach(btn => btn.addEventListener('click', () => {
+  if (idx > 0) { idx--; showStep(); }
+}));
+
+showStep();
+</script>
+</body>
+</html>
