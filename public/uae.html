@@ -1100,7 +1100,7 @@ const prog = document.getElementById('prog');
 let idx = 0;
 
 function showStep() {
-  steps.forEach((s, i) => s.toggle('active', i === idx));
+  steps.forEach((s, i) => s.classList.toggle('active', i === idx));
   prog.style.width = ((idx + 1) / steps.length * 100) + '%';
 }
 
