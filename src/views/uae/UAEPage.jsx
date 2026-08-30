@@ -1,7 +1,42 @@
 'use client'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useMemo } from 'react'
+import Link from 'next/link'
 import { submitForm } from '../../lib/submitForm'
 import './UAEPage.css'
+
+const MARQUEE_LOGOS = [
+  { src: '/client-logos/interface1.webp', screen: false, wide: false },
+  { src: '/client-logos/msi.webp', screen: false, wide: false },
+  { src: '/client-logos/nymv.webp', screen: true, wide: false },
+  { src: '/client-logos/III.webp', screen: false, wide: true },
+]
+
+const TRACK_RECORD = [
+  { value: '10,000+', label: 'Consultations booked for clients' },
+  { value: '$10M+', label: 'Patient pipeline generated' },
+  { value: '4.2x', label: 'Average client ROI' },
+  { value: '300%', label: 'Consults up in 6 months for one practice' },
+]
+
+const PROOF_POINTS = [
+  { value: '2,971', label: 'Leads generated' },
+  { value: '700+', label: 'Booked consultations' },
+  { value: '$5.27', label: 'Average cost per lead' },
+  { value: '$100k+', label: 'Attributed revenue' },
+]
+
+const SPECIALTIES = [
+  { name: 'Dermatology', copy: 'Consultations, not clicks. For clinics that treat skin like a medical specialty.' },
+  { name: 'MedSpa & aesthetics', copy: 'Systems for practices that need bookings, not browsable galleries.' },
+  { name: 'Plastic surgery', copy: 'High-ticket patients who research hard — and book with the practice that earns trust online.' },
+  { name: 'Orthopaedics & sports medicine', copy: 'Referrer relationships and search profiles that put your surgeons in front of the right procedures.' },
+  { name: 'Dentistry & orthodontics', copy: 'From cosmetic dentistry to implants — pipelines built around case value, not lead volume.' },
+  { name: 'Vein & vascular clinics', copy: 'The same acquisition discipline that made our US vein clinic clients multiply their consults.' },
+  { name: 'Fertility clinics', copy: 'Sensitive, considered decisions. Proven systems for moving patients from research to consultation.' },
+  { name: 'Hair transplant', copy: 'An inbound channel that books months out, when the system behind it is built right.' },
+]
+
+const MIN_TILES_PER_HALF = 14
 
 const FORM_STEPS = [
   { key: 'name', title: { en: "What's your name?", ar: "وش اسمك؟" }, placeholder: { en: 'Your name', ar: 'اسمك' } },
@@ -23,6 +58,16 @@ export default function UAEPage() {
   const [selectedLanguage, setSelectedLanguage] = useState('')
   const [consent, setConsent] = useState(false)
   const formCardRef = useRef(null)
+
+  const marqueeTrack = useMemo(() => {
+    const half = []
+    let i = 0
+    while (half.length < MIN_TILES_PER_HALF) {
+      half.push(MARQUEE_LOGOS[i % MARQUEE_LOGOS.length])
+      i += 1
+    }
+    return [...half, ...half]
+  }, [])
 
   useEffect(() => {
     const saved = localStorage.getItem('ss-lang')
@@ -269,6 +314,165 @@ export default function UAEPage() {
             <strong>{t('Those are their numbers. Yours will be different.', 'هذي أرقامهم. أرقامك بتكون مختلفة.')}</strong>{' '}
             {t('Different clinic. Different patients. Different treatment economics. We\'d rather understand yours than pretend somebody else\'s results are a promise.', 'عيادة مختلفة. مرضى مختلفين. اقتصادات علاج مختلفة. نفضل نفهم أرقامك من إننا نتظاهر إن نتائج غيرك هي وعد.')}
           </p>
+        </div>
+      </section>
+
+      {/* ─── CLIENT LOGO MARQUEE ─── */}
+      <section className="uae-marquee" aria-label="Client logos">
+        <div className="uae-marquee__viewport">
+          <div className="uae-marquee__track">
+            {marqueeTrack.map(({ src, screen, wide }, i) => (
+              <div
+                key={`${src}-${i}`}
+                className={`uae-marquee__item${screen ? ' uae-marquee__item--screen' : ''}${wide ? ' uae-marquee__item--wide' : ''}`}
+              >
+                <img src={src} alt="" loading="lazy" decoding="async" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── THE EXPANSION ─── */}
+      <section className="uae-expansion" aria-labelledby="uae-expansion-heading">
+        <div className="uae-expansion__animation" aria-hidden="true">
+          <div className="uae-expansion__aurora uae-expansion__aurora--a" />
+          <div className="uae-expansion__aurora uae-expansion__aurora--b" />
+          <div className="uae-expansion__veil" />
+        </div>
+        <div className="uae-expansion__inner">
+          <div className="uae-expansion__intro">
+            <p className="uae-expansion__eyebrow">{t('The expansion', 'التوسع')}</p>
+            <h2 id="uae-expansion-heading" className="uae-expansion__headline">
+              {t("The UAE doesn\u2019t need another agency.", 'الإمارات ما تحتاج وكالة ثانية.')} <em>{t('It needs a system.', 'تحتاج نظام.')}</em>
+            </h2>
+            <p className="uae-expansion__copy">
+              {t("We\u2019ve spent years inside private practices in the US and the UK \u2014 diagnosing acquisition gaps, rebuilding websites, running paid growth, and being held accountable to one number: patients in the chair.", 'قضينا سنوات داخل عيادات خاصة في أمريكا وبريطانيا — نشوف الفجوات في اكتساب المرضى، نعيد بناء المواقع، نشغّل الإعلانات المدفوعة، ونتحاسب على رقم واحد: المرضى على الكرسي.')}
+            </p>
+            <p className="uae-expansion__copy">
+              {t("That\u2019s the playbook we\u2019re bringing to the UAE.", 'هذا المخطط اللي نجيبه للإمارات.')}
+            </p>
+          </div>
+          <div className="uae-expansion__route" aria-label="Where Socialsect has run">
+            {[
+              { name: 'US', status: 'Proven', active: true },
+              { name: 'UK', status: 'Proven', active: true },
+              { name: 'UAE', status: 'We are here', active: false },
+            ].map((market, i) => (
+              <div className="uae-expansion__market" key={market.name}>
+                <div className="uae-expansion__market-top">
+                  <span className={`uae-expansion__dot${market.active ? ' uae-expansion__dot--active' : ''}`} aria-hidden="true" />
+                  {i < 2 && <span className="uae-expansion__route-line" aria-hidden="true" />}
+                </div>
+                <p className="uae-expansion__market-name">{market.name}</p>
+                <p className="uae-expansion__market-status">{market.status}</p>
+              </div>
+            ))}
+          </div>
+          <div className="uae-expansion__pillars">
+            {[
+              { num: '01', title: 'Build', copy: 'Practice websites, booking systems, and web applications engineered to turn visitors into booked consultations.', href: '/services#build' },
+              { num: '02', title: 'Grow', copy: 'Meta ads, Google ads, and SEO run as one system \u2014 tracked, measured, and reported in appointments, not impressions.', href: '/services#grow' },
+              { num: '03', title: 'Brand', copy: 'Identity, design, and video that make the clinical standard of your practice impossible to miss.', href: '/services#brand' },
+            ].map(({ num, title, copy, href }) => (
+              <div className="uae-expansion__pillar" key={num}>
+                <span className="uae-expansion__pillar-num">{num}</span>
+                <h3 className="uae-expansion__pillar-title">{title}</h3>
+                <p className="uae-expansion__pillar-copy">{copy}</p>
+                <Link href={href} className="uae-expansion__pillar-link">
+                  {t('Explore', 'استكشف')} {title.toLowerCase()} <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── THE RECORD ─── */}
+      <section className="uae-record" aria-labelledby="uae-record-heading">
+        <div className="uae-record__inner">
+          <header className="uae-record__intro">
+            <p className="uae-record__eyebrow">{t('The record', 'السجل')}</p>
+            <h2 id="uae-record-heading" className="uae-record__headline">
+              {t("The numbers we\u2019re bringing to the UAE.", 'الأرقام اللي نجيبها للإمارات.')}
+              <br />
+              <em>{t('Nothing rounded up.', 'ما فيه округال.')}</em>
+            </h2>
+          </header>
+          <div className="uae-record__stats">
+            {TRACK_RECORD.map(({ value, label }) => (
+              <div className="uae-record__stat" key={label}>
+                <span className="uae-record__stat-value">{value}</span>
+                <span className="uae-record__stat-label">{label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="uae-record__proof-panel">
+            <div className="uae-record__proof-main">
+              <p className="uae-record__proof-kicker">{t('In one engagement', 'في تعاون واحد')}</p>
+              <p className="uae-record__proof-copy">
+                {t("A rebuilt acquisition system, first months, one US client. The same discipline we apply to every market we enter.", 'نظام اكتساب معاد بناؤه، أول شهور، عميل أمريكي واحد. نفس الانضباط اللي نطبقه في كل سوق ندخله.')}
+              </p>
+            </div>
+            <ul className="uae-record__proof-list">
+              {PROOF_POINTS.map(({ value, label }) => (
+                <li className="uae-record__proof-item" key={label}>
+                  <span className="uae-record__proof-value">{value}</span>
+                  <span className="uae-record__proof-label">{label}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="uae-record__proof-attribution">NY Metrovein Medical &middot; US</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SPECIALTIES ─── */}
+      <section className="uae-specialties" aria-labelledby="uae-specialties-heading">
+        <div className="uae-specialties__inner">
+          <header className="uae-specialties__intro">
+            <p className="uae-specialties__eyebrow">{t('Who we work with', 'مع مين نشتغل')}</p>
+            <h2 id="uae-specialties-heading" className="uae-specialties__headline">
+              {t('Built for private practices.', 'مبني للعيادات الخاصة.')}
+              <br />
+              <em>{t('Made for the UAE.', 'مصمم للإمارات.')}</em>
+            </h2>
+            <p className="uae-specialties__subcopy">
+              {t("The same specialties we\u2019ve grown in the US and UK \u2014 now running the same playbook in the UAE.", 'نفس التخصصات اللي نمّيناها في أمريكا وبريطانيا — الحين نشغّل نفس المخطط في الإمارات.')}
+            </p>
+          </header>
+          <div className="uae-specialties__grid">
+            {SPECIALTIES.map(({ name, copy }, i) => (
+              <div className="uae-specialties__card" key={name}>
+                <span className="uae-specialties__num">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="uae-specialties__title">{name}</h3>
+                <p className="uae-specialties__copy">{copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CLOSING CTA ─── */}
+      <section className="uae-closing" aria-labelledby="uae-closing-heading">
+        <div className="uae-closing__bg" aria-hidden="true">
+          <div className="uae-closing__overlay" />
+        </div>
+        <div className="uae-closing__inner">
+          <h2 id="uae-closing-heading" className="uae-closing__headline">
+            {t("The UAE is moving fast. Your patient pipeline should move Faster.", 'الإمارات تتحرك بسرعة. أنابيب المرضى لازم تتحرك أول.')}
+          </h2>
+          <p className="uae-closing__body">
+            {t("No pitch. No packages. Just the system we\u2019ve proven across two markets \u2014 applied to your practice in the UAE.", 'ما فيه عرض. ما فيه باقات. بس النظام اللي أثبناه في سوقين — نطبّقه على عيادتك في الإمارات.')}
+          </p>
+          <div className="uae-closing__actions">
+            <a href="#form-section" className="uae-closing__btn uae-closing__btn--primary">
+              {t("Let\u2019s have karak", 'خلينا نشرب كرك')}
+            </a>
+            <a href="mailto:hello@gosocialsect.com" className="uae-closing__btn uae-closing__btn--ghost">
+              {t('Email us directly', 'راسلنا مباشرة')}
+            </a>
+          </div>
         </div>
       </section>
 
