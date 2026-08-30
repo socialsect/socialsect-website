@@ -206,7 +206,7 @@ const HIDE_AFTER_Y = 60
 export default function Navbar() {
   const pathname = usePathname()
   const isHome = pathname === '/'
-  const isDarkHero = isHome || pathname === '/dubai'
+  const isDarkHero = isHome || pathname === '/dubai' || pathname === '/uae'
   const isWhoWeHelp = pathname === '/who-we-help' || pathname.startsWith('/who-we-help/')
   const isInsights = pathname === '/insights' || pathname.startsWith('/insights/')
   const isServices =

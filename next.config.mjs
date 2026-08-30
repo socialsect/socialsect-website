@@ -94,19 +94,6 @@ const nextConfig = {
 
     return config
   },
-  async rewrites() {
-    return [
-      {
-        source: '/uae',
-        destination: '/uae.html',
-      },
-      {
-        source: '/uae/',
-        destination: '/uae.html',
-      },
-    ]
-  },
-
   turbopack: {
     resolveAlias: {
       'react-router-dom': './src/lib/router-shim.jsx',

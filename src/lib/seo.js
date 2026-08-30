@@ -799,6 +799,24 @@ function dubaiConfig() {
   }
 }
 
+function uaeConfig() {
+  const canonicalUrl = absoluteUrl('/uae')
+  const title = 'Socialsect UAE | Patient Acquisition for Private Medical Practices'
+  const description =
+    'Before we talk about marketing, tell us about your clinic. Socialsect embeds into private medical practices in the UAE, diagnoses where patients fall through the gaps, and builds the system that closes them. One team. No packages. Let\u2019s have karak.'
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: DEFAULT_IMAGE,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: ['UAE medical marketing', 'Dubai clinic marketing', 'private medical practice UAE', 'patient acquisition UAE', 'healthcare marketing Dubai'],
+    schemas: [buildWebsiteSchema(), buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
 function privacyPolicyConfig() {
   const canonicalUrl = absoluteUrl('/privacy-policy')
   const title = 'Privacy Policy | Socialsect'
@@ -925,6 +943,7 @@ export function getSeoConfig(pathname) {
     { path: '/client-portal', config: clientPortalConfig },
     { path: '/aviva', config: avivaConfig },
     { path: '/dubai', config: dubaiConfig },
+    { path: '/uae', config: uaeConfig },
     { path: '/where-your-implant-practice-is-going-wrong', config: visibilityConfig },
     { path: '/where-your-vein-clinic-is-going-wrong', config: veinVisibilityConfig },
     { path: '/privacy-policy', config: privacyPolicyConfig },
