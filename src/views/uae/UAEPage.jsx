@@ -18,7 +18,7 @@ const PROOF_CARDS = [
     name: 'Dr. Fatima Abdullah',
     clinic: 'Enliven Counselling Center',
     location: 'UAE · Clinic owner',
-    image: '/images/dr-fatima.webp',
+    image: '/images/dr-fatima-abdullah-new.webp',
     quote: {
       en: "She met me, asked her questions, and chose to move forward. You don\u2019t need my version of why.",
       ar: 'قابلني، سألت أسئلتها، واختارت تكمل. ما تحتاج نسختي عن ليش.',
