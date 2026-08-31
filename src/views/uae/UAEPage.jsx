@@ -291,7 +291,7 @@ export default function UAEPage() {
           <p className="uae-end-text">
             {t("I'm not here to rewrite it. Just to help more of the right people find it.", 'مو هنا عشان أعيد كتابتها. بس أساعد أكثر الناس الصح يلقونها.')}
           </p>
-          <div className="uae-signature">\u2014 Ray</div>
+          <div className="uae-signature">— Ray</div>
         </div>
       </section>
 

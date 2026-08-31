@@ -292,14 +292,14 @@ h1, h2 {
 }
 .uae-free-badge {
   display: inline-block;
-  background: #f0edff;
-  color: var(--primary);
-  border: 1px solid #ded8ff;
+  background: var(--primary);
+  color: #fff;
   border-radius: 999px;
-  padding: 10px 15px;
-  font-weight: 900;
-  font-size: 13px;
-  margin-bottom: 22px;
+  padding: 10px 20px;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .12em;
+  margin-bottom: 28px;
 }
 .uae-hardcta p {
   font-size: 20px;
