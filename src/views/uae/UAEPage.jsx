@@ -1,87 +1,62 @@
 'use client'
-import { useEffect, useState, useRef } from 'react'
-import { ArrowRight, ChevronDown, Check } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowRight, Check } from 'lucide-react'
 import { submitForm } from '../../lib/submitForm'
 import './UAEPage.css'
 
 /* ──────────────────────────────────────────────
-   SECTION 1: HERO — "You understand my problem"
-   SECTION 2: CASE STUDIES — "Done it for doctors like me"
-   SECTION 3: RAY — "Real person, not a logo"
-   SECTION 4: HOW IT WORKS — "Simple, low-risk"
-   SECTION 5: FAQ — "My objections are answered"
-   SECTION 6: FINAL CTA — "I should do this now"
+   1. HERO — Clean, centered, one-line subheading
+   2. PROOF — 3 cards: Dr. Fatima, Dr. Musa, Ray
+   3. OFFER — "I take the first risk"
+   4. VSL — 90-second video section
+   5. HARD CTA — Free clinic review
+   6. END — Closing with signature
    ────────────────────────────────────────────── */
 
-const CASE_STUDIES = [
+const PROOF_CARDS = [
   {
-    name: 'Dr. Alejandro Badia',
-    clinic: 'Miami Shoulder Institute',
-    location: 'Miami, US',
-    image: '/drbadia.webp',
-    stats: [
-      { value: '225+', label: { en: 'Consultations booked', ar: 'استشارات محجوزة' } },
-      { value: '$600K+', label: { en: 'Additional revenue', ar: 'إيرادات إضافية' } },
-      { value: '4.2x', label: { en: 'Patient growth', ar: 'نمو المرضى' } },
-    ],
+    name: 'Dr. Fatima Abdullah',
+    clinic: 'Enliven Counselling Center',
+    location: 'UAE · Clinic owner',
+    image: '/images/dr-fatima.webp',
     quote: {
-      en: 'They rebuilt our entire patient acquisition system. The results spoke for themselves.',
-      ar: 'عاد بناء نظام اكتساب المرضى كله. النتائجloquent speaks for itself.',
+      en: "She met me, asked her questions, and chose to move forward. You don\u2019t need my version of why.",
+      ar: 'قابلني، سألت أسئلتها، واختارت تكمل. ما تحتاج نسختي عن ليش.',
     },
   },
   {
-    name: 'Dr. Adam Goldman',
-    clinic: 'NY Metrovein Medical',
-    location: 'New York, US',
-    image: '/images/dr_adam_goldman.webp',
-    stats: [
-      { value: '700+', label: { en: 'Consultations in 5 months', ar: 'استشارات في 5 شهور' } },
-      { value: '$5.27', label: { en: 'Cost per lead', ar: 'تكلفة العميل المحتمل' } },
-      { value: '$100K+', label: { en: 'Revenue attributed', ar: 'إيرادات مُنسّبة' } },
-    ],
+    name: 'Dr. Musa Nkoto',
+    clinic: 'Visage Polyclinic',
+    location: 'Dubai · Clinic owner',
+    image: '/images/dr-musa.webp',
     quote: {
-      en: 'They built a system that actually brings patients in. Not clicks \u2014 consultations.',
-      ar: 'بنوا نظام يجيب مرضى فعلاً. مو نقرات. استشارات.',
+      en: "Different clinic. Different questions. Same choice: hear the idea properly before making a decision.",
+      ar: 'عيادة مختلفة. أسئلة مختلفة. نفس الخيار: تسمع الفكرة صح قبل ما تقرر.',
+    },
+  },
+  {
+    name: 'Ray',
+    clinic: 'Founder · Socialsect',
+    location: "The person you're hiring",
+    image: '/team/rayansh.webp',
+    quote: {
+      en: "Author. Healthcare growth operator. Years spent learning the US & UK market \u2014 now here, personally.",
+      ar: 'مؤلف. خبير نمو صحي. سنوات تعلم السوق الأمريكي والبريطاني \u2014 الحين هنا، شخصياً.',
     },
   },
 ]
 
-const FAQ_ITEMS = [
-  {
-    q: { en: 'What if it doesn\u2019t work?', ar: 'وين ما نفع؟' },
-    a: { en: 'You don\u2019t pay. That\u2019s the deal. We start with a one-month trial. If we produce results, we continue. If we don\u2019t, you owe us nothing.', ar: 'ما تدفع. هذا الاتفاق. نبدأ بتجربة شهر. لو ننتج نتائج، نكمل. لو لا، ما تدين لنا بشي.' },
-  },
-  {
-    q: { en: '\u201cWe\u2019ve tried agencies before.\u201d', ar: '"جربنا وكالات قبل."' },
-    a: { en: 'That\u2019s exactly why we don\u2019t ask you to trust a pitch. Come see the clinic, understand your numbers, then we\u2019ll tell you what we\u2019d do if it were ours.', ar: 'هذا بالضبط ليش ما نطلب منك تثق بعرض. اجيه العيادة، نفهم أرقامك،بعدين نقولك وش نسوي لو عيادتنا.' },
-  },
-  {
-    q: { en: 'How long before I see results?', ar: 'كم أشوف النتيجة؟' },
-    a: { en: 'First signals within 30 days. Meaningful results in 3\u20136 months. We\u2019re building systems, not running one-off campaigns.', ar: 'إشارات أولى خلال 30 يوم. نتائج حقيقية في 3\u20136 شهور. نبني أنظمة، مو حملات لمرة واحدة.' },
-  },
-  {
-    q: { en: 'Will this work for my clinic?', ar: 'هالشي ينفع لعيادتي؟' },
-    a: { en: 'We build around your clinic. Not a package. Every practice is different, different patients, different treatments, different economics. We diagnose first.', ar: 'نبني حول عيادتك. مو باقة. كل عيادة مختلفة. مرضى مختلفين، علاجات مختلفة، اقتصادات مختلفة. نشخيص أول.' },
-  },
-  {
-    q: { en: 'What\u2019s the investment?', ar: 'وش الاستثمار؟' },
-    a: { en: 'Performance-based. No upfront fees, no long contracts. We start with a one-month trial, if we produce results, we continue.', ar: 'مبنية على الأداء. ما فيه رسوم مسبقة، ما فيه عقود طويلة. نبدأ بتجربة شهر. لو ننتج نتائج، نكمل.' },
-  },
-  {
-    q: { en: 'Who am I actually dealing with?', ar: 'مين أتعامل معه فعلاً؟' },
-    a: { en: 'Ray. He\u2019ll meet you here in the UAE. No account managers. No layers of people who don\u2019t understand your practice.', ar: 'راي. وبيقابلك هنا في الإمارات. ما فيه مديرين حسابات. ما فيه طبقات ناس ما تفهم عيادتك.' },
-  },
+const FORM_FIELDS = [
+  { key: 'name', placeholder: { en: 'Your name', ar: 'اسمك' } },
+  { key: 'clinic', placeholder: { en: 'Clinic name', ar: 'اسم العيادة' } },
+  { key: 'website', placeholder: { en: 'Website / Instagram (optional)', ar: 'موقع / انستقرام (اختياري)' } },
+  { key: 'whatsapp', placeholder: { en: 'WhatsApp number', ar: 'رقم واتساب' } },
 ]
 
-const FORM_STEPS = [
-  { key: 'name', title: { en: "What's your name?", ar: "وش اسمك؟" }, placeholder: { en: 'Your name', ar: 'اسمك' } },
-  { key: 'clinic', title: { en: 'Which clinic?', ar: 'أي عيادة؟' }, fields: [
-    { id: 'clinicInput', placeholder: { en: 'Clinic name', ar: 'اسم العيادة' } },
-    { id: 'websiteInput', placeholder: { en: 'Website or Instagram (optional)', ar: 'موقع أو انستقرام (اختياري)' } },
-  ]},
-  { key: 'location', title: { en: 'Where in the UAE?', ar: 'وين في الإمارات؟' }, options: ['Dubai', 'Abu Dhabi', 'Sharjah', 'Al Ain', { en: 'Somewhere else', ar: 'مكان آخر' }] },
-  { key: 'goal', title: { en: 'One thing you want to change?', ar: 'شيء واحد تبيه يتغير؟' }, textarea: true, placeholder: { en: 'Say it normally. No marketing language.', ar: 'قولها عادي. بدون لغة تسويق.' } },
-  { key: 'whatsapp', title: { en: 'WhatsApp?', ar: 'واتساب؟' }, placeholder: { en: '+971 ...', ar: '+971 ...' }, languageOptions: true },
+const REF_FIELDS = [
+  { key: 'name', placeholder: { en: 'Your name', ar: 'اسمك' } },
+  { key: 'clinic', placeholder: { en: 'Clinic name (optional)', ar: 'اسم العيادة (اختياري)' } },
+  { key: 'whatsapp', placeholder: { en: 'WhatsApp number', ar: 'رقم واتساب' } },
 ]
 
 export default function UAEPage() {
@@ -92,20 +67,17 @@ export default function UAEPage() {
     }
     return 'en'
   })
-  const [formStep, setFormStep] = useState(0)
-  const [formSubmitted, setFormSubmitted] = useState(false)
-  const [formData, setFormData] = useState({ name: '', clinic: '', website: '', location: '', goal: '', whatsapp: '', language: '' })
-  const [selectedLocation, setSelectedLocation] = useState('')
-  const [selectedLanguage, setSelectedLanguage] = useState('')
-  const [consent, setConsent] = useState(false)
-  const [openFaq, setOpenFaq] = useState(null)
-  const [activeCaseStudy, setActiveCaseStudy] = useState(0)
-  const [talkModalOpen, setTalkModalOpen] = useState(false)
-  const [talkForm, setTalkForm] = useState({ name: '', email: '', message: '' })
-  const [talkSubmitting, setTalkSubmitting] = useState(false)
-  const [talkSubmitted, setTalkSubmitted] = useState(false)
-  const formCardRef = useRef(null)
-  const revealRefs = useRef([])
+
+  const [leadOpen, setLeadOpen] = useState(false)
+  const [leadForm, setLeadForm] = useState({ name: '', clinic: '', website: '', whatsapp: '' })
+  const [leadSubmitting, setLeadSubmitting] = useState(false)
+  const [leadSubmitted, setLeadSubmitted] = useState(false)
+
+  const [refOpen, setRefOpen] = useState(false)
+  const [refName, setRefName] = useState('')
+  const [refForm, setRefForm] = useState({ name: '', clinic: '', whatsapp: '' })
+  const [refSubmitting, setRefSubmitting] = useState(false)
+  const [refSubmitted, setRefSubmitted] = useState(false)
 
   const toggleLang = () => {
     const next = lang === 'en' ? 'ar' : 'en'
@@ -122,544 +94,292 @@ export default function UAEPage() {
 
   const t = (en, ar) => lang === 'ar' ? ar : en
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    )
-    revealRefs.current.forEach(el => { if (el) observer.observe(el) })
-    return () => observer.disconnect()
-  }, [])
-
-  const addRef = (el) => {
-    if (el && !revealRefs.current.includes(el)) revealRefs.current.push(el)
+  const openLead = () => {
+    setLeadForm({ name: '', clinic: '', website: '', whatsapp: '' })
+    setLeadSubmitted(false)
+    setLeadOpen(true)
   }
 
-  const nextFormStep = async () => {
-    if (formStep < FORM_STEPS.length - 1) {
-      setFormStep(formStep + 1)
-      formCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    } else {
-      setFormSubmitted(true)
-      setFormData(prev => ({ ...prev, name: prev.name || 'Doctor' }))
-      try {
-        await submitForm('/api/uae-karak', {
-          ...formData,
-          location: selectedLocation,
-          language: selectedLanguage,
-          consent,
-          sourcePageUrl: window.location.href,
-        })
-      } catch (err) {
-        console.error('UAE form error:', err)
-      }
+  const closeLead = () => setLeadOpen(false)
+
+  const submitLead = async (e) => {
+    e.preventDefault()
+    if (leadSubmitting) return
+    setLeadSubmitting(true)
+    try {
+      await submitForm('/api/uae-karak', {
+        ...leadForm,
+        location: 'UAE',
+        goal: 'Free clinic review request',
+        language: lang,
+        consent: true,
+        sourcePageUrl: window.location.href,
+      })
+      setLeadSubmitted(true)
+    } catch (err) {
+      console.error('Lead form error:', err)
+    } finally {
+      setLeadSubmitting(false)
     }
   }
 
-  const prevFormStep = () => {
-    if (formStep > 0) setFormStep(formStep - 1)
+  const openReference = (name) => {
+    setRefName(name)
+    setRefForm({ name: '', clinic: '', whatsapp: '' })
+    setRefSubmitted(false)
+    setRefOpen(true)
   }
 
-  const handleTalkSubmit = async (e) => {
+  const closeRef = () => setRefOpen(false)
+
+  const submitRef = async (e) => {
     e.preventDefault()
-    if (talkSubmitting) return
-    setTalkSubmitting(true)
+    if (refSubmitting) return
+    setRefSubmitting(true)
     try {
       await submitForm('/api/talk-to-ray', {
-        ...talkForm,
+        ...refForm,
+        message: `Reference request: wants to speak with ${refName}`,
         sourcePageUrl: window.location.href,
       })
-      setTalkSubmitted(true)
+      setRefSubmitted(true)
     } catch (err) {
-      console.error('Talk to Ray error:', err)
+      console.error('Ref form error:', err)
     } finally {
-      setTalkSubmitting(false)
+      setRefSubmitting(false)
     }
   }
 
   return (
     <main className="uae-page">
 
-      {/* ════════════════════════════════════════════
-          SECTION 1 — HERO
-          Psychology: "This person understands my problem"
-          ════════════════════════════════════════════ */}
-      <section className="uae-hero" aria-labelledby="uae-hero-heading">
-        <div className="uae-hero__bg" aria-hidden="true">
-          <img src="/images/dubai-hero.webp" alt="" className="uae-hero__bg-img" fetchPriority="high" decoding="async" />
-          <div className="uae-hero__overlay" />
-        </div>
-
-        <div className="uae-hero__content">
-          <button className="uae-lang-toggle" onClick={toggleLang} aria-label="Toggle language">
+      {/* ═══════════════════════════════════════
+          1. HERO
+          ═══════════════════════════════════════ */}
+      <section className="uae-hero">
+        <div className="wrap uae-hero-inner">
+          <button className="uae-lang-toggle" onClick={toggleLang}>
             {lang === 'en' ? 'عربي' : 'EN'}
           </button>
-
-          <div className="uae-hero__center">
-            <p className="uae-hero-eyebrow hero-reveal" style={{ animationDelay: '0ms' }}>
-              <span className="uae-hero-eyebrow__line" aria-hidden="true" />
-              {t('FOR CLINIC OWNERS ACROSS THE UAE', 'لأصحاب العيادات في الإمارات')}
-            </p>
-
-            <h1 id="uae-hero-heading" className="uae-hero-headline">
-              <span className="hero-reveal" style={{ animationDelay: '100ms' }}>{t('Your clinic is good.', 'عيادتك ممتازة.')}</span>
-              <span className="hero-reveal" style={{ animationDelay: '200ms' }}>{t('The doctors are good.', 'الأطباء ممتازين.')}</span>
-              <span className="hero-reveal" style={{ animationDelay: '300ms' }}>{t('The reputation is good.', 'السمعة ممتازة.')}</span>
-              <span className="uae-hero-headline--accent hero-reveal" style={{ animationDelay: '400ms' }}>
-                {t('So why isn\u2019t the pipeline full?', 'ليشأنو الأنابيب مو مليانة؟')}
-              </span>
-            </h1>
-
-            <p className="uae-hero-sub hero-reveal" style={{ animationDelay: '500ms' }}>
-              {t(
-                "We help private practices in the UAE get more booked consultations \u2014 not through flashy campaigns, but through a system built around how patients actually choose a clinic.",
-                'نساعد العيادات الخاصة في الإمارات تحصل على استشارات محجوزة أكثر، مو من حملات صاخبة، بل من نظام مبني حول كيف المرضى يختارون العيادة فعلاً.'
-              )}
-            </p>
-
-            <div className="uae-hero-ctas hero-reveal" style={{ animationDelay: '600ms' }}>
-              <a href="#form-section" className="uae-btn uae-btn--primary uae-btn--lg">
-                {t("Let\u2019s have karak", 'خلينا نشرب كرك')}
-                <ArrowRight size={18} />
-              </a>
-              <a href="#case-studies" className="uae-btn uae-btn--ghost uae-btn--lg">
-                {t('See our work', 'شوف شغلنا')}
-              </a>
-            </div>
-
-            <div className="uae-hero-trust hero-reveal" style={{ animationDelay: '700ms' }}>
-              <span className="uae-hero-trust__dot" aria-hidden="true" />
-              <span>{t('Performance-based. No upfront fees.', 'مبنية على الأداء. ما فيه رسوم مسبقة.')}</span>
-              <span className="uae-hero-trust__sep" aria-hidden="true">·</span>
-              <span>{t('One-month trial.', 'تجربة شهر.')}</span>
-              <span className="uae-hero-trust__sep" aria-hidden="true">·</span>
-              <span>{t('If we don\u2019t produce, you don\u2019t pay.', 'لو ما ننتج، ما تدفع.')}</span>
-            </div>
-          </div>
+          <p className="eyebrow">{t('FOR CLINIC OWNERS & FOUNDERS ACROSS THE UAE', 'لأصحاب العيادات والمستشفيات في الإمارات')}</p>
+          <h1>{t('Your clinic should be growing better.', 'عيادتك لازم تنمو أحسن.')}</h1>
+          <p className="uae-hero-sub">
+            {t('Give me one month.', ' أعطني شهر واحد.')}{' '}
+            <em>{t("If we don't hit the result we agree on, you don't pay Socialsect.", 'لو ما نوصل للنتيجة اللي نتفق عليها، ما تدفع لـ Socialsect.')}</em>
+          </p>
+          <button className="btn" onClick={openLead}>
+            {t("Show me what you'd do", 'وريني وش بتسوي')}
+            <ArrowRight size={16} style={{ marginLeft: 8 }} />
+          </button>
+          <p className="cta-note">{t('No long contract. No leap of faith.', 'ما فيه عقد طويل. ما فيه قفزت إيمان.')}</p>
         </div>
       </section>
 
 
-      {/* ════════════════════════════════════════════
-          SECTION 2 — CASE STUDIES
-          Psychology: "They've done it for doctors like me"
-          ════════════════════════════════════════════ */}
-      <section className="uae-cases" id="case-studies" aria-labelledby="uae-cases-heading" ref={addRef}>
-        <div className="uae-cases__inner">
-          <div className="uae-cases__header">
-            <p className="uae-eyebrow">{t('Case studies', 'دراسات حالة')}</p>
-            <h2 id="uae-cases-heading" className="uae-headline">
-              {t('Real practices. Real numbers.', 'عيادات حقيقية. أرقام حقيقية.')}
-            </h2>
-            <p className="uae-subcopy">
-              {t('Every number below is documented. If we can\u2019t prove it, it\u2019s not here.', 'كل رقم موثق. لو ما نقدر نثبت، مو هنا.')}
-            </p>
+      {/* ═══════════════════════════════════════
+          2. PROOF
+          ═══════════════════════════════════════ */}
+      <section className="uae-proof">
+        <div className="wrap">
+          <div className="uae-proof-head">
+            <p className="eyebrow">{t('Before you believe me', 'قبل ما تصدقني')}</p>
+            <h2>{t('Talk to people who already did.', 'كلم ناس صدقوا قبل.')}</h2>
           </div>
 
-          <div className="uae-cases__tabs">
-            {CASE_STUDIES.map((cs, i) => (
-              <button
-                key={cs.name}
-                className={`uae-cases__tab${activeCaseStudy === i ? ' uae-cases__tab--active' : ''}`}
-                onClick={() => setActiveCaseStudy(i)}
-              >
-                {cs.clinic}
-              </button>
-            ))}
-          </div>
-
-          {CASE_STUDIES.map((cs, i) => (
-            <div
-              key={cs.name}
-              className={`uae-case${activeCaseStudy === i ? ' uae-case--active' : ''}`}
-              aria-hidden={activeCaseStudy !== i}
-            >
-              <div className="uae-case__left">
-                <div className="uae-case__stats">
-                  {cs.stats.map(s => (
-                    <div className="uae-case__stat" key={s.label.en}>
-                      <span className="uae-case__stat-value">{s.value}</span>
-                      <span className="uae-case__stat-label">{t(s.label.en, s.label.ar)}</span>
-                    </div>
-                  ))}
+          <div className="uae-proof-grid">
+            {PROOF_CARDS.map((card) => (
+              <article className="uae-proof-card" key={card.name}>
+                <div className="uae-proof-card__img">
+                  <img src={card.image} alt={card.name} loading="lazy" decoding="async" />
                 </div>
-                <blockquote className="uae-case__quote">
-                  <span className="uae-case__quote-mark" aria-hidden="true">&ldquo;</span>
-                  <p>{t(cs.quote.en, cs.quote.ar)}</p>
-                  <footer>
-                    <cite>{cs.name}</cite>
-                    <span>{cs.clinic} &middot; {cs.location}</span>
-                  </footer>
-                </blockquote>
-              </div>
-              <div className="uae-case__right">
-                <div className="uae-case__image-wrap">
-                  <img src={cs.image} alt={cs.name} loading="lazy" decoding="async" />
-                </div>
-                <div className="uae-case__attribution">
-                  {t('Documented case study. Your clinic will be different.', 'دراسة حالة موثقة. عيادتك بتكون مختلفة.')}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-
-      {/* ════════════════════════════════════════════
-          SECTION 3 — RAY
-          Psychology: "I'd be working with a real person"
-          ════════════════════════════════════════════ */}
-      <section className="uae-ray" aria-labelledby="uae-ray-heading" ref={addRef}>
-        <div className="uae-ray__inner">
-          <div className="uae-ray__card">
-            <p className="uae-ray__scribble">
-              {t("We take your clinic\u2019s name seriously.", 'نأخذ اسم عيادتك بجدية.')}
-            </p>
-            <p className="uae-ray__text">
-              {t(
-                'Your clinic has your name, reputation, and years of work behind it. We treat that with the same seriousness we\u2019d treat our own.',
-                'عيادتك فيها اسمك وسمعتك وسنين شغل وراها. نتعامل مع هالشي بنفس الجدية اللي نتعامل فيها مع عيادتنا.'
-              )}
-            </p>
-            <p className="uae-ray__sig">\u2014 Ray</p>
-          </div>
-
-          <div className="uae-ray__copy">
-            <p className="uae-eyebrow">{t('The person on the other side', 'الشخص على الطرف الثاني')}</p>
-            <h2 id="uae-ray-heading" className="uae-headline">
-              {t('Not an account manager. Not a team you never meet.', 'مو مدير حسابات. مو فريق ما تعرفهم.')}
-            </h2>
-            <p className="uae-lead">
-              {t(
-                "Ray is in the UAE. He\u2019ll come see your clinic, understand your numbers, and tell you honestly whether he can help. No pitch. No pressure. Just a conversation over karak.",
-                'راي في الإمارات. بيجي يشوف عيادتك، يفهم أرقامك، ويقولك بصراحةwhether هو يقدر يساعد. ما فيه عرض. ما فيه ضغط. بس حوار على كرك.'
-              )}
-            </p>
-            <a href="#form-section" className="uae-btn uae-btn--primary">
-              {t("Let\u2019s meet", 'قابله')}
-              <ArrowRight size={16} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ════════════════════════════════════════════
-          SECTION 4 — HOW IT WORKS
-          Psychology: "This is simple and low-risk"
-          ════════════════════════════════════════════ */}
-      <section className="uae-how" aria-labelledby="uae-how-heading" ref={addRef}>
-        <div className="uae-how__inner">
-          <div className="uae-how__header">
-            <p className="uae-eyebrow">{t('How it works', 'كيف يشتغل')}</p>
-            <h2 id="uae-how-heading" className="uae-headline">
-              {t('Three steps. One month. No risk.', 'ثلاث خطوات. شهر واحد. بدون مخاطرة.')}
-            </h2>
-          </div>
-
-          <div className="uae-how__steps">
-            {[
-              {
-                num: '01',
-                title: { en: 'We come see the clinic', ar: 'نجي نشوف العيادة' },
-                desc: {
-                  en: 'Ray visits, meets your team, understands how patients find you and why they book \u2014 or don\u2019t.',
-                  ar: 'راي يزور، يقابل فريقك، يفهم كيف المرضى يلقونك وليحجزون، أو لا.',
-                },
-              },
-              {
-                num: '02',
-                title: { en: 'We tell you what we\u2019d change', ar: 'نقولك وش نغير' },
-                desc: {
-                  en: 'No deck. No 45-minute pitch. Just honest feedback on what\u2019s working and what isn\u2019t. If you like the thinking, we build it.',
-                  ar: 'ما فيه عرض. ما فيه بيتشر 45 دقيقة. بس صراحة على وش يشتغل وش لا. إذا عجبك التفكير، نبنيه.',
-                },
-              },
-              {
-                num: '03',
-                title: { en: 'One month. Then you decide.', ar: 'شهر واحد.بعدين تقرر.' },
-                desc: {
-                  en: 'We build the system. Track the numbers. If we produce results worth paying for, we continue. If not, you don\u2019t pay. Khalas.',
-                  ar: 'نبني النظام. نتتبع الأرقام. لو ننتج نتائج تستاهل الدفع، نكمل. لو لا، ما تدفع. خلاص.',
-                },
-              },
-            ].map((step) => (
-              <div className="uae-how__step" key={step.num}>
-                <span className="uae-how__step-num">{step.num}</span>
-                <h3 className="uae-how__step-title">{t(step.title.en, step.title.ar)}</h3>
-                <p className="uae-how__step-desc">{t(step.desc.en, step.desc.ar)}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="uae-how__cta">
-            <a href="#form-section" className="uae-btn uae-btn--primary uae-btn--lg">
-              {t("Let\u2019s have karak", 'خلينا نشرب كرك')}
-              <ArrowRight size={18} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ════════════════════════════════════════════
-          SECTION 5 — FAQ
-          Psychology: "My objections are answered"
-          ════════════════════════════════════════════ */}
-      <section className="uae-faq" aria-labelledby="uae-faq-heading" ref={addRef}>
-        <div className="uae-faq__inner">
-          <div className="uae-faq__header">
-            <p className="uae-eyebrow">{t('Questions', 'أسئلة')}</p>
-            <h2 id="uae-faq-heading" className="uae-headline">
-              {t('Before we talk.', 'قبل ما نتكلم.')}
-            </h2>
-            <p className="uae-subcopy" style={{ marginTop: 12 }}>
-              {t(
-                "Still have questions? Let\u2019s sort them out.",
-                'لسه عندك أسئلة؟ نحلها.'
-              )}
-            </p>
-          </div>
-
-          <div className="uae-faq__list">
-            {FAQ_ITEMS.map((item, i) => (
-              <div className={`uae-faq-item${openFaq === i ? ' uae-faq-item--open' : ''}`} key={i}>
-                <button
-                  className="uae-faq-item__q"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  aria-expanded={openFaq === i}
-                >
-                  <span>{t(item.q.en, item.q.ar)}</span>
-                  <ChevronDown className="uae-faq-item__chevron" size={20} />
-                </button>
-                <div className="uae-faq-item__a" aria-hidden={openFaq !== i}>
-                  <p>{t(item.a.en, item.a.ar)}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="uae-faq__cta">
-            <div className="uae-faq__cta-text">
-              <p className="uae-faq__cta-label">
-                {t('Still have questions?', 'لسه عندك أسئلة؟')}
-              </p>
-              <p className="uae-faq__cta-sub">
-                {t('Ray will reply within 24 hours.', 'راي يرد عليك خلال 24 ساعة.')}
-              </p>
-            </div>
-            <button className="uae-btn uae-btn--primary" onClick={() => setTalkModalOpen(true)}>
-              {t('Talk to Ray', 'كلم راي')}
-              <ArrowRight size={16} />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════
-          TALK TO RAY MODAL
-          ════════════════════════════════════════════ */}
-      {talkModalOpen && (
-        <div className="uae-modal-overlay" onClick={() => { setTalkModalOpen(false); setTalkSubmitted(false); setTalkForm({ name: '', email: '', message: '' }) }}>
-          <div className="uae-modal" onClick={e => e.stopPropagation()}>
-            <button className="uae-modal__close" onClick={() => { setTalkModalOpen(false); setTalkSubmitted(false); setTalkForm({ name: '', email: '', message: '' }) }} aria-label="Close">
-              &times;
-            </button>
-
-            {talkSubmitted ? (
-              <div className="uae-modal__done">
-                <div className="uae-done__tick"><Check size={24} /></div>
-                <h3 className="uae-headline" style={{ fontSize: 24 }}>
-                  {t('Message sent.', 'تم الإرسال.')}
-                </h3>
-                <p className="uae-lead" style={{ fontSize: 15 }}>
-                  {t(
-                    "Ray will review your message and get back to within 24 hours.",
-                    'راي يشيك على رسالتك ويرد عليك خلال 24 ساعة.'
+                <div className="uae-proof-card__body">
+                  <div className="uae-proof-card__loc">{t(card.location, card.location)}</div>
+                  <h3>{card.name}</h3>
+                  <div className="uae-proof-card__spec">{card.clinic}</div>
+                  <p>{t(card.quote.en, card.quote.ar)}</p>
+                  {card.name !== 'Ray' ? (
+                    <button className="uae-proof-card__link" onClick={() => openReference(card.name)}>
+                      {t('Ask to speak with', 'ابي أتكلم مع')} {card.name.split(' ')[0]} <ArrowRight size={14} />
+                    </button>
+                  ) : (
+                    <button className="uae-proof-card__link" onClick={() => document.getElementById('vsl')?.scrollIntoView({ behavior: 'smooth' })}>
+                      {t('Meet Ray in 90 seconds', 'تعرّف على راي في 90 ثانية')} <ArrowRight size={14} />
+                    </button>
                   )}
-                </p>
-                <p className="uae-ray__sig">\u2014 Ray</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════
+          3. OFFER
+          ═══════════════════════════════════════ */}
+      <section className="uae-offer">
+        <div className="wrap uae-offer-inner">
+          <p className="eyebrow">{t('The offer', 'العرض')}</p>
+          <h2>{t('I take the first risk.', 'أنا آخذ المخاطرة الأولى.')}</h2>
+          <p className="uae-offer-big">
+            {t('We agree on one result that matters to', 'نتفق على نتيجة واحدة تهم')}{' '}
+            <strong>{t('your clinic.', 'عيادتك.')}</strong>
+            <br />
+            {t("If I don\u2019t produce it,", 'لو ما أنجزها,')}{' '}
+            <strong>{t('you don\u2019t pay me.', 'ما تدفع لي.')}</strong>
+          </p>
+          <p className="uae-offer-tiny">
+            {t("That's it. No package theatre. No \u201ctrust the process.\u201d", 'بس كذا. ما فيه باقات. ما فيه "ثق بالعمليه".')}
+          </p>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════
+          4. VSL
+          ═══════════════════════════════════════ */}
+      <section className="uae-vsl" id="vsl">
+        <div className="wrap uae-vsl-grid">
+          <div className="uae-vsl-copy">
+            <p className="eyebrow" style={{ color: '#888' }}>{t('90 seconds. That\u2019s all.', '90 ثانية. بس كذا.')}</p>
+            <h2>{t('Before you trust me, hear me out.', 'قبل ما تثق فيني، اسمعني.')}</h2>
+            <p>{t(
+              "Why I came to the UAE, why I won\u2019t copy-paste a US playbook, and why I\u2019m willing to put my fee behind the result.",
+              'ليش جيت الإمارات، ليش ما أنسخ خطة أمريكانية، وليش حاضر أحط مكافأتي ورا النتيجة.'
+            )}</p>
+          </div>
+          <div className="uae-video">
+            <div className="uae-video-inner">
+              <button className="uae-play" aria-label="Play video">&#9654;</button>
+              <div className="uae-video-cap">
+                &ldquo;{t("I don\u2019t want you to believe another agency pitch.", 'ما أبي تصدق عرض وكالة ثانية.')}&rdquo;
+                <small>RAY · {t('FOUNDER, SOCIALSECT', 'مؤسس, SOCIALSECT')}</small>
               </div>
-            ) : (
-              <form onSubmit={handleTalkSubmit}>
-                <h3 className="uae-headline" style={{ fontSize: 24, marginBottom: 4 }}>
-                  {t('Talk to Ray', 'كلم راي')}
-                </h3>
-                <p className="uae-lead" style={{ fontSize: 14, marginBottom: 24 }}>
-                  {t(
-                    "Short message. He\u2019ll reply within 24 hours.",
-                    'رسالة قصيرة. يرد عليك خلال 24 ساعة.'
-                  )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════
+          5. HARD CTA
+          ═══════════════════════════════════════ */}
+      <section className="uae-hardcta">
+        <div className="wrap uae-hard-inner">
+          <span className="uae-free-badge">{t('FREE · BEFORE YOU DECIDE ANYTHING', 'مجاني · قبل ما تقرر أي شيء')}</span>
+          <h2>{t('Let me look at your clinic first.', 'خليني أشوف عيادتك أول.')}</h2>
+          <p>{t(
+            "I'll review what you're doing, what you're trying to grow, and where I think the opportunity is. If I see nothing useful, I'll tell you that too.",
+            'بشيك على وش تسوي، وش تبي تنميه، ووين أشوف الفرصة. لو ما أشوف شي مفيد، أقولك بعد.'
+          )}</p>
+          <button className="btn dark" onClick={openLead}>
+            {t('Get my free clinic review', 'احصل على مراجعة عيادتك المجانية')}
+            <ArrowRight size={16} style={{ marginLeft: 8 }} />
+          </button>
+          <p className="uae-small">{t('Takes about 60 seconds to send me the basics.', 'يأخذ حوالي 60 ثانية ترسل الأساسيات.')}</p>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════
+          6. END
+          ═══════════════════════════════════════ */}
+      <section className="uae-end">
+        <div className="wrap uae-end-inner">
+          <p className="eyebrow">{t('One last thing', 'شي أخير')}</p>
+          <h2>{t('Your clinic already has a story.', 'عيادتك عندها قصة.')}</h2>
+          <p className="uae-end-text">
+            {t("I'm not here to rewrite it. Just to help more of the right people find it.", 'مو هنا عشان أعيد كتابتها. بس أساعد أكثر الناس الصح يلقونها.')}
+          </p>
+          <div className="uae-signature">\u2014 Ray</div>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════
+          LEAD MODAL
+          ═══════════════════════════════════════ */}
+      {leadOpen && (
+        <div className="uae-modal" onClick={closeLead}>
+          <div className="uae-modal-box" onClick={e => e.stopPropagation()}>
+            <button className="uae-close" onClick={closeLead} aria-label="Close">&times;</button>
+            {!leadSubmitted ? (
+              <form onSubmit={submitLead}>
+                <p className="eyebrow" style={{ color: 'var(--primary)' }}>{t('Free clinic review', 'مراجعة عيادة مجانية')}</p>
+                <h3>{t('Give me the basics.', 'أرسل الأساسيات.')}</h3>
+                <p style={{ color: 'var(--dark-gray)', marginBottom: 20 }}>
+                  {t("I'll look at the clinic before anyone tries to sell you anything.", 'بشوف العيادة قبل أي أحد يبيع لك أي شيء.')}
                 </p>
-
-                <label className="uae-modal__field">
-                  <span>{t('Name', 'الاسم')}</span>
+                {FORM_FIELDS.map(f => (
                   <input
-                    type="text"
-                    required
-                    placeholder={t('Your name', 'اسمك')}
-                    value={talkForm.name}
-                    onChange={e => setTalkForm({ ...talkForm, name: e.target.value })}
+                    key={f.key}
+                    className="uae-field"
+                    placeholder={t(f.placeholder.en, f.placeholder.ar)}
+                    value={leadForm[f.key]}
+                    onChange={e => setLeadForm({ ...leadForm, [f.key]: e.target.value })}
+                    required={f.key !== 'website'}
                   />
-                </label>
-
-                <label className="uae-modal__field">
-                  <span>{t('Email', 'البريد')}</span>
-                  <input
-                    type="email"
-                    required
-                    placeholder={t('you@clinic.com', 'you@clinic.com')}
-                    value={talkForm.email}
-                    onChange={e => setTalkForm({ ...talkForm, email: e.target.value })}
-                  />
-                </label>
-
-                <label className="uae-modal__field">
-                  <span>{t('Message', 'الرسالة')}</span>
-                  <textarea
-                    required
-                    rows={4}
-                    placeholder={t('What\u2019s on your mind?', 'وش عندك؟')}
-                    value={talkForm.message}
-                    onChange={e => setTalkForm({ ...talkForm, message: e.target.value })}
-                  />
-                </label>
-
-                <button
-                  type="submit"
-                  className="uae-btn uae-btn--primary uae-btn--lg"
-                  style={{ width: '100%', justifyContent: 'center', marginTop: 8 }}
-                  disabled={talkSubmitting}
-                >
-                  {talkSubmitting
-                    ? t('Sending...', 'إرسال...')
-                    : t('Send message', 'إرسال')
-                  }
-                  {!talkSubmitting && <ArrowRight size={16} />}
+                ))}
+                <button type="submit" className="btn" style={{ width: '100%', marginTop: 14 }} disabled={leadSubmitting}>
+                  {leadSubmitting ? t('Sending...', 'إرسال...') : t('Send it to Ray', 'أرسل لراي')}
+                  {!leadSubmitting && <ArrowRight size={16} style={{ marginLeft: 8 }} />}
                 </button>
               </form>
+            ) : (
+              <div className="uae-refsuccess">
+                <div className="uae-tick"><Check size={28} /></div>
+                <h3>{t("That's it.", 'خلاص.')}</h3>
+                <p style={{ color: 'var(--dark-gray)' }}>
+                  {t("I'll take a look at the clinic first. Then we'll talk only if there's something useful to talk about.", 'بشوف العيادة أول.بعدين نتكلم بس لو فيه شي يستاهل النقاش.')}
+                </p>
+              </div>
             )}
           </div>
         </div>
       )}
 
 
-      {/* ════════════════════════════════════════════
-          SECTION 6 — FINAL CTA + FORM
-          Psychology: "I should do this now"
-          ════════════════════════════════════════════ */}
-      <section className="uae-final" id="form-section" aria-labelledby="uae-final-heading" ref={addRef}>
-        <div className="uae-final__bg" aria-hidden="true">
-          <div className="uae-final__overlay" />
-        </div>
-
-        <div className="uae-final__inner">
-          <div className="uae-final__copy">
-            <p className="uae-eyebrow uae-eyebrow--light">{t('That\u2019s enough about me', 'خلنا نكفي عن كلامي')}</p>
-            <h2 id="uae-final-heading" className="uae-headline uae-headline--light">
-              {t('Where should we have karak?', 'وين نشرب كرك؟')}
-            </h2>
-            <p className="uae-lead uae-lead--light">
-              {t("Just enough for me to know who I\u2019m meeting.", 'بس عشان أعرف مين بقابله.')}
-            </p>
-            <p className="uae-lead uae-lead--light">
-              <strong>{t('English or العربية, whichever is easier.', 'إنجليزي أو عربي، أيهم أسهل.')}</strong>
-            </p>
-          </div>
-
-          <div className="uae-final__form" ref={formCardRef}>
-            <div className="uae-progress">
-              <div className="uae-progress__bar" style={{ width: `${((formStep + 1) / (FORM_STEPS.length + 1)) * 100}%` }} />
-            </div>
-
-            {formSubmitted ? (
-              <div className="uae-done">
-                <div className="uae-done__tick"><Check size={24} /></div>
-                <p className="uae-eyebrow uae-eyebrow--purple">{t('Khalas.', 'خلاص.')}</p>
-                <h3 className="uae-headline">{t('Karak soon,', 'كرك قريباً،')} {formData.name || 'Doctor'}.</h3>
-                <p className="uae-lead">
-                  {t(
-                    "I\u2019ll look at the clinic before we meet, so we can skip the introductions and talk about what actually matters.",
-                    'بتشوف العيادة قبل ما نتقابل، عشان نتجاوز التعريف ونتكلم عن اللي يهم فعلاً.'
-                  )}
+      {/* ═══════════════════════════════════════
+          REFERENCE MODAL
+          ═══════════════════════════════════════ */}
+      {refOpen && (
+        <div className="uae-modal" onClick={closeRef}>
+          <div className="uae-modal-box" onClick={e => e.stopPropagation()}>
+            <button className="uae-close" onClick={closeRef} aria-label="Close">&times;</button>
+            {!refSubmitted ? (
+              <form onSubmit={submitRef}>
+                <p className="eyebrow" style={{ color: 'var(--primary)' }}>{t('Direct reference', 'مرجع مباشر')}</p>
+                <h3>{t('Talk to', 'تكلم مع')} {refName}.</h3>
+                <p style={{ color: 'var(--dark-gray)', marginBottom: 20 }}>
+                  {t("Leave the basics. We'll coordinate the introduction rather than putting anyone's personal number on a public page.", 'أرسل الأساسيات. ننسّق التعريف بدل ما نحط رقم أحد على صفحة عامة.')}
                 </p>
-                <div className="uae-done__box">
-                  <strong>{t('What happens next?', 'وش يصير بعدين؟')}</strong>
-                  <p>{t(
-                    "A real person from our UAE team reviews what you\u2019ve shared, then contacts you in English or Arabic.",
-                    'شخص حقيقي من فريق الإمارات يشيك على اللي كتبته، ويتواصل معك بالإنجليزي أو العربي.'
-                  )}</p>
-                </div>
-                <p className="uae-ray__sig">\u2014 Ray</p>
-              </div>
+                {REF_FIELDS.map(f => (
+                  <input
+                    key={f.key}
+                    className="uae-field"
+                    placeholder={t(f.placeholder.en, f.placeholder.ar)}
+                    value={refForm[f.key]}
+                    onChange={e => setRefForm({ ...refForm, [f.key]: e.target.value })}
+                    required
+                  />
+                ))}
+                <button type="submit" className="btn" style={{ width: '100%', marginTop: 14 }} disabled={refSubmitting}>
+                  {refSubmitting ? t('Sending...', 'إرسال...') : t('Request introduction', 'طلب تعريف')}
+                  {!refSubmitting && <ArrowRight size={16} style={{ marginLeft: 8 }} />}
+                </button>
+              </form>
             ) : (
-              <>
-                {formStep === 0 && (
-                  <div className="uae-step">
-                    <h3 className="uae-step__title">{t("What's your name?", 'وش اسمك؟')}</h3>
-                    <input className="uae-input" placeholder={t('Your name', 'اسمك')} value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
-                  </div>
-                )}
-                {formStep === 1 && (
-                  <div className="uae-step">
-                    <h3 className="uae-step__title">{t('Which clinic?', 'أي عيادة؟')}</h3>
-                    <input className="uae-input" placeholder={t('Clinic name', 'اسم العيادة')} value={formData.clinic} onChange={e => setFormData({...formData, clinic: e.target.value})} />
-                    <input className="uae-input uae-input--mt" placeholder={t('Website or Instagram (optional)', 'موقع أو انستقرام (اختياري)')} value={formData.website} onChange={e => setFormData({...formData, website: e.target.value})} />
-                  </div>
-                )}
-                {formStep === 2 && (
-                  <div className="uae-step">
-                    <h3 className="uae-step__title">{t('Where in the UAE?', 'وين في الإمارات؟')}</h3>
-                    <div className="uae-opts">
-                      {['Dubai', 'Abu Dhabi', 'Sharjah', 'Al Ain', t('Somewhere else', 'مكان آخر')].map(loc => (
-                        <button key={loc} className={`uae-opt${selectedLocation === loc ? ' uae-opt--active' : ''}`} onClick={() => setSelectedLocation(loc)}>{loc}</button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {formStep === 3 && (
-                  <div className="uae-step">
-                    <h3 className="uae-step__title">{t('One thing you want to change?', 'شيء واحد تبيه يتغير؟')}</h3>
-                    <textarea className="uae-input uae-input--area" placeholder={t('Say it normally. No marketing language.', 'قولها عادي. بدون لغة تسويق.')} value={formData.goal} onChange={e => setFormData({...formData, goal: e.target.value})} />
-                  </div>
-                )}
-                {formStep === 4 && (
-                  <div className="uae-step">
-                    <h3 className="uae-step__title">{t('WhatsApp?', 'واتساب؟')}</h3>
-                    <input className="uae-input" placeholder={t('+971 ...', '+971 ...')} value={formData.whatsapp} onChange={e => setFormData({...formData, whatsapp: e.target.value})} />
-                    <div className="uae-opts uae-opts--mt">
-                      {['English', 'العربية', t('Either is fine', 'أيهم عادي')].map(l => (
-                        <button key={l} className={`uae-opt${selectedLanguage === l ? ' uae-opt--active' : ''}`} onClick={() => setSelectedLanguage(l)}>{l}</button>
-                      ))}
-                    </div>
-                    <label className="uae-consent">
-                      <input type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)} />
-                      <span>{t('You can contact me about meeting and my clinic.', 'تقدر تتواصل معي عن لقاء وعيادتي.')}</span>
-                    </label>
-                  </div>
-                )}
-
-                <div className="uae-form-nav">
-                  {formStep > 0 && <button className="uae-form-back" onClick={prevFormStep}>{t('← Back', '→ رجوع')}</button>}
-                  <span />
-                  <button className="uae-btn uae-btn--primary" onClick={nextFormStep}>
-                    {formStep === FORM_STEPS.length - 1 ? t("Let\u2019s have karak", 'خلينا نشرب كرك') : t('Continue', 'كمّل')}
-                    <ArrowRight size={16} />
-                  </button>
-                </div>
-              </>
+              <div className="uae-refsuccess">
+                <div className="uae-tick"><Check size={28} /></div>
+                <h3>{t('Got it.', 'تم.')}</h3>
+                <p style={{ color: 'var(--dark-gray)' }}>
+                  {t("We'll check with them and coordinate the introduction around their availability.", 'نشيك معهم وننسّق التعريف حسب توفرهم.')}
+                </p>
+              </div>
             )}
           </div>
         </div>
-      </section>
+      )}
 
     </main>
   )
