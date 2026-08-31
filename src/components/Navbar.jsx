@@ -205,6 +205,7 @@ const HIDE_AFTER_Y = 60
 
 export default function Navbar() {
   const pathname = usePathname()
+  const isUaePage = pathname === '/uae'
   const isHome = pathname === '/'
   const isDarkHero = isHome || pathname === '/dubai' || pathname === '/uae'
   const isWhoWeHelp = pathname === '/who-we-help' || pathname.startsWith('/who-we-help/')
@@ -336,7 +337,7 @@ export default function Navbar() {
     >
       <div className="container navbar__container">
         <div className="nav-content">
-          <Link href="/" className="logo" aria-label="Socialsect home" onClick={closeMenu}>
+          <Link href={isUaePage ? '/uae' : '/'} className="logo" aria-label="Socialsect home" onClick={closeMenu}>
             <img
               src="/icons/logo.svg"
               alt=""

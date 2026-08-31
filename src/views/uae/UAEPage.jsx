@@ -48,6 +48,7 @@ const PROOF_CARDS = [
 
 const FORM_FIELDS = [
   { key: 'name', placeholder: { en: 'Your name', ar: 'اسمك' } },
+  { key: 'email', placeholder: { en: 'Email', ar: 'البريد الإلكتروني' }, type: 'email' },
   { key: 'clinic', placeholder: { en: 'Clinic name', ar: 'اسم العيادة' } },
   { key: 'website', placeholder: { en: 'Website / Instagram (optional)', ar: 'موقع / انستقرام (اختياري)' } },
   { key: 'whatsapp', placeholder: { en: 'WhatsApp number', ar: 'رقم واتساب' } },
@@ -55,6 +56,7 @@ const FORM_FIELDS = [
 
 const REF_FIELDS = [
   { key: 'name', placeholder: { en: 'Your name', ar: 'اسمك' } },
+  { key: 'email', placeholder: { en: 'Email', ar: 'البريد الإلكتروني' }, type: 'email' },
   { key: 'clinic', placeholder: { en: 'Clinic name (optional)', ar: 'اسم العيادة (اختياري)' } },
   { key: 'whatsapp', placeholder: { en: 'WhatsApp number', ar: 'رقم واتساب' } },
 ]
@@ -313,6 +315,7 @@ export default function UAEPage() {
                 {FORM_FIELDS.map(f => (
                   <input
                     key={f.key}
+                    type={f.type || 'text'}
                     className="uae-field"
                     placeholder={t(f.placeholder.en, f.placeholder.ar)}
                     value={leadForm[f.key]}
@@ -356,11 +359,12 @@ export default function UAEPage() {
                 {REF_FIELDS.map(f => (
                   <input
                     key={f.key}
+                    type={f.type || 'text'}
                     className="uae-field"
                     placeholder={t(f.placeholder.en, f.placeholder.ar)}
                     value={refForm[f.key]}
                     onChange={e => setRefForm({ ...refForm, [f.key]: e.target.value })}
-                    required
+                    required={f.key !== 'clinic'}
                   />
                 ))}
                 <button type="submit" className="btn" style={{ width: '100%', marginTop: 14 }} disabled={refSubmitting}>
