@@ -263,6 +263,38 @@
   gap: 14px;
 }
 
+/* E-E-A-T stacked block with left dot (Process-section style) */
+.ps-eeat {
+  margin: 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ps-eeat__item {
+  position: relative;
+  padding-left: 20px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--dark-gray, #474555);
+  margin: 0;
+}
+
+.ps-eeat__dot {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary, #695af2);
+}
+
+.ps-eeat__item strong {
+  font-weight: 700;
+  color: var(--charcoal, #1a1c1d);
+}
+
 .ps-section__list-item {
   display: flex;
   align-items: flex-start;
