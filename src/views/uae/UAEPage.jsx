@@ -562,10 +562,13 @@ function TrustedBy({ t }) {
   const scrollRef = useRef(null)
   const [active, setActive] = useState(0)
   const [visibleCards, setVisibleCards] = useState(3)
+  const visibleCardsRef = useRef(3)
 
   useEffect(() => {
     const updateVisible = () => {
-      setVisibleCards(window.innerWidth <= 700 ? 1 : 3)
+      const next = window.innerWidth <= 700 ? 1 : 3
+      setVisibleCards(next)
+      visibleCardsRef.current = next
     }
     updateVisible()
     window.addEventListener('resize', updateVisible)
@@ -576,30 +579,32 @@ function TrustedBy({ t }) {
 
   const scrollToIndex = (idx) => {
     if (!scrollRef.current) return
-    const card = scrollRef.current.children[idx * visibleCards]
+    const vc = visibleCardsRef.current
+    const card = scrollRef.current.children[idx * vc]
     if (card) card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' })
   }
 
   const scroll = (dir) => {
     if (!scrollRef.current) return
-    const next = dir === 'left' ? Math.max(0, active - 1) : Math.min(totalPages - 1, active + 1)
+    const vc = visibleCardsRef.current
+    const tp = Math.ceil(CLINICS.length / vc)
+    const next = dir === 'left' ? Math.max(0, active - 1) : Math.min(tp - 1, active + 1)
     setActive(next)
     scrollToIndex(next)
-  }
-
-  const onScroll = () => {
-    if (!scrollRef.current) return
-    const el = scrollRef.current
-    const scrollLeft = el.scrollLeft
-    const cardWidth = el.children[0]?.offsetWidth || 220
-    const gap = 16
-    const idx = Math.round(scrollLeft / ((cardWidth + gap) * visibleCards))
-    setActive(Math.min(totalPages - 1, Math.max(0, idx)))
   }
 
   useEffect(() => {
     const el = scrollRef.current
     if (!el) return
+    const onScroll = () => {
+      const vc = visibleCardsRef.current
+      const tp = Math.ceil(CLINICS.length / vc)
+      const scrollLeft = el.scrollLeft
+      const cardWidth = el.children[0]?.offsetWidth || 220
+      const gap = 16
+      const idx = Math.round(scrollLeft / ((cardWidth + gap) * vc))
+      setActive(Math.min(tp - 1, Math.max(0, idx)))
+    }
     el.addEventListener('scroll', onScroll, { passive: true })
     return () => el.removeEventListener('scroll', onScroll)
   }, [])
