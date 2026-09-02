@@ -1569,11 +1569,11 @@
   .hero__right { min-height:500px; }
 }
 @media (max-width:700px){
-  .hero { min-height:auto; padding:100px 0 54px; }
+  .hero { min-height:auto; padding:100px 0 54px; overflow:hidden; }
   .hero__inner { width:calc(100% - 30px); }
   .hero__top { margin-bottom:28px; }.hero__h1 { font-size:52px; }.hero__sub { font-size:17px; }
-  .hero__right { min-height:420px; }
-  .hero__wheel { width:320px; height:320px; margin-top:10px; }
+  .hero__right { min-height:auto; overflow:hidden; }
+  .hero__wheel { width:280px; height:280px; margin-top:10px; }
   .hero__stage { width:72px; height:72px; gap:4px; }
   .hero__stage-obj { width:32px; height:32px; }
   .stage-visual { width:28px; height:28px; }
@@ -1668,7 +1668,7 @@
   .hero__wheel{width:440px;height:440px}.hero__stage{width:108px;min-height:118px}.hero__stage-card{width:82px;height:82px;border-radius:23px}.hero__stage-visual{transform:scale(1)}.hero__wheel-caption{bottom:94px}
 }
 @media (max-width:700px){
-  .hero__wheel{width:340px;height:340px}.hero__stage{width:82px;min-height:94px;gap:6px}.hero__stage-card{width:68px;height:68px;border-radius:20px}.hero__stage-visual{width:42px;height:42px;transform:scale(.88)}.hero__stage--active .hero__stage-visual{animation:none}.hero__stage-num{width:25px;height:25px;right:-5px;top:-5px;font-size:9px}.hero__stage-label{font-size:10px}.hero__wheel-ring--outer{inset:15px}.hero__wheel-ring--inner,.hero__wheel-track,.hero__wheel-progress{inset:58px}.hero__wheel-caption{bottom:70px}
+  .hero__wheel{width:280px;height:280px}.hero__stage{width:72px;min-height:80px;gap:4px}.hero__stage-card{width:58px;height:58px;border-radius:16px}.hero__stage-visual{width:36px;height:36px;transform:scale(.85)}.hero__stage--active .hero__stage-visual{animation:none}.hero__stage-num{width:22px;height:22px;right:-4px;top:-4px;font-size:8px}.hero__stage-label{font-size:9px}.hero__wheel-ring--outer{inset:10px}.hero__wheel-ring--inner,.hero__wheel-track,.hero__wheel-progress{inset:46px}.hero__wheel-caption{bottom:60px}
 }
 @media (prefers-reduced-motion:reduce){.hero__wheel-core,.hero__stage--active .hero__stage-visual{animation:none}.hero__wheel-progress,.hero__stage-card{transition:none}}
 
