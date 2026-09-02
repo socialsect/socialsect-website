@@ -396,6 +396,27 @@
     }
   }
 
+  .chat-widget__header {
+    padding: 14px 16px;
+  }
+
+  .chat-widget__close {
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    color: #1A1C1D;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chat-widget__close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #000;
+  }
+
   .chat-message__content {
     max-width: 90%;
   }

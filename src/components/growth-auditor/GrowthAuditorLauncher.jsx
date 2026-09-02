@@ -1,11 +1,15 @@
 'use client'
 
 import React, { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import GrowthAuditorWidget from './GrowthAuditorWidget'
 import './GrowthAuditorLauncher.css'
 
 export default function GrowthAuditorLauncher() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
+
+  if (pathname === '/uae') return null
 
   return (
     <>
