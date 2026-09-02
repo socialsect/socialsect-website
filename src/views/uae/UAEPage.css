@@ -1626,6 +1626,7 @@
   display:flex; flex-direction:column; align-items:center; gap:9px;
   background:transparent; border:0; cursor:pointer; z-index:3;
   transition:filter .25s ease;
+  transform:translate(var(--tx, 0), var(--ty, 0)) translate(-50%, -50%);
 }
 /* IMPORTANT: never transform the button on hover — its orbital position stays fixed. */
 .hero__stage:hover { filter:none; }
@@ -1668,7 +1669,8 @@
   .hero__wheel{width:440px;height:440px}.hero__stage{width:108px;min-height:118px}.hero__stage-card{width:82px;height:82px;border-radius:23px}.hero__stage-visual{transform:scale(1)}.hero__wheel-caption{bottom:94px}
 }
 @media (max-width:700px){
-  .hero__wheel{width:280px;height:280px}.hero__stage{width:72px;min-height:80px;gap:4px}.hero__stage-card{width:58px;height:58px;border-radius:16px}.hero__stage-visual{width:36px;height:36px;transform:scale(.85)}.hero__stage--active .hero__stage-visual{animation:none}.hero__stage-num{width:22px;height:22px;right:-4px;top:-4px;font-size:8px}.hero__stage-label{font-size:9px}.hero__wheel-ring--outer{inset:10px}.hero__wheel-ring--inner,.hero__wheel-track,.hero__wheel-progress{inset:46px}.hero__wheel-caption{bottom:60px}
+  .hero__wheel{width:280px;height:280px;overflow:hidden}
+  .hero__stage{--tx-scale:0.7;--ty-scale:0.7;transform:translate(calc(var(--tx, 0px) * var(--tx-scale, 1)), calc(var(--ty, 0px) * var(--ty-scale, 1))) translate(-50%, -50%)}.hero__stage{width:72px;min-height:80px;gap:4px}.hero__stage-card{width:58px;height:58px;border-radius:16px}.hero__stage-visual{width:36px;height:36px;transform:scale(.85)}.hero__stage--active .hero__stage-visual{animation:none}.hero__stage-num{width:22px;height:22px;right:-4px;top:-4px;font-size:8px}.hero__stage-label{font-size:9px}.hero__wheel-ring--outer{inset:10px}.hero__wheel-ring--inner,.hero__wheel-track,.hero__wheel-progress{inset:46px}.hero__wheel-caption{bottom:60px}
 }
 @media (prefers-reduced-motion:reduce){.hero__wheel-core,.hero__stage--active .hero__stage-visual{animation:none}.hero__wheel-progress,.hero__stage-card{transition:none}}
 

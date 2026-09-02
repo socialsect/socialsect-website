@@ -311,7 +311,8 @@ function Hero({ t, lang, toggleLang }) {
                     key={s.id}
                     className={`hero__stage ${i === active ? 'hero__stage--active' : ''}`}
                     style={{
-                      transform: `translate(${x}px, ${y}px) translate(-50%, -50%)`,
+                      '--tx': `${x}px`,
+                      '--ty': `${y}px`,
                       '--stage-color': s.color
                     }}
                     onClick={() => setActive(i)}
