@@ -1568,7 +1568,7 @@
   .hero__right { min-height:500px; }
 }
 @media (max-width:700px){
-  .hero { min-height:auto; padding:100px 0 54px; overflow:hidden; }
+  .hero { min-height:auto; padding:120px 0 54px; overflow:hidden; }
   .hero__inner { width:calc(100% - 30px); }
   .hero__top { margin-bottom:28px; }.hero__h1 { font-size:52px; }.hero__sub { font-size:17px; }
   .hero__right { min-height:auto; }
