@@ -207,7 +207,7 @@ export default function Navbar() {
   const pathname = usePathname()
   const isUaePage = pathname === '/uae'
   const isHome = pathname === '/'
-  const isDarkHero = isHome || pathname === '/dubai' || pathname === '/uae'
+  const isDarkHero = isHome || pathname === '/dubai'
   const isWhoWeHelp = pathname === '/who-we-help' || pathname.startsWith('/who-we-help/')
   const isInsights = pathname === '/insights' || pathname.startsWith('/insights/')
   const isServices =
@@ -325,6 +325,7 @@ export default function Navbar() {
     <nav
       className={[
         'navbar',
+        isUaePage ? 'navbar--uae' : '',
         isDarkHero ? 'navbar--hero' : '',
         navScrolled ? 'navbar--scrolled' : '',
         navVisible ? 'navbar--visible' : 'navbar--hidden',
@@ -337,7 +338,8 @@ export default function Navbar() {
     >
       <div className="container navbar__container">
         <div className="nav-content">
-          <Link href={isUaePage ? '/uae' : '/'} className="logo" aria-label="Socialsect home" onClick={closeMenu}>
+          {!isUaePage && (
+          <Link href="/" className="logo" aria-label="Socialsect home" onClick={closeMenu}>
             <img
               src="/icons/logo.svg"
               alt=""
@@ -347,6 +349,7 @@ export default function Navbar() {
               decoding="async"
             />
           </Link>
+          )}
 
           <button
             type="button"
@@ -360,6 +363,36 @@ export default function Navbar() {
           </button>
 
           {/* Desktop navigation  center links */}
+          {isUaePage ? (
+            <>
+              <div className="nav-links nav-links--desktop nav-links--uae-left">
+                <a href="#pipeline">How it works</a>
+                <a href="#case-studies">Results</a>
+                <a href="/who-we-help">Who we help</a>
+              </div>
+
+              <Link href="/uae" className="logo" aria-label="Socialsect home" onClick={closeMenu}>
+                <img
+                  src="/icons/logo.svg"
+                  alt=""
+                  className="logo__mark"
+                  width={70}
+                  height={70}
+                  decoding="async"
+                />
+              </Link>
+
+              <div className="nav-links nav-links--desktop nav-links--uae-right">
+                <a href="/about">About</a>
+                <a href="#faq">FAQ</a>
+                <div className="nav-links__actions nav-links__actions--desktop">
+                  <a href="#clinic-review" className="nav-cta--book-call">
+                    Get Your Clinic Review <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </>
+          ) : (
           <div className="nav-links nav-links--desktop">
             <div className="nav-links__center">
             <div className={`nav-item${isServices ? ' nav-item--active' : ''}`}>
@@ -471,12 +504,15 @@ export default function Navbar() {
             <Link href="/about">About</Link>
             </div>
           </div>
+          )}
 
+          {!isUaePage && (
           <div className="nav-links__actions nav-links__actions--desktop">
             <BookCallLink className="btn btn-primary nav-cta--book-call">
               Book a call
             </BookCallLink>
           </div>
+          )}
         </div>
       </div>
     </nav>

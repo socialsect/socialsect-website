@@ -1219,3 +1219,297 @@
     display: none;
   }
 }
+
+
+/* ═══════════════════════════════════════════
+   UAE LANDING PAGE — Floating Glass Capsule
+   ═══════════════════════════════════════════ */
+
+.navbar--uae {
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  --navbar-height: 110px;
+  pointer-events: none;
+}
+
+.navbar--uae ~ .navbar-spacer {
+  display: none;
+}
+
+/* Keep capsule always visible — override scroll-hide */
+.navbar--uae.navbar--hidden {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.navbar--uae .navbar__container {
+  max-width: none;
+  padding: 0;
+  pointer-events: none;
+}
+
+.navbar--uae .nav-content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+  padding: 0 12px;
+  max-width: 900px;
+  height: 62px;
+  margin: 24px auto 0;
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ── Left links ── */
+.navbar--uae .nav-links--uae-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  padding-right: 28px;
+  pointer-events: auto;
+}
+
+.navbar--uae .nav-links--uae-left > a {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 10px;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  transition: color 0.25s ease, background 0.25s ease;
+  font-family: var(--font-body);
+}
+
+.navbar--uae .nav-links--uae-left > a:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Logo (center) ── */
+.navbar--uae .logo {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.navbar--uae .logo__mark {
+  height: 36px;
+  width: 36px;
+}
+
+/* ── Right links + CTA ── */
+.navbar--uae .nav-links--uae-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  padding-left: 28px;
+  pointer-events: auto;
+}
+
+.navbar--uae .nav-links--uae-right > a {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 10px;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  transition: color 0.25s ease, background 0.25s ease;
+  font-family: var(--font-body);
+}
+
+.navbar--uae .nav-links--uae-right > a:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── CTA button ── */
+.navbar--uae .nav-links--uae-right .nav-cta--book-call,
+.navbar--uae .nav-links--uae-right .btn.btn-primary.nav-cta--book-call {
+  background: #3563FF;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 12px rgba(53, 99, 255, 0.25);
+}
+
+.navbar--uae .nav-links--uae-right .nav-cta--book-call:hover {
+  background: #4670ff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(53, 99, 255, 0.35);
+}
+
+/* Hide original desktop actions (CTA is now inside uae-right) */
+.navbar--uae .nav-links__actions--desktop {
+  display: none !important;
+}
+
+/* Hide dropdown arrows and dropdowns */
+.navbar--uae .dropdown-toggle svg,
+.navbar--uae .dropdown-toggle {
+  display: none;
+}
+
+.navbar--uae .dropdown {
+  display: none !important;
+}
+
+.navbar--uae .nav-item > a {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.navbar--uae .nav-item > a svg {
+  display: none;
+}
+
+/* ── Mobile toggle (hidden on desktop, shown on mobile) ── */
+.navbar--uae .nav-menu-toggle {
+  display: none;
+}
+
+/* ── Scroll: opaque glass with dark text over white sections ── */
+.navbar--uae.navbar--scrolled .nav-content {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Override base scrolled shadow for UAE */
+.navbar--uae.navbar--scrolled {
+  box-shadow: none !important;
+}
+
+.navbar--uae.navbar--scrolled .nav-links--uae-left > a,
+.navbar--uae.navbar--scrolled .nav-links--uae-right > a {
+  color: #4B5563;
+}
+
+.navbar--uae.navbar--scrolled .nav-links--uae-left > a:hover,
+.navbar--uae.navbar--scrolled .nav-links--uae-right > a:hover {
+  color: #0B1D3A;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* ── Mobile ── */
+@media (max-width: 1023px) {
+  .navbar--uae {
+    --navbar-height: 90px;
+    pointer-events: auto;
+  }
+
+  .navbar--uae .navbar__container {
+    padding: 0;
+    pointer-events: auto;
+  }
+
+  .navbar--uae .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    height: 60px;
+    max-width: none;
+    margin: 12px 16px 0;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px) saturate(1.6);
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+  }
+
+  .navbar--uae .logo {
+    order: 2;
+    pointer-events: auto;
+  }
+
+  .navbar--uae .logo__mark {
+    height: 30px;
+    width: 30px;
+  }
+
+  .navbar--uae .nav-links--uae-left,
+  .navbar--uae .nav-links--uae-right {
+    display: none !important;
+  }
+
+  .navbar--uae .nav-menu-toggle {
+    display: flex;
+    order: 3;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background 0.2s, border-color 0.2s;
+    pointer-events: auto;
+  }
+
+  .navbar--uae .nav-menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+
+  /* Mobile drawer — dark glass to match UAE */
+  .navbar--uae ~ .mobile-nav {
+    background: rgba(7, 21, 47, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .navbar--uae ~ .mobile-nav .mobile-nav__top-link,
+  .navbar--uae ~ .mobile-nav .mobile-nav__group-toggle {
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .navbar--uae ~ .mobile-nav .mobile-nav__cta {
+    background: #3563FF;
+    color: #fff;
+    border: none;
+  }
+
+  .navbar--uae ~ .nav-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}

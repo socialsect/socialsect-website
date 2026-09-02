@@ -85,7 +85,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="intro-check"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               try {

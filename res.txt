@@ -1,0 +1,57 @@
+# HERO REDESIGN PLAN — IMPLEMENTED DIRECTION
+
+## CHOSEN: OPTION A (Light / Colorful Patient Journey Wheel)
+
+### Why not dark:
+- LGJ uses light bg (199K white pixels vs 33K dark — light with vibrant objects)
+- Healthcare needs trust, not intimidation
+- Dark + glowing elements risks recreating the AI neural network look we're fleeing from
+
+### Canvas:
+- Background: white to very light blue (#FFFFFF → #F3F7FF)
+- Typography: deep navy (#07152F)
+- Accent colors: vibrant, saturated (electric blue, violet, cyan, coral, teal)
+- Color strongest on interactive elements only
+
+### Patient Journey Wheel (no AI aesthetics):
+- ONE primary circular journey path (thin, colored)
+- Stage objects: solid, colorful, healthcare-shaped SVGs with shadows
+- NO concentric rings, NO glowing core, NO network dots, NO HUD lines
+- Center: interactive patient journey state (NOT an AI core)
+
+### Five Stage Objects:
+01 ENQUIRY — blue envelope/message card
+02 CONVERSATION — green WhatsApp-style chat bubble
+03 QUALIFIED — cyan checklist/tag
+04 BOOKED — coral/magenta calendar
+05 ATTENDED — teal stethoscope/patient
+
+### Center State Examples:
+- ENQUIRY: "New patient reaches your clinic"
+- BOOKED: "Thursday 4:30 PM" + calendar visual
+- CONVERSATION: chat bubble with "Hi, I'd like to know about Invisalign."
+
+### Interaction Principles (from LGJ, not visual style):
+- Word-by-word headline reveal
+- Stage hover: object lifts + path animates
+- Active state: center transitions with content
+- Activity feed updates on stage change
+- Micro-interactions: hover scale, path pulse, card slide
+
+### Typography:
+- Headline: Space Grotesk Bold (fix CSS specificity bug)
+- Subheadline: Inter Regular
+- Deep navy for primary text, vibrant blue for emphasis words
+
+### Navbar:
+- Minimal: logo once, "How it works | Results | Who we help | About"
+- CTA: "Get Your Clinic Review →"
+- No giant floating rounded container
+- Compact, integrated, sticky
+
+### Technical:
+- Fix CSS specificity: .ur h1 overrides .hero__h1 — use !important or increase specificity
+- Space Grotesk already loaded in /public/fonts/
+- No new dependencies
+- Pure CSS animations + React state
+- Preserve submitForm, EN/AR toggle, routing
