@@ -3,7 +3,10 @@ import JsonLd from '@/components/JsonLd'
 import UAEPage from '@/views/uae/UAEPage'
 
 const cfg = getSeoConfig('/uae')
-export const metadata = toNextMetadata(cfg)
+export const metadata = {
+  ...toNextMetadata(cfg),
+  themeColor: '#07152F',
+}
 
 export default function Page() {
   return (
