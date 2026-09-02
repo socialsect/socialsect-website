@@ -723,7 +723,7 @@ function VideoWalkthrough({ t }) {
         <div className="vw__logos-bar">
           <span className="vw__logos-label">{t('TRUSTED BY CLINIC\nOWNERS ACROSS UAE', 'موثوق من أصحاب\nالعيادات في الإمارات')}</span>
           <div className="vw__logos-row">
-            {CLINICS.map((c, i) => (
+            {CLINICS.slice(1, 5).map((c, i) => (
               <img key={i} src={c.logo} alt={c.name} className="vw__logos-img" />
             ))}
           </div>
