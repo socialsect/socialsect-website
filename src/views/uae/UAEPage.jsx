@@ -561,7 +561,17 @@ function StatIcon({ type, color }) {
 function TrustedBy({ t }) {
   const scrollRef = useRef(null)
   const [active, setActive] = useState(0)
-  const visibleCards = 3
+  const [visibleCards, setVisibleCards] = useState(3)
+
+  useEffect(() => {
+    const updateVisible = () => {
+      setVisibleCards(window.innerWidth <= 700 ? 1 : 3)
+    }
+    updateVisible()
+    window.addEventListener('resize', updateVisible)
+    return () => window.removeEventListener('resize', updateVisible)
+  }, [])
+
   const totalPages = Math.ceil(CLINICS.length / visibleCards)
 
   const scrollToIndex = (idx) => {
