@@ -1572,10 +1572,8 @@
   .hero { min-height:auto; padding:100px 0 54px; overflow:hidden; }
   .hero__inner { width:calc(100% - 30px); }
   .hero__top { margin-bottom:28px; }.hero__h1 { font-size:52px; }.hero__sub { font-size:17px; }
-  .hero__right { min-height:auto; overflow:hidden; }
-  .hero__wheel { width:280px; height:280px; margin-top:10px; }
-  .hero__stage { width:72px; height:72px; gap:4px; }
-  .hero__stage-obj { width:32px; height:32px; }
+  .hero__right { min-height:auto; }
+  .hero__wheel { width:280px; height:280px; }
   .stage-visual { width:28px; height:28px; }
   .stage-mail-top { width:24px; height:18px; border-width:2px; }
   .stage-mail-top::after,.stage-mail-top::before { width:13px; height:2px; }
@@ -1593,8 +1591,6 @@
   .stage-person-head { width:11px; height:11px; left:9px; top:3px; }
   .stage-person-body { width:19px; height:13px; left:5px; top:16px; border-width:2px; }
   .stage-attend-check { width:13px; height:13px; font-size:7px; line-height:13px; }
-  .hero__stage-num { width:22px; height:22px; font-size:9px; }
-  .hero__stage--active .hero__stage-num { font-size:9px; }
 }
 /* ============================================================
    HERO — FOUR-STAGE PATIENT JOURNEY
@@ -1669,8 +1665,8 @@
   .hero__wheel{width:440px;height:440px}.hero__stage{width:108px;min-height:118px}.hero__stage-card{width:82px;height:82px;border-radius:23px}.hero__stage-visual{transform:scale(1)}.hero__wheel-caption{bottom:94px}
 }
 @media (max-width:700px){
-  .hero__wheel{width:280px;height:280px;overflow:hidden}
-  .hero__stage{--tx-scale:0.7;--ty-scale:0.7;transform:translate(calc(var(--tx, 0px) * var(--tx-scale, 1)), calc(var(--ty, 0px) * var(--ty-scale, 1))) translate(-50%, -50%)}.hero__stage{width:72px;min-height:80px;gap:4px}.hero__stage-card{width:58px;height:58px;border-radius:16px}.hero__stage-visual{width:36px;height:36px;transform:scale(.85)}.hero__stage--active .hero__stage-visual{animation:none}.hero__stage-num{width:22px;height:22px;right:-4px;top:-4px;font-size:8px}.hero__stage-label{font-size:9px}.hero__wheel-ring--outer{inset:10px}.hero__wheel-ring--inner,.hero__wheel-track,.hero__wheel-progress{inset:46px}.hero__wheel-caption{bottom:60px}
+  .hero__wheel{width:280px;height:280px}
+  .hero__stage{--tx-scale:0.7;--ty-scale:0.7;transform:translate(calc(var(--tx, 0px) * var(--tx-scale, 1)), calc(var(--ty, 0px) * var(--ty-scale, 1))) translate(-50%, -50%);width:72px;min-height:80px;gap:4px}.hero__stage-card{width:58px;height:58px;border-radius:16px}.hero__stage-visual{width:36px;height:36px;transform:scale(.85)}.hero__stage--active .hero__stage-visual{animation:none}.hero__stage-num{width:22px;height:22px;right:-4px;top:-4px;font-size:8px}.hero__stage-label{font-size:9px}.hero__wheel-ring--outer{inset:10px}.hero__wheel-ring--inner,.hero__wheel-track,.hero__wheel-progress{inset:46px}.hero__wheel-caption{bottom:60px}
 }
 @media (prefers-reduced-motion:reduce){.hero__wheel-core,.hero__stage--active .hero__stage-visual{animation:none}.hero__wheel-progress,.hero__stage-card{transition:none}}
 
