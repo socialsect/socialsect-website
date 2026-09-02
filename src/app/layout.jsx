@@ -4,6 +4,7 @@ import Script from 'next/script'
 import Providers from './providers'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import UAEFooter from '@/components/UAEFooter'
 
 import GrowthAuditorLauncher from '@/components/growth-auditor/GrowthAuditorLauncher'
 import { getSeoConfig } from '@/lib/seo'
@@ -115,6 +116,7 @@ export default function RootLayout({ children }) {
             {children}
 
             <GrowthAuditorLauncher />
+            <UAEFooter />
             <Footer />
           </div>
         </Providers>

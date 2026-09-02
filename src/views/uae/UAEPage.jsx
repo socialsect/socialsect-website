@@ -911,7 +911,7 @@ function FaqSectionNew({ t, onBookMeeting }) {
               </div>
               <div className="fqn__card-text">
                 <span className="fqn__card-title">{t('Still have questions?', 'عندك أسئلة؟')}</span>
-                <a href="#clinic-review" className="fqn__card-link" onClick={(e) => { e.preventDefault(); document.getElementById('clinic-review')?.scrollIntoView({ behavior: 'smooth' }) }}>
+                <a href="#clinic-review" className="fqn__card-link" onClick={(e) => { e.preventDefault(); onBookMeeting(); }}>
                   {t("Let's talk it through", 'خلنا نتكلم')} <span>→</span>
                 </a>
               </div>

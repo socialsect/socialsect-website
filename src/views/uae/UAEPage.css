@@ -1514,7 +1514,7 @@
 .hero__line--strong { color:#fff; }
 .hero__line--dim { color:#94A3B8; }
 .hero__line--accent { color:#fff; }
-.hero__line--accent::after { content:''; display:inline-block; width:.22em; height:.22em; margin-left:.1em; border-radius:50%; background:#FF3B72; vertical-align:.16em; box-shadow:0 0 22px rgba(255,59,114,.7); }
+.hero__line--accent::after { display:none; }
 @keyframes heroLineIn { to { opacity:1; transform:translateY(0); } }
 .hero__sub { color:#CBD5E1; max-width: 520px; font-size:18px; line-height:1.62; margin-bottom:34px; }
 .hero__cta { background:#3563FF; border-radius:12px; box-shadow:0 14px 34px rgba(53,99,255,.34); }
