@@ -157,7 +157,7 @@ export default function UAEPage() {
 
   return (
     <main className="ur">
-      <Hero t={t} lang={lang} toggleLang={toggleLang} />
+      <Hero t={t} lang={lang} toggleLang={toggleLang} onBookMeeting={() => setBookMeetingOpen(true)} />
       <PipelineExplorer t={t} />
       <TrustedBy t={t} />
       <VideoWalkthrough t={t} />
@@ -249,7 +249,7 @@ function StageVisual({ stageId, color, size = 24 }) {
   )
 }
 
-function Hero({ t, lang, toggleLang }) {
+function Hero({ t, lang, toggleLang, onBookMeeting }) {
   const [active, setActive] = useState(0)
   const stage = STAGES[active]
 
@@ -282,7 +282,7 @@ function Hero({ t, lang, toggleLang }) {
               {t('Socialsect builds the system that turns patient demand into booked consultations.', 'Socialsect تبني النظام الذي يحوّل الطلب إلى استشارات محجوزة.')}
             </p>
             <div className="hero__actions">
-              <button className="hero__cta" onClick={(e) => { e.preventDefault(); scrollTo('diagnostic') }}>
+              <button className="hero__cta" onClick={(e) => { e.preventDefault(); onBookMeeting(); }}>
                 {t('Get Your Clinic Review', 'احصل على مراجعة عيادتك')} <span className="hero__cta-arrow">→</span>
               </button>
               <button className="hero__cta hero__cta--ghost" onClick={(e) => { e.preventDefault(); scrollTo('pipeline') }}>
