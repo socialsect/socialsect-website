@@ -318,7 +318,7 @@
   font-family: var(--font-body);
   padding: 0;
   transform-origin: center;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: none;
 }
 
 .hero__stage:hover {
@@ -624,7 +624,7 @@
 @media (max-width: 640px) {
   .hero {
     min-height: auto;
-    padding: 100px 0 60px;
+    padding: 120px 0 60px;
   }
 
   .hero__inner {
@@ -640,7 +640,7 @@
   .hero__h1 {
     font-size: 32px;
     line-height: 1.05;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
   }
 
   .hero__line {
@@ -650,6 +650,7 @@
 
   .hero__actions {
     flex-direction: column;
+    gap: 12px;
   }
 
   .hero__cta,
@@ -4518,13 +4519,14 @@
   border: 0;
   cursor: pointer;
   z-index: 3;
-  transition: filter .25s ease;
+  transition: none;
   transform: translate(var(--tx, 0), var(--ty, 0)) translate(-50%, -50%);
 }
 
 /* IMPORTANT: never transform the button on hover — its orbital position stays fixed. */
 .hero__stage:hover {
   filter: none;
+  transform: translate(var(--tx, 0), var(--ty, 0)) translate(-50%, -50%);
 }
 
 .hero__stage-card {
@@ -4540,7 +4542,7 @@
   box-shadow: 0 16px 42px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .10);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transition: transform .4s cubic-bezier(.22, 1, .36, 1), background .35s ease, border-color .35s ease, box-shadow .35s ease;
+  transition: background .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
 
 .hero__stage:hover .hero__stage-card {
@@ -4613,7 +4615,6 @@
 
 .hero__stage--active .hero__stage-label {
   color: #fff;
-  transform: translateY(-1px);
 }
 
 .hero__wheel-caption {
