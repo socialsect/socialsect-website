@@ -244,7 +244,7 @@
   letter-spacing: -.055em;
   font-weight: 700;
   /* MORE BREATHING ROOM between heading and CTA */
-  margin-bottom: 40px;
+  margin-bottom: 64px !important;
 }
 
 .hero__line {
@@ -750,7 +750,7 @@
   }
   .hero__h1 {
     font-size: 52px;
-    margin-bottom: 32px;
+    margin-bottom: 32px !important;
   }
   .hero__sub {
     font-size: 17px;
