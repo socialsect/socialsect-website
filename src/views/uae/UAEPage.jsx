@@ -159,8 +159,8 @@ export default function UAEPage() {
     <main className="ur">
       <Hero t={t} lang={lang} toggleLang={toggleLang} onBookMeeting={() => setBookMeetingOpen(true)} />
       <PipelineExplorer t={t} />
+      <VideoWalkthrough t={t} onBookMeeting={() => setBookMeetingOpen(true)} />
       <TrustedBy t={t} />
-      <VideoWalkthrough t={t} />
       <ProvenResults t={t} />
       <HowItWorks t={t} onBookMeeting={() => setBookMeetingOpen(true)} />
       <TalkToDoctors t={t} />
@@ -676,7 +676,7 @@ const WALKTHROUGH_FEATURES = [
   { icon: 'check', text: 'Real results from\nreal clinics.', color: '#0EB981' },
 ]
 
-function VideoWalkthrough({ t }) {
+function VideoWalkthrough({ t, onBookMeeting }) {
   const [playing, setPlaying] = useState(false)
 
   return (
@@ -705,6 +705,12 @@ function VideoWalkthrough({ t }) {
               </span>
             </button>
           )}
+        </div>
+
+        <div className="vw__cta-wrap">
+          <button className="vw__cta" onClick={onBookMeeting}>
+            {t('Talk to Ray now"', 'احصل على مراجعة عيادتك')} <span className="vw__cta-arrow">→</span>
+          </button>
         </div>
 
         <div className="vw__features">
