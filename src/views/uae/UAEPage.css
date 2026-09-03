@@ -244,7 +244,7 @@
   letter-spacing: -.055em;
   font-weight: 700;
   /* MORE BREATHING ROOM between heading and CTA */
-  margin-bottom: 64px !important;
+  margin-bottom: 52px !important;
 }
 
 .hero__line {
