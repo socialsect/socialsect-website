@@ -709,7 +709,7 @@ function VideoWalkthrough({ t, onBookMeeting }) {
 
         <div className="vw__cta-wrap">
           <button className="vw__cta" onClick={onBookMeeting}>
-            {t('Talk to Ray now"', 'احصل على مراجعة عيادتك')} <span className="vw__cta-arrow">→</span>
+            {t('Talk to Ray now', 'احصل على مراجعة عيادتك')} <span className="vw__cta-arrow">→</span>
           </button>
         </div>
 
