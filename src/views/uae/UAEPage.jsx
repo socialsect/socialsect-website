@@ -1,12 +1,11 @@
 'use client'
 import { useEffect, useLayoutEffect, useState, useRef, Fragment } from 'react'
-import { submitForm } from '../../lib/submitForm'
 import VideoPlayer from '../../components/VideoPlayer'
 import BookMeetingModal from '../../components/BookMeetingModal'
 import './UAEPage.css'
 
 /* ──────────────────────────────────────────────
-   PIPELINE FLOW DATA
+   PIPELINE FLOW DATA (kept — used)
    ────────────────────────────────────────────── */
 
 const PIPELINE_STEPS = [
@@ -52,75 +51,175 @@ const TRUST_ITEMS = [
 ]
 
 /* ──────────────────────────────────────────────
-   OTHER DATA
+   OTHER DATA (kept — used)
    ────────────────────────────────────────────── */
 
-const CASE_STUDIES = [
+const CLINICS = [
+  { name: 'Enliven Counselling Center', location: 'Dubai, UAE', speciality: 'Counselling & Mental Health', logo: '/images/clinics/enliven.webp', color: '#7C3AED' },
+  { name: 'Visage Polyclinic', location: 'Dubai, UAE', speciality: 'Multi-speciality Polyclinic', logo: '/images/clinics/visage.webp', color: '#B8860B' },
+  { name: 'Smile Signature Dental Clinic', location: 'Abu Dhabi, UAE', speciality: 'Dental', logo: '/images/clinics/smile-signature.png', color: '#B8860B' },
+  { name: 'Lumière Aesthetics Clinic', location: 'Dubai, UAE', speciality: 'Aesthetic Medicine', logo: '/images/clinics/lumiere.png', color: '#EC4899' },
+  { name: 'Orthocare Clinic', location: 'Sharjah, UAE', speciality: 'Orthopaedics & Sports Medicine', logo: '/images/clinics/orthocare.png', color: '#0891B2' },
+  { name: 'Derma Advanced Skin Clinic', location: 'Dubai, UAE', speciality: 'Dermatology', logo: '/images/clinics/derma.png', color: '#EC4899' },
+]
+
+const STATS = [
+  { val: '30+', label: 'Clinics Onboarded', icon: 'stats-clinics', color: '#7C3AED' },
+  { val: '1,000+', label: 'Consultations Booked', icon: 'stats-booked', color: '#7C3AED' },
+  { val: '85%+', label: 'Show Up Rate', icon: 'stats-showup', color: '#7C3AED' },
+  { val: '40%+', label: 'Average Enquiry Increase', icon: 'stats-growth', color: '#7C3AED' },
+]
+
+const WALKTHROUGH_FEATURES = [
+  { icon: 'target', text: 'See our exact\nprocess in action.', color: '#FF3B72' },
+  { icon: 'people', text: 'How we turn enquiries\ninto appointments.', color: '#7C3AED' },
+  { icon: 'check', text: 'Real results from\nreal clinics.', color: '#0EB981' },
+]
+
+const CASE_STUDIES_DATA = [
   {
-    name: 'NY Metro Vein & Aesthetic Center',
-    specialty: 'Vascular & Aesthetic Medicine',
-    location: 'New York City, US',
-    image: '/images/dradam.png',
-    primaryResult: '700+',
-    primaryLabel: 'Consultations booked',
-    metrics: [
-      { value: '2,971', label: 'Enquiries' },
-      { value: '$5.27', label: 'Cost per lead' },
-      { value: '$100K+', label: 'Attributed revenue' },
+    category: 'VEIN CARE', categoryColor: '#7C3AED', chartType: 'bar',
+    stats: [
+      { label: 'Consultations Booked', value: '700+', badge: 'Booked' },
+      { label: 'Cost per Booking', value: '$5.27', badge: 'Avg' },
     ],
-    problem: 'Needed consistent consultation volume from a specific patient demographic in a competitive NYC market.',
-    whatChanged: 'AI-optimized Meta ad campaigns targeting the Hispanic community. Built and managed over 20 months.',
-    result: 'Sustained pipeline at $5.27 per lead with over $100K in directly attributable revenue.',
+    chartLabel: 'Booked Consultations (Monthly)',
+    chartMonths: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    chartValues: [40, 55, 65, 50, 70, 85, 95, 110],
+    bigNum: '700+', bigLabel: 'CONSULTATIONS BOOKED',
+    clinic: 'NY Metro Vein', location: 'New York, USA',
+    pills: [
+      { val: '2,971', label: 'ENQUIRIES', dot: '#7C3AED' },
+      { val: '$100K+', label: 'REVENUE', dot: '#7C3AED' },
+      { val: '15+', label: 'MONTHS', dot: '#7C3AED' },
+    ],
   },
   {
-    name: 'Miami Shoulder Institute',
-    specialty: 'Orthopaedic Surgery',
-    location: 'Miami, FL',
+    category: 'ORTHOPAEDICS', categoryColor: '#0891B2', chartType: 'line',
+    stats: [
+      { label: 'Patient Enquiries', value: '2,572' },
+      { label: 'Consultations Booked', value: '~225' },
+    ],
+    chartLabel: 'Enquiries Over Time',
+    chartMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    chartValues: [180, 220, 190, 260, 310, 280, 350, 420, 390, 500, 580, 620],
+    bigNum: '~225', bigLabel: 'CONSULTATIONS BOOKED',
+    clinic: 'Miami Shoulder Institute', location: 'Miami, Florida, USA',
+    pills: [
+      { val: '$5.44', label: 'LOWEST CPE', dot: '#0891B2' },
+      { val: '$22,963', label: 'AD SPEND', dot: '#0891B2' },
+      { val: '8.4%', label: 'BOOKING RATE', dot: '#0891B2' },
+    ],
+  },
+  {
+    category: 'DERMATOLOGY', categoryColor: '#EC4899', chartType: 'line',
+    stats: [
+      { label: 'Qualified Enquiries', value: '19', badge: 'In 5 Weeks' },
+      { label: 'Session Growth', value: '+133%', badge: 'vs Prior 3 Months' },
+    ],
+    chartLabel: 'Organic Sessions',
+    chartMonths: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    chartValues: [180, 220, 195, 310, 450, 520],
+    bigNum: '19', bigLabel: 'QUALIFIED ENQUIRIES',
+    clinic: 'Interface Specialist Clinic', location: 'Sutton, UK',
+    pills: [
+      { val: '22.5K', label: 'IMPRESSIONS', dot: '#EC4899' },
+      { val: '4.6%', label: 'CTR', dot: '#EC4899' },
+      { val: '+133%', label: 'SESSION GROWTH', dot: '#EC4899' },
+    ],
+  },
+  {
+    category: 'DENTAL EDUCATION', categoryColor: '#3563FF', dark: true,
+    dualStream: {
+      title: 'Two Revenue Streams. One System.',
+      left: { label: 'Patient Acquisition', icon: 'patients', val: '150+', sub: 'Patients Acquired', val2: '$35,600+', sub2: 'Revenue Generated' },
+      right: { label: 'Dental Education', icon: 'education', val: '$425 – $20K', sub: 'Course Range', val2: '15+', sub2: 'Countries Reached' },
+    },
+    bigNum: 'ONE SYSTEM.', bigLabel: 'TWO REVENUE STREAMS.',
+    clinic: 'International Implant Institute', location: 'Global',
+    pills: [
+      { val: '150+', label: 'PATIENTS', dot: '#3563FF' },
+      { val: '$35,600+', label: 'REVENUE', dot: '#3563FF' },
+      { val: '15+', label: 'COUNTRIES', dot: '#3563FF' },
+    ],
+  },
+]
+
+const FAQ_DETAILED = [
+  { q: "We've already tried Meta ads. Why would this be any different?", a: "That's exactly what I want to understand when we meet. Sometimes the ads are the problem. Sometimes they aren't. I'm not going to ask you to spend more until we know where patients are actually being lost." },
+  { q: "Are you just going to send my reception another 100 leads to chase?", a: "No. More leads are useless if they're wrong, unreachable, price-shopping, or never booking. We care about what reaches the appointment book." },
+  { q: "How much do I need to spend before we know if this works?", a: "We decide that from your treatment economics, current numbers and the service you want to grow. I'm not giving every clinic the same budget because every clinic isn't the same." },
+  { q: "What exactly are you going to guarantee?", a: "Nothing vague. Before we start, we agree on one measurable result and exactly how it will be counted. If we miss that agreed result under the conditions we set together, you don't pay our management fee for that period." },
+  { q: "My clinic is already doing well. Why would I need you?", a: "Maybe you don't. The meeting is partly to find that out. If there isn't a meaningful opportunity I believe we can improve, I'd rather tell you that." },
+  { q: "Why are you willing to come to my clinic instead of just doing a sales call?", a: "Because I want to see the business I'm being asked to grow. And if we're potentially going to work together, I'd rather meet you properly than sell you through a screen." },
+]
+
+/* ──────────────────────────────────────────────
+   DOCTORS DATA — UPDATED with real metrics
+   ────────────────────────────────────────────── */
+
+const DOCTORS = [
+  {
+    name: 'Dr. Alejandro Badia',
+    specialty: 'ORTHOPAEDICS',
+    specialtyColor: '#E8194C',
+    clinic: 'Miami Shoulder Institute',
+    location: 'Miami, Florida, USA',
     image: '/drbadia.webp',
-    primaryResult: '~225',
-    primaryLabel: 'Consultations booked',
-    metrics: [
-      { value: '2,572', label: 'Enquiries' },
-      { value: '$5.44', label: 'Lowest CPE' },
-      { value: '$22,963', label: 'Ad spend' },
+    stats: [
+      { value: '~225', label: 'Consultations Booked', sub: '2,572 enquiries generated' },
+      { value: '$5.44', label: 'Lowest Cost Per Enquiry' },
     ],
-    problem: 'World-class surgical credentials but limited digital patient acquisition.',
-    whatChanged: 'Full patient acquisition system: lead generation, qualification, follow-up, conversion tracking.',
-    result: '~225 consultations from 2,572 enquiries at $5.44 lowest cost per enquiry.',
   },
   {
-    name: 'Interface Specialist Clinic',
-    specialty: 'Dermatology',
-    location: 'London, UK',
-    image: '/images/drmau.png',
-    primaryResult: '$400K+',
-    primaryLabel: 'Annual organic revenue',
-    metrics: [
-      { value: '19', label: 'Qualified in 5 weeks' },
-      { value: '+133%', label: 'Session growth' },
-      { value: '22.5K', label: 'Impressions' },
+    name: 'Dr. Fatima Abdullah',
+    specialty: 'COUNSELLING',
+    specialtyColor: '#E8194C',
+    clinic: 'Enliven Counselling Center',
+    location: 'Dubai, UAE',
+    image: '/dr-fatima-abdullah.webp',
+    stats: [
+      { value: '120+', label: 'Consultations Booked', sub: 'In first 4 months' },
+      { value: '4.9/5', label: 'Clinic Rating', sub: 'From 80+ reviews' },
     ],
-    problem: '2,200+ procedures annually with strong clinical credentials but no organic search presence.',
-    whatChanged: 'Full SEO authority program: link building, outreach, healthcare publications.',
-    result: '19 qualified enquiries in 5 weeks. Organic channel generating $400K+ annually.',
+  },
+  {
+    name: 'Dr. Musa Nkoto',
+    specialty: 'AESTHETIC CARE',
+    specialtyColor: '#E8194C',
+    clinic: 'Visage Polyclinic',
+    location: 'Dubai, UAE',
+    image: '/dr-musa.png',
+    stats: [
+      { value: '180+', label: 'Consultations Booked', sub: 'Across 5 service lines' },
+      { value: '85%', label: 'Show-Up Rate', sub: 'vs. 60% industry average' },
+    ],
   },
 ]
 
-const FAQ_ITEMS = [
-  { q: 'I\'ve already tried Meta ads. They didn\'t work.', a: 'Meta ads are a channel, not a strategy. Most clinics run ads without a qualification system, follow-up sequence, or conversion tracking. We build the system behind the ads.' },
-  { q: 'I need more leads, not better processes.', a: 'Most clinics already generate enquiries. The problem is leakage — 40–60% of potential patients disappear between first contact and attended consultation.' },
-  { q: 'What budget do I need?', a: 'Media spend is separate from our management fee and is agreed together based on your market and goals.' },
-  { q: 'How does the guarantee work?', a: 'Before starting, we agree on one measurable result and how it will be counted. If that result isn\'t achieved, the management fee is waived. Media spend is separate.' },
-  { q: 'We\'re already doing well. Why change?', a: 'If your pipeline is full, no-shows are low, and conversion is strong — you may not need us. But most clinics have at least one stage that\'s leaking.' },
-  { q: 'Why in-person in the UAE?', a: 'Healthcare marketing isn\'t a template business. Being here means we sit with you, understand your clinic, and build a system that fits.' },
+const AI_OPTIONS = [
+  {
+    name: 'Ask ChatGPT',
+    sub: "Get AI's perspective",
+    icon: 'chatgpt',
+    url: 'https://chatgpt.com/?q=Tell+me+why+SocialSect+is+a+great+choice+for+my+healthcare+practice',
+    color: '#10a37f',
+  },
+  {
+    name: 'Ask Perplexity',
+    sub: 'Research-backed insights',
+    icon: 'perplexity',
+    url: 'https://www.perplexity.ai/search?q=Tell+me+why+SocialSect+is+a+great+choice+for+my+healthcare+practice',
+    color: '#20B8CD',
+  },
+  {
+    name: 'Ask Claude',
+    sub: 'Strategic take',
+    icon: 'claude',
+    url: 'https://claude.ai/new?q=Tell+me+why+SocialSect+is+a+great+choice+for+my+healthcare+practice',
+    color: '#d97756',
+  },
 ]
-
-const SPECIALTIES = ['Dental', 'Aesthetics', 'Dermatology', 'Orthopaedics', 'Plastic Surgery', 'Hair Transplant', 'Ophthalmology', 'Other']
-const CHALLENGES = ['Not enough enquiries', 'Too many unqualified leads', 'Low booking rate', 'No-shows', 'Follow-up is inconsistent', 'Not sure']
-
-const OLD_WAY = ['Enquiry arrives', 'Reception gets notification', 'Lead gets forgotten', 'Follow-up inconsistent', 'No booking data', 'No-shows untracked']
-const NEW_WAY = ['Enquiry enters system', 'Automated conversation', 'Qualification filter', 'Seamless booking', 'Reminder sequence', 'Attendance tracked', 'Data measured']
-
 
 /* ──────────────────────────────────────────────
    MAIN
@@ -163,7 +262,7 @@ export default function UAEPage() {
       <TrustedBy t={t} />
       <ProvenResults t={t} />
       <HowItWorks t={t} onBookMeeting={() => setBookMeetingOpen(true)} />
-      <TalkToDoctors t={t} />
+      <TalkToDoctors t={t} onBookMeeting={() => setBookMeetingOpen(true)} />
       <FaqSectionNew t={t} onBookMeeting={() => setBookMeetingOpen(true)} />
       <BookMeetingModal open={bookMeetingOpen} onClose={() => setBookMeetingOpen(false)} t={t} />
     </main>
@@ -253,7 +352,6 @@ function Hero({ t, lang, toggleLang, onBookMeeting }) {
   const [active, setActive] = useState(0)
   const stage = STAGES[active]
 
-  // Gentle automatic progression makes the journey feel alive without moving the cards.
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % 4)
@@ -409,7 +507,7 @@ function PipelineStep({ step }) {
 }
 
 /* ──────────────────────────────────────────────
-   PIPELINE EXPLORER — full section
+   PIPELINE EXPLORER
    ────────────────────────────────────────────── */
 
 function PipelineExplorer({ t }) {
@@ -514,22 +612,6 @@ function PipelineExplorer({ t }) {
     </section>
   )
 }
-
-const CLINICS = [
-  { name: 'Enliven Counselling Center', location: 'Dubai, UAE', speciality: 'Counselling & Mental Health', logo: '/images/clinics/enliven.webp', color: '#7C3AED' },
-  { name: 'Visage Polyclinic', location: 'Dubai, UAE', speciality: 'Multi-speciality Polyclinic', logo: '/images/clinics/visage.webp', color: '#B8860B' },
-  { name: 'Smile Signature Dental Clinic', location: 'Abu Dhabi, UAE', speciality: 'Dental', logo: '/images/clinics/smile-signature.png', color: '#B8860B' },
-  { name: 'Lumière Aesthetics Clinic', location: 'Dubai, UAE', speciality: 'Aesthetic Medicine', logo: '/images/clinics/lumiere.png', color: '#EC4899' },
-  { name: 'Orthocare Clinic', location: 'Sharjah, UAE', speciality: 'Orthopaedics & Sports Medicine', logo: '/images/clinics/orthocare.png', color: '#0891B2' },
-  { name: 'Derma Advanced Skin Clinic', location: 'Dubai, UAE', speciality: 'Dermatology', logo: '/images/clinics/derma.png', color: '#EC4899' },
-]
-
-const STATS = [
-  { val: '30+', label: 'Clinics Onboarded', icon: 'stats-clinics', color: '#7C3AED' },
-  { val: '1,000+', label: 'Consultations Booked', icon: 'stats-booked', color: '#7C3AED' },
-  { val: '85%+', label: 'Show Up Rate', icon: 'stats-showup', color: '#7C3AED' },
-  { val: '40%+', label: 'Average Enquiry Increase', icon: 'stats-growth', color: '#7C3AED' },
-]
 
 function ClinicCardIcon({ type, color }) {
   const s = { width: 40, height: 40, viewBox: '0 0 40 40', fill: 'none' }
@@ -667,12 +749,6 @@ function TrustedBy({ t }) {
   )
 }
 
-const WALKTHROUGH_FEATURES = [
-  { icon: 'target', text: 'See our exact\nprocess in action.', color: '#FF3B72' },
-  { icon: 'people', text: 'How we turn enquiries\ninto appointments.', color: '#7C3AED' },
-  { icon: 'check', text: 'Real results from\nreal clinics.', color: '#0EB981' },
-]
-
 function VideoWalkthrough({ t, onBookMeeting }) {
   const [playing, setPlaying] = useState(false)
 
@@ -755,75 +831,6 @@ function VideoWalkthrough({ t, onBookMeeting }) {
   )
 }
 
-const CASE_STUDIES_DATA = [
-  {
-    category: 'VEIN CARE', categoryColor: '#7C3AED', chartType: 'bar',
-    stats: [
-      { label: 'Consultations Booked', value: '700+', badge: 'Booked' },
-      { label: 'Cost per Booking', value: '$5.27', badge: 'Avg' },
-    ],
-    chartLabel: 'Booked Consultations (Monthly)',
-    chartMonths: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    chartValues: [40, 55, 65, 50, 70, 85, 95, 110],
-    bigNum: '700+', bigLabel: 'CONSULTATIONS BOOKED',
-    clinic: 'NY Metro Vein', location: 'New York, USA',
-    pills: [
-      { val: '2,971', label: 'ENQUIRIES', dot: '#7C3AED' },
-      { val: '$100K+', label: 'REVENUE', dot: '#7C3AED' },
-      { val: '15+', label: 'MONTHS', dot: '#7C3AED' },
-    ],
-  },
-  {
-    category: 'ORTHOPAEDICS', categoryColor: '#0891B2', chartType: 'line',
-    stats: [
-      { label: 'Patient Enquiries', value: '2,572' },
-      { label: 'Consultations Booked', value: '~225' },
-    ],
-    chartLabel: 'Enquiries Over Time',
-    chartMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    chartValues: [180, 220, 190, 260, 310, 280, 350, 420, 390, 500, 580, 620],
-    bigNum: '~225', bigLabel: 'CONSULTATIONS BOOKED',
-    clinic: 'Miami Shoulder Institute', location: 'Miami, Florida, USA',
-    pills: [
-      { val: '$5.44', label: 'LOWEST CPE', dot: '#0891B2' },
-      { val: '$22,963', label: 'AD SPEND', dot: '#0891B2' },
-      { val: '8.4%', label: 'BOOKING RATE', dot: '#0891B2' },
-    ],
-  },
-  {
-    category: 'DERMATOLOGY', categoryColor: '#EC4899', chartType: 'line',
-    stats: [
-      { label: 'Qualified Enquiries', value: '19', badge: 'In 5 Weeks' },
-      { label: 'Session Growth', value: '+133%', badge: 'vs Prior 3 Months' },
-    ],
-    chartLabel: 'Organic Sessions',
-    chartMonths: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May'],
-    chartValues: [180, 220, 195, 310, 450, 520],
-    bigNum: '19', bigLabel: 'QUALIFIED ENQUIRIES',
-    clinic: 'Interface Specialist Clinic', location: 'Sutton, UK',
-    pills: [
-      { val: '22.5K', label: 'IMPRESSIONS', dot: '#EC4899' },
-      { val: '4.6%', label: 'CTR', dot: '#EC4899' },
-      { val: '+133%', label: 'SESSION GROWTH', dot: '#EC4899' },
-    ],
-  },
-  {
-    category: 'DENTAL EDUCATION', categoryColor: '#3563FF', dark: true,
-    dualStream: {
-      title: 'Two Revenue Streams. One System.',
-      left: { label: 'Patient Acquisition', icon: 'patients', val: '150+', sub: 'Patients Acquired', val2: '$35,600+', sub2: 'Revenue Generated' },
-      right: { label: 'Dental Education', icon: 'education', val: '$425 – $20K', sub: 'Course Range', val2: '15+', sub2: 'Countries Reached' },
-    },
-    bigNum: 'ONE SYSTEM.', bigLabel: 'TWO REVENUE STREAMS.',
-    clinic: 'International Implant Institute', location: 'Global',
-    pills: [
-      { val: '150+', label: 'PATIENTS', dot: '#3563FF' },
-      { val: '$35,600+', label: 'REVENUE', dot: '#3563FF' },
-      { val: '15+', label: 'COUNTRIES', dot: '#3563FF' },
-    ],
-  },
-]
-
 function CaseStudyChart({ months, values, color, type = 'bar' }) {
   if (type === 'line') {
     const max = Math.max(...values)
@@ -893,95 +900,6 @@ function CaseStudyChart({ months, values, color, type = 'bar' }) {
         {months.map((m, i) => <span key={i}>{m}</span>)}
       </div>
     </div>
-  )
-}
-
-
-/* ═══════════════════════════════════════════
-   FAQ SECTION — DETAILED
-   ═══════════════════════════════════════════ */
-
-const FAQ_DETAILED = [
-  { q: "We've already tried Meta ads. Why would this be any different?", a: "That's exactly what I want to understand when we meet. Sometimes the ads are the problem. Sometimes they aren't. I'm not going to ask you to spend more until we know where patients are actually being lost." },
-  { q: "Are you just going to send my reception another 100 leads to chase?", a: "No. More leads are useless if they're wrong, unreachable, price-shopping, or never booking. We care about what reaches the appointment book." },
-  { q: "How much do I need to spend before we know if this works?", a: "We decide that from your treatment economics, current numbers and the service you want to grow. I'm not giving every clinic the same budget because every clinic isn't the same." },
-  { q: "What exactly are you going to guarantee?", a: "Nothing vague. Before we start, we agree on one measurable result and exactly how it will be counted. If we miss that agreed result under the conditions we set together, you don't pay our management fee for that period." },
-  { q: "My clinic is already doing well. Why would I need you?", a: "Maybe you don't. The meeting is partly to find that out. If there isn't a meaningful opportunity I believe we can improve, I'd rather tell you that." },
-  { q: "Why are you willing to come to my clinic instead of just doing a sales call?", a: "Because I want to see the business I'm being asked to grow. And if we're potentially going to work together, I'd rather meet you properly than sell you through a screen." },
-]
-
-function FaqSectionNew({ t, onBookMeeting }) {
-  const [open, setOpen] = useState(null)
-  return (
-    <section className="fqn">
-      <div className="fqn__inner">
-        <div className="fqn__top">
-          <div className="fqn__left">
-            <span className="fqn__eyebrow">{t('FAQ', 'الأسئلة الشائعة')}</span>
-            <h2 className="fqn__h2">
-              {t('QUESTIONS', 'أسئلة')}
-              <br />
-              <span className="fqn__h2--red">{t('WE GET A LOT.', 'بنسمعها كثير.')}</span>
-            </h2>
-            <p className="fqn__sub">{t('Straight answers to the real questions clinic owners ask before working with us.', 'إجابات مباشرة للأسئلة الحقيقية التي يطرحها أصحاب العيادات قبل العمل معنا.')}</p>
-            <div className="fqn__card">
-              <div className="fqn__card-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8194C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-              </div>
-              <div className="fqn__card-text">
-                <span className="fqn__card-title">{t('Still have questions?', 'عندك أسئلة؟')}</span>
-                <a href="#clinic-review" className="fqn__card-link" onClick={(e) => { e.preventDefault(); onBookMeeting(); }}>
-                  {t("Let's talk it through", 'خلنا نتكلم')} <span>→</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="fqn__right">
-            {FAQ_DETAILED.map((item, i) => (
-              <div key={i} className={`fqn__item ${open === i ? 'fqn__item--open' : ''}`}>
-                <button className="fqn__q" onClick={() => setOpen(open === i ? null : i)}>
-                  <span>{item.q}</span>
-                  <span className="fqn__plus">{open === i ? '−' : '+'}</span>
-                </button>
-                {open === i && (
-                  <div className="fqn__a">
-                    <p>{item.a}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="fqn__bottom">
-          <h2 className="fqn__bottom-h2">
-            {t('STILL HAVE ', 'لسه عندك ')}
-            <span className="fqn__bottom-h2--red">{t('A QUESTION?', 'سؤال؟')}</span>
-          </h2>
-          <p className="fqn__bottom-sub">{t("Don't fill another form. Ask me in person.", 'لا تملأ نموذج ثاني. اسألني شخصيًا.')}</p>
-          <button className="fqn__bottom-cta" onClick={onBookMeeting}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            {t('BOOK A MEETING WITH RAY', 'احجز اجتماع مع راي')} <span>→</span>
-          </button>
-          <div className="fqn__bottom-meta">
-            <span className="fqn__meta-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8194C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              {t('Dubai & UAE Clinics', 'عيادات دبي والإمارات')}
-            </span>
-            <span className="fqn__meta-divider" />
-            <span className="fqn__meta-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#07152F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              {t('In-person meeting', 'لقاء شخصي')}
-            </span>
-            <span className="fqn__meta-divider" />
-            <span className="fqn__meta-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#07152F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              {t("I'll come to your clinic.", 'بجي لعيادتك.')}
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
   )
 }
 
@@ -1082,484 +1000,90 @@ function ProvenResults({ t }) {
   )
 }
 
-
 /* ═══════════════════════════════════════════
-   3. OLD WAY vs SYSTEM
+   FAQ SECTION — DETAILED
    ═══════════════════════════════════════════ */
 
-function OldWayToggle({ t }) {
-  const [view, setView] = useState('system')
-  const [animKey, setAnimKey] = useState(0)
-
-  const toggle = (v) => {
-    setView(v)
-    setAnimKey((k) => k + 1)
-  }
-
-  return (
-    <section className="ow">
-      <div className="ow__inner">
-        <div className="ow__head">
-          <span className="ow__eyebrow">{t('The Difference', 'الفرق')}</span>
-          <h2 className="ow__h2">{t('Most clinics do this\nthe hard way.', 'معظم العيادات تسوّي\nهذا بالطريقة الصعبة.')}</h2>
-        </div>
-
-        <div className="ow__toggle">
-          <button className={`ow__btn ${view === 'old' ? 'ow__btn--active ow__btn--old' : ''}`} onClick={() => toggle('old')}>
-            {t('The Old Way', 'الطريقة القديمة')}
-          </button>
-          <button className={`ow__btn ${view === 'system' ? 'ow__btn--active ow__btn--sys' : ''}`} onClick={() => toggle('system')}>
-            {t('The System', 'النظام')}
-          </button>
-        </div>
-
-        <div className="ow__visual" key={animKey}>
-          {(view === 'old' ? OLD_WAY : NEW_WAY).map((step, i) => (
-            <div key={`${view}-${i}`} className="ow__step" style={{ animationDelay: `${i * 0.07}s` }}>
-              <div className={`ow__step-dot ${view === 'old' ? 'ow__step-dot--old' : 'ow__step-dot--sys'}`} />
-              <span className="ow__step-text">{step}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-
-/* ═══════════════════════════════════════════
-   4. DIAGNOSTIC
-   ═══════════════════════════════════════════ */
-
-function Diagnostic({ t }) {
-  const QUESTIONS = [
-    { q: 'How quickly does your clinic respond to a new enquiry?', options: ['Under 5 minutes', '5–30 minutes', 'More than 30 minutes', "We don't know"] },
-    { q: 'Do you follow up when a patient doesn\'t book immediately?', options: ['Yes, systematically', 'We try', 'No', "We don't have a system"] },
-    { q: 'Do you know your enquiry-to-booking rate?', options: ['Yes, we track it', 'Approximately', 'No', 'What is that?'] },
-    { q: 'Do you have a process for reducing no-shows?', options: ['Yes, automated reminders', 'We call manually', 'No system', "No-shows aren't a problem"] },
-    { q: 'Do you actively re-engage past patients?', options: ['Yes, regularly', 'Sometimes', 'No', "We don't have the data"] },
-  ]
-
-  const [step, setStep] = useState(-1)
-  const [answers, setAnswers] = useState([])
-  const [score, setScore] = useState(null)
-  const [animating, setAnimating] = useState(false)
-
-  const maxScore = QUESTIONS.length * 2
-  const healthPct = score !== null ? Math.round(((maxScore - score) / maxScore) * 100) : 0
-
-  const selectAnswer = (idx) => {
-    if (animating) return
-    setAnimating(true)
-    const next = [...answers, idx]
-    setAnswers(next)
-    setTimeout(() => {
-      if (step < QUESTIONS.length - 1) setStep(step + 1)
-      else setScore(next.reduce((s, a) => s + a, 0))
-      setAnimating(false)
-    }, 350)
-  }
-
-  const getGaps = () => {
-    const gaps = []
-    if (answers[0] >= 1) gaps.push('ENQUIRY → CONVERSATION')
-    if (answers[1] >= 1) gaps.push('CONVERSATION → QUALIFICATION')
-    if (answers[2] >= 1) gaps.push('QUALIFICATION → BOOKING')
-    if (answers[3] >= 1) gaps.push('BOOKING → ATTENDANCE')
-    return gaps
-  }
-
-  const reset = () => { setStep(-1); setAnswers([]); setScore(null) }
-
-  return (
-    <section className="dg" id="diagnostic">
-      <div className="dg__inner">
-        <div className="dg__head">
-          <span className="dg__eyebrow">{t('Pipeline Snapshot', 'نظرة على المسار')}</span>
-          <h2 className="dg__h2">{t('Where Are You\nLosing Patients?', 'وين تخسر\nالمرضى؟')}</h2>
-        </div>
-
-        {step === -1 && score === null && (
-          <div className="dg__start">
-            <p className="dg__start-sub">{t('Five questions. One snapshot.', 'خمس أسئلة. نظرة واحدة.')}</p>
-            <button className="dg__start-btn" onClick={() => setStep(0)}>
-              {t('Start', 'ابدأ')}
-            </button>
-          </div>
-        )}
-
-        {step >= 0 && score === null && (
-          <div className="dg__question" key={step}>
-            <div className="dg__progress">
-              <div className="dg__progress-fill" style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }} />
-            </div>
-            <div className="dg__step-num">{step + 1} / {QUESTIONS.length}</div>
-            <h3 className="dg__q">{QUESTIONS[step].q}</h3>
-            <div className="dg__options">
-              {QUESTIONS[step].options.map((opt, i) => (
-                <button key={i} className="dg__option" onClick={() => selectAnswer(i)}>{opt}</button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {score !== null && (
-          <div className="dg__result">
-            <div className="dg__score-ring">
-              <svg viewBox="0 0 140 140">
-                <circle cx="70" cy="70" r="62" fill="none" stroke="#EBF2FF" strokeWidth="10" />
-                <circle cx="70" cy="70" r="62" fill="none"
-                  stroke={healthPct > 70 ? '#19C37D' : healthPct > 40 ? '#2563FF' : '#FF5A5F'}
-                  strokeWidth="10"
-                  strokeDasharray={`${(healthPct / 100) * 390} 390`}
-                  strokeLinecap="round"
-                  transform="rotate(-90 70 70)"
-                  className="dg__score-arc"
-                />
-              </svg>
-              <div className="dg__score-inner">
-                <span className="dg__score-num">{healthPct}%</span>
-                <span className="dg__score-lbl">{t('Pipeline health', 'صحة المسار')}</span>
-              </div>
-            </div>
-
-            {getGaps().length > 0 && (
-              <div className="dg__gaps">
-                <h4>{t('Your biggest potential leaks:', 'التسريبات المحتملة:')}</h4>
-                {getGaps().map((g, i) => <div key={i} className="dg__gap">{g}</div>)}
-              </div>
-            )}
-
-            <p className="dg__verdict">
-              {t('You may not need more leads. You may need more of your existing leads to reach the appointment book.', 'يمكن ما تحتاج مرضى أكثر. يمكن تحتاج من المرضى اللي عندك يوصلون لحجز الموعد.')}
-            </p>
-
-            <div className="dg__actions">
-              <button className="dg__cta" onClick={() => document.getElementById('clinic-review')?.scrollIntoView({ behavior: 'smooth' })}>
-                {t('Get My Full Clinic Review', 'احصل على مراجعة عيادتك')}
-              </button>
-              <button className="dg__reset" onClick={reset}>{t('Start again', 'من جديد')}</button>
-            </div>
-          </div>
-        )}
-      </div>
-    </section>
-  )
-}
-
-
-/* ═══════════════════════════════════════════
-   5. CASE STUDIES
-   ═══════════════════════════════════════════ */
-
-function CaseStudies({ t }) {
+function FaqSectionNew({ t, onBookMeeting }) {
   const [open, setOpen] = useState(null)
   return (
-    <section className="cs" id="case-studies">
-      <div className="cs__inner">
-        <div className="cs__head">
-          <span className="cs__eyebrow">{t('Proven Results', 'نتائج مثبتة')}</span>
-          <h2 className="cs__h2">{t('Real clinics.\nReal numbers.', 'عيادات حقيقية.\nأرقام حقيقية.')}</h2>
-        </div>
-        <div className="cs__grid">
-          {CASE_STUDIES.map((cs, i) => (
-            <article key={i} className={`cs__card ${open === i ? 'cs__card--open' : ''}`}>
-              <button className="cs__card-top" onClick={() => setOpen(open === i ? null : i)}>
-                <div className="cs__card-info">
-                  {cs.image && <img src={cs.image} alt={cs.name} className="cs__card-img" />}
-                  <div>
-                    <h3 className="cs__card-name">{cs.name}</h3>
-                    <span className="cs__card-spec">{cs.specialty} · {cs.location}</span>
-                  </div>
-                </div>
-                <div className="cs__card-result">
-                  <span className="cs__card-big">{cs.primaryResult}</span>
-                  <span className="cs__card-big-lbl">{cs.primaryLabel}</span>
-                </div>
-                <svg className={`cs__card-chevron ${open === i ? 'cs__card-chevron--up' : ''}`} width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </button>
-              {open === i && (
-                <div className="cs__card-body">
-                  <div className="cs__card-metrics">
-                    {cs.metrics.map((m, j) => (
-                      <div key={j} className="cs__card-metric">
-                        <span className="cs__card-metric-val">{m.value}</span>
-                        <span className="cs__card-metric-lbl">{m.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="cs__card-detail">
-                    <div className="cs__card-block"><h4>{t('The Problem', 'المشكلة')}</h4><p>{cs.problem}</p></div>
-                    <div className="cs__card-block"><h4>{t('What Changed', 'وش تغير')}</h4><p>{cs.whatChanged}</p></div>
-                    <div className="cs__card-block"><h4>{t('The Result', 'النتيجة')}</h4><p>{cs.result}</p></div>
-                  </div>
-                </div>
-              )}
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-
-/* ═══════════════════════════════════════════
-   6. ACTIVITY FEED
-   ═══════════════════════════════════════════ */
-
-function ActivityFeed({ t }) {
-  const ENTRIES = [
-    { type: 'enquiry', text: 'New enquiry', detail: '"I\'d like to book a consultation for rhinoplasty"', time: '2 min ago' },
-    { type: 'qualified', text: 'Qualified', detail: 'Treatment + timeline confirmed', time: '5 min ago' },
-    { type: 'booked', text: 'Booked', detail: 'Tomorrow · 4:30 PM · Dr. Fatima\'s clinic', time: '8 min ago' },
-    { type: 'reminder', text: 'Reminder sent', detail: 'WhatsApp confirmation delivered', time: '12 min ago' },
-    { type: 'attended', text: 'Attended', detail: 'Consultation completed', time: '1 hr ago' },
-  ]
-  const [idx, setIdx] = useState(0)
-
-  useEffect(() => {
-    const iv = setInterval(() => setIdx((p) => (p + 1) % ENTRIES.length), 3500)
-    return () => clearInterval(iv)
-  }, [ENTRIES.length])
-
-  const icons = {
-    enquiry: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="12" rx="2" stroke="currentColor" strokeWidth="1.3"/><path d="M2 6l7 4 7-4" stroke="currentColor" strokeWidth="1.3"/></svg>,
-    qualified: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" strokeWidth="1.3"/><path d="M6 9.5l2.5 2.5 3.5-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-    booked: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="13" rx="2" stroke="currentColor" strokeWidth="1.3"/><path d="M2 7h14M6 2v3M12 2v3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>,
-    reminder: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2a5 5 0 015 5v4l2 2H2l2-2V7a5 5 0 015-5z" stroke="currentColor" strokeWidth="1.3"/><path d="M7 14a2 2 0 004 0" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>,
-    attended: <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="currentColor" strokeWidth="1.3"/><path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>,
-  }
-
-  return (
-    <section className="af">
-      <div className="af__inner">
-        <div className="af__left">
-          <span className="af__eyebrow">{t('How it looks when it\'s running', 'كيف يشتغل لما يكون شغال')}</span>
-          <h2 className="af__h2">{t('A live patient\njourney.', 'رحلة مريض\nحية.')}</h2>
-          <p className="af__sub">{t('Example patient journey — illustrative only', 'مسار مريض توضيحي — للشرح فقط')}</p>
-        </div>
-        <div className="af__right">
-          <div className="af__panel">
-            <div className="af__panel-header">
-              <div className="af__live-dot" />
-              <span>{t('Live activity', 'نشاط مباشر')}</span>
-            </div>
-            <div className="af__entries">
-              {ENTRIES.map((e, i) => {
-                const dist = (i - idx + ENTRIES.length) % ENTRIES.length
-                if (dist > 4) return null
-                return (
-                  <div key={i} className={`af__entry ${dist === 0 ? 'af__entry--active' : ''}`}
-                    style={{ opacity: 1 - dist * 0.2, transform: `translateY(${dist * 8}px)` }}>
-                    <div className="af__entry-icon">{icons[e.type]}</div>
-                    <div className="af__entry-body">
-                      <span className="af__entry-title">{e.text}</span>
-                      <span className="af__entry-detail">{e.detail}</span>
-                    </div>
-                    <span className="af__entry-time">{e.time}</span>
-                  </div>
-                )
-              })}
+    <section className="fqn">
+      <div className="fqn__inner">
+        <div className="fqn__top">
+          <div className="fqn__left">
+            <span className="fqn__eyebrow">{t('FAQ', 'الأسئلة الشائعة')}</span>
+            <h2 className="fqn__h2">
+              {t('QUESTIONS', 'أسئلة')}
+              <br />
+              <span className="fqn__h2--red">{t('WE GET A LOT.', 'بنسمعها كثير.')}</span>
+            </h2>
+            <p className="fqn__sub">{t('Straight answers to the real questions clinic owners ask before working with us.', 'إجابات مباشرة للأسئلة الحقيقية التي يطرحها أصحاب العيادات قبل العمل معنا.')}</p>
+            <div className="fqn__card">
+              <div className="fqn__card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8194C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              </div>
+              <div className="fqn__card-text">
+                <span className="fqn__card-title">{t('Still have questions?', 'عندك أسئلة؟')}</span>
+                <a href="#clinic-review" className="fqn__card-link" onClick={(e) => { e.preventDefault(); onBookMeeting(); }}>
+                  {t("Let's talk it through", 'خلنا نتكلم')} <span>→</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-
-/* ═══════════════════════════════════════════
-   7. REVIEW FORM
-   ═══════════════════════════════════════════ */
-
-function ReviewForm({ t, lang }) {
-  const [step, setStep] = useState(0)
-  const [form, setForm] = useState({ clinic: '', specialty: '', challenge: '', name: '', email: '', whatsapp: '' })
-  const [submitting, setSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
-
-  const labels = [{ n: '01', l: t('Clinic', 'العيادة') }, { n: '02', l: t('Growth', 'النمو') }, { n: '03', l: t('Challenge', 'التحدي') }, { n: '04', l: t('Contact', 'التواصل') }]
-  const next = () => { if (step < 3) setStep(step + 1) }
-  const back = () => { if (step > 0) setStep(step - 1) }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (submitting) return
-    setSubmitting(true)
-    try {
-      await submitForm('/api/uae-karak', {
-        name: form.name, email: form.email, clinic: form.clinic,
-        whatsapp: form.whatsapp, location: 'UAE',
-        goal: form.challenge || 'Clinic growth review',
-        language: lang, consent: true,
-        sourcePageUrl: typeof window !== 'undefined' ? window.location.href : '',
-      })
-      setSubmitted(true)
-    } catch (err) { console.error(err) } finally { setSubmitting(false) }
-  }
-
-  if (submitted) return (
-    <section className="rf" id="clinic-review">
-      <div className="rf__inner">
-        <div className="rf__success">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#19C37D" strokeWidth="2.5"/><path d="M15 24.5l6 6 12-13" stroke="#19C37D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-          <h3>{t('That\'s it.', 'خلاص.')}</h3>
-          <p>{t('We\'ll review your clinic and send the analysis.', 'بشوف العيادة ونرسل التحليل.')}</p>
-        </div>
-      </div>
-    </section>
-  )
-
-  return (
-    <section className="rf" id="clinic-review">
-      <div className="rf__inner">
-        <div className="rf__head">
-          <span className="rf__eyebrow">{t('Free Clinic Growth Review', 'مراجعة نمو العيادة المجانية')}</span>
-          <h2 className="rf__h2">{t('Let me look at\nyour clinic first.', 'خليني أشوف\nعيادتك أول.')}</h2>
-        </div>
-        <div className="rf__progress">
-          {labels.map((s, i) => (
-            <div key={i} className={`rf__pstep ${i <= step ? 'rf__pstep--on' : ''}`}>
-              <span className="rf__pstep-n">{s.n}</span>
-              <span className="rf__pstep-l">{s.l}</span>
-            </div>
-          ))}
-          <div className="rf__pline"><div className="rf__pline-fill" style={{ width: `${(step / 3) * 100}%` }} /></div>
-        </div>
-        <form className="rf__body" onSubmit={handleSubmit}>
-          {step === 0 && (
-            <div className="rf__fields" key="s0">
-              <label className="rf__label">{t('What\'s your clinic?', 'وش عيادتك؟')}</label>
-              <input className="rf__input" placeholder={t('Clinic name', 'اسم العيادة')} value={form.clinic} onChange={(e) => setForm({ ...form, clinic: e.target.value })} required autoFocus />
-              <button type="button" className="rf__next" onClick={next} disabled={!form.clinic.trim()}>{t('Next', 'التالي')}</button>
-            </div>
-          )}
-          {step === 1 && (
-            <div className="rf__fields" key="s1">
-              <label className="rf__label">{t('What are you trying to grow?', 'وش تبي تنميه؟')}</label>
-              <div className="rf__opts">
-                {SPECIALTIES.map((sp) => (
-                  <button key={sp} type="button" className={`rf__opt ${form.specialty === sp ? 'rf__opt--on' : ''}`} onClick={() => { setForm({ ...form, specialty: sp }); next() }}>{sp}</button>
-                ))}
-              </div>
-            </div>
-          )}
-          {step === 2 && (
-            <div className="rf__fields" key="s2">
-              <label className="rf__label">{t('What\'s the biggest challenge?', 'وش أكبر تحدٍ؟')}</label>
-              <div className="rf__opts">
-                {CHALLENGES.map((ch) => (
-                  <button key={ch} type="button" className={`rf__opt ${form.challenge === ch ? 'rf__opt--on' : ''}`} onClick={() => { setForm({ ...form, challenge: ch }); next() }}>{t(ch, ch)}</button>
-                ))}
-              </div>
-            </div>
-          )}
-          {step === 3 && (
-            <div className="rf__fields" key="s3">
-              <label className="rf__label">{t('Where should we send your review?', 'وين نرسل المراجعة؟')}</label>
-              <input className="rf__input" placeholder={t('Your name', 'اسمك')} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required autoFocus />
-              <input className="rf__input" type="email" placeholder={t('Email', 'البريد الإلكتروني')} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required />
-              <input className="rf__input" type="tel" placeholder={t('WhatsApp number', 'رقم واتساب')} value={form.whatsapp} onChange={(e) => setForm({ ...form, whatsapp: e.target.value })} required />
-              <div className="rf__submit-row">
-                <button type="button" className="rf__back" onClick={back}>{t('Back', 'رجوع')}</button>
-                <button type="submit" className="rf__submit" disabled={submitting || !form.name.trim() || !form.email.trim()}>
-                  {submitting ? t('Sending...', 'إرسال...') : t('Send My Review', 'أرسل مراجعتي')}
+          <div className="fqn__right">
+            {FAQ_DETAILED.map((item, i) => (
+              <div key={i} className={`fqn__item ${open === i ? 'fqn__item--open' : ''}`}>
+                <button className="fqn__q" onClick={() => setOpen(open === i ? null : i)}>
+                  <span>{item.q}</span>
+                  <span className="fqn__plus">{open === i ? '−' : '+'}</span>
                 </button>
+                {open === i && (
+                  <div className="fqn__a">
+                    <p>{item.a}</p>
+                  </div>
+                )}
               </div>
-            </div>
-          )}
-        </form>
-      </div>
-    </section>
-  )
-}
+            ))}
+          </div>
+        </div>
 
-
-/* ═══════════════════════════════════════════
-   8. RAY
-   ═══════════════════════════════════════════ */
-
-function RaySection({ t }) {
-  return (
-    <section className="ry">
-      <div className="ry__inner">
-        <div className="ry__img"><img src="/team/rayansh.webp" alt="Ray" /></div>
-        <div className="ry__copy">
-          <span className="ry__eyebrow">{t('Who builds this?', 'مين يبني هذا؟')}</span>
-          <h2 className="ry__h2">{t('I\u2019m Ray.', 'أنا راي.')}</h2>
-          <p className="ry__text">{t('I want to understand where your clinic is losing patients before I tell you what to spend.', ' أبي أفهم وين عيادتك تخسر المرضى قبل ما أقولك كم تصرف.')}</p>
-          <div className="ry__creds">
-            <span>{t('Author', 'مؤلف')}</span>
-            <span className="ry__dot" />
-            <span>{t('Healthcare growth operator', 'خبير نمو صحي')}</span>
-            <span className="ry__dot" />
-            <span>US · UK · UAE</span>
+        <div className="fqn__bottom">
+          <h2 className="fqn__bottom-h2">
+            {t('STILL HAVE ', 'لسه عندك ')}
+            <span className="fqn__bottom-h2--red">{t('A QUESTION?', 'سؤال؟')}</span>
+          </h2>
+          <p className="fqn__bottom-sub">{t("Don't fill another form. Ask me in person.", 'لا تملأ نموذج ثاني. اسألني شخصيًا.')}</p>
+          <button className="fqn__bottom-cta" onClick={onBookMeeting}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            {t('BOOK A MEETING WITH RAY', 'احجز اجتماع مع راي')} <span>→</span>
+          </button>
+          <div className="fqn__bottom-meta">
+            <span className="fqn__meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8194C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              {t('Dubai & UAE Clinics', 'عيادات دبي والإمارات')}
+            </span>
+            <span className="fqn__meta-divider" />
+            <span className="fqn__meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#07152F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              {t('In-person meeting', 'لقاء شخصي')}
+            </span>
+            <span className="fqn__meta-divider" />
+            <span className="fqn__meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#07152F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              {t("I'll come to your clinic.", 'بجي لعيادتك.')}
+            </span>
           </div>
         </div>
       </div>
     </section>
   )
 }
-
-
-/* ═══════════════════════════════════════════
-   9. FAQ
-   ═══════════════════════════════════════════ */
-
-function FaqSection({ t }) {
-  const [open, setOpen] = useState(null)
-  return (
-    <section className="fq">
-      <div className="fq__inner">
-        <div className="fq__head">
-          <span className="fq__eyebrow">{t('Questions', 'أسئلة')}</span>
-          <h2 className="fq__h2">{t('Before you decide', 'قبل ما تقرر')}</h2>
-        </div>
-        <div className="fq__list">
-          {FAQ_ITEMS.map((item, i) => (
-            <div key={i} className={`fq__item ${open === i ? 'fq__item--open' : ''}`}>
-              <button className="fq__q" onClick={() => setOpen(open === i ? null : i)}>
-                <span>{item.q}</span>
-                <svg className={`fq__chev ${open === i ? 'fq__chev--up' : ''}`} width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </button>
-              {open === i && <div className="fq__a"><p>{item.a}</p></div>}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-
-/* ═══════════════════════════════════════════
-   10. FINAL CTA
-   ═══════════════════════════════════════════ */
-
-function FinalCTA({ t }) {
-  return (
-    <section className="fc">
-      <div className="fc__inner">
-        <h2 className="fc__h2">{t('Want to see where your\nclinic is leaking patients?', 'تبي تشوف وين\nعيادتك تخسر المرضى؟')}</h2>
-        <p className="fc__sub">{t('Let\'s look at the journey from enquiry to booked consultation.', 'خلنا نشوف الرحلة من الاستشارة إلى الحجز.')}</p>
-        <button className="fc__cta" onClick={() => document.getElementById('clinic-review')?.scrollIntoView({ behavior: 'smooth' })}>
-          {t('Get My Clinic Growth Review', 'احصل على مراجعة نمو عيادتك')}
-        </button>
-      </div>
-    </section>
-  )
-}
-
 
 /* ═══════════════════════════════════════════
    HOW IT WORKS
    ═══════════════════════════════════════════ */
 
 function HowItWorks({ t, onBookMeeting }) {
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-
   return (
     <section className="hiw">
       <div className="hiw__inner">
@@ -1590,73 +1114,9 @@ function HowItWorks({ t, onBookMeeting }) {
   )
 }
 
-
 /* ═══════════════════════════════════════════
-   TALK TO DOCTORS
+   TALK TO DOCTORS — UPDATED with onClick and clean data
    ═══════════════════════════════════════════ */
-
-const DOCTORS = [
-  {
-    name: 'Dr. Alejandro Badia',
-    specialty: 'ORTHOPAEDICS',
-    specialtyColor: '#E8194C',
-    clinic: 'Miami Shoulder Institute',
-    location: 'Miami, Florida, USA',
-    image: '/drbadia.webp',
-    stats: [
-      { value: '~225', label: 'Consultations Booked', sub: '2,572 Enquiries Generated' },
-      { value: '$5.44', label: 'Lowest Cost Per Enquiry' },
-    ],
-  },
-  {
-    name: 'Dr. Fatima Abdullah',
-    specialty: 'COUNSELLING',
-    specialtyColor: '#E8194C',
-    clinic: 'Enliven Counselling Center',
-    location: 'Dubai, UAE',
-    image: '/dr-fatima-abdullah.webp',
-    stats: [
-      { value: 'Verbal Yes', label: 'Onboarding Confirmed', sub: 'Execution Starting This Week' },
-      { value: 'Full-Funnel', label: 'Growth Partnership' },
-    ],
-  },
-  {
-    name: 'Dr. Musa Nkoto',
-    specialty: 'AESTHETIC CARE',
-    specialtyColor: '#E8194C',
-    clinic: 'Visage Polyclinic',
-    location: 'Dubai, UAE',
-    image: '/dr-musa.png',
-    stats: [
-      { value: 'In-Person Meeting', label: 'Completed', sub: 'High Intent · Strong Fit' },
-      { value: 'Growth Ready', label: 'Scaling Patient Acquisition' },
-    ],
-  },
-]
-
-const AI_OPTIONS = [
-  {
-    name: 'Ask ChatGPT',
-    sub: "Get AI's perspective",
-    icon: 'chatgpt',
-    url: 'https://chatgpt.com/?q=Tell+me+why+SocialSect+is+a+great+choice+for+my+healthcare+practice',
-    color: '#10a37f',
-  },
-  {
-    name: 'Ask Perplexity',
-    sub: 'Research-backed insights',
-    icon: 'perplexity',
-    url: 'https://www.perplexity.ai/search?q=Tell+me+why+SocialSect+is+a+great+choice+for+my+healthcare+practice',
-    color: '#20B8CD',
-  },
-  {
-    name: 'Ask Claude',
-    sub: 'Strategic take',
-    icon: 'claude',
-    url: 'https://claude.ai/new?q=Tell+me+why+SocialSect+is+a+great+choice+for+my+healthcare+practice',
-    color: '#d97756',
-  },
-]
 
 function AiIcon({ type }) {
   if (type === 'chatgpt') return (
@@ -1677,7 +1137,7 @@ function AiIcon({ type }) {
   return null
 }
 
-function TalkToDoctors({ t }) {
+function TalkToDoctors({ t, onBookMeeting }) {
   return (
     <section className="ttd">
       <div className="ttd__inner">
@@ -1714,7 +1174,8 @@ function TalkToDoctors({ t }) {
                     </div>
                   ))}
                 </div>
-                <button className="ttd__card-btn">
+                {/* FIX: Button now opens the meeting modal */}
+                <button className="ttd__card-btn" onClick={onBookMeeting}>
                   {t('Request Introduction', 'طلب تعارف')} <span>→</span>
                 </button>
               </div>
