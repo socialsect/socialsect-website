@@ -6,6 +6,14 @@ import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { getOrthopaedicSeoLandingData } from './orthopaedicSurgeonsSeoData.js'
 import '../dentists/DentistLandingPage.css'
 
+function renderBold(text) {
+  if (typeof text !== 'string') return text
+  const parts = text.split('**')
+  return parts.map((part, i) =>
+    i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+  )
+}
+
 export default function OrthopaedicSurgeonsSeoLandingPage({ pageSlug: propSlug }) {
   const params = useParams()
   const pageSlug = propSlug ?? params.pageSlug
@@ -36,7 +44,7 @@ export default function OrthopaedicSurgeonsSeoLandingPage({ pageSlug: propSlug }
                 key={paragraph.slice(0, 48)}
                 className={i === 0 ? 'ps-hero__subheadline' : 'ps-hero__intro-text'}
               >
-                {paragraph}
+                {renderBold(paragraph)}
               </p>
             ))}
             {data.heroBullets?.length ? (
@@ -81,18 +89,29 @@ export default function OrthopaedicSurgeonsSeoLandingPage({ pageSlug: propSlug }
             <h2 className="ps-section__title">{section.title}</h2>
             {section.content.map((paragraph) => (
               <p key={paragraph.slice(0, 64)} className="ps-section__copy">
-                {paragraph}
+              {renderBold(paragraph)}
               </p>
             ))}
             {section.bullets?.length ? (
-              <ul className="ps-section__list">
-                {section.bullets.map((bullet) => (
-                  <li key={bullet} className="ps-section__list-item">
-                    <span className="ps-section__list-dot" aria-hidden="true" />
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
+              section.title.includes('E-E-A-T') ? (
+                <div className="ps-eeat">
+                  {section.bullets.map((bullet) => (
+                    <p key={bullet} className="ps-eeat__item">
+                      <span className="ps-eeat__dot" aria-hidden="true" />
+                      {renderBold(bullet)}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                <ul className="ps-section__list">
+                  {section.bullets.map((bullet) => (
+                    <li key={bullet} className="ps-section__list-item">
+                      <span className="ps-section__list-dot" aria-hidden="true" />
+                      <span>{renderBold(bullet)}</span>
+                    </li>
+                  ))}
+                </ul>
+              )
             ) : null}
           </div>
         </section>
@@ -105,7 +124,7 @@ export default function OrthopaedicSurgeonsSeoLandingPage({ pageSlug: propSlug }
             <h2 id="ps-statement-heading" className="ps-statement__quote">
               &ldquo;{data.statement.quote}&rdquo;
             </h2>
-            <p className="ps-statement__body">{data.statement.body}</p>
+            <p className="ps-statement__body">{renderBold(data.statement.body)}</p>
           </div>
         </section>
       )}
@@ -120,8 +139,8 @@ export default function OrthopaedicSurgeonsSeoLandingPage({ pageSlug: propSlug }
             <dl className="ps-faq">
               {data.faq.map((item) => (
                 <div key={item.question} className="ps-faq__item">
-                  <dt className="ps-faq__question">{item.question}</dt>
-                  <dd className="ps-faq__answer">{item.answer}</dd>
+                  <dt className="ps-faq__question">{renderBold(item.question)}</dt>
+                  <dd className="ps-faq__answer">{renderBold(item.answer)}</dd>
                 </div>
               ))}
             </dl>
@@ -136,9 +155,9 @@ export default function OrthopaedicSurgeonsSeoLandingPage({ pageSlug: propSlug }
         </div>
         <div className="ps-closing__inner">
           <h2 id="ps-closing-heading" className="ps-closing__headline">
-            {data.ctaHeadline}
+            {renderBold(data.ctaHeadline)}
           </h2>
-          <p className="ps-closing__body">{data.ctaCopy}</p>
+          <p className="ps-closing__body">{renderBold(data.ctaCopy)}</p>
           <div className="ps-closing__actions">
             <Link
               to={data.ctaLink ?? BOOK_A_CALL_FORM}

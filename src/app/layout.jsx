@@ -86,19 +86,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script
-          id="intro-check"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                if (sessionStorage.getItem('hasSeenIntro')) {
-                  document.documentElement.dataset.hasSeenIntro = '1';
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
 
         {globalSchemas.map((schema, i) => (
           <script
@@ -110,6 +97,7 @@ export default function RootLayout({ children }) {
         ))}
       </head>
       <body suppressHydrationWarning>
+        <Script src="/intro-check.js" strategy="beforeInteractive" />
         <Providers>
           <div className="app-shell">
             <Navbar />
@@ -120,7 +108,9 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </Providers>
-        <script
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               if ('requestIdleCallback' in window) {

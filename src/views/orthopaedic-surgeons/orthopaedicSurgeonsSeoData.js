@@ -10,7 +10,7 @@ const orthopaedicSeoLandingPages = [
     heroHeadline: 'SEO Services for Orthopaedic Surgeons in Los Angeles',
     heroSubcopy: [
       'Los Angeles is home to some of the most competitive healthcare markets in the country, and orthopaedic practices are no exception. From Beverly Hills to Downtown LA, Santa Monica to the San Fernando Valley, patients are searching online every day for orthopedic surgeons who can treat their joint pain, sports injuries, spine conditions, and post-accident injuries. If your practice isn’t ranking on the first page of Google, you’re handing those patients directly to your competitors.',
-      'Socialsect specializes in SEO Services for Orthopaedic Surgeons in Los Angeles, helping practices across the city build lasting visibility, credibility, and patient growth through search engine optimization strategies built specifically for the orthopedic and healthcare space. We don’t offer generic marketing packages — we build custom strategies rooted in medical industry knowledge, technical SEO precision, and Google’s E-E-A-T standards for healthcare content.',
+      'Socialsect specializes in **SEO Services for Orthopaedic Surgeons in Los Angeles**, helping practices across the city build lasting visibility, credibility, and patient growth through search engine optimization strategies built specifically for the orthopedic and healthcare space. We don’t offer generic marketing packages — we build custom strategies rooted in medical industry knowledge, technical SEO precision, and Google’s E-E-A-T standards for healthcare content.',
     ],
     heroBullets: [
       'Rank Higher in Los Angeles Local Search',
@@ -27,13 +27,13 @@ const orthopaedicSeoLandingPages = [
         title: 'Why Orthopaedic Surgeons in Los Angeles Need Specialized SEO',
         content: [
           'Los Angeles County is enormous, spanning dozens of neighborhoods and cities, each with its own competitive landscape for orthopedic care. A patient searching "orthopaedic surgeon SEO Los Angeles" or looking for a nearby specialist doesn’t just want any clinic — they want a trusted provider close to home who can treat their specific condition. Ranking for these searches requires more than basic keyword placement; it demands a strategy built around local intent, medical trust signals, and technical site performance.',
-          'General marketing agencies often lack the healthcare-specific knowledge required to rank medical websites safely and effectively. Socialsect works exclusively with healthcare providers, giving us a clear advantage when it comes to delivering orthopedic SEO services Los Angeles practices can rely on to generate consistent, high-quality patient leads.',
+          'General marketing agencies often lack the healthcare-specific knowledge required to rank medical websites safely and effectively. Socialsect works exclusively with healthcare providers, giving us a clear advantage when it comes to delivering **orthopedic SEO services Los Angeles** practices can rely on to generate consistent, high-quality patient leads.',
         ],
       },
       {
         title: 'Our Approach to SEO for Orthopedic Clinics in Los Angeles',
         content: [
-          'Every orthopedic practice has different specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, patient demographics, and competitive landscape using a structured, data-driven process for SEO for orthopedic clinics.',
+          'Every orthopedic practice has different specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, patient demographics, and competitive landscape using a structured, data-driven process for **SEO for orthopedic clinics**.',
         ],
       },
       {
@@ -46,13 +46,13 @@ const orthopaedicSeoLandingPages = [
       {
         title: '2. On-Page and Technical SEO',
         content: [
-          'A well-structured, fast-loading, mobile-optimized website is essential for both rankings and patient trust. Socialsect conducts a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages with the exact terms patients use, including variations like "orthopedic marketing agency Los Angeles" and "healthcare SEO for orthopedic surgeons."',
+          'A well-structured, fast-loading, mobile-optimized website is essential for both rankings and patient trust. Socialsect conducts a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages with the exact terms patients use, including variations like "**orthopedic marketing agency Los Angeles**" and "healthcare SEO for orthopedic surgeons."',
         ],
       },
       {
         title: '3. Content Marketing Rooted in Real Medical Expertise',
         content: [
-          'Search engines and patients alike trust content written by qualified professionals. Our content team collaborates directly with your physicians and clinical staff to produce accurate, informative blog posts, procedure explainers, and condition-specific pages that reflect genuine clinical expertise rather than generic, outsourced writing. This is a core part of how Socialsect helps practices establish themselves as a leading orthopedic SEO company Los Angeles patients and search engines can trust.',
+          'Search engines and patients alike trust content written by qualified professionals. Our content team collaborates directly with your physicians and clinical staff to produce accurate, informative blog posts, procedure explainers, and condition-specific pages that reflect genuine clinical expertise rather than generic, outsourced writing. This is a core part of how Socialsect helps practices establish themselves as a leading **orthopedic SEO company Los Angeles** patients and search engines can trust.',
         ],
       },
       {
@@ -74,30 +74,30 @@ const orthopaedicSeoLandingPages = [
           'By embedding E-E-A-T into every page, Socialsect helps orthopedic practices in Los Angeles rank higher while giving patients confidence in the quality of care they’ll receive.',
         ],
         bullets: [
-          'Experience: We ensure your website reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler content.',
-          'Expertise: Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research help establish clear expertise signals for both patients and search engines.',
-          'Authoritativeness: Through strategic local citations, healthcare directory listings, and backlinks from reputable Los Angeles sources, we position your practice as a recognized authority in orthopedic care.',
-          'Trustworthiness: Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent policies all contribute to the trust signals that support sustainable healthcare rankings.',
+          '**Experience:** We ensure your website reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler content.',
+          '**Expertise:** Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research help establish clear expertise signals for both patients and search engines.',
+          '**Authoritativeness:** Through strategic local citations, healthcare directory listings, and backlinks from reputable Los Angeles sources, we position your practice as a recognized authority in orthopedic care.',
+          '**Trustworthiness:** Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent policies all contribute to the trust signals that support sustainable healthcare rankings.',
         ],
       },
       {
         title: 'Why Choose Socialsect as Your Orthopedic Marketing Agency in Los Angeles',
         content: [
-          'Los Angeles has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted orthopedic marketing agency Los Angeles practices choose:',
+          'Los Angeles has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted **orthopedic marketing agency Los Angeles** practices choose:',
         ],
         bullets: [
-          'Healthcare-exclusive SEO expertise — Every strategy is built with medical compliance and healthcare best practices in mind.',
-          'Deep local market knowledge — We understand how to rank practices across LA’s diverse neighborhoods and competitive submarkets.',
-          'Transparent, data-driven reporting — You’ll always have clear visibility into rankings, traffic, and lead performance.',
-          'Fully customized strategies — No templated packages. Every campaign is built around your practice’s specialties and goals.',
-          'Long-term growth partnership — SEO is an ongoing process, and Socialsect continuously refines strategy based on real performance data and search trend changes.',
+          '**Healthcare-exclusive SEO expertise** — Every strategy is built with medical compliance and healthcare best practices in mind.',
+          '**Deep local market knowledge** — We understand how to rank practices across LA’s diverse neighborhoods and competitive submarkets.',
+          '**Transparent, data-driven reporting** — You’ll always have clear visibility into rankings, traffic, and lead performance.',
+          '**Fully customized strategies** — No templated packages. Every campaign is built around your practice’s specialties and goals.',
+          '**Long-term growth partnership** — SEO is an ongoing process, and Socialsect continuously refines strategy based on real performance data and search trend changes.',
         ],
       },
       {
         title: 'Who We Help',
         content: [
           'Socialsect’s SEO services support a wide range of orthopedic professionals and practices throughout Los Angeles, including:',
-          'Whether you’re a solo practitioner searching for "orthopedic SEO services Los Angeles" or a multi-location group needing a citywide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
+          'Whether you’re a solo practitioner searching for "**orthopedic SEO services Los Angeles**" or a multi-location group needing a citywide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
         ],
         bullets: [
           'Solo orthopedic surgeons building a new patient base',
@@ -169,7 +169,7 @@ const orthopaedicSeoLandingPages = [
       'Socialsect delivers proven SEO services for orthopaedic surgeons in New York. Rank higher, attract more patients, and grow your practice with a specialized orthopedic SEO agency.',
     heroHeadline: 'SEO Services for Orthopaedic Surgeons in New York',
     heroSubcopy: [
-      'Running a successful orthopaedic practice in New York takes more than clinical excellence. Patients today search online before they ever pick up the phone, and if your practice isn’t visible on Google, you’re losing patients to competitors who show up first. That’s where Socialsect comes in. As a dedicated SEO agency for orthopaedic surgeons, we help clinics across New York City and the surrounding boroughs get found by the right patients at the right time — people actively searching for joint pain relief, sports injury treatment, spine care, and orthopedic surgery consultations.',
+      'Running a successful orthopaedic practice in New York takes more than clinical excellence. Patients today search online before they ever pick up the phone, and if your practice isn’t visible on Google, you’re losing patients to competitors who show up first. That’s where Socialsect comes in. As a dedicated **SEO agency for orthopaedic surgeons**, we help clinics across New York City and the surrounding boroughs get found by the right patients at the right time — people actively searching for joint pain relief, sports injury treatment, spine care, and orthopedic surgery consultations.',
       'Socialsect specializes in SEO services for orthopaedic surgeons in New York, combining deep healthcare marketing experience with technical SEO precision to help your practice rank higher, build trust, and convert more website visitors into booked appointments.',
     ],
     heroBullets: [
@@ -187,33 +187,33 @@ const orthopaedicSeoLandingPages = [
         title: 'Why Orthopaedic Surgeons in New York Need Specialized SEO',
         content: [
           'New York’s healthcare market is one of the most competitive in the country. Whether you practice in Manhattan, Brooklyn, Queens, the Bronx, or Staten Island, dozens of orthopedic clinics are competing for the same patients, the same keywords, and the same map pack rankings. Generic marketing agencies often don’t understand the nuances of healthcare compliance, medical terminology, or the patient journey specific to orthopedic care.',
-          'Socialsect works exclusively with medical and healthcare brands, which means our team understands what it takes to rank a healthcare website without risking compliance issues. Our approach to orthopedic SEO services NYC is built around three pillars: visibility, credibility, and conversion.',
+          'Socialsect works exclusively with medical and healthcare brands, which means our team understands what it takes to rank a healthcare website without risking compliance issues. Our approach to **orthopedic SEO services NYC** is built around three pillars: visibility, credibility, and conversion.',
           'When someone searches for "orthopedic surgeon SEO New York" or "orthopedic surgeon SEO NYC," they aren’t just looking for information — they’re often in pain and looking for a solution now. Ranking at the top of search results during that moment of intent can be the difference between a new patient booking with your practice or your competitor down the street.',
         ],
       },
       {
         title: 'Our Approach to SEO for Orthopedic Clinics',
         content: [
-          'Socialsect follows a structured, data-driven process when delivering SEO for orthopedic clinics in New York. Every strategy is customized based on your practice’s specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics.',
+          'Socialsect follows a structured, data-driven process when delivering **SEO for orthopedic clinics** in New York. Every strategy is customized based on your practice’s specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics.',
         ],
       },
       {
         title: '1. Local SEO for Orthopedic Surgeons in New York',
         content: [
-          'Most patients search for care close to home. Our local SEO for orthopedic surgeons New York strategy focuses on optimizing your Google Business Profile, building consistent local citations, and targeting neighborhood-specific keywords so your practice appears in the map pack for searches like "orthopedic doctor near me" or "orthopedic clinic SEO New York City."',
+          'Most patients search for care close to home. Our **local SEO for orthopedic surgeons New York** strategy focuses on optimizing your Google Business Profile, building consistent local citations, and targeting neighborhood-specific keywords so your practice appears in the map pack for searches like "orthopedic doctor near me" or "orthopedic clinic SEO New York City."',
           'We also build location-specific landing pages for practices with multiple offices across the city, ensuring each location ranks independently for its own local searches, including terms like "New York orthopedic marketing agency" and "SEO company for orthopedic surgeons NYC."',
         ],
       },
       {
         title: '2. On-Page and Technical SEO',
         content: [
-          'A fast, mobile-friendly, well-structured website is the foundation of every successful campaign. Socialsect audits your entire site architecture, page speed, schema markup, and internal linking structure. We optimize service pages, physician bio pages, and procedure pages with the keywords patients are actually searching for, including variations like "orthopedic marketing agency New York" and "healthcare SEO for orthopedic surgeons."',
+          'A fast, mobile-friendly, well-structured website is the foundation of every successful campaign. Socialsect audits your entire site architecture, page speed, schema markup, and internal linking structure. We optimize service pages, physician bio pages, and procedure pages with the keywords patients are actually searching for, including variations like "**orthopedic marketing agency New York**" and "healthcare SEO for orthopedic surgeons."',
         ],
       },
       {
         title: '3. Content Marketing Built on Real Expertise',
         content: [
-          'Google rewards content written by qualified experts, and patients trust it too. Our content team works directly with your clinical staff to produce blog articles, procedure explainers, and FAQ pages that reflect real medical expertise rather than generic filler content. This is central to how we help orthopedic practices build authority as a trusted orthopedic SEO company NYC.',
+          'Google rewards content written by qualified experts, and patients trust it too. Our content team works directly with your clinical staff to produce blog articles, procedure explainers, and FAQ pages that reflect real medical expertise rather than generic filler content. This is central to how we help orthopedic practices build authority as a trusted **orthopedic SEO company NYC**.',
         ],
       },
       {
@@ -235,30 +235,30 @@ const orthopaedicSeoLandingPages = [
           'By embedding E-E-A-T principles into every page we optimize, Socialsect helps orthopedic practices not only rank higher but also convert visitors into confident, informed patients.',
         ],
         bullets: [
-          'Experience: Socialsect ensures your website content reflects real clinical experience, including case outcomes, treatment approaches, and physician-authored insights rather than generic, outsourced writing.',
-          'Expertise: We build detailed physician profiles that highlight board certifications, fellowship training, published research, and areas of specialization, giving both patients and search engines clear signals of medical expertise.',
-          'Authoritativeness: Through strategic backlinks, citations from reputable New York medical directories, and partnerships with recognized healthcare platforms, we position your practice as an authority in orthopedic care.',
-          'Trustworthiness: Secure website architecture (HTTPS), transparent contact information, patient reviews, accurate NAP (name, address, phone) consistency, and clear privacy policies all contribute to the trust signals Google looks for in healthcare websites.',
+          '**Experience:** Socialsect ensures your website content reflects real clinical experience, including case outcomes, treatment approaches, and physician-authored insights rather than generic, outsourced writing.',
+          '**Expertise:** We build detailed physician profiles that highlight board certifications, fellowship training, published research, and areas of specialization, giving both patients and search engines clear signals of medical expertise.',
+          '**Authoritativeness:** Through strategic backlinks, citations from reputable New York medical directories, and partnerships with recognized healthcare platforms, we position your practice as an authority in orthopedic care.',
+          '**Trustworthiness:** Secure website architecture (HTTPS), transparent contact information, patient reviews, accurate NAP (name, address, phone) consistency, and clear privacy policies all contribute to the trust signals Google looks for in healthcare websites.',
         ],
       },
       {
         title: 'Why Choose Socialsect as Your Orthopedic SEO Agency',
         content: [
-          'There are many general marketing agencies in New York, but few understand the specific compliance, terminology, and patient behavior that shape orthopedic and healthcare marketing. Here’s what sets Socialsect apart as a specialized orthopedic marketing agency New York practices trust:',
+          'There are many general marketing agencies in New York, but few understand the specific compliance, terminology, and patient behavior that shape orthopedic and healthcare marketing. Here’s what sets Socialsect apart as a specialized **orthopedic marketing agency New York** practices trust:',
         ],
         bullets: [
-          'Healthcare-focused SEO expertise — We only work within the medical and healthcare space, so every strategy is built around HIPAA-conscious content and compliant marketing practices.',
-          'Proven local ranking strategies — Our team has helped clinics across New York City improve visibility for high-intent local searches.',
-          'Transparent reporting — You’ll always know what’s being done, why it’s being done, and how it’s performing through clear monthly reporting.',
-          'Custom strategy, not templates — Every orthopedic practice has different specialties and patient demographics. We build strategies around your specific goals, not a one-size-fits-all package.',
-          'Long-term partnership approach — SEO is not a one-time project. Socialsect works as an extension of your team, continuously refining strategy based on real performance data.',
+          '**Healthcare-focused SEO expertise** — We only work within the medical and healthcare space, so every strategy is built around HIPAA-conscious content and compliant marketing practices.',
+          '**Proven local ranking strategies** — Our team has helped clinics across New York City improve visibility for high-intent local searches.',
+          '**Transparent reporting** — You’ll always know what’s being done, why it’s being done, and how it’s performing through clear monthly reporting.',
+          '**Custom strategy, not templates** — Every orthopedic practice has different specialties and patient demographics. We build strategies around your specific goals, not a one-size-fits-all package.',
+          '**Long-term partnership approach** — SEO is not a one-time project. Socialsect works as an extension of your team, continuously refining strategy based on real performance data.',
         ],
       },
       {
         title: 'Who We Help',
         content: [
           'Socialsect’s SEO services are built for a wide range of orthopedic professionals and practices across New York, including:',
-          'Whether you’re searching for "orthopedic SEO services NYC" for a single-location practice or a citywide campaign for a multi-specialty group, Socialsect builds a scalable strategy that grows with your practice.',
+          'Whether you’re searching for "**orthopedic SEO services NYC**" for a single-location practice or a citywide campaign for a multi-specialty group, Socialsect builds a scalable strategy that grows with your practice.',
         ],
         bullets: [
           'Solo orthopedic surgeons building a new patient base',
@@ -331,7 +331,7 @@ const orthopaedicSeoLandingPages = [
     heroHeadline: 'SEO Services for Orthopaedic Surgeons in Miami',
     heroSubcopy: [
       'Miami’s healthcare market moves fast, and orthopaedic practices across the city are competing for the same pool of patients searching online for joint pain relief, sports injury treatment, spine care, and post-accident orthopedic surgery. From Brickell to Coral Gables, Aventura to Kendall, patients are turning to Google first — and if your practice isn’t visible at the top of those search results, you’re losing potential patients to competitors before they ever visit your website.',
-      'Socialsect specializes in SEO Services for Orthopaedic Surgeons in Miami, helping practices across South Florida build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
+      'Socialsect specializes in **SEO Services for Orthopaedic Surgeons in Miami**, helping practices across South Florida build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
     ],
     heroBullets: [
       'Rank Higher in Miami Local Search',
@@ -348,7 +348,7 @@ const orthopaedicSeoLandingPages = [
         title: 'Why Orthopaedic Surgeons in Miami Need Specialized SEO',
         content: [
           'Miami is a uniquely competitive and diverse healthcare market, with practices spread across dozens of neighborhoods and a patient base that includes both local residents and visitors seeking specialized orthopedic care. A patient searching "orthopaedic surgeon SEO Miami" or looking for a nearby specialist isn’t just browsing — they’re often dealing with pain or injury and looking for a provider they can trust right now.',
-          'Generic marketing agencies rarely understand the compliance requirements, medical terminology, and patient intent that shape effective healthcare marketing. Socialsect works exclusively with medical and healthcare brands, giving us the specialized knowledge needed to deliver orthopedic SEO services Miami practices can depend on for consistent, high-quality patient leads.',
+          'Generic marketing agencies rarely understand the compliance requirements, medical terminology, and patient intent that shape effective healthcare marketing. Socialsect works exclusively with medical and healthcare brands, giving us the specialized knowledge needed to deliver **orthopedic SEO services Miami** practices can depend on for consistent, high-quality patient leads.',
         ],
       },
       {
@@ -360,20 +360,20 @@ const orthopaedicSeoLandingPages = [
       {
         title: '1. Local SEO for Orthopedic Surgeons in Miami',
         content: [
-          'Most patients start their search with location intent. Our local SEO for orthopedic surgeons Miami strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Miami."',
+          'Most patients start their search with location intent. Our **local SEO for orthopedic surgeons Miami** strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Miami."',
           'For practices with multiple locations across South Florida, we build individual location pages designed to rank independently in areas like Coral Gables, Miami Beach, Doral, and Kendall, helping you capture patients searching within specific neighborhoods rather than competing only at a citywide level.',
         ],
       },
       {
         title: '2. On-Page and Technical SEO',
         content: [
-          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "orthopedic marketing agency Miami" and "healthcare SEO for orthopedic surgeons."',
+          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "**orthopedic marketing agency Miami**" and "healthcare SEO for orthopedic surgeons."',
         ],
       },
       {
         title: '3. Content Marketing Rooted in Real Medical Expertise',
         content: [
-          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized orthopedic SEO expert Miami patients and search engines can trust.',
+          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized **orthopedic SEO expert Miami** patients and search engines can trust.',
         ],
       },
       {
@@ -385,7 +385,7 @@ const orthopaedicSeoLandingPages = [
       {
         title: '5. Orthopedic Patient Acquisition and Lead Generation',
         content: [
-          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around orthopedic patient acquisition Florida goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on orthopedic lead generation Miami ensures the traffic we drive to your site converts into booked consultations, not just page views.',
+          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around **orthopedic patient acquisition Florida** goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on **orthopedic lead generation Miami** ensures the traffic we drive to your site converts into booked consultations, not just page views.',
         ],
       },
       {
@@ -395,30 +395,30 @@ const orthopaedicSeoLandingPages = [
           'By embedding E-E-A-T into every page, Socialsect helps orthopedic practices in Miami rank higher while giving patients confidence in the quality of care they’ll receive.',
         ],
         bullets: [
-          'Experience: We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
-          'Expertise: Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
-          'Authoritativeness: Through strategic local citations, healthcare directory listings, and backlinks from credible Miami and Florida sources, we position your practice as a recognized authority in orthopedic care.',
-          'Trustworthiness: Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
+          '**Experience:** We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
+          '**Expertise:** Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
+          '**Authoritativeness:** Through strategic local citations, healthcare directory listings, and backlinks from credible Miami and Florida sources, we position your practice as a recognized authority in orthopedic care.',
+          '**Trustworthiness:** Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
         ],
       },
       {
         title: 'Why Choose Socialsect as Your Orthopedic Marketing Agency in Miami',
         content: [
-          'Miami has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted orthopedic marketing agency Miami practices choose:',
+          'Miami has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted **orthopedic marketing agency Miami** practices choose:',
         ],
         bullets: [
-          'Healthcare-exclusive SEO expertise — Every strategy is built with medical compliance and healthcare best practices in mind.',
-          'Deep South Florida market knowledge — We understand how to rank practices across Miami’s diverse neighborhoods and competitive submarkets.',
-          'Transparent, data-driven reporting — You’ll always have clear visibility into rankings, traffic, and lead performance.',
-          'Fully customized strategies — No templated packages. Every campaign is built around your practice’s specialties and goals.',
-          'Focus on real growth, not vanity metrics — Our strategies prioritize orthopedic patient acquisition Florida and measurable lead generation over rankings alone.',
+          '**Healthcare-exclusive SEO expertise** — Every strategy is built with medical compliance and healthcare best practices in mind.',
+          '**Deep South Florida market knowledge** — We understand how to rank practices across Miami’s diverse neighborhoods and competitive submarkets.',
+          '**Transparent, data-driven reporting** — You’ll always have clear visibility into rankings, traffic, and lead performance.',
+          '**Fully customized strategies** — No templated packages. Every campaign is built around your practice’s specialties and goals.',
+          '**Focus on real growth, not vanity metrics** — Our strategies prioritize **orthopedic patient acquisition Florida** and measurable lead generation over rankings alone.',
         ],
       },
       {
         title: 'Who We Help',
         content: [
           'Socialsect’s SEO services support a wide range of orthopedic professionals and practices throughout Miami and South Florida, including:',
-          'Whether you’re a solo practitioner searching for "orthopedic SEO services Miami" or a multi-location group needing a citywide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
+          'Whether you’re a solo practitioner searching for "**orthopedic SEO services Miami**" or a multi-location group needing a citywide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
         ],
         bullets: [
           'Solo orthopedic surgeons building a new patient base',
@@ -491,7 +491,7 @@ const orthopaedicSeoLandingPages = [
     heroHeadline: 'SEO Services for Orthopaedic Surgeons in Chicago',
     heroSubcopy: [
       'Chicago’s orthopaedic market is large, competitive, and spread across a city of distinct neighborhoods, from the Loop to Lincoln Park, Wicker Park to Hyde Park, and out into the suburbs of Cook County. Patients dealing with joint pain, sports injuries, spine conditions, or the aftermath of an accident almost always start their search on Google before booking an appointment. If your practice isn’t ranking on that first page, you’re losing patients to competitors before they ever see what your practice offers.',
-      'Socialsect specializes in SEO Services for Orthopaedic Surgeons in Chicago, helping practices across the city and greater Illinois build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
+      'Socialsect specializes in **SEO Services for Orthopaedic Surgeons in Chicago**, helping practices across the city and greater Illinois build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
     ],
     heroBullets: [
       'Rank Higher in Chicago Local Search',
@@ -508,7 +508,7 @@ const orthopaedicSeoLandingPages = [
         title: 'Why Orthopaedic Surgeons in Chicago Need Specialized SEO',
         content: [
           'Chicago is one of the most competitive healthcare markets in the Midwest, with orthopedic practices ranging from solo specialists to large multi-physician groups all competing for the same searches. A patient searching "orthopaedic surgeon SEO Chicago" or looking for a nearby specialist isn’t casually browsing — they’re often in pain, planning surgery, or recovering from an injury, and they want a provider they can trust right away.',
-          'General marketing agencies often don’t understand the compliance requirements, medical terminology, and patient intent that shape effective healthcare marketing. Socialsect works exclusively with medical and healthcare brands, giving us the specialized knowledge needed to deliver orthopedic SEO services Chicago practices can depend on for consistent, high-quality patient leads.',
+          'General marketing agencies often don’t understand the compliance requirements, medical terminology, and patient intent that shape effective healthcare marketing. Socialsect works exclusively with medical and healthcare brands, giving us the specialized knowledge needed to deliver **orthopedic SEO services Chicago** practices can depend on for consistent, high-quality patient leads.',
         ],
       },
       {
@@ -520,26 +520,26 @@ const orthopaedicSeoLandingPages = [
       {
         title: '1. Local SEO for Orthopedic Surgeons in Chicago',
         content: [
-          'Most patients start their search with location intent. Our local SEO orthopedic surgeons Chicago strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Chicago."',
-          'For practices with multiple locations across the city and suburbs, we build individual location pages designed to rank independently in areas like Naperville, Evanston, Oak Park, and the South Loop, helping you capture patients searching within specific neighborhoods rather than competing only at a citywide level. This same strategy extends across orthopedic marketing Illinois campaigns for practices serving patients beyond city limits.',
+          'Most patients start their search with location intent. Our **local SEO orthopedic surgeons Chicago** strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Chicago."',
+          'For practices with multiple locations across the city and suburbs, we build individual location pages designed to rank independently in areas like Naperville, Evanston, Oak Park, and the South Loop, helping you capture patients searching within specific neighborhoods rather than competing only at a citywide level. This same strategy extends across **orthopedic marketing Illinois** campaigns for practices serving patients beyond city limits.',
         ],
       },
       {
         title: '2. On-Page and Technical SEO',
         content: [
-          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking as part of our comprehensive orthopedic website optimization process. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "orthopedic marketing agency Chicago" and "orthopedic surgeon digital marketing Chicago."',
+          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking as part of our comprehensive **orthopedic website optimization** process. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "**orthopedic marketing agency Chicago**" and "orthopedic surgeon digital marketing Chicago."',
         ],
       },
       {
         title: '3. Content Marketing Rooted in Real Medical Expertise',
         content: [
-          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized orthopedic SEO expert Chicago patients and search engines can trust.',
+          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized **orthopedic SEO expert Chicago** patients and search engines can trust.',
         ],
       },
       {
         title: '4. Sports Medicine SEO for Chicago Practices',
         content: [
-          'Chicago’s active population and strong sports culture create consistent demand for sports injury treatment. Socialsect offers dedicated sports medicine SEO Chicago strategies, optimizing content around common sports injuries, athlete recovery programs, and performance-related orthopedic care to help your practice capture this high-intent patient segment.',
+          'Chicago’s active population and strong sports culture create consistent demand for sports injury treatment. Socialsect offers dedicated **sports medicine SEO Chicago** strategies, optimizing content around common sports injuries, athlete recovery programs, and performance-related orthopedic care to help your practice capture this high-intent patient segment.',
         ],
       },
       {
@@ -551,7 +551,7 @@ const orthopaedicSeoLandingPages = [
       {
         title: '6. Orthopedic Patient Acquisition and Lead Generation',
         content: [
-          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around orthopedic patient acquisition Chicago goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on orthopedic lead generation ensures the traffic we drive to your site converts into booked consultations, not just page views.',
+          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around **orthopedic patient acquisition Chicago** goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on **orthopedic lead generation** ensures the traffic we drive to your site converts into booked consultations, not just page views.',
         ],
       },
       {
@@ -561,30 +561,30 @@ const orthopaedicSeoLandingPages = [
           'By embedding E-E-A-T into every page, Socialsect helps orthopedic practices in Chicago rank higher while giving patients confidence in the quality of care they’ll receive.',
         ],
         bullets: [
-          'Experience: We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
-          'Expertise: Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
-          'Authoritativeness: Through strategic local citations, healthcare directory listings, and backlinks from credible Chicago and Illinois sources, we position your practice as a recognized authority in orthopedic care.',
-          'Trustworthiness: Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
+          '**Experience:** We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
+          '**Expertise:** Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
+          '**Authoritativeness:** Through strategic local citations, healthcare directory listings, and backlinks from credible Chicago and Illinois sources, we position your practice as a recognized authority in orthopedic care.',
+          '**Trustworthiness:** Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
         ],
       },
       {
         title: 'Why Choose Socialsect as Your Orthopedic Marketing Agency in Chicago',
         content: [
-          'Chicago has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted orthopedic marketing agency Chicago practices choose:',
+          'Chicago has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted **orthopedic marketing agency Chicago** practices choose:',
         ],
         bullets: [
-          'Healthcare-exclusive SEO expertise — Every strategy is built with medical compliance and healthcare best practices in mind.',
-          'Deep Chicago and Illinois market knowledge — We understand how to rank practices across the city’s diverse neighborhoods and competitive suburban submarkets.',
-          'Transparent, data-driven reporting — You’ll always have clear visibility into rankings, traffic, and lead performance.',
-          'Fully customized strategies — No templated packages. Every campaign is built around your practice’s specialties and goals.',
-          'Focus on real growth, not vanity metrics — Our strategies prioritize orthopedic patient acquisition Chicago and measurable lead generation over rankings alone.',
+          '**Healthcare-exclusive SEO expertise** — Every strategy is built with medical compliance and healthcare best practices in mind.',
+          '**Deep Chicago and Illinois market knowledge** — We understand how to rank practices across the city’s diverse neighborhoods and competitive suburban submarkets.',
+          '**Transparent, data-driven reporting** — You’ll always have clear visibility into rankings, traffic, and lead performance.',
+          '**Fully customized strategies** — No templated packages. Every campaign is built around your practice’s specialties and goals.',
+          '**Focus on real growth, not vanity metrics** — Our strategies prioritize **orthopedic patient acquisition Chicago** and measurable lead generation over rankings alone.',
         ],
       },
       {
         title: 'Who We Help',
         content: [
           'Socialsect’s SEO services support a wide range of orthopedic professionals and practices throughout Chicago and Illinois, including:',
-          'Whether you’re a solo practitioner searching for "orthopedic SEO services Chicago" or a multi-location group needing a citywide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
+          'Whether you’re a solo practitioner searching for "**orthopedic SEO services Chicago**" or a multi-location group needing a citywide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
         ],
         bullets: [
           'Solo orthopedic surgeons building a new patient base',
@@ -657,7 +657,7 @@ const orthopaedicSeoLandingPages = [
     heroHeadline: 'SEO Services for Orthopaedic Surgeons in Houston',
     heroSubcopy: [
       'Houston is one of the largest and most spread-out healthcare markets in the country, with orthopaedic practices competing across a sprawling metro that stretches from the Galleria to The Woodlands, Sugar Land to Katy, and Pearland to Clear Lake. Patients dealing with joint pain, sports injuries, spine conditions, or the aftermath of an accident almost always start their search on Google before ever picking up the phone. If your practice isn’t ranking on that first page, you’re losing patients to competitors before they even know your practice exists.',
-      'Socialsect specializes in SEO Services for Orthopaedic Surgeons in Houston, helping practices across the city and throughout Texas build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
+      'Socialsect specializes in **SEO Services for Orthopaedic Surgeons in Houston**, helping practices across the city and throughout Texas build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
     ],
     heroBullets: [
       'Rank Higher in Houston Local Search',
@@ -674,38 +674,38 @@ const orthopaedicSeoLandingPages = [
         title: 'Why Orthopaedic Surgeons in Houston Need Specialized SEO',
         content: [
           'Houston’s healthcare market is vast, competitive, and highly localized, with patients typically searching for care within their specific part of the metro rather than the city as a whole. A patient searching "orthopaedic surgeon SEO Houston" or looking for a nearby specialist isn’t casually browsing — they’re often in pain, preparing for surgery, or recovering from an injury, and they want a provider they can trust right away.',
-          'General marketing agencies often don’t understand the compliance requirements, medical terminology, and patient intent that shape effective healthcare marketing. Socialsect works exclusively with medical and healthcare brands, giving us the specialized knowledge needed to deliver orthopedic SEO services Houston practices can depend on for consistent, high-quality patient leads.',
+          'General marketing agencies often don’t understand the compliance requirements, medical terminology, and patient intent that shape effective healthcare marketing. Socialsect works exclusively with medical and healthcare brands, giving us the specialized knowledge needed to deliver **orthopedic SEO services Houston** practices can depend on for consistent, high-quality patient leads.',
         ],
       },
       {
         title: 'Our Approach to SEO for Orthopedic Clinics in Houston',
         content: [
-          'Every orthopedic practice has its own specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, target patients, and local competition using a structured, data-driven process focused on measurable results and complete orthopedic website SEO.',
+          'Every orthopedic practice has its own specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, target patients, and local competition using a structured, data-driven process focused on measurable results and complete **orthopedic website SEO**.',
         ],
       },
       {
         title: '1. Local SEO for Orthopedic Surgeons in Houston',
         content: [
-          'Most patients start their search with location intent. Our local SEO orthopedic surgeons Houston strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Houston."',
-          'For practices with multiple locations across the metro, we build individual location pages designed to rank independently in areas like The Woodlands, Sugar Land, Katy, and Pearland, helping you capture patients searching within specific communities rather than competing only at a citywide level. This same strategy extends across broader orthopedic marketing Texas campaigns for practices serving patients beyond Houston city limits.',
+          'Most patients start their search with location intent. Our **local SEO orthopedic surgeons Houston** strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Houston."',
+          'For practices with multiple locations across the metro, we build individual location pages designed to rank independently in areas like The Woodlands, Sugar Land, Katy, and Pearland, helping you capture patients searching within specific communities rather than competing only at a citywide level. This same strategy extends across broader **orthopedic marketing Texas** campaigns for practices serving patients beyond Houston city limits.',
         ],
       },
       {
         title: '2. On-Page and Technical SEO',
         content: [
-          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "orthopedic marketing agency Houston" and "orthopedic surgeon digital marketing Houston."',
+          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "**orthopedic marketing agency Houston**" and "orthopedic surgeon digital marketing Houston."',
         ],
       },
       {
         title: '3. Content Marketing Rooted in Real Medical Expertise',
         content: [
-          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized orthopedic SEO expert Houston patients and search engines can trust.',
+          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized **orthopedic SEO expert Houston** patients and search engines can trust.',
         ],
       },
       {
         title: '4. Joint Replacement Marketing for Houston Practices',
         content: [
-          'Joint replacement is one of the highest-value procedures in orthopedic care, and patients researching hip or knee replacement surgery often spend weeks comparing surgeons before booking a consultation. Socialsect builds dedicated joint replacement marketing strategies, including procedure-specific landing pages, recovery timelines, and outcome-focused content that address patient concerns and build confidence at every stage of their research.',
+          'Joint replacement is one of the highest-value procedures in orthopedic care, and patients researching hip or knee replacement surgery often spend weeks comparing surgeons before booking a consultation. Socialsect builds dedicated **joint replacement marketing** strategies, including procedure-specific landing pages, recovery timelines, and outcome-focused content that address patient concerns and build confidence at every stage of their research.',
         ],
       },
       {
@@ -717,7 +717,7 @@ const orthopaedicSeoLandingPages = [
       {
         title: '6. Orthopedic Patient Acquisition and Lead Generation',
         content: [
-          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around orthopedic patient acquisition Houston goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on orthopedic lead generation Texas ensures the traffic we drive to your site converts into booked consultations, not just page views.',
+          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around **orthopedic patient acquisition Houston** goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on **orthopedic lead generation Texas** ensures the traffic we drive to your site converts into booked consultations, not just page views.',
         ],
       },
       {
@@ -727,30 +727,30 @@ const orthopaedicSeoLandingPages = [
           'By embedding E-E-A-T into every page, Socialsect helps orthopedic practices in Houston rank higher while giving patients confidence in the quality of care they’ll receive.',
         ],
         bullets: [
-          'Experience: We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
-          'Expertise: Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
-          'Authoritativeness: Through strategic local citations, healthcare directory listings, and backlinks from credible Houston and Texas sources, we position your practice as a recognized authority in orthopedic care.',
-          'Trustworthiness: Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
+          '**Experience:** We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
+          '**Expertise:** Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
+          '**Authoritativeness:** Through strategic local citations, healthcare directory listings, and backlinks from credible Houston and Texas sources, we position your practice as a recognized authority in orthopedic care.',
+          '**Trustworthiness:** Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
         ],
       },
       {
         title: 'Why Choose Socialsect as Your Orthopedic Marketing Agency in Houston',
         content: [
-          'Houston has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted orthopedic marketing agency Houston practices choose:',
+          'Houston has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted **orthopedic marketing agency Houston** practices choose:',
         ],
         bullets: [
-          'Healthcare-exclusive SEO expertise — Every strategy is built with medical compliance and healthcare best practices in mind.',
-          'Deep Houston and Texas market knowledge — We understand how to rank practices across the metro’s diverse communities and competitive suburban submarkets.',
-          'Transparent, data-driven reporting — You’ll always have clear visibility into rankings, traffic, and lead performance.',
-          'Fully customized strategies — No templated packages. Every campaign is built around your practice’s specialties and goals.',
-          'Focus on real growth, not vanity metrics — Our strategies prioritize orthopedic patient acquisition Houston and measurable lead generation over rankings alone.',
+          '**Healthcare-exclusive SEO expertise** — Every strategy is built with medical compliance and healthcare best practices in mind.',
+          '**Deep Houston and Texas market knowledge** — We understand how to rank practices across the metro’s diverse communities and competitive suburban submarkets.',
+          '**Transparent, data-driven reporting** — You’ll always have clear visibility into rankings, traffic, and lead performance.',
+          '**Fully customized strategies** — No templated packages. Every campaign is built around your practice’s specialties and goals.',
+          '**Focus on real growth, not vanity metrics** — Our strategies prioritize **orthopedic patient acquisition Houston** and measurable lead generation over rankings alone.',
         ],
       },
       {
         title: 'Who We Help',
         content: [
           'Socialsect’s SEO services support a wide range of orthopedic professionals and practices throughout Houston and Texas, including:',
-          'Whether you’re a solo practitioner searching for "orthopedic SEO services Houston" or a multi-location group needing a metro-wide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
+          'Whether you’re a solo practitioner searching for "**orthopedic SEO services Houston**" or a multi-location group needing a metro-wide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
         ],
         bullets: [
           'Solo orthopedic surgeons building a new patient base',
@@ -791,7 +791,7 @@ const orthopaedicSeoLandingPages = [
       {
         question: 'Does Socialsect offer marketing specifically for joint replacement procedures?',
         answer:
-          'Yes. Our joint replacement marketing strategies include procedure-specific landing pages, recovery content, and outcome-focused messaging designed to build patient confidence before they book a consultation.',
+          'Yes. Our **joint replacement marketing** strategies include procedure-specific landing pages, recovery content, and outcome-focused messaging designed to build patient confidence before they book a consultation.',
       },
       {
         question: 'Can Socialsect help with orthopedic patient acquisition, not just rankings?',
@@ -823,7 +823,7 @@ const orthopaedicSeoLandingPages = [
     heroHeadline: 'SEO Services for Orthopaedic Surgeons in Dallas',
     heroSubcopy: [
       'Dallas-Fort Worth is one of the fastest-growing metro areas in the country, and orthopaedic practices across the region are feeling the effects of increased competition. From Uptown Dallas to Plano, Frisco to Arlington, and Fort Worth to McKinney, patients dealing with joint pain, sports injuries, spine conditions, or the aftermath of an accident are turning to Google before they ever call a clinic. If your practice isn’t ranking at the top of those search results, patients are booking with a competitor down the road instead.',
-      'Socialsect specializes in SEO Services for Orthopaedic Surgeons in Dallas, helping practices across DFW and throughout Texas build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
+      'Socialsect specializes in **SEO Services for Orthopaedic Surgeons in Dallas**, helping practices across DFW and throughout Texas build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
     ],
     heroBullets: [
       'Rank Higher in Dallas Local Search',
@@ -840,32 +840,32 @@ const orthopaedicSeoLandingPages = [
         title: 'Why Orthopaedic Surgeons in Dallas Need Specialized SEO',
         content: [
           'Dallas-Fort Worth spans dozens of cities and suburbs, each with its own patient base and competitive landscape for orthopedic care. A patient searching "orthopaedic surgeon SEO Dallas" or looking for a nearby specialist isn’t casually browsing — they’re often dealing with an injury, planning surgery, or managing chronic joint pain, and they want a provider they can trust without delay.',
-          'General marketing agencies often lack the healthcare-specific knowledge required to rank medical websites effectively and compliantly. Socialsect works exclusively with medical and healthcare brands, giving us the specialized expertise needed to deliver orthopedic SEO services Dallas practices can rely on for consistent, high-quality patient leads.',
+          'General marketing agencies often lack the healthcare-specific knowledge required to rank medical websites effectively and compliantly. Socialsect works exclusively with medical and healthcare brands, giving us the specialized expertise needed to deliver **orthopedic SEO services Dallas** practices can rely on for consistent, high-quality patient leads.',
         ],
       },
       {
         title: 'Our Approach to SEO for Orthopedic Clinics in Dallas',
         content: [
-          'Every orthopedic practice has its own specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, target patients, and local competition using a structured, data-driven process focused on measurable results and thorough orthopedic website optimization.',
+          'Every orthopedic practice has its own specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, target patients, and local competition using a structured, data-driven process focused on measurable results and thorough **orthopedic website optimization**.',
         ],
       },
       {
         title: '1. Local SEO for Orthopedic Surgeons in Dallas',
         content: [
-          'Most patients start their search with location intent. Our local SEO orthopedic surgeons Dallas strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Dallas."',
-          'For practices with multiple locations across the metroplex, we build individual location pages designed to rank independently in cities like Plano, Frisco, Arlington, and Fort Worth, helping you capture patients searching within their own community rather than competing only at a citywide level. This same strategy extends across broader orthopedic marketing Texas campaigns for practices serving patients throughout the state.',
+          'Most patients start their search with location intent. Our **local SEO orthopedic surgeons Dallas** strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Dallas."',
+          'For practices with multiple locations across the metroplex, we build individual location pages designed to rank independently in cities like Plano, Frisco, Arlington, and Fort Worth, helping you capture patients searching within their own community rather than competing only at a citywide level. This same strategy extends across broader **orthopedic marketing Texas** campaigns for practices serving patients throughout the state.',
         ],
       },
       {
         title: '2. On-Page and Technical SEO',
         content: [
-          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "orthopedic marketing agency Dallas" and "orthopedic surgeon digital marketing Dallas."',
+          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "**orthopedic marketing agency Dallas**" and "orthopedic surgeon digital marketing Dallas."',
         ],
       },
       {
         title: '3. Content Marketing Rooted in Real Medical Expertise',
         content: [
-          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized orthopedic SEO expert Dallas patients and search engines can trust.',
+          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized **orthopedic SEO expert Dallas** patients and search engines can trust.',
         ],
       },
       {
@@ -877,13 +877,13 @@ const orthopaedicSeoLandingPages = [
       {
         title: '5. Orthopedic Patient Acquisition and Lead Generation',
         content: [
-          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around orthopedic patient acquisition Dallas goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on orthopedic lead generation Dallas ensures the traffic we drive to your site converts into booked consultations, not just page views.',
+          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around **orthopedic patient acquisition Dallas** goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on **orthopedic lead generation Dallas** ensures the traffic we drive to your site converts into booked consultations, not just page views.',
         ],
       },
       {
         title: '6. Conversion-Focused Website Optimization',
         content: [
-          'Beyond rankings, Socialsect prioritizes how well your website performs once patients arrive. Our orthopedic website optimization process includes streamlining navigation, improving page load speed, and refining appointment scheduling flows so visitors can move from research to booking with minimal friction.',
+          'Beyond rankings, Socialsect prioritizes how well your website performs once patients arrive. Our **orthopedic website optimization** process includes streamlining navigation, improving page load speed, and refining appointment scheduling flows so visitors can move from research to booking with minimal friction.',
         ],
       },
       {
@@ -893,30 +893,30 @@ const orthopaedicSeoLandingPages = [
           'By embedding E-E-A-T into every page, Socialsect helps orthopedic practices in Dallas rank higher while giving patients confidence in the quality of care they’ll receive.',
         ],
         bullets: [
-          'Experience: We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
-          'Expertise: Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
-          'Authoritativeness: Through strategic local citations, healthcare directory listings, and backlinks from credible Dallas and Texas sources, we position your practice as a recognized authority in orthopedic care.',
-          'Trustworthiness: Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
+          '**Experience:** We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
+          '**Expertise:** Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
+          '**Authoritativeness:** Through strategic local citations, healthcare directory listings, and backlinks from credible Dallas and Texas sources, we position your practice as a recognized authority in orthopedic care.',
+          '**Trustworthiness:** Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
         ],
       },
       {
         title: 'Why Choose Socialsect as Your Orthopedic Marketing Agency in Dallas',
         content: [
-          'Dallas has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted orthopedic marketing agency Dallas practices choose:',
+          'Dallas has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted **orthopedic marketing agency Dallas** practices choose:',
         ],
         bullets: [
-          'Healthcare-exclusive SEO expertise — Every strategy is built with medical compliance and healthcare best practices in mind.',
-          'Deep Dallas-Fort Worth market knowledge — We understand how to rank practices across the metroplex’s diverse cities and competitive suburban submarkets.',
-          'Transparent, data-driven reporting — You’ll always have clear visibility into rankings, traffic, and lead performance.',
-          'Fully customized strategies — No templated packages. Every campaign is built around your practice’s specialties and goals.',
-          'Focus on real growth, not vanity metrics — Our strategies prioritize orthopedic patient acquisition Dallas and measurable lead generation over rankings alone.',
+          '**Healthcare-exclusive SEO expertise** — Every strategy is built with medical compliance and healthcare best practices in mind.',
+          '**Deep Dallas-Fort Worth market knowledge** — We understand how to rank practices across the metroplex’s diverse cities and competitive suburban submarkets.',
+          '**Transparent, data-driven reporting** — You’ll always have clear visibility into rankings, traffic, and lead performance.',
+          '**Fully customized strategies** — No templated packages. Every campaign is built around your practice’s specialties and goals.',
+          '**Focus on real growth, not vanity metrics** — Our strategies prioritize **orthopedic patient acquisition Dallas** and measurable lead generation over rankings alone.',
         ],
       },
       {
         title: 'Who We Help',
         content: [
           'Socialsect’s SEO services support a wide range of orthopedic professionals and practices throughout Dallas-Fort Worth and Texas, including:',
-          'Whether you’re a solo practitioner searching for "orthopedic SEO services Dallas" or a multi-location group needing a metroplex-wide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
+          'Whether you’re a solo practitioner searching for "**orthopedic SEO services Dallas**" or a multi-location group needing a metroplex-wide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
         ],
         bullets: [
           'Solo orthopedic surgeons building a new patient base',
@@ -960,7 +960,7 @@ const orthopaedicSeoLandingPages = [
           'Yes. Our strategies are built around measurable orthopedic patient acquisition and lead generation, including conversion-focused landing pages, scheduling integrations, and call-to-action optimization.',
       },
       {
-        question: 'What does orthopedic website optimization include?',
+        question: 'What does **orthopedic website optimization** include?',
         answer:
           'It includes technical improvements such as page speed, mobile responsiveness, schema markup, and streamlined scheduling flows, all designed to improve both rankings and the patient experience once they land on your site.',
       },
@@ -989,7 +989,7 @@ const orthopaedicSeoLandingPages = [
     heroHeadline: 'SEO Services for Orthopaedic Surgeons in Phoenix',
     heroSubcopy: [
       'The Phoenix metro area is one of the fastest-growing regions in the country, and orthopaedic practices across the Valley are seeing more competition than ever. From Scottsdale to Chandler, Tempe to Glendale, and Mesa to Gilbert, patients dealing with joint pain, sports injuries, spine conditions, or the aftermath of an accident are searching online before they ever call a clinic. If your practice isn’t ranking at the top of those search results, patients are booking with a competitor across town instead.',
-      'Socialsect specializes in SEO Services for Orthopaedic Surgeons in Phoenix, helping practices across the Valley and throughout Arizona build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
+      'Socialsect specializes in **SEO Services for Orthopaedic Surgeons in Phoenix**, helping practices across the Valley and throughout Arizona build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
     ],
     heroBullets: [
       'Rank Higher in Phoenix Local Search',
@@ -1006,32 +1006,32 @@ const orthopaedicSeoLandingPages = [
         title: 'Why Orthopaedic Surgeons in Phoenix Need Specialized SEO',
         content: [
           'Metro Phoenix spans a wide network of cities and communities, each with its own patient base and competitive landscape for orthopedic care. A patient searching "orthopaedic surgeon SEO Phoenix" or looking for a nearby specialist isn’t casually browsing — they’re often dealing with an injury, planning surgery, or managing chronic joint pain, and they want a provider they can trust without delay.',
-          'General marketing agencies often lack the healthcare-specific knowledge required to rank medical websites effectively and compliantly. Socialsect works exclusively with medical and healthcare brands, giving us the specialized expertise needed to deliver orthopedic SEO services Phoenix practices can rely on for consistent, high-quality patient leads.',
+          'General marketing agencies often lack the healthcare-specific knowledge required to rank medical websites effectively and compliantly. Socialsect works exclusively with medical and healthcare brands, giving us the specialized expertise needed to deliver **orthopedic SEO services Phoenix** practices can rely on for consistent, high-quality patient leads.',
         ],
       },
       {
         title: 'Our Approach to SEO for Orthopedic Clinics in Phoenix',
         content: [
-          'Every orthopedic practice has its own specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, target patients, and local competition using a structured, data-driven process focused on measurable results and thorough orthopedic website optimization.',
+          'Every orthopedic practice has its own specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, target patients, and local competition using a structured, data-driven process focused on measurable results and thorough **orthopedic website optimization**.',
         ],
       },
       {
         title: '1. Local SEO for Orthopedic Surgeons in Phoenix',
         content: [
-          'Most patients start their search with location intent. Our local SEO orthopedic surgeons Phoenix strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Phoenix."',
-          'For practices with multiple locations across the Valley, we build individual location pages designed to rank independently in cities like Scottsdale, Chandler, Tempe, and Mesa, helping you capture patients searching within their own community rather than competing only at a metro-wide level. This same strategy extends across broader orthopedic marketing Arizona campaigns for practices serving patients beyond the Phoenix metro.',
+          'Most patients start their search with location intent. Our **local SEO orthopedic surgeons Phoenix** strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Phoenix."',
+          'For practices with multiple locations across the Valley, we build individual location pages designed to rank independently in cities like Scottsdale, Chandler, Tempe, and Mesa, helping you capture patients searching within their own community rather than competing only at a metro-wide level. This same strategy extends across broader **orthopedic marketing Arizona** campaigns for practices serving patients beyond the Phoenix metro.',
         ],
       },
       {
         title: '2. On-Page and Technical SEO',
         content: [
-          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "orthopedic marketing agency Phoenix" and "orthopedic surgeon digital marketing Phoenix."',
+          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "**orthopedic marketing agency Phoenix**" and "orthopedic surgeon digital marketing Phoenix."',
         ],
       },
       {
         title: '3. Content Marketing Rooted in Real Medical Expertise',
         content: [
-          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized orthopedic SEO expert Phoenix patients and search engines can trust.',
+          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized **orthopedic SEO expert Phoenix** patients and search engines can trust.',
         ],
       },
       {
@@ -1043,13 +1043,13 @@ const orthopaedicSeoLandingPages = [
       {
         title: '5. Orthopedic Patient Acquisition and Lead Generation',
         content: [
-          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around orthopedic patient acquisition Arizona goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on orthopedic lead generation Phoenix ensures the traffic we drive to your site converts into booked consultations, not just page views.',
+          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around **orthopedic patient acquisition Arizona** goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on **orthopedic lead generation Phoenix** ensures the traffic we drive to your site converts into booked consultations, not just page views.',
         ],
       },
       {
         title: '6. Conversion-Focused Website Optimization',
         content: [
-          'Beyond rankings, Socialsect prioritizes how well your website performs once patients arrive. Our orthopedic website optimization process includes streamlining navigation, improving page load speed, and refining appointment scheduling flows so visitors can move from research to booking with minimal friction, especially important in a heat-driven market where patients often research from mobile devices while on the move.',
+          'Beyond rankings, Socialsect prioritizes how well your website performs once patients arrive. Our **orthopedic website optimization** process includes streamlining navigation, improving page load speed, and refining appointment scheduling flows so visitors can move from research to booking with minimal friction, especially important in a heat-driven market where patients often research from mobile devices while on the move.',
         ],
       },
       {
@@ -1059,30 +1059,30 @@ const orthopaedicSeoLandingPages = [
           'By embedding E-E-A-T into every page, Socialsect helps orthopedic practices in Phoenix rank higher while giving patients confidence in the quality of care they’ll receive.',
         ],
         bullets: [
-          'Experience: We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
-          'Expertise: Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
-          'Authoritativeness: Through strategic local citations, healthcare directory listings, and backlinks from credible Phoenix and Arizona sources, we position your practice as a recognized authority in orthopedic care.',
-          'Trustworthiness: Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
+          '**Experience:** We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
+          '**Expertise:** Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
+          '**Authoritativeness:** Through strategic local citations, healthcare directory listings, and backlinks from credible Phoenix and Arizona sources, we position your practice as a recognized authority in orthopedic care.',
+          '**Trustworthiness:** Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
         ],
       },
       {
         title: 'Why Choose Socialsect as Your Orthopedic Marketing Agency in Phoenix',
         content: [
-          'Phoenix has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted orthopedic marketing agency Phoenix practices choose:',
+          'Phoenix has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted **orthopedic marketing agency Phoenix** practices choose:',
         ],
         bullets: [
-          'Healthcare-exclusive SEO expertise — Every strategy is built with medical compliance and healthcare best practices in mind.',
-          'Deep Phoenix metro market knowledge — We understand how to rank practices across the Valley’s diverse cities and competitive suburban submarkets.',
-          'Transparent, data-driven reporting — You’ll always have clear visibility into rankings, traffic, and lead performance.',
-          'Fully customized strategies — No templated packages. Every campaign is built around your practice’s specialties and goals.',
-          'Focus on real growth, not vanity metrics — Our strategies prioritize orthopedic patient acquisition Arizona and measurable lead generation over rankings alone.',
+          '**Healthcare-exclusive SEO expertise** — Every strategy is built with medical compliance and healthcare best practices in mind.',
+          '**Deep Phoenix metro market knowledge** — We understand how to rank practices across the Valley’s diverse cities and competitive suburban submarkets.',
+          '**Transparent, data-driven reporting** — You’ll always have clear visibility into rankings, traffic, and lead performance.',
+          '**Fully customized strategies** — No templated packages. Every campaign is built around your practice’s specialties and goals.',
+          '**Focus on real growth, not vanity metrics** — Our strategies prioritize **orthopedic patient acquisition Arizona** and measurable lead generation over rankings alone.',
         ],
       },
       {
         title: 'Who We Help',
         content: [
           'Socialsect’s SEO services support a wide range of orthopedic professionals and practices throughout Phoenix and Arizona, including:',
-          'Whether you’re a solo practitioner searching for "orthopedic SEO services Phoenix" or a multi-location group needing a metro-wide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
+          'Whether you’re a solo practitioner searching for "**orthopedic SEO services Phoenix**" or a multi-location group needing a metro-wide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
         ],
         bullets: [
           'Solo orthopedic surgeons building a new patient base',
@@ -1126,7 +1126,7 @@ const orthopaedicSeoLandingPages = [
           'Yes. Our strategies are built around measurable orthopedic patient acquisition and lead generation, including conversion-focused landing pages, scheduling integrations, and call-to-action optimization.',
       },
       {
-        question: 'What does orthopedic website optimization include?',
+        question: 'What does **orthopedic website optimization** include?',
         answer:
           'It includes technical improvements such as page speed, mobile responsiveness, schema markup, and streamlined scheduling flows, all designed to improve both rankings and the patient experience once they land on your site.',
       },
@@ -1155,7 +1155,7 @@ const orthopaedicSeoLandingPages = [
     heroHeadline: 'SEO Services for Orthopaedic Surgeons in Atlanta',
     heroSubcopy: [
       'Atlanta’s healthcare market continues to expand rapidly, and orthopaedic practices across the metro are competing for attention in a crowded digital landscape. From Buckhead to Midtown, Marietta to Alpharetta, and Decatur to Sandy Springs, patients dealing with joint pain, sports injuries, spine conditions, or the aftermath of an accident are searching online long before they call a clinic. If your practice isn’t ranking at the top of those search results, patients are booking with a competitor across the metro instead.',
-      'Socialsect specializes in SEO Services for Orthopaedic Surgeons in Atlanta, helping practices across the metro and throughout Georgia build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
+      'Socialsect specializes in **SEO Services for Orthopaedic Surgeons in Atlanta**, helping practices across the metro and throughout Georgia build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
     ],
     heroBullets: [
       'Rank Higher in Atlanta Local Search',
@@ -1172,32 +1172,32 @@ const orthopaedicSeoLandingPages = [
         title: 'Why Orthopaedic Surgeons in Atlanta Need Specialized SEO',
         content: [
           'Metro Atlanta spans a wide network of cities and suburbs, each with its own patient base and competitive landscape for orthopedic care. A patient searching "orthopaedic surgeon SEO Atlanta" or looking for a nearby specialist isn’t casually browsing — they’re often dealing with an injury, planning surgery, or managing chronic joint pain, and they want a provider they can trust without delay.',
-          'General marketing agencies often lack the healthcare-specific knowledge required to rank medical websites effectively and compliantly. Socialsect works exclusively with medical and healthcare brands, giving us the specialized expertise needed to deliver orthopedic SEO services Atlanta practices can rely on for consistent, high-quality patient leads.',
+          'General marketing agencies often lack the healthcare-specific knowledge required to rank medical websites effectively and compliantly. Socialsect works exclusively with medical and healthcare brands, giving us the specialized expertise needed to deliver **orthopedic SEO services Atlanta** practices can rely on for consistent, high-quality patient leads.',
         ],
       },
       {
         title: 'Our Approach to SEO for Orthopedic Clinics in Atlanta',
         content: [
-          'Every orthopedic practice has its own specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, target patients, and local competition using a structured, data-driven process focused on measurable results and thorough orthopedic website optimization.',
+          'Every orthopedic practice has its own specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, target patients, and local competition using a structured, data-driven process focused on measurable results and thorough **orthopedic website optimization**.',
         ],
       },
       {
         title: '1. Local SEO for Orthopedic Surgeons in Atlanta',
         content: [
-          'Most patients start their search with location intent. Our local SEO orthopedic surgeons Atlanta strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Atlanta."',
-          'For practices with multiple locations across the metro, we build individual location pages designed to rank independently in areas like Marietta, Alpharetta, Decatur, and Sandy Springs, helping you capture patients searching within their own community rather than competing only at a metro-wide level. This same strategy extends across broader orthopedic marketing Georgia campaigns for practices serving patients beyond the Atlanta metro.',
+          'Most patients start their search with location intent. Our **local SEO orthopedic surgeons Atlanta** strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Atlanta."',
+          'For practices with multiple locations across the metro, we build individual location pages designed to rank independently in areas like Marietta, Alpharetta, Decatur, and Sandy Springs, helping you capture patients searching within their own community rather than competing only at a metro-wide level. This same strategy extends across broader **orthopedic marketing Georgia** campaigns for practices serving patients beyond the Atlanta metro.',
         ],
       },
       {
         title: '2. On-Page and Technical SEO',
         content: [
-          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "orthopedic marketing agency Atlanta" and "orthopedic surgeon digital marketing Atlanta."',
+          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "**orthopedic marketing agency Atlanta**" and "orthopedic surgeon digital marketing Atlanta."',
         ],
       },
       {
         title: '3. Content Marketing Rooted in Real Medical Expertise',
         content: [
-          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized orthopedic SEO expert Atlanta patients and search engines can trust.',
+          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized **orthopedic SEO expert Atlanta** patients and search engines can trust.',
         ],
       },
       {
@@ -1209,13 +1209,13 @@ const orthopaedicSeoLandingPages = [
       {
         title: '5. Orthopedic Patient Acquisition and Lead Generation',
         content: [
-          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around orthopedic patient acquisition Atlanta goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on orthopedic lead generation Georgia ensures the traffic we drive to your site converts into booked consultations, not just page views.',
+          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around **orthopedic patient acquisition Atlanta** goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on **orthopedic lead generation Georgia** ensures the traffic we drive to your site converts into booked consultations, not just page views.',
         ],
       },
       {
         title: '6. Conversion-Focused Website Optimization',
         content: [
-          'Beyond rankings, Socialsect prioritizes how well your website performs once patients arrive. Our orthopedic website optimization process includes streamlining navigation, improving page load speed, and refining appointment scheduling flows so visitors can move from research to booking with minimal friction, particularly important for a metro where many patients commute long distances and research care on mobile during their daily drive.',
+          'Beyond rankings, Socialsect prioritizes how well your website performs once patients arrive. Our **orthopedic website optimization** process includes streamlining navigation, improving page load speed, and refining appointment scheduling flows so visitors can move from research to booking with minimal friction, particularly important for a metro where many patients commute long distances and research care on mobile during their daily drive.',
         ],
       },
       {
@@ -1225,30 +1225,30 @@ const orthopaedicSeoLandingPages = [
           'By embedding E-E-A-T into every page, Socialsect helps orthopedic practices in Atlanta rank higher while giving patients confidence in the quality of care they’ll receive.',
         ],
         bullets: [
-          'Experience: We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
-          'Expertise: Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
-          'Authoritativeness: Through strategic local citations, healthcare directory listings, and backlinks from credible Atlanta and Georgia sources, we position your practice as a recognized authority in orthopedic care.',
-          'Trustworthiness: Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
+          '**Experience:** We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
+          '**Expertise:** Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines.',
+          '**Authoritativeness:** Through strategic local citations, healthcare directory listings, and backlinks from credible Atlanta and Georgia sources, we position your practice as a recognized authority in orthopedic care.',
+          '**Trustworthiness:** Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
         ],
       },
       {
         title: 'Why Choose Socialsect as Your Orthopedic Marketing Agency in Atlanta',
         content: [
-          'Atlanta has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted orthopedic marketing agency Atlanta practices choose:',
+          'Atlanta has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted **orthopedic marketing agency Atlanta** practices choose:',
         ],
         bullets: [
-          'Healthcare-exclusive SEO expertise — Every strategy is built with medical compliance and healthcare best practices in mind.',
-          'Deep Atlanta metro market knowledge — We understand how to rank practices across the region’s diverse cities and competitive suburban submarkets.',
-          'Transparent, data-driven reporting — You’ll always have clear visibility into rankings, traffic, and lead performance.',
-          'Fully customized strategies — No templated packages. Every campaign is built around your practice’s specialties and goals.',
-          'Focus on real growth, not vanity metrics — Our strategies prioritize orthopedic patient acquisition Atlanta and measurable lead generation over rankings alone.',
+          '**Healthcare-exclusive SEO expertise** — Every strategy is built with medical compliance and healthcare best practices in mind.',
+          '**Deep Atlanta metro market knowledge** — We understand how to rank practices across the region’s diverse cities and competitive suburban submarkets.',
+          '**Transparent, data-driven reporting** — You’ll always have clear visibility into rankings, traffic, and lead performance.',
+          '**Fully customized strategies** — No templated packages. Every campaign is built around your practice’s specialties and goals.',
+          '**Focus on real growth, not vanity metrics** — Our strategies prioritize **orthopedic patient acquisition Atlanta** and measurable lead generation over rankings alone.',
         ],
       },
       {
         title: 'Who We Help',
         content: [
           'Socialsect’s SEO services support a wide range of orthopedic professionals and practices throughout Atlanta and Georgia, including:',
-          'Whether you’re a solo practitioner searching for "orthopedic SEO services Atlanta" or a multi-location group needing a metro-wide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
+          'Whether you’re a solo practitioner searching for "**orthopedic SEO services Atlanta**" or a multi-location group needing a metro-wide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
         ],
         bullets: [
           'Solo orthopedic surgeons building a new patient base',
@@ -1292,7 +1292,7 @@ const orthopaedicSeoLandingPages = [
           'Yes. Our strategies are built around measurable orthopedic patient acquisition and lead generation, including conversion-focused landing pages, scheduling integrations, and call-to-action optimization.',
       },
       {
-        question: 'What does orthopedic website optimization include?',
+        question: 'What does **orthopedic website optimization** include?',
         answer:
           'It includes technical improvements such as page speed, mobile responsiveness, schema markup, and streamlined scheduling flows, all designed to improve both rankings and the patient experience once they land on your site.',
       },
@@ -1487,7 +1487,7 @@ const orthopaedicSeoLandingPages = [
     heroHeadline: 'SEO Services for Orthopaedic Surgeons in Boston',
     heroSubcopy: [
       'Boston is home to one of the most sophisticated and competitive healthcare markets in the country, with orthopaedic practices spread across neighborhoods and suburbs from Back Bay to Cambridge, Newton to Somerville, and Quincy to Brookline. Patients dealing with joint pain, sports injuries, spine conditions, or the aftermath of an accident are searching online long before they ever call a clinic. If your practice isn’t ranking at the top of those search results, patients are booking with a competitor across the city instead.',
-      'Socialsect specializes in SEO Services for Orthopaedic Surgeons in Boston, helping practices across Greater Boston and throughout Massachusetts build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
+      'Socialsect specializes in **SEO Services for Orthopaedic Surgeons in Boston**, helping practices across Greater Boston and throughout Massachusetts build stronger visibility, credibility, and consistent patient growth through search strategies built specifically for healthcare providers. We don’t rely on generic marketing templates — every strategy is built around real orthopedic patient search behavior, technical SEO precision, and Google’s E-E-A-T standards for medical content.',
     ],
     heroBullets: [
       'Rank Higher in Boston Local Search',
@@ -1504,32 +1504,32 @@ const orthopaedicSeoLandingPages = [
         title: 'Why Orthopaedic Surgeons in Boston Need Specialized SEO',
         content: [
           'Greater Boston spans a dense network of neighborhoods and suburbs, each with its own patient base and competitive landscape for orthopedic care. A patient searching "orthopaedic surgeon SEO Boston" or looking for a nearby specialist isn’t casually browsing — they’re often dealing with an injury, planning surgery, or managing chronic joint pain, and they want a provider they can trust without delay, especially in a city where patients are used to comparing credentials carefully before choosing a physician.',
-          'General marketing agencies often lack the healthcare-specific knowledge required to rank medical websites effectively and compliantly. Socialsect works exclusively with medical and healthcare brands, giving us the specialized expertise needed to deliver orthopedic SEO services Boston practices can rely on for consistent, high-quality patient leads.',
+          'General marketing agencies often lack the healthcare-specific knowledge required to rank medical websites effectively and compliantly. Socialsect works exclusively with medical and healthcare brands, giving us the specialized expertise needed to deliver **orthopedic SEO services Boston** practices can rely on for consistent, high-quality patient leads.',
         ],
       },
       {
         title: 'Our Approach to SEO for Orthopedic Clinics in Boston',
         content: [
-          'Every orthopedic practice has its own specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, target patients, and local competition using a structured, data-driven process focused on measurable results and thorough orthopedic website optimization.',
+          'Every orthopedic practice has its own specialties, whether that’s sports medicine, joint replacement, spine surgery, hand and wrist care, or pediatric orthopedics. Socialsect builds a tailored strategy around your services, target patients, and local competition using a structured, data-driven process focused on measurable results and thorough **orthopedic website optimization**.',
         ],
       },
       {
         title: '1. Local SEO for Orthopedic Surgeons in Boston',
         content: [
-          'Most patients start their search with location intent. Our local SEO orthopedic surgeons Boston strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Boston."',
-          'For practices with multiple locations across the region, we build individual location pages designed to rank independently in areas like Cambridge, Newton, Somerville, and Quincy, helping you capture patients searching within their own community rather than competing only at a metro-wide level. This same strategy extends across broader orthopedic marketing Massachusetts campaigns for practices serving patients beyond Greater Boston.',
+          'Most patients start their search with location intent. Our **local SEO orthopedic surgeons Boston** strategy focuses on optimizing your Google Business Profile, building accurate and consistent local citations, and targeting neighborhood-specific searches so your practice appears in the map pack for terms like "orthopedic doctor near me" and "orthopedic clinic SEO Boston."',
+          'For practices with multiple locations across the region, we build individual location pages designed to rank independently in areas like Cambridge, Newton, Somerville, and Quincy, helping you capture patients searching within their own community rather than competing only at a metro-wide level. This same strategy extends across broader **orthopedic marketing Massachusetts** campaigns for practices serving patients beyond Greater Boston.',
         ],
       },
       {
         title: '2. On-Page and Technical SEO',
         content: [
-          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "orthopedic marketing agency Boston" and "orthopedic surgeon digital marketing Boston."',
+          'A fast, mobile-optimized, well-structured website is essential for both search rankings and patient trust. Socialsect performs a full technical audit of your site, addressing page speed, schema markup, site architecture, and internal linking. We optimize physician bio pages, procedure pages, and service pages using the exact language patients search for, including variations like "**orthopedic marketing agency Boston**" and "orthopedic surgeon digital marketing Boston."',
         ],
       },
       {
         title: '3. Content Marketing Rooted in Real Medical Expertise',
         content: [
-          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized orthopedic SEO expert Boston patients and search engines can trust, which matters even more in a market where patients often expect academic-level credentials and research credibility.',
+          'Search engines and patients both trust content written by qualified professionals. Our content team works directly with your physicians and clinical staff to produce accurate blog articles, procedure explainers, and condition-specific pages that reflect genuine clinical expertise instead of generic, outsourced writing. This approach is central to how Socialsect helps practices become a recognized **orthopedic SEO expert Boston** patients and search engines can trust, which matters even more in a market where patients often expect academic-level credentials and research credibility.',
         ],
       },
       {
@@ -1541,13 +1541,13 @@ const orthopaedicSeoLandingPages = [
       {
         title: '5. Orthopedic Patient Acquisition and Lead Generation',
         content: [
-          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around orthopedic patient acquisition Boston goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on orthopedic lead generation Massachusetts ensures the traffic we drive to your site converts into booked consultations, not just page views.',
+          'Ranking well is only valuable if it turns into new patients. Socialsect designs every campaign around **orthopedic patient acquisition Boston** goals, optimizing calls-to-action, appointment request forms, click-to-call functionality, and scheduling tools. Our focus on **orthopedic lead generation Massachusetts** ensures the traffic we drive to your site converts into booked consultations, not just page views.',
         ],
       },
       {
         title: '6. Conversion-Focused Website Optimization',
         content: [
-          'Beyond rankings, Socialsect prioritizes how well your website performs once patients arrive. Our orthopedic website optimization process includes streamlining navigation, improving page load speed, and refining appointment scheduling flows so visitors can move from research to booking with minimal friction.',
+          'Beyond rankings, Socialsect prioritizes how well your website performs once patients arrive. Our **orthopedic website optimization** process includes streamlining navigation, improving page load speed, and refining appointment scheduling flows so visitors can move from research to booking with minimal friction.',
         ],
       },
       {
@@ -1557,30 +1557,30 @@ const orthopaedicSeoLandingPages = [
           'By embedding E-E-A-T into every page, Socialsect helps orthopedic practices in Boston rank higher while giving patients confidence in the quality of care they’ll receive.',
         ],
         bullets: [
-          'Experience: We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
-          'Expertise: Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines — particularly important in a city closely associated with leading academic medical institutions.',
-          'Authoritativeness: Through strategic local citations, healthcare directory listings, and backlinks from credible Boston and Massachusetts sources, we position your practice as a recognized authority in orthopedic care.',
-          'Trustworthiness: Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
+          '**Experience:** We ensure your website content reflects genuine clinical experience, including real treatment approaches, physician insights, and patient-focused explanations rather than generic filler text.',
+          '**Expertise:** Detailed physician bio pages highlighting board certifications, fellowship training, specializations, and published research establish clear expertise signals for both patients and search engines — particularly important in a city closely associated with leading academic medical institutions.',
+          '**Authoritativeness:** Through strategic local citations, healthcare directory listings, and backlinks from credible Boston and Massachusetts sources, we position your practice as a recognized authority in orthopedic care.',
+          '**Trustworthiness:** Secure site architecture, consistent NAP (name, address, phone) information, verified patient reviews, and transparent privacy policies all contribute to the trust signals that support sustainable healthcare rankings.',
         ],
       },
       {
         title: 'Why Choose Socialsect as Your Orthopedic Marketing Agency in Boston',
         content: [
-          'Boston has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted orthopedic marketing agency Boston practices choose:',
+          'Boston has no shortage of digital marketing agencies, but few understand the compliance requirements, medical terminology, and patient behavior specific to orthopedic care. Here’s what makes Socialsect a trusted **orthopedic marketing agency Boston** practices choose:',
         ],
         bullets: [
-          'Healthcare-exclusive SEO expertise — Every strategy is built with medical compliance and healthcare best practices in mind.',
-          'Deep Greater Boston market knowledge — We understand how to rank practices across the region’s dense neighborhoods and competitive suburban submarkets.',
-          'Transparent, data-driven reporting — You’ll always have clear visibility into rankings, traffic, and lead performance.',
-          'Fully customized strategies — No templated packages. Every campaign is built around your practice’s specialties and goals.',
-          'Focus on real growth, not vanity metrics — Our strategies prioritize orthopedic patient acquisition Boston and measurable lead generation over rankings alone.',
+          '**Healthcare-exclusive SEO expertise** — Every strategy is built with medical compliance and healthcare best practices in mind.',
+          '**Deep Greater Boston market knowledge** — We understand how to rank practices across the region’s dense neighborhoods and competitive suburban submarkets.',
+          '**Transparent, data-driven reporting** — You’ll always have clear visibility into rankings, traffic, and lead performance.',
+          '**Fully customized strategies** — No templated packages. Every campaign is built around your practice’s specialties and goals.',
+          '**Focus on real growth, not vanity metrics** — Our strategies prioritize **orthopedic patient acquisition Boston** and measurable lead generation over rankings alone.',
         ],
       },
       {
         title: 'Who We Help',
         content: [
           'Socialsect’s SEO services support a wide range of orthopedic professionals and practices throughout Boston and Massachusetts, including:',
-          'Whether you’re a solo practitioner searching for "orthopedic SEO services Boston" or a multi-location group needing a region-wide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
+          'Whether you’re a solo practitioner searching for "**orthopedic SEO services Boston**" or a multi-location group needing a region-wide strategy, Socialsect builds a scalable approach that grows alongside your practice.',
         ],
         bullets: [
           'Solo orthopedic surgeons building a new patient base',
