@@ -275,23 +275,23 @@ export default function UAEPage() {
    ═══════════════════════════════════════════ */
 
 const STAGES = [
-  { id: 'enquiry', label: 'Enquiry', num: '01', color: '#3563FF',
+  { id: 'enquiry', label: 'Enquiry',  color: '#3563FF',
     detail: 'New patient reaches your clinic.',
     center: { title: 'New patient reaches your clinic', subtitle: 'A potential patient contacts your clinic — website, WhatsApp, or phone.' },
     activity: { text: 'New enquiry', sub: '"Interested in dental implants"' } },
-  { id: 'conversation', label: 'Conversation', num: '02', color: '#7047FF',
+  { id: 'conversation', label: 'Conversation', color: '#7047FF',
     detail: 'Automated follow-up via WhatsApp, SMS, or email.',
     center: { title: 'WhatsApp conversation', subtitle: '"Hi, I\'d like to know about Invisalign."', convo: [{ from: 'patient', text: 'Hi, I\'d like to know about Invisalign.' }, { from: 'clinic', text: 'We offer a free consultation. Would Thursday 4:30 PM work for you?' }] },
     activity: { text: 'Qualified reply', sub: '"Send me some times"' } },
-  { id: 'qualification', label: 'Qualified', num: '03', color: '#19D3E6',
+  { id: 'qualification', label: 'Qualified',  color: '#19D3E6',
     detail: 'Treatment, timeline, and intent confirmed.',
     center: { title: 'Patient qualified', subtitle: 'Treatment: Invisalign\nTimeline: This month\nIntent: High' },
     activity: { text: 'Qualified', sub: 'Budget + timeline confirmed' } },
-  { id: 'booking', label: 'Booked', num: '04', color: '#FF3B72',
+  { id: 'booking', label: 'Booked',  color: '#FF3B72',
     detail: 'The patient confirms an appointment.',
     center: { title: 'Consultation booked', subtitle: 'Thursday\n4:30 PM' },
     activity: { text: 'Consultation booked', sub: 'Thursday · 4:30 PM' } },
-  { id: 'attendance', label: 'Attended', num: '05', color: '#0EB981',
+  { id: 'attendance', label: 'Attended', color: '#0EB981',
     detail: 'The patient shows up. Revenue is generated.',
     center: { title: 'Attended', subtitle: 'New patient\nConsultation completed' },
     activity: { text: 'Attended', sub: 'New patient consultation' } },
@@ -372,7 +372,7 @@ function Hero({ t, lang, toggleLang, onBookMeeting }) {
         <div className="hero__grid">
           <div className="hero__left">
             <h1 className="hero__h1">
-              <span className="hero__line hero__line--strong">{t('WE HELP MEDICAL CLINICS GET A', 'نساعد العيادات الطبية على الحصول على')}</span>
+              <span className="hero__line hero__line--strong">{t('WE HELP MEDICAL CLINICS GET', 'نساعد العيادات الطبية على الحصول على')}</span>
               <span className="hero__line hero__line--strong">{t('PREDICTABLE FLOW OF NEW', 'تدفق قابل للتنبؤ من استشارات')}&nbsp;</span>
               <span className="hero__line hero__line--accent">{t('CONSULTATIONS EVERY MONTH.', 'جديدة كل شهر.')}</span>
             </h1>
@@ -418,7 +418,7 @@ function Hero({ t, lang, toggleLang, onBookMeeting }) {
                       <span className="hero__stage-visual">
                         <StageVisual stageId={s.id} color={s.color} size={34} />
                       </span>
-                      <span className="hero__stage-num">{s.num}</span>
+                      {/* <span className="hero__stage-num">{s.num}</span> */}
                     </span>
                     <span className="hero__stage-label">{s.label}</span>
                   </button>
