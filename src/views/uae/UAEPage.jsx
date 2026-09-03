@@ -274,13 +274,10 @@ function Hero({ t, lang, toggleLang, onBookMeeting }) {
         <div className="hero__grid">
           <div className="hero__left">
             <h1 className="hero__h1">
-              <span className="hero__line hero__line--strong">{t('MORE ENQUIRIES.', 'أكثر من الاستفسارات.')}</span>
-              <span className="hero__line hero__line--strong">{t('NOT MORE PATIENTS.', 'ليس المزيد من المرضى.')}</span>
-              <span className="hero__line hero__line--accent">{t("LET'S FIX THAT.", 'خلّنا نصلح هذا.')}</span>
+              <span className="hero__line hero__line--strong">{t('WE HELP MEDICAL CLINICS GET A', 'نساعد العيادات الطبية على الحصول على')}</span>
+              <span className="hero__line hero__line--strong">{t('PREDICTABLE FLOW OF NEW', 'تدفق قابل للتنبؤ من استشارات')}&nbsp;</span>
+              <span className="hero__line hero__line--accent">{t('CONSULTATIONS EVERY MONTH.', 'جديدة كل شهر.')}</span>
             </h1>
-            <p className="hero__sub">
-              {t('Socialsect builds the system that turns patient demand into booked consultations.', 'Socialsect تبني النظام الذي يحوّل الطلب إلى استشارات محجوزة.')}
-            </p>
             <div className="hero__actions">
               <button className="hero__cta" onClick={(e) => { e.preventDefault(); onBookMeeting(); }}>
                 {t('Get Your Clinic Review', 'احصل على مراجعة عيادتك')} <span className="hero__cta-arrow">→</span>

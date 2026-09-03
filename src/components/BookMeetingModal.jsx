@@ -14,11 +14,11 @@ const INITIAL_FORM = {
 const HELP_OPTIONS = [
   'Getting more patients',
   'Converting more leads into bookings',
-  'Reducing no-shows',
   'Improving follow-up systems',
-  'Running better ads',
+  'Running better ROI ads',
   'Building a patient acquisition system',
   'Other',
+  'All of the above',
 ]
 
 function CustomDropdown({ value, onChange, options, placeholder, label }) {
