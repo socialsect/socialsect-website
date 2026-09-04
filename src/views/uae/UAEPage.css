@@ -1217,6 +1217,7 @@
 @media (max-width: 1100px) {
   .pe__layout {
     grid-template-columns: 1fr;
+    gap: 56px;
   }
   .pe__activity {
     max-width: 480px;
@@ -2980,7 +2981,7 @@
 @media (max-width: 1024px) {
   .fqn__top {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 64px;
   }
   .fqn__left {
     position: static;
@@ -3023,7 +3024,7 @@
   .ur .hiw__inner,
   .ur .ttd__inner,
   .ur .fqn__inner {
-    width: calc(100% - 32px);
+    width: calc(100% - 40px);
   }
 
   .pe,
@@ -3033,12 +3034,12 @@
   .hiw,
   .ttd,
   .fqn {
-    padding: 80px 0;
+    padding: 108px 0;
     min-height: auto;
   }
 
   .hero {
-    padding: 140px 0 54px;
+    padding: 140px 0 88px;
   }
 }
 
