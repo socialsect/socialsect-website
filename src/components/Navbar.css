@@ -912,6 +912,24 @@
   visibility: visible;
 }
 
+.mobile-nav__close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  color: var(--charcoal);
+  background: transparent;
+  border: 1px solid var(--gray);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
 .mobile-nav__scroll {
   flex: 1;
   overflow-y: auto;
@@ -1497,6 +1515,16 @@
     pointer-events: auto;
   }
 
+  .navbar--uae.navbar--menu-open .nav-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .navbar--uae.navbar--menu-open {
+    pointer-events: none;
+  }
+
   .navbar--uae .logo {
     order: 2;
     pointer-events: auto;
@@ -1547,11 +1575,26 @@
   }
 
   .navbar--uae ~ .mobile-nav .mobile-nav__lang {
+    display: flex;
+    align-items: center;
     width: 100%;
+    padding: 14px 0;
     text-align: left;
-    font: inherit;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
     background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+    appearance: none;
     cursor: pointer;
+  }
+
+  .navbar--uae ~ .mobile-nav .mobile-nav__lang:focus-visible {
+    outline: 2px solid #3563FF;
+    outline-offset: -2px;
   }
 
   .navbar--uae ~ .mobile-nav .mobile-nav__group-link {
@@ -1595,7 +1638,14 @@
   }
 
   .navbar--uae ~ .mobile-nav .mobile-nav__scroll {
+    background: rgba(7, 21, 47, 0.97);
     border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .navbar--uae ~ .mobile-nav .mobile-nav__close {
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
   }
 
   .navbar--uae ~ .mobile-nav .mobile-nav__footer {

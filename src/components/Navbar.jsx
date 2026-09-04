@@ -549,7 +549,33 @@ export default function Navbar() {
         className={`mobile-nav${menuOpen ? ' mobile-nav--open' : ''}`}
         aria-hidden={!menuOpen}
       >
+        <button type="button" className="mobile-nav__close" onClick={closeMenu} aria-label="Close menu">
+          <X strokeWidth={1.5} aria-hidden />
+        </button>
         <div className="mobile-nav__scroll">
+          {isUaePage ? (
+            <>
+              <a href="#pipeline" className="mobile-nav__top-link" onClick={closeMenu}>
+                How it works
+              </a>
+              <a href="#case-studies" className="mobile-nav__top-link" onClick={closeMenu}>
+                Results
+              </a>
+              <Link href="/who-we-help" className="mobile-nav__top-link" onClick={closeMenu}>
+                Who we help
+              </Link>
+              <Link href="/about" className="mobile-nav__top-link" onClick={closeMenu}>
+                About
+              </Link>
+              <a href="#faq" className="mobile-nav__top-link" onClick={closeMenu}>
+                FAQ
+              </a>
+              <button type="button" className="mobile-nav__top-link mobile-nav__lang" onClick={toggleLang}>
+                {lang === 'en' ? 'عربي' : 'EN'}
+              </button>
+            </>
+          ) : (
+            <>
           <MobileNavGroup
             id="services"
             label="Services"
@@ -647,10 +673,7 @@ export default function Navbar() {
             About
           </Link>
 
-          {isUaePage && (
-            <button type="button" className="mobile-nav__top-link mobile-nav__lang" onClick={toggleLang}>
-              {lang === 'en' ? 'عربي' : 'EN'}
-            </button>
+            </>
           )}
         </div>
 

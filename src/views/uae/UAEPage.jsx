@@ -1146,7 +1146,7 @@ function TalkToDoctors({ t, onBookMeeting }) {
           ))}
         </div>
 
-        <div className="ttd__ai">
+        <div className= "ttd__ai">
           <h2 className="ttd__ai-h2">
             {t('OR ASK AI FOR AN ', 'أو اسأل الذكاء الاصطناعي عن ')}
             <span className="ttd__ai-h2--red">{t('HONEST OPINION.', 'رأي صادق.')}</span>
