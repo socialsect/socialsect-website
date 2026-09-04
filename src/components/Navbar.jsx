@@ -218,7 +218,21 @@ export default function Navbar() {
   const [navVisible, setNavVisible] = useState(true)
   const [navScrolled, setNavScrolled] = useState(false)
   const [navRevealing, setNavRevealing] = useState(false)
+  const [lang, setLang] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = window.localStorage.getItem('ss-lang')
+      if (saved === 'ar' || saved === 'en') return saved
+    }
+    return 'en'
+  })
   const navHiddenRef = useRef(false)
+
+  const toggleLang = () => {
+    const next = lang === 'en' ? 'ar' : 'en'
+    setLang(next)
+    window.localStorage.setItem('ss-lang', next)
+    window.dispatchEvent(new CustomEvent('ss-language-change', { detail: next }))
+  }
 
   const closeMenu = () => {
     setMenuOpen(false)
@@ -385,6 +399,9 @@ export default function Navbar() {
               <div className="nav-links nav-links--desktop nav-links--uae-right">
                 <a href="/about">About</a>
                 <a href="#faq">FAQ</a>
+                <button type="button" className="navbar__lang" onClick={toggleLang}>
+                  {lang === 'en' ? 'عربي' : 'EN'}
+                </button>
                 <div className="nav-links__actions nav-links__actions--desktop">
                   <a href="#clinic-review" className="nav-cta--book-call">
                     Get Your Clinic Review <span aria-hidden="true">→</span>
@@ -629,6 +646,12 @@ export default function Navbar() {
           <Link href="/about" className="mobile-nav__top-link" onClick={closeMenu}>
             About
           </Link>
+
+          {isUaePage && (
+            <button type="button" className="mobile-nav__top-link mobile-nav__lang" onClick={toggleLang}>
+              {lang === 'en' ? 'عربي' : 'EN'}
+            </button>
+          )}
         </div>
 
         <div className="mobile-nav__footer">

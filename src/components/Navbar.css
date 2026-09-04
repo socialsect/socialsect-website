@@ -1342,6 +1342,26 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+.navbar--uae .navbar__lang {
+  color: rgba(255, 255, 255, 0.72);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.navbar--uae .navbar__lang:hover {
+  color: #fff;
+  border-color: #3563FF;
+  background: rgba(53, 99, 255, 0.16);
+}
+
 /* ── CTA button ── */
 .navbar--uae .nav-links--uae-right .nav-cta--book-call,
 .navbar--uae .nav-links--uae-right .btn.btn-primary.nav-cta--book-call {
@@ -1423,6 +1443,17 @@
 .navbar--uae.navbar--scrolled .nav-links--uae-right > a:hover {
   color: #0B1D3A;
   background: rgba(0, 0, 0, 0.04);
+}
+
+.navbar--uae.navbar--scrolled .navbar__lang {
+  color: #4B5563;
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.navbar--uae.navbar--scrolled .navbar__lang:hover {
+  color: #0B1D3A;
+  border-color: #3563FF;
+  background: rgba(53, 99, 255, 0.1);
 }
 
 /* ── Scrolled state: menu toggle must be dark on white background ── */
@@ -1513,6 +1544,14 @@
   .navbar--uae ~ .mobile-nav .mobile-nav__group-toggle {
     color: rgba(255, 255, 255, 0.8);
     border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .navbar--uae ~ .mobile-nav .mobile-nav__lang {
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    background: transparent;
+    cursor: pointer;
   }
 
   .navbar--uae ~ .mobile-nav .mobile-nav__group-link {

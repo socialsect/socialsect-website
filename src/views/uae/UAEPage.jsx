@@ -234,19 +234,20 @@ export default function UAEPage() {
     return 'en'
   })
   const t = (en, ar) => lang === 'ar' ? ar : en
-  const toggleLang = () => {
-    const next = lang === 'en' ? 'ar' : 'en'
-    setLang(next)
-    localStorage.setItem('ss-lang', next)
-    document.documentElement.dir = next === 'ar' ? 'rtl' : 'ltr'
-    document.documentElement.lang = next
-  }
   const [bookMeetingOpen, setBookMeetingOpen] = useState(false)
 
   useEffect(() => {
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'
     document.documentElement.lang = lang
   }, [lang])
+
+  useEffect(() => {
+    const onLanguageChange = (event) => {
+      if (event.detail === 'ar' || event.detail === 'en') setLang(event.detail)
+    }
+    window.addEventListener('ss-language-change', onLanguageChange)
+    return () => window.removeEventListener('ss-language-change', onLanguageChange)
+  }, [])
 
   useLayoutEffect(() => {
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
@@ -256,11 +257,11 @@ export default function UAEPage() {
 
   return (
     <main className="ur">
-      <Hero t={t} lang={lang} toggleLang={toggleLang} onBookMeeting={() => setBookMeetingOpen(true)} />
+      <Hero t={t} onBookMeeting={() => setBookMeetingOpen(true)} />
       <PipelineExplorer t={t} />
       <VideoWalkthrough t={t} onBookMeeting={() => setBookMeetingOpen(true)} />
-      <TrustedBy t={t} />
       <ProvenResults t={t} />
+      <TrustedBy t={t} />
       <HowItWorks t={t} onBookMeeting={() => setBookMeetingOpen(true)} />
       <TalkToDoctors t={t} onBookMeeting={() => setBookMeetingOpen(true)} />
       <FaqSectionNew t={t} onBookMeeting={() => setBookMeetingOpen(true)} />
@@ -348,7 +349,7 @@ function StageVisual({ stageId, color, size = 24 }) {
   )
 }
 
-function Hero({ t, lang, toggleLang, onBookMeeting }) {
+function Hero({ t, onBookMeeting }) {
   const [active, setActive] = useState(0)
   const stage = STAGES[active]
 
@@ -366,7 +367,6 @@ function Hero({ t, lang, toggleLang, onBookMeeting }) {
       <div className="hero__inner">
         <div className="hero__top">
           <span className="hero__badge">{t('FOR PRIVATE CLINICS ACROSS THE UAE', 'للعيادات الخاصة في الإمارات')}</span>
-          <button className="hero__lang" onClick={toggleLang}>{lang === 'en' ? 'عربي' : 'EN'}</button>
         </div>
 
         <div className="hero__grid">
@@ -576,8 +576,7 @@ function PipelineExplorer({ t }) {
             <div className="pe__activity-head">
               <span className="pe__activity-dot" />
               <div>
-                <span className="pe__activity-eyebrow">{t('LIVE ACTIVITY', 'نشاط مباشر')}</span>
-                <h4>{t("What's happening right now", 'وش يصير الآن')}</h4>
+                <h4>{t('From enquiry to appointment', 'من الاستفسار إلى الموعد')}</h4>
               </div>
             </div>
             <div className="pe__activity-list">
@@ -595,7 +594,7 @@ function PipelineExplorer({ t }) {
               ))}
             </div>
             <span className="pe__activity-footer">
-              {t('This is what our system does, every day.', 'هذا ما يفعله نظامنا كل يوم.')}
+              {t('Every step is handled, followed up, and ready for your team.', 'كل خطوة تتم متابعتها وتجهيزها لفريق عيادتك.')}
             </span>
           </div>
         </div>
@@ -693,8 +692,8 @@ function TrustedBy({ t }) {
       <div className="tb__inner">
         <div className="tb__head">
           <span className="tb__eyebrow">{t('TRUSTED BY CLINIC OWNERS ACROSS UAE', 'موثوق من أصحاب العيادات في الإمارات')}</span>
-          <h2 className="tb__h2">{t('Real clinics. Real conversations. ', 'عيادات حقيقية. محادثات حقيقية. ')}<span className="tb__h2--accent">{t('Real results.', 'نتائج حقيقية.')}</span></h2>
-          <p className="tb__sub">{t('We work with private clinics in Dubai, Abu Dhabi & across the UAE.\nDifferent specialities. Same goal – more booked consultations.', 'نعمل مع عيادات خاصة في دبي وأبوظبي والإمارات.\nتخصصات مختلفة. هدف واحد – مزيد من الاستشارات المحجوزة.')}</p>
+          <h2 className="tb__h2">{t('A GROWING NETWORK OF\n', 'شبكة متنامية من\n')}<span className="tb__h2--accent">{t('PRIVATE CLINICS.', 'العيادات الخاصة.')}</span></h2>
+          <p className="tb__sub">{t('Across Dubai, Abu Dhabi and the wider UAE, clinics in every specialty are building stronger patient journeys with us.', 'من دبي وأبوظبي إلى مختلف أنحاء الإمارات، تبني عيادات من تخصصات متعددة رحلات أفضل لمرضاها معنا.')}</p>
         </div>
 
         <div className="tb__carousel-wrap">
@@ -761,7 +760,6 @@ function VideoWalkthrough({ t, onBookMeeting }) {
             {t('2-MIN WALKTHROUGH', 'جولة دقيقتين')}
           </span>
           <h2 className="vw__h2">{t('SEE HOW WE FILL\n', 'شاهد كيف نملأ\n')}<span className="vw__h2--accent">{t('YOUR CLINIC.', 'عيادتك.')}</span></h2>
-          <p className="vw__sub">{t('Real system. Real conversations. Real patients', 'نظام حقيقي. محادثات حقيقية. مرضى حقيقيون.')}</p>
         </div>
 
         <div className="vw__video-wrap">
@@ -920,10 +918,6 @@ function ProvenResults({ t }) {
           {CASE_STUDIES_DATA.map((cs, i) => (
             <div key={i} className={`pr__card ${cs.dark ? 'pr__card--dark' : ''}`}>
               <span className="pr__badge" style={{ color: cs.categoryColor, background: `${cs.categoryColor}10` }}>
-                {cs.category === 'VEIN CARE' && <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c-4-3-8-7-8-12a8 8 0 0116 0c0 5-4 9-8 12z"/></svg>}
-                {cs.category === 'ORTHOPAEDICS' && <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="3"/><path d="M12 8v4M8 16l4-4 4 4M6 20h12"/></svg>}
-                {cs.category === 'DERMATOLOGY' && <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>}
-                {cs.category === 'DENTAL EDUCATION' && <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>}
                 {cs.category}
               </span>
 
@@ -1017,13 +1011,12 @@ function FaqSectionNew({ t, onBookMeeting }) {
               <br />
               <span className="fqn__h2--red">{t('WE GET A LOT.', 'بنسمعها كثير.')}</span>
             </h2>
-            <p className="fqn__sub">{t('Straight answers to the real questions clinic owners ask before working with us.', 'إجابات مباشرة للأسئلة الحقيقية التي يطرحها أصحاب العيادات قبل العمل معنا.')}</p>
             <div className="fqn__card">
               <div className="fqn__card-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8194C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
               </div>
               <div className="fqn__card-text">
-                <span className="fqn__card-title">{t('Still have questions?', 'عندك أسئلة؟')}</span>
+                <span className="fqn__card-title">{t('Want to talk it through?', 'تبغى نتكلم عنها؟')}</span>
                 <a href="#clinic-review" className="fqn__card-link" onClick={(e) => { e.preventDefault(); onBookMeeting(); }}>
                   {t("Let's talk it through", 'خلنا نتكلم')} <span>→</span>
                 </a>
@@ -1049,30 +1042,13 @@ function FaqSectionNew({ t, onBookMeeting }) {
 
         <div className="fqn__bottom">
           <h2 className="fqn__bottom-h2">
-            {t('STILL HAVE ', 'لسه عندك ')}
-            <span className="fqn__bottom-h2--red">{t('A QUESTION?', 'سؤال؟')}</span>
+            {t('READY TO ', 'جاهز ')}
+            <span className="fqn__bottom-h2--red">{t('TALK?', 'نتكلم؟')}</span>
           </h2>
-          <p className="fqn__bottom-sub">{t("Don't fill another form. Ask me in person.", 'لا تملأ نموذج ثاني. اسألني شخصيًا.')}</p>
           <button className="fqn__bottom-cta" onClick={onBookMeeting}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
             {t('BOOK A MEETING WITH RAY', 'احجز اجتماع مع راي')} <span>→</span>
           </button>
-          <div className="fqn__bottom-meta">
-            <span className="fqn__meta-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8194C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              {t('Dubai & UAE Clinics', 'عيادات دبي والإمارات')}
-            </span>
-            <span className="fqn__meta-divider" />
-            <span className="fqn__meta-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#07152F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              {t('In-person meeting', 'لقاء شخصي')}
-            </span>
-            <span className="fqn__meta-divider" />
-            <span className="fqn__meta-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#07152F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              {t("I'll come to your clinic.", 'بجي لعيادتك.')}
-            </span>
-          </div>
         </div>
       </div>
     </section>
@@ -1092,23 +1068,11 @@ function HowItWorks({ t, onBookMeeting }) {
           <span className="hiw__line hiw__line--dark">{t('BOOK A CALL.', 'احجز مكالمة.')}</span>
           <span className="hiw__line hiw__line--red">{t("I'LL COME TO YOUR CLINIC.", 'بجي لعيادتك.')}</span>
         </h2>
-        <div className="hiw__pin">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8194C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <p className="hiw__sub">{t('No Zoom pitch. No 3-step process.', 'بدون عرض زوم. بدون عملية ثلاثية.')}</p>
         <p className="hiw__sub hiw__sub--bold">{t('We meet at your clinic and talk about what you actually want to grow.', 'نلتقي بعيادتك ونتكلم عن اللي تبي تنميه فعليًا.')}</p>
         <button className="hiw__cta" onClick={onBookMeeting}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
           {t('BOOK A MEETING WITH RAY', 'احجز اجتماع مع راي')} <span className="hiw__cta-arrow">→</span>
         </button>
-        <div className="hiw__meta">
-          <span className="hiw__meta-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8194C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            {t('Dubai & UAE Clinics', 'عيادات دبي والإمارات')}
-          </span>
-          <span className="hiw__meta-divider" />
-          <span className="hiw__meta-item">{t('In-person meeting', 'لقاء شخصي')}</span>
-        </div>
       </div>
     </section>
   )
@@ -1146,7 +1110,6 @@ function TalkToDoctors({ t, onBookMeeting }) {
           {t('TALK TO ', 'تكلم مع ')}
           <span className="ttd__h2--red">{t('DOCTORS WE WORK WITH.', 'الدكاترة اللي نشتغل معاهم.')}</span>
         </h2>
-        <p className="ttd__sub">{t('Real clinics. Real results. Real conversations.', 'عيادات حقيقية. نتائج حقيقية. محادثات حقيقية.')}</p>
 
         <div className="ttd__grid">
           {DOCTORS.map((doc, i) => (
@@ -1188,7 +1151,6 @@ function TalkToDoctors({ t, onBookMeeting }) {
             {t('OR ASK AI FOR AN ', 'أو اسأل الذكاء الاصطناعي عن ')}
             <span className="ttd__ai-h2--red">{t('HONEST OPINION.', 'رأي صادق.')}</span>
           </h2>
-          <p className="ttd__ai-sub">{t('Get an objective take on Socialsect from leading AI models.', 'احصل على رأي موضوعي عن Socialsect من أبرز نماذج الذكاء الاصطناعي.')}</p>
           <div className="ttd__ai-grid">
             {AI_OPTIONS.map((ai, i) => (
               <a key={i} href={ai.url} target="_blank" rel="noopener noreferrer" className="ttd__ai-card">

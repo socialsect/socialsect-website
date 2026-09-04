@@ -205,46 +205,26 @@
   text-transform: uppercase;
 }
 
-.hero__lang {
-  padding: 6px 14px;
-  border: 1px solid rgba(255, 255, 255, .22);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, .06);
-  color: rgba(255, 255, 255, .72);
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: var(--font-body);
-}
-
-.hero__lang:hover {
-  color: #fff;
-  border-color: #3563FF;
-  background: rgba(53, 99, 255, .16);
-}
-
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(420px, .78fr) minmax(620px, 1.22fr);
-  gap: 28px;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
   align-items: center;
 }
 
 .hero__left {
-  max-width: 620px;
-  padding: 24px 0 40px;
+  max-width: 900px;
+  padding: 24px 0 10px;
 }
 
 .hero__h1 {
   color: #fff !important;
   font-family: 'Space Grotesk', var(--font-body) !important;
-  font-size: clamp(58px, 6.15vw, 94px);
-  line-height: .91;
+  font-size: clamp(56px, 7vw, 100px);
+  line-height: 1.0;
   letter-spacing: -.055em;
   font-weight: 700;
-  /* MORE BREATHING ROOM between heading and CTA */
-  margin-bottom: 52px !important;
+  margin-bottom: 40px !important;
 }
 
 .hero__line {
@@ -338,18 +318,19 @@
 
 /* RIGHT — Patient Journey Wheel */
 .hero__right {
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: 560px;
-  overflow: visible;
+  justify-content: flex-end;
+  min-height: auto;
+  padding: 0;
 }
 
 .hero__wheel {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 360px;
+  height: 360px;
+  transform: scale(0.85);
+  transform-origin: bottom right;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -739,8 +720,18 @@
     padding: 140px 0 54px;
     overflow: hidden;
   }
+  .hero__grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+    align-items: center;
+  }
   .hero__inner {
     width: calc(100% - 30px);
+  }
+  .hero__left {
+    max-width: 100%;
+    padding: 0;
+    text-align: left;
   }
   .hero__top {
     flex-direction: column;
@@ -749,7 +740,8 @@
     /* margin-bottom: 28px; */
   }
   .hero__h1 {
-    font-size: 52px;
+    font-size: 44px;
+    line-height: 1.05;
     margin-bottom: 32px !important;
   }
   .hero__sub {
@@ -765,11 +757,19 @@
     justify-content: center;
   }
   .hero__right {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
     min-height: auto;
+    padding: 0;
+    width: 100%;
   }
   .hero__wheel {
     width: 280px;
     height: 280px;
+    transform: translateY(24px) scale(1) !important;
+    transform-origin: center !important;
+    margin: 0 auto;
   }
   .hero__stage {
     --tx-scale: 0.7;
@@ -2367,7 +2367,7 @@
 .hiw__sub--bold {
   color: #07152F;
   font-weight: 500;
-  margin-bottom: 36px;
+  margin: 16px 0 36px;
 }
 
 .hiw__cta {
@@ -2648,7 +2648,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 24px auto 0;
 }
 
 .ttd__ai-card {
@@ -2797,6 +2797,7 @@
   padding: 20px 24px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   max-width: 360px;
+  margin-top: 24px;
 }
 
 .fqn__card-icon {
@@ -2943,6 +2944,7 @@
   transition: all 0.25s;
   font-family: var(--font-body);
   box-shadow: 0 4px 20px rgba(232, 25, 76, 0.3);
+  margin-top: 20px;
 }
 
 .fqn__bottom-cta:hover {
