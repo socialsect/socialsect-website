@@ -66,11 +66,26 @@ function CustomDropdown({ value, onChange, options, placeholder, label }) {
 }
 
 export default function BookMeetingModal({ open, onClose, t }) {
+  const [step, setStep] = useState(1)        // 1 = qualification, 2 = form/result
+  const [role, setRole] = useState(null)     // 'clinic_owner', 'doctor', 'patient'
   const [form, setForm] = useState(INITIAL_FORM)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
+  // Reset everything when modal opens/closes
+  useEffect(() => {
+    if (!open) {
+      setStep(1)
+      setRole(null)
+      setForm(INITIAL_FORM)
+      setError('')
+      setSubmitted(false)
+      setSubmitting(false)
+    }
+  }, [open])
+
+  // Body scroll lock
   useEffect(() => {
     if (!open) return undefined
     const prev = document.body.style.overflow
@@ -85,14 +100,10 @@ export default function BookMeetingModal({ open, onClose, t }) {
     }
   }, [open, onClose, submitting])
 
-  useEffect(() => {
-    if (!open) {
-      setForm(INITIAL_FORM)
-      setError('')
-      setSubmitted(false)
-      setSubmitting(false)
-    }
-  }, [open])
+  const handleQualify = (selectedRole) => {
+    setRole(selectedRole)
+    setStep(2)
+  }
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -111,6 +122,7 @@ export default function BookMeetingModal({ open, onClose, t }) {
         referral: 'Website — Book a meeting CTA',
         goals: [],
         whatsapp: form.whatsapp,
+        role: role, // 👈 now we know if they are owner, doctor, or patient
       })
       setSubmitted(true)
     } catch (err) {
@@ -144,7 +156,57 @@ export default function BookMeetingModal({ open, onClose, t }) {
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
 
-        {submitted ? (
+        {/* Step indicator — the "little candle" */}
+        <div className="bm-modal__steps">
+          <span className={`bm-step ${step === 1 ? 'bm-step--active' : 'bm-step--done'}`}>
+            {step === 1 ? '①' : '✓'} {label('Qualify', 'تأهيل')}
+          </span>
+          <span className="bm-step-line" />
+          <span className={`bm-step ${step === 2 && !submitted ? 'bm-step--active' : ''} ${submitted ? 'bm-step--done' : ''}`}>
+            {submitted ? '✓' : '②'} {label('Book', 'حجز')}
+          </span>
+        </div>
+
+        {/* -------- STEP 1: QUALIFICATION -------- */}
+        {step === 1 && (
+          <div className="bm-qualify">
+            <h3 className="bm-modal__title" id="bm-modal-title">
+              {label('Are you associated with a medical practice?', 'هل أنت مرتبط بعيادة طبية؟')}
+            </h3>
+            <p className="bm-modal__sub">
+              {label(
+                'This meeting is for clinic owners, managers, and doctors who want to grow their practice.',
+                'هذا الاجتماع مخصص لأصحاب العيادات، المدراء، والأطباء الذين يرغبون في تنمية عيادتهم.'
+              )}
+            </p>
+            <div className="bm-qualify__options">
+              <button
+                className="bm-qualify__btn"
+                onClick={() => handleQualify('clinic_owner')}
+              >
+                <span className="bm-qualify__icon">🏥</span>
+                {label('Yes – I own / manage a clinic', 'نعم – أملك / أدير عيادة')}
+              </button>
+              <button
+                className="bm-qualify__btn"
+                onClick={() => handleQualify('doctor')}
+              >
+                <span className="bm-qualify__icon">👨‍⚕️</span>
+                {label('Yes – I am a doctor / clinician', 'نعم – أنا طبيب / أخصائي')}
+              </button>
+              <button
+                className="bm-qualify__btn bm-qualify__btn--outline"
+                onClick={() => handleQualify('patient')}
+              >
+                <span className="bm-qualify__icon">👤</span>
+                {label('No – I am a patient looking for treatment', 'لا – أنا مريض أبحث عن علاج')}
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* -------- STEP 2A: SUBMITTED (success) -------- */}
+        {step === 2 && submitted && (
           <div className="bm-modal__success">
             <div className="bm-modal__success-icon">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0EB981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -162,7 +224,28 @@ export default function BookMeetingModal({ open, onClose, t }) {
               {label('Close', 'إغلاق')}
             </button>
           </div>
-        ) : (
+        )}
+
+        {/* -------- STEP 2B: PATIENT MESSAGE (no form) -------- */}
+        {step === 2 && role === 'patient' && !submitted && (
+          <div className="bm-modal__patient">
+            <h3 className="bm-modal__title" id="bm-modal-title">
+              {label("We're here to help clinics find patients.", 'نحن هنا لمساعدة العيادات في إيجاد المرضى.')}
+            </h3>
+            <p className="bm-modal__sub">
+              {label(
+                "This booking system is specifically for clinic owners and doctors. If you're looking for a great clinic, we'd be happy to recommend one – just reach out via the contact page.",
+                'نظام الحجز هذا مخصص لأصحاب العيادات والأطباء. إذا كنت تبحث عن عيادة ممتازة، يسعدنا أن نوصيك بواحدة – فقط تواصل معنا عبر صفحة الاتصال.'
+              )}
+            </p>
+            <button type="button" className="bm-modal__submit" onClick={onClose}>
+              {label('Got it, close', 'فهمت، إغلاق')}
+            </button>
+          </div>
+        )}
+
+        {/* -------- STEP 2C: BOOKING FORM (clinic_owner / doctor) -------- */}
+        {step === 2 && role !== 'patient' && !submitted && (
           <>
             <p className="bm-modal__kicker">{label('BOOK A MEETING', 'احجز اجتماع')}</p>
             <h3 id="bm-modal-title" className="bm-modal__title">
@@ -197,7 +280,10 @@ export default function BookMeetingModal({ open, onClose, t }) {
                 onChange={(e) => setForm((f) => ({ ...f, whatsapp: e.target.value }))}
               />
 
-              <label className="bm-modal__label">{label("Clinic's name", 'اسم العيادة')}</label>
+              <label className="bm-modal__label">
+                {label("Clinic's name", 'اسم العيادة')}
+                <span className="bm-modal__optional"> *</span>
+              </label>
               <input
                 type="text"
                 autoComplete="organization"
