@@ -372,9 +372,9 @@ function Hero({ t, onBookMeeting }) {
         <div className="hero__grid">
           <div className="hero__left">
             <h1 className="hero__h1">
-              <span className="hero__line hero__line--strong">{t('WE HELP MEDICAL CLINICS GET', 'نساعد العيادات الطبية على الحصول على')}</span>
-              <span className="hero__line hero__line--strong">{t('PREDICTABLE FLOW OF NEW', 'تدفق قابل للتنبؤ من استشارات')}&nbsp;</span>
-              <span className="hero__line hero__line--accent">{t('CONSULTATIONS EVERY MONTH.', 'جديدة كل شهر.')}</span>
+              <span className="hero__line hero__line--strong">{t('WE HELP MEDICAL CLINICS TO BUILD', 'نساعد العيادات الطبية على بناء')}</span>
+              <span className="hero__line hero__line--strong">{t('A PREDICTABLE SYSTEM TO GET', 'نظام قابل للتنبؤ للحصول على')}&nbsp;</span>
+              <span className="hero__line hero__line--accent">{t('3–5 CONSULTATIONS PER DAY.', '٣ إلى ٥ استشارات يوميًا.')}</span>
             </h1>
             <div className="hero__actions">
               <button className="hero__cta" onClick={(e) => { e.preventDefault(); onBookMeeting(); }}>
