@@ -3,17 +3,14 @@
 import React, { useMemo } from 'react';
 import './ClientLogoMarquee.css';
 
-const logoUrlModules = import.meta.glob(
-  '../../public/client-logos/*.{png,jpg,jpeg,svg}',
-  { eager: true, import: 'default', query: '?url' }
-);
-
-/** Public URLs if glob finds nothing (e.g. misconfigured build)  files in public/client-logos/ */
-const FALLBACK_LOGO_SRCS = [
+const LOGO_SRCS = [
   '/client-logos/interface1.webp',
   '/client-logos/msi.webp',
   '/client-logos/nymv.webp',
   '/client-logos/III.webp',
+  '/client-logos/visage.webp',
+  '/client-logos/enliven.webp',
+  '/client-logos/physioexpert.webp',
 ];
 
 const MIN_TILES_PER_HALF = 18;
@@ -27,16 +24,8 @@ function isWideLogo(src) {
   return /III/i.test(src);
 }
 
-function getLogoUrlsFromGlob() {
-  const urls = Object.values(logoUrlModules).filter(Boolean);
-  const hasInterfaceSvg = urls.some((u) => /interface\.svg/i.test(u));
-  return urls
-    .filter((u) => !(hasInterfaceSvg && /interface\.png/i.test(u)))
-    .sort();
-}
-
 function buildSeamlessTrack(urls) {
-  const source = urls.length > 0 ? urls : FALLBACK_LOGO_SRCS;
+  const source = urls.length > 0 ? urls : LOGO_SRCS;
   const half = [];
   let i = 0;
   while (half.length < MIN_TILES_PER_HALF) {
@@ -47,9 +36,7 @@ function buildSeamlessTrack(urls) {
 }
 
 export default function ClientLogoMarquee() {
-  const logos = useMemo(() => getLogoUrlsFromGlob(), []);
-  const displaySrcs = logos.length > 0 ? logos : FALLBACK_LOGO_SRCS;
-  const trackLogos = useMemo(() => buildSeamlessTrack(displaySrcs), [displaySrcs]);
+  const trackLogos = useMemo(() => buildSeamlessTrack(LOGO_SRCS), []);
 
   return (
     <section className="client-logo-marquee" aria-label="Client logos">

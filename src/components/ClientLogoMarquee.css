@@ -13,9 +13,8 @@
 }
 
 .client-logo-marquee__inner {
-  max-width: var(--container-max, 1440px);
+  width: 100%;
   margin: 0 auto;
-  padding: 0 var(--gutter, 24px);
 }
 
 .client-logo-marquee__heading {

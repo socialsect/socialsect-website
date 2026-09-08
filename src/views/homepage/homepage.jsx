@@ -35,6 +35,7 @@ const CAROUSEL_VIDEO_URLS = [
 ];
 
 // Lazy-load below-fold sections to reduce initial JS bundle
+import ClientLogoMarquee from '../../components/ClientLogoMarquee';
 const PerfectMatchSection = lazy(() => import('../../components/PerfectMatchSection'));
 const PracticeInfrastructureSection = lazy(() => import('../../components/PracticeInfrastructureSection'));
 const ContentLibraryCarousel = lazy(() => import('../../components/ContentLibraryCarousel'));
@@ -59,7 +60,9 @@ const TRUSTED_PRACTICES = [
   { name: 'Miami Shoulder Institute', href: 'https://miamishoulderinstitute.com/' },
   { name: 'The Interface Specialist Clinic', href: 'https://interfaceclinic.co.uk/' },
   { name: 'NY Metrovein Medical', href: 'https://www.nymetrovein.com/' },
-  { name: 'L&P Aesthetics', href: null },
+  { name: 'Visage Polyclinic Dubai', href: 'https://visagepolyclinicdubai.com/' },
+  { name: 'Enliven Counselling Center', href: 'https://www.enlivencounsellingcenter.com/' },
+  { name: 'Physioexpert Dubai', href: 'https://physioexpertdubai.com/' },
 ];
 
 export default function HomePage() {
@@ -92,7 +95,7 @@ export default function HomePage() {
             <div className="hero-copy">
               <p className="hero-eyebrow">
                 <span className="hero-eyebrow__line" aria-hidden="true" />
-                Marketing for private medical practices (US &amp; UK)
+                Marketing for private medical practices (US, UK &amp; UAE)
               </p>
 
               <h1 className="hero-headline">
@@ -193,6 +196,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ClientLogoMarquee />
 
       <Suspense fallback={SECTION_PLACEHOLDER}><PerfectMatchSection /></Suspense>
       {/* <Suspense fallback={SECTION_PLACEHOLDER}><PracticeInfrastructureSection /></Suspense> */}
