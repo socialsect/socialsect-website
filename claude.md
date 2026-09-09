@@ -27,6 +27,7 @@
 
 ### Notes
 
+
 * Do not hardcode author data.
 * Use existing Sanity schema if available.
 * Maintain current blog design.
