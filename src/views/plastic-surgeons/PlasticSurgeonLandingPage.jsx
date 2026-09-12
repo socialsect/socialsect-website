@@ -1,6 +1,7 @@
 'use client'
 import { useMemo } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import Link from 'next/link'
+import { useParams, useRouter } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { getPlasticSurgeonLandingData } from './plasticSurgeonLandingData.js'
@@ -19,8 +20,13 @@ export default function PlasticSurgeonLandingPage({ pageSlug: propSlug }) {
   const pageSlug = propSlug ?? params.pageSlug
   const data = useMemo(() => getPlasticSurgeonLandingData(pageSlug), [pageSlug])
 
+  const router = useRouter()
+
   if (!data) {
-    return <Navigate to="/" replace />
+    if (typeof window !== 'undefined') {
+      router.replace('/')
+    }
+    return null
   }
 
   return (
@@ -59,7 +65,7 @@ export default function PlasticSurgeonLandingPage({ pageSlug: propSlug }) {
             ) : null}
             <div className="ps-hero__actions">
               <Link
-                to={data.ctaLink ?? BOOK_A_CALL_FORM}
+                href={data.ctaLink ?? BOOK_A_CALL_FORM}
                 className="ps-hero__btn ps-hero__btn--primary"
               >
                 {data.ctaLabel}
@@ -154,7 +160,7 @@ export default function PlasticSurgeonLandingPage({ pageSlug: propSlug }) {
           <p className="ps-closing__body">{renderBold(data.ctaCopy)}</p>
           <div className="ps-closing__actions">
             <Link
-              to={data.ctaLink ?? BOOK_A_CALL_FORM}
+              href={data.ctaLink ?? BOOK_A_CALL_FORM}
               className="ps-closing__btn ps-closing__btn--primary"
             >
               {data.ctaLabel}

@@ -7,6 +7,7 @@ import { getRegionLandingData } from '../views/dermatologists/regionLandingData.
 import { getOrmLandingData } from '../views/orthopaedic/ormLandingData.js'
 import { getPlasticSurgeonLandingData } from '../views/plastic-surgeons/plasticSurgeonLandingData.js'
 import { getDentistLandingData } from '../views/dentists/dentistLandingData.js'
+import { getDermatologistsSeoLandingData } from '../views/dermatologists/dermatologistsSeoData.js'
 import { getOrthopaedicSeoLandingData } from '../views/orthopaedic-surgeons/orthopaedicSurgeonsSeoData.js'
 import { SEO_PAGE_META_OVERRIDES } from './seoPageMeta.js'
 
@@ -596,6 +597,28 @@ function avivaConfig() {
   }
 }
 
+function dermatologistLandingConfig(pathname, params) {
+  const data = getDermatologistsSeoLandingData(params.pageSlug)
+  if (!data) {
+    return notFoundConfig()
+  }
+
+  const canonicalUrl = absoluteUrl(pathname)
+  const title = data.metaTitle
+  const description = data.metaDescription
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: undefined,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: data.tags ?? ['dermatologist SEO', 'healthcare SEO', 'local SEO'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl })],
+  }
+}
+
 function regionLandingConfig(pathname, params) {
   const data = getRegionLandingData(params.pageSlug)
   if (!data) {
@@ -968,6 +991,11 @@ export function getSeoConfig(pathname) {
   const specialtyMatch = matchPath('/who-we-help/:specialty', cleanPath)
   if (specialtyMatch) {
     return applyPageMetaOverrides(specialtyConfig(cleanPath, specialtyMatch.params), cleanPath)
+  }
+
+  const dermatologistLandingMatch = matchPath('/seo-services-for-dermatologists/:pageSlug', cleanPath)
+  if (dermatologistLandingMatch && ['dubai', 'dubai-marina'].includes(dermatologistLandingMatch.params.pageSlug)) {
+    return applyPageMetaOverrides(dermatologistLandingConfig(cleanPath, dermatologistLandingMatch.params), cleanPath)
   }
 
   const regionLandingMatch = matchPath('/seo-services-for-dermatologists/:pageSlug', cleanPath)

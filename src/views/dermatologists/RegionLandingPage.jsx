@@ -1,6 +1,7 @@
 'use client'
 import { useMemo } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import Link from 'next/link'
+import { useParams, useRouter } from 'next/navigation'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { getRegionLandingData } from './regionLandingData.js'
 import './RegionLandingPage.css'
@@ -9,8 +10,12 @@ export default function RegionLandingPage() {
   const { pageSlug } = useParams()
   const data = useMemo(() => getRegionLandingData(pageSlug), [pageSlug])
 
+  const router = useRouter()
   if (!data) {
-    return <Navigate to="/" replace />
+    if (typeof window !== 'undefined') {
+      router.replace('/')
+    }
+    return null
   }
 
   return (
@@ -27,7 +32,7 @@ export default function RegionLandingPage() {
             </p>
           ))}
           <div className="region-landing-hero__actions">
-            <Link to={data.ctaLink ?? BOOK_A_CALL_FORM} className="btn btn-primary region-landing-hero__cta">
+            <Link href={data.ctaLink ?? BOOK_A_CALL_FORM} className="btn btn-primary region-landing-hero__cta">
               {data.ctaLabel}
             </Link>
           </div>
@@ -92,7 +97,7 @@ export default function RegionLandingPage() {
             {data.ctaHeadline}
           </h2>
           <p className="region-landing-final-cta__copy">{data.ctaCopy}</p>
-          <Link to={data.ctaLink ?? BOOK_A_CALL_FORM} className="btn btn-primary region-landing-final-cta__btn">
+          <Link href={data.ctaLink ?? BOOK_A_CALL_FORM} className="btn btn-primary region-landing-final-cta__btn">
             {data.ctaLabel}
           </Link>
         </div>
