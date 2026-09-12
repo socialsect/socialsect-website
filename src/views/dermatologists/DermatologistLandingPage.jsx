@@ -17,7 +17,7 @@ function renderBold(text) {
 
 export default function DermatologistLandingPage({ pageSlug: propSlug }) {
   const params = useParams()
-  const pageSlug = propSlug ?? params.pageSlug
+  const pageSlug = propSlug ?? params?.pageSlug
   const data = useMemo(() => getDermatologistsSeoLandingData(pageSlug), [pageSlug])
 
   if (!data) {
