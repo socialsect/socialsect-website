@@ -1,6 +1,7 @@
 'use client'
 import { useMemo } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 import { getDermatologistsSeoLandingData } from './dermatologistsSeoData.js'
@@ -59,7 +60,7 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
             ) : null}
             <div className="ps-hero__actions">
               <Link
-                to={data.ctaLink ?? BOOK_A_CALL_FORM}
+                href={data.ctaLink ?? BOOK_A_CALL_FORM}
                 className="ps-hero__btn ps-hero__btn--primary"
               >
                 {data.ctaLabel}
@@ -154,7 +155,7 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
           <p className="ps-closing__body">{renderBold(data.ctaCopy)}</p>
           <div className="ps-closing__actions">
             <Link
-              to={data.ctaLink ?? BOOK_A_CALL_FORM}
+              href={data.ctaLink ?? BOOK_A_CALL_FORM}
               className="ps-closing__btn ps-closing__btn--primary"
             >
               {data.ctaLabel}
