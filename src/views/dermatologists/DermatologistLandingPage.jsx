@@ -125,14 +125,14 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
       )}
 
       {/* FAQ Section */}
-      {data.faq?.length ? (
+      {(data.faq || data.faqs)?.length ? (
         <section className="ps-section ps-section--gray" aria-labelledby="ps-faq-heading">
           <div className="ps-section__inner">
             <h2 id="ps-faq-heading" className="ps-section__title">
               Frequently Asked Questions
             </h2>
             <dl className="ps-faq">
-              {data.faq.map((item) => (
+              {(data.faq || data.faqs).map((item) => (
                 <div key={item.question} className="ps-faq__item">
                   <dt className="ps-faq__question">{renderBold(item.question)}</dt>
                   <dd className="ps-faq__answer">{renderBold(item.answer)}</dd>
