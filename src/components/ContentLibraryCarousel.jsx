@@ -45,11 +45,13 @@ function CarouselCard({ reel, onLoaded }) {
   const { thumb, video } = buildUrls(reel.url);
   const isReady = Boolean(video);
   const cardRef = useRef(null)
-  const [shouldLoad, setShouldLoad] = useState(isPreloaded(video))
-  const alreadyPreloaded = useRef(isPreloaded(video))
+  const [shouldLoad, setShouldLoad] = useState(false)
+  const alreadyPreloaded = useRef(false)
 
   useEffect(() => {
+    alreadyPreloaded.current = isPreloaded(video)
     if (alreadyPreloaded.current) {
+      setShouldLoad(true)
       if (onLoaded) onLoaded()
       return
     }
@@ -66,7 +68,7 @@ function CarouselCard({ reel, onLoaded }) {
     )
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [video, onLoaded])
 
   if (!isReady) {
     return (
