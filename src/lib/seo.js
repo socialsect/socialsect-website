@@ -994,7 +994,7 @@ export function getSeoConfig(pathname) {
   }
 
   const dermatologistLandingMatch = matchPath('/seo-services-for-dermatologists/:pageSlug', cleanPath)
-  if (dermatologistLandingMatch && ['dubai', 'dubai-marina', 'downtown-dubai'].includes(dermatologistLandingMatch.params.pageSlug)) {
+  if (dermatologistLandingMatch && ['dubai', 'dubai-marina', 'downtown-dubai', 'jumeirah'].includes(dermatologistLandingMatch.params.pageSlug)) {
     return applyPageMetaOverrides(dermatologistLandingConfig(cleanPath, dermatologistLandingMatch.params), cleanPath)
   }
 
