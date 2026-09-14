@@ -12,6 +12,13 @@ const MARQUEE_LOGOS = [
   { src: '/client-logos/msi.webp', screen: false, wide: false },
   { src: '/client-logos/nymv.webp', screen: true, wide: false },
   { src: '/client-logos/III.webp', screen: false, wide: true },
+  { src: '/client-logos/enliven.webp', screen: false, wide: false },
+  { src: '/client-logos/visage.webp', screen: false, wide: false },
+  { src: '/images/clinics/smile-signature.png', screen: false, wide: false },
+  { src: '/images/clinics/lumiere.png', screen: false, wide: false },
+  { src: '/images/clinics/orthocare.png', screen: false, wide: false },
+  { src: '/images/clinics/derma.png', screen: false, wide: false },
+  { src: '/client-logos/physioexpert.webp', screen: false, wide: false },
 ]
 
 const MIN_TILES_PER_HALF = 14
@@ -27,7 +34,12 @@ const TRUSTED_PRACTICES = [
   { name: 'Miami Shoulder Institute', href: 'https://miamishoulderinstitute.com/' },
   { name: 'The Interface Specialist Clinic', href: 'https://interfaceclinic.co.uk/' },
   { name: 'NY Metrovein Medical', href: 'https://www.nymetrovein.com/' },
-  { name: 'L&P Aesthetics', href: null },
+  { name: 'Enliven Counselling Center', href: null },
+  { name: 'Visage Polyclinic', href: null },
+  { name: 'Smile Signature Dental', href: null },
+  { name: 'Lumière Aesthetics', href: null },
+  { name: 'Orthocare Clinic', href: null },
+  { name: 'Derma Advanced', href: null },
 ]
 
 const PROVEN_MARKETS = [

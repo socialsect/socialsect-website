@@ -9,7 +9,7 @@ export default function GrowthAuditorLauncher() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
-  if (pathname === '/uae') return null
+  if (pathname === '/dubai') return null
 
   return (
     <>

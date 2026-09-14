@@ -10,7 +10,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/gosocialsect/'
 
 export default function UAEFooter() {
   const pathname = usePathname()
-  if (pathname !== '/uae') return null
+  if (pathname !== '/dubai') return null
 
   return (
     <footer className="uae-footer">
@@ -18,7 +18,7 @@ export default function UAEFooter() {
 
         <div className="uae-footer__top">
           <div className="uae-footer__brand">
-            <Link href="/uae" className="uae-footer__logo-link">
+            <Link href="/dubai" className="uae-footer__logo-link">
               <img
                 src="/icons/logo.svg"
                 alt="Socialsect"

@@ -61,6 +61,10 @@ const CLINICS = [
   { name: 'Lumière Aesthetics Clinic', location: 'Dubai, UAE', speciality: 'Aesthetic Medicine', logo: '/images/clinics/lumiere.png', color: '#EC4899' },
   { name: 'Orthocare Clinic', location: 'Sharjah, UAE', speciality: 'Orthopaedics & Sports Medicine', logo: '/images/clinics/orthocare.png', color: '#0891B2' },
   { name: 'Derma Advanced Skin Clinic', location: 'Dubai, UAE', speciality: 'Dermatology', logo: '/images/clinics/derma.png', color: '#EC4899' },
+  { name: 'Miami Shoulder Institute', location: 'Miami, FL, USA', speciality: 'Orthopaedics', logo: '/client-logos/msi.webp', color: '#0891B2' },
+  { name: 'Interface Specialist Clinic', location: 'Sutton, UK', speciality: 'Dermatology & Minor Surgery', logo: '/client-logos/interface1.webp', color: '#EC4899' },
+  { name: 'NY Metrovein Medical', location: 'New York, USA', speciality: 'Vascular & Aesthetic Medicine', logo: '/client-logos/nymv.webp', color: '#7C3AED' },
+  { name: 'International Implant Institute', location: 'Global', speciality: 'Dental Education', logo: '/client-logos/III.webp', color: '#3563FF' },
 ]
 
 const STATS = [
@@ -798,9 +802,9 @@ function VideoWalkthrough({ t, onBookMeeting }) {
         </div>
 
         <div className="vw__logos-bar">
-          <span className="vw__logos-label">{t('TRUSTED BY CLINIC\nOWNERS ACROSS UAE', 'موثوق من أصحاب\nالعيادات في الإمارات')}</span>
+          <span className="vw__logos-label">{t('TRUSTED BY CLINIC\nOWNERS ACROSS UAE & BEYOND', 'موثوق من أصحاب\nالعيادات في الإمارات والعالم')}</span>
           <div className="vw__logos-row">
-            {CLINICS.slice(1, 5).map((c, i) => (
+            {CLINICS.slice(0, 6).map((c, i) => (
               <img key={i} src={c.logo} alt={c.name} className="vw__logos-img" />
             ))}
           </div>

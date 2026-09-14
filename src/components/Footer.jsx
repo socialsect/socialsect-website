@@ -17,7 +17,7 @@ const CAREERS_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Ca
 
 export default function Footer() {
   const pathname = usePathname()
-  if (pathname === '/uae') return null
+  if (pathname === '/dubai') return null
   const [auditFormOpen, setAuditFormOpen] = useState(false);
   const [auditFormData, setAuditFormData] = useState({
     name: '',

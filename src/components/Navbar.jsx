@@ -205,9 +205,9 @@ const HIDE_AFTER_Y = 60
 
 export default function Navbar() {
   const pathname = usePathname()
-  const isUaePage = pathname === '/uae'
+  const isUaePage = pathname === '/dubai'
   const isHome = pathname === '/'
-  const isDarkHero = isHome || pathname === '/dubai'
+  const isDarkHero = isHome || pathname === '/uae'
   const isWhoWeHelp = pathname === '/who-we-help' || pathname.startsWith('/who-we-help/')
   const isInsights = pathname === '/insights' || pathname.startsWith('/insights/')
   const isServices =
@@ -385,7 +385,7 @@ export default function Navbar() {
                 <a href="/who-we-help">Who we help</a>
               </div>
 
-              <Link href="/uae" className="logo" aria-label="Socialsect home" onClick={closeMenu}>
+              <Link href="/dubai" className="logo" aria-label="Socialsect home" onClick={closeMenu}>
                 <img
                   src="/icons/logo.svg"
                   alt=""
