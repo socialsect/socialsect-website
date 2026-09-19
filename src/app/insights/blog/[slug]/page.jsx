@@ -5,6 +5,7 @@ import BlogArticlePage from '@/views/insights/BlogArticlePage'
 const SITE_URL = 'https://gosocialsect.com'
 const DEFAULT_ROBOTS = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 const DEFAULT_IMAGE = `${SITE_URL}/social-share.webp`
+export const dynamic = 'force-dynamic'
 const ORG_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',

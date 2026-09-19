@@ -7,6 +7,7 @@ import { preloadAll } from '../../lib/videoPreloader';
 import './homepage.css';
 
 const CAROUSEL_VIDEO_URLS = [
+  "https://aquamarine-bee-678141.hostingersite.com/videos/enliven-1.mp4",
   "https://aquamarine-bee-678141.hostingersite.com/videos/%231.mp4",
   "https://aquamarine-bee-678141.hostingersite.com/videos/0214%20(2)(1).mov",
   "https://aquamarine-bee-678141.hostingersite.com/videos/544.mp4",
@@ -31,7 +32,11 @@ const CAROUSEL_VIDEO_URLS = [
   "https://aquamarine-bee-678141.hostingersite.com/videos/AQPIFdom17VsWLVOxSM4qlVxKrghIv-PFTFZ4fUVLPm7QgbKyRmrs_BDUCT5hD3gtXEzfHa17S_nXzC_67HX5JUg.mp4",
   "https://aquamarine-bee-678141.hostingersite.com/videos/C%C3%B3mo%20lucir%20unas%20piernas%20hermosas%20gracias%20a%20@nymetrovein%20elim%C3%ADnalas%20sin%20dolor%20y%20en%20manos%20de%20m%C3%A9dic.mp4",
   "https://aquamarine-bee-678141.hostingersite.com/videos/Resp%C3%A9tame%20@maicolnova%20,%20qu%C3%A9%20lo%20m%C3%ADo%20ha%20sido%20palo%20y%20palo%20desde%20el%208%20de%20enero%20,%20pero%20ninguno%20como%20.mp4",
-  "https://aquamarine-bee-678141.hostingersite.com/videos/Si%20soy%20una%20ciudadana%20seria%20,%20pero%20sin%20venas%20varicosas%20tambi%C3%A9n%20un%20chin%20atrevida%20,%20gracias%20a%20@nyme%20(1).mp4"
+  "https://aquamarine-bee-678141.hostingersite.com/videos/Si%20soy%20una%20ciudadana%20seria%20,%20pero%20sin%20venas%20varicosas%20tambi%C3%A9n%20un%20chin%20atrevida%20,%20gracias%20a%20@nyme%20(1).mp4",
+  "https://aquamarine-bee-678141.hostingersite.com/videos/enliven-2.mp4",
+  "https://aquamarine-bee-678141.hostingersite.com/videos/enliven-3.mp4",
+  "https://aquamarine-bee-678141.hostingersite.com/videos/enliven-4.mp4",
+  "https://aquamarine-bee-678141.hostingersite.com/videos/enliven-5.mp4",
 ];
 
 // Lazy-load below-fold sections to reduce initial JS bundle
@@ -41,6 +46,7 @@ const PracticeInfrastructureSection = lazy(() => import('../../components/Practi
 const ContentLibraryCarousel = lazy(() => import('../../components/ContentLibraryCarousel'));
 const ProcessClaritySection = lazy(() => import('../../components/ProcessClaritySection'));
 const ResultsSpotlightSection = lazy(() => import('../../components/ResultsSpotlightSection'));
+const CurrentPracticeOwnersSection = lazy(() => import('../../components/CurrentPracticeOwnersSection'));
 const SpecialtyAudienceSection = lazy(() => import('../../components/SpecialtyAudienceSection'));
 const HomePhilosophyAuditSections = lazy(() => import('../../components/HomePhilosophyAuditSections'));
 const AskAISection = lazy(() => import('../../components/AskAISection'));
@@ -204,6 +210,7 @@ export default function HomePage() {
       <Suspense fallback={SECTION_PLACEHOLDER}><ContentLibraryCarousel /></Suspense>
       <Suspense fallback={SECTION_PLACEHOLDER}><ProcessClaritySection /></Suspense>
       <Suspense fallback={SECTION_PLACEHOLDER}><ResultsSpotlightSection /></Suspense>
+      <Suspense fallback={SECTION_PLACEHOLDER}><CurrentPracticeOwnersSection /></Suspense>
       <Suspense fallback={SECTION_PLACEHOLDER}><SpecialtyAudienceSection /></Suspense>
       <Suspense fallback={SECTION_PLACEHOLDER}><HomePhilosophyAuditSections /></Suspense>
       <Suspense fallback={SECTION_PLACEHOLDER}><AskAISection /></Suspense>

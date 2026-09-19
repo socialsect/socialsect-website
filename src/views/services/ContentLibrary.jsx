@@ -10,10 +10,12 @@ const VERTICALS = [
   "Med Spa",
   "Dental",
   "Vascular",
+  "Counselling",
   "Testimonials",
 ];
 
 const REELS = [
+  { id: "026", title: "Enliven Ad 1", vertical: "Counselling", url: "https://aquamarine-bee-678141.hostingersite.com/videos/enliven-1.mp4" },
   { id: "001", title: "Ortho Patient Journey", vertical: "Orthopaedics", url: "https://aquamarine-bee-678141.hostingersite.com/videos/%231.mp4" },
   { id: "002", title: "Shoulder Procedure  Surgical Walkthrough", vertical: "Orthopaedics", url: "https://aquamarine-bee-678141.hostingersite.com/videos/0214%20(2)(1).mov" },
   { id: "003", title: "Med Spa Treatment Experience", vertical: "Med Spa", url: "https://aquamarine-bee-678141.hostingersite.com/videos/544.mp4" },
@@ -39,6 +41,10 @@ const REELS = [
   { id: "023", title: "Cómo lucir unas piernas hermosas", vertical: "Vascular", url: "https://aquamarine-bee-678141.hostingersite.com/videos/C%C3%B3mo%20lucir%20unas%20piernas%20hermosas%20gracias%20a%20@nymetrovein%20elim%C3%ADnalas%20sin%20dolor%20y%20en%20manos%20de%20m%C3%A9dic.mp4" },
   { id: "024", title: "Respétame  @maicolnova", vertical: "Vascular", url: "https://aquamarine-bee-678141.hostingersite.com/videos/Resp%C3%A9tame%20@maicolnova%20,%20qu%C3%A9%20lo%20m%C3%ADo%20ha%20sido%20palo%20y%20palo%20desde%20el%208%20de%20enero%20,%20pero%20ninguno%20como%20.mp4" },
   { id: "025", title: "Ciudadana Sin Venas Varicosas", vertical: "Vascular", url: "https://aquamarine-bee-678141.hostingersite.com/videos/Si%20soy%20una%20ciudadana%20seria%20,%20pero%20sin%20venas%20varicosas%20tambi%C3%A9n%20un%20chin%20atrevida%20,%20gracias%20a%20@nyme%20(1).mp4" },
+  { id: "027", title: "Enliven Ad 2", vertical: "Counselling", url: "https://aquamarine-bee-678141.hostingersite.com/videos/enliven-2.mp4" },
+  { id: "028", title: "Enliven Ad 3", vertical: "Counselling", url: "https://aquamarine-bee-678141.hostingersite.com/videos/enliven-3.mp4" },
+  { id: "029", title: "Enliven Ad 4", vertical: "Counselling", url: "https://aquamarine-bee-678141.hostingersite.com/videos/enliven-4.mp4" },
+  { id: "030", title: "Enliven Ad 5", vertical: "Counselling", url: "https://aquamarine-bee-678141.hostingersite.com/videos/enliven-5.mp4" },
 ];
 
 function buildUrls(rawUrl) {

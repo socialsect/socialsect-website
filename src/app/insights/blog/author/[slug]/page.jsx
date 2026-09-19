@@ -2,6 +2,8 @@ import { cache } from 'react'
 import { getAuthorBySlug, getArticlesByAuthor } from '@/lib/articles'
 import AuthorPage from '@/views/insights/AuthorPage'
 
+export const dynamic = 'force-dynamic'
+
 const SITE_URL = 'https://gosocialsect.com'
 
 const getAuthor = cache(getAuthorBySlug)

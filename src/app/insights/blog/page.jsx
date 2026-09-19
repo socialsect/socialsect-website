@@ -5,6 +5,7 @@ import BlogPage from '@/views/insights/BlogPage'
 
 const cfg = getSeoConfig('/insights/blog')
 export const metadata = toNextMetadata(cfg)
+export const dynamic = 'force-dynamic'
 
 export default async function Page() {
   const articles = await getArticles()
