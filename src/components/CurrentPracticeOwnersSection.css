@@ -195,6 +195,25 @@
   line-height: 1.45;
 }
 
+.practice-owner__practice-name {
+  margin-top: 0.25rem !important;
+  color: #1a1c1d !important;
+  font-size: 0.74rem !important;
+  font-weight: 600;
+  line-height: 1.35 !important;
+}
+
+.practice-owner__practice-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.practice-owner__practice-name a:hover {
+  color: #695af2;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .practice-owners__footer {
   display: flex;
   justify-content: space-between;
@@ -292,6 +311,10 @@
 
   .practice-owner__details p {
     font-size: 0.75rem;
+  }
+
+  .practice-owner__practice-name {
+    font-size: 0.68rem !important;
   }
 
   .practice-owners__footer {

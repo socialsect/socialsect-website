@@ -9,6 +9,8 @@ const PRACTICES = [
   {
     name: 'Dr. Badia',
     specialty: 'Orthopaedic surgery',
+    practiceName: 'BHS · Badia Hand to Shoulder',
+    practiceUrl: 'https://drbadia.com/',
     location: 'Miami, Florida',
     image: '/images/dr-badia.webp',
     imageAlt: 'Dr. Badia in a white coat',
@@ -17,6 +19,8 @@ const PRACTICES = [
   {
     name: 'Dr. Peterson',
     specialty: 'Medical practice',
+    practiceName: 'Miami Shoulder Institute',
+    practiceUrl: 'https://miamishoulderinstitute.com/',
     location: 'Miami, Florida',
     image: '/images/dr-peterson.webp',
     imageAlt: 'Dr. Peterson in a white coat',
@@ -24,6 +28,8 @@ const PRACTICES = [
   {
     name: 'Dr. Arva',
     specialty: 'Medical practice',
+    practiceName: 'Physioexpert Dubai',
+    practiceUrl: 'https://physioexpertdubai.com/',
     location: 'Dubai, UAE',
     image: '/images/dr-arwa.webp',
     imageAlt: 'Dr. Arwa in medical scrubs',
@@ -31,6 +37,8 @@ const PRACTICES = [
   {
     name: 'Dr. Manu Mehra',
     specialty: 'Dermatology and minor surgery',
+    practiceName: 'Interface Specialist Clinic Sutton',
+    practiceUrl: 'https://interfaceclinic.co.uk/',
     location: 'London, UK',
     image: '/images/dr-manu-mehra.jpg',
     imageAlt: 'Dr. Manu Mehra',
@@ -38,6 +46,8 @@ const PRACTICES = [
   {
     name: 'Dr. Fatima Abdullah',
     specialty: 'Counselling',
+    practiceName: 'Enliven Counselling Center',
+    practiceUrl: 'https://www.enlivencounsellingcenter.com/',
     location: 'Dubai, UAE',
     image: '/images/dr-fatima-abdullah-new.webp',
     imageAlt: 'Dr. Fatima Abdullah in her clinic',
@@ -45,6 +55,8 @@ const PRACTICES = [
   {
     name: 'Dr. Musa Nkoto',
     specialty: 'Aesthetic care',
+    practiceName: 'Visage Polyclinic LLC',
+    practiceUrl: 'https://visagepolyclinicdubai.com/',
     location: 'Dubai, UAE',
     image: '/images/dr-musa.webp',
     imageAlt: 'Dr. Musa Nkoto in a medical office',
@@ -52,9 +64,19 @@ const PRACTICES = [
   {
     name: 'Dr. Julia Jackson',
     specialty: 'Maxillofacial surgery',
+    practiceName: 'International Implant Institute',
+    practiceUrl: 'https://intlimplantinstitute.com/',
     location: 'Virginia, US',
     image: '/images/dr-julia-jackson.webp',
     imageAlt: 'Dr. Julia Jackson',
+  },
+  {
+    name: 'Dr. Tijana',
+    specialty: 'Medical practice',
+    practiceName: 'White Clinic Dubai',
+    practiceUrl: 'https://whiteclinic.ae/',
+    image: '/images/dr-tijana.png',
+    imageAlt: 'Dr. Tijana',
   },
 ]
 
@@ -100,6 +122,21 @@ export default function CurrentPracticeOwnersSection() {
               <div className="practice-owner__details">
                 <h3>{practice.name}</h3>
                 <p>{practice.specialty}</p>
+                {practice.practiceName && (
+                  <p className="practice-owner__practice-name">
+                    {practice.practiceUrl ? (
+                      <a
+                        href={practice.practiceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {practice.practiceName}
+                      </a>
+                    ) : (
+                      practice.practiceName
+                    )}
+                  </p>
+                )}
               </div>
             </article>
           ))}
