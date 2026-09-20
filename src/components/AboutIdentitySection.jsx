@@ -95,7 +95,7 @@ export default function AboutIdentitySection() {
                 That&apos;s not fair. And it&apos;s fixable. That&apos;s why Socialsect exists.
               </p>
               <p>
-                Today, almost everything we do is for private medical practices in the US and UK. Not because it&apos;s the most convenient market. Because it&apos;s the one where I know we can make a genuine difference , and where I know the doctors working with us deserve better than what they&apos;ve been getting.
+                Today, almost everything we do is for private medical practices in the US and UK, while we build our presence in the UAE. Not because any one market is convenient. Because I know we can make a genuine difference in each one, and the doctors working with us deserve better than what they&apos;ve been getting.
               </p>
             </div>
           </div>

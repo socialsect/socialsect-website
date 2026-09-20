@@ -76,12 +76,13 @@ function buildOrganizationSchema() {
     logo: `${SITE_URL}/icons/logo.svg`,
     image: DEFAULT_IMAGE,
     description:
-      'Socialsect helps private medical practices in the US and UK grow with websites, SEO, paid media, brand, and clear reporting.',
+      'Socialsect helps private medical practices in the US, UK, and UAE grow with websites, SEO, paid media, brand, and clear reporting.',
     email: CONTACT_EMAIL,
     sameAs: [LINKEDIN_URL, INSTAGRAM_URL],
     areaServed: [
       { '@type': 'Country', name: 'United States' },
       { '@type': 'Country', name: 'United Kingdom' },
+      { '@type': 'Country', name: 'United Arab Emirates' },
     ],
     contactPoint: [
       {
@@ -89,7 +90,7 @@ function buildOrganizationSchema() {
         contactType: 'sales',
         email: CONTACT_EMAIL,
         availableLanguage: ['English'],
-        areaServed: ['US', 'GB'],
+        areaServed: ['US', 'GB', 'AE'],
       },
     ],
   }
@@ -193,7 +194,7 @@ function homeConfig() {
   const canonicalUrl = absoluteUrl('/')
   const title = 'Socialsect :Patient Acquisition Systems for Private Medical Practices'
   const description =
-    'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.'
+    'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US, UK & UAE.'
 
   return {
     title,

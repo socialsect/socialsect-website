@@ -76,7 +76,7 @@ export default function InsightsPage() {
 
         <div className="insights-hero__inner">
           <p className="insights-hero__eyebrow">
-            Insights for private medical practices · US & UK
+            Insights for private medical practices · US, UK & UAE
           </p>
           <h1 id="insights-hero-heading" className="insights-hero__title">
             Everything we know about growing a private medical practice, written by the people

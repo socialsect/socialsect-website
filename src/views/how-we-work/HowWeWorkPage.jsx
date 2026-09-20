@@ -283,8 +283,8 @@ const FAQ_ITEMS = [
     a: "In confirmed appointments and revenue, not vanity metrics. We agree on the success metrics before we start and report against them every month. If the number isn't moving, we tell you why and what we're doing about it.",
   },
   {
-    q: 'Do you work with practices outside the US and UK?',
-    a: "Our primary markets are the US and UK. If you're outside these markets, get in touch. We'll tell you honestly whether we can deliver the same quality of work for your location.",
+    q: 'Do you work with practices outside the US, UK and UAE?',
+    a: "Our primary markets remain the US and UK, and we're actively developing our UAE presence. If you're outside these markets, get in touch. We'll tell you honestly whether we can deliver the same quality of work for your location.",
   },
 ]
 

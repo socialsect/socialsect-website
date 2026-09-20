@@ -391,7 +391,7 @@ export default function BookACallPage() {
                       Where is your practice located?
                     </label>
                     <p className="book-call-form__hint">
-                      City and country. We work primarily with US and UK practices.
+                      City and country. We work primarily with US and UK practices and are actively developing our UAE presence.
                     </p>
                     <input
                       id="book-location"

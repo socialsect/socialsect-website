@@ -1,5 +1,5 @@
 # Socialsect
-> Patient acquisition systems for private medical practices (US & UK)
+> Patient acquisition systems for private medical practices (US, UK & UAE)
 
 ## Core pages
 - [Home](https://gosocialsect.com/): Socialsect homepage - patient acquisition for private medical practices

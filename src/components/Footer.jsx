@@ -213,7 +213,7 @@ export default function Footer() {
 
         <p className="footer__tagline">
           Predictable growth for private medical practices.
-          US & UK.
+          US, UK & UAE.
         </p>
 
         <div className="footer__social">

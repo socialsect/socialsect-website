@@ -164,7 +164,7 @@ export default function WhoWeHelpPage() {
 
             <div className="who-we-help-hero__inner">
               <p className="who-we-help-hero__eyebrow">
-                Private medical practices only · US & UK
+                Private medical practices only · US, UK & UAE
               </p>
               <h1 id="who-we-help-hero-heading" className="who-we-help-hero__title">
                 Whatever your specialty  the problems are the same. The patients

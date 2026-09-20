@@ -11,7 +11,7 @@ export const SPECIALTY_FILTERS = [
 
 export const HERO_STATS = [
   { value: '3+', label: 'Video testimonials' },
-  { value: 'US & UK', label: 'Practices represented' },
+  { value: 'US, UK & UAE', label: 'Practices represented' },
   { value: '<60s', label: 'Each video' },
   { value: '0', label: 'Scripts used' },
 ]

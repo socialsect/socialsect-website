@@ -10,7 +10,7 @@ export default function HomeHero() {
     <section className="home-hero">
       <div className="hero-left">
         <div className="hero-content">
-          <p className="eyebrow">For private medical practices (US & UK)</p>
+          <p className="eyebrow">For private medical practices (US, UK & UAE)</p>
 
           <h1 className="hero-headline">
             <span className="hero-headline__line">You spent a decade becoming</span>

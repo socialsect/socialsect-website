@@ -179,7 +179,7 @@ export const practiceWebsites = {
       answer: 'For a standard practice website, 8–12 weeks from discovery to launch. More complex builds with custom functionality, multiple locations, or CRM integrations typically take 12–16 weeks. We\'ll give you a specific timeline before we start.',
     },
     {
-      question: 'Do you work with practices outside the US and UK?',
+      question: 'Do you work with practices outside the US, UK and UAE?',
       answer: 'Yes. We work with private medical practices in the US, UK, and select international markets. Time zones and compliance requirements are factored into how we structure discovery, approvals, and launch.',
     },
   ],

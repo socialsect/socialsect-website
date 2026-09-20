@@ -27,7 +27,7 @@ export const metadata = {
   metadataBase: new URL('https://gosocialsect.com'),
   title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
   description:
-    'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
+    'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US, UK & UAE.',
   robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   openGraph: {
     siteName: 'Socialsect',
@@ -35,7 +35,7 @@ export const metadata = {
     type: 'website',
     title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
     description:
-      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
+      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US, UK & UAE.',
     url: 'https://gosocialsect.com/',
     images: [
       {
@@ -52,7 +52,7 @@ export const metadata = {
     creator: '@thesocialsect',
     title: 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
     description:
-      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
+      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US, UK & UAE.',
     images: ['https://gosocialsect.com/social-share.webp'],
   },
   icons: {
@@ -74,7 +74,7 @@ export const metadata = {
     'linkedin:url': 'https://gosocialsect.com/',
     'linkedin:title': 'Socialsect : Patient Acquisition Systems for Private Medical Practices',
     'linkedin:description':
-      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US & UK.',
+      'We embed into your practice, diagnose exactly where patients are falling through the gaps, and build the system that closes them. Website, paid growth, SEO, brand, booking systems  one team. No packages. US, UK & UAE.',
     'pinterest:url': 'https://gosocialsect.com/',
     'pinterest:media': 'https://gosocialsect.com/social-share.webp',
     'pinterest:description':
