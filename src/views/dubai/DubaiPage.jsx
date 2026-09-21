@@ -8,17 +8,12 @@ import '../../components/ResultsSpotlightSection.css'
 import './DubaiPage.css'
 
 const MARQUEE_LOGOS = [
-  { src: '/client-logos/interface1.webp', screen: false, wide: false },
-  { src: '/client-logos/msi.webp', screen: false, wide: false },
-  { src: '/client-logos/nymv.webp', screen: true, wide: false },
-  { src: '/client-logos/III.webp', screen: false, wide: true },
-  { src: '/client-logos/enliven.webp', screen: false, wide: false },
-  { src: '/client-logos/visage.webp', screen: false, wide: false },
+  { src: '/images/clinics/enliven.webp', screen: false, wide: false },
+  { src: '/images/clinics/visage.webp', screen: false, wide: false },
   { src: '/images/clinics/smile-signature.png', screen: false, wide: false },
   { src: '/images/clinics/lumiere.png', screen: false, wide: false },
   { src: '/images/clinics/orthocare.png', screen: false, wide: false },
   { src: '/images/clinics/derma.png', screen: false, wide: false },
-  { src: '/client-logos/physioexpert.webp', screen: false, wide: false },
 ]
 
 const MIN_TILES_PER_HALF = 14
@@ -31,15 +26,12 @@ const HERO_STATS = [
 ]
 
 const TRUSTED_PRACTICES = [
-  { name: 'Miami Shoulder Institute', href: 'https://miamishoulderinstitute.com/' },
-  { name: 'The Interface Specialist Clinic', href: 'https://interfaceclinic.co.uk/' },
-  { name: 'NY Metrovein Medical', href: 'https://www.nymetrovein.com/' },
-  { name: 'Enliven Counselling Center', href: null },
-  { name: 'Visage Polyclinic', href: null },
-  { name: 'Smile Signature Dental', href: null },
-  { name: 'Lumière Aesthetics', href: null },
+  { name: 'Enliven Counselling Center', href: 'https://www.enlivencounsellingcenter.com/' },
+  { name: 'Visage Polyclinic', href: 'https://visagepolyclinicdubai.com/' },
+  { name: 'Smile Signature Dental Clinic', href: null },
+  { name: 'Lumière Aesthetics Clinic', href: null },
   { name: 'Orthocare Clinic', href: null },
-  { name: 'Derma Advanced', href: null },
+  { name: 'Derma Advanced Skin Clinic', href: null },
 ]
 
 const PROVEN_MARKETS = [
@@ -96,55 +88,37 @@ const SPECIALTIES = [
 
 const CLIENT_RESULTS = [
   {
-    name: 'Dr. Alejandro Badia',
-    specialty: 'Hand and upper extremity orthopedic surgeon',
-    location: 'Miami, FL',
-    image: '/drbadia.webp',
-    imageAlt: 'Dr. Badia holding his book Healthcare from the Trenches',
+    name: 'Dr. Fatima Abdullah',
+    specialty: 'Counselling and mental health',
+    location: 'Dubai, UAE',
+    image: '/dr-fatima-abdullah.webp',
+    imageAlt: 'Dr. Fatima Abdullah',
     description:
-      'Dr. Badia treats complex conditions of the hand, wrist, elbow, and shoulder at the Badia Hand to Shoulder Center. He trained at Cornell and NYU, later serving as Chief of Hand Surgery at Baptist Hospital of Miami, and co-founded the Miami Anatomical Research Center, the largest surgical cadaveric training lab in the world. He also started OrthoNOW, South Florida\'s first orthopedic urgent care center.',
-    stats: [
-      { value: '225', label: 'Consultations booked' },
-      { value: '4.2x', label: 'Patient acquisition growth' },
-      { value: '$600K+', label: 'Additional revenue generated' },
-      { value: 'English + Spanish', label: 'Bilingual funnel' },
-    ],
+      'Dr. Fatima Abdullah leads Enliven Counselling Center in Dubai, helping people access professional mental health support through a trusted, patient-first practice.',
     whatWeDid:
-      'Built the whole patient acquisition system: lead generation, qualification, follow-up automation, and conversion tracking.',
+      'Built a patient acquisition system that turns relevant enquiries into booked consultations and supports a stronger patient journey.',
   },
   {
-    name: 'Dr. Manu Mehra',
-    specialty: 'Dermatology — skin lesions & minor surgery',
-    location: 'London, UK',
-    image: '/images/drmau.png',
-    imageAlt: 'Dr. Manu Mehra',
+    name: 'Dr. Musa Nkoto',
+    specialty: 'Aesthetic care and multi-speciality medicine',
+    location: 'Dubai, UAE',
+    image: '/dr-musa.png',
+    imageAlt: 'Dr. Musa Nkoto',
     description:
-      'Interface Clinic performs 2,200+ procedures annually. Dr. Mehra is a Fellow of the Royal College of Surgeons with strong clinical credentials but virtually no organic search presence before Socialsect.',
-    stats: [
-      { value: '2,600+', label: 'Backlinks built' },
-      { value: '93%', label: 'Dofollow link rate' },
-      { value: '$400K+', label: 'Annual revenue from organic' },
-      { value: '1,300+', label: 'Monthly organic sessions' },
-    ],
+      'Dr. Musa Nkoto leads Visage Polyclinic, a Dubai practice with multiple service lines and a focus on making high-quality care easier for patients to find and book.',
     whatWeDid:
-      'Full SEO authority program: link building strategy, outreach, and placement across healthcare publications and medical directories. Built domain authority from near zero.',
+      'Built a multi-service patient acquisition system with stronger qualification, follow-up, and appointment conversion.',
   },
   {
-    name: 'Dr. Adam Goldman, MD',
-    specialty: 'Vascular & aesthetic medicine — varicose vein treatment',
-    location: 'New York City, US',
-    image: '/images/dradam.png',
-    imageAlt: 'Dr. Adam Goldman',
+    name: 'Dr. Arwa',
+    specialty: 'Physiotherapy and rehabilitation',
+    location: 'Dubai, UAE',
+    image: '/images/dr-arwa.webp',
+    imageAlt: 'Dr. Arwa',
     description:
-      'Metropolitan Vein & Aesthetic Center needed consistent consultation volume from a specific patient demographic in a competitive NYC market. Generic healthcare advertising wasn\'t reaching the right community.',
-    stats: [
-      { value: '2,300+', label: 'Leads generated' },
-      { value: '$4', label: 'Cost per lead' },
-      { value: '$1.2M+', label: 'Revenue attributed' },
-      { value: '3.4x–5.4x', label: 'Return on ad spend' },
-    ],
+      'Dr. Arwa leads Physioexpert Dubai, helping patients access focused physiotherapy and rehabilitation care through a clear, specialist practice.',
     whatWeDid:
-      'AI-optimized Meta ad campaigns targeting the Hispanic community in Washington Heights and Inwood. Built and managed over 20 months with consistent creative strategy and lead qualification.',
+      'Helped make the practice easier to discover online and created a clearer path from interest to consultation.',
   },
 ]
 
@@ -432,14 +406,14 @@ export default function DubaiPage() {
       <section className="results-spotlights" aria-labelledby="dubai-clients-heading">
         <div className="results-spotlights__inner">
           <header className="results-spotlights__header">
-            <p className="results-spotlights__eyebrow">Don&apos;t just take our word for it</p>
+            <p className="results-spotlights__eyebrow">The practices behind the work</p>
             <h2 id="dubai-clients-heading" className="results-spotlights__headline">
-              Real practices. Real numbers.
+              Good marketing starts with knowing
               <br />
-              <em>Nothing rounded up.</em>
+              <em>the practice behind it.</em>
             </h2>
             <p className="dubai-clients__subcopy">
-              Every number below is documented. If we can&apos;t prove it, it&apos;s not here.
+              We work closely with practice owners who care deeply about their patients, their reputation, and building something that lasts.
             </p>
           </header>
 

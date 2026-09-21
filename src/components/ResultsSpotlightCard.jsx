@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react';
 import { BOOK_A_CALL_FORM } from '../constants/routes.js';
 import { Link } from 'react-router-dom';
 
@@ -54,23 +53,27 @@ export default function ResultsSpotlightCard({
       </div>
 
       <div className="results-spotlight__proof">
-        <ul className="results-spotlight__stats">
-          {stats.map((row) => (
-            <li key={row.label} className="results-spotlight__stat">
-              <div className="results-spotlight__stat-body">
-                <span className="results-spotlight__stat-value">{row.value}</span>
-                <span className="results-spotlight__stat-label">{row.label}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {stats?.length > 0 && (
+          <ul className="results-spotlight__stats">
+            {stats.map((row) => (
+              <li key={row.label} className="results-spotlight__stat">
+                <div className="results-spotlight__stat-body">
+                  <span className="results-spotlight__stat-value">{row.value}</span>
+                  <span className="results-spotlight__stat-label">{row.label}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
 
         <div className="results-spotlight__did">
           <h4 className="results-spotlight__did-title">What we did</h4>
           <p className="results-spotlight__did-copy">{whatWeDid}</p>
-          <p className="results-spotlight__did-copy results-spotlight__did-copy--note">
-            Every number above is documented, not estimated.
-          </p>
+          {stats?.length > 0 && (
+            <p className="results-spotlight__did-copy results-spotlight__did-copy--note">
+              Every number above is documented, not estimated.
+            </p>
+          )}
         </div>
       </div>
     </div>
