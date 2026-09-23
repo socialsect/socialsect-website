@@ -24,25 +24,13 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
   if (!data) return null
 
   // --- Dynamic Content Mapping ---
-  // 1. Identify the intro section (usually the first one)
-  const introSection = data.sections[0]
-  
-  // 2. Identify numbered strategy sections (e.g., "1. Dermatology Keyword Research")
-  const numberedSections = data.sections.filter(sec => sec.title && /^\d+\./.test(sec.title))
-  
-  // 3. Identify remaining sections (excluding intro, numbered, and the generic "Our SEO Services..." title)
-  const generalSections = []
+  // 1. Group all sections first to handle empty titles (continuations)
+  const groupedSections = []
   let currentGroup = null
 
   data.sections.forEach((sec) => {
-    if (sec === introSection || (sec.title && /^\d+\./.test(sec.title)) || sec.title === 'Our SEO Services for Dermatologists in Dubai') {
-       // Reset group if we hit one of the extracted sections
-       if (currentGroup) { generalSections.push(currentGroup); currentGroup = null; }
-       return;
-    }
-    
     if (sec.title) {
-      if (currentGroup) generalSections.push(currentGroup)
+      if (currentGroup) groupedSections.push(currentGroup)
       currentGroup = { ...sec, contentBlocks: [sec] }
     } else {
       if (currentGroup) {
@@ -50,7 +38,27 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
       }
     }
   })
-  if (currentGroup) generalSections.push(currentGroup)
+  if (currentGroup) groupedSections.push(currentGroup)
+
+  // 2. Identify the intro section (first group)
+  const introGroup = groupedSections[0]
+  
+  // 3. Identify strategy sections for the Bento Grid
+  // Some regions use "1. Keyword...", others just use "Keyword..."
+  const cardGroupKeywords = ['Keyword', 'On-Page', 'Local SEO', 'E-E-A-T', 'Service Page']
+  const isCardGroup = (group) => {
+    if (/^\d+\./.test(group.title)) return true
+    return cardGroupKeywords.some(keyword => group.title.includes(keyword))
+  }
+
+  const cardGroups = groupedSections.filter(g => g !== introGroup && isCardGroup(g))
+  
+  // 4. Identify remaining general sections
+  const generalSections = groupedSections.filter(g => 
+    g !== introGroup && 
+    !isCardGroup(g) && 
+    !/Our .* SEO Services/i.test(g.title)
+  )
 
   return (
     <main className="service-detail-page">
@@ -181,71 +189,78 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
       </section>
 
       {/* 1. Dramatic Split Intro Section */}
-      {introSection && (
+      {introGroup && (
         <section className="dlp-split">
           <div>
-            <h2 className="dlp-split__title">{introSection.title}</h2>
+            <h2 className="dlp-split__title">{introGroup.title}</h2>
           </div>
           <div className="dlp-split__text">
-            {introSection.content.map((p, i) => (
-              <p key={i}>{renderBold(p)}</p>
-            ))}
-            
-            {introSection.bullets?.length > 0 && (
-              <div style={{ background: 'var(--white)', padding: '32px', borderRadius: '16px', marginTop: '32px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  {introSection.bullets.map((b, i) => (
-                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: i === introSection.bullets.length -1 ? '0' : '16px' }}>
-                      <div style={{ background: 'rgba(105, 90, 242, 0.1)', color: 'var(--primary)', padding: '4px', borderRadius: '50%' }}>
-                         <Check size={16} strokeWidth={3} />
-                      </div>
-                      <span style={{ fontSize: '1.125rem', fontWeight: 500, color: 'var(--charcoal)' }}>{renderBold(b)}</span>
-                    </li>
-                  ))}
-                </ul>
+            {introGroup.contentBlocks.map((block, i) => (
+              <div key={i}>
+                {block.content && block.content.map((p, idx) => (
+                  <p key={idx}>{renderBold(p)}</p>
+                ))}
+                
+                {block.bullets?.length > 0 && (
+                  <div style={{ background: 'var(--white)', padding: '32px', borderRadius: '16px', marginTop: '32px', marginBottom: '32px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                      {block.bullets.map((b, bIdx) => (
+                        <li key={bIdx} style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: bIdx === block.bullets.length -1 ? '0' : '16px' }}>
+                          <div style={{ background: 'rgba(105, 90, 242, 0.1)', color: 'var(--primary)', padding: '4px', borderRadius: '50%' }}>
+                             <Check size={16} strokeWidth={3} />
+                          </div>
+                          <span style={{ fontSize: '1.125rem', fontWeight: 500, color: 'var(--charcoal)' }}>{renderBold(b)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
-            )}
+            ))}
           </div>
         </section>
       )}
 
       {/* Intro Statement Dark Band */}
-      {introSection?.statement && (
+      {introGroup?.statement && (
         <section className="dlp-dark-band">
            <div className="dlp-dark-band__inner">
-              <p className="dlp-dark-band__text">&ldquo;{renderBold(introSection.statement.body)}&rdquo;</p>
+              <p className="dlp-dark-band__text">&ldquo;{renderBold(introGroup.statement.body)}&rdquo;</p>
            </div>
         </section>
       )}
 
       {/* 2. Numbered Strategy Bento Grid */}
-      {numberedSections.length > 0 && (
+      {cardGroups.length > 0 && (
         <section className="dlp-cards">
           <div className="dlp-cards__inner">
             <div className="dlp-cards__header">
               <h2 className="dlp-cards__title">Our Strategy & Execution</h2>
             </div>
             <div className="dlp-cards__grid">
-              {numberedSections.map((sec, i) => {
-                // Strip the "1. " from the title for cleaner look
-                const cleanTitle = sec.title.replace(/^\d+\.\s*/, '')
+              {cardGroups.map((group, i) => {
+                const cleanTitle = group.title.replace(/^\d+\.\s*/, '')
                 const number = String(i + 1).padStart(2, '0')
                 return (
                   <article key={i} className="dlp-card">
                     <div className="dlp-card__number">{number}</div>
                     <h3 className="dlp-card__title">{cleanTitle}</h3>
-                    {sec.content.map((p, idx) => (
-                      <p key={idx} style={{ color: 'var(--dark-gray)', lineHeight: '1.6', marginBottom: '16px' }}>
-                        {renderBold(p)}
-                      </p>
-                    ))}
-                    {sec.bullets?.length > 0 && (
-                      <ul style={{ paddingLeft: '20px', color: 'var(--charcoal)', marginTop: '20px' }}>
-                        {sec.bullets.map((b, idx) => (
-                          <li key={idx} style={{ marginBottom: '8px' }}>{renderBold(b)}</li>
+                    {group.contentBlocks.map((block, bIdx) => (
+                      <div key={bIdx}>
+                        {block.content && block.content.map((p, idx) => (
+                          <p key={idx} style={{ color: 'var(--dark-gray)', lineHeight: '1.6', marginBottom: '16px' }}>
+                            {renderBold(p)}
+                          </p>
                         ))}
-                      </ul>
-                    )}
+                        {block.bullets?.length > 0 && (
+                          <ul style={{ paddingLeft: '20px', color: 'var(--charcoal)', marginTop: '20px', marginBottom: '20px' }}>
+                            {block.bullets.map((b, idx) => (
+                              <li key={idx} style={{ marginBottom: '8px' }}>{renderBold(b)}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ))}
                   </article>
                 )
               })}
@@ -253,6 +268,7 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
           </div>
         </section>
       )}
+
 
       {/* 3. General Content Sections (Enhanced 2-Column Layout) */}
       {generalSections.length > 0 && (
