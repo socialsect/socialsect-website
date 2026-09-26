@@ -178,12 +178,21 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
               {renderBold(paragraph)}
             </p>
           ))}
-          <nav className="service-detail-hero__nav" style={{ marginTop: '32px' }}>
-             {data.stats.map((stat, i) => (
-               <div key={i} className="service-detail-hero__pill" style={{ pointerEvents: 'none' }}>
-                 <strong>{stat.value}</strong> &nbsp;{stat.label}
-               </div>
-             ))}
+          <nav className="service-detail-hero__nav" style={{ marginTop: '40px', display: 'flex', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
+             <Link
+                href={data.ctaLink ?? BOOK_A_CALL_FORM}
+                className="btn btn-primary service-detail-hero__cta"
+                style={{ fontSize: '1.125rem', padding: '16px 32px', borderRadius: '100px' }}
+             >
+                {data.ctaLabel}
+             </Link>
+             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+               {data.stats.map((stat, i) => (
+                 <div key={i} className="service-detail-hero__pill" style={{ pointerEvents: 'none' }}>
+                   <strong>{stat.value}</strong> &nbsp;{stat.label}
+                 </div>
+               ))}
+             </div>
           </nav>
         </div>
       </section>
