@@ -279,78 +279,164 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
       )}
 
 
-      {/* 3. General Content Sections (Enhanced 2-Column Layout) */}
+      {/* 3. General Content Sections (GPT Image 2 Layout) */}
       {generalSections.length > 0 && (
         <div className="dlp-general-sections">
           <style>{`
+            .dlp-gen-section {
+              padding: 100px 24px;
+            }
+            .dlp-gen-container {
+              max-width: 1200px;
+              margin: 0 auto;
+              display: flex;
+              flex-direction: column;
+              gap: 48px;
+            }
+            .dlp-gen-grid {
+              display: grid;
+              grid-template-columns: 1fr 1.2fr;
+              gap: 80px;
+              align-items: start;
+            }
+            .dlp-gen-left h2 {
+              font-family: var(--font-display);
+              font-size: clamp(2rem, 3vw, 2.5rem);
+              color: var(--charcoal);
+              line-height: 1.2;
+              margin: 0 0 32px 0;
+            }
+            .dlp-gen-left p {
+              font-size: 1.125rem;
+              line-height: 1.8;
+              color: var(--dark-gray);
+              margin-bottom: 24px;
+            }
+            .dlp-gen-right {
+              background: var(--surface);
+              padding: 40px;
+              border-radius: 16px;
+              border: 1px solid rgba(0,0,0,0.05);
+            }
+            .dlp-gen-right ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+            .dlp-gen-right li {
+              display: flex;
+              align-items: flex-start;
+              gap: 16px;
+              margin-bottom: 24px;
+            }
+            .dlp-gen-right li:last-child {
+              margin-bottom: 0;
+            }
+            .dlp-gen-statement {
+              background: var(--primary);
+              color: var(--white);
+              padding: 32px 40px;
+              border-radius: 12px;
+              display: flex;
+              align-items: center;
+              gap: 24px;
+              box-shadow: 0 20px 40px rgba(105, 90, 242, 0.25);
+            }
+            .dlp-gen-statement p {
+              margin: 0;
+              font-size: 1.125rem;
+              line-height: 1.6;
+              font-weight: 500;
+            }
             @media (max-width: 992px) {
-              .dlp-stack-row-mobile {
-                grid-template-columns: 1fr !important;
-                gap: 40px !important;
+              .dlp-gen-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
               }
-              .dlp-stack-title-sticky {
-                position: relative !important;
-                top: 0 !important;
+              .dlp-gen-statement {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+              }
+              .stmt-divider {
+                width: 100% !important;
+                height: 1px !important;
+                margin: 8px 0 !important;
               }
             }
           `}</style>
           {generalSections.map((group, index) => {
             const isAlt = index % 2 === 1;
+            
+            // Aggregate content, bullets, statements from all blocks in the group
+            const allContent = [];
+            const allBullets = [];
+            const allStatements = [];
+            
+            group.contentBlocks.forEach(block => {
+              if (block.content) allContent.push(...block.content);
+              if (block.bullets) allBullets.push(...block.bullets);
+              if (block.statement) allStatements.push(block.statement);
+            });
+
             return (
-              <section key={index} style={{ background: isAlt ? 'var(--surface)' : 'var(--white)', padding: '100px 24px', borderTop: index !== 0 && !isAlt ? '1px solid var(--gray)' : 'none' }}>
-                <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: '80px' }} className="dlp-stack-row-mobile">
+              <section key={index} className="dlp-gen-section" style={{ background: isAlt ? 'var(--surface)' : 'var(--white)', borderTop: index !== 0 && !isAlt ? '1px solid var(--gray)' : 'none' }}>
+                <div className="dlp-gen-container">
                   
-                  {/* Title Column */}
-                  <div style={{ position: 'relative' }}>
-                    <div className="dlp-stack-title-sticky" style={{ position: 'sticky', top: '120px' }}>
+                  {/* Top Grid: Title+Text on Left, Bullets on Right */}
+                  <div className="dlp-gen-grid" style={{ gridTemplateColumns: allBullets.length > 0 ? '1fr 1.2fr' : '1fr' }}>
+                    
+                    {/* LEFT COLUMN */}
+                    <div className="dlp-gen-left">
                       <div style={{ width: '48px', height: '4px', background: 'var(--primary)', marginBottom: '24px', borderRadius: '2px' }} />
-                      <h2 style={{ fontSize: 'clamp(2rem, 3vw, 2.5rem)', fontFamily: 'var(--font-display)', color: 'var(--charcoal)', lineHeight: '1.2', margin: 0 }}>
-                        {group.title}
-                      </h2>
+                      <h2>{group.title}</h2>
+                      {allContent.map((p, idx) => (
+                        <p key={idx}>{renderBold(p)}</p>
+                      ))}
                     </div>
-                  </div>
-                  
-                  {/* Content Column */}
-                  <div>
-                    {group.contentBlocks.map((block, i) => (
-                      <div key={i} style={{ marginBottom: i === group.contentBlocks.length - 1 ? '0' : '48px' }}>
-                        
-                        {/* Text */}
-                        {block.content && block.content.map((p, idx) => (
-                          <p key={idx} style={{ fontSize: '1.125rem', lineHeight: '1.8', color: 'var(--dark-gray)', marginBottom: '24px' }}>
-                            {renderBold(p)}
-                          </p>
-                        ))}
 
-                        {/* Enhanced Bullets Card */}
-                        {block.bullets?.length > 0 && (
-                          <div style={{ background: isAlt ? 'var(--white)' : 'var(--surface)', padding: '40px', borderRadius: '16px', marginTop: '32px', marginBottom: '32px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 10px 30px rgba(0,0,0,0.02)' }}>
-                            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                              {block.bullets.map((bullet, idx) => (
-                                <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: idx === block.bullets.length - 1 ? '0' : '24px' }}>
-                                  <div style={{ background: 'rgba(105, 90, 242, 0.1)', color: 'var(--primary)', padding: '6px', borderRadius: '50%', flexShrink: 0, marginTop: '2px' }}>
-                                    <Check size={18} strokeWidth={3} />
-                                  </div>
-                                  <span style={{ fontSize: '1.125rem', lineHeight: '1.6', color: 'var(--charcoal)' }}>
-                                    {renderBold(bullet)}
-                                  </span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {/* Premium Statement Block */}
-                        {block.statement && (
-                          <div style={{ background: 'var(--primary)', padding: '40px', borderRadius: '16px', marginTop: '40px', color: 'var(--white)', boxShadow: '0 20px 40px rgba(105, 90, 242, 0.25)' }}>
-                            <p style={{ margin: 0, fontSize: '1.25rem', fontWeight: 500, lineHeight: '1.6' }}>
-                              {renderBold(block.statement.body)}
-                            </p>
-                          </div>
-                        )}
+                    {/* RIGHT COLUMN */}
+                    {allBullets.length > 0 && (
+                      <div className="dlp-gen-right" style={{ background: isAlt ? 'var(--white)' : 'var(--surface)' }}>
+                        <ul>
+                          {allBullets.map((bullet, idx) => (
+                            <li key={idx}>
+                              <div style={{ background: 'rgba(105, 90, 242, 0.1)', color: 'var(--primary)', padding: '6px', borderRadius: '50%', flexShrink: 0, marginTop: '2px' }}>
+                                <Check size={18} strokeWidth={3} />
+                              </div>
+                              <span style={{ fontSize: '1.125rem', lineHeight: '1.6', color: 'var(--charcoal)' }}>
+                                {renderBold(bullet)}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                    ))}
+                    )}
                   </div>
+
+                  {/* FULL WIDTH STATEMENT(S) */}
+                  {allStatements.length > 0 && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                      {allStatements.map((stmt, idx) => (
+                        <div key={idx} className="dlp-gen-statement">
+                          <div style={{ flexShrink: 0, opacity: 0.8 }}>
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                              <circle cx="12" cy="12" r="10" />
+                              <circle cx="12" cy="12" r="6" />
+                              <circle cx="12" cy="12" r="2" />
+                              <path d="M12 2v2" />
+                              <path d="M12 20v2" />
+                              <path d="M20 12h2" />
+                              <path d="M2 12h2" />
+                            </svg>
+                          </div>
+                          <div style={{ width: '1px', alignSelf: 'stretch', background: 'rgba(255,255,255,0.2)', margin: '0 8px' }} className="stmt-divider" />
+                          <p>{renderBold(stmt.body)}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                 </div>
               </section>
             );
