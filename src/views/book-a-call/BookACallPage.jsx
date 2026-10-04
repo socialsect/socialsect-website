@@ -55,54 +55,22 @@ const SPECIALTIES = [
   'Other',
 ]
 
-const LOCATIONS = ['Single practice', '2–3 locations', '4+ locations']
-
-const MARKETING_OPTIONS = [
-  'We have no marketing in place',
-  'Word of mouth and referrals only',
-  'We have a website but it does not generate leads',
-  'We run Google/Meta ads but results are inconsistent',
-  'We have an agency but it is underperforming',
-  'We have multiple vendors and nothing is connected',
-]
-
-const CONVERSATION_GOALS = [
-  'Understand what a patient acquisition system looks like for us',
-  'Get an honest review of our current marketing spend',
-  'See if Socialsect is the right fit for our practice',
-  'Explore what you would do differently from our current agency',
-  'Just exploring — no commitment',
-]
-
-const REFERRAL_SOURCES = [
-  'Google search',
-  'LinkedIn',
-  'Referred by a current client',
-  'Instagram / social media',
-  'Podcast / content',
-  'Other',
-]
-
 const INITIAL_FORM = {
   name: '',
   email: '',
-  practiceName: '',
+  phone: '',
+  website: '',
   specialty: '',
   specialtyOther: '',
-  location: '',
-  locations: '',
-  marketing: '',
   challenge: '',
-  goals: [],
-  referral: '',
 }
 
 const FORM_STEPS = [
   { title: 'About you', description: 'Who are we speaking with? Name and email so we can reply.' },
-  { title: 'Your practice', description: 'What kind of practice do you run and what do you specialize in?' },
-  { title: 'Your locations', description: 'Where are your patients coming from and how many locations do you operate?' },
-  { title: 'Current situation', description: 'What are you doing now for patient acquisition and where is it falling short?' },
-  { title: 'Next step', description: 'What would make this conversation most useful for you?' },
+  { title: 'Contact', description: 'How can we reach you? Phone number and practice website.' },
+  { title: 'Practice', description: 'What kind of practice do you run and what do you specialize in?' },
+  { title: 'Challenge', description: 'What is the biggest problem you are trying to solve right now? (Optional)' },
+  { title: 'Review & submit', description: 'Review your details and start the conversation.' },
 ]
 
 export default function BookACallPage() {
@@ -119,15 +87,6 @@ export default function BookACallPage() {
 
   const updateField = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }))
-  }
-
-  const toggleGoal = (goal) => {
-    setForm((prev) => ({
-      ...prev,
-      goals: prev.goals.includes(goal)
-        ? prev.goals.filter((g) => g !== goal)
-        : [...prev.goals, goal],
-    }))
   }
 
   const validateCurrentStep = () => formRef.current?.reportValidity() ?? true
@@ -331,21 +290,43 @@ export default function BookACallPage() {
                   {currentStep === 1 && (
                     <>
                   <div className="book-call-form__field">
-                    <label className="book-call-form__label" htmlFor="book-practice">
-                      Practice or clinic name
+                    <label className="book-call-form__label" htmlFor="book-phone">
+                      Phone number
                     </label>
                     <input
-                      id="book-practice"
+                      id="book-phone"
                       className="book-call-form__input"
-                      type="text"
-                      name="practiceName"
-                      placeholder="e.g. Miami Shoulder Institute"
+                      type="tel"
+                      name="phone"
+                      placeholder="+1 (555) 123-4567"
+                      autoComplete="tel"
                       required
-                      value={form.practiceName}
-                      onChange={(e) => updateField('practiceName', e.target.value)}
+                      value={form.phone}
+                      onChange={(e) => updateField('phone', e.target.value)}
                     />
                   </div>
 
+                  <div className="book-call-form__field">
+                    <label className="book-call-form__label" htmlFor="book-website">
+                      Practice website
+                    </label>
+                    <input
+                      id="book-website"
+                      className="book-call-form__input"
+                      type="url"
+                      name="website"
+                      placeholder="https://yourpractice.com"
+                      autoComplete="url"
+                      required
+                      value={form.website}
+                      onChange={(e) => updateField('website', e.target.value)}
+                    />
+                  </div>
+                    </>
+                  )}
+
+                  {currentStep === 2 && (
+                    <>
                   <fieldset className="book-call-form__fieldset">
                     <legend className="book-call-form__label">What is your specialty?</legend>
                     <p className="book-call-form__hint">
@@ -384,99 +365,21 @@ export default function BookACallPage() {
                     </>
                   )}
 
-                  {currentStep === 2 && (
-                    <>
-                  <div className="book-call-form__field">
-                    <label className="book-call-form__label" htmlFor="book-location">
-                      Where is your practice located?
-                    </label>
-                    <p className="book-call-form__hint">
-                      City and country. We work primarily with US and UK practices and are actively developing our UAE presence.
-                    </p>
-                    <input
-                      id="book-location"
-                      className="book-call-form__input"
-                      type="text"
-                      name="location"
-                      placeholder="e.g. Miami, FL"
-                      required
-                      value={form.location}
-                      onChange={(e) => updateField('location', e.target.value)}
-                    />
-                  </div>
-
-                  <fieldset className="book-call-form__fieldset">
-                    <legend className="book-call-form__label">
-                      How many locations do you operate?
-                    </legend>
-                    <p className="book-call-form__hint">
-                      This helps us understand the scale of your practice.
-                    </p>
-                    <div className="book-call-form__options">
-                      {LOCATIONS.map((option) => (
-                        <label
-                          key={option}
-                          className={getOptionClassName(form.locations === option)}
-                        >
-                          <input
-                            type="radio"
-                            name="locations"
-                            value={option}
-                            checked={form.locations === option}
-                            onChange={(e) => updateField('locations', e.target.value)}
-                            required={!form.locations}
-                          />
-                          <span>{option}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </fieldset>
-                    </>
-                  )}
-
                   {currentStep === 3 && (
                     <>
-                  <fieldset className="book-call-form__fieldset">
-                    <legend className="book-call-form__label">
-                      What are you currently doing to attract new patients?
-                    </legend>
-                    <p className="book-call-form__hint">
-                      Be honest — this helps us understand where you are now, not where you think you should be.
-                    </p>
-                    <div className="book-call-form__options">
-                      {MARKETING_OPTIONS.map((option) => (
-                        <label
-                          key={option}
-                          className={getOptionClassName(form.marketing === option)}
-                        >
-                          <input
-                            type="radio"
-                            name="marketing"
-                            value={option}
-                            checked={form.marketing === option}
-                            onChange={(e) => updateField('marketing', e.target.value)}
-                            required={!form.marketing}
-                          />
-                          <span>{option}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </fieldset>
-
                   <div className="book-call-form__field">
                     <label className="book-call-form__label" htmlFor="book-challenge">
-                      What is the single biggest problem you want to solve right now?
+                      What is the biggest problem you&apos;re trying to solve?
                     </label>
                     <p className="book-call-form__hint">
-                      Not enough consultations? Inconsistent lead flow? Agency not delivering? Tell us what is actually keeping you up at night.
+                      Optional, but the more context you give us, the more useful the conversation will be.
                     </p>
                     <textarea
                       id="book-challenge"
                       className="book-call-form__textarea"
                       name="challenge"
                       rows={6}
-                      placeholder="e.g. We are spending $8K/month on Google Ads but only getting a few bookings. Our website does not convert visitors into patients."
-                      required
+                      placeholder="e.g. We need more new patients, our website isn't converting, or our ads aren't working."
                       value={form.challenge}
                       onChange={(e) => updateField('challenge', e.target.value)}
                     />
@@ -485,58 +388,11 @@ export default function BookACallPage() {
                   )}
 
                   {currentStep === 4 && (
-                    <>
-                  <fieldset className="book-call-form__fieldset">
-                    <legend className="book-call-form__label">
-                      What would make this conversation most useful for you?
-                    </legend>
-                    <p className="book-call-form__hint">
-                      Select all that apply so we can come prepared.
-                    </p>
-                    <div className="book-call-form__options">
-                      {CONVERSATION_GOALS.map((option) => (
-                        <label
-                          key={option}
-                          className={getOptionClassName(
-                            form.goals.includes(option),
-                            'book-call-form__option--check'
-                          )}
-                        >
-                          <input
-                            type="checkbox"
-                            name="goals"
-                            value={option}
-                            checked={form.goals.includes(option)}
-                            onChange={() => toggleGoal(option)}
-                          />
-                          <span>{option}</span>
-                        </label>
-                      ))}
+                    <div className="book-call-form__review">
+                      <p className="book-call-form__review-text">
+                        You&apos;re all set. Review your details above, then start the conversation when you&apos;re ready.
+                      </p>
                     </div>
-                  </fieldset>
-
-                  <fieldset className="book-call-form__fieldset">
-                    <legend className="book-call-form__label">How did you hear about Socialsect?</legend>
-                    <div className="book-call-form__options book-call-form__options--grid">
-                      {REFERRAL_SOURCES.map((option) => (
-                        <label
-                          key={option}
-                          className={getOptionClassName(form.referral === option)}
-                        >
-                          <input
-                            type="radio"
-                            name="referral"
-                            value={option}
-                            checked={form.referral === option}
-                            onChange={(e) => updateField('referral', e.target.value)}
-                            required={!form.referral}
-                          />
-                          <span>{option}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </fieldset>
-                    </>
                   )}
 
                 </fieldset>

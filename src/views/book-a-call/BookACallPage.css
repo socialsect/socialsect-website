@@ -577,6 +577,18 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
+.book-call-form__review {
+  padding: var(--sm, 16px) 0;
+}
+
+.book-call-form__review-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 32rem;
+}
+
 .book-call-form__success {
   padding: var(--lg, 60px) 0;
 }

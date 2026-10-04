@@ -113,6 +113,8 @@ export default function BookMeetingModal({ open, onClose, t }) {
       await submitForm('/api/book-a-call', {
         name: form.name,
         email: `${form.whatsapp.replace(/[^0-9]/g, '')}@whatsapp.local`,
+        phone: form.whatsapp,
+        website: 'Not provided',
         practiceName: form.clinic,
         specialty: 'Other',
         location: 'UAE',
