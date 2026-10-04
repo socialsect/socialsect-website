@@ -73,6 +73,24 @@ const FORM_STEPS = [
   { title: 'Review & submit', description: 'Review your details and start the conversation.' },
 ]
 
+function normalizeWebsite(value) {
+  const trimmed = String(value ?? '').trim()
+  if (!trimmed) return ''
+  if (/^https?:\/\//i.test(trimmed)) return trimmed
+  return `https://${trimmed}`
+}
+
+function isValidWebsite(value) {
+  const normalized = normalizeWebsite(value)
+  if (!normalized) return false
+  try {
+    const url = new URL(normalized)
+    return Boolean(url.hostname) && url.hostname.includes('.')
+  } catch {
+    return false
+  }
+}
+
 export default function BookACallPage() {
   const [form, setForm] = useState(INITIAL_FORM)
   const [currentStep, setCurrentStep] = useState(0)
@@ -99,6 +117,15 @@ export default function BookACallPage() {
 
   const handleNextStep = () => {
     if (!validateCurrentStep()) return
+    if (currentStep === 1) {
+      const normalized = normalizeWebsite(form.website)
+      if (!isValidWebsite(normalized)) {
+        setSubmitError('Please enter a valid practice website (e.g. gosocialsect.com)')
+        return
+      }
+      updateField('website', normalized)
+    }
+    setSubmitError('')
     moveToStep(Math.min(currentStep + 1, FORM_STEPS.length - 1))
   }
 
@@ -115,10 +142,16 @@ export default function BookACallPage() {
 
     if (!validateCurrentStep()) return
 
+    const website = normalizeWebsite(form.website)
+    if (!isValidWebsite(website)) {
+      setSubmitError('Please enter a valid practice website (e.g. gosocialsect.com)')
+      return
+    }
+
     setSubmitError('')
     setSubmitting(true)
     try {
-      await submitForm('/api/book-a-call', form)
+      await submitForm('/api/book-a-call', { ...form, website })
       setSubmitted(true)
       document.getElementById('book-call-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     } catch (err) {
@@ -313,13 +346,15 @@ export default function BookACallPage() {
                     <input
                       id="book-website"
                       className="book-call-form__input"
-                      type="url"
+                      type="text"
                       name="website"
-                      placeholder="https://yourpractice.com"
+                      placeholder="e.g. gosocialsect.com"
                       autoComplete="url"
+                      inputMode="url"
                       required
                       value={form.website}
                       onChange={(e) => updateField('website', e.target.value)}
+                      onBlur={(e) => updateField('website', normalizeWebsite(e.target.value))}
                     />
                   </div>
                     </>
