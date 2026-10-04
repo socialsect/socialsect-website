@@ -78,6 +78,33 @@ const PRACTICES = [
     image: '/images/dr-tijana.png',
     imageAlt: 'Dr. Tijana',
   },
+  {
+    name: 'Dr. Hajira Jawad',
+    specialty: 'Home healthcare',
+    practiceName: 'Zee Longevity',
+    practiceUrl: 'https://zlongevity.ae/',
+    location: 'Dubai, UAE',
+    image: '/images/dr-hajira-jawad.webp',
+    imageAlt: 'Dr. Hajira Jawad',
+  },
+  {
+    name: 'Dr. Shubhangi Perkar',
+    specialty: 'Dermatology and laser',
+    practiceName: 'Modern Aestheticss',
+    practiceUrl: 'https://modernaestheticss.com/',
+    location: 'Dubai, UAE',
+    image: '/images/dr-shubhangi-perkar.webp',
+    imageAlt: 'Dr. Shubhangi Perkar',
+  },
+  {
+    name: 'Dr. Hossein Karimi',
+    specialty: 'Dentistry',
+    practiceName: 'TDC Dental Clinic',
+    practiceUrl: 'https://tdcdental.ae/',
+    location: 'Dubai, UAE',
+    image: '/images/dr-hossein-karimi.jpg',
+    imageAlt: 'Dr. Hossein Karimi',
+  },
 ]
 
 export default function CurrentPracticeOwnersSection() {
