@@ -26,6 +26,15 @@ const PRACTICES = [
     imageAlt: 'Dr. Peterson in a white coat',
   },
   {
+    name: 'Wellcube',
+    specialty: 'Integrated wellness & hospitality',
+    practiceName: 'Wellcube',
+    practiceUrl: 'https://wellcube.life/',
+    location: 'Dubai, UAE',
+    image: '/images/wellcube.webp',
+    imageAlt: 'Wellcube logo',
+  },
+  {
     name: 'Dr. Arva',
     specialty: 'Medical practice',
     practiceName: 'Physioexpert Dubai',
@@ -105,6 +114,15 @@ const PRACTICES = [
     image: '/images/dr-hossein-karimi.jpg',
     imageAlt: 'Dr. Hossein Karimi',
   },
+  {
+    name: 'Dr. Sawsan Awartani',
+    specialty: 'Cosmetic dentistry',
+    practiceName: 'Dr. Sawsan Awartani',
+    practiceUrl: 'https://drsawsanawartani.com/',
+    location: 'Dubai, UAE',
+    image: '/images/dr-sawsan-awartani.webp',
+    imageAlt: 'Dr. Sawsan Awartani',
+  },
 ]
 
 export default function CurrentPracticeOwnersSection() {
@@ -127,11 +145,8 @@ export default function CurrentPracticeOwnersSection() {
         </div>
 
         <div className="practice-owners__grid">
-          {PRACTICES.map((practice) => (
-            <article
-              className={`practice-owner ${practice.featured ? 'practice-owner--featured' : ''}`}
-              key={practice.name}
-            >
+          {PRACTICES.map((practice) => {
+            const image = (
               <div className="practice-owner__image-wrap">
                 <img
                   className="practice-owner__image"
@@ -146,27 +161,48 @@ export default function CurrentPracticeOwnersSection() {
                   </span>
                 )}
               </div>
-              <div className="practice-owner__details">
-                <h3>{practice.name}</h3>
-                <p>{practice.specialty}</p>
-                {practice.practiceName && (
-                  <p className="practice-owner__practice-name">
-                    {practice.practiceUrl ? (
-                      <a
-                        href={practice.practiceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {practice.practiceName}
-                      </a>
-                    ) : (
-                      practice.practiceName
-                    )}
-                  </p>
+            )
+
+            return (
+              <article
+                className={`practice-owner ${practice.featured ? 'practice-owner--featured' : ''}`}
+                key={practice.name}
+              >
+                {practice.practiceUrl ? (
+                  <a
+                    href={practice.practiceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="practice-owner__image-link"
+                    aria-label={`Visit ${practice.name}'s website`}
+                  >
+                    {image}
+                  </a>
+                ) : (
+                  image
                 )}
-              </div>
-            </article>
-          ))}
+                <div className="practice-owner__details">
+                  <h3>{practice.name}</h3>
+                  <p>{practice.specialty}</p>
+                  {practice.practiceName && (
+                    <p className="practice-owner__practice-name">
+                      {practice.practiceUrl ? (
+                        <a
+                          href={practice.practiceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {practice.practiceName}
+                        </a>
+                      ) : (
+                        practice.practiceName
+                      )}
+                    </p>
+                  )}
+                </div>
+              </article>
+            )
+          })}
         </div>
 
         <div className="practice-owners__footer">
