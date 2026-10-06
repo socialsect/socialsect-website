@@ -23,6 +23,30 @@ const getRandomIcon = (index) => {
   return <Icon size={24} strokeWidth={2} />
 }
 
+// Helper to parse content arrays and group consecutive bullets
+const parseContentBlocks = (contentArr) => {
+  if (!contentArr) return []
+  const processed = []
+  let currentList = null
+  contentArr.forEach(item => {
+    if (item.startsWith('- ')) {
+      if (!currentList) {
+        currentList = []
+        processed.push({ type: 'list', items: currentList })
+      }
+      currentList.push(item.substring(2))
+    } else {
+      currentList = null
+      if (item.startsWith('### ')) {
+        processed.push({ type: 'h3', text: item.substring(4) })
+      } else {
+        processed.push({ type: 'p', text: item })
+      }
+    }
+  })
+  return processed
+}
+
 export default function DermatologistLandingPage({ pageSlug: propSlug }) {
   const params = useParams()
   const pageSlug = propSlug ?? params?.pageSlug
@@ -67,27 +91,27 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
       <style>{`
         /* Core Typography & Spacing Overrides */
         .premium-text-lg {
-          font-size: 1.25rem;
-          line-height: 1.8;
+          font-size: 1rem;
+          line-height: 1.7;
           color: var(--dark-gray);
           margin-bottom: 24px;
         }
         .premium-text-md {
-          font-size: 1.125rem;
-          line-height: 1.7;
+          font-size: 0.95rem;
+          line-height: 1.6;
           color: var(--charcoal);
           margin-bottom: 16px;
         }
         .premium-heading-lg {
           font-family: var(--font-display);
-          font-size: clamp(2.5rem, 4vw, 3.5rem);
-          line-height: 1.1;
+          font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+          line-height: 1.2;
           color: var(--charcoal);
-          letter-spacing: -0.02em;
+          letter-spacing: -0.01em;
         }
         .premium-heading-md {
           font-family: var(--font-display);
-          font-size: clamp(2rem, 3vw, 2.5rem);
+          font-size: clamp(1.25rem, 2vw, 1.75rem);
           line-height: 1.2;
           color: var(--charcoal);
           letter-spacing: -0.01em;
@@ -104,7 +128,7 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
           max-width: 1200px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: 1fr 1.2fr;
+          grid-template-columns: 1.2fr 1fr;
           gap: 64px;
           align-items: start;
         }
@@ -266,7 +290,7 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
              <Link
                 href={data.ctaLink ?? BOOK_A_CALL_FORM}
                 className="btn btn-primary service-detail-hero__cta"
-                style={{ fontSize: '1.125rem', padding: '16px 32px', borderRadius: '100px' }}
+                style={{ fontSize: '1rem', padding: '16px 32px', borderRadius: '100px' }}
              >
                 {data.ctaLabel}
              </Link>
@@ -287,7 +311,7 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
           <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '32px' }}>
             
             {/* Top Grid: Title+Text on Left, Bullets on Right */}
-            <div style={{ display: 'grid', gridTemplateColumns: (introGroup.contentBlocks.some(b => b.bullets?.length > 0)) ? '1fr 1.2fr' : '1fr', gap: '64px', alignItems: 'start' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: (introGroup.contentBlocks.some(b => b.bullets?.length > 0)) ? '1.2fr 1fr' : '1fr', gap: '64px', alignItems: 'start' }}>
               
               {/* LEFT COLUMN (Title + Paragraphs) */}
               <div>
@@ -295,11 +319,26 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
                 <h2 className="premium-heading-lg" style={{ marginBottom: '32px' }}>{introGroup.title}</h2>
                 {introGroup.contentBlocks.map((block, i) => (
                   <div key={`content-${i}`}>
-                    {block.content && block.content.map((p, idx) => (
-                      <p key={idx} className="premium-text-lg" style={{ fontSize: (i === 0 && idx === 0) ? '1.5rem' : '1.25rem', color: (i === 0 && idx === 0) ? 'var(--charcoal)' : 'var(--dark-gray)', fontWeight: (i === 0 && idx === 0) ? 500 : 400 }}>
+                    {block.content && block.content.map((p, idx) => {
+                      if (p.startsWith('### ')) {
+                        return <h3 key={idx} className="premium-heading-md" style={{ fontSize: '1.25rem', marginTop: '24px', marginBottom: '16px' }}>{renderBold(p.replace('### ', ''))}</h3>;
+                      } else if (p.startsWith('- ')) {
+                        return (
+                          <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '12px', marginLeft: '16px' }}>
+                            <div style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '4px' }}>
+                              <Check size={16} strokeWidth={2.5} />
+                            </div>
+                            <span style={{ fontSize: '1rem', color: 'var(--charcoal)', lineHeight: '1.6' }}>
+                              {renderBold(p.replace('- ', ''))}
+                            </span>
+                          </div>
+                        );
+                      }
+                      return (
+                      <p key={idx} className="premium-text-lg" style={{ fontSize: (i === 0 && idx === 0) ? '1.05rem' : '1rem', color: (i === 0 && idx === 0) ? 'var(--charcoal)' : 'var(--dark-gray)', fontWeight: (i === 0 && idx === 0) ? 500 : 400 }}>
                         {renderBold(p)}
                       </p>
-                    ))}
+                    )})}
                   </div>
                 ))}
               </div>
@@ -330,7 +369,7 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 {introGroup.contentBlocks.filter(b => b.statement).map((block, idx) => (
                   <div key={idx} className="premium-statement" style={{ marginTop: 0 }}>
-                    <p style={{ margin: 0, fontSize: '1.5rem', fontWeight: 500, lineHeight: '1.5', position: 'relative', zIndex: 2 }}>
+                    <p style={{ margin: 0, fontSize: '1.25rem', fontWeight: 500, lineHeight: '1.5', position: 'relative', zIndex: 2 }}>
                       &ldquo;{renderBold(block.statement.body)}&rdquo;
                     </p>
                   </div>
@@ -359,17 +398,32 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
                   <h3 className="premium-heading-md" style={{ fontSize: '1.75rem', marginBottom: '24px' }}>{cleanTitle}</h3>
                   {group.contentBlocks.map((block, bIdx) => (
                     <div key={bIdx}>
-                      {block.content && block.content.map((p, idx) => (
+                      {block.content && block.content.map((p, idx) => {
+                        if (p.startsWith('### ')) {
+                          return <h4 key={idx} className="premium-heading-md" style={{ fontSize: '1.15rem', marginTop: '16px', marginBottom: '12px' }}>{renderBold(p.replace('### ', ''))}</h4>;
+                        } else if (p.startsWith('- ')) {
+                          return (
+                            <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginBottom: '8px', marginLeft: '8px' }}>
+                              <div style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '4px' }}>
+                                <Check size={14} strokeWidth={2.5} />
+                              </div>
+                              <span style={{ fontSize: '0.95rem', color: 'var(--charcoal)', lineHeight: '1.6' }}>
+                                {renderBold(p.replace('- ', ''))}
+                              </span>
+                            </div>
+                          );
+                        }
+                        return (
                         <p key={idx} className="premium-text-md" style={{ color: 'var(--dark-gray)' }}>
                           {renderBold(p)}
                         </p>
-                      ))}
+                      )})}
                       {block.bullets?.length > 0 && (
                         <ul style={{ listStyle: 'none', padding: 0, marginTop: '32px' }}>
                           {block.bullets.map((b, idx) => (
                             <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '16px' }}>
                               <ChevronRight size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '2px' }} />
-                              <span style={{ fontSize: '1.125rem', color: 'var(--charcoal)', lineHeight: '1.6' }}>{renderBold(b)}</span>
+                              <span style={{ fontSize: '1rem', color: 'var(--charcoal)', lineHeight: '1.6' }}>{renderBold(b)}</span>
                             </li>
                           ))}
                         </ul>
@@ -414,14 +468,35 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
                   
                   {/* === LAYOUT MODE: SPLIT (1-6 Bullets) === */}
                   {layoutMode === 'split' && (
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '48px', alignItems: 'start' }} className="dlp-gen-grid">
+                    <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '48px', alignItems: 'start' }} className="dlp-gen-grid">
                       {/* LEFT COLUMN (Title + Paragraphs) */}
                       <div>
                         <div className="accent-line" />
                         <h2 className="premium-heading-lg" style={{ marginBottom: '32px' }}>{group.title}</h2>
-                        {allContent.map((p, idx) => (
-                          <p key={idx} className="premium-text-lg">{renderBold(p)}</p>
-                        ))}
+                        {parseContentBlocks(allContent).map((block, idx) => {
+                          if (block.type === 'h3') {
+                            return <h3 key={idx} className="premium-heading-md" style={{ fontSize: '1.25rem', marginTop: '32px', marginBottom: '16px' }}>{renderBold(block.text)}</h3>;
+                          } else if (block.type === 'list') {
+                            return (
+                              <ul key={idx} style={{ 
+                                listStyle: 'none', padding: 0, margin: '24px 0', 
+                                display: 'flex', flexDirection: 'column', gap: '12px'
+                              }}>
+                                {block.items.map((item, i) => (
+                                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '12px 16px', background: isAlt ? 'var(--white)' : 'var(--surface)', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.03)' }}>
+                                    <div style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '2px' }}>
+                                      <CheckCircle2 size={18} strokeWidth={2.5} />
+                                    </div>
+                                    <span style={{ fontSize: '1rem', color: 'var(--charcoal)', lineHeight: '1.5' }}>
+                                      {renderBold(item)}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+                            );
+                          }
+                          return <p key={idx} className="premium-text-lg" style={{ marginBottom: '16px' }}>{renderBold(block.text)}</p>;
+                        })}
                       </div>
 
                       {/* RIGHT COLUMN (Bullets Card) */}
@@ -446,12 +521,34 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
                   {layoutMode === 'massive-grid' && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
                       {/* TOP (Title + Paragraphs Centered) */}
-                      <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+                      <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
                         <div className="accent-line accent-line--center" />
                         <h2 className="premium-heading-lg" style={{ marginBottom: '32px' }}>{group.title}</h2>
-                        {allContent.map((p, idx) => (
-                          <p key={idx} className="premium-text-lg">{renderBold(p)}</p>
-                        ))}
+                        {parseContentBlocks(allContent).map((block, idx) => {
+                          if (block.type === 'h3') {
+                            return <h3 key={idx} className="premium-heading-md" style={{ fontSize: '1.25rem', marginTop: '32px', marginBottom: '16px' }}>{renderBold(block.text)}</h3>;
+                          } else if (block.type === 'list') {
+                            return (
+                              <ul key={idx} style={{ 
+                                listStyle: 'none', padding: 0, margin: '24px auto', maxWidth: '800px',
+                                display: 'grid', gridTemplateColumns: block.items.length > 1 ? 'repeat(auto-fit, minmax(300px, 1fr))' : '1fr', 
+                                gap: '20px', textAlign: 'left'
+                              }}>
+                                {block.items.map((item, i) => (
+                                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', background: isAlt ? 'var(--white)' : 'var(--surface)', padding: '20px 24px', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.02)' }}>
+                                    <div style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '2px' }}>
+                                      <CheckCircle2 size={20} strokeWidth={2.5} />
+                                    </div>
+                                    <span style={{ fontSize: '1rem', color: 'var(--charcoal)', lineHeight: '1.5', fontWeight: 500 }}>
+                                      {renderBold(item)}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+                            );
+                          }
+                          return <p key={idx} className="premium-text-lg" style={{ maxWidth: '800px', margin: '0 auto 16px auto' }}>{renderBold(block.text)}</p>;
+                        })}
                       </div>
 
                       {/* BOTTOM (Multi-column Bullets Card) */}
@@ -474,12 +571,34 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
 
                   {/* === LAYOUT MODE: CENTERED (0 Bullets) === */}
                   {layoutMode === 'centered' && (
-                    <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+                    <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
                       <div className="accent-line accent-line--center" />
                       <h2 className="premium-heading-lg" style={{ marginBottom: '32px' }}>{group.title}</h2>
-                      {allContent.map((p, idx) => (
-                        <p key={idx} className="premium-text-lg">{renderBold(p)}</p>
-                      ))}
+                      {parseContentBlocks(allContent).map((block, idx) => {
+                          if (block.type === 'h3') {
+                            return <h3 key={idx} className="premium-heading-md" style={{ fontSize: '1.25rem', marginTop: '32px', marginBottom: '16px' }}>{renderBold(block.text)}</h3>;
+                          } else if (block.type === 'list') {
+                            return (
+                              <ul key={idx} style={{ 
+                                listStyle: 'none', padding: 0, margin: '24px auto', maxWidth: '800px',
+                                display: 'grid', gridTemplateColumns: block.items.length > 1 ? 'repeat(auto-fit, minmax(300px, 1fr))' : '1fr', 
+                                gap: '20px', textAlign: 'left'
+                              }}>
+                                {block.items.map((item, i) => (
+                                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', background: isAlt ? 'var(--white)' : 'var(--surface)', padding: '20px 24px', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.02)' }}>
+                                    <div style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '2px' }}>
+                                      <CheckCircle2 size={20} strokeWidth={2.5} />
+                                    </div>
+                                    <span style={{ fontSize: '1rem', color: 'var(--charcoal)', lineHeight: '1.5', fontWeight: 500 }}>
+                                      {renderBold(item)}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+                            );
+                          }
+                          return <p key={idx} className="premium-text-lg" style={{ maxWidth: '800px', margin: '0 auto 16px auto' }}>{renderBold(block.text)}</p>;
+                      })}
                     </div>
                   )}
 
@@ -492,7 +611,7 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
                             <Target size={40} strokeWidth={1.5} />
                           </div>
                           <div style={{ width: '1px', alignSelf: 'stretch', background: 'rgba(255,255,255,0.2)', margin: '0 8px' }} className="stmt-divider" />
-                          <p style={{ margin: 0, fontSize: '1.25rem', lineHeight: '1.6', fontWeight: 500, position: 'relative', zIndex: 2 }}>
+                          <p style={{ margin: 0, fontSize: '1.125rem', lineHeight: '1.6', fontWeight: 500, position: 'relative', zIndex: 2 }}>
                             {renderBold(stmt.body)}
                           </p>
                         </div>
@@ -512,10 +631,10 @@ export default function DermatologistLandingPage({ pageSlug: propSlug }) {
         <section className="service-detail-scenarios" style={{ backgroundColor: 'var(--charcoal)', padding: '80px 24px' }}>
            <div className="service-detail-scenarios__inner">
              <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-                 <blockquote style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--white)', lineHeight: '1.3', margin: '0 0 32px 0' }}>
+                 <blockquote style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', color: 'var(--white)', lineHeight: '1.3', margin: '0 0 32px 0' }}>
                     &ldquo;{data.statement.quote}&rdquo;
                  </blockquote>
-                 <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '1.125rem', maxWidth: '600px', margin: '0 auto' }}>{renderBold(data.statement.body)}</p>
+                 <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '1rem', maxWidth: '600px', margin: '0 auto' }}>{renderBold(data.statement.body)}</p>
              </div>
            </div>
         </section>
