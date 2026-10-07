@@ -9,6 +9,7 @@ import { ormLandingPageMap } from '../src/views/orthopaedic/ormLandingData.js'
 import { plasticSurgeonLandingPageMap } from '../src/views/plastic-surgeons/plasticSurgeonLandingData.js'
 import { dentistLandingPageMap } from '../src/views/dentists/dentistLandingData.js'
 import { orthopaedicSeoLandingPageMap } from '../src/views/orthopaedic-surgeons/orthopaedicSurgeonsSeoData.js'
+import { dubaiRegionPageMap } from '../src/views/dubai/dubaiRegionData.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
@@ -73,6 +74,7 @@ const ormLandingRoutes = Object.values(ormLandingPageMap).map(({ path: routePath
 const plasticSurgeonLandingRoutes = Object.values(plasticSurgeonLandingPageMap).map(({ path: routePath }) => routePath)
 const dentistLandingRoutes = Object.values(dentistLandingPageMap).map(({ path: routePath }) => routePath)
 const orthopaedicSeoLandingRoutes = Object.values(orthopaedicSeoLandingPageMap).map(({ path: routePath }) => routePath)
+const dubaiRegionRoutes = Object.values(dubaiRegionPageMap).map(({ path: routePath }) => routePath)
 
 // Fetch published blog articles + authors from Sanity
 let blogRoutes = []
@@ -121,6 +123,7 @@ const staticPathSet = new Set([
   ...plasticSurgeonLandingRoutes,
   ...dentistLandingRoutes,
   ...orthopaedicSeoLandingRoutes,
+  ...dubaiRegionRoutes,
 ])
 
 const routes = [...staticPathSet]

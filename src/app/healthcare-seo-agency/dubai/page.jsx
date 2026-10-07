@@ -1,12 +1,14 @@
-import { getDermatologistsSeoLandingData } from '@/views/dermatologists/dermatologistsSeoData.js'
-import DermatologistLandingPage from '@/views/dermatologists/DermatologistLandingPage'
+import { getDubaiRegionLandingData } from '@/views/dubai/dubaiRegionData.js'
+import DubaiRegionLandingPage from '@/views/dubai/DubaiRegionLandingPage'
+
+const DATA_SLUG = 'healthcare-seo-agency-dubai'
 
 export async function generateMetadata() {
-  const data = getDermatologistsSeoLandingData('healthcare-seo-agency-dubai')
+  const data = getDubaiRegionLandingData(DATA_SLUG)
   if (!data) return {}
 
-  const canonicalUrl = 'https://gosocialsect.com/healthcare-seo-agency/dubai'
-  
+  const canonicalUrl = `https://gosocialsect.com${data.path}`
+
   return {
     title: data.metaTitle,
     description: data.metaDescription,
@@ -15,17 +17,11 @@ export async function generateMetadata() {
       title: data.metaTitle,
       description: data.metaDescription,
       url: canonicalUrl,
-      type: 'website'
-    }
+      type: 'website',
+    },
   }
 }
 
 export default async function Page() {
-  const dataSlug = 'healthcare-seo-agency-dubai'
-  
-  return (
-    <>
-      <DermatologistLandingPage pageSlug={dataSlug} />
-    </>
-  )
+  return <DubaiRegionLandingPage pageSlug={DATA_SLUG} />
 }

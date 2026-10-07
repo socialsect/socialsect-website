@@ -1,0 +1,619 @@
+/* ============================================================
+   Dubai region landing pages — card layout
+   Site tokens (src/app.css):
+   --primary #695AF2 · --charcoal #1A1C1D · --surface #F9F9FB
+   --font-display Newsreader · --font-body Inter
+   ============================================================ */
+
+.drp-page {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  background: var(--surface);
+}
+
+.drp-container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--gutter, 24px);
+}
+
+/* ---------------- Hero ---------------- */
+.drp-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--charcoal);
+  padding: clamp(56px, 8vw, 96px) 0 clamp(52px, 7vw, 84px);
+}
+
+.drp-hero::before {
+  content: '';
+  position: absolute;
+  inset: -45% -20% auto -20%;
+  height: 130%;
+  background:
+    radial-gradient(ellipse 58% 55% at 18% 0%, rgba(105, 90, 242, 0.45) 0%, transparent 65%),
+    radial-gradient(ellipse 48% 45% at 88% 18%, rgba(105, 90, 242, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* faint grid texture for depth */
+.drp-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 30%, transparent 75%);
+  pointer-events: none;
+}
+
+.drp-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.drp-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 7px 14px;
+  margin: 0 0 22px;
+}
+
+.drp-hero__eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 4px rgba(105, 90, 242, 0.25);
+}
+
+.drp-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin: 0 0 22px;
+  max-width: 900px;
+}
+
+.drp-hero__sub {
+  font-size: clamp(1rem, 1.4vw, 1.0625rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 14px;
+  max-width: 780px;
+}
+
+.drp-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: stretch;
+}
+
+/* Pages whose doc has no A → B flow render no journey panel — let the copy
+   span the full hero instead of leaving the right column empty. */
+.drp-hero__grid > .drp-hero__copy:only-child {
+  grid-column: 1 / -1;
+}
+
+.drp-hero__copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.drp-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 26px 0 0;
+}
+
+.drp-hero__chip {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 7px 14px;
+}
+
+.drp-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 34px;
+}
+
+/* Journey panel (right column) */
+.drp-hero__panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(22px, 2.6vw, 30px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+.drp-hero__panel-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.drp-hero__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  flex: 1;
+}
+
+.drp-hero__step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.drp-hero__dot {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--white);
+  background: rgba(105, 90, 242, 0.45);
+  border: 1px solid rgba(167, 156, 255, 0.6);
+  box-shadow: 0 0 0 5px rgba(105, 90, 242, 0.14);
+}
+
+.drp-hero__step-label {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.drp-hero__line {
+  position: absolute;
+  left: 15px;
+  top: 30px;
+  bottom: -14px;
+  width: 1px;
+  background: linear-gradient(rgba(167, 156, 255, 0.5), rgba(167, 156, 255, 0.08));
+}
+
+.drp-hero__step:last-child .drp-hero__line {
+  display: none;
+}
+
+/* ---------------- Card feed ---------------- */
+.drp-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: clamp(28px, 4vw, 44px) 0 clamp(36px, 5vw, 56px);
+}
+
+/* Base card (intro + every section) */
+.drp-card {
+  background: var(--white);
+  border: 1px solid rgba(26, 28, 29, 0.07);
+  border-radius: 26px;
+  padding: clamp(26px, 3.6vw, 46px) clamp(20px, 3.4vw, 46px);
+  box-shadow: 0 1px 2px rgba(26, 28, 29, 0.03), 0 12px 32px rgba(26, 28, 29, 0.04);
+}
+
+/* Intro card */
+.drp-intro {
+  box-shadow: 0 1px 2px rgba(26, 28, 29, 0.03), 0 16px 40px rgba(105, 90, 242, 0.07);
+}
+
+.drp-intro__text {
+  font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
+  line-height: 1.72;
+  color: var(--charcoal);
+  margin: 0 0 16px;
+  max-width: 900px;
+}
+
+.drp-intro__text:last-child {
+  margin-bottom: 0;
+}
+
+/* Section header: index badge + title */
+.drp-section__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 22px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(26, 28, 29, 0.08);
+}
+
+.drp-section__index {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--primary);
+  background: rgba(105, 90, 242, 0.1);
+  border: 1px solid rgba(105, 90, 242, 0.18);
+}
+
+.drp-section__titles {
+  min-width: 0;
+  padding-top: 3px;
+}
+
+.drp-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.7vw, 2.125rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+  margin: 0;
+}
+
+.drp-section__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Paragraph */
+.drp-p {
+  font-size: 16.5px;
+  line-height: 1.72;
+  color: var(--dark-gray);
+  margin: 0;
+  max-width: 860px;
+}
+
+/* Sub-heading inside a section */
+.drp-h3 {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--charcoal);
+  margin: 0;
+}
+
+/* h3 groups rendered as nested cards (2 balanced columns) */
+.drp-subcards {
+  columns: 2;
+  column-gap: 16px;
+  margin-top: 4px;
+}
+
+.drp-subcard {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  background: var(--surface);
+  border: 1px solid rgba(26, 28, 29, 0.06);
+  border-radius: 18px;
+  padding: 22px 22px 20px;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.drp-subcard__label {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(105, 90, 242, 0.1);
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+/* ---------------- Bullet cards ---------------- */
+.drp-list {
+  list-style: none;
+  margin: 4px 0 6px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 275px), 1fr));
+  gap: 12px;
+}
+
+.drp-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--charcoal);
+  background: var(--surface);
+  border: 1px solid rgba(26, 28, 29, 0.07);
+  border-radius: 14px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.drp-list__item:hover {
+  transform: translateY(-3px);
+  background: var(--white);
+  border-color: rgba(105, 90, 242, 0.35);
+  box-shadow: 0 10px 24px rgba(105, 90, 242, 0.1);
+}
+
+.drp-list__icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  background: rgba(105, 90, 242, 0.12);
+  margin-top: -1px;
+}
+
+/* inside nested sub-cards the surface tint is already used */
+.drp-subcard .drp-list__item {
+  background: var(--white);
+}
+
+/* ---------------- Journey strip ---------------- */
+.drp-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 4px;
+  padding: 18px 20px;
+  background: var(--charcoal);
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(26, 28, 29, 0.12);
+}
+
+.drp-flow__group {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.drp-flow__step {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+}
+
+.drp-flow__arrow {
+  display: inline-flex;
+  color: #A79CFF;
+}
+
+/* ---------------- Quote card ---------------- */
+.drp-quote {
+  position: relative;
+  margin: 4px 0 4px;
+  padding: 26px 28px 26px 60px;
+  max-width: 900px;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.4vw, 1.6875rem);
+  line-height: 1.4;
+  color: var(--charcoal);
+  background: linear-gradient(100deg, rgba(105, 90, 242, 0.12) 0%, rgba(105, 90, 242, 0.04) 100%);
+  border: 1px solid rgba(105, 90, 242, 0.22);
+  border-radius: 18px;
+}
+
+.drp-quote::before {
+  content: '\201C';
+  position: absolute;
+  left: 20px;
+  top: 6px;
+  font-family: var(--font-display);
+  font-size: 64px;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.85;
+}
+
+/* ---------------- FAQ ---------------- */
+.drp-faq__headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.125rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+  margin: 0 0 22px;
+}
+
+.drp-faq__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.drp-faq__card {
+  background: var(--surface);
+  border: 1px solid rgba(26, 28, 29, 0.07);
+  border-radius: 18px;
+  padding: 22px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.drp-faq__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(105, 90, 242, 0.32);
+  box-shadow: 0 12px 26px rgba(105, 90, 242, 0.09);
+}
+
+.drp-faq__question {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--charcoal);
+  margin: 0 0 10px;
+}
+
+.drp-faq__qmark {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--primary);
+  margin-top: 1px;
+}
+
+.drp-faq__answer {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--dark-gray);
+  margin: 0;
+  padding-left: 34px;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 940px) {
+  .drp-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .drp-hero__actions {
+    margin-top: 0;
+  }
+
+  .drp-hero__steps {
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .drp-hero__line {
+    bottom: -16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .drp-faq__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .drp-card {
+    border-radius: 20px;
+    padding: 24px 18px;
+  }
+
+  .drp-list {
+    grid-template-columns: 1fr;
+  }
+
+  .drp-subcards {
+    columns: 1;
+  }
+
+  .drp-section__head {
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+  }
+
+  .drp-section__index {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+
+  .drp-p,
+  .drp-intro__text {
+    max-width: 100%;
+  }
+
+  .drp-flow {
+    padding: 16px;
+  }
+
+  .drp-quote {
+    padding: 22px 20px 22px 52px;
+  }
+
+  .drp-faq__answer {
+    padding-left: 0;
+  }
+
+  .drp-hero__actions {
+    margin-top: 28px;
+  }
+}

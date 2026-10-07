@@ -1,7 +1,7 @@
 import { getDubaiRegionLandingData } from '@/views/dubai/dubaiRegionData.js'
 import DubaiRegionLandingPage from '@/views/dubai/DubaiRegionLandingPage'
 
-const DATA_SLUG = 'healthcare-digital-marketing-agency-dubai'
+const DATA_SLUG = 'healthcare-seo-agency-business-bay'
 
 export async function generateMetadata() {
   const data = getDubaiRegionLandingData(DATA_SLUG)
