@@ -9108,7 +9108,7 @@ const dermatologistsSeoLandingPages = [
     "heroSubcopy": [
       "Patients often search for a doctor before they search for a clinic. They may look for a specialist by name, search for a doctor in Dubai, research a medical condition, compare qualifications or look for a specific treatment.",
       "For doctors, this makes personal search visibility an important part of building a professional online presence.",
-      "Socialsect is an**SEO agency for doctors in Dubai**helping medical professionals improve their visibility across relevant search results. Our approach combines doctor-focused SEO, medical content, local SEO, technical optimisation, E-E-A-T, service-page optimisation, reputation signals and AI search optimisation.",
+      "Socialsect is an **SEO agency for doctors in Dubai** helping medical professionals improve their visibility across relevant search results. Our approach combines doctor-focused SEO, medical content, local SEO, technical optimisation, E-E-A-T, service-page optimisation, reputation signals and AI search optimisation.",
       "The goal is to create a credible online presence that helps potential patients understand a doctor's specialty, expertise, services and practice location while making it easier to find relevant information."
     ],
     "heroBullets": [],
@@ -9132,8 +9132,7 @@ const dermatologistsSeoLandingPages = [
         "content": [
           "A doctor's website has different SEO requirements from a general business website.",
           "Patients may search for:",
-          "A doctor may also need to compete with clinic websites, hospital profiles, medical directories and other specialists appearing for the same searches.",
-          "A dedicated**SEO agency for doctors Dubai**strategy focuses on connecting the doctor's expertise with the searches most relevant to their specialty and services."
+          "A doctor may also need to compete with clinic websites, hospital profiles, medical directories and other specialists appearing for the same searches. A dedicated **SEO agency for doctors Dubai** strategy focuses on connecting the doctor's expertise with the searches most relevant to their specialty and services."
         ],
         "bullets": [
           "Doctor names",
@@ -9183,8 +9182,7 @@ const dermatologistsSeoLandingPages = [
         "content": [
           "A well-optimised doctor profile can become one of the most valuable pages on a medical website.",
           "Socialsect can optimise doctor profiles around information such as:",
-          "The profile should provide genuine information rather than simply repeating keywords.",
-          "A strong doctor page can help search engines and patients understand who the doctor is, what they specialise in and where they practise."
+          "The profile should provide genuine information rather than simply repeating keywords. A strong doctor page can help search engines and patients understand who the doctor is, what they specialise in and where they practise."
         ],
         "bullets": [
           "Doctor's full name",
@@ -9247,7 +9245,7 @@ const dermatologistsSeoLandingPages = [
         "content": [
           "Doctor websites need clear page structures that serve both search engines and patients.",
           "On-page optimisation can include:",
-          "The objective is not to repeat “SEO agency for doctors Dubai” or other keywords unnaturally. Instead, the website should use relevant terminology naturally while providing useful information."
+          "The objective is not to repeat \"SEO agency for doctors Dubai\" or other keywords unnaturally. Instead, the website should use relevant terminology naturally while providing useful information."
         ],
         "bullets": [
           "SEO titles",
@@ -9269,8 +9267,7 @@ const dermatologistsSeoLandingPages = [
           "Many patients prefer to find doctors near a convenient location.",
           "This makes local SEO important for individual medical professionals.",
           "Socialsect can optimise local search visibility through:",
-          "If a doctor practises in Dubai Healthcare City, Business Bay, Jumeirah or Dubai Marina, the website and local presence should accurately communicate the relevant location.",
-          "Location optimisation should reflect where the doctor actually provides services."
+          "If a doctor practises in Dubai Healthcare City, Business Bay, Jumeirah or Dubai Marina, the website and local presence should accurately communicate the relevant location. Location optimisation should reflect where the doctor actually provides services."
         ],
         "bullets": [
           "Google Business Profile optimisation",
@@ -9319,8 +9316,7 @@ const dermatologistsSeoLandingPages = [
           "Patients often research a health concern before deciding whether to consult a specialist.",
           "Doctor-led content can help answer those questions while demonstrating professional expertise.",
           "Content topics can include:",
-          "Where appropriate, content should be reviewed by the relevant medical professional.",
-          "This is particularly useful for sensitive medical topics where accuracy and context matter."
+          "Where appropriate, content should be reviewed by the relevant medical professional. This is particularly useful for sensitive medical topics where accuracy and context matter."
         ],
         "bullets": [
           "Conditions treated by the doctor",
@@ -9340,19 +9336,16 @@ const dermatologistsSeoLandingPages = [
           "A common problem with medical websites is relying on one doctor profile to target every treatment and service.",
           "A stronger structure can connect the doctor's profile with dedicated service pages.",
           "For example:",
-          "**Doctor Profile → Specialty Page → Treatment Page → Educational Content**",
-          "This structure can help users move from understanding the doctor's expertise to learning about the specific service they may need.",
-          "It also gives search engines clearer context about the relationship between the doctor, specialty, treatment and clinic."
-        ],
-        "bullets": []
+          "Doctor Profile → Specialty Page → Treatment Page → Educational Content",
+          "This structure can help users move from understanding the doctor's expertise to learning about the specific service they may need. It also gives search engines clearer context about the relationship between the doctor, specialty, treatment and clinic."
+        ]
       },
       {
         "title": "Reputation and Doctor Search Visibility",
         "content": [
           "Patients often search a doctor's name before making an appointment.",
           "They may look at:",
-          "SEO can help create a more consistent and authoritative search presence by ensuring that important information about the doctor is accurate and aligned across relevant platforms.",
-          "Reviews should always be genuine, and medical professionals should avoid misleading claims or fabricated testimonials."
+          "SEO can help create a more consistent and authoritative search presence by ensuring that important information about the doctor is accurate and aligned across relevant platforms. Reviews should always be genuine, and medical professionals should avoid misleading claims or fabricated testimonials."
         ],
         "bullets": [
           "Google reviews",
@@ -9368,10 +9361,9 @@ const dermatologistsSeoLandingPages = [
         "title": "AEO, GEO and AI Search for Doctors",
         "content": [
           "Patients are increasingly asking complete healthcare questions through AI-powered search platforms.",
-          "Socialsect can incorporate AEO and GEO into doctor SEO strategies by creating structured, answer-focused content.",
+          "Socialsect can incorporate **AEO and GEO** into doctor SEO strategies by creating structured, answer-focused content.",
           "This can include:",
-          "For example, a website can clearly establish the relationship between a doctor's name, specialty, clinic, location and areas of expertise.",
-          "This creates a stronger information structure for both traditional search and AI-powered discovery."
+          "For example, a website can clearly establish the relationship between a doctor's name, specialty, clinic, location and areas of expertise. This creates a stronger information structure for both traditional search and AI-powered discovery."
         ],
         "bullets": [
           "Doctor FAQs",
@@ -9475,6 +9467,15 @@ const dermatologistsSeoLandingPages = [
           "GEO",
           "AI search optimisation"
         ]
+      },
+      {
+        "title": "Build Your Doctor Search Presence in Dubai",
+        "content": [
+          "Patients increasingly use online search to research medical professionals before contacting them.",
+          "A strong doctor SEO strategy should make it easy for patients to understand who the doctor is, what they specialise in, where they practise and what services they provide.",
+          "As an **SEO agency for doctors in Dubai**, Socialsect helps medical professionals build structured, credible and search-friendly digital presences through technical SEO, medical content, local optimisation, E-E-A-T and AI-search strategies.",
+          "The focus is on building a useful online resource around the doctor's genuine expertise rather than relying on keyword repetition or unsupported marketing claims."
+        ]
       }
     ],
     "faq": [
@@ -9511,8 +9512,8 @@ const dermatologistsSeoLandingPages = [
         "answer": "SEO timelines vary based on competition, website authority, technical condition, content quality, specialty and location. Performance should be evaluated progressively using search visibility, traffic, rankings and relevant website actions."
       }
     ],
-    "ctaHeadline": "Build Your Doctor Search Presence in Dubai",
-    "ctaCopy": "Patients increasingly use online search to research medical professionals before contacting them. A strong doctor SEO strategy should make it easy for patients to understand**who the doctor is, what they specialise in, where they practise and what services they provide**. As an**SEO agency for doctors in Dubai**, Socialsect helps medical professionals build structured, credible and search-friendly digital presences through technical SEO, medical content, local optimisation, E-E-A-T and AI-search strategies. The focus is on building a useful online resource around the doctor's genuine expertise rather than relying on keyword repetition or unsupported marketing claims.",
+    "ctaHeadline": "Ready to grow your medical practice?",
+    "ctaCopy": "Partner with Socialsect today and turn your website into your practice's most reliable source of new patients.",
     "ctaLabel": "Book a Consultation",
     "ctaLink": BOOK_A_CALL_FORM
   }
