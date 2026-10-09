@@ -9,6 +9,11 @@ import seoForDentistsDubai from './seoForDentistsData.js'
 import seoForIvfClinicsDubai from './seoForIvfClinicsData.js'
 import seoForPlasticSurgeonsDubai from './seoForPlasticSurgeonsData.js'
 import seoForAestheticClinicsDubai from './seoForAestheticClinicsData.js'
+import seoServicesAestheticCosmeticMedicineDubai from './seoServicesAestheticCosmeticMedicineData.js'
+import seoServicesAestheticCosmeticMedicineDubaiMarina from './seoServicesAestheticCosmeticMedicineDubaiMarinaData.js'
+import seoServicesAestheticCosmeticMedicineDowntownDubai from './seoServicesAestheticCosmeticMedicineDowntownDubaiData.js'
+import seoServicesAestheticCosmeticMedicineJumeirah from './seoServicesAestheticCosmeticMedicineJumeirahData.js'
+import seoServicesAestheticCosmeticMedicineBusinessBay from './seoServicesAestheticCosmeticMedicineBusinessBayData.js'
 import medicalWebsiteDesignDubai from './medicalWebsiteDesignData.js'
 
 /**
@@ -780,6 +785,11 @@ export const dubaiRegionPageMap = {
   'seo-for-ivf-clinics-dubai': seoForIvfClinicsDubai,
   'seo-for-plastic-surgeons-dubai': seoForPlasticSurgeonsDubai,
   'seo-for-aesthetic-clinics-dubai': seoForAestheticClinicsDubai,
+  'seo-services-aesthetic-cosmetic-medicine-dubai': seoServicesAestheticCosmeticMedicineDubai,
+  'seo-services-aesthetic-cosmetic-medicine-dubai-marina': seoServicesAestheticCosmeticMedicineDubaiMarina,
+  'seo-services-aesthetic-cosmetic-medicine-downtown-dubai': seoServicesAestheticCosmeticMedicineDowntownDubai,
+  'seo-services-aesthetic-cosmetic-medicine-jumeirah': seoServicesAestheticCosmeticMedicineJumeirah,
+  'seo-services-aesthetic-cosmetic-medicine-business-bay': seoServicesAestheticCosmeticMedicineBusinessBay,
 }
 
 export function getDubaiRegionLandingData(slug) {
