@@ -55,6 +55,7 @@ function ReelCard({ reel }) {
           <VideoPlayer 
             src={video} 
             poster={thumb} 
+            label={reel.title}
             onLoadedData={() => setIsLoaded(true)}
           />
         ) : isReady ? (

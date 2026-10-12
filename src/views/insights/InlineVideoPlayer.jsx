@@ -59,6 +59,7 @@ export default function InlineVideoPlayer({
             <VideoPlayer
               src={videoSrc}
               poster={poster}
+              label={playLabel || 'Video'}
               className="testimonials-player__video"
             />
           ) : (

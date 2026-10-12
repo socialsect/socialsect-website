@@ -123,6 +123,33 @@ const PRACTICES = [
     image: '/images/dr-sawsan-awartani.webp',
     imageAlt: 'Dr. Sawsan Awartani',
   },
+  {
+    name: 'Dr. Fouzia Al Ali',
+    specialty: 'Functional medicine and lifestyle medicine',
+    practiceName: 'Dr. Fouzia Al Ali',
+    practiceUrl: 'https://drfouziaalali.com/',
+    location: 'Dubai, UAE',
+    image: '/images/dr-fouzia-alali.jpg',
+    imageAlt: 'Dr. Fouzia Al Ali',
+  },
+  {
+    name: 'Novosculpt',
+    specialty: 'Skin and body clinic',
+    practiceName: 'Novosculpt',
+    practiceUrl: 'https://www.novosculpt.com/',
+    location: 'Melbourne, Australia',
+    image: '/images/novosculpt.webp',
+    imageAlt: 'Novosculpt logo',
+  },
+  {
+    name: 'Dr. Purnell Traverso',
+    specialty: 'Hand and wrist care',
+    practiceName: 'Traverso Hand',
+    practiceUrl: 'https://traversohand.com/',
+    location: 'Fort Lauderdale, Florida',
+    image: '/images/dr-purnell-traverso.jpg',
+    imageAlt: 'Dr. Purnell Traverso',
+  },
 ]
 
 export default function CurrentPracticeOwnersSection() {

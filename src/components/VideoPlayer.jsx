@@ -5,7 +5,7 @@ import './VideoPlayer.css'
 
 let idCounter = 0
 
-export default function VideoPlayer({ src, poster, className = '', autoPlay = false, loop = false, onLoadedData }) {
+export default function VideoPlayer({ src, poster, label = 'Video', className = '', autoPlay = false, loop = false, onLoadedData }) {
   const containerRef = useRef(null)
   const videoRef = useRef(null)
   const progressRef = useRef(null)
@@ -169,6 +169,7 @@ export default function VideoPlayer({ src, poster, className = '', autoPlay = fa
       <video
         ref={videoRef}
         className="vp__video"
+        aria-label={label}
         src={src}
         poster={poster}
         playsInline

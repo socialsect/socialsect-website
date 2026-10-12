@@ -71,6 +71,12 @@
   min-height: 72px;
 }
 
+.client-logo-marquee__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .client-logo-marquee__item img {
   max-height: 56px;
   max-width: 200px;

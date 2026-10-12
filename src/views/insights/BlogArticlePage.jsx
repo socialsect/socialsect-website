@@ -129,7 +129,7 @@ export default function BlogArticlePage({ article: initialArticle }) {
 
         {imageUrl && (
           <figure className="article-featured-image">
-            <img src={imageUrl} alt={imageAlt} />
+            <img src={imageUrl} alt={imageAlt || article.title} />
           </figure>
         )}
 

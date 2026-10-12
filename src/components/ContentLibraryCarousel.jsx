@@ -58,7 +58,7 @@ function CarouselCard({ reel, onLoaded }) {
     <div className="clc-card" ref={cardRef}>
       <div className="clc-card__media">
         {shouldLoad ? (
-          <VideoPlayer src={video} poster={thumb} autoPlay loop onLoadedData={onLoaded} />
+          <VideoPlayer src={video} poster={thumb} label={reel.title} autoPlay loop onLoadedData={onLoaded} />
         ) : (
           <div className="clc-card__placeholder">
             <div className="clc-card__spinner" />

@@ -8,12 +8,12 @@ import '../../components/ResultsSpotlightSection.css'
 import './DubaiPage.css'
 
 const MARQUEE_LOGOS = [
-  { src: '/images/clinics/enliven.webp', screen: false, wide: false },
-  { src: '/images/clinics/visage.webp', screen: false, wide: false },
-  { src: '/images/clinics/smile-signature.png', screen: false, wide: false },
-  { src: '/images/clinics/lumiere.png', screen: false, wide: false },
-  { src: '/images/clinics/orthocare.png', screen: false, wide: false },
-  { src: '/images/clinics/derma.png', screen: false, wide: false },
+  { src: '/images/clinics/enliven.webp', alt: 'Enliven Counselling Center logo', screen: false, wide: false },
+  { src: '/images/clinics/visage.webp', alt: 'Visage Polyclinic logo', screen: false, wide: false },
+  { src: '/images/clinics/smile-signature.png', alt: 'Smile Signature logo', screen: false, wide: false },
+  { src: '/images/clinics/lumiere.png', alt: 'Lumiere logo', screen: false, wide: false },
+  { src: '/images/clinics/orthocare.png', alt: 'OrthoCare logo', screen: false, wide: false },
+  { src: '/images/clinics/derma.png', alt: 'Derma clinic logo', screen: false, wide: false },
 ]
 
 const MIN_TILES_PER_HALF = 14
@@ -259,14 +259,14 @@ export default function DubaiPage() {
       <section className="dubai-marquee" aria-label="Client logos">
         <div className="dubai-marquee__viewport">
           <div className="dubai-marquee__track">
-            {marqueeTrack.map(({ src, screen, wide }, i) => (
+            {marqueeTrack.map(({ src, alt, screen, wide }, i) => (
               <div
                 key={`${src}-${i}`}
                 className={`dubai-marquee__item${screen ? ' dubai-marquee__item--screen' : ''}${
                   wide ? ' dubai-marquee__item--wide' : ''
                 }`}
               >
-                <img src={src} alt="" loading="lazy" decoding="async" />
+                <img src={src} alt={alt} loading="lazy" decoding="async" />
               </div>
             ))}
           </div>

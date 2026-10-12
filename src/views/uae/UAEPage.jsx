@@ -769,11 +769,11 @@ function VideoWalkthrough({ t, onBookMeeting }) {
         <div className="vw__video-wrap">
           {playing ? (
             <div className="vw__video-embed">
-              <VideoPlayer src="/videos/1.3F.mp4" poster="/videos/1.3F-poster.jpg" className="vw__video-player" />
+              <VideoPlayer src="/videos/1.3F.mp4" poster="/videos/1.3F-poster.jpg" label="Socialsect video for UAE medical practices" className="vw__video-player" />
             </div>
           ) : (
             <button className="vw__thumbnail" onClick={() => setPlaying(true)} aria-label="Play video">
-              <img src="/videos/1.3F-poster.jpg" alt="" className="vw__thumb-img" />
+              <img src="/videos/1.3F-poster.jpg" alt="Preview of the Socialsect video for UAE medical practices" className="vw__thumb-img" />
               <div className="vw__thumb-overlay" />
               <span className="vw__play-btn">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
