@@ -17,7 +17,7 @@ const LOGOS = [
   { src: '/client-logos/tdc-dental.webp', alt: 'TDC Dental Clinic logo', href: 'https://tdcdental.ae/' },
   { src: '/client-logos/white-clinic.webp', alt: 'White Clinic Dubai logo', href: 'https://whiteclinic.ae/' },
   { src: '/client-logos/zee-longevity.webp', alt: 'Zee Longevity logo', href: 'https://zlongevity.ae/' },
-  { src: '/client-logos/novosculpt.webp', alt: 'Novosculpt logo', href: 'https://www.novosculpt.com/' },
+  { src: '/client-logos/novosculpt.webp', alt: 'Novosculpt logo', href: 'https://novosculpt.us/' },
   { src: '/client-logos/traverso-hand.webp', alt: 'Traverso Hand logo', href: 'https://traversohand.com/' },
 ];
 
