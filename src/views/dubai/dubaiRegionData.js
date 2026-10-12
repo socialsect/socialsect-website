@@ -13,6 +13,11 @@ import seoServicesAestheticCosmeticMedicineDubai from './seoServicesAestheticCos
 import seoServicesAestheticCosmeticMedicineDubaiMarina from './seoServicesAestheticCosmeticMedicineDubaiMarinaData.js'
 import seoServicesAestheticCosmeticMedicineDowntownDubai from './seoServicesAestheticCosmeticMedicineDowntownDubaiData.js'
 import seoServicesAestheticCosmeticMedicineJumeirah from './seoServicesAestheticCosmeticMedicineJumeirahData.js'
+import seoServicesAestheticCosmeticMedicineDubaiHealthcareCity from './seoServicesAestheticCosmeticMedicineDubaiHealthcareCityData.js'
+import seoServicesAestheticCosmeticMedicineAlBarsha from './seoServicesAestheticCosmeticMedicineAlBarshaData.js'
+import seoServicesAestheticCosmeticMedicinePalmJumeirah from './seoServicesAestheticCosmeticMedicinePalmJumeirahData.js'
+import seoServicesAestheticCosmeticMedicineJbr from './seoServicesAestheticCosmeticMedicineJbrData.js'
+import seoServicesAestheticCosmeticMedicineSheikhZayedRoad from './seoServicesAestheticCosmeticMedicineSheikhZayedRoadData.js'
 import seoServicesAestheticCosmeticMedicineBusinessBay from './seoServicesAestheticCosmeticMedicineBusinessBayData.js'
 import medicalWebsiteDesignDubai from './medicalWebsiteDesignData.js'
 
@@ -790,6 +795,11 @@ export const dubaiRegionPageMap = {
   'seo-services-aesthetic-cosmetic-medicine-downtown-dubai': seoServicesAestheticCosmeticMedicineDowntownDubai,
   'seo-services-aesthetic-cosmetic-medicine-jumeirah': seoServicesAestheticCosmeticMedicineJumeirah,
   'seo-services-aesthetic-cosmetic-medicine-business-bay': seoServicesAestheticCosmeticMedicineBusinessBay,
+  'seo-services-aesthetic-cosmetic-medicine-dubai-healthcare-city': seoServicesAestheticCosmeticMedicineDubaiHealthcareCity,
+  'seo-services-aesthetic-cosmetic-medicine-al-barsha': seoServicesAestheticCosmeticMedicineAlBarsha,
+  'seo-services-aesthetic-cosmetic-medicine-palm-jumeirah': seoServicesAestheticCosmeticMedicinePalmJumeirah,
+  'seo-services-aesthetic-cosmetic-medicine-jbr': seoServicesAestheticCosmeticMedicineJbr,
+  'seo-services-aesthetic-cosmetic-medicine-sheikh-zayed-road': seoServicesAestheticCosmeticMedicineSheikhZayedRoad,
 }
 
 export function getDubaiRegionLandingData(slug) {
