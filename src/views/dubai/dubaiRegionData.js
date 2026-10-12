@@ -18,6 +18,21 @@ import seoServicesAestheticCosmeticMedicineAlBarsha from './seoServicesAesthetic
 import seoServicesAestheticCosmeticMedicinePalmJumeirah from './seoServicesAestheticCosmeticMedicinePalmJumeirahData.js'
 import seoServicesAestheticCosmeticMedicineJbr from './seoServicesAestheticCosmeticMedicineJbrData.js'
 import seoServicesAestheticCosmeticMedicineSheikhZayedRoad from './seoServicesAestheticCosmeticMedicineSheikhZayedRoadData.js'
+import marketingAgencyAestheticCosmeticMedicineDubai from './marketingAgencyAestheticCosmeticMedicineDubaiData.js'
+import marketingAgencyAestheticCosmeticMedicineDubaiMarina from './marketingAgencyAestheticCosmeticMedicineDubaiMarinaData.js'
+import marketingAgencyAestheticCosmeticMedicineDowntownDubai from './marketingAgencyAestheticCosmeticMedicineDowntownDubaiData.js'
+import marketingAgencyAestheticCosmeticMedicineJumeirah from './marketingAgencyAestheticCosmeticMedicineJumeirahData.js'
+import marketingAgencyAestheticCosmeticMedicineBusinessBay from './marketingAgencyAestheticCosmeticMedicineBusinessBayData.js'
+import marketingAgencyForDentalDubai from './marketingAgencyForDentalDubaiData.js'
+import marketingAgencyForDentalDubaiMarina from './marketingAgencyForDentalDubaiMarinaData.js'
+import marketingAgencyForDentalDowntownDubai from './marketingAgencyForDentalDowntownDubaiData.js'
+import marketingAgencyForDentalJumeirah from './marketingAgencyForDentalJumeirahData.js'
+import marketingAgencyForDentalBusinessBay from './marketingAgencyForDentalBusinessBayData.js'
+import marketingAgencyForDentalDubaiHealthcareCity from './marketingAgencyForDentalDubaiHealthcareCityData.js'
+import marketingAgencyForDentalAlBarsha from './marketingAgencyForDentalAlBarshaData.js'
+import marketingAgencyForDentalPalmJumeirah from './marketingAgencyForDentalPalmJumeirahData.js'
+import marketingAgencyForDentalJbr from './marketingAgencyForDentalJbrData.js'
+import marketingAgencyForDentalSheikhZayedRoad from './marketingAgencyForDentalSheikhZayedRoadData.js'
 import seoServicesAestheticCosmeticMedicineBusinessBay from './seoServicesAestheticCosmeticMedicineBusinessBayData.js'
 import medicalWebsiteDesignDubai from './medicalWebsiteDesignData.js'
 
@@ -800,6 +815,21 @@ export const dubaiRegionPageMap = {
   'seo-services-aesthetic-cosmetic-medicine-palm-jumeirah': seoServicesAestheticCosmeticMedicinePalmJumeirah,
   'seo-services-aesthetic-cosmetic-medicine-jbr': seoServicesAestheticCosmeticMedicineJbr,
   'seo-services-aesthetic-cosmetic-medicine-sheikh-zayed-road': seoServicesAestheticCosmeticMedicineSheikhZayedRoad,
+  'marketing-agency-aesthetic-cosmetic-medicine-dubai': marketingAgencyAestheticCosmeticMedicineDubai,
+  'marketing-agency-aesthetic-cosmetic-medicine-dubai-marina': marketingAgencyAestheticCosmeticMedicineDubaiMarina,
+  'marketing-agency-aesthetic-cosmetic-medicine-downtown-dubai': marketingAgencyAestheticCosmeticMedicineDowntownDubai,
+  'marketing-agency-aesthetic-cosmetic-medicine-jumeirah': marketingAgencyAestheticCosmeticMedicineJumeirah,
+  'marketing-agency-aesthetic-cosmetic-medicine-business-bay': marketingAgencyAestheticCosmeticMedicineBusinessBay,
+  'marketing-agency-for-dental-dubai': marketingAgencyForDentalDubai,
+  'marketing-agency-for-dental-dubai-marina': marketingAgencyForDentalDubaiMarina,
+  'marketing-agency-for-dental-downtown-dubai': marketingAgencyForDentalDowntownDubai,
+  'marketing-agency-for-dental-jumeirah': marketingAgencyForDentalJumeirah,
+  'marketing-agency-for-dental-business-bay': marketingAgencyForDentalBusinessBay,
+  'marketing-agency-for-dental-dubai-healthcare-city': marketingAgencyForDentalDubaiHealthcareCity,
+  'marketing-agency-for-dental-al-barsha': marketingAgencyForDentalAlBarsha,
+  'marketing-agency-for-dental-palm-jumeirah': marketingAgencyForDentalPalmJumeirah,
+  'marketing-agency-for-dental-jbr': marketingAgencyForDentalJbr,
+  'marketing-agency-for-dental-sheikh-zayed-road': marketingAgencyForDentalSheikhZayedRoad,
 }
 
 export function getDubaiRegionLandingData(slug) {
