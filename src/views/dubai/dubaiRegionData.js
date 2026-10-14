@@ -33,6 +33,16 @@ import marketingAgencyForDentalAlBarsha from './marketingAgencyForDentalAlBarsha
 import marketingAgencyForDentalPalmJumeirah from './marketingAgencyForDentalPalmJumeirahData.js'
 import marketingAgencyForDentalJbr from './marketingAgencyForDentalJbrData.js'
 import marketingAgencyForDentalSheikhZayedRoad from './marketingAgencyForDentalSheikhZayedRoadData.js'
+import marketingAgencyIvfFertilityDubai from './marketingAgencyIvfFertilityDubaiData.js'
+import marketingAgencyIvfFertilityDubaiMarina from './marketingAgencyIvfFertilityDubaiMarinaData.js'
+import marketingAgencyIvfFertilityDowntownDubai from './marketingAgencyIvfFertilityDowntownDubaiData.js'
+import marketingAgencyIvfFertilityJumeirah from './marketingAgencyIvfFertilityJumeirahData.js'
+import marketingAgencyIvfFertilityBusinessBay from './marketingAgencyIvfFertilityBusinessBayData.js'
+import marketingAgencyIvfFertilityDubaiHealthcareCity from './marketingAgencyIvfFertilityDubaiHealthcareCityData.js'
+import marketingAgencyIvfFertilityAlBarsha from './marketingAgencyIvfFertilityAlBarshaData.js'
+import marketingAgencyIvfFertilityPalmJumeirah from './marketingAgencyIvfFertilityPalmJumeirahData.js'
+import marketingAgencyIvfFertilityJbr from './marketingAgencyIvfFertilityJbrData.js'
+import marketingAgencyIvfFertilitySheikhZayedRoad from './marketingAgencyIvfFertilitySheikhZayedRoadData.js'
 import seoServicesAestheticCosmeticMedicineBusinessBay from './seoServicesAestheticCosmeticMedicineBusinessBayData.js'
 import medicalWebsiteDesignDubai from './medicalWebsiteDesignData.js'
 
@@ -830,6 +840,16 @@ export const dubaiRegionPageMap = {
   'marketing-agency-for-dental-palm-jumeirah': marketingAgencyForDentalPalmJumeirah,
   'marketing-agency-for-dental-jbr': marketingAgencyForDentalJbr,
   'marketing-agency-for-dental-sheikh-zayed-road': marketingAgencyForDentalSheikhZayedRoad,
+  'marketing-agency-ivf-fertility-dubai': marketingAgencyIvfFertilityDubai,
+  'marketing-agency-ivf-fertility-dubai-marina': marketingAgencyIvfFertilityDubaiMarina,
+  'marketing-agency-ivf-fertility-downtown-dubai': marketingAgencyIvfFertilityDowntownDubai,
+  'marketing-agency-ivf-fertility-jumeirah': marketingAgencyIvfFertilityJumeirah,
+  'marketing-agency-ivf-fertility-business-bay': marketingAgencyIvfFertilityBusinessBay,
+  'marketing-agency-ivf-fertility-dubai-healthcare-city': marketingAgencyIvfFertilityDubaiHealthcareCity,
+  'marketing-agency-ivf-fertility-al-barsha': marketingAgencyIvfFertilityAlBarsha,
+  'marketing-agency-ivf-fertility-palm-jumeirah': marketingAgencyIvfFertilityPalmJumeirah,
+  'marketing-agency-ivf-fertility-jbr': marketingAgencyIvfFertilityJbr,
+  'marketing-agency-ivf-fertility-sheikh-zayed-road': marketingAgencyIvfFertilitySheikhZayedRoad,
 }
 
 export function getDubaiRegionLandingData(slug) {
