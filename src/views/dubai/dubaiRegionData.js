@@ -43,6 +43,16 @@ import marketingAgencyIvfFertilityAlBarsha from './marketingAgencyIvfFertilityAl
 import marketingAgencyIvfFertilityPalmJumeirah from './marketingAgencyIvfFertilityPalmJumeirahData.js'
 import marketingAgencyIvfFertilityJbr from './marketingAgencyIvfFertilityJbrData.js'
 import marketingAgencyIvfFertilitySheikhZayedRoad from './marketingAgencyIvfFertilitySheikhZayedRoadData.js'
+import seoServicesForFertilityClinicsAtlanta from './seoServicesForFertilityClinicsAtlantaData.js'
+import seoServicesForFertilityClinicsBoston from './seoServicesForFertilityClinicsBostonData.js'
+import seoServicesForFertilityClinicsChicago from './seoServicesForFertilityClinicsChicagoData.js'
+import seoServicesForFertilityClinicsDallas from './seoServicesForFertilityClinicsDallasData.js'
+import seoServicesForFertilityClinicsHouston from './seoServicesForFertilityClinicsHoustonData.js'
+import seoServicesForFertilityClinicsLosAngeles from './seoServicesForFertilityClinicsLosAngelesData.js'
+import seoServicesForFertilityClinicsMiami from './seoServicesForFertilityClinicsMiamiData.js'
+import seoServicesForFertilityClinicsNewYork from './seoServicesForFertilityClinicsNewYorkData.js'
+import seoServicesForFertilityClinicsPhoenix from './seoServicesForFertilityClinicsPhoenixData.js'
+import seoServicesForFertilityClinicsSeattle from './seoServicesForFertilityClinicsSeattleData.js'
 import seoServicesAestheticCosmeticMedicineBusinessBay from './seoServicesAestheticCosmeticMedicineBusinessBayData.js'
 import medicalWebsiteDesignDubai from './medicalWebsiteDesignData.js'
 
@@ -850,6 +860,16 @@ export const dubaiRegionPageMap = {
   'marketing-agency-ivf-fertility-palm-jumeirah': marketingAgencyIvfFertilityPalmJumeirah,
   'marketing-agency-ivf-fertility-jbr': marketingAgencyIvfFertilityJbr,
   'marketing-agency-ivf-fertility-sheikh-zayed-road': marketingAgencyIvfFertilitySheikhZayedRoad,
+  'seo-services-for-fertility-clinics-atlanta': seoServicesForFertilityClinicsAtlanta,
+  'seo-services-for-fertility-clinics-boston': seoServicesForFertilityClinicsBoston,
+  'seo-services-for-fertility-clinics-chicago': seoServicesForFertilityClinicsChicago,
+  'seo-services-for-fertility-clinics-dallas': seoServicesForFertilityClinicsDallas,
+  'seo-services-for-fertility-clinics-houston': seoServicesForFertilityClinicsHouston,
+  'seo-services-for-fertility-clinics-los-angeles': seoServicesForFertilityClinicsLosAngeles,
+  'seo-services-for-fertility-clinics-miami': seoServicesForFertilityClinicsMiami,
+  'seo-services-for-fertility-clinics-new-york': seoServicesForFertilityClinicsNewYork,
+  'seo-services-for-fertility-clinics-phoenix': seoServicesForFertilityClinicsPhoenix,
+  'seo-services-for-fertility-clinics-seattle': seoServicesForFertilityClinicsSeattle,
 }
 
 export function getDubaiRegionLandingData(slug) {
