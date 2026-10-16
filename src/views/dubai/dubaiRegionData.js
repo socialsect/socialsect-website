@@ -23,6 +23,11 @@ import marketingAgencyAestheticCosmeticMedicineDubaiMarina from './marketingAgen
 import marketingAgencyAestheticCosmeticMedicineDowntownDubai from './marketingAgencyAestheticCosmeticMedicineDowntownDubaiData.js'
 import marketingAgencyAestheticCosmeticMedicineJumeirah from './marketingAgencyAestheticCosmeticMedicineJumeirahData.js'
 import marketingAgencyAestheticCosmeticMedicineBusinessBay from './marketingAgencyAestheticCosmeticMedicineBusinessBayData.js'
+import marketingAgencyAestheticCosmeticMedicineDubaiHealthcareCity from './marketingAgencyAestheticCosmeticMedicineDubaiHealthcareCityData.js'
+import marketingAgencyAestheticCosmeticMedicineAlBarsha from './marketingAgencyAestheticCosmeticMedicineAlBarshaData.js'
+import marketingAgencyAestheticCosmeticMedicinePalmJumeirah from './marketingAgencyAestheticCosmeticMedicinePalmJumeirahData.js'
+import marketingAgencyAestheticCosmeticMedicineJbr from './marketingAgencyAestheticCosmeticMedicineJbrData.js'
+import marketingAgencyAestheticCosmeticMedicineSheikhZayedRoad from './marketingAgencyAestheticCosmeticMedicineSheikhZayedRoadData.js'
 import marketingAgencyForDentalDubai from './marketingAgencyForDentalDubaiData.js'
 import marketingAgencyForDentalDubaiMarina from './marketingAgencyForDentalDubaiMarinaData.js'
 import marketingAgencyForDentalDowntownDubai from './marketingAgencyForDentalDowntownDubaiData.js'
@@ -53,6 +58,16 @@ import seoServicesForFertilityClinicsMiami from './seoServicesForFertilityClinic
 import seoServicesForFertilityClinicsNewYork from './seoServicesForFertilityClinicsNewYorkData.js'
 import seoServicesForFertilityClinicsPhoenix from './seoServicesForFertilityClinicsPhoenixData.js'
 import seoServicesForFertilityClinicsSeattle from './seoServicesForFertilityClinicsSeattleData.js'
+import seoServicesForHairTransplantSurgeonsNewYork from './seoServicesForHairTransplantSurgeonsNewYorkData.js'
+import seoServicesForHairTransplantSurgeonsLosAngeles from './seoServicesForHairTransplantSurgeonsLosAngelesData.js'
+import seoServicesForHairTransplantSurgeonsMiami from './seoServicesForHairTransplantSurgeonsMiamiData.js'
+import seoServicesForHairTransplantSurgeonsChicago from './seoServicesForHairTransplantSurgeonsChicagoData.js'
+import seoServicesForHairTransplantSurgeonsHouston from './seoServicesForHairTransplantSurgeonsHoustonData.js'
+import seoServicesForHairTransplantSurgeonsDallas from './seoServicesForHairTransplantSurgeonsDallasData.js'
+import seoServicesForHairTransplantSurgeonsPhoenix from './seoServicesForHairTransplantSurgeonsPhoenixData.js'
+import seoServicesForHairTransplantSurgeonsAtlanta from './seoServicesForHairTransplantSurgeonsAtlantaData.js'
+import seoServicesForHairTransplantSurgeonsSeattle from './seoServicesForHairTransplantSurgeonsSeattleData.js'
+import seoServicesForHairTransplantSurgeonsBoston from './seoServicesForHairTransplantSurgeonsBostonData.js'
 import seoServicesAestheticCosmeticMedicineBusinessBay from './seoServicesAestheticCosmeticMedicineBusinessBayData.js'
 import medicalWebsiteDesignDubai from './medicalWebsiteDesignData.js'
 
@@ -840,6 +855,11 @@ export const dubaiRegionPageMap = {
   'marketing-agency-aesthetic-cosmetic-medicine-downtown-dubai': marketingAgencyAestheticCosmeticMedicineDowntownDubai,
   'marketing-agency-aesthetic-cosmetic-medicine-jumeirah': marketingAgencyAestheticCosmeticMedicineJumeirah,
   'marketing-agency-aesthetic-cosmetic-medicine-business-bay': marketingAgencyAestheticCosmeticMedicineBusinessBay,
+  'marketing-agency-aesthetic-cosmetic-medicine-dubai-healthcare-city': marketingAgencyAestheticCosmeticMedicineDubaiHealthcareCity,
+  'marketing-agency-aesthetic-cosmetic-medicine-al-barsha': marketingAgencyAestheticCosmeticMedicineAlBarsha,
+  'marketing-agency-aesthetic-cosmetic-medicine-palm-jumeirah': marketingAgencyAestheticCosmeticMedicinePalmJumeirah,
+  'marketing-agency-aesthetic-cosmetic-medicine-jbr': marketingAgencyAestheticCosmeticMedicineJbr,
+  'marketing-agency-aesthetic-cosmetic-medicine-sheikh-zayed-road': marketingAgencyAestheticCosmeticMedicineSheikhZayedRoad,
   'marketing-agency-for-dental-dubai': marketingAgencyForDentalDubai,
   'marketing-agency-for-dental-dubai-marina': marketingAgencyForDentalDubaiMarina,
   'marketing-agency-for-dental-downtown-dubai': marketingAgencyForDentalDowntownDubai,
@@ -870,6 +890,16 @@ export const dubaiRegionPageMap = {
   'seo-services-for-fertility-clinics-new-york': seoServicesForFertilityClinicsNewYork,
   'seo-services-for-fertility-clinics-phoenix': seoServicesForFertilityClinicsPhoenix,
   'seo-services-for-fertility-clinics-seattle': seoServicesForFertilityClinicsSeattle,
+  'seo-services-for-hair-transplant-surgeons-new-york': seoServicesForHairTransplantSurgeonsNewYork,
+  'seo-services-for-hair-transplant-surgeons-los-angeles': seoServicesForHairTransplantSurgeonsLosAngeles,
+  'seo-services-for-hair-transplant-surgeons-miami': seoServicesForHairTransplantSurgeonsMiami,
+  'seo-services-for-hair-transplant-surgeons-chicago': seoServicesForHairTransplantSurgeonsChicago,
+  'seo-services-for-hair-transplant-surgeons-houston': seoServicesForHairTransplantSurgeonsHouston,
+  'seo-services-for-hair-transplant-surgeons-dallas': seoServicesForHairTransplantSurgeonsDallas,
+  'seo-services-for-hair-transplant-surgeons-phoenix': seoServicesForHairTransplantSurgeonsPhoenix,
+  'seo-services-for-hair-transplant-surgeons-atlanta': seoServicesForHairTransplantSurgeonsAtlanta,
+  'seo-services-for-hair-transplant-surgeons-seattle': seoServicesForHairTransplantSurgeonsSeattle,
+  'seo-services-for-hair-transplant-surgeons-boston': seoServicesForHairTransplantSurgeonsBoston,
 }
 
 export function getDubaiRegionLandingData(slug) {

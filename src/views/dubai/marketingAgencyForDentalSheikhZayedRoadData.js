@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyForDentalSheikhZayedRoad = {
-  path: "/marketing-agency-for-dental-sheikh-zayed-road",
+  path: "/marketing-agency-for-dental/sheikh-zayed-road",
   metaTitle: "Dental Marketing Agency in Sheikh Zayed Road | Socialsect",
   metaDescription: "Dental marketing agency on Sheikh Zayed Road helping dentists and dental clinics improve online visibility, attract relevant patients and grow appointment enquiries.",
   eyebrow: "Sheikh Zayed Road, UAE",

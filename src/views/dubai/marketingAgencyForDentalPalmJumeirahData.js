@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyForDentalPalmJumeirah = {
-  path: "/marketing-agency-for-dental-palm-jumeirah",
+  path: "/marketing-agency-for-dental/palm-jumeirah",
   metaTitle: "Dental Marketing Agency in Palm Jumeirah | Socialsect",
   metaDescription: "Dental marketing agency in Palm Jumeirah helping dentists and dental clinics improve online visibility, attract relevant patients and grow appointment enquiries.",
   eyebrow: "Palm Jumeirah, UAE",

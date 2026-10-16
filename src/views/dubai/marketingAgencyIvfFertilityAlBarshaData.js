@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyIvfFertilityAlBarsha = {
-  path: "/marketing-agency-ivf-fertility-al-barsha",
+  path: "/marketing-agency-ivf-fertility/al-barsha",
   metaTitle: "IVF & Fertility Marketing Agency in Al Barsha | Socialsect",
   metaDescription: "Fertility clinic marketing in Al Barsha helping IVF centres improve online visibility, build patient trust and attract relevant fertility treatment enquiries.",
   eyebrow: "Al Barsha, UAE",

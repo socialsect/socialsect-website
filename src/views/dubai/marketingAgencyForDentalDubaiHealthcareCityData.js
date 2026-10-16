@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyForDentalDubaiHealthcareCity = {
-  path: "/marketing-agency-for-dental-dubai-healthcare-city",
+  path: "/marketing-agency-for-dental/dubai-healthcare-city",
   metaTitle: "Dental Marketing Agency in Dubai Healthcare City | Socialsect",
   metaDescription: "Dental marketing agency in Dubai Healthcare City helping dentists and dental clinics improve online visibility, attract relevant patients and grow appointment enquiries.",
   eyebrow: "Dubai Healthcare City, UAE",

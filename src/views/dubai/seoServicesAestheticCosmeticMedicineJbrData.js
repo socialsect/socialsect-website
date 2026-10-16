@@ -14,7 +14,7 @@
  */
 
 const seoServicesAestheticCosmeticMedicineJbr = {
-  path: "/seo-services-aesthetic-cosmetic-medicine-jbr",
+  path: "/seo-services-aesthetic-cosmetic-medicine/jbr",
   metaTitle: "SEO Services for Aesthetic & Cosmetic Medicine in JBR | Socialsect",
   metaDescription: "SEO services for aesthetic and cosmetic medicine JBR helping clinics improve search visibility, attract relevant patients and grow treatment enquiries.",
   eyebrow: "Dubai, UAE",

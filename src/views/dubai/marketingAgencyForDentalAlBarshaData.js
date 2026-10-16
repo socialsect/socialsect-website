@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyForDentalAlBarsha = {
-  path: "/marketing-agency-for-dental-al-barsha",
+  path: "/marketing-agency-for-dental/al-barsha",
   metaTitle: "Dental Marketing Agency in Al Barsha | Socialsect",
   metaDescription: "Dental marketing agency in Al Barsha helping dentists and dental clinics improve online visibility, attract relevant patients and grow appointment enquiries.",
   eyebrow: "Al Barsha, UAE",

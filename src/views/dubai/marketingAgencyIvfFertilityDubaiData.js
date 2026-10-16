@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyIvfFertilityDubai = {
-  path: "/marketing-agency-ivf-fertility-dubai",
+  path: "/marketing-agency-ivf-fertility/dubai",
   metaTitle: "IVF & Fertility Marketing Agency in Dubai | Socialsect",
   metaDescription: "Fertility clinic marketing in Dubai to help IVF centres improve online visibility, build patient trust and generate relevant fertility treatment enquiries.",
   eyebrow: "Dubai, UAE",

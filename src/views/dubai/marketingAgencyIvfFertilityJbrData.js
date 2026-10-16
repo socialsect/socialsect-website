@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyIvfFertilityJbr = {
-  path: "/marketing-agency-ivf-fertility-jbr",
+  path: "/marketing-agency-ivf-fertility/jbr",
   metaTitle: "IVF & Fertility Marketing Agency in JBR | Socialsect",
   metaDescription: "Fertility clinic marketing in JBR helping IVF centres improve online visibility, build patient trust and attract relevant fertility treatment enquiries.",
   eyebrow: "JBR, UAE",

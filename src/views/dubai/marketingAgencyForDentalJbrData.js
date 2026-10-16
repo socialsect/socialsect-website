@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyForDentalJbr = {
-  path: "/marketing-agency-for-dental-jbr",
+  path: "/marketing-agency-for-dental/jbr",
   metaTitle: "Dental Marketing Agency in JBR | Socialsect",
   metaDescription: "Dental marketing agency in JBR helping dentists and dental clinics improve online visibility, attract relevant patients and grow appointment enquiries.",
   eyebrow: "JBR, UAE",

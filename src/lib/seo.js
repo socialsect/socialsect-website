@@ -1014,44 +1014,44 @@ export function getSeoConfig(pathname) {
     return applyPageMetaOverrides(plasticSurgeonLandingConfig(cleanPath, plasticSurgeonLandingMatch.params), cleanPath)
   }
 
-  const dentistLandingMatch = matchPath('/seo-services-for-dentists-in-new-york', cleanPath) ||
-    matchPath('/seo-services-for-dentists-in-los-angeles', cleanPath) ||
-    matchPath('/seo-services-for-dentists-in-miami', cleanPath) ||
-    matchPath('/seo-services-for-dentists-in-chicago', cleanPath) ||
-    matchPath('/seo-services-for-dentists-in-houston', cleanPath) ||
-    matchPath('/seo-services-for-dentists-in-dallas', cleanPath) ||
-    matchPath('/seo-services-for-dentists-in-phoenix', cleanPath) ||
-    matchPath('/seo-services-for-dentists-in-seattle', cleanPath) ||
-    matchPath('/seo-services-for-dentists-in-boston', cleanPath) ||
-    matchPath('/seo-services-for-dentists-in-atlanta', cleanPath)
+  const dentistLandingMatch = matchPath('/seo-services-for-dentists/new-york', cleanPath) ||
+    matchPath('/seo-services-for-dentists/los-angeles', cleanPath) ||
+    matchPath('/seo-services-for-dentists/miami', cleanPath) ||
+    matchPath('/seo-services-for-dentists/chicago', cleanPath) ||
+    matchPath('/seo-services-for-dentists/houston', cleanPath) ||
+    matchPath('/seo-services-for-dentists/dallas', cleanPath) ||
+    matchPath('/seo-services-for-dentists/phoenix', cleanPath) ||
+    matchPath('/seo-services-for-dentists/seattle', cleanPath) ||
+    matchPath('/seo-services-for-dentists/boston', cleanPath) ||
+    matchPath('/seo-services-for-dentists/atlanta', cleanPath)
   if (dentistLandingMatch) {
     return applyPageMetaOverrides(dentistLandingConfig(cleanPath), cleanPath)
   }
 
-  const orthopaedicSeoLandingMatch = matchPath('/seo-services-orthopaedic-surgeons-los-angeles', cleanPath) ||
-    matchPath('/seo-services-orthopaedic-surgeons-new-york', cleanPath) ||
-    matchPath('/seo-services-orthopaedic-surgeons-miami', cleanPath) ||
-    matchPath('/seo-services-orthopaedic-surgeons-chicago', cleanPath) ||
-    matchPath('/seo-services-orthopaedic-surgeons-houston', cleanPath) ||
-    matchPath('/seo-services-orthopaedic-surgeons-dallas', cleanPath) ||
-    matchPath('/seo-services-orthopaedic-surgeons-phoenix', cleanPath) ||
-    matchPath('/seo-services-orthopaedic-surgeons-atlanta', cleanPath) ||
-    matchPath('/seo-services-orthopaedic-surgeons-seattle', cleanPath) ||
-    matchPath('/seo-services-orthopaedic-surgeons-boston', cleanPath)
+  const orthopaedicSeoLandingMatch = matchPath('/seo-services-orthopaedic-surgeons/los-angeles', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons/new-york', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons/miami', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons/chicago', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons/houston', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons/dallas', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons/phoenix', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons/atlanta', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons/seattle', cleanPath) ||
+    matchPath('/seo-services-orthopaedic-surgeons/boston', cleanPath)
   if (orthopaedicSeoLandingMatch) {
     return applyPageMetaOverrides(orthopaedicSeoLandingConfig(cleanPath), cleanPath)
   }
 
-  const plasticSeoLandingMatch = matchPath('/seo-services-for-plastic-surgeons-new-york', cleanPath) ||
-    matchPath('/seo-services-for-plastic-surgeons-los-angeles', cleanPath) ||
-    matchPath('/seo-services-for-plastic-surgeons-miami', cleanPath) ||
-    matchPath('/seo-services-for-plastic-surgeons-chicago', cleanPath) ||
-    matchPath('/seo-services-for-plastic-surgeons-houston', cleanPath) ||
-    matchPath('/seo-services-for-plastic-surgeons-dallas', cleanPath) ||
-    matchPath('/seo-services-for-plastic-surgeons-phoenix', cleanPath) ||
-    matchPath('/seo-services-for-plastic-surgeons-atlanta', cleanPath) ||
-    matchPath('/seo-services-for-plastic-surgeons-seattle', cleanPath) ||
-    matchPath('/seo-services-for-plastic-surgeons-boston', cleanPath)
+  const plasticSeoLandingMatch = matchPath('/seo-services-for-plastic-surgeons/new-york', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons/los-angeles', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons/miami', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons/chicago', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons/houston', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons/dallas', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons/phoenix', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons/atlanta', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons/seattle', cleanPath) ||
+    matchPath('/seo-services-for-plastic-surgeons/boston', cleanPath)
   if (plasticSeoLandingMatch) {
     return applyPageMetaOverrides(plasticSeoLandingConfig(cleanPath), cleanPath)
   }

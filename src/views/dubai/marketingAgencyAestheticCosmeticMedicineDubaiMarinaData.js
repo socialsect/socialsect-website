@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyAestheticCosmeticMedicineDubaiMarina = {
-  path: "/marketing-agency-aesthetic-cosmetic-medicine-dubai-marina",
+  path: "/marketing-agency-aesthetic-cosmetic-medicine/dubai-marina",
   metaTitle: "Marketing Agency for Aesthetic & Cosmetic Medicine in Dubai Marina | Socialsect",
   metaDescription: "Marketing agency for aesthetic and cosmetic medicine Dubai Marina helping clinics improve online visibility, attract relevant patients and grow treatment enquiries.",
   eyebrow: "Dubai Marina, UAE",

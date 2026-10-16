@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyIvfFertilityDubaiMarina = {
-  path: "/marketing-agency-ivf-fertility-dubai-marina",
+  path: "/marketing-agency-ivf-fertility/dubai-marina",
   metaTitle: "IVF & Fertility Marketing Agency in Dubai Marina | Socialsect",
   metaDescription: "Fertility clinic marketing in Dubai Marina helping IVF centres improve online visibility, build patient trust and generate relevant fertility treatment enquiries.",
   eyebrow: "Dubai Marina, UAE",

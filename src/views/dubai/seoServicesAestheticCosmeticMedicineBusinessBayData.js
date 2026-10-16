@@ -14,7 +14,7 @@
  */
 
 const seoServicesAestheticCosmeticMedicineBusinessBay = {
-  path: "/seo-services-aesthetic-cosmetic-medicine-business-bay",
+  path: "/seo-services-aesthetic-cosmetic-medicine/business-bay",
   metaTitle: "SEO Services for Aesthetic & Cosmetic Medicine in Business Bay | Socialsect",
   metaDescription: "SEO services for aesthetic and cosmetic medicine in Business Bay helping clinics improve search visibility, attract relevant patients and grow treatment enquiries.",
   eyebrow: "Dubai, UAE",

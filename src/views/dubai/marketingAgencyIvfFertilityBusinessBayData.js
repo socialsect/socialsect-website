@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyIvfFertilityBusinessBay = {
-  path: "/marketing-agency-ivf-fertility-business-bay",
+  path: "/marketing-agency-ivf-fertility/business-bay",
   metaTitle: "IVF & Fertility Marketing Agency in Business Bay | Socialsect",
   metaDescription: "Fertility clinic marketing in Business Bay helping IVF centres improve online visibility, build patient trust and attract relevant fertility treatment enquiries.",
   eyebrow: "Business Bay, UAE",

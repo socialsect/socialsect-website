@@ -3653,7 +3653,7 @@ const plasticSurgeonLandingPages = [
     tags: ['plastic surgeon marketing', 'healthcare marketing', 'cosmetic surgery SEO', 'Boston plastic surgery'],
   },  // SEO Services for Plastic Surgeons in Atl.md
   {
-    slug: 'seo-services-for-plastic-surgeons-atlanta',
+    slug: 'seo-services-for-plastic-surgeons/atlanta',
     path: '/seo-services-for-plastic-surgeons/atlanta',
     metaTitle: 'SEO Services for Plastic Surgeons in Atlanta | Socialsect',
     metaDescription: 'For many prospective plastic surgery patients, the journey begins online. Before contacting a practice, they may research procedures, compare surgeons,...',
@@ -3993,7 +3993,7 @@ const plasticSurgeonLandingPages = [
 
   // SEO Services for Plastic Surgeons in Bos.md
   {
-    slug: 'seo-services-for-plastic-surgeons-boston',
+    slug: 'seo-services-for-plastic-surgeons/boston',
     path: '/seo-services-for-plastic-surgeons/boston',
     metaTitle: 'SEO Services for Plastic Surgeons in Boston | Socialsect',
     metaDescription: 'Choosing a plastic surgeon is rarely an impulse decision. Prospective patients often spend considerable time researching procedures, comparing surgeons,...',
@@ -4322,7 +4322,7 @@ const plasticSurgeonLandingPages = [
 
   // SEO Services for Plastic Surgeons in Chi.md
   {
-    slug: 'seo-services-for-plastic-surgeons-chicago',
+    slug: 'seo-services-for-plastic-surgeons/chicago',
     path: '/seo-services-for-plastic-surgeons/chicago',
     metaTitle: 'SEO Services for Plastic Surgeons in Chicago | Socialsect',
     metaDescription: 'Chicago\'s plastic surgery market is competitive, with prospective patients comparing surgeons, procedures, credentials, reviews, websites, and consultat...',
@@ -4660,7 +4660,7 @@ const plasticSurgeonLandingPages = [
 
   // SEO Services for Plastic Surgeons in Dal.md
   {
-    slug: 'seo-services-for-plastic-surgeons-dallas',
+    slug: 'seo-services-for-plastic-surgeons/dallas',
     path: '/seo-services-for-plastic-surgeons/dallas',
     metaTitle: 'SEO Services for Plastic Surgeons in Dallas | Socialsect',
     metaDescription: 'Dallas is a competitive market for plastic surgery and aesthetic healthcare, where prospective patients often research procedures, compare surgeons, rev...',
@@ -5004,7 +5004,7 @@ const plasticSurgeonLandingPages = [
 
   // SEO Services for Plastic Surgeons in Los.md
   {
-    slug: 'seo-services-for-plastic-surgeons-los-angeles',
+    slug: 'seo-services-for-plastic-surgeons/los-angeles',
     path: '/seo-services-for-plastic-surgeons/los-angeles',
     metaTitle: 'SEO Services for Plastic Surgeons in Los Angeles | Socialsect',
     metaDescription: 'Los Angeles is a highly competitive market for plastic surgery, cosmetic procedures, and aesthetic healthcare. Prospective patients have access to numer...',
@@ -5331,7 +5331,7 @@ const plasticSurgeonLandingPages = [
 
   // SEO Services for Plastic Surgeons in Mia.md
   {
-    slug: 'seo-services-for-plastic-surgeons-miami',
+    slug: 'seo-services-for-plastic-surgeons/miami',
     path: '/seo-services-for-plastic-surgeons/miami',
     metaTitle: 'SEO Services for Plastic Surgeons in Miami | Socialsect',
     metaDescription: 'Miami is a competitive market for plastic surgery, cosmetic procedures, aesthetic medicine, and elective healthcare. Patients have many providers to com...',
@@ -5688,7 +5688,7 @@ const plasticSurgeonLandingPages = [
 
   // SEO Services for Plastic Surgeons in New.md
   {
-    slug: 'seo-services-for-plastic-surgeons-new-york',
+    slug: 'seo-services-for-plastic-surgeons/new-york',
     path: '/seo-services-for-plastic-surgeons/new-york',
     metaTitle: 'SEO Services for Plastic Surgeons in New York | Socialsect',
     metaDescription: 'Plastic surgery is a highly competitive healthcare market, and having a professional website is no longer enough to consistently attract prospective pat...',
@@ -6001,7 +6001,7 @@ const plasticSurgeonLandingPages = [
 
   // SEO Services for Plastic Surgeons in Pho.md
   {
-    slug: 'seo-services-for-plastic-surgeons-phoenix',
+    slug: 'seo-services-for-plastic-surgeons/phoenix',
     path: '/seo-services-for-plastic-surgeons/phoenix',
     metaTitle: 'SEO Services for Plastic Surgeons in Phoenix | Socialsect',
     metaDescription: 'Choosing a plastic surgeon is rarely an impulse decision. Prospective patients often research procedures, compare providers, read reviews, examine crede...',
@@ -6343,7 +6343,7 @@ const plasticSurgeonLandingPages = [
 
   // SEO Services for Plastic Surgeons in Sea.md
   {
-    slug: 'seo-services-for-plastic-surgeons-seattle',
+    slug: 'seo-services-for-plastic-surgeons/seattle',
     path: '/seo-services-for-plastic-surgeons/seattle',
     metaTitle: 'SEO Services for Plastic Surgeons in Seattle | Socialsect',
     metaDescription: 'For many prospective plastic surgery patients, the first step toward choosing a surgeon happens online. They may research procedures, compare providers,...',
@@ -6682,7 +6682,7 @@ const plasticSurgeonLandingPages = [
 
   // SEO Services for Plastic Surgeons in Hou.yaml
   {
-    slug: 'seo-services-for-plastic-surgeons-houston',
+    slug: 'seo-services-for-plastic-surgeons/houston',
     path: '/seo-services-for-plastic-surgeons/houston',
     metaTitle: 'SEO Services for Plastic Surgeons in Houston | Socialsect',
     metaDescription: 'Houston is a major healthcare market with patients researching surgeons, procedures, credentials, reviews, and practices online before making contact. F...',

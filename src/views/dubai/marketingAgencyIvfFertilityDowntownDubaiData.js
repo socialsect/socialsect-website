@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyIvfFertilityDowntownDubai = {
-  path: "/marketing-agency-ivf-fertility-downtown-dubai",
+  path: "/marketing-agency-ivf-fertility/downtown-dubai",
   metaTitle: "IVF & Fertility Marketing Agency in Downtown Dubai | Socialsect",
   metaDescription: "Fertility clinic marketing in Downtown Dubai helping IVF centres improve online visibility, build patient trust and attract relevant fertility treatment enquiries.",
   eyebrow: "Downtown Dubai, UAE",

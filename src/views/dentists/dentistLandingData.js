@@ -2,8 +2,8 @@ import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 
 const dentistLandingPages = [
   {
-    slug: 'seo-services-for-dentists-in-new-york',
-    path: '/seo-services-for-dentists-in-new-york',
+    slug: 'seo-services-for-dentists/new-york',
+    path: '/seo-services-for-dentists/new-york',
     metaTitle: 'SEO Services for Dentists in New York | Get More Patients Online',
     metaDescription:
       'Grow your dental practice with expert SEO services for dentists in New York. We help NYC dental clinics rank higher, attract patients, and increase bookings.',
@@ -135,8 +135,8 @@ const dentistLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-for-dentists-in-los-angeles',
-    path: '/seo-services-for-dentists-in-los-angeles',
+    slug: 'seo-services-for-dentists/los-angeles',
+    path: '/seo-services-for-dentists/los-angeles',
     metaTitle: 'SEO Services for Dentists in Los Angeles, CA | Get More Patients',
     metaDescription:
       'Expert SEO services for dentists in Los Angeles. We help LA dental clinics rank higher on Google, attract new patients, and grow bookings consistently.',
@@ -267,8 +267,8 @@ const dentistLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-for-dentists-in-miami',
-    path: '/seo-services-for-dentists-in-miami',
+    slug: 'seo-services-for-dentists/miami',
+    path: '/seo-services-for-dentists/miami',
     metaTitle: 'SEO Services for Dentists in Miami, FL | SocialSect',
     metaDescription:
       'SocialSect delivers expert SEO services for dentists in Miami. We help dental clinics rank higher on Google, attract new patients, and grow bookings.',
@@ -410,8 +410,8 @@ const dentistLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-for-dentists-in-chicago',
-    path: '/seo-services-for-dentists-in-chicago',
+    slug: 'seo-services-for-dentists/chicago',
+    path: '/seo-services-for-dentists/chicago',
     metaTitle: 'SEO Services for Dentists in Chicago, IL | SocialSect',
     metaDescription:
       'SocialSect provides expert SEO services for dentists in Chicago. We help dental practices rank higher on Google, attract new patients, and grow bookings.',
@@ -553,8 +553,8 @@ const dentistLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-for-dentists-in-houston',
-    path: '/seo-services-for-dentists-in-houston',
+    slug: 'seo-services-for-dentists/houston',
+    path: '/seo-services-for-dentists/houston',
     metaTitle: 'SEO Services for Dentists in Houston, TX | SocialSect',
     metaDescription:
       'SocialSect delivers expert SEO services for dentists in Houston. We help dental practices rank higher on Google, attract new patients, and grow bookings.',
@@ -696,8 +696,8 @@ const dentistLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-for-dentists-in-dallas',
-    path: '/seo-services-for-dentists-in-dallas',
+    slug: 'seo-services-for-dentists/dallas',
+    path: '/seo-services-for-dentists/dallas',
     metaTitle: 'SEO Services for Dentists in Dallas, TX | SocialSect',
     metaDescription:
       'SocialSect delivers expert SEO services for dentists in Dallas. We help dental practices rank higher on Google, attract new patients, and grow bookings.',
@@ -839,8 +839,8 @@ const dentistLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-for-dentists-in-phoenix',
-    path: '/seo-services-for-dentists-in-phoenix',
+    slug: 'seo-services-for-dentists/phoenix',
+    path: '/seo-services-for-dentists/phoenix',
     metaTitle: 'SEO Services for Dentists in Phoenix, AZ | SocialSect',
     metaDescription:
       'SocialSect delivers expert SEO services for dentists in Phoenix. We help dental practices rank higher on Google, attract new patients, and grow bookings.',
@@ -982,8 +982,8 @@ const dentistLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-for-dentists-in-seattle',
-    path: '/seo-services-for-dentists-in-seattle',
+    slug: 'seo-services-for-dentists/seattle',
+    path: '/seo-services-for-dentists/seattle',
     metaTitle: 'SEO Services for Dentists in Seattle, WA | SocialSect',
     metaDescription:
       'SocialSect delivers expert SEO services for dentists in Seattle. We help dental practices rank higher on Google, attract new patients, and grow bookings.',
@@ -1125,8 +1125,8 @@ const dentistLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-for-dentists-in-boston',
-    path: '/seo-services-for-dentists-in-boston',
+    slug: 'seo-services-for-dentists/boston',
+    path: '/seo-services-for-dentists/boston',
     metaTitle: 'SEO Services for Dentists in Boston, MA | SocialSect',
     metaDescription:
       'SocialSect delivers expert SEO services for dentists in Boston. We help dental practices rank higher on Google, attract new patients, and grow bookings.',
@@ -1268,8 +1268,8 @@ const dentistLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-for-dentists-in-atlanta',
-    path: '/seo-services-for-dentists-in-atlanta',
+    slug: 'seo-services-for-dentists/atlanta',
+    path: '/seo-services-for-dentists/atlanta',
     metaTitle: 'SEO Services for Dentists in Atlanta, GA | SocialSect',
     metaDescription:
       'SocialSect delivers expert SEO services for dentists in Atlanta. We help dental practices rank higher on Google, attract new patients, and grow bookings.',

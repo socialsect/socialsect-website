@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyIvfFertilityPalmJumeirah = {
-  path: "/marketing-agency-ivf-fertility-palm-jumeirah",
+  path: "/marketing-agency-ivf-fertility/palm-jumeirah",
   metaTitle: "IVF & Fertility Marketing Agency in Palm Jumeirah | Socialsect",
   metaDescription: "Fertility clinic marketing in Palm Jumeirah helping IVF centres improve online visibility, build patient trust and attract relevant fertility treatment enquiries.",
   eyebrow: "Palm Jumeirah, UAE",

@@ -2,8 +2,8 @@ import { BOOK_A_CALL_FORM } from '../../constants/routes.js'
 
 const orthopaedicSeoLandingPages = [
   {
-    slug: 'seo-services-orthopaedic-surgeons-los-angeles',
-    path: '/seo-services-orthopaedic-surgeons-los-angeles',
+    slug: 'seo-services-orthopaedic-surgeons/los-angeles',
+    path: '/seo-services-orthopaedic-surgeons/los-angeles',
     metaTitle: 'SEO Services for Orthopaedic Surgeons in Los Angeles, CA | Socialsect',
     metaDescription:
       'Socialsect provides specialized SEO services for orthopaedic surgeons in Los Angeles. Rank higher on Google, attract more patients, and grow your practice with a trusted orthopedic SEO agency.',
@@ -162,8 +162,8 @@ const orthopaedicSeoLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-orthopaedic-surgeons-new-york',
-    path: '/seo-services-orthopaedic-surgeons-new-york',
+    slug: 'seo-services-orthopaedic-surgeons/new-york',
+    path: '/seo-services-orthopaedic-surgeons/new-york',
     metaTitle: 'SEO Services for Orthopaedic Surgeons in New York | Socialsect',
     metaDescription:
       'Socialsect delivers proven SEO services for orthopaedic surgeons in New York. Rank higher, attract more patients, and grow your practice with a specialized orthopedic SEO agency.',
@@ -323,8 +323,8 @@ const orthopaedicSeoLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-orthopaedic-surgeons-miami',
-    path: '/seo-services-orthopaedic-surgeons-miami',
+    slug: 'seo-services-orthopaedic-surgeons/miami',
+    path: '/seo-services-orthopaedic-surgeons/miami',
     metaTitle: 'SEO Services for Orthopaedic Surgeons in Miami, FL | Socialsect',
     metaDescription:
       'Socialsect delivers expert SEO services for orthopaedic surgeons in Miami. Rank higher, generate more orthopedic leads, and grow your practice with a specialized healthcare SEO agency.',
@@ -483,8 +483,8 @@ const orthopaedicSeoLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-orthopaedic-surgeons-chicago',
-    path: '/seo-services-orthopaedic-surgeons-chicago',
+    slug: 'seo-services-orthopaedic-surgeons/chicago',
+    path: '/seo-services-orthopaedic-surgeons/chicago',
     metaTitle: 'SEO Services for Orthopaedic Surgeons in Chicago, IL | Socialsect',
     metaDescription:
       'Socialsect delivers expert SEO services for orthopaedic surgeons in Chicago. Rank higher, generate more orthopedic leads, and grow your practice with a specialized healthcare SEO agency.',
@@ -649,8 +649,8 @@ const orthopaedicSeoLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-orthopaedic-surgeons-houston',
-    path: '/seo-services-orthopaedic-surgeons-houston',
+    slug: 'seo-services-orthopaedic-surgeons/houston',
+    path: '/seo-services-orthopaedic-surgeons/houston',
     metaTitle: 'SEO Services for Orthopaedic Surgeons in Houston, TX | Socialsect',
     metaDescription:
       'Socialsect delivers expert SEO services for orthopaedic surgeons in Houston. Rank higher, generate more orthopedic leads, and grow your practice with a specialized healthcare SEO agency.',
@@ -815,8 +815,8 @@ const orthopaedicSeoLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-orthopaedic-surgeons-dallas',
-    path: '/seo-services-orthopaedic-surgeons-dallas',
+    slug: 'seo-services-orthopaedic-surgeons/dallas',
+    path: '/seo-services-orthopaedic-surgeons/dallas',
     metaTitle: 'SEO Services for Orthopaedic Surgeons in Dallas, TX | Socialsect',
     metaDescription:
       'Socialsect provides specialized SEO services for orthopaedic surgeons in Dallas. Rank higher, generate more orthopedic leads, and grow your practice with a trusted healthcare SEO agency.',
@@ -981,8 +981,8 @@ const orthopaedicSeoLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-orthopaedic-surgeons-phoenix',
-    path: '/seo-services-orthopaedic-surgeons-phoenix',
+    slug: 'seo-services-orthopaedic-surgeons/phoenix',
+    path: '/seo-services-orthopaedic-surgeons/phoenix',
     metaTitle: 'SEO Services for Orthopaedic Surgeons in Phoenix, AZ | Socialsect',
     metaDescription:
       'Socialsect provides specialized SEO services for orthopaedic surgeons in Phoenix. Rank higher, generate more orthopedic leads, and grow your practice with a trusted healthcare SEO agency.',
@@ -1147,8 +1147,8 @@ const orthopaedicSeoLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-orthopaedic-surgeons-atlanta',
-    path: '/seo-services-orthopaedic-surgeons-atlanta',
+    slug: 'seo-services-orthopaedic-surgeons/atlanta',
+    path: '/seo-services-orthopaedic-surgeons/atlanta',
     metaTitle: 'SEO Services for Orthopaedic Surgeons in Atlanta, GA | Socialsect',
     metaDescription:
       'Socialsect provides specialized SEO services for orthopaedic surgeons in Atlanta. Rank higher, generate more orthopedic leads, and grow your practice with a trusted healthcare SEO agency.',
@@ -1313,8 +1313,8 @@ const orthopaedicSeoLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-orthopaedic-surgeons-seattle',
-    path: '/seo-services-orthopaedic-surgeons-seattle',
+    slug: 'seo-services-orthopaedic-surgeons/seattle',
+    path: '/seo-services-orthopaedic-surgeons/seattle',
     metaTitle: 'SEO Services for Orthopaedic Surgeons in Seattle, WA | Socialsect',
     metaDescription:
       'Socialsect provides specialized SEO services for orthopaedic surgeons in Seattle. Rank higher, generate more orthopedic leads, and grow your practice with a trusted healthcare SEO agency.',
@@ -1479,8 +1479,8 @@ const orthopaedicSeoLandingPages = [
     ctaLink: BOOK_A_CALL_FORM,
   },
   {
-    slug: 'seo-services-orthopaedic-surgeons-boston',
-    path: '/seo-services-orthopaedic-surgeons-boston',
+    slug: 'seo-services-orthopaedic-surgeons/boston',
+    path: '/seo-services-orthopaedic-surgeons/boston',
     metaTitle: 'SEO Services for Orthopaedic Surgeons in Boston, MA | Socialsect',
     metaDescription:
       'Socialsect provides specialized SEO services for orthopaedic surgeons in Boston. Rank higher, generate more orthopedic leads, and grow your practice with a trusted healthcare SEO agency.',

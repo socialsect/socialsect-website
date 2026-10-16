@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyIvfFertilitySheikhZayedRoad = {
-  path: "/marketing-agency-ivf-fertility-sheikh-zayed-road",
+  path: "/marketing-agency-ivf-fertility/sheikh-zayed-road",
   metaTitle: "IVF & Fertility Marketing Agency on Sheikh Zayed Road | Socialsect",
   metaDescription: "Fertility clinic marketing on Sheikh Zayed Road to help IVF centres improve online visibility, build patient trust and attract relevant fertility treatment enquiries.",
   eyebrow: "Sheikh Zayed Road, UAE",

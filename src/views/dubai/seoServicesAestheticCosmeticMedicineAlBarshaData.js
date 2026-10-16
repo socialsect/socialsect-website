@@ -14,7 +14,7 @@
  */
 
 const seoServicesAestheticCosmeticMedicineAlBarsha = {
-  path: "/seo-services-aesthetic-cosmetic-medicine-al-barsha",
+  path: "/seo-services-aesthetic-cosmetic-medicine/al-barsha",
   metaTitle: "SEO Services for Aesthetic & Cosmetic Medicine in Al Barsha | Socialsect",
   metaDescription: "SEO services for aesthetic and cosmetic medicine in Al Barsha helping clinics improve search visibility, attract relevant patients and grow treatment enquiries.",
   eyebrow: "Dubai, UAE",

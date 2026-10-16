@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyForDentalBusinessBay = {
-  path: "/marketing-agency-for-dental-business-bay",
+  path: "/marketing-agency-for-dental/business-bay",
   metaTitle: "Dental Marketing Agency in Business Bay | Socialsect",
   metaDescription: "Dental marketing agency in Business Bay helping dentists and dental clinics improve online visibility, attract relevant patients and grow appointment enquiries.",
   eyebrow: "Business Bay, UAE",

@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyAestheticCosmeticMedicineJumeirah = {
-  path: "/marketing-agency-aesthetic-cosmetic-medicine-jumeirah",
+  path: "/marketing-agency-aesthetic-cosmetic-medicine/jumeirah",
   metaTitle: "Marketing Agency for Aesthetic & Cosmetic Medicine in Jumeirah | Socialsect",
   metaDescription: "Marketing agency for aesthetic and cosmetic medicine Jumeirah helping clinics improve online visibility, attract relevant patients and grow treatment enquiries.",
   eyebrow: "Jumeirah, UAE",

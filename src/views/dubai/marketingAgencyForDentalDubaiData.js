@@ -14,7 +14,7 @@
  */
 
 const marketingAgencyForDentalDubai = {
-  path: "/marketing-agency-for-dental-dubai",
+  path: "/marketing-agency-for-dental/dubai",
   metaTitle: "Dental Marketing Agency in Dubai | Socialsect",
   metaDescription: "Dental marketing agency in Dubai helping dentists and dental clinics improve online visibility, attract relevant patients and grow appointment enquiries.",
   eyebrow: "Dubai, UAE",

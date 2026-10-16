@@ -14,7 +14,7 @@
  */
 
 const seoServicesAestheticCosmeticMedicineDowntownDubai = {
-  path: "/seo-services-aesthetic-cosmetic-medicine-downtown-dubai",
+  path: "/seo-services-aesthetic-cosmetic-medicine/downtown-dubai",
   metaTitle: "SEO Services for Aesthetic & Cosmetic Medicine in Downtown Dubai | Socialsect",
   metaDescription: "SEO services for aesthetic and cosmetic medicine in Downtown Dubai helping clinics improve search visibility, attract relevant patients and grow treatment enquiries.",
   eyebrow: "Dubai, UAE",
