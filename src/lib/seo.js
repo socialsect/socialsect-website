@@ -16,7 +16,8 @@ const SITE_URL = 'https://gosocialsect.com'
 const DEFAULT_IMAGE = `${SITE_URL}/social-share.webp`
 const LINKEDIN_URL = 'https://www.linkedin.com/company/socialsect'
 const INSTAGRAM_URL = 'https://www.instagram.com/thesocialsect/'
-const CONTACT_EMAIL = 'hello@gosocialsect.com'
+const CONTACT_EMAIL = 'sales@gosocialsect.com'
+const CONTACT_PHONE = '+1-612-457-0464'
 const DEFAULT_ROBOTS = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 const NOINDEX_ROBOTS = 'noindex, nofollow, noarchive'
 
@@ -69,7 +70,7 @@ function buildPageSchema({ title, description, canonicalUrl, type = 'WebPage' })
 function buildOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
+    '@type': ['Organization', 'ProfessionalService'],
     '@id': `${SITE_URL}/#organization`,
     name: SITE_NAME,
     url: SITE_URL,
@@ -78,6 +79,13 @@ function buildOrganizationSchema() {
     description:
       'Socialsect helps private medical practices in the US, UK, and UAE grow with websites, SEO, paid media, brand, and clear reporting.',
     email: CONTACT_EMAIL,
+    telephone: CONTACT_PHONE,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Lewes',
+      addressRegion: 'DE',
+      addressCountry: 'US',
+    },
     sameAs: [LINKEDIN_URL, INSTAGRAM_URL],
     areaServed: [
       { '@type': 'Country', name: 'United States' },
@@ -89,6 +97,7 @@ function buildOrganizationSchema() {
         '@type': 'ContactPoint',
         contactType: 'sales',
         email: CONTACT_EMAIL,
+        telephone: CONTACT_PHONE,
         availableLanguage: ['English'],
         areaServed: ['US', 'GB', 'AE'],
       },
@@ -562,6 +571,24 @@ function bookCallConfig() {
   }
 }
 
+function contactConfig() {
+  const canonicalUrl = absoluteUrl('/contact')
+  const title = 'Contact Socialsect | Private Practice Growth Team'
+  const description =
+    'Contact Socialsect by email, phone or the practice audit form. We reply to private medical practices in the US, UK and UAE within one business day.'
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    image: undefined,
+    robots: DEFAULT_ROBOTS,
+    ogType: 'website',
+    tags: ['contact', 'practice audit', 'healthcare marketing'],
+    schemas: [buildOrganizationSchema(), buildPageSchema({ title, description, canonicalUrl, type: 'ContactPage' })],
+  }
+}
+
 function clientPortalConfig() {
   const canonicalUrl = absoluteUrl('/client-portal')
   const title = 'Client portal coming soon | Socialsect'
@@ -964,6 +991,7 @@ export function getSeoConfig(pathname) {
     { path: '/insights/resources', config: resourcesConfig },
     { path: '/insights/blog', config: blogConfig },
     { path: '/book-a-call', config: bookCallConfig },
+    { path: '/contact', config: contactConfig },
     { path: '/client-portal', config: clientPortalConfig },
     { path: '/aviva', config: avivaConfig },
     { path: '/dubai', config: dubaiConfig },

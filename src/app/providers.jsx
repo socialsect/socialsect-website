@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic'
 import { useEffect } from 'react'
 import ScrollToTop from '@/components/ScrollToTop'
+import SmoothScroll from '@/components/SmoothScroll'
 
 import { enableResourcePrefetch, deferNonCriticalStyles } from '@/lib/performance'
 
@@ -22,6 +23,7 @@ export default function Providers({ children }) {
     <>
       <IntroLoader />
       <ScrollToTop />
+      <SmoothScroll />
       {children}
 
     </>

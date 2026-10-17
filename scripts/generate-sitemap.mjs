@@ -39,6 +39,7 @@ const staticRoutes = [
   '/insights/testimonials',
   '/insights/resources',
   '/book-a-call',
+  '/contact',
   '/dubai',
   '/uae',
   '/privacy-policy',

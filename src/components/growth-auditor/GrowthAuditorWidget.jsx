@@ -267,7 +267,7 @@ export default function GrowthAuditorWidget({ onClose }) {
         </div>
 
         {/* Messages */}
-        <div className="chat-widget__messages">
+        <div className="chat-widget__messages" data-lenis-prevent>
           {messages.map((msg, idx) => (
             <div key={idx} className={`chat-message chat-message--${msg.type}`}>
               <div className="chat-message__content">{msg.text}</div>
