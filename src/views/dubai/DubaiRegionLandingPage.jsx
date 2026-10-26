@@ -224,7 +224,9 @@ export default function DubaiRegionLandingPage({ pageSlug }) {
           <h2 id="drp-cta-heading" className="service-detail-final-cta__headline">
             {renderBold(data.ctaHeadline)}
           </h2>
-          <p className="service-detail-final-cta__body">{renderBold(data.ctaCopy)}</p>
+          <p className="service-detail-final-cta__body" style={{ whiteSpace: 'pre-line' }}>
+            {renderBold(Array.isArray(data.ctaCopy) ? data.ctaCopy.join('\n\n') : data.ctaCopy)}
+          </p>
           <div className="service-detail-final-cta__actions">
             <Link
               href={data.ctaLink ?? BOOK_A_CALL_FORM}
