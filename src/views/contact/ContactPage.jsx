@@ -21,7 +21,7 @@ export default function ContactPage() {
           <h2>Ways to reach us</h2>
           <ul>
             <li>By email: <a href="mailto:sales@gosocialsect.com">sales@gosocialsect.com</a></li>
-            <li>By phone: <a href="tel:+16124570464">+1 (612) 457-0464</a></li>
+            <li>By phone: <a href="tel:+16317926023">+1 (631) 792-6023</a></li>
             <li>Registered office: Lewes, Delaware, USA</li>
             <li>
               Online: <Link href={BOOK_A_CALL_FORM}>request a free practice audit and intro call</Link>

@@ -17,7 +17,7 @@ const DEFAULT_IMAGE = `${SITE_URL}/social-share.webp`
 const LINKEDIN_URL = 'https://www.linkedin.com/company/socialsect'
 const INSTAGRAM_URL = 'https://www.instagram.com/thesocialsect/'
 const CONTACT_EMAIL = 'sales@gosocialsect.com'
-const CONTACT_PHONE = '+1-612-457-0464'
+const CONTACT_PHONE = '+1-631-792-6023'
 const DEFAULT_ROBOTS = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 const NOINDEX_ROBOTS = 'noindex, nofollow, noarchive'
 
