@@ -72,6 +72,7 @@ import seoServicesAestheticCosmeticMedicineBusinessBay from './seoServicesAesthe
 import medicalWebsiteDesignDubai from './medicalWebsiteDesignData.js'
 import { gynaecologyMarketingPageMap } from './marketingAgencyForGynaecologyData.js'
 import { ophthalmologistSeoPageMap } from './seoServicesForOphthalmologistsData.js'
+import { orthopaedicDigitalMarketingPageMap } from './digitalMarketingForOrthopaedicSurgeonsData.js'
 
 /**
  * Dubai region landing page content registry.
@@ -903,6 +904,7 @@ export const dubaiRegionPageMap = {
   'seo-services-for-hair-transplant-surgeons-seattle': seoServicesForHairTransplantSurgeonsSeattle,
   'seo-services-for-hair-transplant-surgeons-boston': seoServicesForHairTransplantSurgeonsBoston,
   ...ophthalmologistSeoPageMap,
+  ...orthopaedicDigitalMarketingPageMap,
   ...gynaecologyMarketingPageMap,
 }
 
